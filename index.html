@@ -433,10 +433,14 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.3);
         }
         
-        /* Responsive */
+        /* Responsive - Tablet */
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
             }
             
             .stat-number {
@@ -455,6 +459,163 @@
             .chronic-table th, .chronic-table td,
             .validation-table th, .validation-table td {
                 padding: 10px 8px;
+            }
+            
+            .benefits-grid, .jobs-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .how-box {
+                padding: 20px;
+            }
+        }
+        
+        /* Responsive - Mobile Phone */
+        @media (max-width: 480px) {
+            .hero {
+                padding: 40px 15px;
+            }
+            
+            .hero h1 {
+                font-size: 1.6rem;
+                line-height: 1.3;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .hero-highlight {
+                padding: 15px;
+                font-size: 0.95rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            
+            .stat-number {
+                font-size: 1.6rem;
+            }
+            
+            .stat-label {
+                font-size: 0.85rem;
+            }
+            
+            section {
+                padding: 30px 15px;
+            }
+            
+            .section-title {
+                font-size: 1.3rem;
+                line-height: 1.3;
+            }
+            
+            /* Make tables scroll horizontally on mobile */
+            .comparison-table, .chronic-table, .validation-table {
+                display: block;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                font-size: 0.85rem;
+            }
+            
+            .comparison-table th, .comparison-table td,
+            .chronic-table th, .chronic-table td {
+                padding: 8px 6px;
+                white-space: nowrap;
+            }
+            
+            /* Stack validation table on mobile */
+            .validation-table thead {
+                display: none;
+            }
+            
+            .validation-table tr {
+                display: block;
+                margin-bottom: 20px;
+                background: white;
+                border-radius: 10px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                padding: 15px;
+            }
+            
+            .validation-table td {
+                display: block;
+                padding: 8px 0;
+                border: none;
+            }
+            
+            .validation-table td:before {
+                content: attr(data-label);
+                font-weight: bold;
+                color: #1e3c72;
+                display: block;
+                margin-bottom: 5px;
+            }
+            
+            .benefit-card {
+                padding: 20px;
+            }
+            
+            .benefit-card h4 {
+                font-size: 1rem;
+            }
+            
+            .job-card {
+                padding: 15px;
+            }
+            
+            .how-box {
+                padding: 15px;
+            }
+            
+            .how-box h3 {
+                font-size: 1.2rem;
+            }
+            
+            .how-box p {
+                font-size: 1rem;
+            }
+            
+            .quote {
+                font-size: 1.1rem;
+            }
+            
+            .mabah-title {
+                font-size: 2rem;
+            }
+            
+            .mabah-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .cta-button {
+                padding: 12px 30px;
+                font-size: 1.1rem;
+            }
+            
+            /* Proposal links mobile */
+            .proposal-grid {
+                grid-template-columns: 1fr !important;
+            }
+            
+            .proposal-card {
+                padding: 20px !important;
+            }
+        }
+        
+        /* Proposal card hover states */
+        .proposal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+        }
+        
+        /* Ensure tap targets are large enough on mobile */
+        @media (max-width: 480px) {
+            a, button {
+                min-height: 44px;
+                min-width: 44px;
             }
         }
     </style>
@@ -677,20 +838,20 @@
                 <thead>
                     <tr>
                         <th>Who Validated PHIERS</th>
-                        <th>What They Said</th>
+                        <th>Why It Matters</th>
                         <th>PHIERS Job Projection for Region</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>CA State Treasurer Fiona Ma</strong><br><em>Briefed on PHIERS model</em></td>
-                        <td>Expressed interest in supporting the initiative and its potential to serve California communities</td>
-                        <td><strong>250,000+ jobs</strong><br>West End of Route 50 (California)</td>
+                        <td data-label="Who Validated:"><strong>CA State Treasurer Fiona Ma</strong><br><em>Briefed on PHIERS model</em></td>
+                        <td data-label="Why It Matters:">California's MediMedi program (dual-eligible Medicare/Medi-Cal) faces unsustainable costs. PHIERS offers the best-fit solution: drug savings from dual-eligibles buying through PHIERSale will finance PHIERS deployment to ALL Californians — making the program self-sustaining statewide.</td>
+                        <td data-label="PHIERS Job Projection:"><strong>250,000+ jobs</strong><br>West End of Route 50 (California)</td>
                     </tr>
                     <tr>
-                        <td><strong>U.S. Senator Chris Van Hollen</strong><br><em>Validated PHIERS in 2014</em></td>
-                        <td>"PHIERS.org has the potential to become a vital part of the health care system."</td>
-                        <td><strong>45,000+ jobs</strong><br>East End of Route 50 (Maryland)</td>
+                        <td data-label="Who Validated:"><strong>U.S. Senator Chris Van Hollen</strong><br><em>Validated PHIERS in 2014</em></td>
+                        <td data-label="Why It Matters:">"PHIERS.org has the potential to become a vital part of the health care system." — validated the model that now offers Maryland federal workers a transition path as DOGE cuts continue.</td>
+                        <td data-label="PHIERS Job Projection:"><strong>45,000+ jobs</strong><br>East End of Route 50 (Maryland)</td>
                     </tr>
                 </tbody>
             </table>
@@ -723,6 +884,38 @@
             <h2 class="mabah-title">MABAH</h2>
             <p class="mabah-subtitle">Making America Better And Healthier</p>
             <p class="mabah-tagline">It rhymes with MAGA — only a lot bettah.</p>
+        </div>
+    </section>
+    
+    <!-- Regional Proposals Section -->
+    <section style="background: #ecf0f1; padding: 50px 20px;">
+        <div class="container">
+            <h2 class="section-title">📄 Read the Full Regional Proposals</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 30px; font-size: 1.1rem;">
+                Want the complete details? Each region has a comprehensive overview showing how PHIERS will work in your area.
+            </p>
+            <div class="proposal-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto;">
+                <!-- Maryland -->
+                <a href="https://docs.google.com/document/d/1OQMe0ES3Bz2mn36gyxH3lx1fjT0AXqdo/edit" target="_blank" class="proposal-card" style="background: white; padding: 25px; border-radius: 15px; text-decoration: none; color: #333; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-top: 5px solid #c0392b; display: block; transition: transform 0.3s, box-shadow 0.3s;">
+                    <h3 style="color: #c0392b; margin-bottom: 10px; font-size: 1.3rem;">🦀 Maryland Overview</h3>
+                    <p style="color: #666; margin-bottom: 15px;">East End of Route 50 — Prince George's County pilot, federal worker transitions, 45,000+ projected jobs</p>
+                    <span style="color: #1e3c72; font-weight: bold;">Read Full Proposal →</span>
+                </a>
+                
+                <!-- California -->
+                <a href="https://docs.google.com/document/d/1j7AZRq-WdIySqLRU86gclugJPKqa5Et8/edit" target="_blank" class="proposal-card" style="background: white; padding: 25px; border-radius: 15px; text-decoration: none; color: #333; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-top: 5px solid #f39c12; display: block; transition: transform 0.3s, box-shadow 0.3s;">
+                    <h3 style="color: #f39c12; margin-bottom: 10px; font-size: 1.3rem;">🐻 California Overview</h3>
+                    <p style="color: #666; margin-bottom: 15px;">West End of Route 50 — Sacramento hub, state-scale implementation, 250,000+ projected jobs</p>
+                    <span style="color: #1e3c72; font-weight: bold;">Read Full Proposal →</span>
+                </a>
+                
+                <!-- NYC -->
+                <a href="https://docs.google.com/document/d/1LaAPbyqdMmjh4jTYSG_FUhYqir9HAadV/edit" target="_blank" class="proposal-card" style="background: white; padding: 25px; border-radius: 15px; text-decoration: none; color: #333; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-top: 5px solid #3498db; display: block; transition: transform 0.3s, box-shadow 0.3s;">
+                    <h3 style="color: #3498db; margin-bottom: 10px; font-size: 1.3rem;">🗽 NYC Overview</h3>
+                    <p style="color: #666; margin-bottom: 15px;">Dense urban model — proving PHIERS works in America's largest city environment</p>
+                    <span style="color: #1e3c72; font-weight: bold;">Read Full Proposal →</span>
+                </a>
+            </div>
         </div>
     </section>
     
