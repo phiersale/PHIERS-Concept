@@ -3,651 +3,517 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHIERS.org - MD + CA + NYC: Proving Healthcare Works for EVERYBODY</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>PHIERS - Healthcare Insurance + HOPE for EVERYBODY</title>
     <style>
-        :root {
-            --primary: #1a365d;
-            --primary-light: #2b77ad;
-            --accent: #28a745;
-            --accent-light: #d4edda;
-            --warning: #f6ad55;
-            --warm: #c05621;
-            --bg-light: #f7fafc;
-            --text-dark: #2d3748;
-            --text-light: #718096;
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
-            color: var(--text-dark);
-            background: #fff;
+            color: #333;
+            background: #f8f9fa;
         }
-
-        /* Hero Section - Thanksgiving Theme */
-        .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 50%, var(--warm) 100%);
-            color: white;
-            padding: 60px 20px 80px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='50' font-size='50' opacity='0.05'%3E🍂%3C/text%3E%3C/svg%3E") repeat;
-            pointer-events: none;
-        }
-
-        .hero-content {
-            max-width: 900px;
+        
+        .container {
+            max-width: 1200px;
             margin: 0 auto;
-            position: relative;
-            z-index: 1;
+            padding: 0 20px;
         }
-
-        .holiday-badge {
-            display: inline-block;
-            background: var(--warning);
-            color: var(--primary);
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 14px;
-            margin-bottom: 20px;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        .hero h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 800;
-            margin-bottom: 16px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
-
-        .hero h1 span {
-            color: var(--warning);
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-            opacity: 0.95;
-            margin-bottom: 30px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 16px 32px;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 16px;
-        }
-
-        .btn-primary {
-            background: var(--accent);
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #1e5631 100%);
             color: white;
-            box-shadow: 0 4px 14px rgba(40, 167, 69, 0.4);
-        }
-
-        .btn-primary:hover {
-            background: #218838;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.5);
-        }
-
-        .btn-secondary {
-            background: rgba(255,255,255,0.15);
-            color: white;
-            border: 2px solid white;
-        }
-
-        .btn-secondary:hover {
-            background: white;
-            color: var(--primary);
-        }
-
-        /* Breakthrough Section */
-        .breakthrough {
-            background: linear-gradient(135deg, var(--accent-light) 0%, #fff 100%);
             padding: 60px 20px;
             text-align: center;
         }
-
-        .breakthrough-box {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 16px;
-            padding: 40px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            border-left: 6px solid var(--accent);
-        }
-
-        .breakthrough h2 {
-            color: var(--accent);
-            font-size: 1.3rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        
+        .hero h1 {
+            font-size: 2.8rem;
             margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
-
-        .breakthrough p {
-            font-size: 1.2rem;
-            color: var(--text-dark);
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            max-width: 900px;
+            margin: 0 auto 30px;
             line-height: 1.8;
         }
-
-        .breakthrough strong {
-            color: var(--primary);
+        
+        .hero-highlight {
+            background: rgba(255,255,255,0.15);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 800px;
         }
-
-        /* Stats Grid */
-        .stats {
-            padding: 60px 20px;
-            background: var(--bg-light);
+        
+        .hero-highlight strong {
+            color: #ffd700;
         }
-
+        
+        /* Stats Banner */
+        .stats-banner {
+            background: #c0392b;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        
         .stats-grid {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 24px;
-        }
-
-        .stat-card {
-            background: white;
-            border-radius: 12px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .stat-number {
-            font-size: 2.8rem;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 8px;
-        }
-
-        .stat-label {
-            font-size: 1rem;
-            color: var(--text-light);
-            font-weight: 500;
-        }
-
-        /* The Math Section */
-        .math-section {
-            padding: 80px 20px;
-            background: white;
-        }
-
-        .section-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 50px;
-        }
-
-        .section-header h2 {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 16px;
-        }
-
-        .section-header p {
-            color: var(--text-light);
-            font-size: 1.1rem;
-        }
-
-        .comparison-table {
-            max-width: 900px;
-            margin: 0 auto;
-            overflow-x: auto;
-        }
-
-        .comparison-table table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        }
-
-        .comparison-table th {
-            background: var(--primary);
-            color: white;
-            padding: 20px;
-            font-weight: 600;
-            text-align: center;
-        }
-
-        .comparison-table td {
-            padding: 20px;
-            text-align: center;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .comparison-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .savings-highlight {
-            background: var(--accent-light);
-            font-weight: 700;
-            color: var(--accent);
-            font-size: 1.2rem;
-        }
-
-        .old-price {
-            color: #e53e3e;
-            text-decoration: line-through;
-            opacity: 0.7;
-        }
-
-        .new-price {
-            color: var(--accent);
-            font-weight: 700;
-            font-size: 1.3rem;
-        }
-
-        /* Who We Help */
-        .who-section {
-            padding: 80px 20px;
-            background: var(--bg-light);
-        }
-
-        .who-grid {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-        }
-
-        .who-card {
-            background: white;
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            border-top: 4px solid var(--primary-light);
-        }
-
-        .who-card h3 {
-            color: var(--primary);
-            font-size: 1.2rem;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .who-card p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
-
-        /* Jobs Section */
-        .jobs-section {
-            padding: 80px 20px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            color: white;
-        }
-
-        .jobs-section .section-header h2 {
-            color: white;
-        }
-
-        .jobs-section .section-header p {
-            color: rgba(255,255,255,0.8);
-        }
-
-        .jobs-grid {
-            max-width: 1000px;
-            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
-
-        .job-card {
-            background: rgba(255,255,255,0.1);
-            border-radius: 12px;
-            padding: 25px;
+        
+        .stat-item {
+            padding: 15px;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ffd700;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 50px 20px;
+        }
+        
+        .section-title {
             text-align: center;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #1e3c72;
         }
-
-        .job-card h4 {
+        
+        /* Route 50 Section */
+        .route50 {
+            background: white;
+        }
+        
+        .route50-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .route50-content p {
             font-size: 1.1rem;
-            margin-bottom: 8px;
+            margin-bottom: 20px;
         }
-
-        .job-card .wage {
-            color: var(--warning);
-            font-weight: 700;
+        
+        /* Comparison Table */
+        .comparison-section {
+            background: #e8f4f8;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .comparison-table th {
+            background: #1e3c72;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .comparison-table td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .savings-highlight {
+            color: #27ae60;
+            font-weight: bold;
             font-size: 1.2rem;
         }
-
-        .job-card .status {
+        
+        /* How It Works */
+        .how-it-works {
+            background: white;
+        }
+        
+        .how-box {
+            background: linear-gradient(135deg, #27ae60, #1e8449);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .how-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .how-box p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .how-box .highlight {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        
+        /* Who Benefits */
+        .benefits-section {
+            background: #f8f9fa;
+        }
+        
+        .benefits-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            font-size: 1.2rem;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .benefit-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid #1e3c72;
+        }
+        
+        .benefit-card h4 {
+            color: #1e3c72;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .benefit-card p {
+            color: #666;
+        }
+        
+        /* Chronic Disease Savings */
+        .chronic-section {
+            background: #fff3cd;
+        }
+        
+        .chronic-table {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .chronic-table th {
+            background: #e67e22;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .chronic-table td {
+            padding: 12px 15px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .chronic-note {
+            max-width: 800px;
+            margin: 20px auto 0;
+            text-align: center;
+            font-style: italic;
+            color: #666;
+        }
+        
+        /* AI-Resistant Jobs */
+        .jobs-section {
+            background: #e8f5e9;
+        }
+        
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .job-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .job-card h4 {
+            color: #1e5631;
+            margin-bottom: 10px;
+        }
+        
+        .ai-resistant-badge {
+            background: #27ae60;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
             display: inline-block;
-            background: var(--accent);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
             margin-top: 10px;
         }
-
-        /* Thanksgiving Hope Section */
-        .hope-section {
-            padding: 80px 20px;
-            background: linear-gradient(135deg, #faf5e4 0%, #fff 100%);
+        
+        /* Validation Section */
+        .validation-section {
+            background: white;
+        }
+        
+        .validation-intro {
             text-align: center;
-        }
-
-        .hope-content {
             max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .validation-table {
+            width: 100%;
+            max-width: 900px;
             margin: 0 auto;
-        }
-
-        .hope-emoji {
-            font-size: 4rem;
-            margin-bottom: 20px;
-        }
-
-        .hope-section h2 {
-            font-size: 2rem;
-            color: var(--warm);
-            margin-bottom: 20px;
-        }
-
-        .hope-section p {
-            font-size: 1.15rem;
-            color: var(--text-dark);
-            margin-bottom: 20px;
-            line-height: 1.8;
-        }
-
-        .hope-quote {
+            border-collapse: collapse;
             background: white;
-            border-radius: 12px;
-            padding: 30px;
-            margin: 30px 0;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            border-left: 4px solid var(--warm);
-            font-style: italic;
-            font-size: 1.1rem;
-            color: var(--text-dark);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
         }
-
-        /* Van Hollen Section */
-        .vanhollen-section {
-            padding: 60px 20px;
-            background: white;
-        }
-
-        .vanhollen-box {
-            max-width: 800px;
-            margin: 0 auto;
-            background: var(--bg-light);
-            border-radius: 16px;
-            padding: 40px;
-            text-align: center;
-        }
-
-        .vanhollen-box h3 {
-            color: var(--primary);
-            margin-bottom: 20px;
-            font-size: 1.3rem;
-        }
-
-        .vanhollen-box blockquote {
-            font-style: italic;
-            color: var(--text-dark);
-            line-height: 1.8;
-            margin-bottom: 20px;
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-            border-left: 4px solid var(--primary-light);
-        }
-
-        .vanhollen-box .source {
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            padding: 80px 20px;
-            background: var(--primary);
+        
+        .validation-table th {
+            background: #1e3c72;
             color: white;
+            padding: 15px;
+            text-align: left;
+        }
+        
+        .validation-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
+        }
+        
+        .validation-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        /* Quote Section */
+        .quote-section {
+            background: linear-gradient(135deg, #34495e, #2c3e50);
+            color: white;
+            padding: 50px 20px;
             text-align: center;
         }
-
-        .cta-content {
-            max-width: 700px;
-            margin: 0 auto;
+        
+        .quote {
+            font-size: 1.3rem;
+            font-style: italic;
+            max-width: 800px;
+            margin: 0 auto 20px;
+            line-height: 1.8;
         }
-
-        .cta-section h2 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
+        
+        .quote-attribution {
+            color: #bdc3c7;
         }
-
-        .cta-section p {
-            font-size: 1.1rem;
+        
+        /* MABAH Section */
+        .mabah-section {
+            background: linear-gradient(135deg, #c0392b, #e74c3c);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        .mabah-title {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .mabah-subtitle {
+            font-size: 1.5rem;
             opacity: 0.9;
-            margin-bottom: 30px;
         }
-
-        .cta-buttons {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
+        
+        .mabah-tagline {
+            font-size: 1.2rem;
+            margin-top: 15px;
+            font-style: italic;
         }
-
-        /* Footer */
-        footer {
-            background: var(--text-dark);
+        
+        /* Thanksgiving Message */
+        .thanksgiving {
+            background: #f39c12;
             color: white;
             padding: 40px 20px;
             text-align: center;
         }
-
-        footer p {
-            opacity: 0.8;
-            font-size: 0.9rem;
+        
+        .thanksgiving p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
         }
-
-        footer .links {
-            margin-top: 20px;
+        
+        /* CTA Section */
+        .cta-section {
+            background: #1e3c72;
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
         }
-
-        footer a {
-            color: var(--warning);
+        
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #27ae60;
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.3rem;
             text-decoration: none;
-            margin: 0 15px;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-
-        footer a:hover {
-            text-decoration: underline;
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
         }
-
+        
         /* Responsive */
         @media (max-width: 768px) {
-            .hero {
-                padding: 40px 20px 60px;
-            }
             .hero h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
-            .comparison-table th, .comparison-table td {
-                padding: 12px 8px;
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .comparison-table, .chronic-table, .validation-table {
                 font-size: 0.9rem;
             }
-            .btn {
-                padding: 14px 24px;
-                font-size: 14px;
+            
+            .comparison-table th, .comparison-table td,
+            .chronic-table th, .chronic-table td,
+            .validation-table th, .validation-table td {
+                padding: 10px 8px;
             }
         }
     </style>
 </head>
 <body>
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="holiday-badge">🍂 This Thanksgiving, We Have Reasons to Be HOPEFUL 🍂</div>
-            <h1>Healthcare Insurance + <span>HOPE</span> for EVERYBODY</h1>
+    <header class="hero">
+        <div class="container">
+            <h1>Healthcare Insurance + HOPE for EVERYBODY</h1>
             <p class="hero-subtitle">
-                PHIERS is proving the model works — from Maryland to California to NYC. 
-                Our bicoastal pilot saves $127+ BILLION annually by replacing expensive insurance with 
+                PHIERS is proving <strong>affordable, sustainable healthcare</strong> works — from Maryland to California to NYC. 
+                Our bicoastal pilot saves <strong>$127+ BILLION annually</strong> by replacing expensive insurance with 
                 $50/month telehealth, creating AI-resistant jobs, and building a national template.
             </p>
-            <div class="hero-cta">
-                <a href="#join" class="btn btn-primary">Join the Movement</a>
-                <a href="#how-it-works" class="btn btn-secondary">See How It Works</a>
+            <div class="hero-highlight">
+                <p><strong>80% of insured Americans do NOT need hospitalization or specialty care.</strong> They can be served by telehealth. That means we can replace $7,000+/year individual insurance (or $21,000+/year for families) with <strong>$50/month telehealth plans</strong> — saving $6,400+ per person or $20,400+ per family every single year.</p>
             </div>
         </div>
-    </section>
-
-    <!-- Breakthrough Insight -->
-    <section class="breakthrough">
-        <div class="breakthrough-box">
-            <h2>💡 The Breakthrough Insight</h2>
-            <p>
-                <strong>80% of insured Americans do NOT need hospitalization or specialty care.</strong> 
-                They can be served by telehealth. That means we can replace <strong>$7,000+/year individual 
-                insurance</strong> (or $21,000+/year for families) with <strong>$50/month telehealth plans</strong> — 
-                saving <strong>$6,400+ per person</strong> or <strong>$20,400+ per family</strong> every single year.
-            </p>
-        </div>
-    </section>
-
-    <!-- Stats -->
-    <section class="stats">
+    </header>
+    
+    <!-- Stats Banner -->
+    <div class="stats-banner">
         <div class="stats-grid">
-            <div class="stat-card">
+            <div class="stat-item">
                 <div class="stat-number">$127B+</div>
-                <div class="stat-label">Combined Annual Savings (MD+CA+NYC)</div>
+                <div class="stat-label">Annual Savings Potential</div>
             </div>
-            <div class="stat-card">
-                <div class="stat-number">3 States</div>
-                <div class="stat-label">Proving the Model Works</div>
+            <div class="stat-item">
+                <div class="stat-number">80%</div>
+                <div class="stat-label">Can Use Telehealth</div>
             </div>
-            <div class="stat-card">
-                <div class="stat-number">$50/mo</div>
-                <div class="stat-label">Telehealth Coverage Cost</div>
+            <div class="stat-item">
+                <div class="stat-number">$6,400+</div>
+                <div class="stat-label">Saved Per Individual</div>
             </div>
-            <div class="stat-card">
-                <div class="stat-number">Route 50</div>
-                <div class="stat-label">Ocean City to Sacramento</div>
+            <div class="stat-item">
+                <div class="stat-number">$20,400+</div>
+                <div class="stat-label">Saved Per Family</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Route 50 Section -->
+    <section class="route50">
+        <div class="container">
+            <h2 class="section-title">Three Locations Proving the Model Works</h2>
+            <div class="route50-content">
+                <p><strong>Route 50 runs from Ocean City, MD to West Sacramento, CA</strong> — 12 states, 95+ million Americans. When MD and CA succeed, every state in between has a proven template.</p>
+                <p><strong>NYC proves the model works in dense urban environments.</strong></p>
+                <p>Together: <strong>a national blueprint for affordable, sustainable healthcare.</strong></p>
             </div>
         </div>
     </section>
-
-    <!-- PHIERStorm Pilots -->
-    <section class="math-section" id="how-it-works">
-        <div class="section-header">
-            <h2>PHIERStorm: The Bicoastal Pilot</h2>
-            <p>Three locations proving the model works at every level — local, regional, state, and national</p>
-        </div>
-        
-        <!-- Pilot States Grid -->
-        <div style="max-width: 1100px; margin: 0 auto 50px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
-            <div style="background: linear-gradient(135deg, #1a365d 0%, #2b77ad 100%); color: white; border-radius: 16px; padding: 30px; text-align: center;">
-                <div style="font-size: 2.5rem; margin-bottom: 10px;">🦀</div>
-                <h3 style="font-size: 1.4rem; margin-bottom: 8px;">MARYLAND</h3>
-                <div style="font-size: 1.8rem; font-weight: 800; color: #f6ad55;">$17+ Billion</div>
-                <div style="opacity: 0.9; margin-bottom: 15px;">Annual Savings</div>
-                <div style="font-size: 0.85rem; opacity: 0.8; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 15px;">
-                    Senator Van Hollen validated 2014<br>
-                    45,000+ jobs created<br>
-                    <strong>East End of Route 50</strong>
-                </div>
-            </div>
-            
-            <div style="background: linear-gradient(135deg, #c05621 0%, #f6ad55 100%); color: white; border-radius: 16px; padding: 30px; text-align: center;">
-                <div style="font-size: 2.5rem; margin-bottom: 10px;">🐻</div>
-                <h3 style="font-size: 1.4rem; margin-bottom: 8px;">CALIFORNIA</h3>
-                <div style="font-size: 1.8rem; font-weight: 800; color: white;">$110+ Billion</div>
-                <div style="opacity: 0.9; margin-bottom: 15px;">Annual Savings</div>
-                <div style="font-size: 0.85rem; opacity: 0.8; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 15px;">
-                    Treasurer Fiona Ma briefed<br>
-                    250,000+ jobs created<br>
-                    <strong>West End of Route 50</strong>
-                </div>
-            </div>
-            
-            <div style="background: linear-gradient(135deg, #28a745 0%, #38a169 100%); color: white; border-radius: 16px; padding: 30px; text-align: center;">
-                <div style="font-size: 2.5rem; margin-bottom: 10px;">🗽</div>
-                <h3 style="font-size: 1.4rem; margin-bottom: 8px;">NEW YORK CITY</h3>
-                <div style="font-size: 1.8rem; font-weight: 800; color: white;">$43.9 Billion</div>
-                <div style="opacity: 0.9; margin-bottom: 15px;">Annual Savings</div>
-                <div style="font-size: 0.85rem; opacity: 0.8; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 15px;">
-                    Assemblyman Mamdani's district<br>
-                    Progressive coalition ready<br>
-                    <strong>Urban Model Template</strong>
-                </div>
-            </div>
-        </div>
-        
-        <div style="max-width: 800px; margin: 0 auto 50px; text-align: center; background: #f7fafc; padding: 30px; border-radius: 12px;">
-            <h3 style="color: #1a365d; margin-bottom: 15px;">Why These Three?</h3>
-            <p style="color: #718096; margin: 0;">
-                <strong>Route 50</strong> runs from Ocean City, MD to West Sacramento, CA — 
-                12 states, 95+ million Americans. When MD and CA succeed, 
-                every state in between has a proven template. NYC proves the model works in 
-                dense urban environments. <strong>Together: a national blueprint.</strong>
-            </p>
-        </div>
-    </section>
-
-    <!-- The Math -->
-    <section class="math-section">
-        <div class="section-header">
-            <h2>The Math That Changes Everything</h2>
-            <p>Simple comparison: Traditional insurance vs. PHIERS telehealth approach</p>
-        </div>
-        <div class="comparison-table">
-            <table>
+    
+    <!-- Comparison Table -->
+    <section class="comparison-section">
+        <div class="container">
+            <h2 class="section-title">Simple Comparison: Traditional Insurance vs. PHIERS Telehealth</h2>
+            <table class="comparison-table">
                 <thead>
                     <tr>
                         <th>Coverage Type</th>
@@ -659,165 +525,218 @@
                 <tbody>
                     <tr>
                         <td><strong>Individual</strong></td>
-                        <td class="old-price">$7,000+/year</td>
-                        <td class="new-price">$600/year</td>
+                        <td>$7,000+/year</td>
+                        <td>$600/year</td>
                         <td class="savings-highlight">$6,400+</td>
                     </tr>
                     <tr>
                         <td><strong>Family</strong></td>
-                        <td class="old-price">$21,000+/year</td>
-                        <td class="new-price">$600/year</td>
+                        <td>$21,000+/year</td>
+                        <td>$600/year</td>
                         <td class="savings-highlight">$20,400+</td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <div class="section-header" style="margin-top: 40px;">
-            <p><strong>How it works:</strong> PHIERS sponsors your placement into telehealth plans like Zortt Elite Medical. 
-            The moment your prescription savings exceed $50/month, we've covered your telehealth cost. 
-            <em>Drug savings fund universal telehealth coverage — 100% self-sustaining.</em></p>
-        </div>
     </section>
-
-    <!-- Who We Help -->
-    <section class="who-section">
-        <div class="section-header">
-            <h2>Everyone Hurt by Current Policies Needs PHIERS</h2>
-            <p>This is NOT just about one group. It's about ALL of us who need solutions that WORK.</p>
-        </div>
-        <div class="who-grid">
-            <div class="who-card">
-                <h3>👷 Gig Workers</h3>
-                <p>No benefits? No security? PHIERS gives you FREE telehealth insurance through our cooperative model.</p>
-            </div>
-            <div class="who-card">
-                <h3>🏛️ Federal Workers</h3>
-                <p>15,100+ jobs lost in Maryland alone. PHIERS creates transition opportunities with fair wages.</p>
-            </div>
-            <div class="who-card">
-                <h3>🍎 SNAP Recipients</h3>
-                <p>Facing 80-hour work requirements? Join PHIERS and automatically meet work/training requirements.</p>
-            </div>
-            <div class="who-card">
-                <h3>📦 Tariff Victims</h3>
-                <p>Business disrupted by trade wars? PHIERS helps you access affordable healthcare during transitions.</p>
-            </div>
-            <div class="who-card">
-                <h3>🤖 AI-Displaced Workers</h3>
-                <p>Job automated away? PHIERSworks creates human-touch jobs that CAN'T be replaced by machines.</p>
-            </div>
-            <div class="who-card">
-                <h3>💼 Small Business Workers</h3>
-                <p>Employer can't afford health insurance? PHIERS provides coverage for a fraction of the cost.</p>
+    
+    <!-- How It Works - The Self-Funding Model -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works: 100% Self-Sustaining</h2>
+            <div class="how-box">
+                <h3>💊 Drug Savings Fund Universal Telehealth Coverage</h3>
+                <p>PHIERS sponsors your placement into telehealth plans like Zortt Elite Medical. When you purchase medications through our co-op marketplace (powered by Mark Cuban's Cost Plus Drug Company pricing model), <strong>your prescription savings exceed $50/month</strong> — which means we've covered your telehealth cost.</p>
+                <div class="highlight">
+                    The math is simple: Buy your medications through PHIERSale → Save 70-90% on prescriptions → Those savings pay for your telehealth membership → <strong>No coercion needed. No tax dollars required. 100% self-funding.</strong>
+                </div>
             </div>
         </div>
     </section>
-
-    <!-- Jobs Section -->
+    
+    <!-- Chronic Disease Savings -->
+    <section class="chronic-section">
+        <div class="container">
+            <h2 class="section-title">Real Savings for Real Conditions</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 30px;">People with chronic conditions pay the most for medications. Here's what they'd save buying through PHIERSale instead of traditional pharmacies:</p>
+            <table class="chronic-table">
+                <thead>
+                    <tr>
+                        <th>Condition</th>
+                        <th>Typical Annual Med Cost</th>
+                        <th>PHIERSale Cost</th>
+                        <th>Annual Savings</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Diabetes (Type 2)</td>
+                        <td>$4,800+</td>
+                        <td>~$960</td>
+                        <td class="savings-highlight">$3,840+</td>
+                    </tr>
+                    <tr>
+                        <td>Heart Disease</td>
+                        <td>$3,600+</td>
+                        <td>~$720</td>
+                        <td class="savings-highlight">$2,880+</td>
+                    </tr>
+                    <tr>
+                        <td>High Blood Pressure</td>
+                        <td>$1,800+</td>
+                        <td>~$360</td>
+                        <td class="savings-highlight">$1,440+</td>
+                    </tr>
+                    <tr>
+                        <td>High Cholesterol</td>
+                        <td>$2,400+</td>
+                        <td>~$480</td>
+                        <td class="savings-highlight">$1,920+</td>
+                    </tr>
+                    <tr>
+                        <td>Depression/Anxiety</td>
+                        <td>$1,200+</td>
+                        <td>~$240</td>
+                        <td class="savings-highlight">$960+</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="chronic-note">These savings alone cover telehealth costs many times over — proving our model is <strong>sustainable and scalable</strong>.</p>
+        </div>
+    </section>
+    
+    <!-- Who Benefits -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2 class="section-title">This is NOT Just About One Group. It's About ALL of Us.</h2>
+            <p class="benefits-intro">Whether you're a gig worker, federal employee, union member, or small business owner — PHIERS has solutions that WORK for everyone who needs affordable healthcare.</p>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h4>🏥 Gig Workers Without Benefits</h4>
+                    <p>No employer insurance? No problem. PHIERS gives you FREE telehealth coverage through our cooperative model.</p>
+                </div>
+                <div class="benefit-card">
+                    <h4>💼 Federal Workers Facing Layoffs</h4>
+                    <p>15,100+ jobs lost in Maryland alone. PHIERS creates transition opportunities with fair wages.</p>
+                </div>
+                <div class="benefit-card">
+                    <h4>🍽️ SNAP Recipients with Work Requirements</h4>
+                    <p>Facing 80-hour work requirements? Join PHIERS and automatically meet work/training requirements.</p>
+                </div>
+                <div class="benefit-card">
+                    <h4>💊 People Overpaying for Medications</h4>
+                    <p>Most Americans don't know Mark Cuban's Cost Plus Drug Company exists — or don't have cash upfront. PHIERSale makes it accessible to EVERYONE.</p>
+                </div>
+                <div class="benefit-card">
+                    <h4>🤖 Workers Displaced by AI</h4>
+                    <p>Job automated away? PHIERSworks creates human-touch jobs that CAN'T be replaced by machines.</p>
+                </div>
+                <div class="benefit-card">
+                    <h4>🏢 Small Business Owners</h4>
+                    <p>Can't afford health insurance for employees? PHIERS provides coverage for a fraction of the cost.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- AI-Resistant Jobs -->
     <section class="jobs-section">
-        <div class="section-header">
-            <h2>PHIERSworks: Jobs That CAN'T Be Automated</h2>
-            <p>Human-touch careers that benefit everyone — and survive the AI revolution</p>
-        </div>
-        <div class="jobs-grid">
-            <div class="job-card">
-                <h4>Healthcare Support</h4>
-                <div class="wage">$18-35/hr</div>
-                <p>Home health, PT/OT assistants, therapy</p>
-                <span class="status">AI-Resistant ✓</span>
-            </div>
-            <div class="job-card">
-                <h4>Community Services</h4>
-                <div class="wage">$18-25/hr</div>
-                <p>Child/adult daycare, elder companion</p>
-                <span class="status">AI-Resistant ✓</span>
-            </div>
-            <div class="job-card">
-                <h4>Food Security</h4>
-                <div class="wage">$18-22/hr</div>
-                <p>Community gardens, food distribution</p>
-                <span class="status">AI-Resistant ✓</span>
-            </div>
-            <div class="job-card">
-                <h4>Infrastructure</h4>
-                <div class="wage">$22-35/hr</div>
-                <p>Repairs, maintenance, weatherization</p>
-                <span class="status">AI-Resistant ✓</span>
+        <div class="container">
+            <h2 class="section-title">Human-Touch Careers That Survive the AI Revolution</h2>
+            <div class="jobs-grid">
+                <div class="job-card">
+                    <h4>🏠 Home Health & Therapy</h4>
+                    <p>Home health aides, PT/OT assistants, counselors</p>
+                    <span class="ai-resistant-badge">AI-Resistant ✓</span>
+                </div>
+                <div class="job-card">
+                    <h4>👶 Care Services</h4>
+                    <p>Child/adult daycare, elder companions</p>
+                    <span class="ai-resistant-badge">AI-Resistant ✓</span>
+                </div>
+                <div class="job-card">
+                    <h4>🌱 Food Security</h4>
+                    <p>Community gardens, food distribution</p>
+                    <span class="ai-resistant-badge">AI-Resistant ✓</span>
+                </div>
+                <div class="job-card">
+                    <h4>🔧 Home Services</h4>
+                    <p>Repairs, maintenance, weatherization</p>
+                    <span class="ai-resistant-badge">AI-Resistant ✓</span>
+                </div>
             </div>
         </div>
     </section>
-
-    <!-- Thanksgiving Hope Section -->
-    <section class="hope-section">
-        <div class="hope-content">
-            <div class="hope-emoji">🦃 🙏 🍂</div>
-            <h2>This Thanksgiving, We Choose HOPE</h2>
-            <p>
-                In these challenging times, it's easy to feel overwhelmed. Federal job losses. Rising healthcare costs. 
-                New work requirements that threaten food assistance. The uncertainty of a changing economy. 
-            </p>
-            <p>
-                But here's what we're thankful for: <strong>Solutions exist.</strong> The math works. 
-                The technology is proven. The partnerships are in place. All we need is each other.
-            </p>
-            <div class="hope-quote">
-                "Maryland, California, and New York don't have to wait for Washington to save them from Washington's attacks. 
-                We must save ourselves, and in doing so, show the nation a path forward. PHIERS is proof that cooperative 
-                economics can triumph over corporate extraction — and when we succeed in three states, 
-                every state can follow."
-            </div>
-            <p>
-                <strong>MABAH: Making America Better And Healthier</strong><br>
-                <em>It rhymes with MAGA — only a lot bettah.</em>
-            </p>
+    
+    <!-- Validation Section - FIXED -->
+    <section class="validation-section">
+        <div class="container">
+            <h2 class="section-title">Third-Party Validation + PHIERS Projections</h2>
+            <p class="validation-intro">PHIERS has been reviewed and validated by elected officials. Our job creation projections are based on the model they endorsed.</p>
+            <table class="validation-table">
+                <thead>
+                    <tr>
+                        <th>Who Validated PHIERS</th>
+                        <th>What They Said</th>
+                        <th>PHIERS Job Projection for Region</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>CA State Treasurer Fiona Ma</strong><br><em>Briefed on PHIERS model</em></td>
+                        <td>Expressed interest in supporting the initiative and its potential to serve California communities</td>
+                        <td><strong>250,000+ jobs</strong><br>West End of Route 50 (California)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>U.S. Senator Chris Van Hollen</strong><br><em>Validated PHIERS in 2014</em></td>
+                        <td>"PHIERS.org has the potential to become a vital part of the health care system."</td>
+                        <td><strong>45,000+ jobs</strong><br>East End of Route 50 (Maryland)</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </section>
-
-    <!-- Van Hollen Validation -->
-    <section class="vanhollen-section">
-        <div class="vanhollen-box">
-            <h3>Validated Over a Decade Ago — Ready to Deliver NOW</h3>
-            <blockquote>
-                "PHIERS.org's mission is to provide a low-cost, high-impact and common-sense approach to health reform. 
-                The program is committed to connecting public health, faith-based, and safety net organizations to reach 
-                under-served communities; educating people; and creating jobs that empower front-line health and social 
-                workers to better meet the needs of the community."
-                <br><br>
-                "PHIERS.org has the potential to become a vital part of the health care system."
-            </blockquote>
-            <p class="source">— Chris Van Hollen, then-Congressman (now U.S. Senator), March 25, 2014</p>
+    
+    <!-- Quote Section -->
+    <section class="quote-section">
+        <div class="container">
+            <p class="quote">"PHIERS.org's mission is to provide a low-cost, high-impact and common-sense approach to health reform. The program is committed to connecting public health, faith-based, and safety net organizations to reach under-served communities; educating people; and creating jobs that empower front-line health and social workers to better meet the needs of the community."</p>
+            <p class="quote-attribution">— PHIERS Mission Statement</p>
+            <br><br>
+            <p class="quote">"PHIERS.org has the potential to become a vital part of the health care system."</p>
+            <p class="quote-attribution">— Chris Van Hollen, then-Congressman (now U.S. Senator), March 25, 2014</p>
         </div>
     </section>
-
+    
+    <!-- Thanksgiving Message -->
+    <section class="thanksgiving">
+        <div class="container">
+            <p>In these challenging times, it's easy to feel overwhelmed. Federal job losses. Rising healthcare costs. New work requirements that threaten food assistance. The uncertainty of a changing economy.</p>
+            <br>
+            <p><strong>But here's what we're thankful for:</strong> Solutions exist. The math works. The technology is proven. The partnerships are in place. All we need is each other.</p>
+        </div>
+    </section>
+    
+    <!-- MABAH Section -->
+    <section class="mabah-section">
+        <div class="container">
+            <h2 class="mabah-title">MABAH</h2>
+            <p class="mabah-subtitle">Making America Better And Healthier</p>
+            <p class="mabah-tagline">It rhymes with MAGA — only a lot bettah.</p>
+        </div>
+    </section>
+    
     <!-- CTA Section -->
-    <section class="cta-section" id="join">
-        <div class="cta-content">
-            <h2>Join Maryland, California & NYC</h2>
-            <p>
-                Sign our petition to join the movement. Whether you're in one of our pilot states 
-                or want to bring PHIERS to YOUR state, the more people who join, 
-                the faster we prove the model — and deliver savings to EVERYBODY.
-            </p>
-            <div class="cta-buttons">
-                <a href="https://vhiersmovement.com/pages/petition" class="btn btn-primary">Sign the Petition</a>
-                <a href="https://vhiersmovement.com" class="btn btn-secondary">Learn About the Movement</a>
-            </div>
+    <section class="cta-section">
+        <div class="container">
+            <h2>Join the Movement</h2>
+            <p>Sign our petition to join the movement. Whether you're in one of our pilot states or want to bring PHIERS to YOUR state, the more people who join, the faster we prove the model — and deliver savings to EVERYBODY.</p>
+            <a href="#join" class="cta-button">Join PHIERS Today</a>
         </div>
     </section>
-
-    <!-- Footer -->
-    <footer>
-        <p><strong>PHIERS.org</strong> — The People's Health Insurance Endowment and Referral Service</p>
-        <p>Healthcare Insurance + Hope for EVERYBODY</p>
-        <p style="margin-top: 10px;">November 22, 2025 | Matrix 18</p>
-        <div class="links">
-            <a href="https://phiers.org">PHIERS.org</a>
-            <a href="https://vhiersmovement.com">VHIERSMovement.com</a>
-            <a href="https://hiveel.net">HIVEEL.net</a>
-        </div>
-        <p style="margin-top: 20px; font-size: 0.8rem; opacity: 0.6;">
-            © 2025 PHIERS.org — Solutions that work when government fails
-        </p>
+    
+    <footer style="background: #2c3e50; color: white; text-align: center; padding: 20px;">
+        <p>&copy; 2025 PHIERS.org - The People's Health Insurance Endowment & Referral Service</p>
     </footer>
 </body>
 </html>
