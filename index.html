@@ -520,6 +520,34 @@
                 font-size: 0.85rem;
             }
             
+            /* Add visual scroll hint wrapper for tables */
+            .table-scroll-wrapper {
+                position: relative;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                margin: 20px 0;
+            }
+            
+            .table-scroll-hint {
+                display: none; /* Hidden by default on desktop */
+                text-align: center;
+                color: #666;
+                font-size: 0.9rem;
+                margin-bottom: 10px;
+                font-style: italic;
+                background: #fff3cd;
+                padding: 8px;
+                border-radius: 5px;
+            }
+            
+            .table-scroll-hint::before {
+                content: "👆 ";
+            }
+            
+            .table-scroll-hint::after {
+                content: " 👆";
+            }
+            
             .comparison-table th, .comparison-table td,
             .chronic-table th, .chronic-table td {
                 padding: 8px 6px;
@@ -603,6 +631,24 @@
             .proposal-card {
                 padding: 20px !important;
             }
+            
+            /* Show scroll hints on mobile */
+            .table-scroll-hint {
+                display: block !important;
+            }
+            
+            /* Add visible border to scrollable tables on mobile */
+            .table-scroll-wrapper {
+                border: 2px solid #3498db;
+                border-radius: 10px;
+                padding: 10px;
+                background: #f8f9fa;
+            }
+            
+            /* Make sure tables are visible and scrollable */
+            .comparison-table, .chronic-table {
+                min-width: 600px; /* Forces horizontal scroll on small screens */
+            }
         }
         
         /* Proposal card hover states */
@@ -627,9 +673,9 @@
             <img src="phiers-logo.png" alt="PHIERS Logo" style="max-width: 200px; height: auto; margin-bottom: 20px;">
             <h1>Healthcare Insurance + HOPE for EVERYBODY</h1>
             <p class="hero-subtitle">
-                PHIERS is proving <strong>affordable, sustainable healthcare</strong> works — from Maryland to California to NYC. 
-                Our bicoastal pilot saves <strong>$127+ BILLION annually</strong> by replacing expensive insurance with 
-                $50/month telehealth, creating AI-resistant jobs, and building a national template.
+                PHIERS is a <strong>bold proposal</strong> to make affordable, sustainable healthcare a reality — from Maryland to California to NYC. 
+                Our bicoastal pilot plan will save <strong>$127+ BILLION annually</strong> by replacing expensive insurance with 
+                $50/month telehealth, creating AI-resistant jobs, and building a national template. <strong>We're seeking support to launch these pilots and prove the model works.</strong>
             </p>
             <div class="hero-highlight">
                 <p><strong>80% of insured Americans do NOT need hospitalization or specialty care.</strong> They can be served by telehealth. That means we can replace $7,000+/year individual insurance (or $21,000+/year for families) with <strong>$50/month telehealth plans</strong> — saving $6,400+ per person or $20,400+ per family every single year.</p>
@@ -662,11 +708,12 @@
     <!-- Route 50 Section -->
     <section class="route50">
         <div class="container">
-            <h2 class="section-title">Three Locations Proving the Model Works</h2>
+            <h2 class="section-title">Three Locations Ready to Launch</h2>
             <div class="route50-content">
-                <p><strong>Route 50 runs from Ocean City, MD to West Sacramento, CA</strong> — 12 states, 95+ million Americans. When MD and CA succeed, every state in between has a proven template.</p>
-                <p><strong>NYC proves the model works in dense urban environments.</strong></p>
+                <p><strong>Route 50 runs from Ocean City, MD to West Sacramento, CA</strong> — 12 states, 95+ million Americans. We have detailed proposals for Maryland and California pilots. When these pilots launch and succeed, every state in between will have a proven template.</p>
+                <p><strong>NYC is ready to prove the model works in dense urban environments.</strong></p>
                 <p>Together: <strong>a national blueprint for affordable, sustainable healthcare.</strong></p>
+                <p style="margin-top: 20px; font-style: italic; color: #666;"><strong>Current Status:</strong> PHIERS has been validated by elected officials including Senator Chris Van Hollen (2014) and briefed to California State Treasurer Fiona Ma. We're actively seeking support to launch these pilots and demonstrate real-world results.</p>
             </div>
         </div>
     </section>
@@ -675,7 +722,9 @@
     <section class="comparison-section">
         <div class="container">
             <h2 class="section-title">Simple Comparison: Traditional Insurance vs. PHIERS Telehealth</h2>
-            <table class="comparison-table">
+            <div class="table-scroll-wrapper">
+                <p class="table-scroll-hint">Swipe to see full table</p>
+                <table class="comparison-table">
                 <thead>
                     <tr>
                         <th>Coverage Type</th>
@@ -699,6 +748,7 @@
                     </tr>
                 </tbody>
             </table>
+            </div>
         </div>
     </section>
     
@@ -726,7 +776,9 @@
         <div class="container">
             <h2 class="section-title">Real Savings for Real Conditions</h2>
             <p style="text-align: center; max-width: 800px; margin: 0 auto 30px;">People with chronic conditions pay the most for medications. Here's what they'd save buying through PHIERSale instead of traditional pharmacies:</p>
-            <table class="chronic-table">
+            <div class="table-scroll-wrapper">
+                <p class="table-scroll-hint">Swipe to see full table</p>
+                <table class="chronic-table">
                 <thead>
                     <tr>
                         <th>Condition</th>
@@ -768,6 +820,7 @@
                     </tr>
                 </tbody>
             </table>
+            </div>
             <p class="chronic-note">These savings alone cover telehealth costs many times over — proving our model is <strong>sustainable and scalable</strong>.</p>
         </div>
     </section>
@@ -838,9 +891,11 @@
     <!-- Validation Section - FIXED -->
     <section class="validation-section">
         <div class="container">
-            <h2 class="section-title">Third-Party Validation + PHIERS Projections</h2>
-            <p class="validation-intro">PHIERS has been reviewed and validated by elected officials. Our job creation projections are based on the model they endorsed.</p>
-            <table class="validation-table">
+            <h2 class="section-title">Third-Party Validation of Our Proposal</h2>
+            <p class="validation-intro">PHIERS has been reviewed and validated by elected officials. Our detailed proposals outline job creation projections based on the model they endorsed. <strong>We're now seeking support to launch these pilots and turn these projections into reality.</strong></p>
+            <div class="table-scroll-wrapper">
+                <p class="table-scroll-hint">Swipe to see full table</p>
+                <table class="validation-table">
                 <thead>
                     <tr>
                         <th>Who Validated PHIERS</th>
@@ -850,17 +905,18 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td data-label="Who Validated:"><strong>CA State Treasurer Fiona Ma</strong><br><em>Briefed on PHIERS model</em></td>
-                        <td data-label="Why It Matters:">California's MediMedi program (dual-eligible Medicare/Medi-Cal) faces unsustainable costs. PHIERS offers the best-fit solution: drug savings from dual-eligibles buying through PHIERSale will finance PHIERS deployment to ALL Californians — making the program self-sustaining statewide.</td>
+                        <td data-label="Who Validated:"><strong>CA State Treasurer Fiona Ma</strong><br><em>Briefed on PHIERS proposal</em></td>
+                        <td data-label="Why It Matters:">California's MediMedi program (dual-eligible Medicare/Medi-Cal) faces unsustainable costs. PHIERS offers the best-fit solution: drug savings from dual-eligibles buying through PHIERSale will finance PHIERS deployment to ALL Californians — making the program self-sustaining statewide. <em>We're seeking state support to launch this pilot.</em></td>
                         <td data-label="PHIERS Job Projection:"><strong>250,000+ jobs</strong><br>West End of Route 50 (California)</td>
                     </tr>
                     <tr>
-                        <td data-label="Who Validated:"><strong>U.S. Senator Chris Van Hollen</strong><br><em>Validated PHIERS in 2014</em></td>
-                        <td data-label="Why It Matters:">"PHIERS.org has the potential to become a vital part of the health care system." — validated the model that now offers Maryland federal workers a transition path as DOGE cuts continue.</td>
+                        <td data-label="Who Validated:"><strong>U.S. Senator Chris Van Hollen</strong><br><em>Validated PHIERS concept in 2014</em></td>
+                        <td data-label="Why It Matters:">"PHIERS.org has the potential to become a vital part of the health care system." — validated the original model that we've now refined to address today's challenges, including federal job losses from DOGE cuts. <em>We're seeking support to launch the Maryland pilot.</em></td>
                         <td data-label="PHIERS Job Projection:"><strong>45,000+ jobs</strong><br>East End of Route 50 (Maryland)</td>
                     </tr>
                 </tbody>
             </table>
+            </div>
         </div>
     </section>
     
@@ -904,9 +960,9 @@
     <!-- Regional Proposals Section -->
     <section style="background: #ecf0f1; padding: 50px 20px;">
         <div class="container">
-            <h2 class="section-title">📄 Read the Full Regional Proposals</h2>
+            <h2 class="section-title">📄 Read the Full Regional Pilot Proposals</h2>
             <p style="text-align: center; max-width: 700px; margin: 0 auto 30px; font-size: 1.1rem;">
-                Want the complete details? Each region has a comprehensive overview showing how PHIERS will work in your area.
+                Want the complete details? Each region has a comprehensive proposal showing exactly how PHIERS will work when launched.
             </p>
             <div class="proposal-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto;">
                 <!-- Maryland -->
@@ -936,9 +992,9 @@
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
-            <h2>Join the Movement</h2>
-            <p>Sign our petition to join the movement. Whether you're in one of our pilot states or want to bring PHIERS to YOUR state, the more people who join, the faster we prove the model — and deliver savings to EVERYBODY.</p>
-           <a href="https://docs.google.com/forms/d/e/1FAIpQLSeds8ziAYzWuxN3mo1jim3O-SvznuIyYRuO5IJe6WpRcTcA0Q/viewform" target="_blank" class="cta-button">Join PHIERS Today</a>
+            <h2>Join the Movement to Launch PHIERS</h2>
+            <p>Sign up to support launching these pilots. Whether you're in Maryland, California, NYC, or anywhere else, the more people who join, the stronger our case becomes to elected officials and funders. Together, we can make affordable healthcare a reality for EVERYBODY.</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeds8ziAYzWuxN3mo1jim3O-SvznuIyYRuO5IJe6WpRcTcA0Q/viewform" target="_blank" class="cta-button">Join PHIERS Today</a>
         </div>
     </section>
     
