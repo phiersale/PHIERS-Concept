@@ -3,1003 +3,539 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHIERS - Healthcare Insurance + HOPE for EVERYBODY</title>
+    <title>PHIERS - Affordable Healthcare That Funds Itself | MABAH</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #f8f9fa;
+
+        :root {
+            --primary: #1a365d;
+            --accent: #28a745;
+            --warm: #c05621;
+            --warning: #f6ad55;
+            --bg: #f7fafc;
+            --text: #2d3748;
+            --text-light: #718096;
         }
-        
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
         .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
+
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #1e5631 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, #2b77ad 100%);
             color: white;
             padding: 60px 20px;
             text-align: center;
         }
-        
-        .hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        .hero-subtitle {
-            font-size: 1.3rem;
-            max-width: 900px;
-            margin: 0 auto 30px;
-            line-height: 1.8;
-        }
-        
-        .hero-highlight {
+
+        .holiday-badge {
+            display: inline-block;
             background: rgba(255,255,255,0.15);
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px auto;
-            max-width: 800px;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
         }
-        
-        .hero-highlight strong {
-            color: #ffd700;
-        }
-        
-        /* Stats Banner */
-        .stats-banner {
-            background: #c0392b;
-            color: white;
-            padding: 30px 20px;
-            text-align: center;
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .stat-item {
-            padding: 15px;
-        }
-        
-        .stat-number {
+
+        .hero h1 {
             font-size: 2.5rem;
-            font-weight: bold;
-            color: #ffd700;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
         }
-        
-        .stat-label {
-            font-size: 1rem;
+
+        .hero h1 span {
+            color: var(--warning);
+        }
+
+        .hero .subtitle {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.95;
+            line-height: 1.5;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            font-style: italic;
             opacity: 0.9;
+            margin-top: 20px;
         }
-        
-        /* Section Styles */
-        section {
-            padding: 50px 20px;
+
+        /* The Loop Section */
+        .loop-section {
+            padding: 60px 20px;
+            background: white;
         }
-        
+
         .section-title {
             text-align: center;
             font-size: 2rem;
-            margin-bottom: 30px;
-            color: #1e3c72;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 40px;
         }
-        
-        /* Route 50 Section */
-        .route50 {
-            background: white;
-        }
-        
-        .route50-content {
+
+        .loop-visual {
             max-width: 900px;
             margin: 0 auto;
-            text-align: center;
+            display: grid;
+            gap: 20px;
         }
-        
-        .route50-content p {
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-        }
-        
-        /* Comparison Table */
-        .comparison-section {
-            background: #e8f4f8;
-        }
-        
-        .comparison-table {
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-            border-collapse: collapse;
-            background: white;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        
-        .comparison-table th {
-            background: #1e3c72;
-            color: white;
-            padding: 15px;
-            text-align: center;
-        }
-        
-        .comparison-table td {
-            padding: 15px;
-            text-align: center;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .comparison-table tr:nth-child(even) {
-            background: #f8f9fa;
-        }
-        
-        .savings-highlight {
-            color: #27ae60;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-        
-        /* How It Works */
-        .how-it-works {
-            background: white;
-        }
-        
-        .how-box {
-            background: linear-gradient(135deg, #27ae60, #1e8449);
-            color: white;
+
+        .loop-step {
+            background: linear-gradient(135deg, #f7fafc 0%, #e2e8f0 100%);
             padding: 30px;
-            border-radius: 15px;
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
+            border-radius: 12px;
+            border-left: 5px solid var(--accent);
+            position: relative;
         }
-        
-        .how-box h3 {
-            font-size: 1.5rem;
+
+        .loop-step:nth-child(2) {
+            border-left-color: var(--warm);
+        }
+
+        .loop-step:nth-child(3) {
+            border-left-color: var(--warning);
+        }
+
+        .loop-step:nth-child(4) {
+            border-left-color: var(--primary);
+            background: linear-gradient(135deg, var(--accent) 0%, #38a169 100%);
+            color: white;
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: 800;
+            font-size: 1.2rem;
             margin-bottom: 15px;
         }
-        
-        .how-box p {
-            font-size: 1.1rem;
-            line-height: 1.8;
+
+        .loop-step:nth-child(2) .step-number {
+            background: var(--warm);
         }
-        
-        .how-box .highlight {
-            background: rgba(255,255,255,0.2);
-            padding: 15px;
-            border-radius: 10px;
-            margin-top: 20px;
-            font-weight: bold;
+
+        .loop-step:nth-child(3) .step-number {
+            background: var(--warning);
         }
-        
-        /* Who Benefits */
-        .benefits-section {
-            background: #f8f9fa;
-        }
-        
-        .benefits-intro {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 30px;
-            font-size: 1.2rem;
-        }
-        
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .benefit-card {
+
+        .loop-step:nth-child(4) .step-number {
             background: white;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            border-left: 4px solid #1e3c72;
+            color: var(--accent);
         }
-        
-        .benefit-card h4 {
-            color: #1e3c72;
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-        }
-        
-        .benefit-card p {
-            color: #666;
-        }
-        
-        /* Chronic Disease Savings */
-        .chronic-section {
-            background: #fff3cd;
-        }
-        
-        .chronic-table {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-            border-collapse: collapse;
-            background: white;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        
-        .chronic-table th {
-            background: #e67e22;
-            color: white;
-            padding: 15px;
-            text-align: center;
-        }
-        
-        .chronic-table td {
-            padding: 12px 15px;
-            text-align: center;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .chronic-note {
-            max-width: 800px;
-            margin: 20px auto 0;
-            text-align: center;
-            font-style: italic;
-            color: #666;
-        }
-        
-        /* AI-Resistant Jobs */
-        .jobs-section {
-            background: #e8f5e9;
-        }
-        
-        .jobs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .job-card {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .job-card h4 {
-            color: #1e5631;
+
+        .loop-step h3 {
+            font-size: 1.4rem;
             margin-bottom: 10px;
         }
-        
-        .ai-resistant-badge {
-            background: #27ae60;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            display: inline-block;
-            margin-top: 10px;
-        }
-        
-        /* Validation Section */
-        .validation-section {
-            background: white;
-        }
-        
-        .validation-intro {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 30px;
-        }
-        
-        .validation-table {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-            border-collapse: collapse;
-            background: white;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        
-        .validation-table th {
-            background: #1e3c72;
-            color: white;
-            padding: 15px;
-            text-align: left;
-        }
-        
-        .validation-table td {
-            padding: 15px;
-            border-bottom: 1px solid #eee;
-            vertical-align: top;
-        }
-        
-        .validation-table tr:nth-child(even) {
-            background: #f8f9fa;
-        }
-        
-        /* Quote Section */
-        .quote-section {
-            background: linear-gradient(135deg, #34495e, #2c3e50);
-            color: white;
-            padding: 50px 20px;
-            text-align: center;
-        }
-        
-        .quote {
-            font-size: 1.3rem;
-            font-style: italic;
-            max-width: 800px;
-            margin: 0 auto 20px;
-            line-height: 1.8;
-        }
-        
-        .quote-attribution {
-            color: #bdc3c7;
-        }
-        
-        /* MABAH Section */
-        .mabah-section {
-            background: linear-gradient(135deg, #c0392b, #e74c3c);
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-        }
-        
-        .mabah-title {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        
-        .mabah-subtitle {
-            font-size: 1.5rem;
+
+        .loop-step p {
+            font-size: 1rem;
             opacity: 0.9;
         }
-        
-        .mabah-tagline {
-            font-size: 1.2rem;
-            margin-top: 15px;
-            font-style: italic;
+
+        .loop-step:nth-child(4) p {
+            opacity: 1;
+            font-weight: 600;
         }
-        
-        /* Thanksgiving Message */
-        .thanksgiving {
-            background: #f39c12;
-            color: white;
-            padding: 40px 20px;
+
+        .arrow {
             text-align: center;
+            font-size: 2rem;
+            color: var(--accent);
+            margin: 10px 0;
         }
-        
-        .thanksgiving p {
-            max-width: 700px;
+
+        /* Math Comparison */
+        .math-section {
+            padding: 60px 20px;
+            background: var(--bg);
+        }
+
+        .comparison-box {
+            max-width: 800px;
             margin: 0 auto;
-            font-size: 1.1rem;
-            line-height: 1.8;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
-        
-        /* CTA Section */
-        .cta-section {
-            background: #1e3c72;
+
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .comparison-row:last-child {
+            border-bottom: none;
+        }
+
+        .comparison-cell {
+            padding: 20px;
+            text-align: center;
+            border-right: 1px solid #e2e8f0;
+        }
+
+        .comparison-cell:last-child {
+            border-right: none;
+        }
+
+        .comparison-row:first-child {
+            background: var(--primary);
             color: white;
-            padding: 50px 20px;
+            font-weight: 700;
+        }
+
+        .old-way {
+            background: #fee;
+        }
+
+        .phiers-way {
+            background: #d4edda;
+        }
+
+        .savings {
+            background: linear-gradient(135deg, var(--accent) 0%, #38a169 100%);
+            color: white;
+            font-weight: 800;
+        }
+
+        .big-number {
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 10px 0;
+        }
+
+        /* Who Benefits */
+        .benefits-section {
+            padding: 60px 20px;
+            background: white;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .benefit-card {
+            background: var(--bg);
+            padding: 25px;
+            border-radius: 12px;
+            border-top: 4px solid var(--accent);
+        }
+
+        .benefit-card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .benefit-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Pilots */
+        .pilots-section {
+            padding: 40px 20px;
+            background: var(--primary);
+            color: white;
             text-align: center;
         }
-        
+
+        .pilots-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .pilots-line {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* CTA */
+        .cta-section {
+            padding: 60px 20px;
+            background: linear-gradient(135deg, var(--warm) 0%, var(--warning) 100%);
+            color: white;
+            text-align: center;
+        }
+
         .cta-section h2 {
             font-size: 2rem;
             margin-bottom: 20px;
         }
-        
+
         .cta-section p {
+            font-size: 1.1rem;
             max-width: 700px;
             margin: 0 auto 30px;
-            font-size: 1.1rem;
+            opacity: 0.95;
         }
-        
-        .cta-button {
+
+        .btn {
             display: inline-block;
-            background: #27ae60;
-            color: white;
-            padding: 15px 40px;
-            font-size: 1.3rem;
+            background: white;
+            color: var(--warm);
+            padding: 16px 40px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
             text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
-        
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
         }
-        
-        /* Responsive - Tablet */
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        footer a {
+            color: var(--warning);
+            text-decoration: none;
+        }
+
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2rem;
             }
-            
-            .hero-subtitle {
+
+            .hero .subtitle {
                 font-size: 1.1rem;
             }
-            
-            .stat-number {
-                font-size: 2rem;
-            }
-            
+
             .section-title {
-                font-size: 1.5rem;
+                font-size: 1.6rem;
             }
-            
-            .comparison-table, .chronic-table, .validation-table {
-                font-size: 0.9rem;
-            }
-            
-            .comparison-table th, .comparison-table td,
-            .chronic-table th, .chronic-table td,
-            .validation-table th, .validation-table td {
-                padding: 10px 8px;
-            }
-            
-            .benefits-grid, .jobs-grid {
+
+            .comparison-row {
                 grid-template-columns: 1fr;
             }
-            
-            .how-box {
-                padding: 20px;
-            }
-        }
-        
-        /* Responsive - Mobile Phone */
-        @media (max-width: 480px) {
-            .hero {
-                padding: 40px 15px;
-            }
-            
-            .hero h1 {
-                font-size: 1.6rem;
-                line-height: 1.3;
-            }
-            
-            .hero-subtitle {
-                font-size: 1rem;
-            }
-            
-            .hero-highlight {
-                padding: 15px;
-                font-size: 0.95rem;
-            }
-            
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
-            }
-            
-            .stat-number {
-                font-size: 1.6rem;
-            }
-            
-            .stat-label {
-                font-size: 0.85rem;
-            }
-            
-            section {
-                padding: 30px 15px;
-            }
-            
-            .section-title {
-                font-size: 1.3rem;
-                line-height: 1.3;
-            }
-            
-            /* Make tables scroll horizontally on mobile */
-            .comparison-table, .chronic-table, .validation-table {
-                display: block;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                font-size: 0.85rem;
-            }
-            
-            /* Add visual scroll hint wrapper for tables */
-            .table-scroll-wrapper {
-                position: relative;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                margin: 20px 0;
-            }
-            
-            .table-scroll-hint {
-                display: none; /* Hidden by default on desktop */
-                text-align: center;
-                color: #666;
-                font-size: 0.9rem;
-                margin-bottom: 10px;
-                font-style: italic;
-                background: #fff3cd;
-                padding: 8px;
-                border-radius: 5px;
-            }
-            
-            .table-scroll-hint::before {
-                content: "👆 ";
-            }
-            
-            .table-scroll-hint::after {
-                content: " 👆";
-            }
-            
-            .comparison-table th, .comparison-table td,
-            .chronic-table th, .chronic-table td {
-                padding: 8px 6px;
-                white-space: nowrap;
-            }
-            
-            /* Stack validation table on mobile */
-            .validation-table thead {
-                display: none;
-            }
-            
-            .validation-table tr {
-                display: block;
-                margin-bottom: 20px;
-                background: white;
-                border-radius: 10px;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-                padding: 15px;
-            }
-            
-            .validation-table td {
-                display: block;
-                padding: 8px 0;
-                border: none;
-            }
-            
-            .validation-table td:before {
-                content: attr(data-label);
-                font-weight: bold;
-                color: #1e3c72;
-                display: block;
-                margin-bottom: 5px;
-            }
-            
-            .benefit-card {
-                padding: 20px;
-            }
-            
-            .benefit-card h4 {
-                font-size: 1rem;
-            }
-            
-            .job-card {
-                padding: 15px;
-            }
-            
-            .how-box {
-                padding: 15px;
-            }
-            
-            .how-box h3 {
-                font-size: 1.2rem;
-            }
-            
-            .how-box p {
-                font-size: 1rem;
-            }
-            
-            .quote {
-                font-size: 1.1rem;
-            }
-            
-            .mabah-title {
-                font-size: 2rem;
-            }
-            
-            .mabah-subtitle {
-                font-size: 1.2rem;
-            }
-            
-            .cta-button {
-                padding: 12px 30px;
-                font-size: 1.1rem;
-            }
-            
-            /* Proposal links mobile */
-            .proposal-grid {
-                grid-template-columns: 1fr !important;
-            }
-            
-            .proposal-card {
-                padding: 20px !important;
-            }
-            
-            /* Show scroll hints on mobile */
-            .table-scroll-hint {
-                display: block !important;
-            }
-            
-            /* Add visible border to scrollable tables on mobile */
-            .table-scroll-wrapper {
-                border: 2px solid #3498db;
-                border-radius: 10px;
-                padding: 10px;
-                background: #f8f9fa;
-            }
-            
-            /* Make sure tables are visible and scrollable */
-            .comparison-table, .chronic-table {
-                min-width: 600px; /* Forces horizontal scroll on small screens */
-            }
-        }
-        
-        /* Proposal card hover states */
-        .proposal-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
-        }
-        
-        /* Ensure tap targets are large enough on mobile */
-        @media (max-width: 480px) {
-            a, button {
-                min-height: 44px;
-                min-width: 44px;
+
+            .comparison-cell {
+                border-right: none;
+                border-bottom: 1px solid #e2e8f0;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Hero Section -->
-    <header class="hero">
+
+    <!-- Hero -->
+    <section class="hero">
         <div class="container">
-            <img src="phiers-logo.png" alt="PHIERS Logo" style="max-width: 200px; height: auto; margin-bottom: 20px;">
-            <h1>Healthcare Insurance + HOPE for EVERYBODY</h1>
-            <p class="hero-subtitle">
-                PHIERS is a <strong>bold proposal</strong> to make affordable, sustainable healthcare a reality — from Maryland to California to NYC. 
-                Our bicoastal pilot plan will save <strong>$127+ BILLION annually</strong> by replacing expensive insurance with 
-                $50/month telehealth, creating AI-resistant jobs, and building a national template. <strong>We're seeking support to launch these pilots and prove the model works.</strong>
+            <div class="holiday-badge">🍂 This Thanksgiving, Give Thanks for REAL Solutions 🍂</div>
+            <h1>Affordable Healthcare <span>That Funds Itself</span></h1>
+            <p class="subtitle">
+                The antidote to DOGE and Project 2025. When you buy meds through Mark Cuban's pharmacy, 
+                the savings sponsor FREE telehealth insurance for you AND others. No coercion. 
+                No new taxes. Just math that works for EVERYONE.
             </p>
-            <div class="hero-highlight">
-                <p><strong>80% of insured Americans do NOT need hospitalization or specialty care.</strong> They can be served by telehealth. That means we can replace $7,000+/year individual insurance (or $21,000+/year for families) with <strong>$50/month telehealth plans</strong> — saving $6,400+ per person or $20,400+ per family every single year.</p>
-            </div>
-        </div>
-    </header>
-    
-    <!-- Stats Banner -->
-    <div class="stats-banner">
-        <div class="stats-grid">
-            <div class="stat-item">
-                <div class="stat-number">$127B+</div>
-                <div class="stat-label">Annual Savings Potential</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">80%</div>
-                <div class="stat-label">Can Use Telehealth</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">$6,400+</div>
-                <div class="stat-label">Saved Per Individual</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">$20,400+</div>
-                <div class="stat-label">Saved Per Family</div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Route 50 Section -->
-    <section class="route50">
-        <div class="container">
-            <h2 class="section-title">Three Locations Ready to Launch</h2>
-            <div class="route50-content">
-                <p><strong>Route 50 runs from Ocean City, MD to West Sacramento, CA</strong> — 12 states, 95+ million Americans. We have detailed proposals for Maryland and California pilots. When these pilots launch and succeed, every state in between will have a proven template.</p>
-                <p><strong>NYC is ready to prove the model works in dense urban environments.</strong></p>
-                <p>Together: <strong>a national blueprint for affordable, sustainable healthcare.</strong></p>
-                <p style="margin-top: 20px; font-style: italic; color: #666;"><strong>Current Status:</strong> PHIERS has been validated by elected officials including Senator Chris Van Hollen (2014) and briefed to California State Treasurer Fiona Ma. We're actively seeking support to launch these pilots and demonstrate real-world results.</p>
-            </div>
+            <p class="tagline">MABAH: Making America Better And Healthier — It rhymes with MAGA, only a lot bettah.</p>
         </div>
     </section>
-    
-    <!-- Comparison Table -->
-    <section class="comparison-section">
+
+    <!-- The Self-Funding Loop -->
+    <section class="loop-section">
         <div class="container">
-            <h2 class="section-title">Simple Comparison: Traditional Insurance vs. PHIERS Telehealth</h2>
-            <div class="table-scroll-wrapper">
-                <p class="table-scroll-hint">Swipe to see full table</p>
-                <table class="comparison-table">
-                <thead>
-                    <tr>
-                        <th>Coverage Type</th>
-                        <th>Traditional Insurance</th>
-                        <th>PHIERS Telehealth</th>
-                        <th>YOUR SAVINGS</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Individual</strong></td>
-                        <td>$7,000+/year</td>
-                        <td>$600/year</td>
-                        <td class="savings-highlight">$6,400+</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Family</strong></td>
-                        <td>$21,000+/year</td>
-                        <td>$600/year</td>
-                        <td class="savings-highlight">$20,400+</td>
-                    </tr>
-                </tbody>
-            </table>
-            </div>
-        </div>
-    </section>
-    
-    <!-- How It Works - The Self-Funding Model -->
-    <section class="how-it-works">
-        <div class="container">
-            <h2 class="section-title">How It Works: 100% Self-Sustaining</h2>
-            <div class="how-box">
-                <h3>💊 Drug Savings Fund Universal Telehealth Coverage</h3>
-                <p>PHIERS sponsors your placement into telehealth plans like Zortt Elite Medical. When you purchase medications through our co-op marketplace (powered by Mark Cuban's Cost Plus Drug Company pricing model), <strong>your prescription savings exceed $50/month</strong> — which means we've covered your telehealth cost.</p>
-                <div class="highlight">
-                    The math is simple: Buy your medications through PHIERSale → Save 70-90% on prescriptions → Those savings pay for your telehealth membership → <strong>No coercion needed. No tax dollars required. 100% self-funding.</strong>
+            <h2 class="section-title">How PHIERS Funds Itself</h2>
+            <div class="loop-visual">
+                <div class="loop-step">
+                    <div class="step-number">1</div>
+                    <h3>Buy Your Meds Through Mark Cuban Cost Plus</h3>
+                    <p>Get the medications you need at 80-90% savings. A typical prescription that costs $200 at CVS costs $20 through Cuban's pharmacy.</p>
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <div class="loop-step">
+                    <div class="step-number">2</div>
+                    <h3>Your Savings Sponsor Telehealth Coverage</h3>
+                    <p>Every time your prescription savings exceed $50, we apply that toward sponsoring FREE $50/month telehealth insurance — for you or someone who needs it.</p>
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <div class="loop-step">
+                    <div class="step-number">3</div>
+                    <h3>80% Don't Need Expensive Hospital Insurance</h3>
+                    <p>Most people pay $7,000+/year for insurance they rarely use. Telehealth covers doctor visits, prescriptions, mental health — everything 80% of people actually need.</p>
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <div class="loop-step">
+                    <div class="step-number">✓</div>
+                    <h3>The Model Funds Itself = MABAH</h3>
+                    <p>Medication savings pay for telehealth. Telehealth savings create jobs and monthly checks for members. No coercion needed. Both political sides win because everyone saves money and gets better care.</p>
                 </div>
             </div>
-            <!-- PHIERS Ecosystem Graphic -->
-            <div style="text-align: center; margin-top: 40px;">
-                <img src="vhiers-tablet.png" alt="PHIERS-Powered Solutions Ecosystem" style="max-width: 100%; width: 600px; height: auto; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
-                <p style="margin-top: 15px; color: #666; font-style: italic;">The PHIERS ecosystem addresses healthcare, jobs, housing, and more — all from one self-funding platform.</p>
-            </div>
         </div>
     </section>
-    
-    <!-- Chronic Disease Savings -->
-    <section class="chronic-section">
+
+    <!-- The Math -->
+    <section class="math-section">
         <div class="container">
-            <h2 class="section-title">Real Savings for Real Conditions</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 30px;">People with chronic conditions pay the most for medications. Here's what they'd save buying through PHIERSale instead of traditional pharmacies:</p>
-            <div class="table-scroll-wrapper">
-                <p class="table-scroll-hint">Swipe to see full table</p>
-                <table class="chronic-table">
-                <thead>
-                    <tr>
-                        <th>Condition</th>
-                        <th>Typical Annual Med Cost</th>
-                        <th>PHIERSale Cost</th>
-                        <th>Annual Savings</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Diabetes (Type 2)</td>
-                        <td>$4,800+</td>
-                        <td>~$960</td>
-                        <td class="savings-highlight">$3,840+</td>
-                    </tr>
-                    <tr>
-                        <td>Heart Disease</td>
-                        <td>$3,600+</td>
-                        <td>~$720</td>
-                        <td class="savings-highlight">$2,880+</td>
-                    </tr>
-                    <tr>
-                        <td>High Blood Pressure</td>
-                        <td>$1,800+</td>
-                        <td>~$360</td>
-                        <td class="savings-highlight">$1,440+</td>
-                    </tr>
-                    <tr>
-                        <td>High Cholesterol</td>
-                        <td>$2,400+</td>
-                        <td>~$480</td>
-                        <td class="savings-highlight">$1,920+</td>
-                    </tr>
-                    <tr>
-                        <td>Depression/Anxiety</td>
-                        <td>$1,200+</td>
-                        <td>~$240</td>
-                        <td class="savings-highlight">$960+</td>
-                    </tr>
-                </tbody>
-            </table>
+            <h2 class="section-title">The Math That Heals Our Nation</h2>
+            <div class="comparison-box">
+                <div class="comparison-row">
+                    <div class="comparison-cell"></div>
+                    <div class="comparison-cell">Old Way (Expensive)</div>
+                    <div class="comparison-cell">PHIERS Way</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-cell"><strong>Individual Insurance</strong></div>
+                    <div class="comparison-cell old-way">
+                        <div class="big-number">$7,000+</div>
+                        <div>per year</div>
+                    </div>
+                    <div class="comparison-cell phiers-way">
+                        <div class="big-number">$600</div>
+                        <div>per year ($50/mo telehealth)</div>
+                    </div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-cell"><strong>Family Insurance</strong></div>
+                    <div class="comparison-cell old-way">
+                        <div class="big-number">$21,000+</div>
+                        <div>per year</div>
+                    </div>
+                    <div class="comparison-cell phiers-way">
+                        <div class="big-number">$600</div>
+                        <div>per year (same $50/mo!)</div>
+                    </div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-cell"><strong>YOUR SAVINGS</strong></div>
+                    <div class="comparison-cell savings" colspan="2">
+                        <div class="big-number">$6,400 - $20,400</div>
+                        <div>Every single year</div>
+                    </div>
+                </div>
             </div>
-            <p class="chronic-note">These savings alone cover telehealth costs many times over — proving our model is <strong>sustainable and scalable</strong>.</p>
         </div>
     </section>
-    
+
     <!-- Who Benefits -->
     <section class="benefits-section">
         <div class="container">
-            <h2 class="section-title">This is NOT Just About One Group. It's About ALL of Us.</h2>
-            <p class="benefits-intro">Whether you're a gig worker, federal employee, union member, or small business owner — PHIERS has solutions that WORK for everyone who needs affordable healthcare.</p>
+            <h2 class="section-title">Who PHIERS Helps</h2>
             <div class="benefits-grid">
                 <div class="benefit-card">
-                    <h4>🏥 Gig Workers Without Benefits</h4>
-                    <p>No employer insurance? No problem. PHIERS gives you FREE telehealth coverage through our cooperative model.</p>
+                    <h3>💊 People Overpaying for Meds</h3>
+                    <p>Get 80-90% savings through Mark Cuban's pharmacy. A $200 prescription becomes $20.</p>
                 </div>
                 <div class="benefit-card">
-                    <h4>💼 Federal Workers Facing Layoffs</h4>
-                    <p>15,100+ jobs lost in Maryland alone. PHIERS creates transition opportunities with fair wages.</p>
+                    <h3>🏥 The Uninsured/Underinsured</h3>
+                    <p>Get FREE telehealth coverage sponsored by medication savings. No more choosing between meds and rent.</p>
                 </div>
                 <div class="benefit-card">
-                    <h4>🍽️ SNAP Recipients with Work Requirements</h4>
-                    <p>Facing 80-hour work requirements? Join PHIERS and automatically meet work/training requirements.</p>
+                    <h3>👷 Federal Workers & Contractors</h3>
+                    <p>Job security through PHIERSworks. AI-resistant positions in healthcare, community services, infrastructure.</p>
                 </div>
                 <div class="benefit-card">
-                    <h4>💊 People Overpaying for Medications</h4>
-                    <p>Most Americans don't know Mark Cuban's Cost Plus Drug Company exists — or don't have cash upfront. PHIERSale makes it accessible to EVERYONE.</p>
+                    <h3>🤝 Gig Workers</h3>
+                    <p>Finally get benefits. FREE telehealth insurance plus access to sustainable employment opportunities.</p>
                 </div>
                 <div class="benefit-card">
-                    <h4>🤖 Workers Displaced by AI</h4>
-                    <p>Job automated away? PHIERSworks creates human-touch jobs that CAN'T be replaced by machines.</p>
+                    <h3>🍞 SNAP Recipients</h3>
+                    <p>PHIERSworks positions automatically qualify for 80-hour/month work requirements. Keep your benefits.</p>
                 </div>
                 <div class="benefit-card">
-                    <h4>🏢 Small Business Owners</h4>
-                    <p>Can't afford health insurance for employees? PHIERS provides coverage for a fraction of the cost.</p>
+                    <h3>🤖 AI-Displaced Workers</h3>
+                    <p>Jobs that CAN'T be automated. Healthcare support, elder care, community services — human touch required.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>💰 Everyone Fighting Inflation</h3>
+                    <p>Monthly checks from cooperative savings. Put money back in your pocket to deal with rising costs.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>🇺🇸 Both Political Sides</h3>
+                    <p>Common-sense solution both parties can support. Lower costs + good jobs = healing our divided nation.</p>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- AI-Resistant Jobs -->
-    <section class="jobs-section">
+
+    <!-- Pilots -->
+    <section class="pilots-section">
         <div class="container">
-            <h2 class="section-title">Human-Touch Careers That Survive the AI Revolution</h2>
-            <div class="jobs-grid">
-                <div class="job-card">
-                    <h4>🏠 Home Health & Therapy</h4>
-                    <p>Home health aides, PT/OT assistants, counselors</p>
-                    <span class="ai-resistant-badge">AI-Resistant ✓</span>
-                </div>
-                <div class="job-card">
-                    <h4>👶 Care Services</h4>
-                    <p>Child/adult daycare, elder companions</p>
-                    <span class="ai-resistant-badge">AI-Resistant ✓</span>
-                </div>
-                <div class="job-card">
-                    <h4>🌱 Food Security</h4>
-                    <p>Community gardens, food distribution</p>
-                    <span class="ai-resistant-badge">AI-Resistant ✓</span>
-                </div>
-                <div class="job-card">
-                    <h4>🔧 Home Services</h4>
-                    <p>Repairs, maintenance, weatherization</p>
-                    <span class="ai-resistant-badge">AI-Resistant ✓</span>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Validation Section - FIXED -->
-    <section class="validation-section">
-        <div class="container">
-            <h2 class="section-title">Third-Party Validation of Our Proposal</h2>
-            <p class="validation-intro">PHIERS has been reviewed and validated by elected officials. Our detailed proposals outline job creation projections based on the model they endorsed. <strong>We're now seeking support to launch these pilots and turn these projections into reality.</strong></p>
-            <div class="table-scroll-wrapper">
-                <p class="table-scroll-hint">Swipe to see full table</p>
-                <table class="validation-table">
-                <thead>
-                    <tr>
-                        <th>Who Validated PHIERS</th>
-                        <th>Why It Matters</th>
-                        <th>PHIERS Job Projection for Region</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td data-label="Who Validated:"><strong>CA State Treasurer Fiona Ma</strong><br><em>Briefed on PHIERS proposal</em></td>
-                        <td data-label="Why It Matters:">California's MediMedi program (dual-eligible Medicare/Medi-Cal) faces unsustainable costs. PHIERS offers the best-fit solution: drug savings from dual-eligibles buying through PHIERSale will finance PHIERS deployment to ALL Californians — making the program self-sustaining statewide. <em>We're seeking state support to launch this pilot.</em></td>
-                        <td data-label="PHIERS Job Projection:"><strong>250,000+ jobs</strong><br>West End of Route 50 (California)</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Who Validated:"><strong>U.S. Senator Chris Van Hollen</strong><br><em>Validated PHIERS concept in 2014</em></td>
-                        <td data-label="Why It Matters:">"PHIERS.org has the potential to become a vital part of the health care system." — validated the original model that we've now refined to address today's challenges, including federal job losses from DOGE cuts. <em>We're seeking support to launch the Maryland pilot.</em></td>
-                        <td data-label="PHIERS Job Projection:"><strong>45,000+ jobs</strong><br>East End of Route 50 (Maryland)</td>
-                    </tr>
-                </tbody>
-            </table>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Quote Section -->
-    <section class="quote-section">
-        <div class="container">
-            <p class="quote">"PHIERS.org's mission is to provide a low-cost, high-impact and common-sense approach to health reform. The program is committed to connecting public health, faith-based, and safety net organizations to reach under-served communities; educating people; and creating jobs that empower front-line health and social workers to better meet the needs of the community."</p>
-            <p class="quote-attribution">— PHIERS Mission Statement</p>
-            <br><br>
-            <p class="quote">"PHIERS.org has the potential to become a vital part of the health care system."</p>
-            <p class="quote-attribution">— Chris Van Hollen, then-Congressman (now U.S. Senator), March 25, 2014</p>
-            
-            <!-- CVH Letter Image -->
-            <div style="margin-top: 30px;">
-                <a href="https://drive.google.com/file/d/0B3Hez-5PFBlgaXlCMG52aDNJcGs/view?usp=sharing&resourcekey=0-2SsHne8fHrNXTO0idtMzYQ" target="_blank" style="display: inline-block;">
-                    <img src="cvh-letter.png" alt="Chris Van Hollen Letter of Support - March 25, 2014" style="max-width: 100%; width: 400px; height: auto; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.3); border: 3px solid rgba(255,255,255,0.3); transition: transform 0.3s;">
-                </a>
-                <p style="margin-top: 15px; font-size: 0.9rem; opacity: 0.8;">Click to view the full letter →</p>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Thanksgiving Message -->
-    <section class="thanksgiving">
-        <div class="container">
-            <p>In these challenging times, it's easy to feel overwhelmed. Federal job losses. Rising healthcare costs. New work requirements that threaten food assistance. The uncertainty of a changing economy.</p>
-            <br>
-            <p><strong>But here's what we're thankful for:</strong> Solutions exist. The math works. The technology is proven. The partnerships are in place. All we need is each other.</p>
-        </div>
-    </section>
-    
-    <!-- MABAH Section -->
-    <section class="mabah-section">
-        <div class="container">
-            <h2 class="mabah-title">MABAH</h2>
-            <p class="mabah-subtitle">Making America Better And Healthier</p>
-            <p class="mabah-tagline">It rhymes with MAGA — only a lot bettah.</p>
-        </div>
-    </section>
-    
-    <!-- Regional Proposals Section -->
-    <section style="background: #ecf0f1; padding: 50px 20px;">
-        <div class="container">
-            <h2 class="section-title">📄 Read the Full Regional Pilot Proposals</h2>
-            <p style="text-align: center; max-width: 700px; margin: 0 auto 30px; font-size: 1.1rem;">
-                Want the complete details? Each region has a comprehensive proposal showing exactly how PHIERS will work when launched.
+            <h2>Proving It Works: Maryland, California & NYC</h2>
+            <p class="pilots-line">
+                We're launching in three locations to prove the model works at local, state, and national levels. 
+                Combined savings: <strong>$127+ BILLION annually</strong>. Once we succeed, every state can follow.
             </p>
-            <div class="proposal-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto;">
-                <!-- Maryland -->
-                <a href="https://docs.google.com/document/d/1OQMe0ES3Bz2mn36gyxH3lx1fjT0AXqdo/edit" target="_blank" class="proposal-card" style="background: white; padding: 25px; border-radius: 15px; text-decoration: none; color: #333; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-top: 5px solid #c0392b; display: block; transition: transform 0.3s, box-shadow 0.3s;">
-                    <h3 style="color: #c0392b; margin-bottom: 10px; font-size: 1.3rem;">🦀 Maryland Overview</h3>
-                    <p style="color: #666; margin-bottom: 15px;">East End of Route 50 — Prince George's County pilot, federal worker transitions, 45,000+ projected jobs</p>
-                    <span style="color: #1e3c72; font-weight: bold;">Read Full Proposal →</span>
-                </a>
-                
-                <!-- California -->
-                <a href="https://docs.google.com/document/d/1j7AZRq-WdIySqLRU86gclugJPKqa5Et8/edit" target="_blank" class="proposal-card" style="background: white; padding: 25px; border-radius: 15px; text-decoration: none; color: #333; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-top: 5px solid #f39c12; display: block; transition: transform 0.3s, box-shadow 0.3s;">
-                    <h3 style="color: #f39c12; margin-bottom: 10px; font-size: 1.3rem;">🐻 California Overview</h3>
-                    <p style="color: #666; margin-bottom: 15px;">West End of Route 50 — Sacramento hub, state-scale implementation, 250,000+ projected jobs</p>
-                    <span style="color: #1e3c72; font-weight: bold;">Read Full Proposal →</span>
-                </a>
-                
-                <!-- NYC -->
-                <a href="https://docs.google.com/document/d/1LaAPbyqdMmjh4jTYSG_FUhYqir9HAadV/edit" target="_blank" class="proposal-card" style="background: white; padding: 25px; border-radius: 15px; text-decoration: none; color: #333; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-top: 5px solid #3498db; display: block; transition: transform 0.3s, box-shadow 0.3s;">
-                    <h3 style="color: #3498db; margin-bottom: 10px; font-size: 1.3rem;">🗽 NYC Overview</h3>
-                    <p style="color: #666; margin-bottom: 15px;">Dense urban model — proving PHIERS works in America's largest city environment</p>
-                    <span style="color: #1e3c72; font-weight: bold;">Read Full Proposal →</span>
-                </a>
-            </div>
         </div>
     </section>
-    
-    <!-- CTA Section -->
+
+    <!-- CTA -->
     <section class="cta-section">
         <div class="container">
-            <h2>Join the Movement to Launch PHIERS</h2>
-            <p>Sign up to support launching these pilots. Whether you're in Maryland, California, NYC, or anywhere else, the more people who join, the stronger our case becomes to elected officials and funders. Together, we can make affordable healthcare a reality for EVERYBODY.</p>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeds8ziAYzWuxN3mo1jim3O-SvznuIyYRuO5IJe6WpRcTcA0Q/viewform" target="_blank" class="cta-button">Join PHIERS Today</a>
+            <h2>Join the Movement</h2>
+            <p>
+                Sign our petition to show solidarity. The more people who join, the faster we prove 
+                the model and deliver savings to EVERYBODY. Whether you're in Maryland, California, 
+                NYC, or want to bring PHIERS to YOUR state — this Thanksgiving, let's give thanks 
+                by taking action.
+            </p>
+            <a href="https://vhiersmovement.com" class="btn">Sign the Petition Now</a>
+            <p style="margin-top: 30px; font-size: 0.95rem; opacity: 0.9;">
+                Want the full policy details? Download our white papers for Maryland, California, and NYC at 
+                <a href="https://phiers.org" style="color: white; text-decoration: underline;">PHIERS.org</a>
+            </p>
         </div>
     </section>
-    
-    <footer style="background: #2c3e50; color: white; text-align: center; padding: 20px;">
-        <p>&copy; 2025 PHIERS.org - The People's Health Insurance Endowment & Referral Service</p>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p><strong>PHIERS.org</strong> — The People's Health Insurance Endowment and Referral Service</p>
+            <p style="margin-top: 15px; font-size: 0.9rem; opacity: 0.8;">
+                A cooperative healthcare solution proving that when we work together, 
+                we can solve problems both parties acknowledge but don't know how to fix.
+            </p>
+            <p style="margin-top: 20px;">
+                November 25, 2025 | Matrix 19 | <a href="mailto:info@phiers.org">info@phiers.org</a>
+            </p>
+        </div>
     </footer>
+
 </body>
 </html>
