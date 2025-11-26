@@ -24,6 +24,41 @@
             padding: 20px;
         }
 
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(45, 55, 72, 0.98);
+            padding: 15px 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+            border-radius: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background: rgba(102, 126, 234, 0.8);
+        }
+
         header {
             background: rgba(255, 255, 255, 0.95);
             padding: 30px;
@@ -37,6 +72,48 @@
             font-size: 2.5rem;
             margin-bottom: 15px;
             text-align: center;
+            line-height: 1.3;
+        }
+
+        .title-line {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .flame {
+            font-size: 2.2rem;
+            flex-shrink: 0;
+        }
+
+        .title-text {
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .flame {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.4rem;
+            }
+
+            .flame {
+                font-size: 1.4rem;
+            }
+
+            .title-line {
+                gap: 10px;
+            }
         }
 
         .subtitle {
@@ -280,6 +357,10 @@
                 font-size: 2rem;
             }
 
+            .flame {
+                font-size: 1.8rem;
+            }
+
             .subtitle {
                 font-size: 1rem;
             }
@@ -296,24 +377,35 @@
 </head>
 <body>
     <div class="container">
+        <nav>
+            <ul>
+                <li><a href="#affordability">💰 Affordability</a></li>
+                <li><a href="#ai-jobs">⚠️ AI Crisis</a></li>
+                <li><a href="#phierworks">💪 PHIERWorks Jobs</a></li>
+                <li><a href="#benefits">✓ Benefits</a></li>
+                <li><a href="#whitepapers">📄 White Papers</a></li>
+                <li><a href="#join">🔥 Join Now</a></li>
+            </ul>
+        </nav>
+
         <header>
-            <h1>🔥 Healthcare Insurance + HOPE for EVERYBODY 🔥</h1>
+            <h1>🔥 Healthcare Insurance + HOPE for EVERYBODY</h1>
             <p class="subtitle">PHIERS is proving the model works — from Maryland to California to NYC. Our bicoastal pilot saves $127+ BILLION annually by replacing traditional insurance with excessive costly features (hospitalization and specialty care that 80% don't need) with affordable telehealth coverage, creating AI-resistant jobs, and building a national template.</p>
         </header>
 
-        <div class="affordability-hero">
-            <h2>💰 The Simple Math That Changes Everything 💰</h2>
-            <p><strong>80% of insured Americans do NOT need hospitalization or specialty care.</strong> They can be served by telehealth.</p>
-            <p style="font-size: 1.4rem; margin: 25px 0;"><strong>That means we can replace $7,000+/year individual insurance (or $21,000+/year for families) with $50/month telehealth plans — saving $6,400+ per person or $20,400+ per family every single year.</strong></p>
+        <div class="affordability-hero" id="affordability">
+            <h2 style="color: white; text-align: center;">💰 HEALTHCARE AFFORDABILITY: The Foundation of Everything</h2>
+            <p style="color: white;"><strong>80% of insured Americans do NOT need hospitalization or specialty care.</strong> They can be served by telehealth.</p>
+            <p style="font-size: 1.4rem; margin: 25px 0; color: white;"><strong>That means we can replace $7,000+/year individual insurance (or $21,000+/year for families) with $50/month telehealth plans — saving $6,400+ per person or $20,400+ per family every single year.</strong></p>
             <div style="text-align: center; margin: 30px 0;">
                 <span class="free-badge">100% FREE</span>
-                <p style="font-size: 1.3rem; margin-top: 20px;"><strong>Once we reach 3.5% of the population in your district</strong></p>
+                <p style="font-size: 1.3rem; margin-top: 20px; color: white;"><strong>Once we reach 3.5% of the population in your district</strong></p>
             </div>
-            <p style="font-size: 1.2rem;"><strong>How it works:</strong> PHIERS sponsors your placement into telehealth plans like Zortt Elite Medical. The moment your prescription savings exceed $50/month, we've covered your telehealth cost. <strong>Drug savings fund universal telehealth coverage — 100% self-sustaining and FREE for all members at 3.5% participation.</strong></p>
+            <p style="font-size: 1.2rem; color: white;"><strong>How it works:</strong> PHIERS sponsors your placement into telehealth plans like Zortt Elite Medical. The moment your prescription savings exceed $50/month, we've covered your telehealth cost. <strong>Drug savings fund universal telehealth coverage — 100% self-sustaining and FREE for all members at 3.5% participation.</strong></p>
         </div>
 
         <div class="highlight-box">
-            <h2>Simple comparison: Traditional insurance vs. PHIERS telehealth approach</h2>
+            <h2 style="text-align: center;">📊 Simple comparison: Traditional insurance vs. PHIERS telehealth approach</h2>
             <table>
                 <thead>
                     <tr>
@@ -341,18 +433,18 @@
             <p><strong>The 3.5% Rule:</strong> Once 3.5% of the population in your district joins, prescription drug savings become so massive that they cover 100% of telehealth costs for ALL members. You pay NOTHING. This is proven mathematics, not a promise.</p>
         </div>
 
-        <div class="ai-warning">
-            <h2>⚠️ THE AI JOB APOCALYPSE IS HERE ⚠️</h2>
-            <p><strong>50% of white-collar entry-level jobs will be ELIMINATED by AI within 2-3 years.</strong></p>
-            <p>Data entry, basic analysis, customer service, administrative support — GONE.</p>
-            <p><strong>PHIERWorks creates AI-RESISTANT careers that CANNOT be automated:</strong></p>
-            <p>Home health • Elder care • Community support • Infrastructure maintenance • Child services</p>
-            <p><strong>We're building the post-AI economy NOW while others watch traditional employment collapse.</strong></p>
+        <div class="ai-warning" id="ai-jobs">
+            <h2 style="color: white; text-align: center;">⚠️ THE AI JOB APOCALYPSE IS HERE</h2>
+            <p style="color: white;"><strong>50% of white-collar entry-level jobs will be ELIMINATED by AI within 2-3 years.</strong></p>
+            <p style="color: white;">Data entry, basic analysis, customer service, administrative support — GONE.</p>
+            <p style="color: white;"><strong>PHIERWorks creates AI-RESISTANT careers that CANNOT be automated:</strong></p>
+            <p style="color: white;">Home health • Elder care • Community support • Infrastructure maintenance • Child services</p>
+            <p style="color: white;"><strong>We're building the post-AI economy NOW while others watch traditional employment collapse.</strong></p>
         </div>
 
-        <div class="phierworks-emphasis">
-            <h2>💪 PHIERWorks: Your AI-Resistant Career Path 💪</h2>
-            <p style="font-size: 1.2rem; margin-bottom: 20px;"><strong>While half of entry-level jobs disappear to automation, PHIERWorks creates millions of positions requiring human touch that AI CANNOT replace:</strong></p>
+        <div class="phierworks-emphasis" id="phierworks">
+            <h2 style="color: white; text-align: center;">💪 PHIERWorks: Your AI-Resistant Career Path</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 20px; color: white;"><strong>While half of entry-level jobs disappear to automation, PHIERWorks creates millions of positions requiring human touch that AI CANNOT replace:</strong></p>
             <ul>
                 <li><strong>Home health aides ($18-28/hr)</strong> — Requires human empathy and physical care</li>
                 <li><strong>Community health workers ($20-30/hr)</strong> — Requires local knowledge and trust-building</li>
@@ -366,8 +458,8 @@
             <p style="font-size: 1.2rem; text-align: center;"><strong>These are PERMANENT careers that grow stronger as automation eliminates traditional jobs.</strong></p>
         </div>
 
-        <div class="highlight-box">
-            <h2>This is NOT just about one group. It's about ALL of us who need solutions that WORK.</h2>
+        <div class="highlight-box" id="benefits">
+            <h2 style="text-align: center;">✓ This is NOT just about one group. It's about ALL of us who need solutions that WORK.</h2>
             
             <div class="benefit-grid">
                 <div class="benefit-card">
@@ -403,7 +495,7 @@
         </div>
 
         <div class="highlight-box">
-            <h2>Human-touch careers that benefit everyone — and survive the AI revolution</h2>
+            <h2 style="text-align: center;">👐 Human-touch careers that benefit everyone — and survive the AI revolution</h2>
             <div class="benefit-grid">
                 <div class="benefit-card">
                     <h3>Healthcare Support <span class="ai-resistant-badge">AI-Resistant ✓</span></h3>
@@ -430,12 +522,12 @@
         </div>
 
         <div class="highlight-box">
-            <h2>MABAH: Making America Better And Healthier</h2>
+            <h2 style="text-align: center;">🇺🇸 MABAH: Making America Better And Healthier</h2>
             <p style="font-size: 1.5rem; text-align: center; font-weight: 600; color: #667eea;">It rhymes with MAGA — only a lot bettah.</p>
         </div>
 
-        <div class="whitepaper-section">
-            <h2>📄 Read Our Policy White Papers — Detailed State Solutions</h2>
+        <div class="whitepaper-section" id="whitepapers">
+            <h2 style="text-align: center;">📄 Read Our Policy White Papers — Detailed State Solutions</h2>
             <p><strong>Three strategic locations proving the model works at every level:</strong> Route 50 runs from Ocean City, MD to West Sacramento, CA — 12 states, 95+ million Americans along the corridor. When MD and CA succeed, every state in between has a proven template. NYC proves the model works in dense urban environments. Together: a complete national blueprint from coast to coast.</p>
             <p style="margin-top: 20px;">These aren't vague promises — they're comprehensive policy documents with verified mathematics, implementation roadmaps, and economic projections for specific states. Plus our NATIONAL solution showing how this scales across America.</p>
             
@@ -480,8 +572,8 @@
             <p>— Chris Van Hollen, then-Congressman (now U.S. Senator), March 25, 2014</p>
         </div>
 
-        <div class="cta-section">
-            <a href="https://phiersale.github.io/PHIERStorm/" class="cta-button">🔥 Join the PHIERStorm Movement 🔥</a>
+        <div class="cta-section" id="join">
+            <a href="https://phiersale.github.io/PHIERStorm/" class="cta-button">🔥 Join the PHIERStorm Movement</a>
             <p style="color: white; font-size: 1.2rem; margin-top: 20px;">Sign our petition to join the movement. Help us reach 3.5% of the population in your district — that's when healthcare becomes FREE for ALL members. Whether you're in one of our pilot states or want to bring PHIERS to YOUR state, the more people who join, the faster we reach 3.5% — and deliver FREE coverage AND AI-resistant jobs to EVERYBODY.</p>
         </div>
     </div>
