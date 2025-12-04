@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHIERS - America's Affordability Solution | Join 6M+ Members</title>
-    <meta name="description" content="$600/year vs $8,500/year. FREE comprehensive coverage at 3.5%. Join the affordability movement with mathematical teeth.">
+    <title>PHIERS - The Affordability Solution | $600 vs $8,500</title>
+    <meta name="description" content="Healthcare affordability crisis solved: $600/year vs $8,500/year. FREE coverage at 3.5%. Join 6M+ Americans.">
     <style>
         * {
             margin: 0;
@@ -23,38 +23,39 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
-            padding-bottom: 120px; /* Space for fixed CTA bar */
+            padding-bottom: 120px;
         }
 
-        /* FIXED CTA BAR AT BOTTOM */
+        /* FIXED CTA BAR */
         .fixed-cta {
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+            background: linear-gradient(135deg, #000 0%, #1a202c 100%);
             color: white;
             padding: 20px;
             text-align: center;
             z-index: 9999;
-            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
+            border-top: 3px solid #667eea;
+        }
+
+        .fixed-cta h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
             animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
         }
 
-        .fixed-cta h3 {
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-        }
-
-        .fixed-cta .member-count {
+        .member-count {
             font-size: 1.1rem;
             margin-bottom: 15px;
-            opacity: 0.9;
+            color: #fbbf24;
         }
 
         .fixed-cta-buttons {
@@ -65,41 +66,27 @@
         }
 
         .cta-button {
-            background: white;
-            color: #e53e3e;
-            padding: 12px 30px;
+            background: #667eea;
+            color: white;
+            padding: 15px 35px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 700;
             font-size: 1.1rem;
             transition: all 0.3s;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
         .cta-button:hover {
+            background: #5a67d8;
             transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
         }
 
         .cta-note {
             font-size: 0.9rem;
             margin-top: 10px;
-            opacity: 0.9;
-        }
-
-        /* COPYRIGHT BANNER */
-        .copyright-banner {
-            background: rgba(0, 0, 0, 0.9);
-            color: white;
-            text-align: center;
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            border: 2px solid #FFD700;
-        }
-
-        .copyright-banner strong {
-            color: #FFD700;
+            opacity: 0.8;
         }
 
         nav {
@@ -118,7 +105,7 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 25px;
+            gap: 20px;
         }
 
         nav a {
@@ -134,266 +121,260 @@
             background: rgba(102, 126, 234, 0.8);
         }
 
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 30px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        /* HERO SECTION - AFFORDABILITY CRISIS */
+        .hero {
+            background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            text-align: center;
         }
 
-        h1 {
-            color: #2d3748;
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero .crisis-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .crisis-stat {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .crisis-stat-number {
             font-size: 2.5rem;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-
-        .subtitle {
-            text-align: center;
-            font-size: 1.4rem;
-            color: #e53e3e;
-            font-weight: 700;
+            font-weight: 900;
             margin-bottom: 10px;
         }
 
-        /* VISUAL COMPARISON CHART */
-        .comparison-hero {
-            background: rgba(255, 255, 255, 0.98);
-            padding: 40px;
+        .hero .solution {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 30px;
             border-radius: 15px;
-            margin-bottom: 30px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            margin-top: 30px;
         }
 
-        .comparison-hero h2 {
+        .hero .solution h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .price-comparison {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .price-box {
+            padding: 20px 40px;
+            border-radius: 10px;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .old-price {
+            background: rgba(0, 0, 0, 0.3);
+            text-decoration: line-through;
+        }
+
+        .arrow {
+            font-size: 3rem;
+        }
+
+        .new-price {
+            background: rgba(72, 187, 120, 0.9);
+            font-size: 2.5rem;
+        }
+
+        /* VISUAL COMPARISON CHART */
+        .comparison-section {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .comparison-section h2 {
             text-align: center;
             color: #2d3748;
-            font-size: 2rem;
+            font-size: 2.5rem;
             margin-bottom: 30px;
         }
 
         .comparison-grid {
             display: grid;
-            grid-template-columns: 1fr auto 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 30px;
-            align-items: center;
-            max-width: 900px;
-            margin: 0 auto;
+            margin-bottom: 30px;
         }
 
-        .comparison-box {
+        .comparison-col {
             padding: 30px;
             border-radius: 15px;
+        }
+
+        .traditional {
+            background: linear-gradient(135deg, #fed7d7 0%, #feb2b2 100%);
+            border: 3px solid #e53e3e;
+        }
+
+        .phiers {
+            background: linear-gradient(135deg, #c6f6d5 0%, #9ae6b4 100%);
+            border: 3px solid #38a169;
+        }
+
+        .comparison-col h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
             text-align: center;
         }
 
-        .comparison-bad {
-            background: linear-gradient(135deg, #fc8181 0%, #f56565 100%);
-            color: white;
-        }
-
-        .comparison-good {
-            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
-            color: white;
-        }
-
-        .comparison-arrow {
-            font-size: 4rem;
-            color: #667eea;
-            font-weight: bold;
-        }
-
-        .comparison-price {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin: 15px 0;
-        }
-
-        .comparison-features {
-            text-align: left;
-            margin-top: 15px;
-        }
-
-        .comparison-features li {
-            margin: 8px 0;
+        .comparison-item {
+            padding: 12px;
+            margin: 10px 0;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
         }
 
         .savings-callout {
-            background: #fef3c7;
-            border: 3px solid #f59e0b;
-            padding: 25px;
-            border-radius: 15px;
             text-align: center;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #38a169;
             margin-top: 30px;
-        }
-
-        .savings-callout .amount {
-            font-size: 3rem;
-            color: #b45309;
-            font-weight: 700;
-        }
-
-        /* SOCIAL PROOF */
-        .social-proof {
-            background: rgba(255, 255, 255, 0.98);
-            padding: 40px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        }
-
-        .social-proof h2 {
-            text-align: center;
-            color: #2d3748;
-            margin-bottom: 30px;
-        }
-
-        .endorsements {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
-        .endorsement {
-            background: #f7fafc;
-            padding: 25px;
+            padding: 20px;
+            background: #f0fff4;
             border-radius: 10px;
-            border-left: 5px solid #667eea;
         }
 
-        .endorsement-name {
-            font-weight: 700;
-            color: #2d3748;
-            margin-bottom: 5px;
-        }
-
-        .endorsement-title {
-            font-size: 0.9rem;
-            color: #718096;
-            margin-bottom: 10px;
-        }
-
-        .endorsement-quote {
-            font-style: italic;
-            color: #4a5568;
-        }
-
-        /* VIDEO EMBED */
+        /* VIDEO SECTION */
         .video-section {
-            background: rgba(255, 255, 255, 0.98);
+            background: white;
             padding: 40px;
-            border-radius: 15px;
-            margin-bottom: 30px;
+            border-radius: 20px;
+            margin-bottom: 40px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
 
         .video-section h2 {
             color: #2d3748;
+            font-size: 2rem;
             margin-bottom: 20px;
         }
 
-        .video-embed {
-            max-width: 800px;
-            margin: 0 auto;
-            aspect-ratio: 16/9;
-            background: #000;
-            border-radius: 10px;
+        .video-placeholder {
+            background: #2d3748;
+            color: white;
+            padding: 80px;
+            border-radius: 15px;
+            font-size: 1.5rem;
+        }
+
+        /* SOCIAL PROOF */
+        .social-proof {
+            background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-proof h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .proof-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .proof-item {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        .proof-item h3 {
+            margin-bottom: 10px;
+            font-size: 1.3rem;
         }
 
         /* FAQ PREVIEW */
         .faq-preview {
-            background: rgba(255, 255, 255, 0.98);
+            background: white;
             padding: 40px;
-            border-radius: 15px;
-            margin-bottom: 30px;
+            border-radius: 20px;
+            margin-bottom: 40px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
 
         .faq-preview h2 {
-            color: #2d3748;
-            margin-bottom: 20px;
             text-align: center;
-        }
-
-        .faq-quick {
-            display: grid;
-            gap: 20px;
+            color: #2d3748;
+            font-size: 2rem;
+            margin-bottom: 30px;
         }
 
         .faq-item {
-            background: #f7fafc;
+            margin-bottom: 25px;
             padding: 20px;
+            background: #f7fafc;
             border-radius: 10px;
-            border-left: 4px solid #667eea;
+            border-left: 5px solid #667eea;
         }
 
         .faq-question {
             font-weight: 700;
+            font-size: 1.2rem;
             color: #2d3748;
             margin-bottom: 10px;
-            font-size: 1.1rem;
         }
 
         .faq-answer {
             color: #4a5568;
+            line-height: 1.8;
         }
 
-        /* AFFORDABILITY CRISIS HERO */
-        .affordability-hero {
-            background: linear-gradient(135deg, #ed8936 0%, #dd6b20 100%);
-            color: white;
-            padding: 35px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            border: 3px solid #fff;
-        }
-
-        .affordability-hero h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
+        .faq-link {
             text-align: center;
+            margin-top: 30px;
         }
 
-        .affordability-stat {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 15px;
-            border-radius: 10px;
-            margin: 10px 0;
-            font-size: 1.1rem;
+        .faq-link a {
+            color: #667eea;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-decoration: none;
         }
 
-        /* FIGHT CLUB HERO */
-        .fight-club-hero {
-            background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
-            color: white;
-            padding: 40px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            border: 3px solid #fff;
-        }
-
-        .fight-club-hero h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .highlight {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 20px;
-            border-radius: 10px;
-            margin: 15px 0;
+        .faq-link a:hover {
+            text-decoration: underline;
         }
 
         .content-box {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 30px;
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px;
             margin-bottom: 30px;
-            border-radius: 15px;
+            border-radius: 20px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
 
@@ -405,82 +386,57 @@
             padding-bottom: 10px;
         }
 
-        h3 {
-            color: #4a5568;
-            font-size: 1.5rem;
-            margin: 20px 0 15px 0;
-        }
-
         ul {
             margin-left: 25px;
             margin-bottom: 20px;
         }
 
         li {
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             line-height: 1.8;
         }
 
         strong {
-            color: #2d3748;
+            color: #667eea;
         }
 
-        .callout-box {
-            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
-            color: white;
-            padding: 30px;
-            border-radius: 15px;
-            margin: 30px 0;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-        }
-
-        .callout-box h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: white;
-        }
-
-        .politician-callout {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-
-        .button {
-            display: inline-block;
-            background: #667eea;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 700;
-            margin: 10px 5px;
-            transition: background 0.3s;
-        }
-
-        .button:hover {
-            background: #764ba2;
-        }
-
+        /* FOOTER */
         footer {
-            background: rgba(45, 55, 72, 0.95);
+            background: rgba(45, 55, 72, 0.98);
             color: white;
             text-align: center;
-            padding: 25px;
-            border-radius: 15px;
+            padding: 40px;
+            border-radius: 20px;
             margin-top: 40px;
         }
 
+        .footer-copyright {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .footer-copyright a {
+            color: #fbbf24;
+            text-decoration: none;
+        }
+
+        .footer-copyright a:hover {
+            text-decoration: underline;
+        }
+
         @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
             .comparison-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
             }
             
-            .comparison-arrow {
-                transform: rotate(90deg);
-                font-size: 3rem;
-            }
-            
-            .fixed-cta-buttons {
+            .price-comparison {
                 flex-direction: column;
             }
         }
@@ -488,334 +444,197 @@
 </head>
 <body>
     <div class="container">
-        <!-- COPYRIGHT BANNER -->
-        <div class="copyright-banner">
-            <strong>© PHIERS.org Since 2014 - Original Concept - All Rights Reserved</strong><br>
-            Prior art documented. Independent validation by Mark Cuban Cost Plus Drugs & Zort Elite Medical.<br>
-            <em>⚠️ Recent trademark applications by third parties do not reflect original authorship.</em>
-        </div>
-
         <nav>
             <ul>
-                <li><a href="#comparison">The Math</a></li>
-                <li><a href="#video">Watch Video</a></li>
-                <li><a href="#affordability">Crisis</a></li>
-                <li><a href="#fight-club">Fight Club</a></li>
+                <li><a href="#crisis">The Crisis</a></li>
+                <li><a href="#solution">The Solution</a></li>
+                <li><a href="#comparison">Compare</a></li>
+                <li><a href="#proof">Proof</a></li>
                 <li><a href="#faq">FAQ</a></li>
-                <li><a href="#proof">Validation</a></li>
-                <li><a href="#action">Join Now</a></li>
+                <li><a href="#join">Join Now</a></li>
             </ul>
         </nav>
 
-        <header>
-            <h1>PHIERS Initiative</h1>
-            <p class="subtitle">🔥 America's Affordability Solution 🔥</p>
-            <p style="text-align: center; font-size: 1.2rem; margin-top: 10px;">
-                <strong>6M+ Americans Ready | $2.73 Trillion Annual Savings | FREE at 3.5%</strong>
-            </p>
-        </header>
+        <!-- HERO: AFFORDABILITY CRISIS -->
+        <div id="crisis" class="hero">
+            <h1>💔 The Healthcare Affordability Crisis Is NOW</h1>
+            
+            <div class="crisis-stats">
+                <div class="crisis-stat">
+                    <div class="crisis-stat-number">$1,904</div>
+                    <div>ACA premiums for 2026<br>(doubled from $888)</div>
+                </div>
+                <div class="crisis-stat">
+                    <div class="crisis-stat-number">44%</div>
+                    <div>of Americans<br>struggling to afford care</div>
+                </div>
+                <div class="crisis-stat">
+                    <div class="crisis-stat-number">$17,496</div>
+                    <div>Employer insurance<br>per employee (2025)</div>
+                </div>
+            </div>
 
-        <!-- VISUAL COMPARISON CHART -->
-        <div id="comparison" class="comparison-hero">
-            <h2>The Math That Solves Everything</h2>
+            <div class="solution">
+                <h2>🎯 PHIERS: The Immediate Affordability Solution</h2>
+                <div class="price-comparison">
+                    <div class="price-box old-price">$8,500/year</div>
+                    <div class="arrow">→</div>
+                    <div class="price-box new-price">$600/year</div>
+                </div>
+                <p style="font-size: 1.5rem; margin-top: 20px;"><strong>FREE comprehensive coverage at 3.5% participation</strong></p>
+            </div>
+        </div>
+
+        <!-- VISUAL COMPARISON -->
+        <div id="comparison" class="comparison-section">
+            <h2>📊 Side-by-Side Comparison</h2>
             
             <div class="comparison-grid">
-                <div class="comparison-box comparison-bad">
+                <div class="comparison-col traditional">
                     <h3>❌ Traditional Insurance</h3>
-                    <div class="comparison-price">$8,500/year</div>
-                    <ul class="comparison-features">
-                        <li>High deductibles ($3,000+)</li>
-                        <li>Limited network</li>
-                        <li>Corporate profits</li>
-                        <li>No say in coverage</li>
-                        <li>Prices keep rising</li>
-                    </ul>
+                    <div class="comparison-item"><strong>Cost:</strong> $8,500/year individual</div>
+                    <div class="comparison-item"><strong>Deductible:</strong> $3,000-$5,000</div>
+                    <div class="comparison-item"><strong>Network:</strong> Limited to approved providers</div>
+                    <div class="comparison-item"><strong>Ownership:</strong> Corporate shareholders profit</div>
+                    <div class="comparison-item"><strong>Control:</strong> Insurance decides what's covered</div>
+                    <div class="comparison-item"><strong>Prescriptions:</strong> Full retail price</div>
                 </div>
-                
-                <div class="comparison-arrow">→</div>
-                
-                <div class="comparison-box comparison-good">
-                    <h3>✅ PHIERS Solution</h3>
-                    <div class="comparison-price">$600/year</div>
-                    <ul class="comparison-features">
-                        <li>No deductibles (at 3.5%)</li>
-                        <li>Any provider (at 3.5%)</li>
-                        <li>Member-owned</li>
-                        <li>You control it</li>
-                        <li>FREE at 3.5%</li>
-                    </ul>
+
+                <div class="comparison-col phiers">
+                    <h3>✅ PHIERS Cooperative</h3>
+                    <div class="comparison-item"><strong>Cost:</strong> $600/year (telehealth)</div>
+                    <div class="comparison-item"><strong>Deductible:</strong> $0 at 3.5%</div>
+                    <div class="comparison-item"><strong>Network:</strong> Telehealth 24/7 + growing centers</div>
+                    <div class="comparison-item"><strong>Ownership:</strong> YOU own cooperative</div>
+                    <div class="comparison-item"><strong>Control:</strong> Members decide coverage</div>
+                    <div class="comparison-item"><strong>Prescriptions:</strong> 80-90% savings (Cost Plus)</div>
                 </div>
             </div>
 
             <div class="savings-callout">
-                <div>YOU SAVE:</div>
-                <div class="amount">$7,900</div>
-                <div>EVERY SINGLE YEAR</div>
+                💰 YOU SAVE $7,900 EVERY SINGLE YEAR 💰
             </div>
         </div>
 
-        <!-- VIDEO SECTION -->
+        <!-- VIDEO -->
         <div id="video" class="video-section">
-            <h2>📺 Watch: The Affordability Solution in 4 Minutes</h2>
-            <p style="margin-bottom: 20px; font-size: 1.1rem;">See how PHIERS transforms America's healthcare from corporate extraction to cooperative economics</p>
-            <div class="video-embed">
-                <iframe width="100%" height="100%" src="https://www.loom.com/embed/ea3273e55db045f2a45629ef58f1abe4" frameborder="0" allowfullscreen style="border-radius: 10px;"></iframe>
+            <h2>🎥 See How PHIERS Transforms Healthcare Affordability</h2>
+            <div class="video-placeholder">
+                📹 4-Minute Overview Video<br>
+                (Upload your Loom video here)
             </div>
-        </div>
-
-        <!-- AFFORDABILITY CRISIS HERO -->
-        <div id="affordability" class="affordability-hero">
-            <h2>💔 The Affordability Crisis Is RIGHT NOW</h2>
-            
-            <div class="affordability-stat">
-                <strong>ACA Premiums DOUBLING:</strong> $888 → $1,904 for 2026 (government shutdown centered on this!)
-            </div>
-            
-            <div class="affordability-stat">
-                <strong>Employer Insurance Hit Record:</strong> $17,496 per employee in 2025
-            </div>
-            
-            <div class="affordability-stat">
-                <strong>44% of Americans</strong> now struggle to afford healthcare
-            </div>
-            
-            <div class="affordability-stat">
-                <strong>Families cutting food budgets</strong> to pay $2,600/month premiums
-            </div>
-
-            <div style="background: rgba(255, 255, 255, 0.3); padding: 25px; border-radius: 10px; margin-top: 25px; text-align: center;">
-                <h3 style="color: white; font-size: 2rem; margin-bottom: 15px;">PHIERS IS THE AFFORDABILITY SOLUTION</h3>
-                <p style="font-size: 1.3rem;"><strong>$600/year vs $8,500/year = Immediate relief</strong></p>
-                <p style="font-size: 1.1rem; margin-top: 10px;">Not promises. Real savings. Starting TODAY.</p>
-            </div>
-        </div>
-
-        <!-- FAQ PREVIEW -->
-        <div id="faq" class="faq-preview">
-            <h2>❓ Common Questions Answered</h2>
-            <p style="text-align: center; margin-bottom: 30px; font-size: 1.1rem;">
-                We know you have concerns. Here are honest answers.
-            </p>
-            
-            <div class="faq-quick">
-                <div class="faq-item">
-                    <div class="faq-question">Q: "What if I get in an accident?"</div>
-                    <div class="faq-answer">
-                        <strong>Honest answer:</strong> If you only have telehealth, serious accidents = out of pocket until we hit 3.5%. 
-                        <strong>Your options:</strong> (1) Keep traditional insurance + add PHIERS Rx savings, (2) Add catastrophic coverage ($100-200/month, still save $5,500), or (3) Take the risk and bank $7,900 savings. 
-                        <strong>At 3.5%:</strong> Everyone gets FREE comprehensive coverage. <a href="/FAQ_COMPREHENSIVE_ENHANCED.md" target="_blank" style="color: #667eea; font-weight: 700;">Read full answer →</a>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">Q: "How does FREE at 3.5% actually work?"</div>
-                    <div class="faq-answer">
-                        <strong>VA precedent:</strong> VA covers 9.5M veterans with bulk purchasing. At 11.6M members (3.5%), we qualify for same negotiating power. 
-                        <strong>The math:</strong> $77.6 billion available from substitution + Rx savings. Enough to cover comprehensive care for everyone. 
-                        <strong>Validated by:</strong> Mark Cuban Cost Plus (operational), Medicare precedent, telehealth platforms. <a href="/FAQ_COMPREHENSIVE_ENHANCED.md" target="_blank" style="color: #667eea; font-weight: 700;">Read detailed mechanism →</a>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">Q: "What about people who NEED traditional insurance?"</div>
-                    <div class="faq-answer">
-                        <strong>They keep it - WE PAY FOR IT at scale:</strong> Before 3.5%: Keep your insurance, add PHIERS Rx savings (immediate benefit). 
-                        <strong>At 3.5%:</strong> Cooperative subsidizes your premiums to $600, covers all deductibles, and builds health centers. 
-                        <strong>Goal:</strong> Partner with CMS so government savings cover vulnerable populations. <a href="/FAQ_COMPREHENSIVE_ENHANCED.md" target="_blank" style="color: #667eea; font-weight: 700;">See complete strategy →</a>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">Q: "Where does '80% don't need hospitalization' come from?"</div>
-                    <div class="faq-answer">
-                        <strong>CDC/NCHS data:</strong> 80-85% of working-age adults (18-64) have ZERO hospitalizations annually. Average 3-4 doctor visits/year (perfect for telehealth). 
-                        <strong>The concentration:</strong> 85% of Medicare spending goes to seniors with 2+ chronic conditions. 
-                        <strong>Our target:</strong> 175M healthy workforce paying $7,000-$21,000 for coverage they statistically won't use. <a href="/FAQ_COMPREHENSIVE_ENHANCED.md" target="_blank" style="color: #667eea; font-weight: 700;">See full data →</a>
-                    </div>
-                </div>
-            </div>
-
-            <div style="text-align: center; margin-top: 30px; padding: 25px; background: #f7fafc; border-radius: 10px;">
-                <h3 style="color: #2d3748; margin-bottom: 15px;">📚 Read Complete FAQ</h3>
-                <p style="margin-bottom: 20px;">Every objection answered. Every pathway explained. Total transparency.</p>
-                <a href="/FAQ_COMPREHENSIVE_ENHANCED.md" target="_blank" class="button">View Full FAQ</a>
-            </div>
-        </div>
-
-        <!-- FIGHT CLUB HERO -->
-        <div id="fight-club" class="fight-club-hero">
-            <h2>⚡ THE FIGHT CLUB: Bold Politics Needs Economic Power ⚡</h2>
-            <div class="highlight">
-                <strong>November 2025: Progressive senators formed the "Fight Club"</strong>
-                <p>Bernie Sanders, Elizabeth Warren, Chris Van Hollen, Chris Murphy, and Tina Smith demanded Democrats back bold candidates who challenge corporate interests—not establishment politicians.</p>
-            </div>
-            <div class="highlight">
-                <strong>The Problem They Identified:</strong>
-                <p>Righteous anger without economic leverage loses to corporate money. Politicians lack spine to challenge corporate interests because corporate donors fund establishment challengers.</p>
-            </div>
-            <div class="highlight">
-                <strong>PHIERS Is the Economic Weapon:</strong>
-                <p>At 3.5% national participation, PHIERS creates <strong>$1.95 BILLION per congressional district</strong> in annual savings. Politicians either champion PHIERS or explain why they're blocking $6,400+ in constituent savings. The math makes resistance politically impossible.</p>
-            </div>
-            <p style="text-align: center; font-size: 1.3rem; margin-top: 20px;"><strong>The Fight Club demands bold politics. PHIERS makes boldness politically safer than timidity.</strong></p>
+            <p style="margin-top: 20px; color: #4a5568;">Watch how PHIERS delivers immediate affordability relief and builds toward FREE comprehensive coverage.</p>
         </div>
 
         <!-- SOCIAL PROOF -->
         <div id="proof" class="social-proof">
             <h2>✅ Independent Validation</h2>
-            <p style="text-align: center; margin-bottom: 30px; font-size: 1.1rem;">
-                This isn't theory. Every piece has been proven by someone else.
-            </p>
             
-            <div class="endorsements">
-                <div class="endorsement">
-                    <div class="endorsement-name">Senator Chris Van Hollen (D-MD)</div>
-                    <div class="endorsement-title">U.S. Senate | Fight Club Member | Since 2014</div>
-                    <div class="endorsement-quote">
-                        "PHIERS.org has the potential to become a vital part of the health care system and I am pleased that it is expanding its efforts in our community."
-                        <br><em>— Letter of Support, March 25, 2014</em>
-                    </div>
+            <div class="proof-grid">
+                <div class="proof-item">
+                    <h3>🏛️ Senator Van Hollen</h3>
+                    <p>"PHIERS has the potential to become a vital part of the health care system."</p>
+                    <p style="font-size: 0.9rem; margin-top: 10px; opacity: 0.8;">March 2014 letter of support</p>
                 </div>
 
-                <div class="endorsement">
-                    <div class="endorsement-name">Mark Cuban Cost Plus Drug Company</div>
-                    <div class="endorsement-title">Operational Validation | Millions Served | Real Prices</div>
-                    <div class="endorsement-quote">
-                        <strong>Proves 80-90% prescription savings achievable:</strong><br>
-                        • Imatinib (cancer): $9,657 → $14 (99.8% savings)<br>
-                        • Mesalamine (Crohn's): $3,000 → $36 (98.8% savings)<br>
-                        Visit costplusdrugs.com to verify any medication
-                    </div>
+                <div class="proof-item">
+                    <h3>💊 Mark Cuban Cost Plus</h3>
+                    <p>Imatinib: $9,657 → $14/year</p>
+                    <p style="margin-top: 10px;">Proves 80-90% prescription savings achievable at scale</p>
                 </div>
 
-                <div class="endorsement">
-                    <div class="endorsement-name">Zort Elite Medical</div>
-                    <div class="endorsement-title">Telehealth Platform | $50/month Comprehensive</div>
-                    <div class="endorsement-quote">
-                        <strong>Proves $600/year telehealth viable:</strong><br>
-                        24/7 doctor access, prescription management, mental health counseling, chronic condition care. Operational model validating PHIERS substitution strategy.
-                    </div>
+                <div class="proof-item">
+                    <h3>🏥 Zort Elite Medical</h3>
+                    <p>$50/month comprehensive telehealth operational since 2023</p>
+                    <p style="margin-top: 10px;">Validates affordable telehealth model</p>
                 </div>
 
-                <div class="endorsement">
-                    <div class="endorsement-name">Harvard Research (Erica Chenoweth)</div>
-                    <div class="endorsement-title">3.5% Rule | 323 Campaigns Studied | 100% Success Rate</div>
-                    <div class="endorsement-quote">
-                        When 3.5% of population mobilizes around clear goals with economic backing, policy change becomes inevitable. Published research validates our 3.5% strategy.
-                    </div>
+                <div class="proof-item">
+                    <h3>🎓 Harvard Research</h3>
+                    <p>Erica Chenoweth: 3.5% threshold = 100% success rate</p>
+                    <p style="margin-top: 10px;">323 campaigns studied with economic backing</p>
                 </div>
-            </div>
 
-            <div style="text-align: center; margin-top: 40px; padding: 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 15px;">
-                <h3 style="color: white; margin-bottom: 15px;">🏛️ Government Precedent</h3>
-                <p style="font-size: 1.1rem;">
-                    <strong>VA covers 9.5M veterans</strong> with 80-90% lower prescription costs through bulk purchasing.<br>
-                    <strong>Medicare Advantage plans</strong> prove cooperative insurance models work at scale.<br>
-                    <strong>PHIERS combines proven models</strong> into transformational affordability solution.
-                </p>
+                <div class="proof-item">
+                    <h3>🤖 AI Consensus</h3>
+                    <p>Claude, ChatGPT, Microsoft Copilot all independently verified PHIERS mathematics</p>
+                    <p style="margin-top: 10px;">Mathematical confirmation across platforms</p>
+                </div>
+
+                <div class="proof-item">
+                    <h3>🏛️ VA Precedent</h3>
+                    <p>9.5M veterans covered with bulk purchasing power</p>
+                    <p style="margin-top: 10px;">Government proves model at scale</p>
+                </div>
             </div>
         </div>
 
-        <!-- THE MATH -->
-        <div class="content-box">
-            <h2>💰 The Math That Changes Everything</h2>
-            <p style="font-size: 1.2rem; margin: 20px 0;">
-                <strong>The Affordability Problem:</strong><br>
-                • Traditional Insurance: $8,500/year (individual) or $24,000/year (family)<br>
-                • 80% of Americans with insurance don't need hospitalization coverage<br>
-                • They're paying for coverage they almost never use
-            </p>
-            <p style="font-size: 1.2rem; margin: 20px 0;">
-                <strong>The PHIERS Affordability Solution:</strong><br>
-                • PHIERS Telehealth: $600/year ($50/month) for individuals AND families<br>
-                • <strong>Savings: $7,900 per person | $23,400 per family ANNUALLY</strong><br>
-                • National Scale: <strong>$2.73 TRILLION annually</strong>
-            </p>
-            <p style="font-size: 1.3rem; margin: 20px 0; text-align: center; background: #f7fafc; padding: 20px; border-radius: 10px;">
-                <strong>At 3.5% participation: FREE comprehensive coverage activates for ALL members</strong>
-            </p>
+        <!-- FAQ PREVIEW -->
+        <div id="faq" class="faq-preview">
+            <h2>❓ Your Top Questions Answered</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">Q: What if I get in an accident?</div>
+                <div class="faq-answer">
+                    <strong>Honest answer:</strong> Before 3.5%, you choose your risk level - keep traditional insurance + add PHIERS savings, or switch to telehealth. At 3.5% (11.6M members), FREE comprehensive coverage activates for everyone. <a href="https://phiersale.github.io/PHIERS-FAQ/" style="color: #667eea;">Read complete answer →</a>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Q: How does FREE at 3.5% work?</div>
+                <div class="faq-answer">
+                    VA covers 9.5M veterans with bulk purchasing. At 11.6M members, PHIERS qualifies for same negotiating power. The $77.6B pool (revenue + Rx savings + substitution) funds comprehensive coverage. <a href="https://phiersale.github.io/PHIERS-FAQ/" style="color: #667eea;">Read complete math →</a>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Q: Why share everything publicly?</div>
+                <div class="faq-answer">
+                    We're real-time problem solvers. By sharing since 2011, we established prior art, let others validate our concepts (Zort, Cuban prove it works), and build cooperative loyalty. When we launch, people choose "the people's plan" over "the profiteers." <a href="https://phiersale.github.io/PHIERS-FAQ/" style="color: #667eea;">Read full strategy →</a>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Q: What about people who NEED traditional insurance?</div>
+                <div class="faq-answer">
+                    Keep it! At scale, PHIERS subsidizes traditional insurance premiums for those with chronic conditions. We cover deductibles. Everyone pays $600, regardless of health status. <a href="https://phiersale.github.io/PHIERS-FAQ/" style="color: #667eea;">Read how we subsidize →</a>
+                </div>
+            </div>
+
+            <div class="faq-link">
+                <a href="https://phiersale.github.io/PHIERS-FAQ/">📋 Read Complete FAQ - Every Objection Answered →</a>
+            </div>
         </div>
 
-        <!-- HOW PHIERS GIVES SPINE -->
+        <!-- REST OF CONTENT -->
         <div class="content-box">
-            <h2>How PHIERS Gives Legislators Spine</h2>
-            <p><strong>Politicians face a brutal calculus:</strong> Challenge corporate interests → Lose corporate funding → Lose to establishment challenger.</p>
-            <p><strong>PHIERS breaks this calculus</strong> through mathematical inevitability:</p>
-            
+            <h2>How PHIERS Works</h2>
             <ul>
-                <li><strong>MATHEMATICAL SPINE:</strong> At $1.95B per district, politicians either champion PHIERS or explain blocking $6,400+ in constituent savings. Resistance becomes politically impossible.</li>
-                
-                <li><strong>CONSTITUENT SPINE:</strong> When 3.5% join, they're an organized bloc funding their own healthcare AND organizing infrastructure.</li>
-                
-                <li><strong>PRIMARY SPINE:</strong> Cooperative savings fund primary challenges. Corporate donor money can't compete with $1.95B district leverage.</li>
-                
-                <li><strong>POLITICAL COVER SPINE:</strong> "My constituents demand this" shields politicians challenging corporate healthcare.</li>
-                
-                <li><strong>LEGACY SPINE:</strong> Early adopters = heroes. Laggards = blocked benefits to serve corporate donors.</li>
+                <li><strong>Phase 1 (Now):</strong> Join for $600/year telehealth + 80-90% prescription savings</li>
+                <li><strong>Phase 2 (3.5%):</strong> At 11.6M members, VA-level negotiating power activates</li>
+                <li><strong>Phase 3 (Scale):</strong> FREE comprehensive coverage for all members</li>
+                <li><strong>Phase 4 (Complete):</strong> Build health centers, subsidize traditional insurance for those who need it</li>
             </ul>
         </div>
 
-        <!-- COMMUNITY ORGANIZERS -->
-        <div class="callout-box">
-            <h3>📢 To Community Organizers & Nonprofits</h3>
-            <p><strong>The Affordability Crisis Demands Immediate Action</strong></p>
-            <p>Families are cutting food budgets to pay premiums. 44% struggle to afford care. The government shut down over this affordability crisis. We need solutions NOW—not promises.</p>
-            
-            <div style="background: rgba(255, 255, 255, 0.2); padding: 20px; border-radius: 10px; margin: 20px 0;">
-                <p><strong>PHIERS Delivers Immediate Affordability Relief:</strong></p>
-                <ul style="margin-left: 20px;">
-                    <li>$600/year vs $8,500/year = $7,900 savings per person</li>
-                    <li>At 3.5%, FREE comprehensive coverage for all members</li>
-                    <li>5-10 million AI-resistant jobs funded by savings</li>
-                    <li>$2.73 trillion builds permanent organizing infrastructure</li>
-                </ul>
-            </div>
-            
-            <p style="margin-top: 20px;"><strong>When we rally around the affordability crisis everyone faces, political divisions lose power. $6,400 in savings transcends partisan labels.</strong></p>
-        </div>
-
-        <!-- POLITICIANS -->
-        <div class="callout-box politician-callout">
-            <h3>⚖️ To Elected Officials: The Affordability Crisis Demands Leadership</h3>
-            <p><strong>Voters Delivered a Clear Message: Solve the Affordability Crisis</strong></p>
-            <p>The Fight Club's formation proves they want politicians who challenge corporate interests. PHIERS gives you three paths:</p>
-            
-            <div style="background: rgba(255, 255, 255, 0.2); padding: 20px; border-radius: 10px; margin: 20px 0;">
-                <p><strong>✅ LEAD: Champion PHIERS Now</strong></p>
-                <p>Deliver immediate affordability relief: $6,400+ annual savings per constituent. Break corporate healthcare monopolies. Become the hero who solved the affordability crisis. National profile as champion.</p>
-            </div>
-            
-            <div style="background: rgba(255, 255, 255, 0.2); padding: 20px; border-radius: 10px; margin: 20px 0;">
-                <p><strong>⚠️ FOLLOW: Wait for 3.5%, Then Support</strong></p>
-                <p>You supported constituents (eventually). But missed chance to lead on affordability crisis. No credit for being pushed.</p>
-            </div>
-            
-            <div style="background: rgba(255, 255, 255, 0.2); padding: 20px; border-radius: 10px; margin: 20px 0;">
-                <p><strong>❌ RESIST: Block PHIERS</strong></p>
-                <p>Explain why corporate donors matter more than families cutting food budgets to pay premiums. Face primary challengers funded by the $1.95B you're blocking. Legacy: Blocked affordability relief to serve corporations.</p>
-            </div>
-            
-            <p style="font-size: 1.2rem; margin-top: 20px;"><strong>At 3.5%, this stops being a choice. The affordability crisis demands action. Choose your role.</strong></p>
-        </div>
-
         <footer>
-            <p><strong>PHIERS.org</strong> | The Affordability Solution for Progressive Politics</p>
-            <p style="margin-top: 10px;"><strong>© PHIERS.org Since 2014 - Original Concept - All Rights Reserved</strong></p>
-            <p style="margin-top: 10px;">Contact: wdprice@phiers.org | (916)306-8967</p>
-            <p style="margin-top: 10px;">Prior art documented. Mark Cuban Cost Plus & Zort Elite validation.</p>
+            <p style="font-size: 1.5rem; margin-bottom: 20px;"><strong>Join the Affordability Solution</strong></p>
+            <p>6M+ Americans Ready • We're 53% to 3.5% Threshold</p>
+            <p style="margin-top: 20px;">Contact: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="34435044465d575174445c5d5146471a5b4653">[email&#160;protected]</a> | (916)306-8967</p>
+            
+            <div class="footer-copyright">
+                <p><strong>© PHIERS.org Since 2014 - Original Concept - All Rights Reserved</strong></p>
+                <p style="margin-top: 10px;">Prior art documented. Mark Cuban Cost Plus & Zort Elite validation.</p>
+                <p style="margin-top: 10px;"><a href="https://phiersale.github.io/PHIERS-FAQ/#public-sharing">Why We Share Everything Publicly</a></p>
+            </div>
         </footer>
     </div>
 
     <!-- FIXED CTA BAR -->
     <div class="fixed-cta">
-        <h3>🚀 JOIN THE AFFORDABILITY SOLUTION NOW</h3>
-        <p class="member-count">6,000,000+ Americans ready to transform healthcare</p>
+        <h3>⚡ JOIN THE AFFORDABILITY SOLUTION NOW ⚡</h3>
+        <p class="member-count">6M+ Americans Ready • 53% to 3.5% Threshold</p>
         <div class="fixed-cta-buttons">
             <a href="https://forms.gle/wtcGaADjp6MnAveH9" class="cta-button">SIGN PETITION</a>
             <a href="https://forms.gle/yG2EiVUfJhSLGsVu6" class="cta-button">COMPLETE SURVEY</a>
-            <a href="/FAQ_COMPREHENSIVE_ENHANCED.md" target="_blank" class="cta-button">READ FAQ</a>
-        </div>
-        <p class="cta-note">Takes 2 minutes • No payment required • Immediate Rx savings access</p>
-    </div>
-</body>
-</html>
+            <a href="https://phiersale.github.io/PHIERS-FAQ/" class="cta-button">READ F
