@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHIERS - The Affordability Solution | $600 vs $8,500</title>
-    <meta name="description" content="Healthcare affordability crisis solved: $600/year vs $8,500/year. FREE coverage at 3.5%. Join 6M+ Americans.">
+    <title>PHIERS | MABAH: Making America Better And Healthier - On Our Terms</title>
     <style>
         * {
             margin: 0;
@@ -13,635 +12,1107 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #1a1a1a;
+            background: #f8f9fa;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
-            padding-bottom: 120px;
+            padding: 0 20px;
         }
 
-        /* FIXED CTA BAR */
-        .fixed-cta {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(135deg, #000 0%, #1a202c 100%);
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             color: white;
-            padding: 20px;
-            text-align: center;
-            z-index: 9999;
-            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
-            border-top: 3px solid #667eea;
-        }
-
-        .fixed-cta h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
-
-        .member-count {
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-            color: #fbbf24;
-        }
-
-        .fixed-cta-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .cta-button {
-            background: #667eea;
-            color: white;
-            padding: 15px 35px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        .cta-button:hover {
-            background: #5a67d8;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-        }
-
-        .cta-note {
-            font-size: 0.9rem;
-            margin-top: 10px;
-            opacity: 0.8;
-        }
-
-        nav {
+            padding: 1rem 0;
             position: sticky;
             top: 0;
-            background: rgba(45, 55, 72, 0.98);
-            padding: 15px 0;
             z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            margin-bottom: 30px;
-            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        nav ul {
-            list-style: none;
+        .header-content {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
+            align-items: center;
             flex-wrap: wrap;
-            gap: 20px;
         }
 
-        nav a {
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
             color: white;
             text-decoration: none;
-            font-weight: 600;
-            padding: 8px 16px;
-            border-radius: 8px;
-            transition: background 0.3s;
         }
 
-        nav a:hover {
-            background: rgba(102, 126, 234, 0.8);
+        .contact-header {
+            text-align: right;
+            font-size: 0.9rem;
         }
 
-        /* HERO SECTION - AFFORDABILITY CRISIS */
-        .hero {
-            background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+        .contact-header a {
             color: white;
-            padding: 60px 40px;
-            border-radius: 20px;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            text-decoration: none;
+            margin-left: 15px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
             text-align: center;
         }
 
         .hero h1 {
             font-size: 3rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-bottom: 1rem;
+            line-height: 1.2;
         }
 
-        .hero .crisis-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
         }
 
-        .crisis-stat {
-            background: rgba(0, 0, 0, 0.3);
-            padding: 20px;
+        .hero .tagline {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            background: rgba(255,255,255,0.2);
+            padding: 1.5rem;
             border-radius: 10px;
+            backdrop-filter: blur(10px);
         }
 
-        .crisis-stat-number {
-            font-size: 2.5rem;
-            font-weight: 900;
-            margin-bottom: 10px;
+        .hero .crisis-list {
+            font-size: 1.1rem;
+            margin: 1.5rem 0;
+            line-height: 1.8;
         }
 
         .hero .solution {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 30px;
-            border-radius: 15px;
-            margin-top: 30px;
-        }
-
-        .hero .solution h2 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-
-        .price-comparison {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 30px;
-            margin: 20px 0;
-            flex-wrap: wrap;
-        }
-
-        .price-box {
-            padding: 20px 40px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin: 2rem 0 1rem 0;
+            background: rgba(255,255,255,0.3);
+            padding: 1.5rem;
             border-radius: 10px;
-            font-size: 2rem;
-            font-weight: 700;
         }
 
-        .old-price {
-            background: rgba(0, 0, 0, 0.3);
-            text-decoration: line-through;
+        /* CTA Buttons */
+        .cta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 2rem 0;
         }
 
-        .arrow {
-            font-size: 3rem;
-        }
-
-        .new-price {
-            background: rgba(72, 187, 120, 0.9);
-            font-size: 2.5rem;
-        }
-
-        /* VISUAL COMPARISON CHART */
-        .comparison-section {
+        .cta-card {
             background: white;
-            padding: 40px;
-            border-radius: 20px;
-            margin-bottom: 40px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            color: #1a1a1a;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
         }
 
-        .comparison-section h2 {
-            text-align: center;
-            color: #2d3748;
+        .cta-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .cta-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .cta-card p {
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(102,126,234,0.4);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: #667eea;
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 0;
+        }
+
+        section h2 {
             font-size: 2.5rem;
-            margin-bottom: 30px;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #1e3c72;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Video Section */
+        .video-section {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .video-section h2 {
+            color: white;
+        }
+
+        .video-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            background: rgba(0,0,0,0.3);
+            padding: 3rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .video-placeholder {
+            background: rgba(0,0,0,0.5);
+            padding: 4rem 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .video-placeholder h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .video-cta {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        /* Validation Section */
+        .validation {
+            background: white;
+        }
+
+        .validation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 3rem;
+        }
+
+        .validation-item {
+            padding: 2rem;
+            background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
+            border-radius: 10px;
+            border-left: 4px solid #00acc1;
+        }
+
+        .validation-item h3 {
+            color: #00695c;
+            margin-bottom: 1rem;
+        }
+
+        /* People vs Elites */
+        .people-power {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
         }
 
         .comparison-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin-bottom: 30px;
+            margin-top: 2rem;
         }
 
-        .comparison-col {
-            padding: 30px;
-            border-radius: 15px;
-        }
-
-        .traditional {
-            background: linear-gradient(135deg, #fed7d7 0%, #feb2b2 100%);
-            border: 3px solid #e53e3e;
-        }
-
-        .phiers {
-            background: linear-gradient(135deg, #c6f6d5 0%, #9ae6b4 100%);
-            border: 3px solid #38a169;
-        }
-
-        .comparison-col h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .comparison-item {
-            padding: 12px;
-            margin: 10px 0;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 8px;
-        }
-
-        .savings-callout {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: #38a169;
-            margin-top: 30px;
-            padding: 20px;
-            background: #f0fff4;
-            border-radius: 10px;
-        }
-
-        /* VIDEO SECTION */
-        .video-section {
+        .comparison-card {
             background: white;
-            padding: 40px;
-            border-radius: 20px;
-            margin-bottom: 40px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .video-section h2 {
-            color: #2d3748;
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-
-        .video-placeholder {
-            background: #2d3748;
-            color: white;
-            padding: 80px;
+            padding: 2rem;
             border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .comparison-card h3 {
+            margin-bottom: 1rem;
             font-size: 1.5rem;
         }
 
-        /* SOCIAL PROOF */
-        .social-proof {
-            background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+        .comparison-card.not {
+            border-left: 4px solid #f44336;
+        }
+
+        .comparison-card.not h3 {
+            color: #f44336;
+        }
+
+        .comparison-card.is {
+            border-left: 4px solid #4caf50;
+        }
+
+        .comparison-card.is h3 {
+            color: #4caf50;
+        }
+
+        .comparison-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .comparison-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .comparison-card.not li:before {
+            content: "❌";
+            position: absolute;
+            left: 0;
+        }
+
+        .comparison-card.is li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        .leverage-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 40px;
-            border-radius: 20px;
-            margin-bottom: 40px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-        }
-
-        .social-proof h2 {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 30px;
-        }
-
-        .proof-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .proof-item {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 25px;
+            padding: 2rem;
             border-radius: 15px;
+            margin-top: 2rem;
+            text-align: center;
         }
 
-        .proof-item h3 {
-            margin-bottom: 10px;
+        .leverage-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Engine Section */
+        .engine {
+            background: white;
+        }
+
+        .engine-visual {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .engine-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 2rem 0;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .arrow {
+            font-size: 2rem;
+            color: #4caf50;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 2rem;
+        }
+
+        .solution-pill {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem;
+            border-radius: 25px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        /* For Leaders Section */
+        .for-leaders {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+
+        .leader-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 2rem;
+        }
+
+        .leader-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .leader-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
             font-size: 1.3rem;
         }
 
-        /* FAQ PREVIEW */
-        .faq-preview {
+        .leader-card p {
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        .coalition-box {
             background: white;
-            padding: 40px;
-            border-radius: 20px;
-            margin-bottom: 40px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        }
-
-        .faq-preview h2 {
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
             text-align: center;
-            color: #2d3748;
-            font-size: 2rem;
-            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
-        .faq-item {
-            margin-bottom: 25px;
-            padding: 20px;
-            background: #f7fafc;
-            border-radius: 10px;
-            border-left: 5px solid #667eea;
-        }
-
-        .faq-question {
-            font-weight: 700;
-            font-size: 1.2rem;
-            color: #2d3748;
-            margin-bottom: 10px;
-        }
-
-        .faq-answer {
-            color: #4a5568;
-            line-height: 1.8;
-        }
-
-        .faq-link {
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        .faq-link a {
+        .coalition-box h3 {
             color: #667eea;
-            font-weight: 700;
-            font-size: 1.2rem;
-            text-decoration: none;
+            margin-bottom: 1.5rem;
         }
 
-        .faq-link a:hover {
+        /* Urgency Section */
+        .urgency {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
+            color: white;
+        }
+
+        .urgency h2 {
+            color: white;
+        }
+
+        .crisis-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 2rem;
+        }
+
+        .crisis-card {
+            background: rgba(255,255,255,0.95);
+            color: #1a1a1a;
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid #ff6b6b;
+        }
+
+        .crisis-card h3 {
+            color: #ff6b6b;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .response-box {
+            background: rgba(255,255,255,0.2);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .response-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .response-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .response-box li {
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        .response-box li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        /* Resources Section */
+        .resources {
+            background: white;
+        }
+
+        .resource-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 2rem;
+        }
+
+        .resource-category {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid #1976d2;
+        }
+
+        .resource-category h3 {
+            color: #0d47a1;
+            margin-bottom: 1.5rem;
+        }
+
+        .resource-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .resource-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .resource-list li:last-child {
+            border-bottom: none;
+        }
+
+        .resource-list a {
+            color: #1976d2;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .resource-list a:hover {
             text-decoration: underline;
         }
 
-        .content-box {
-            background: rgba(255, 255, 255, 0.98);
-            padding: 40px;
-            margin-bottom: 30px;
-            border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-            color: #2d3748;
-            font-size: 2rem;
-            margin-bottom: 20px;
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 10px;
-        }
-
-        ul {
-            margin-left: 25px;
-            margin-bottom: 20px;
-        }
-
-        li {
-            margin-bottom: 15px;
-            line-height: 1.8;
-        }
-
-        strong {
-            color: #667eea;
-        }
-
-        /* FOOTER */
-        footer {
-            background: rgba(45, 55, 72, 0.98);
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             color: white;
             text-align: center;
-            padding: 40px;
-            border-radius: 20px;
-            margin-top: 40px;
         }
 
-        .footer-copyright {
-            font-size: 0.9rem;
-            opacity: 0.8;
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        .final-cta h2 {
+            color: white;
         }
 
-        .footer-copyright a {
-            color: #fbbf24;
+        .final-cta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 2rem;
+        }
+
+        .final-cta-card {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .final-cta-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        footer a {
+            color: #667eea;
             text-decoration: none;
         }
 
-        .footer-copyright a:hover {
-            text-decoration: underline;
-        }
-
+        /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2rem;
             }
-            
-            .comparison-grid {
-                grid-template-columns: 1fr;
+
+            .hero .subtitle {
+                font-size: 1.2rem;
             }
-            
-            .price-comparison {
-                flex-direction: column;
+
+            .hero .tagline {
+                font-size: 1.1rem;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+
+            .cta-grid,
+            .validation-grid,
+            .comparison-grid,
+            .leader-cards,
+            .crisis-cards,
+            .resource-categories,
+            .final-cta-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
+
+<!-- Header -->
+<header>
     <div class="container">
-        <nav>
-            <ul>
-                <li><a href="#crisis">The Crisis</a></li>
-                <li><a href="#solution">The Solution</a></li>
-                <li><a href="#comparison">Compare</a></li>
-                <li><a href="#proof">Proof</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="#join">Join Now</a></li>
-            </ul>
-        </nav>
-
-        <!-- HERO: AFFORDABILITY CRISIS -->
-        <div id="crisis" class="hero">
-            <h1>💔 The Healthcare Affordability Crisis Is NOW</h1>
-            
-            <div class="crisis-stats">
-                <div class="crisis-stat">
-                    <div class="crisis-stat-number">$1,904</div>
-                    <div>ACA premiums for 2026<br>(doubled from $888)</div>
-                </div>
-                <div class="crisis-stat">
-                    <div class="crisis-stat-number">44%</div>
-                    <div>of Americans<br>struggling to afford care</div>
-                </div>
-                <div class="crisis-stat">
-                    <div class="crisis-stat-number">$17,496</div>
-                    <div>Employer insurance<br>per employee (2025)</div>
-                </div>
-            </div>
-
-            <div class="solution">
-                <h2>🎯 PHIERS: The Immediate Affordability Solution</h2>
-                <div class="price-comparison">
-                    <div class="price-box old-price">$8,500/year</div>
-                    <div class="arrow">→</div>
-                    <div class="price-box new-price">$600/year</div>
-                </div>
-                <p style="font-size: 1.5rem; margin-top: 20px;"><strong>FREE comprehensive coverage at 3.5% participation</strong></p>
+        <div class="header-content">
+            <a href="#" class="logo">PHIERS.org</a>
+            <div class="contact-header">
+                <a href="/cdn-cgi/l/email-protection#0d7a697d7f646e684d7d6564687f7e23627f6a"><span class="__cf_email__" data-cfemail="75021105071c161035051d1c1007065b1a0712">[email&#160;protected]</span></a>
+                <a href="tel:+13013907657">(301) 390-7657</a>
             </div>
         </div>
-
-        <!-- VISUAL COMPARISON -->
-        <div id="comparison" class="comparison-section">
-            <h2>📊 Side-by-Side Comparison</h2>
-            
-            <div class="comparison-grid">
-                <div class="comparison-col traditional">
-                    <h3>❌ Traditional Insurance</h3>
-                    <div class="comparison-item"><strong>Cost:</strong> $8,500/year individual</div>
-                    <div class="comparison-item"><strong>Deductible:</strong> $3,000-$5,000</div>
-                    <div class="comparison-item"><strong>Network:</strong> Limited to approved providers</div>
-                    <div class="comparison-item"><strong>Ownership:</strong> Corporate shareholders profit</div>
-                    <div class="comparison-item"><strong>Control:</strong> Insurance decides what's covered</div>
-                    <div class="comparison-item"><strong>Prescriptions:</strong> Full retail price</div>
-                </div>
-
-                <div class="comparison-col phiers">
-                    <h3>✅ PHIERS Cooperative</h3>
-                    <div class="comparison-item"><strong>Cost:</strong> $600/year (telehealth)</div>
-                    <div class="comparison-item"><strong>Deductible:</strong> $0 at 3.5%</div>
-                    <div class="comparison-item"><strong>Network:</strong> Telehealth 24/7 + growing centers</div>
-                    <div class="comparison-item"><strong>Ownership:</strong> YOU own cooperative</div>
-                    <div class="comparison-item"><strong>Control:</strong> Members decide coverage</div>
-                    <div class="comparison-item"><strong>Prescriptions:</strong> 80-90% savings (Cost Plus)</div>
-                </div>
-            </div>
-
-            <div class="savings-callout">
-                💰 YOU SAVE $7,900 EVERY SINGLE YEAR 💰
-            </div>
-        </div>
-
-        <!-- VIDEO -->
-        <div id="video" class="video-section">
-            <h2>🎥 See How PHIERS Transforms Healthcare Affordability</h2>
-            <div class="video-placeholder">
-                📹 4-Minute Overview Video<br>
-                (Upload your Loom video here)
-            </div>
-            <p style="margin-top: 20px; color: #4a5568;">Watch how PHIERS delivers immediate affordability relief and builds toward FREE comprehensive coverage.</p>
-        </div>
-
-        <!-- SOCIAL PROOF -->
-        <div id="proof" class="social-proof">
-            <h2>✅ Independent Validation</h2>
-            
-            <div class="proof-grid">
-                <div class="proof-item">
-                    <h3>🏛️ Senator Van Hollen</h3>
-                    <p>"PHIERS has the potential to become a vital part of the health care system."</p>
-                    <p style="font-size: 0.9rem; margin-top: 10px; opacity: 0.8;">March 2014 letter of support</p>
-                </div>
-
-                <div class="proof-item">
-                    <h3>💊 Mark Cuban Cost Plus</h3>
-                    <p>Imatinib: $9,657 → $14/year</p>
-                    <p style="margin-top: 10px;">Proves 80-90% prescription savings achievable at scale</p>
-                </div>
-
-                <div class="proof-item">
-                    <h3>🏥 Zort Elite Medical</h3>
-                    <p>$50/month comprehensive telehealth operational since 2023</p>
-                    <p style="margin-top: 10px;">Validates affordable telehealth model</p>
-                </div>
-
-                <div class="proof-item">
-                    <h3>🎓 Harvard Research</h3>
-                    <p>Erica Chenoweth: 3.5% threshold = 100% success rate</p>
-                    <p style="margin-top: 10px;">323 campaigns studied with economic backing</p>
-                </div>
-
-                <div class="proof-item">
-                    <h3>🤖 AI Consensus</h3>
-                    <p>Claude, ChatGPT, Microsoft Copilot all independently verified PHIERS mathematics</p>
-                    <p style="margin-top: 10px;">Mathematical confirmation across platforms</p>
-                </div>
-
-                <div class="proof-item">
-                    <h3>🏛️ VA Precedent</h3>
-                    <p>9.5M veterans covered with bulk purchasing power</p>
-                    <p style="margin-top: 10px;">Government proves model at scale</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- FAQ PREVIEW -->
-        <div id="faq" class="faq-preview">
-            <h2>❓ Your Top Questions Answered</h2>
-
-            <div class="faq-item">
-                <div class="faq-question">Q: What if I get in an accident?</div>
-                <div class="faq-answer">
-                    <strong>Honest answer:</strong> Before 3.5%, you choose your risk level - keep traditional insurance + add PHIERS savings, or switch to telehealth. At 3.5% (11.6M members), FREE comprehensive coverage activates for everyone. <a href="https://phiersale.github.io/PHIERS-FAQ/" style="color: #667eea;">Read complete answer →</a>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">Q: How does FREE at 3.5% work?</div>
-                <div class="faq-answer">
-                    VA covers 9.5M veterans with bulk purchasing. At 11.6M members, PHIERS qualifies for same negotiating power. The $77.6B pool (revenue + Rx savings + substitution) funds comprehensive coverage. <a href="https://phiersale.github.io/PHIERS-FAQ/" style="color: #667eea;">Read complete math →</a>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">Q: Why share everything publicly?</div>
-                <div class="faq-answer">
-                    We're real-time problem solvers. By sharing since 2011, we established prior art, let others validate our concepts (Zort, Cuban prove it works), and build cooperative loyalty. When we launch, people choose "the people's plan" over "the profiteers." <a href="https://phiersale.github.io/PHIERS-FAQ/" style="color: #667eea;">Read full strategy →</a>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">Q: What about people who NEED traditional insurance?</div>
-                <div class="faq-answer">
-                    Keep it! At scale, PHIERS subsidizes traditional insurance premiums for those with chronic conditions. We cover deductibles. Everyone pays $600, regardless of health status. <a href="https://phiersale.github.io/PHIERS-FAQ/" style="color: #667eea;">Read how we subsidize →</a>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">Q: What happens when we reach 100 MILLION members?</div>
-                <div class="faq-answer">
-                    <strong>THE PEOPLE'S CO-OP PLAN becomes dominant:</strong> $790B annual savings pool. FREE comprehensive coverage for all 100M. 230,000 members per congressional district. Unmatched negotiating power (10x larger than VA). Corporate insurance becomes the niche option. Cooperative economics proves it defeats extraction. <a href="https://phiersale.github.io/PHIERS-FAQ/" style="color: #667eea;">Read full vision →</a>
-                </div>
-            </div>
-
-            <div class="faq-link">
-                <a href="https://phiersale.github.io/PHIERS-FAQ/">📋 Read Complete FAQ - Every Objection Answered →</a>
-            </div>
-        </div>
-
-        <!-- REST OF CONTENT -->
-        <div class="content-box">
-            <h2>How PHIERS Works</h2>
-            <ul>
-                <li><strong>Phase 1 (Now):</strong> Join for $600/year telehealth + 80-90% prescription savings</li>
-                <li><strong>Phase 2 (3.5%):</strong> At 11.6M members, VA-level negotiating power activates</li>
-                <li><strong>Phase 3 (Scale):</strong> FREE comprehensive coverage for all members</li>
-                <li><strong>Phase 4 (Complete):</strong> Build health centers, subsidize traditional insurance for those who need it</li>
-            </ul>
-        </div>
-
-        <footer>
-            <p style="font-size: 1.5rem; margin-bottom: 20px;"><strong>Join the Affordability Solution</strong></p>
-            <p>6M+ Americans Ready • We're 53% to 3.5% Threshold</p>
-            <p style="margin-top: 20px;">Contact: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="34435044465d575174445c5d5146471a5b4653">[email&#160;protected]</a> | (916)306-8967</p>
-            
-            <div class="footer-copyright">
-                <p><strong>© PHIERS.org Since 2014 - Original Concept - All Rights Reserved</strong></p>
-                <p style="margin-top: 10px;">Prior art documented. Mark Cuban Cost Plus & Zort Elite validation.</p>
-                <p style="margin-top: 10px;"><a href="https://phiersale.github.io/PHIERS-FAQ/#public-sharing">Why We Share Everything Publicly</a></p>
-            </div>
-        </footer>
     </div>
+</header>
 
-    <!-- FIXED CTA BAR -->
-    <div class="fixed-cta">
-        <h3>⚡ JOIN THE AFFORDABILITY SOLUTION NOW ⚡</h3>
-        <p class="member-count">6M+ Americans Ready • 53% to 3.5% Threshold</p>
-        <div class="fixed-cta-buttons">
-            <a href="https://forms.gle/wtcGaADjp6MnAveH9" class="cta-button">SIGN PETITION</a>
-            <a href="https://forms.gle/yG2EiVUfJhSLGsVu6" class="cta-button">COMPLETE SURVEY</a>
-            <a href="https://phiersale.github.io/PHIERS-FAQ/" class="cta-button">READ F
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <h1>MABAH: MAKING AMERICA BETTER AND HEALTHIER</h1>
+        <p class="subtitle">On OUR Terms. Not the Elites'.</p>
+        
+        <div class="tagline">
+            Project 2025 and DOGE broke 9 systems.<br>
+            Democrats have no solution with teeth.<br>
+            Republicans have concepts on napkins.<br>
+            <strong>We have the mathematical weapon to fix ALL of it.</strong>
+        </div>
+
+        <div class="crisis-list">
+            <strong>PHIERS delivers $2.73 TRILLION in savings while solving 9 interconnected crises:</strong><br>
+            Healthcare • Jobs • SNAP • Economy • Justice • Political Power<br>
+            Community • Crisis Response • Infrastructure
+        </div>
+
+        <div class="solution">
+            At just <strong>3.5% participation</strong>, we create leverage NO corporate lobby can defeat.<br>
+            This is FOR THE PEOPLE. Spread by THE PEOPLE. Owned by THE PEOPLE.
+        </div>
+
+        <div class="cta-grid">
+            <div class="cta-card">
+                <h3>📹 FOR ORGANIZERS</h3>
+                <p>Union leaders, community organizers, politicians</p>
+                <a href="#video" class="btn">Watch Video Invitation</a>
+            </div>
+            <div class="cta-card">
+                <h3>🤝 FOR EVERYONE</h3>
+                <p>Join the movement to hit 3.5%</p>
+                <a href="#join" class="btn btn-secondary">Join Movement</a>
+            </div>
+            <div class="cta-card">
+                <h3>📄 LEARN MORE</h3>
+                <p>Download complete framework</p>
+                <a href="#resources" class="btn btn-outline">Download Plan</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Video Section -->
+<section id="video" class="video-section">
+    <div class="container">
+        <h2>A Message to Leaders Who Want to Give Constituents Something Real</h2>
+        <p class="section-subtitle" style="color: white;">
+            Union Leaders • Community Organizers • Politicians • Movement Leaders
+        </p>
+
+        <div class="video-container">
+            <div class="video-placeholder">
+                <h3>🎥 Video Coming Soon</h3>
+                <p style="font-size: 1.1rem; margin-top: 1rem;">
+                    A straight-talk message from Will:<br><br>
+                    • Why this actually works<br>
+                    • How we only need 3.5% of people to say yes<br>
+                    • Why we need YOU to help spread the word<br>
+                    • What you can do right now
+                </p>
+            </div>
+
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+                <strong>Hi, I'm Will.</strong> I've been working on this for over 11 years. 
+                Started as just a healthcare fix. But now? With everything falling apart, 
+                this solves way more than healthcare.
+            </p>
+
+            <p style="font-size: 1.1rem; margin-bottom: 2rem;">
+                Look, I'm good at figuring stuff out. But getting millions of people involved? 
+                That's not my thing. That's YOUR thing.
+            </p>
+
+            <p style="font-size: 1.1rem; margin-bottom: 2rem;">
+                <strong>Here's what I'm asking:</strong> Check my work. Look at the numbers. 
+                If you see where I'm wrong, tell me.
+            </p>
+
+            <p style="font-size: 1.1rem; margin-bottom: 2rem;">
+                But if the math checks out - and it does - then I need you to tell people about this. 
+                Your members. Your networks. The folks you work with.
+            </p>
+
+            <div class="video-cta">
+                <a href="#contact" class="btn">Request Briefing</a>
+                <a href="#resources" class="btn btn-secondary">Download Your Custom Analysis</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Validation Section -->
+<section class="validation">
+    <div class="container">
+        <h2>Why This Works — The Models Are Already Proven</h2>
+        <p class="section-subtitle">
+            The validation isn't endorsements—it's that our documented methodologies 
+            from over a decade ago are now being used successfully.
+        </p>
+
+        <div class="validation-grid">
+            <div class="validation-item">
+                <h3>✓ Telehealth Platforms Operating at $600/Year</h3>
+                <p>
+                    Companies using methodologies we documented over a decade ago are successfully 
+                    providing comprehensive coverage at the price point we predicted. Model validated.
+                </p>
+            </div>
+
+            <div class="validation-item">
+                <h3>✓ Mark Cuban Cost Plus Proves Rx Savings</h3>
+                <p>
+                    80-90% prescription savings through cooperative purchasing. Exactly what we 
+                    described years ago. Math confirmed.
+                </p>
+            </div>
+
+            <div class="validation-item">
+                <h3>✓ AI Analysis Validates Mathematical Soundness</h3>
+                <p>
+                    Advanced AI has analyzed our plan: Mathematically sound, politically viable, 
+                    implementation-ready.
+                </p>
+            </div>
+
+            <div class="validation-item">
+                <h3>✓ CMS Payment Structure Exists</h3>
+                <p>
+                    Accountable Care Organizations already receive payments for cost reductions. 
+                    Precedent established. Path proven.
+                </p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 15px;">
+            <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">The Concepts Work. The Math Is Solid. The Models Are Proven.</h3>
+            <p style="font-size: 1.2rem;">
+                What we need now: POLITICAL LEVERAGE to implement at scale.<br>
+                That means 3.5% of Americans saying "I'm in."
+            </p>
+            <p style="font-size: 1.3rem; font-weight: bold; margin-top: 1rem;">
+                WITH YOUR HELP, we can get there.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- People vs Elites -->
+<section class="people-power">
+    <div class="container">
+        <h2>This Is THE PEOPLE'S Movement</h2>
+        <p class="section-subtitle">
+            Not another elite solution. Cooperative economics that gives power back to the people.
+        </p>
+
+        <div class="comparison-grid">
+            <div class="comparison-card not">
+                <h3>NOT Another Elite Solution:</h3>
+                <ul>
+                    <li>Corporate healthcare (they extract wealth)</li>
+                    <li>Government program (requires divided Congress cooperation)</li>
+                    <li>Charity model (unsustainable)</li>
+                    <li>Top-down mandate (people have no say)</li>
+                </ul>
+            </div>
+
+            <div class="comparison-card is">
+                <h3>This IS Cooperative Economics:</h3>
+                <ul>
+                    <li>Members own it (not shareholders)</li>
+                    <li>States can implement (don't need Congress)</li>
+                    <li>Self-funding (no begging for resources)</li>
+                    <li>Bottom-up power (people control it)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="leverage-box">
+            <h3>When 3.5% Participate, We Create Leverage NO Corporate Lobby Can Defeat</h3>
+            <p style="font-size: 1.2rem; margin: 1rem 0;">
+                <strong>230:1</strong> advantage over pharmaceutical lobbying<br>
+                <strong>$1.95 BILLION</strong> economic impact per congressional district
+            </p>
+            <p style="font-size: 1.1rem;">
+                THAT'S how the people take power back. Not by asking elites for permission.<br>
+                By building mathematical superiority they can't ignore.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- The Engine -->
+<section class="engine">
+    <div class="container">
+        <h2>THE ENGINE: Healthcare Savings Fund Everything</h2>
+        <p class="section-subtitle">
+            Why healthcare first? Because healthcare extraction generates the SAVINGS 
+            that fund all 8 other solutions.
+        </p>
+
+        <div class="engine-visual">
+            <div class="engine-flow">
+                <span>Healthcare: <strong>$8,500/year</strong></span>
+                <span class="arrow">→</span>
+                <span><strong>$600/year</strong></span>
+                <span class="arrow">→</span>
+                <span><strong>FREE at 3.5%</strong></span>
+            </div>
+
+            <div style="margin: 2rem 0; padding: 1.5rem; background: rgba(255,255,255,0.7); border-radius: 10px;">
+                <p style="font-size: 1.2rem; font-weight: bold; color: #2e7d32;">
+                    This saves $2.73 TRILLION nationally
+                </p>
+                <p style="font-size: 1.1rem; margin-top: 0.5rem;">
+                    Which funds ↓
+                </p>
+            </div>
+
+            <div class="solutions-grid">
+                <div class="solution-pill">Jobs<br>(2M positions)</div>
+                <div class="solution-pill">SNAP<br>(Automatic 80hrs)</div>
+                <div class="solution-pill">Economic Justice<br>(Black Wall Streets)</div>
+                <div class="solution-pill">Political Leverage<br>(Fight Club weapon)</div>
+                <div class="solution-pill">Community<br>(Mutual aid networks)</div>
+                <div class="solution-pill">Crisis Response<br>(Worker transition)</div>
+                <div class="solution-pill">Legal Protection<br>(Civic law centers)</div>
+                <div class="solution-pill">Infrastructure<br>(Shared services)</div>
+            </div>
+
+            <p style="font-size: 1.3rem; margin-top: 2rem; font-weight: bold; color: #1b5e20;">
+                One Solution. Nine Problems Solved. Zero New Taxes.
+            </p>
+        </div>
+
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="#resources" class="btn">See How All 9 Connect →</a>
+        </div>
+    </div>
+</section>
+
+<!-- For Leaders -->
+<section class="for-leaders">
+    <div class="container">
+        <h2>For Movement Leaders & Organizers</h2>
+        <p class="section-subtitle">
+            We're not competing. We're providing the weapon YOU need.
+        </p>
+
+        <div class="leader-cards">
+            <div class="leader-card">
+                <h3>If You're a Union Leader:</h3>
+                <p>
+                    Your members need healthcare, job security, and political power. 
+                    PHIERS delivers all three while strengthening unions.
+                </p>
+                <a href="#contact" class="btn">Request Union Partnership Briefing</a>
+            </div>
+
+            <div class="leader-card">
+                <h3>If You're a Community Organizer:</h3>
+                <p>
+                    Your networks can mobilize 3.5% in key areas. We provide the 
+                    solution worth organizing around.
+                </p>
+                <a href="#contact" class="btn">Request Organizing Resources</a>
+            </div>
+
+            <div class="leader-card">
+                <h3>If You're a Politician:</h3>
+                <p>
+                    Your constituents need tangible relief, not just resistance. 
+                    PHIERS gives you something real to champion.
+                </p>
+                <a href="#contact" class="btn">Request Custom District Analysis</a>
+            </div>
+
+            <div class="leader-card">
+                <h3>If You're Part of a Movement:</h3>
+                <p>
+                    (No Kings, Indivisible, civic law centers, mutual aid networks...) 
+                    PHIERS strengthens YOUR fight with economic backing.
+                </p>
+                <a href="#contact" class="btn">Request Coalition Briefing</a>
+            </div>
+        </div>
+
+        <div class="coalition-box">
+            <h3>Your Movement Has the Organizing Capacity.<br>
+            PHIERS Has the Mathematical Leverage.<br>
+            Together = Unstoppable.</h3>
+            <p style="font-size: 1.1rem; margin: 1.5rem 0;">
+                Movements we're inviting to PHIERStorm Coalition:<br>
+                <strong>No Kings • Indivisible • Civic Law Centers • Labor Unions • 
+                Community Organizing Networks • Mutual Aid Groups</strong>
+            </p>
+            <a href="#contact" class="btn">Join PHIERStorm Coalition</a>
+        </div>
+    </div>
+</section>
+
+<!-- Urgency -->
+<section class="urgency">
+    <div class="container">
+        <h2>Why NOW? The Moment Demands Action</h2>
+        <p class="section-subtitle" style="color: white;">
+            Three simultaneous crises create the opening for bold solutions.
+        </p>
+
+        <div class="crisis-cards">
+            <div class="crisis-card">
+                <h3>🔴 Even GOP Admits Healthcare Crisis</h3>
+                <p>
+                    <strong>Josh Hawley panics:</strong> "This is a crisis" - demands Democrats 
+                    fix the healthcare crisis that GOP caused. Both sides know it's broken. 
+                    Only PHIERS fixes it.
+                </p>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+                    <a href="PHIERS-News.html" style="color: #667eea;">Read full coverage →</a>
+                </p>
+            </div>
+
+            <div class="crisis-card">
+                <h3>🔴 Trump's Economic Policies Backfiring</h3>
+                <p>
+                    Nation turning against Trump's tariffs and economic chaos. People need 
+                    alternative solutions NOW. PHIERS provides comprehensive economic response.
+                </p>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+                    <a href="PHIERS-News.html" style="color: #667eea;">See latest news →</a>
+                </p>
+            </div>
+
+            <div class="crisis-card">
+                <h3>🔴 December 5, 2025: DOGE Destroys 1 Million Jobs</h3>
+                <p>
+                    Largest federal workforce reduction in 40+ years. Contractors devastated. 
+                    Your constituents/members need solutions NOW, not someday.
+                </p>
+            </div>
+
+            <div class="crisis-card">
+                <h3>🔴 Project 2025: Breaks 9 Systems Simultaneously</h3>
+                <p>
+                    Healthcare, economy, justice, community—all under coordinated attack. 
+                    Traditional piecemeal responses are inadequate. Need comprehensive solution.
+                </p>
+            </div>
+
+            <div class="crisis-card">
+                <h3>🔴 Fight Club Formed But Lacks Leverage</h3>
+                <p>
+                    Schumer, Van Hollen organizing resistance without economic weapon. 
+                    Making demands without constituent backing = empty threats.
+                </p>
+            </div>
+        </div>
+
+        <div class="response-box">
+            <h3>Movements Always Win When They Have:</h3>
+            <ul>
+                <li>Clear demands (not just resistance)</li>
+                <li>Economic backing (not just moral arguments)</li>
+                <li>Constituent pressure (not just DC rallies)</li>
+                <li>Mathematical superiority (not just passion)</li>
+            </ul>
+            <p style="font-size: 1.3rem; margin-top: 1.5rem; font-weight: bold;">
+                PHIERS provides all four.
+            </p>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: rgba(255,255,255,0.2); border-radius: 15px; backdrop-filter: blur(10px);">
+            <p style="font-size: 1.3rem; font-weight: bold; margin-bottom: 1rem;">
+                This is the moment. Affordability validated. Models proven. AI confirms soundness.<br>
+                Political crisis demands bold action.
+            </p>
+            <p style="font-size: 1.2rem;">
+                We need 3.5% to say YES. With movement coalition, that's MONTHS not YEARS.
+            </p>
+            <p style="font-size: 1.5rem; font-weight: bold; margin-top: 1rem;">
+                TIME TO LAUNCH.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Resources -->
+<section id="resources" class="resources">
+    <div class="container">
+        <h2>Comprehensive Resources</h2>
+        <p class="section-subtitle">
+            We're the authoritative source. Everything you need to understand, 
+            evaluate, and implement PHIERS.
+        </p>
+
+        <div class="resource-categories">
+            <div class="resource-category">
+                <h3>📖 Complete Understanding</h3>
+                <ul class="resource-list">
+                    <li><a href="PHIERS-FAQ.html">FAQ: Every Question Answered</a></li>
+                    <li><a href="PHIERS-All-9-Paths.html">All 9 Paths: Full Interconnections</a></li>
+                    <li><a href="PHIERS-News.html">Current News: Headlines Prove Relevance</a></li>
+                    <li><a href="#engine">How It Works: Step-by-Step</a></li>
+                </ul>
+            </div>
+
+            <div class="resource-category">
+                <h3>📄 For Decision Makers</h3>
+                <ul class="resource-list">
+                    <li><a href="National_PHIERS_White_Paper_v4.4_Nov20_2025.docx" download>National Framework White Paper</a></li>
+                    <li><a href="THE_MARYLAND_PHIERS_INITIATIVE_v2_Nov20_2025_Matrix17.docx" download>Maryland State Plan ($17.4B savings)</a></li>
+                    <li><a href="THE_CALIFORNIA_PHIERS_INITIATIVE_v1_Nov22_2025_Matrix18.docx" download>California State Plan ($110B savings)</a></li>
+                    <li><a href="THE_NYC_PHIERS_INITIATIVE_v1.4_Nov20_2025.docx" download>NYC Plan ($38B savings)</a></li>
+                    <li><a href="#contact">Request Custom Analysis for Your Jurisdiction</a></li>
+                </ul>
+            </div>
+
+            <div class="resource-category">
+                <h3>🛠️ For Organizers</h3>
+                <ul class="resource-list">
+                    <li><a href="VanHollen_Email_COMPLETE_Nov20_2025.txt" download>Constituent Communication Templates</a></li>
+                    <li><a href="#contact">Petition/Survey Tools (Request Access)</a></li>
+                    <li><a href="#contact">Social Media Content Kit (Request Access)</a></li>
+                    <li><a href="#contact">Town Hall Talking Points (Request Access)</a></li>
+                    <li><a href="PHIERStorm-Campaign.html">Movement Partnership Frameworks</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-radius: 15px;">
+            <h3 style="color: #0d47a1; margin-bottom: 1rem;">Need Something Custom?</h3>
+            <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">
+                We'll create tailored white papers, district analyses, or partnership 
+                frameworks specific to your needs.
+            </p>
+            <a href="#contact" class="btn">Request Custom Materials</a>
+        </div>
+    </div>
+</section>
+
+<!-- Final CTA -->
+<section id="join" class="final-cta">
+    <div class="container">
+        <h2>The Elites Won't Save Us. We Save Ourselves.</h2>
+        <p class="section-subtitle" style="color: white; font-size: 1.3rem;">
+            3.5% participation = $2.73 TRILLION leverage = Solutions to 9 crises = Power back to the people
+        </p>
+
+        <div class="final-cta-grid">
+            <div class="final-cta-card">
+                <h3>Are You a Multiplier?</h3>
+                <p>Organizer, leader, politician who can mobilize networks</p>
+                <a href="#contact" class="btn">Request Briefing</a>
+                <a href="#contact" class="btn btn-secondary" style="margin-top: 10px;">Get Custom Analysis</a>
+            </div>
+
+            <div class="final-cta-card">
+                <h3>Ready to Join?</h3>
+                <p>Everyone who wants to be part of the solution</p>
+                <a href="#contact" class="btn">Join Movement</a>
+                <a href="#contact" class="btn btn-secondary" style="margin-top: 10px;">Sign Petition</a>
+            </div>
+
+            <div class="final-cta-card">
+                <h3>Want to Go Deeper?</h3>
+                <p>Researchers, press, skeptics who want full details</p>
+                <a href="#resources" class="btn">Download Complete Plan</a>
+                <a href="#resources" class="btn btn-secondary" style="margin-top: 10px;">Explore All 9 Paths</a>
+            </div>
+        </div>
+
+        <div style="margin-top: 3rem; padding: 2rem; background: rgba(255,255,255,0.1); border-radius: 15px; backdrop-filter: blur(10px);">
+            <p style="font-size: 1.5rem; font-weight: bold;">
+                Let's MABAH. Together.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Footer -->
+<footer id="contact">
+    <div class="container">
+        <h3 style="margin-bottom: 1rem;">Ready to Get Started?</h3>
+        <p style="font-size: 1.1rem; margin-bottom: 1rem;">
+            <strong>Will Price</strong><br>
+            Email: <a href="/cdn-cgi/l/email-protection#4b3c2f3b3922282e0b3b23222e39386524392c"><span class="__cf_email__" data-cfemail="0c7b687c7e656f694c7c6465697e7f22637e6b">[email&#160;protected]</span></a><br>
+            Phone: <a href="tel:+13013907657">(301) 390-7657</a>
+        </p>
+        <p style="margin-top: 2rem; color: #888; font-size: 0.9rem;">
+            For Press Inquiries | Partn
