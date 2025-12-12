@@ -3,457 +3,671 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHIERS.org - The Solution Congress Just Failed to Deliver</title>
+    <title>MABAH: Making America Better And Healthier</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-        
-        .crisis-banner {
-            background: linear-gradient(135deg, #c0392b 0%, #8b0000 100%);
-            color: white; padding: 30px; text-align: center; font-size: 1.3em;
-            font-weight: bold; margin-bottom: 0;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
         .header {
-            background: linear-gradient(135deg, #1a5490 0%, #0d3a7a 100%);
-            color: white; padding: 40px; text-align: center;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            text-align: center;
         }
-        
-        .header h1 { font-size: 2.5em; margin-bottom: 10px; }
-        .tagline { font-size: 1.3em; margin-bottom: 20px; }
-        .subtitle { font-size: 0.95em; opacity: 0.95; }
-        
-        .logo { max-width: 300px; margin: 0 auto 20px; }
-        
-        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
-        
-        .section { margin-bottom: 50px; border-left: 5px solid #1a5490; padding-left: 30px; }
-        .section h2 { font-size: 2em; color: #1a5490; margin-bottom: 20px; }
-        
-        .crisis-context {
-            background: #fff3cd; border-left: 5px solid #ffc107; padding: 25px;
-            margin-bottom: 30px; border-radius: 5px;
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #667eea;
+            margin-bottom: 10px;
         }
-        
-        .crisis-context h3 { color: #c0392b; margin-bottom: 15px; }
-        .crisis-context p { margin-bottom: 10px; font-weight: 500; }
-        
-        .the-path {
-            background: #e8f4f8; padding: 30px; border-radius: 8px; margin: 30px 0;
-            border: 2px solid #1a5490;
+
+        .tagline {
+            font-size: 1.3rem;
+            color: #4a5568;
+            font-weight: 600;
+            margin-bottom: 20px;
         }
-        
-        .the-path h3 { color: #1a5490; margin-bottom: 20px; font-size: 1.4em; }
-        
-        .path-step {
-            background: white; padding: 20px; margin: 15px 0; border-left: 4px solid #27ae60;
-            border-radius: 5px;
+
+        .crisis-banner {
+            background: linear-gradient(135deg, #f56565 0%, #c53030 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.1rem;
         }
-        
-        .path-step strong { color: #27ae60; }
-        
-        .mark-cuban-hero {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-            color: white; padding: 40px; border-radius: 8px; margin: 30px 0;
-            text-align: center; border: 3px solid #f39c12;
+
+        .breakthrough-box {
+            background: linear-gradient(135deg, #48bb78 0%, #2f855a 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 30px 0;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
         }
-        
-        .mark-cuban-hero h3 { color: #f39c12; margin-bottom: 20px; font-size: 1.6em; }
-        .mark-cuban-hero p { font-size: 1.1em; margin-bottom: 15px; }
-        .mark-cuban-hero strong { color: #f39c12; }
-        
-        .comparison {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 30px 0;
+
+        .breakthrough-box h2 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 2rem;
         }
-        
-        .compare-box {
-            padding: 20px; border-radius: 8px; text-align: center;
+
+        .content-section {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
-        
-        .compare-box h4 { margin-bottom: 15px; font-size: 1.2em; }
-        .compare-box ul { text-align: left; margin-left: 20px; }
-        .compare-box li { margin-bottom: 10px; }
-        
-        .trumpcare { background: #ffebee; border: 2px solid #c0392b; }
-        .trumpcare h4 { color: #c0392b; }
-        
-        .phiers { background: #e8f5e9; border: 2px solid #27ae60; }
-        .phiers h4 { color: #27ae60; }
-        
-        .faq-item {
-            background: white; padding: 20px; margin: 15px 0; border-radius: 8px;
-            border-left: 4px solid #3498db; cursor: pointer;
+
+        h1 {
+            font-size: 2.8rem;
+            color: #2d3748;
+            margin-bottom: 20px;
+            text-align: center;
         }
-        
-        .faq-item.open .answer { display: block; }
-        .faq-item .answer { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee; }
-        
-        .question { font-weight: bold; color: #1a5490; }
-        .question::before { content: "Q: "; color: #3498db; }
-        
+
+        h2 {
+            font-size: 2rem;
+            color: #667eea;
+            margin: 30px 0 20px 0;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: #4a5568;
+            margin: 20px 0 15px 0;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .stats-box {
+            background: linear-gradient(135deg, #edf2f7 0%, #e2e8f0 100%);
+            border-left: 5px solid #667eea;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .stats-box strong {
+            color: #667eea;
+            font-size: 1.8rem;
+        }
+
+        .loop-diagram {
+            background: white;
+            border: 3px solid #48bb78;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 25px 0;
+            text-align: center;
+        }
+
+        .loop-step {
+            background: linear-gradient(135deg, #e6fffa 0%, #b2f5ea 100%);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 5px solid #38b2ac;
+        }
+
+        .arrow {
+            font-size: 2rem;
+            color: #48bb78;
+            text-align: center;
+            margin: 10px 0;
+        }
+
         .cta-button {
-            display: inline-block; background: #27ae60; color: white;
-            padding: 15px 40px; border-radius: 8px; text-decoration: none;
-            font-weight: bold; margin: 20px 10px 20px 0; transition: background 0.3s;
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin: 15px 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            text-align: center;
         }
-        
-        .cta-button:hover { background: #229954; }
-        
-        .cta-button.primary { background: #c0392b; }
-        .cta-button.primary:hover { background: #a93226; }
-        
-        .resources {
-            background: #f5f5f5; padding: 30px; border-radius: 8px; margin: 30px 0;
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
         }
-        
-        .resources h3 { color: #1a5490; margin-bottom: 20px; }
-        .resources ul { margin-left: 20px; }
-        .resources li { margin-bottom: 15px; }
-        .resources a { color: #1a5490; text-decoration: none; font-weight: bold; }
-        .resources a:hover { text-decoration: underline; }
-        
+
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            border-top: 5px solid #667eea;
+        }
+
+        .benefit-card h3 {
+            color: #667eea;
+            margin-top: 0;
+        }
+
+        ul {
+            margin: 15px 0 15px 25px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+
+        .emphasis {
+            background: linear-gradient(135deg, #fef5e7 0%, #fdeaa8 100%);
+            padding: 20px;
+            border-left: 5px solid #f59e0b;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
         .footer {
-            background: #2c3e50; color: white; padding: 30px; text-align: center;
-            margin-top: 60px;
+            background: rgba(45, 55, 72, 0.98);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 40px;
+            text-align: center;
         }
-        
-        .footer a { color: #3498db; text-decoration: none; }
-        
-        nav { background: #ecf0f1; padding: 15px; margin-bottom: 30px; border-radius: 5px; }
-        nav a { margin: 0 15px; text-decoration: none; color: #1a5490; font-weight: bold; }
-        nav a:hover { color: #0d3a7a; }
-        
+
+        .footer a {
+            color: #90cdf4;
+            text-decoration: none;
+        }
+
         @media (max-width: 768px) {
-            .comparison { grid-template-columns: 1fr; }
-            .header h1 { font-size: 1.8em; }
-            .section { padding-left: 15px; }
+            .logo {
+                font-size: 2rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .benefit-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
-    <script>
-        function toggleFAQ(element) {
-            element.classList.toggle('open');
-        }
-    </script>
 </head>
 <body>
-    <div class="crisis-banner">
-        ⚠️ TRUMPCARE FAILED TODAY - Senate Rejected Both Plans - Here's What Works ⚠️
-    </div>
-
-    <div class="header">
-        <img src="PHIERS_Logo.png" alt="PHIERS" class="logo" style="max-width: 250px;">
-        <h1>PHIERS: The Solution Congress Just Failed to Deliver</h1>
-        <div class="tagline">Making America Better And Healthier (MABAH)</div>
-        <div class="subtitle">Collective Buying Power | Self-Sustaining Path to Healthcare Freedom</div>
-    </div>
-
     <div class="container">
-        <!-- QUICK NAVIGATION -->
-        <nav>
-            <a href="#crisis">Trumpcare Failed</a> |
-            <a href="#solution">The Path</a> |
-            <a href="#cuban">Mark Cuban Power</a> |
-            <a href="#proof">Why It Works</a> |
-            <a href="#faq">FAQ</a> |
-            <a href="https://phiersale.github.io/MABAH-Movement/">For Leaders</a> |
-            <a href="#resources">Resources</a>
-        </nav>
-
-        <!-- SECTION 1: THE CRISIS -->
-        <div class="section" id="crisis">
-            <h2>Trumpcare Just Failed - Here's Why</h2>
+        <!-- COPYRIGHT PROTECTION NOTICE -->
+        <div style="background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%); color: white; padding: 15px 25px; border-radius: 12px; margin-bottom: 20px; border: 2px solid #4a5568; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);">
+            <p style="margin: 0; font-weight: 700; text-align: center; font-size: 1.05rem;">
+                © PHIERS.org Since 2014 - Original Concept - All Rights Reserved
+            </p>
+            <p style="margin: 8px 0 0 0; text-align: center; font-size: 0.95rem; opacity: 0.9;">
+                Prior art documented. PHIERS™, PHIERSale™, PHIERSWorks™, MABAH™ are protected marks established 2014-2025.
+            </p>
+        </div>
+        
+        <div class="header">
+            <!-- PHIERS PRIMARY BRAND -->
+            <img src="PHIERS_Logo.png" alt="PHIERS Logo" style="max-width: 400px; width: 100%; height: auto; margin: 0 auto 20px auto; display: block;">
             
-            <div class="crisis-context">
-                <h3>Today's Senate Vote (December 11, 2025)</h3>
-                <p>✗ Trump Administration's Republican Healthcare Plan: FAILED 51-48</p>
-                <p>✗ Democratic ACA Extension: FAILED 51-48</p>
-                <p><strong>Result:</strong> 22 million Americans face DOUBLED healthcare costs on January 1st</p>
-            </div>
-
-            <h3>Why Both Plans Failed</h3>
-            
-            <div class="comparison">
-                <div class="compare-box trumpcare">
-                    <h4>Trumpcare (REJECTED)</h4>
-                    <ul>
-                        <li>$1,500 HSA annually</li>
-                        <li>Can only pay deductibles</li>
-                        <li>Can't cover premiums</li>
-                        <li>Average deductibles: $7,000-$10,600</li>
-                        <li>Premiums STILL DOUBLE</li>
-                        <li>Called "junk insurance"</li>
-                    </ul>
-                </div>
-                <div class="compare-box trumpcare">
-                    <h4>Democratic Plan (ALSO REJECTED)</h4>
-                    <ul>
-                        <li>Only helps 22M ACA users</li>
-                        <li>Doesn't reduce costs</li>
-                        <li>Doesn't fix root cause</li>
-                        <li>Leaves 222M people unhelped</li>
-                        <li>Temporary fix (expires again)</li>
-                        <li>Still expensive system</li>
-                    </ul>
-                </div>
-                <div class="compare-box phiers">
-                    <h4>PHIERS (THE SOLUTION)</h4>
-                    <ul>
-                        <li>Collective buying power through Mark Cuban</li>
-                        <li>Prescription savings: $80-90/month per person</li>
-                        <li>Covers ENTIRE insurance premium ($50/month)</li>
-                        <li>Extra savings fund next person's insurance</li>
-                        <li>Premiums ELIMINATED</li>
-                        <li>Real insurance coverage</li>
-                        <li>Self-sustaining loop</li>
-                    </ul>
-                </div>
-            </div>
-
-            <p><strong>The Bottom Line:</strong> Both Congress plans failed. GOP offered $1,500 covering 14% of costs. Democrats only helped 22M people and didn't reduce costs. PHIERS uses collective buying power to eliminate premiums entirely for 244M Americans.</p>
+            <!-- MABAH MOVEMENT TAGLINE -->
+            <div class="logo">MABAH Movement</div>
+            <div class="tagline">Making America Better And Healthier</div>
+            <p style="font-size: 1.1rem; color: #718096; margin-top: 10px;">PHIER-Powered Solutions | AFFORDABLE. On OUR Terms. Not the Elites</p>
         </div>
 
-        <!-- SECTION 2B: FOR MOVEMENT LEADERS -->
-        <div class="section" style="background: linear-gradient(135deg, #c0392b 0%, #8b0000 100%); color: white; padding: 40px; border-radius: 8px; margin: 40px 0;">
-            <h3 style="font-size: 1.8em; color: white; border: none; margin-bottom: 20px;">🏛️ FOR MOVEMENT LEADERS & ORGANIZERS</h3>
-            <p style="font-size: 1.1em; line-height: 1.9; margin-bottom: 20px;">
-                Union leaders, community organizers, politicians, and coalition partners: <strong>MABAH-Movement</strong> provides the comprehensive framework you need to mobilize your networks and transform this crisis into political leverage.
-            </p>
-            <p style="font-size: 1.05em; margin-bottom: 20px;">
-                <strong>The math:</strong> 3.5% organized participation = unstoppable political power = $2.73 trillion in healthcare savings = solutions to 9 interconnected crises.
-            </p>
-            <a href="https://phiersale.github.io/MABAH-Movement/" style="display: inline-block; background: white; color: #c0392b; padding: 15px 40px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 1.1em;">Explore MABAH-Movement →</a>
+        <div class="crisis-banner">
+            ⚠️ DECEMBER 5, 2025: DOGE Destroys 1 Million Jobs | Healthcare Costs Skyrocket | Project 2025 Breaks 9 Systems | WE HAVE THE SOLUTION ⚠️
         </div>
 
-        <!-- SECTION 2: THE PATH -->
-        <div class="section" id="solution">
-            <h2>The Path: A Self-Sustaining Solution</h2>
+        <!-- BREAKTHROUGH INSIGHT SECTION -->
+        <div class="breakthrough-box">
+            <h2>🎯 THE BREAKTHROUGH: Self-Funding Universal Healthcare</h2>
+            <p style="font-size: 1.2rem; line-height: 1.8;">
+                We discovered something the elites don't want you to know: <strong>Healthcare savings are SO MASSIVE that they fund EVERYTHING.</strong>
+            </p>
+            <p style="font-size: 1.2rem; line-height: 1.8;">
+                Not just healthcare. Not just jobs. EVERYTHING. Healthcare + UBI + Jobs + Safety Net. All paid for by eliminating corporate middleman extraction. <strong>No new taxes. No government debt. Pure savings.</strong>
+            </p>
+        </div>
+
+        <!-- JOIN THE TEAM SECTION -->
+        <div class="content-section" style="border: 3px solid #667eea; background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);">
+            <h2 style="color: #667eea; text-align: center;">WHAT THEY BROKE, WE FIX! JOIN THE TEAM</h2>
             
-            <div class="the-path">
-                <h3>ONE Clear Path to Healthcare Freedom</h3>
-                
-                <div class="path-step">
-                    <strong>Step 1: Collective Buying Power</strong><br>
-                    244 million people buying together through Mark Cuban's platform (not individually negotiating with insurance companies)
-                </div>
-                
-                <div class="path-step">
-                    <strong>Step 2: Prescription Savings</strong><br>
-                    Collective leverage delivers 80-90% savings on medications ($80-90/month per person)
-                </div>
-                
-                <div class="path-step">
-                    <strong>Step 3: Prescription Savings Fund Insurance</strong><br>
-                    Your $80-90/month in collective savings covers your $50/month telehealth insurance plan
-                </div>
-                
-                <div class="path-step">
-                    <strong>Step 4: Surplus Funds The Next Person</strong><br>
-                    Your extra savings help the next person get cheap insurance at no cost to them
-                </div>
-                
-                <div class="path-step">
-                    <strong>Step 5: System Feeds Itself</strong><br>
-                    Each new person generates surplus that funds the next person—exponential growth powered by collective buying
-                </div>
-                
-                <div class="path-step">
-                    <strong>Step 6: Surplus Funds Everything Else</strong><br>
-                    The $2.73 trillion in redirected savings funds: universal healthcare, $833/month checks, millions of AI-resistant jobs, full safety net
-                </div>
+            <div style="background: linear-gradient(135deg, #48bb78 0%, #38a169 100%); color: white; border-left: 5px solid #22543d; padding: 25px; margin: 20px 0; border-radius: 8px;">
+                <p style="font-size: 1.3rem; font-weight: 700; margin-bottom: 15px;">⚡ OUR 2014 CONCEPTS ARE NOW PROVEN AT BILLION-DOLLAR SCALE</p>
+                <p style="font-size: 1.1rem;">Mark Cuban Cost Plus (2022) and telehealth platforms validate EXACTLY what we predicted over a decade ago. We didn't launch before because the problems kept evolving. NOW Project 2025 + DOGE broke everything—creating the EXACT crisis our solution was designed for.</p>
             </div>
 
-            <h3>What Makes PHIERS Different</h3>
-            <ul style="margin-left: 20px; margin-top: 20px;">
-                <li><strong>Collective buying power:</strong> 244 million people buying together have leverage individual insurance companies can't match</li>
-                <li><strong>Not government-dependent:</strong> System feeds itself through cooperation, not taxes or debt</li>
-                <li><strong>Not insurance-company dependent:</strong> We work with Mark Cuban's model, negotiating directly for better prices</li>
-                <li><strong>Universal appeal:</strong> GOP gets market-based solution, Democrats get expanded access + price controls, Progressives get universal healthcare + UBI</li>
-                <li><strong>Immediate:</strong> Cuban's pharmacies are operational NOW. We scale immediately, not wait for legislation</li>
+            <h3>Strategic Patience Pays Off</h3>
+            <p>We could have launched years ago. But we're <strong>problem solvers</strong>—we waited for the moment when ALL THE DOTS connected. That moment is NOW:</p>
+            <ul>
+                <li><strong>December 2025:</strong> DOGE destroys 1M jobs, healthcare costs explode, families cut food budgets</li>
+                <li><strong>Validation Complete:</strong> Cuban proves prescription model, telehealth proves coverage model</li>
+                <li><strong>Political Opening:</strong> GOP Senator Hawley admits "healthcare is a crisis"—both parties desperate for solutions</li>
+                <li><strong>Mathematical Superiority:</strong> $2.37T in savings creates 230:1 advantage over pharmaceutical lobbying</li>
             </ul>
-        </div>
 
-        <!-- SECTION 3: MARK CUBAN COLLECTIVE BUYING POWER -->
-        <div class="mark-cuban-hero" id="cuban">
-            <h3>🔑 The Hero: Mark Cuban Collective Buying Power</h3>
-            <p>This is how PHIERS actually works. Not theory. Not hope. <strong>Real leverage through numbers.</strong></p>
+            <h3>The Engine Is Ready. NOW We Assemble.</h3>
+            <p><strong>I'm Will Price - Strategic Architect & Problem Solver.</strong> I connect dots others miss. I design systems that solve multi-domain crises. I've spent 11+ years developing PHIERS. The framework is proven. The math works. The timing is perfect.</p>
             
-            <p style="margin-top: 20px; font-size: 1.05em;">
-                <strong>One person negotiating with insurance companies:</strong> You have no power. They set the prices.
+            <p style="font-size: 1.2rem; margin-top: 15px;"><strong>But I don't build alone.</strong> Making this real requires community organizations, grassroots networks, union partners, and movement builders to make this OUR plan together. This isn't one person's business—it's a cooperative movement.</p>
+
+            <h3>We Need YOU to Assemble the Engine:</h3>
+            <ul>
+                <li><strong>Organizers:</strong> Spread the word in communities, unions, churches, neighborhoods</li>
+                <li><strong>Organizations:</strong> Partner with us to co-build and co-own this solution</li>
+                <li><strong>Advocates:</strong> Pressure elected officials—adopt PHIERS or show us better</li>
+                <li><strong>Coalition Builders:</strong> Unite movements around economic leverage that WORKS</li>
+                <li><strong>Tech Volunteers:</strong> Help build enrollment systems and infrastructure</li>
+                <li><strong>Communications Experts:</strong> Amplify the message: WHAT THEY BROKE, WE FIX!</li>
+            </ul>
+
+            <h3>We Launch at 3.5% - Then It's Unstoppable</h3>
+            <p style="font-size: 1.2rem;"><strong>11.7 million Americans committed = mathematical inevitability.</strong> At 3.5%, politicians face $1.95B per district. They either adopt our solution, show us something better, or get primaried. No escape.</p>
+
+            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 12px; margin: 25px 0; text-align: center;">
+                <h3 style="color: white; font-size: 1.8rem; margin-bottom: 15px;">What They Broke, WE Fix!</h3>
+                <p style="font-size: 1.3rem; margin-bottom: 15px;">The parts are proven. The engine is ready. The crisis demands action.</p>
+                <p style="font-size: 1.4rem; font-weight: 700; margin-top: 20px;">NOW we assemble. NOW we launch. NOW we MABAH.</p>
+                <div style="margin-top: 25px;">
+                    <a href="/Join_the_Team/" style="display: inline-block; background: white; color: #667eea; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; margin: 10px;">Join the Assembly →</a>
+                    <a href="/cdn-cgi/l/email-protection#a8dfccd8dac1cbcde8d8c0c1cddadb86c7dacf" style="display: inline-block; background: #48bb78; color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; margin: 10px;">Contact Will Directly</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h1>The Self-Funding System That Changes EVERYTHING</h1>
+            
+            <h2>The Math That Makes It Unstoppable</h2>
+            
+            <div class="stats-box">
+                <p><strong>Traditional Insurance:</strong></p>
+                <p>• Individuals: $8,500/year</p>
+                <p>• Families: $24,000/year</p>
+                <p style="margin-top: 15px;"><strong>PHIERS Telehealth:</strong></p>
+                <p>• Everyone (individuals AND families): $600/year ($50/month)</p>
+                <p style="margin-top: 15px; color: #48bb78; font-weight: bold; font-size: 1.3rem;">
+                    Savings: $7,900/individual | $23,400/family
+                </p>
+            </div>
+
+            <h3>Why This Works: The 80/20 Healthcare Reality</h3>
+            <p><strong>80% of insured Americans do NOT need hospitalization or specialty care.</strong> They need:</p>
+            <ul>
+                <li>Primary care doctor visits</li>
+                <li>Prescription medications</li>
+                <li>Basic lab work</li>
+                <li>Mental health counseling</li>
+                <li>Chronic condition management</li>
+            </ul>
+            <p>All of this can be delivered through telehealth at a fraction of the cost. The 20% who DO need hospitals and specialists? They keep traditional insurance. But 80% can switch to telehealth and save $7,900+ per year.</p>
+
+            <div class="emphasis">
+                <p style="font-size: 1.2rem; font-weight: bold;">
+                    224 million Americans × $7,900 average savings = $1.77 TRILLION in annual savings from insurance substitution alone
+                </p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>The Self-Sustaining Loop: How Prescription Savings Fund Universal Coverage</h2>
+            
+            <p>Here's the magic that makes this system perpetual:</p>
+
+            <div class="loop-diagram">
+                <div class="loop-step">
+                    <h3 style="margin-top: 0;">STEP 1: You Join PHIERS</h3>
+                    <p>Access Mark Cuban Cost Plus for prescriptions<br>
+                    Save 80-90% on medication costs</p>
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <div class="loop-step">
+                    <h3 style="margin-top: 0;">STEP 2: Your Prescription Savings Accumulate</h3>
+                    <p>Average American spends $1,200/year on prescriptions<br>
+                    PHIERS bulk purchasing saves you $960-1,080/year<br>
+                    <strong>That's $80-90 saved per month</strong></p>
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <div class="loop-step">
+                    <h3 style="margin-top: 0;">STEP 3: Savings Sponsor Your Telehealth</h3>
+                    <p>Your $600/year telehealth plan costs $50/month<br>
+                    Your prescription savings ($80-90/month) MORE than cover it<br>
+                    <strong>You get FREE telehealth insurance from your own prescription savings!</strong></p>
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <div class="loop-step">
+                    <h3 style="margin-top: 0;">STEP 4: Surplus Helps Others</h3>
+                    <p>Your extra savings ($20-40/month) help sponsor placement for people who can't afford prescriptions yet<br>
+                    <strong>The more people who join, the more people we can help</strong></p>
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <div class="loop-step" style="background: linear-gradient(135deg, #fef5e7 0%, #fdeaa8 100%);">
+                    <h3 style="margin-top: 0; color: #d97706;">RESULT: Positive Reinforcement Loop</h3>
+                    <p><strong>Each person who saves on prescriptions funds their own telehealth PLUS helps fund others</strong><br>
+                    System becomes stronger as it grows<br>
+                    Eventually reaches critical mass where EVERYONE gets coverage</p>
+                </div>
+            </div>
+
+            <div class="emphasis">
+                <p style="font-size: 1.3rem; font-weight: bold; text-align: center;">
+                    For every $50 you save on prescriptions monthly, we can sponsor placement of ONE person into a $50/month telehealth plan
+                </p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>The National Math: $2.3 TRILLION Funds Universal Healthcare + UBI + Jobs</h2>
+
+            <div class="stats-box">
+                <p><strong>TOTAL ANNUAL SAVINGS:</strong></p>
+                <p>• Insurance substitution: $1.77 TRILLION</p>
+                <p>• Prescription bulk purchasing: $600 BILLION</p>
+                <p style="margin-top: 15px; font-size: 1.5rem; color: #48bb78; font-weight: bold;">
+                    COMBINED TOTAL: $2.37 TRILLION per year
+                </p>
+            </div>
+
+            <h3>What Does $2.37 Trillion Buy Us?</h3>
+
+            <div class="benefit-grid">
+                <div class="benefit-card">
+                    <h3>1. Universal Telehealth Coverage</h3>
+                    <p>$600/year × 224M people</p>
+                    <p><strong>Cost: $134.4 billion</strong></p>
+                    <p>Everyone gets basic healthcare insurance through telehealth</p>
+                </div>
+
+                <div class="benefit-card">
+                    <h3>2. Universal Basic Income (UBI)</h3>
+                    <p>Remaining $2.24 trillion ÷ 224M people</p>
+                    <p><strong>$10,000 per person per year</strong></p>
+                    <p>That's approximately <strong>$833/month</strong> for every American</p>
+                </div>
+
+                <div class="benefit-card">
+                    <h3>3. Job Creation</h3>
+                    <p>Millions of AI-resistant jobs:</p>
+                    <ul style="margin-left: 0; list-style: none;">
+                        <li>✓ Healthcare support</li>
+                        <li>✓ Community services</li>
+                        <li>✓ Food security</li>
+                        <li>✓ Infrastructure</li>
+                        <li>✓ Crisis response</li>
+                    </ul>
+                </div>
+
+                <div class="benefit-card">
+                    <h3>4. Safety Net Restoration</h3>
+                    <p>Full funding for:</p>
+                    <ul style="margin-left: 0; list-style: none;">
+                        <li>✓ SNAP/food assistance</li>
+                        <li>✓ Housing support</li>
+                        <li>✓ Childcare</li>
+                        <li>✓ Education</li>
+                        <li>✓ Emergency aid</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="emphasis">
+                <p style="font-size: 1.2rem; text-align: center;">
+                    <strong>All of this funded by eliminating corporate middleman extraction. Zero new taxes. Zero new debt. Pure operational savings.</strong>
+                </p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Why This Is Politically UNSTOPPABLE</h2>
+
+            <div class="benefit-grid">
+                <div class="benefit-card">
+                    <h3>🔴 Republicans Get:</h3>
+                    <ul>
+                        <li>Massive spending cuts ($2.37T/year)</li>
+                        <li>No new taxes</li>
+                        <li>No new government programs</li>
+                        <li>Free market solutions (Cuban's company)</li>
+                        <li>Job creation during AI crisis</li>
+                    </ul>
+                </div>
+
+                <div class="benefit-card">
+                    <h3>🔵 Democrats Get:</h3>
+                    <ul>
+                        <li>Universal healthcare coverage</li>
+                        <li>Universal Basic Income</li>
+                        <li>Safety net expansion</li>
+                        <li>Job creation</li>
+                        <li>Economic justice</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="breakthrough-box">
+                <h3 style="color: white;">Both Sides Get COMPLETE Victories</h3>
+                <p style="font-size: 1.2rem;">
+                    No compromise required. Republicans get everything they want on spending. Democrats get everything they want on social programs. <strong>Mathematical leverage makes corporate lobbying irrelevant.</strong>
+                </p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>The 3.5% Tipping Point: When The People Take Power</h2>
+
+            <p>Research by Erica Chenoweth (Harvard) proves that when just <strong>3.5% of a population actively participates</strong> in a movement, it always succeeds. Always.</p>
+
+            <div class="stats-box">
+                <p><strong>U.S. Population: 335 million</strong></p>
+                <p><strong>3.5% = 11.7 million Americans</strong></p>
+                <p><strong>Each Congressional District: ~770,000 people</strong></p>
+                <p><strong>3.5% per district = ~27,000 constituents</strong></p>
+                <p style="margin-top: 20px; font-size: 1.3rem; color: #667eea;">
+                    When 27,000 constituents in each district say "adopt PHIERS or we primary you," elected officials have NO choice but to listen.
+                </p>
+            </div>
+
+            <h3>The Economic Leverage:</h3>
+            <ul>
+                <li><strong>$1.95 BILLION</strong> economic impact per congressional district (baseline)</li>
+                <li><strong>230:1 advantage</strong> over pharmaceutical lobbying (minimum)</li>
+                <li><strong>Scales to 2,000:1</strong> as participation grows</li>
+            </ul>
+
+            <p>This isn't asking nicely. This is <strong>mathematical superiority</strong> that forces compliance. Corporate money can't compete with these numbers.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Why RIGHT NOW?</h2>
+
+            <div class="crisis-banner" style="margin-bottom: 20px;">
+                Three Simultaneous Crises Create The Perfect Opening
+            </div>
+
+            <h3>🔴 Crisis #1: DOGE Destroys 1 Million Jobs (December 5, 2025)</h3>
+            <p>1 million jobs destroyed (majority from small businesses devastated by economic chaos). Your constituents need solutions NOW, not someday. PHIERS provides immediate transition support.</p>
+
+            <h3>🔴 Crisis #2: Healthcare Costs Exploding</h3>
+            <p>Even GOP Senator Josh Hawley admits "this is a crisis." Both parties know it's broken. Only PHIERS fixes it.</p>
+
+            <h3>🔴 Crisis #3: Project 2025 Breaks 9 Systems Simultaneously</h3>
+            <p>Healthcare, jobs, SNAP, economy, justice, community—all under coordinated attack. Traditional piecemeal responses are inadequate. PHIERS provides comprehensive solution.</p>
+
+            <div class="emphasis">
+                <p style="font-size: 1.2rem; text-align: center;">
+                    <strong>The moment demands bold action. The math is validated. The models are proven. The crisis is NOW. Time to launch.</strong>
+                </p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Validation: The Models Already Work</h2>
+
+            <div class="benefit-grid">
+                <div class="benefit-card">
+                    <h3>✓ Mark Cuban Cost Plus</h3>
+                    <p>Operational at 200+ pharmacies</p>
+                    <p>80-90% prescription savings proven</p>
+                    <p>Exactly what we predicted years ago</p>
+                </div>
+
+                <div class="benefit-card">
+                    <h3>✓ Telehealth Platforms</h3>
+                    <p>Companies delivering comprehensive coverage at $600/year</p>
+                    <p>Model we documented over a decade ago now operational</p>
+                </div>
+
+                <div class="benefit-card">
+                    <h3>✓ Chenoweth Research</h3>
+                    <p>3.5% participation threshold guarantees success</p>
+                    <p>Proven across 323 movements</p>
+                    <p>100% success rate when reached</p>
+                </div>
+
+                <div class="benefit-card">
+                    <h3>✓ AI Analysis</h3>
+                    <p>Advanced AI systems validate:</p>
+                    <p>• Mathematically sound</p>
+                    <p>• Politically viable</p>
+                    <p>• Implementation-ready</p>
+                </div>
+            </div>
+
+            <p style="text-align: center; font-size: 1.2rem; margin-top: 30px;">
+                <strong>The concepts work. The math is solid. The models are proven. What we need now: POLITICAL LEVERAGE to implement at scale.</strong>
+            </p>
+        </div>
+
+        <div class="content-section">
+            <h2>Who This Is For</h2>
+
+            <h3>🎯 For Union Leaders:</h3>
+            <p>Your members need healthcare, job security, and political power. PHIERS delivers all three while strengthening unions. Request a custom union partnership briefing.</p>
+
+            <h3>🎯 For Community Organizers:</h3>
+            <p>Your networks can mobilize 3.5% in key areas. We provide the solution worth organizing around. Request organizing resources and coalition briefing.</p>
+
+            <h3>🎯 For Politicians:</h3>
+            <p>Your constituents need tangible relief, not just resistance. PHIERS gives you something real to champion. Request custom district analysis showing your constituents' savings.</p>
+
+            <h3>🎯 For Movement Leaders:</h3>
+            <p>(No Kings, Indivisible, civic law centers, mutual aid networks...) PHIERS strengthens YOUR fight with economic backing. Join the PHIERStorm Coalition.</p>
+
+            <h3>🎯 For EVERYONE:</h3>
+            <p>You want affordable healthcare, economic security, and to stop feeling powerless. PHIERS provides all three through cooperative economics that YOU control.</p>
+        </div>
+
+        <div class="breakthrough-box" style="text-align: center;">
+            <h2>Ready to Join The Movement?</h2>
+            <p style="font-size: 1.3rem; margin-bottom: 30px;">
+                We need 3.5% to say YES. With your help, that's MONTHS not YEARS.
             </p>
             
-            <p style="margin-top: 15px; font-size: 1.05em;">
-                <strong>244 million people buying together through Mark Cuban's platform:</strong> WE set the prices.
+            <a href="/cdn-cgi/l/email-protection#a9f9e1e0ecfbfacac6c7caccd9dde9cec4c8c0c587cac6c4" class="cta-button">Join The Movement</a>
+            <a href="https://phierstorm.com" class="cta-button">Sign The Petition</a>
+            <a href="#resources" class="cta-button">Download Complete Plan</a>
+        </div>
+
+        <div class="content-section">
+            <h2>Comprehensive Resources</h2>
+
+            <h3>📖 Understanding PHIERS:</h3>
+            <ul>
+                <li><a href="PHIERS-FAQ.html">FAQ: Every Question Answered</a></li>
+                <li><a href="PHIERS-All-9-Paths.html">All 9 Paths: Complete Interconnections</a></li>
+                <li><a href="PHIERS-News.html">Current News: Headlines Prove Relevance</a></li>
+            </ul>
+
+            <h3>📄 For Decision Makers:</h3>
+            <ul>
+                <li><a href="National_PHIERS_White_Paper_v4.4_Nov20_2025.docx">National Framework White Paper</a></li>
+                <li><a href="THE_MARYLAND_PHIERS_INITIATIVE_v2_Nov20_2025_Matrix17.docx">Maryland State Plan ($17.4B savings)</a></li>
+                <li><a href="THE_CALIFORNIA_PHIERS_INITIATIVE_v1_Nov22_2025_Matrix18.docx">California State Plan ($110B savings)</a></li>
+                <li><a href="THE_NYC_PHIERS_INITIATIVE_v1.4_Nov20_2025.docx">NYC Plan ($38B savings)</a></li>
+            </ul>
+
+            <h3>🛠️ For Organizers:</h3>
+            <ul>
+                <li>Constituent Communication Templates (request access)</li>
+                <li>Petition/Survey Tools (request access)</li>
+                <li>Social Media Content Kit (request access)</li>
+                <li>Town Hall Talking Points (request access)</li>
+            </ul>
+
+            <p style="margin-top: 30px; font-size: 1.1rem;">
+                <strong>Need something custom?</strong> We'll create tailored white papers, district analyses, or partnership frameworks specific to your needs.
+            </p>
+        </div>
+
+        <div class="footer">
+            <h3 style="color: white; margin-top: 0;">The Elites Won't Save Us. We Save Ourselves.</h3>
+            <p style="font-size: 1.2rem; margin: 20px 0;">
+                3.5% participation = $2.37 TRILLION leverage = Solutions to 9 crises = Power back to the people
             </p>
             
-            <p style="margin-top: 20px; font-size: 0.95em; line-height: 1.8;">
-                Mark Cuban's Cost Plus is already operational—200+ pharmacies, 80-90% prescription savings proven. 
-                <strong>We leverage his infrastructure and collective buying power to negotiate on behalf of every member.</strong> 
-                When 244 million people say "we're buying our prescriptions here together," pharmaceutical companies and insurance companies have no choice but to negotiate.
+            <p style="margin-top: 30px;">
+                <strong>Contact:</strong><br>
+                Will Price<br>
+                Email: <a href="/cdn-cgi/l/email-protection#9deaf9edeff4fef8ddedf5f4f8efeeb3f2effa"><span class="__cf_email__" data-cfemail="fd8a998d8f949e98bd8d9594988f8ed3928f9a">[email&#160;protected]</span></a><br>
+                Phone: (916) 306-8967 or (301) 679-3560
             </p>
-            
-            <p style="margin-top: 15px; font-size: 0.95em; color: #f39c12;">
-                <strong>That's not begging for lower prices. That's collective leverage that makes lower prices inevitable.</strong>
+
+            <p style="margin-top: 30px; font-style: italic;">
+                Let's MABAH. Together.
             </p>
-        </div>
 
-        <!-- SECTION 4: PROOF -->
-        <div class="section" id="proof">
-            <h2>Why This Works: The Proof</h2>
-
-            <h3>✓ Collective Buying Power Is Real</h3>
-            <p><strong>Mark Cuban's Cost Plus:</strong> Operational since 2022 at 200+ Giant Eagle pharmacies. 80-90% prescription savings verified. This proves collective buying works. We scale it to 244 million people.</p>
-
-            <h3>✓ Telehealth Coverage Works</h3>
-            <p><strong>Proven at scale:</strong> Companies already delivering comprehensive telehealth coverage at $600/year. This isn't theoretical—it's operational today.</p>
-
-            <h3>✓ The Math Is Validated</h3>
-            <p><strong>$2.73 Trillion in annual savings:</strong> This has been independently verified by multiple analysts. Real money, real impact.</p>
-
-            <h3>✓ Political Leverage Is Proven</h3>
-            <p><strong>The 3.5% Threshold (Harvard researcher Erica Chenoweth):</strong> When 3.5% of a population organizes together, movements ALWAYS succeed. That's about 27,000 people per Congressional district forcing political compliance. Proven across 323 movements. 100% success rate.</p>
-        </div>
-
-        <!-- SECTION 5: FAQ -->
-        <div class="section" id="faq">
-            <h2>Frequently Asked Questions</h2>
-
-            <div class="faq-item" onclick="toggleFAQ(this)">
-                <div class="question">How does collective buying power actually work?</div>
-                <div class="answer">
-                    One person asking for a discount: "Can you lower your price?" Company says no.
-                    244 million people saying "we're all buying together here": Company has no choice.
-                    Mark Cuban's platform aggregates everyone's purchasing power. We collectively negotiate prescription prices on behalf of all members. That leverage is worth $80-90/month per person in savings.
-                </div>
-            </div>
-
-            <div class="faq-item" onclick="toggleFAQ(this)">
-                <div class="question">Why does PHIERS work when Trumpcare failed?</div>
-                <div class="answer">
-                    Trumpcare tried to fix healthcare through government spending ($1,500 HSA). PHIERS fixes it through collective leverage.
-                    Trumpcare depended on government appropriation year after year. PHIERS feeds itself—your savings fund the system, which funds the next person.
-                    Trumpcare was top-down mandate. PHIERS is bottom-up cooperation with real economic power behind it.
-                </div>
-            </div>
-
-            <div class="faq-item" onclick="toggleFAQ(this)">
-                <div class="question">If someone saves $1,000+ on prescriptions, but insurance costs $600, where does the extra $400+ go?</div>
-                <div class="answer">
-                    Into a collective fund that sponsors the next person's insurance. So your $400 helps someone who hasn't joined yet get free telehealth insurance. As more people join, the surplus grows. Eventually it funds jobs, monthly checks, and the full safety net. That's the self-sustaining loop powered by collective buying.
-                </div>
-            </div>
-
-            <div class="faq-item" onclick="toggleFAQ(this)">
-                <div class="question">What if I need hospitalization or specialty care?</div>
-                <div class="answer">
-                    You keep whatever insurance you want. PHIERS is for the 80% of Americans who don't need hospitals. The 20% who do can keep traditional insurance. But with $2.73T in collective savings, we can afford to fund hospital insurance for everyone who wants it. Better coverage, lower cost. Pure math.
-                </div>
-            </div>
-
-            <div class="faq-item" onclick="toggleFAQ(this)">
-                <div class="question">Why both parties support this (GOP & Democrats)?</div>
-                <div class="answer">
-                    GOP gets: Market-based solution, customer choice, NO new government programs, proven spending cuts through collective leverage and waste elimination. Democrats get: Universal healthcare, UBI, expanded access, price controls, full safety net. Both win completely. That's why it becomes unstoppable at 3.5%.
-                </div>
-            </div>
-
-            <div class="faq-item" onclick="toggleFAQ(this)">
-                <div class="question">How does affordability work for families struggling right now?</div>
-                <div class="answer">
-                    Your prescription savings ($80-90/month from collective buying) cover your insurance ($50/month). That's immediate relief. Plus you get $833/month from the UBI funded by collective savings. For a family, that's $2,500/month in combined relief (insurance savings + monthly check). For someone earning $44K/year, that's transformative. No waiting for government. No legislation. That money starts flowing as soon as you join.
-                </div>
-            </div>
-
-            <div class="faq-item" onclick="toggleFAQ(this)">
-                <div class="question">What about the safety net (SNAP, housing, childcare)?</div>
-                <div class="answer">
-                    The $2.73 trillion in collective savings doesn't just fund healthcare and UBI. It fully funds SNAP, housing assistance, childcare, education, emergency aid. Everything currently being cut by DOGE. It's all paid for by collective leverage redirecting corporate healthcare extraction into actual human services.
-                </div>
-            </div>
-
-            <div class="faq-item" onclick="toggleFAQ(this)">
-                <div class="question">What happens on January 1st when the crisis hits?</div>
-                <div class="answer">
-                    Premiums spike for 22 million people. That's maximum pain. That's maximum motivation to join PHIERS. We use that moment to launch and rapidly scale. When people are desperate, they choose cooperation over the broken system. The crisis actually accelerates our growth.
-                </div>
-            </div>
-
-            <div class="faq-item" onclick="toggleFAQ(this)">
-                <div class="question">How does collective buying solve the affordability crisis?</div>
-                <div class="answer">
-                    Right now, corporations extract $2.73 trillion annually from healthcare through middleman markup, drug prices, and insurance company profit margins. One person can't negotiate that away. 244 million people buying collectively can. That's not asking nicely for lower prices. That's economic force. It's like when Walmart uses collective buying power to negotiate with suppliers. We're doing the same thing with healthcare. Collective leverage = affordability.
-                </div>
-            </div>
-        </div>
-
-        <!-- SECTION 6: HOW TO PARTICIPATE -->
-        <div class="section">
-            <h2>Join the Collective</h2>
-
-            <h3>For Everyone:</h3>
-            <a href="https://www.gofundme.com/f/homeless-but-hopeful-affordable-healthcare-good-jobs-ubi" class="cta-button primary">Fund the Launch ($10K Target)</a>
-            <a href="https://forms.gle/wtcGaADjp6MnAveH9" class="cta-button">Sign the Petition</a>
-            <a href="https://forms.gle/yG2EiVUfJhSLGsVu6" class="cta-button">Take the Survey</a>
-            <a href="https://phiersale.github.io/PHIERStorm/" class="cta-button">Organize Your District</a>
-
-            <p style="margin-top: 30px; text-align: center; font-weight: bold; color: #1a5490; font-size: 1.1em;">
-                Together, we Make America Better and Healthier (MABAH)
-            </p>
-            <p style="margin-top: 20px;">We need just 3.5% of people to organize together. (That's about 27,000 people per Congressional district.) That's the threshold that triggers collective power and forces political compliance.</p>
-            <a href="mailto:will@phiers.org" class="cta-button">Request Organizing Materials</a>
-
-            <h3 style="margin-top: 30px;">For Politicians & Decision-Makers:</h3>
-            <p style="margin-top: 20px;">Your constituents want collective healthcare leverage. Congress just failed. We offer something better.</p>
-            <a href="mailto:will@phiers.org" class="cta-button">Request District Analysis</a>
-
-            <p style="margin-top: 30px; text-align: center; font-weight: bold; color: #1a5490; font-size: 1.1em;">
-                Together, we Make America Better and Healthier (MABAH)
-            </p>
-        </div>
-
-        <!-- SECTION 7: RESOURCES -->
-        <div class="section" id="resources">
-            <h2>Deep Dive Resources</h2>
-            
-            <div class="resources">
-                <h3>📋 Understanding PHIERS</h3>
-                <ul>
-                    <li><a href="#">Comprehensive FAQ: Every Question Answered</a></li>
-                    <li><a href="#">Affordability Breakdown: How Much You Actually Save</a></li>
-                    <li><a href="#">Mark Cuban Collective Buying: The Mechanism Explained</a></li>
-                    <li><a href="#">Safety Net Restoration: SNAP, Housing, Childcare, Jobs</a></li>
-                    <li><a href="#">9 Paths to Comprehensive Solutions</a></li>
-                </ul>
-
-                <h3>📄 For Decision Makers</h3>
-                <ul>
-                    <li><a href="#">National Framework White Paper</a></li>
-                    <li><a href="#">Trumpcare vs PHIERS: A Technical Analysis</a></li>
-                    <li><a href="#">State-Specific Implementation Plans</a> (Maryland, California, NYC, Alabama)</li>
-                    <li><a href="#">How Collective Buying Power Changes Healthcare Economics</a></li>
-                </ul>
-
-                <h3>🛠️ For Organizers</h3>
-                <ul>
-                    <li><a href="#">27K Per District: Organizing Playbook</a></li>
-                    <li><a href="#">3.5% Threshold: Movement Timeline</a></li>
-                    <li><a href="#">Constituent Communication Templates</a></li>
-                    <li><a href="#">District-Specific Talking Points</a></li>
-                </ul>
-
-                <h3>🎥 Media & Communications</h3>
-                <ul>
-                    <li><a href="#">Short Video Script (45-60 seconds)</a> - GFM + Social</li>
-                    <li><a href="#">Mid-Length Video Script (2.5-3 minutes)</a> - LinkedIn + Email</li>
-                    <li><a href="#">Social Media Content Kit</a></li>
-                    <li><a href="#">Press Release: Trumpcare Failed, PHIERS Answers</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="footer">
-        <p>© PHIERS.org Since 2014 - Original Concept - All Rights Reserved</p>
-        <p>Prior art documented. PHIERS™, PHIERSale™, PHIERSWorks™, and MABAH™ are protected marks established 2014-2025.</p>
-        <p style="margin-top: 20px;">
-            <strong>Will Price</strong> | Strategic Problem Solver<br>
-            <a href="mailto:will@phiers.org"><span class="__cf_email__" data-cfemail="14637d787854647c7d7166673a7b6673">[em
+            <!-- COPYRIGHT PROTECTION -->
+            <div style="border-top: 2px solid rgba(255, 255, 255, 0.3); margin-top: 40px; padding-top: 25px;">
+                <p style="margin: 0; font-weight: 700; font-size: 1.05rem;">
+                    © PHIERS.org Since 2014 - Original Concept - All Rights Reserved
+                </p>
+                <p style="margin: 10px 0 0 0; font-size: 0.95rem; opacity: 0.9;">
+                    Prior art documented. PHIERS™, PHIERSale™, PHIERSWorks™, VHIERSMovement™, HIVEEL™, MABAH™ are protected marks established 2014-2025.
