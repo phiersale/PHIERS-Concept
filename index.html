@@ -1,55 +1,1229 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MAEBAH: Making America Better And Healthier</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-      line-height: 1.6;
-      color: #234748;
-      background: linear-gradient(135deg, #67e0ea 0%, #76b4a2 100%);
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    .header {
-      background: rgba(255, 255, 255, 0.98);
-      border-radius: 15px;
-      padding: 30px;
-      margin-bottom: 30px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-      text-align: center;
-    }
-
-    /* Additional styles would continue here... */
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHIERS - Healthcare Affordable. Jobs Real. People Stable.</title>
+    <meta name="description" content="Member-owned cooperative solving healthcare affordability, creating AI-resistant jobs, and forcing Congressional accountability through organized economic power.">
+    
+    <style>
+        /* CSS Variables for Theming */
+        :root {
+            --crisis-red: #DC2626;
+            --solution-blue: #2563EB;
+            --hope-green: #059669;
+            --proof-navy: #1E293B;
+            --bg-light: #F8FAFC;
+            --bg-white: #FFFFFF;
+            --text-dark: #0F172A;
+            --text-gray: #475569;
+            --border-light: #E2E8F0;
+            --accent-gold: #F59E0B;
+        }
+        
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Crimson Text', 'Georgia', serif;
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            overflow-x: hidden;
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4, h5 {
+            font-family: 'Bebas Neue', 'Impact', sans-serif;
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: 0.02em;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            text-transform: uppercase;
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            text-transform: uppercase;
+        }
+        
+        h3 {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+        }
+        
+        h4 {
+            font-size: clamp(1.25rem, 3vw, 1.8rem);
+        }
+        
+        p {
+            margin-bottom: 1.5rem;
+        }
+        
+        strong {
+            color: var(--proof-navy);
+            font-weight: 700;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .container-wide {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Header */
+        header {
+            background: var(--proof-navy);
+            color: var(--bg-white);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .logo-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .logo-link:hover {
+            opacity: 0.9;
+        }
+        
+        .logo-img {
+            height: 60px;
+            width: auto;
+            display: block;
+        }
+        
+        .logo-text {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            color: var(--bg-white);
+            text-decoration: none;
+            letter-spacing: 0.05em;
+        }
+        
+        .logo-accent {
+            color: var(--accent-gold);
+        }
+        
+        @media (max-width: 768px) {
+            .logo-img {
+                height: 45px;
+            }
+            
+            .logo-text {
+                font-size: 1.4rem;
+            }
+        }
+        
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        nav a {
+            color: var(--bg-white);
+            text-decoration: none;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.1rem;
+            letter-spacing: 0.05em;
+            transition: color 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: var(--accent-gold);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--crisis-red) 0%, var(--proof-navy) 100%);
+            color: var(--bg-white);
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+            opacity: 0.5;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1.25rem, 3vw, 1.8rem);
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+        
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+        
+        .stat {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .stat-number {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3rem;
+            color: var(--accent-gold);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        /* Crisis Banner */
+        .crisis-banner {
+            background: var(--crisis-red);
+            color: var(--bg-white);
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 4px solid var(--accent-gold);
+            border-bottom: 4px solid var(--accent-gold);
+        }
+        
+        .crisis-banner h2 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .crisis-date {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-dark {
+            background: var(--proof-navy);
+            color: var(--bg-white);
+        }
+        
+        .section-light {
+            background: var(--bg-white);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header h2 {
+            color: var(--solution-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .section-dark .section-header h2 {
+            color: var(--accent-gold);
+        }
+        
+        .section-intro {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--text-gray);
+        }
+        
+        .section-dark .section-intro {
+            color: rgba(255,255,255,0.8);
+        }
+        
+        /* Outcomes Grid */
+        .outcomes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .outcome-card {
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--solution-blue);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .section-dark .outcome-card {
+            background: rgba(255,255,255,0.05);
+            border-left-color: var(--accent-gold);
+        }
+        
+        .outcome-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .outcome-number {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3rem;
+            color: var(--solution-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .section-dark .outcome-number {
+            color: var(--accent-gold);
+        }
+        
+        .outcome-card h3 {
+            color: var(--proof-navy);
+            margin-bottom: 1rem;
+        }
+        
+        .section-dark .outcome-card h3 {
+            color: var(--bg-white);
+        }
+        
+        .outcome-card .problem {
+            background: rgba(220, 38, 38, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border-left: 3px solid var(--crisis-red);
+        }
+        
+        .outcome-card .solution {
+            background: rgba(5, 150, 105, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border-left: 3px solid var(--hope-green);
+        }
+        
+        .outcome-card .proof {
+            background: rgba(37, 99, 235, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--solution-blue);
+        }
+        
+        /* Proof Section */
+        .proof-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .proof-card {
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        
+        .proof-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .proof-card h4 {
+            color: var(--solution-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .proof-stat {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.5rem;
+            color: var(--hope-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Timeline */
+        .timeline {
+            max-width: 900px;
+            margin: 3rem auto 0;
+        }
+        
+        .timeline-item {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 100px;
+            top: 60px;
+            width: 2px;
+            height: calc(100% + 3rem);
+            background: var(--border-light);
+        }
+        
+        .timeline-item:last-child::before {
+            display: none;
+        }
+        
+        .timeline-date {
+            flex-shrink: 0;
+            width: 200px;
+            text-align: right;
+            padding-right: 2rem;
+        }
+        
+        .timeline-date strong {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            color: var(--crisis-red);
+            display: block;
+        }
+        
+        .timeline-content {
+            flex: 1;
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--solution-blue);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .timeline-content h4 {
+            color: var(--solution-blue);
+            margin-bottom: 1rem;
+        }
+        
+        /* FAQ */
+        .faq-list {
+            max-width: 900px;
+            margin: 3rem auto 0;
+        }
+        
+        .faq-item {
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .faq-question {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            color: var(--solution-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .faq-answer {
+            color: var(--text-gray);
+        }
+        
+        /* CTA Buttons */
+        .cta-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.3rem;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            text-align: center;
+        }
+        
+        .btn-primary {
+            background: var(--solution-blue);
+            color: var(--bg-white);
+        }
+        
+        .btn-primary:hover {
+            background: #1D4ED8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+        
+        .btn-secondary {
+            background: var(--accent-gold);
+            color: var(--proof-navy);
+        }
+        
+        .btn-secondary:hover {
+            background: #D97706;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--solution-blue);
+            border: 2px solid var(--solution-blue);
+        }
+        
+        .btn-outline:hover {
+            background: var(--solution-blue);
+            color: var(--bg-white);
+        }
+        
+        .btn-white {
+            background: var(--bg-white);
+            color: var(--proof-navy);
+        }
+        
+        .btn-white:hover {
+            background: var(--bg-light);
+            transform: translateY(-2px);
+        }
+        
+        /* Jobs List */
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .job-category {
+            background: rgba(255,255,255,0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent-gold);
+        }
+        
+        .job-category h4 {
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+        
+        .job-category ul {
+            list-style: none;
+        }
+        
+        .job-category li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .job-category li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--hope-green);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--proof-navy);
+            color: var(--bg-white);
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-section h4 {
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: var(--accent-gold);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--bg-white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 4rem 0;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
+            
+            nav {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                gap: 1rem;
+            }
+            
+            nav.active {
+                display: flex;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .timeline-item::before {
+                display: none;
+            }
+            
+            .timeline-date {
+                width: 100%;
+                text-align: left;
+                padding-right: 0;
+            }
+            
+            .cta-container {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+        
+        /* Print Styles */
+        @media print {
+            header {
+                position: static;
+            }
+            
+            .btn {
+                display: none;
+            }
+        }
+    </style>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Crimson+Text:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-      <h1>MAEBAH Movement</h1>
-      <p>Making America Better And Healthier</p>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#home" class="logo-link">
+                    <img src="PHIERS_Logo.png" alt="PHIERS" class="logo-img">
+                    <span class="logo-text">PHIERS<span class="logo-accent">.ORG</span></span>
+                </a>
+                <button class="mobile-menu-toggle" onclick="toggleMenu()">☰</button>
+                <nav id="mainNav">
+                    <a href="#crisis">The Crisis</a>
+                    <a href="#solution">The Solution</a>
+                    <a href="#proof">The Proof</a>
+                    <a href="#timeline">Timeline</a>
+                    <a href="#action">Take Action</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Healthcare Affordable.<br>Jobs Real.<br>People Stable.</h1>
+                <p class="hero-subtitle">A member-owned cooperative solving healthcare affordability, creating 5-10 million AI-resistant jobs, and forcing Congressional accountability through organized economic power.</p>
+                
+                <div class="cta-container">
+                    <a href="#action" class="btn btn-primary">Sign Petition</a>
+                    <a href="https://www.gofundme.com/f/homeless-but-hopeful-affordable-healthcare-good-jobs-ubi" target="_blank" class="btn btn-secondary">Fund Article</a>
+                    <a href="https://discord.gg/narhDKJY" target="_blank" class="btn btn-white">Join Discord</a>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">$7,900</span>
+                        <span class="stat-label">Annual Savings Per Person</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">5-10M</span>
+                        <span class="stat-label">AI-Resistant Jobs Created</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">107M</span>
+                        <span class="stat-label">Americans Organized</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">400:1</span>
+                        <span class="stat-label">Economic Leverage vs. Lobbying</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Crisis Banner -->
+    <div class="crisis-banner">
+        <div class="container">
+            <h2>Congress Failed. The Crisis Is Here.</h2>
+            <div class="crisis-date">December 31, 2025</div>
+            <p>Insurance costs double for 22 million Americans. SNAP work requirements eliminate food assistance. AI destroys jobs. Congress has proven they cannot solve interconnected crises.</p>
+            <p><strong>We're solving it differently.</strong></p>
+        </div>
     </div>
 
-    <!-- Your site content goes here -->
+    <!-- Crisis Section -->
+    <section id="crisis" class="section-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why NOW</h2>
+                <p class="section-intro">Multiple forcing functions create genuine urgency. This isn't manufactured—it's documented reality.</p>
+            </div>
+            
+            <div class="outcomes-grid">
+                <div class="outcome-card">
+                    <div class="outcome-number">DEC 11</div>
+                    <h3>Congress Rejected Healthcare</h3>
+                    <p>Both Republican and Democratic healthcare plans failed. Senate voted down both proposals. Congress couldn't act even when people were begging.</p>
+                </div>
+                
+                <div class="outcome-card">
+                    <div class="outcome-number">DEC 31</div>
+                    <h3>Healthcare Crisis Hits</h3>
+                    <p><strong>Insurance costs MORE THAN DOUBLE</strong> for 22 million Americans starting January 1st. Average increase: 114% (from $888 to $1,904/year). People are desperate.</p>
+                </div>
+                
+                <div class="outcome-card">
+                    <div class="outcome-number">JAN 30</div>
+                    <h3>Shutdown Deadline</h3>
+                    <p>Government funding expires. Congress must negotiate. Healthcare crisis forces conversation. PHIERS becomes part of negotiation.</p>
+                </div>
+                
+                <div class="outcome-card">
+                    <div class="outcome-number">2025-26</div>
+                    <h3>AI Job Destruction</h3>
+                    <p>50% of jobs at risk within 1-2 years. Gig workers face automation with no safety net. 1+ million jobs already lost from small businesses.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Solution Section -->
+    <section id="solution" class="section-dark">
+        <div class="container-wide">
+            <div class="section-header">
+                <h2>The Solution: PHIERS</h2>
+                <p class="section-intro">The People's Health Insurance Endowment & Referral Service—a member-owned cooperative that generates savings by eliminating pharmaceutical middleman extraction. Those savings fund everything else.</p>
+            </div>
+            
+            <div class="outcomes-grid">
+                <!-- Outcome 1: Healthcare -->
+                <div class="outcome-card">
+                    <div class="outcome-number">01</div>
+                    <h3>Healthcare Affordability</h3>
+                    <div class="problem">
+                        <strong>Problem:</strong> Insurance costs double Dec 31. 22 million face immediate crisis.
+                    </div>
+                    <div class="solution">
+                        <strong>Solution:</strong> Member-owned cooperative saves $7,900/year per person through pharmaceutical cost elimination. Universal coverage. No gaps. No new taxes.
+                    </div>
+                    <div class="proof">
+                        <strong>Proof:</strong> Mark Cuban's Cost Plus Drug Company—7M customers, 80-90% savings, operational since 2022.
+                    </div>
+                </div>
+                
+                <!-- Outcome 2: Jobs -->
+                <div class="outcome-card">
+                    <div class="outcome-number">02</div>
+                    <h3>AI-Resistant Jobs</h3>
+                    <div class="problem">
+                        <strong>Problem:</strong> AI eliminating 50% of jobs within 1-2 years. Workers have no backup.
+                    </div>
+                    <div class="solution">
+                        <strong>Solution:</strong> Healthcare savings fund 5-10 million jobs requiring human judgment: skilled trades, health workers, infrastructure, therapeutic services, community coordinators.
+                    </div>
+                    <div class="proof">
+                        <strong>Scale:</strong> More jobs created than AI eliminates. Real careers, not make-work.
+                    </div>
+                </div>
+                
+                <!-- Outcome 3: Monthly Checks -->
+                <div class="outcome-card">
+                    <div class="outcome-number">03</div>
+                    <h3>Monthly Assistance</h3>
+                    <div class="problem">
+                        <strong>Problem:</strong> Inflation destroying purchasing power. People can't stretch paychecks.
+                    </div>
+                    <div class="solution">
+                        <strong>Solution:</strong> PHIERS savings fund monthly assistance to help handle inflation and maintain stability. Part of comprehensive safety net restoration.
+                    </div>
+                </div>
+                
+                <!-- Outcome 4: Supply Chain -->
+                <div class="outcome-card">
+                    <div class="outcome-number">04</div>
+                    <h3>Supply Chain Restoration</h3>
+                    <div class="problem">
+                        <strong>Problem:</strong> Supply chains broken. Communities lost economic power. Manufacturing gone.
+                    </div>
+                    <div class="solution">
+                        <strong>Solution:</strong> Jobs rebuild infrastructure. Communities regain economic power. Domestic manufacturing becomes viable.
+                    </div>
+                </div>
+                
+                <!-- Outcome 5: Marketplace -->
+                <div class="outcome-card">
+                    <div class="outcome-number">05</div>
+                    <h3>Cooperative Marketplace</h3>
+                    <div class="problem">
+                        <strong>Problem:</strong> Amazon/Walmart extract profits. Corporations drain communities.
+                    </div>
+                    <div class="solution">
+                        <strong>Solution:</strong> PHIERSALE sources everything without middlemen. 20-40% lower prices. Money stays in community. Cooperation attracts because it's not extractive.
+                    </div>
+                </div>
+                
+                <!-- Outcome 6: Congress -->
+                <div class="outcome-card">
+                    <div class="outcome-number">06</div>
+                    <h3>Congress Accountability</h3>
+                    <div class="problem">
+                        <strong>Problem:</strong> Congress unaccountable. Claims to care, refuses to act. Corporate lobbying prevents change.
+                    </div>
+                    <div class="solution">
+                        <strong>Solution:</strong> Organized Americans force response through petition + survey + organized pressure. 107M Americans = $3.4B per district = 400:1 advantage over lobbying.
+                    </div>
+                    <div class="proof">
+                        <strong>Proof:</strong> Erica Chenoweth research—3.5% organized = guaranteed change. We have 32% = 9x threshold.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Jobs Detail -->
+            <div style="margin-top: 4rem;">
+                <h3 style="text-align: center; color: var(--accent-gold); margin-bottom: 2rem;">5-10 Million AI-Resistant Jobs</h3>
+                <div class="jobs-grid">
+                    <div class="job-category">
+                        <h4>Health & Social Services</h4>
+                        <ul>
+                            <li>Community health workers</li>
+                            <li>Social workers</li>
+                            <li>Case managers</li>
+                            <li>Mental health counselors</li>
+                            <li>Home health aides</li>
+                        </ul>
+                    </div>
+                    <div class="job-category">
+                        <h4>Skilled Trades</h4>
+                        <ul>
+                            <li>Electricians</li>
+                            <li>Plumbers</li>
+                            <li>HVAC specialists</li>
+                            <li>Carpenters</li>
+                            <li>Welders</li>
+                        </ul>
+                    </div>
+                    <div class="job-category">
+                        <h4>Infrastructure</h4>
+                        <ul>
+                            <li>Construction workers</li>
+                            <li>Road repair specialists</li>
+                            <li>Water system workers</li>
+                            <li>Electrical grid workers</li>
+                        </ul>
+                    </div>
+                    <div class="job-category">
+                        <h4>Therapeutic Services</h4>
+                        <ul>
+                            <li>Physical therapists</li>
+                            <li>Occupational therapists</li>
+                            <li>Speech therapists</li>
+                            <li>Mental health therapists</li>
+                        </ul>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 2rem; font-size: 1.1rem;"><strong>Why These Jobs:</strong> Require human judgment (can't automate) • Rebuild supply chains • Build community • Pay well ($18-$40/hr) • Provide dignity</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proof Section -->
+    <section id="proof" class="section-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Proof</h2>
+                <p class="section-intro">Every component validated at scale. This isn't theory—it's proven operational reality.</p>
+            </div>
+            
+            <div class="proof-grid">
+                <div class="proof-card">
+                    <div class="proof-icon">💊</div>
+                    <h4>Mark Cuban's Cost Plus</h4>
+                    <div class="proof-stat">7M</div>
+                    <p><strong>Customers</strong></p>
+                    <p>80-90% prescription savings. Operational since 2022. Proves pharmaceutical model WORKS.</p>
+                </div>
+                
+                <div class="proof-card">
+                    <div class="proof-icon">🏥</div>
+                    <h4>ZORTT Healthcare</h4>
+                    <div class="proof-stat">✓</div>
+                    <p><strong>Operational Now</strong></p>
+                    <p>Member-owned telemedicine cooperative. Serving real members affordably. Proves cooperative delivery WORKS.</p>
+                </div>
+                
+                <div class="proof-card">
+                    <div class="proof-icon">⚖️</div>
+                    <h4>Federal Workers Victory</h4>
+                    <div class="proof-stat">231-195</div>
+                    <p><strong>Congress Vote</strong></p>
+                    <p>Congress rescinded Trump's override when organized. Proves Congress RESPONDS to pressure.</p>
+                </div>
+                
+                <div class="proof-card">
+                    <div class="proof-icon">📊</div>
+                    <h4>Chenoweth Research</h4>
+                    <div class="proof-stat">3.5%</div>
+                    <p><strong>Success Threshold</strong></p>
+                    <p>30 years peer-reviewed data. 3.5% organized = guaranteed change. We have 32% = 9x threshold.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 4rem; padding: 2rem; background: var(--bg-light); border-radius: 12px; border: 2px solid var(--solution-blue);">
+                <h3 style="color: var(--solution-blue); margin-bottom: 1rem;">Mathematical Certainty</h3>
+                <p style="font-size: 1.25rem; margin-bottom: 0;"><strong>107M Americans × $850B pharma ÷ 435 districts = $1.95B per district baseline</strong></p>
+                <p style="margin-top: 1rem;">vs. $8.5M average corporate lobbying = <strong>400:1 advantage minimum</strong></p>
+                <p style="margin-top: 1rem; color: var(--crisis-red);"><strong>Congress cannot refuse the math.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="section-dark">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Timeline</h2>
+                <p class="section-intro">Multiple forcing functions create genuine urgency. Real deadlines. Real pressure. Real opportunity.</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        <strong>Dec 14-31, 2025</strong>
+                        <span>Article Publication Window</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Story Reaches Millions</h4>
+                        <p>Will's story publishes through Pathos Communications + IBT. Reaches millions at exact moment people need solutions. People understand PHIERS works.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        <strong>Dec 31, 2025</strong>
+                        <span>Healthcare Crisis</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Crisis Hits</h4>
+                        <p>Insurance costs double. 22 million Americans face immediate crisis. Congress MUST respond. Article validation hits at exact moment people demand solutions.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        <strong>Jan 1-31, 2026</strong>
+                        <span>Town Hall Season</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Congressional Pressure</h4>
+                        <p>Representatives home in districts. Constituents show up with petition signatures. Survey data shows collective demand. Math shows 107M Americans = 400:1 advantage. Congress sees organized pressure.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        <strong>Jan 30, 2026</strong>
+                        <span>Shutdown Deadline</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Forced Negotiation</h4>
+                        <p>Government funding expires. Congress must negotiate budget. Healthcare forced into conversation. PHIERS becomes part of negotiation. Congress must vote or face shutdown.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        <strong>March 2026</strong>
+                        <span>Congressional Vote</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Framework Adopted</h4>
+                        <p>Congress adopts framework (or primary challenges begin). Mathematical pressure + organized constituents + crisis urgency = forced response.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        <strong>April 2026+</strong>
+                        <span>Implementation</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>System Launches</h4>
+                        <p>PHIERS launches. Jobs created. Savings flow. System scales. Cooperative economics replaces extraction.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>Common Questions</h2>
+            </div>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">Q: Why should I believe this works?</div>
+                    <div class="faq-answer">Mark Cuban already proved the healthcare savings model works—7M customers, 80-90% savings. ZORTT proves cooperative delivery works. Congress proved it responds to organized pressure (231-195 vote). Erica Chenoweth proved the math (3.5% = guaranteed success, we have 9x that). This is validated at scale on every dimension.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q: Can Congress really be forced?</div>
+                    <div class="faq-answer">Congress voted 231-195 for federal workers when 3.5% organized. We have 107M = 32% = 9x the threshold. The math forces response. Plus: healthcare crisis forces conversation. Plus: shutdown deadline forces negotiation. Congress cannot escape on all fronts simultaneously.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q: What happens to insurance companies?</div>
+                    <div class="faq-answer">They either adapt or lose customers to lower-cost cooperative. Market competition. The most efficient system wins.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q: How is this different from existing programs?</div>
+                    <div class="faq-answer">We're not creating government programs. We're creating member-owned cooperatives where members control costs. Market-based, not government-based. Self-sustaining, not subsidy-dependent.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q: What if Congress refuses?</div>
+                    <div class="faq-answer">We document refusal. Prepare 2026 primary challenges with funded candidates. Unite nationwide pressure. But mathematically, Congress cannot refuse on all dimensions simultaneously without losing seats in 2026.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q: When can I join PHIERS?</div>
+                    <div class="faq-answer">Once Congress adopts the framework (expected March 2026), implementation begins and membership starts. Right now we're building it and gathering support.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q: Is this socialism?</div>
+                    <div class="faq-answer">No. This is a member-owned cooperative (capitalism). Members own it. Members control it. Members benefit from profits. Competitive market, not government program.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section id="action" class="section-dark">
+        <div class="container">
+            <div class="section-header">
+                <h2>Take Action NOW</h2>
+                <p class="section-intro">Healthcare crisis hits Dec 31. Shutdown deadline Jan 30. Congress must respond. Your action matters.</p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                <div style="background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 12px; text-align: center;">
+                    <h3 style="color: var(--accent-gold); margin-bottom: 1rem;">📝 SIGN PETITION</h3>
+                    <p style="margin-bottom: 1.5rem;">Show Congress what you want. Force accountability. 1,500 signatures per district = town hall required.</p>
+                    <a href="#" class="btn btn-primary" onclick="alert('Petition launching soon at PHIERS.org - check back!'); return false;">Coming Soon</a>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 12px; text-align: center;">
+                    <h3 style="color: var(--accent-gold); margin-bottom: 1rem;">💰 FUND ARTICLE</h3>
+                    <p style="margin-bottom: 1.5rem;">$18.5K = Article published + Will survives. Story reaches 55M people before Congress votes.</p>
+                    <a href="https://www.gofundme.com/f/homeless-but-hopeful-affordable-healthcare-good-jobs-ubi" target="_blank" class="btn btn-secondary">Donate Now</a>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 12px; text-align: center;">
+                    <h3 style="color: var(--accent-gold); margin-bottom: 1rem;">📢 SHARE THIS</h3>
+                    <p style="margin-bottom: 1.5rem;">Tell people solutions exist. Spread the word. Organize your community. Build momentum.</p>
+                    <a href="https://discord.gg/narhDKJY" target="_blank" class="btn btn-white">Join Discord</a>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 4rem; padding: 3rem; background: rgba(255,255,255,0.1); border-radius: 12px;">
+                <h3 style="color: var(--accent-gold); font-size: 2.5rem; margin-bottom: 1rem;">Healthcare Affordable. Jobs Real. People Stable.</h3>
+                <p style="font-size: 1.5rem; margin-bottom: 2rem;">This is how we fix it. Together.</p>
+                <p style="font-size: 1.25rem; color: rgba(255,255,255,0.8);">🔥 Make America Better And Healthier (MABAH) 🔥</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-      <p style="text-align: center; font-size: 0.9em;">
-        Prior art documented. PHIERS™, PHIERSale™, PHIERSWorks™, MABAH™ are protected marks established 2014–2025.
-      </p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>PHIERS.ORG</h4>
+                    <p>The People's Health Insurance Endowment & Referral Service</p>
+                    <p style="margin-top: 1rem;">Member-owned cooperative solving healthcare affordability, creating AI-resistant jobs, and forcing Congressional accountability.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="#crisis">The Crisis</a>
+                    <a href="#solution">The Solution</a>
+                    <a href="#proof">The Proof</a>
+                    <a href="#timeline">Timeline</a>
+                    <a href="#faq">FAQ</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Take Action</h4>
+                    <a href="https://www.gofundme.com/f/homeless-but-hopeful-affordable-healthcare-good-jobs-ubi" target="_blank">Fund Article ($18.5K)</a>
+                    <a href="https://discord.gg/narhDKJY" target="_blank">Join Discord</a>
+                    <a href="#action">Sign Petition (Soon)</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: <a href="/cdn-cgi/l/email-protection#9ffcf0f1ebfefcebdfeff7f6faedecb1f0edf8"><span class="__cf_email__" data-cfemail="375458594356544377475f5e52454419584550">[email&#160;protected]</span></a></p>
+                    <p style="margin-top: 1rem;"><strong>Will Price</strong><br>Systematic Reconstruction Architect</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 PHIERS.org | People's Health Insurance Endowment & Referral Service</p>
+                <p style="margin-top: 0.5rem;">Healthcare Affordable • Jobs Real • People Stable</p>
+            </div>
+        </div>
     </footer>
-  </div>
-</body>
-</html>
+
+    <!-- Mobile Menu Script -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        function toggleMenu() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('active');
+        }
+        
+        // Close menu when clicking a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                const nav = document.getElementById('mainNav');
+                nav.classList.remove('active');
+            });
+        });
+        
+        // Smooth scroll with offset for fixed header
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
