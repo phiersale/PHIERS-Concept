@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="PHIERS - Make America Better and Healthier (MABAH). Force Congress to add telehealth plans to ACA Marketplace by Dec 31. Save $2.73 trillion. Self-sustaining cooperative marketplace with jobs + public bank + safety net.">
+    <meta name="description" content="PHIERS - Make America Better and Healthier (MABAH). Force Congress to add telehealth plans to ACA Marketplace by Dec 31. Save $2.73 trillion. Self-sustaining cooperative.">
     <title>PHIERS.org - Make America Better and Healthier (MABAH)</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -15,11 +15,48 @@
             background: #ffffff;
         }
         
+        /* ===== COUNTDOWN TICKER ===== */
+        .countdown-ticker {
+            background: linear-gradient(90deg, #dc2626 0%, #991b1b 25%, #dc2626 50%, #991b1b 75%, #dc2626 100%);
+            color: #fbbf24;
+            padding: 25px 20px;
+            text-align: center;
+            font-weight: 900;
+            font-size: 1.35em;
+            border-bottom: 5px solid #fbbf24;
+            animation: pulse-ticker 1.5s infinite;
+            letter-spacing: 2px;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+        
+        .countdown-date {
+            font-size: 0.85em;
+            opacity: 0.9;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+        
+        .countdown-main {
+            font-size: 1.7em;
+            font-weight: 900;
+            color: #fef3c7;
+            text-shadow: 3px 3px 10px rgba(0,0,0,0.6);
+            letter-spacing: 1px;
+        }
+        
+        @keyframes pulse-ticker {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.03); opacity: 0.95; }
+        }
+        
         /* ===== HEADER ===== */
         .header {
             background: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #3b82f6 100%);
             color: white;
-            padding: 35px 30px;
+            padding: 50px 30px;
             text-align: center;
             border-bottom: 5px solid #0ea5e9;
         }
@@ -30,38 +67,40 @@
         }
         
         .logo {
-            max-width: 250px;
+            max-width: 280px;
             height: auto;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             display: block;
             margin-left: auto;
             margin-right: auto;
         }
         
         .headline {
-            font-size: 2.8em;
+            font-size: 3em;
             font-weight: 900;
-            margin: 15px 0;
-            text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+            margin: 20px 0 15px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
             letter-spacing: -1px;
+            line-height: 1.2;
         }
         
         .subheadline {
-            font-size: 1.2em;
+            font-size: 1.3em;
             opacity: 0.95;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             font-weight: 500;
         }
         
         .crisis-banner {
-            background: rgba(239, 68, 68, 0.25);
+            background: rgba(239, 68, 68, 0.2);
             border: 3px solid #ff6b6b;
-            padding: 20px 25px;
+            padding: 30px;
             border-radius: 10px;
-            margin: 25px 0;
+            margin: 35px 0 0;
             font-weight: 700;
-            font-size: 1.1em;
-            line-height: 1.8;
+            font-size: 1.15em;
+            line-height: 2;
+            color: #fff;
         }
         
         /* ===== NAVIGATION ===== */
@@ -70,16 +109,13 @@
             gap: 12px;
             justify-content: center;
             flex-wrap: wrap;
-            padding: 30px 20px;
+            padding: 35px 20px;
             background: #f8fafc;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
         }
         
         .nav-tabs a {
-            padding: 11px 22px;
+            padding: 12px 25px;
             background: white;
             border: 2px solid #e0e7ff;
             border-radius: 6px;
@@ -92,7 +128,7 @@
         
         .nav-tabs a:hover, .nav-tabs a.active {
             transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
         }
         
         .nav-blue { border-color: #1e40af; color: #1e40af; }
@@ -104,7 +140,7 @@
         .nav-green { border-color: #16a34a; color: #16a34a; }
         .nav-green:hover, .nav-green.active { background: linear-gradient(135deg, #16a34a 0%, #22c55e 100%); color: white; }
         
-        /* ===== CONTAINER & SECTIONS ===== */
+        /* ===== CONTAINER ===== */
         .container {
             max-width: 1100px;
             margin: 0 auto;
@@ -113,7 +149,7 @@
         
         .page-section {
             display: none;
-            padding: 55px 0;
+            padding: 70px 0;
             animation: fadeIn 0.4s ease-in;
         }
         
@@ -129,21 +165,22 @@
         /* ===== SECTION HEADERS ===== */
         .section-header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 70px;
         }
         
         .section-header h2 {
-            font-size: 2.5em;
-            margin-bottom: 15px;
-            font-weight: 800;
+            font-size: 2.8em;
+            margin-bottom: 25px;
+            font-weight: 900;
+            line-height: 1.2;
         }
         
         .section-header p {
-            font-size: 1.15em;
+            font-size: 1.2em;
             color: #475569;
-            max-width: 750px;
+            max-width: 800px;
             margin: 0 auto;
-            line-height: 1.7;
+            line-height: 1.8;
         }
         
         .blue-header h2 { color: #1e40af; }
@@ -154,145 +191,161 @@
         .card {
             background: white;
             border-radius: 10px;
-            padding: 35px;
-            margin-bottom: 28px;
-            border-left: 5px solid #64748b;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            padding: 42px;
+            margin-bottom: 40px;
+            border-left: 6px solid #64748b;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
         }
         
         .card h3 {
-            font-size: 1.5em;
-            margin-bottom: 18px;
+            font-size: 1.6em;
+            margin-bottom: 28px;
             color: #1f2937;
-            font-weight: 700;
+            font-weight: 800;
         }
         
         .card p {
+            margin-bottom: 20px;
+            line-height: 1.85;
+            font-size: 1.05em;
+            color: #374151;
+        }
+        
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .card ul, .card ol {
+            margin: 25px 0 25px 35px;
+            line-height: 2.2;
+        }
+        
+        .card li {
             margin-bottom: 15px;
-            line-height: 1.8;
-            font-size: 1.02em;
+            font-size: 1.05em;
+            color: #374151;
         }
         
         .card-blue { border-left-color: #1e40af; }
         .card-red { border-left-color: #dc2626; }
         .card-green { border-left-color: #16a34a; }
         
-        /* ===== FEATURED CONTENT ===== */
+        /* ===== FEATURED BOX ===== */
         .featured-box {
             background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
             border: 2px solid #bfdbfe;
             border-radius: 12px;
-            padding: 40px;
-            margin: 35px 0;
-            box-shadow: 0 4px 15px rgba(30, 64, 175, 0.1);
+            padding: 50px;
+            margin: 50px 0;
+            box-shadow: 0 4px 18px rgba(30, 64, 175, 0.1);
         }
         
         .featured-box h3 {
             color: #1e40af;
-            font-size: 1.35em;
-            margin-bottom: 20px;
-            font-weight: 700;
+            font-size: 1.5em;
+            margin-bottom: 35px;
+            font-weight: 800;
         }
         
         .featured-box p {
-            margin-bottom: 15px;
-            line-height: 1.8;
+            margin-bottom: 22px;
+            line-height: 1.85;
             color: #1f2937;
+            font-size: 1.05em;
         }
         
-        /* ===== CRISIS/URGENCY ===== */
+        .featured-box p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* ===== URGENCY BOX ===== */
         .urgency-box {
             background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
             border: 2px solid #ef5350;
             border-radius: 12px;
-            padding: 35px;
-            margin: 30px 0;
-            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.1);
+            padding: 50px;
+            margin: 50px 0;
+            box-shadow: 0 4px 18px rgba(220, 38, 38, 0.1);
         }
         
         .urgency-box h3 {
             color: #dc2626;
-            font-size: 1.4em;
-            margin-bottom: 20px;
-            font-weight: 800;
+            font-size: 1.6em;
+            margin-bottom: 35px;
+            font-weight: 900;
         }
         
         .urgency-box p {
             color: #7f1d1d;
-            margin-bottom: 15px;
-            line-height: 1.8;
+            margin-bottom: 18px;
+            line-height: 1.9;
             font-weight: 500;
-            font-size: 1.05em;
+            font-size: 1.06em;
+        }
+        
+        .urgency-box p:last-child {
+            margin-bottom: 0;
         }
         
         /* ===== IMAGES ===== */
         .image-block {
             text-align: center;
-            margin: 40px 0;
+            margin: 60px 0;
+            padding: 40px 0;
         }
         
         .image-block img {
             max-width: 100%;
             height: auto;
             border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            margin-bottom: 15px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+            margin-bottom: 25px;
         }
         
         .image-caption {
-            font-size: 0.95em;
+            font-size: 1em;
             color: #666;
             font-style: italic;
-            margin-top: 10px;
+            margin-top: 15px;
+            line-height: 1.7;
         }
         
         /* ===== BUTTONS ===== */
         .btn {
             display: inline-block;
-            padding: 16px 40px;
+            padding: 16px 42px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 1.05em;
+            font-size: 1.06em;
             transition: all 0.3s;
             border: none;
             cursor: pointer;
             text-align: center;
-            min-width: 200px;
-            margin: 12px 8px 12px 0;
+            min-width: 220px;
+            margin: 14px 10px 14px 0;
         }
         
         .btn-blue {
             background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
             color: white;
-            box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+            box-shadow: 0 4px 14px rgba(30, 64, 175, 0.3);
         }
         
         .btn-blue:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 18px rgba(30, 64, 175, 0.4);
+            box-shadow: 0 6px 20px rgba(30, 64, 175, 0.4);
         }
         
         .btn-green {
             background: linear-gradient(135deg, #16a34a 0%, #22c55e 100%);
             color: white;
-            box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
+            box-shadow: 0 4px 14px rgba(22, 163, 74, 0.3);
         }
         
         .btn-green:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 18px rgba(22, 163, 74, 0.4);
-        }
-        
-        .btn-red {
-            background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
-            color: white;
-            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
-        }
-        
-        .btn-red:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 18px rgba(220, 38, 38, 0.4);
+            box-shadow: 0 6px 20px rgba(22, 163, 74, 0.4);
         }
         
         /* ===== CTA SECTION ===== */
@@ -300,44 +353,45 @@
             background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
             border: 3px solid #86efac;
             border-radius: 12px;
-            padding: 50px;
-            margin-top: 60px;
+            padding: 60px;
+            margin-top: 70px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(22, 163, 74, 0.1);
+            box-shadow: 0 4px 18px rgba(22, 163, 74, 0.12);
         }
         
         .cta-section h3 {
-            font-size: 1.8em;
+            font-size: 2em;
             color: #16a34a;
-            margin-bottom: 20px;
+            margin-bottom: 28px;
             font-weight: 900;
         }
         
         .cta-section p {
-            font-size: 1.1em;
+            font-size: 1.15em;
             color: #3f6212;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             font-weight: 500;
+            line-height: 1.8;
         }
         
         /* ===== FOOTER ===== */
         .footer {
             background: #1f2937;
             color: white;
-            padding: 40px;
+            padding: 50px;
             text-align: center;
-            margin-top: 70px;
+            margin-top: 80px;
             border-top: 3px solid #374151;
         }
         
         .footer-links {
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
         
         .footer-links a {
             color: #93c5fd;
             text-decoration: none;
-            margin: 0 15px;
+            margin: 0 18px;
             font-weight: 600;
         }
         
@@ -348,29 +402,34 @@
         
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
-            .headline { font-size: 2em; }
-            .section-header h2 { font-size: 1.8em; }
-            .nav-tabs { gap: 8px; }
-            .nav-tabs a { padding: 10px 15px; font-size: 0.9em; }
-            .card, .featured-box, .urgency-box { padding: 20px; }
-            .logo { max-width: 180px; }
+            .headline { font-size: 2.2em; }
+            .countdown-main { font-size: 1.3em; }
+            .section-header h2 { font-size: 2em; }
+            .nav-tabs { gap: 8px; padding: 20px; }
+            .nav-tabs a { padding: 10px 16px; font-size: 0.85em; }
+            .card, .featured-box, .urgency-box { padding: 28px; }
+            .logo { max-width: 200px; }
+            .cta-section { padding: 40px; }
         }
     </style>
 </head>
 <body>
+    <!-- COUNTDOWN TICKER -->
+    <div class="countdown-ticker">
+        <div class="countdown-date" id="today-date">Today: December 20, 2025</div>
+        <div class="countdown-main" id="countdown-display">⏰ 11 DAYS UNTIL HEALTHCARE COSTS SKYROCKET ⏰</div>
+    </div>
+    
     <!-- HEADER -->
     <div class="header">
         <div class="header-content">
             <img src="PHIERS_Logo.png" alt="PHIERS Logo" class="logo">
             
             <div class="headline">Make America Better And Healthier</div>
-            <div class="subheadline">(MABAH) — Community-Enabling Healthcare Revolution</div>
+            <div class="subheadline">(MABAH) — Healthcare Revolution for 234 Million Americans</div>
             
             <div class="crisis-banner">
-                ⏰ CONGRESS FAILED ON DEC 11<br>
-                Senate rejected both healthcare plans (51 votes needed 60).<br>
-                DEC 31: 22 million lose $1,000+/year in subsidies. Death spiral begins.<br>
-                <strong>15 DAYS LEFT TO FORCE A SOLUTION CONGRESS CANNOT IGNORE</strong>
+                ⏰ CONGRESS FAILED ON DEC 11 | Both healthcare plans REJECTED | DEC 31: 22 million lose $1K+/year | 15 DAYS LEFT TO FORCE CHANGE
             </div>
         </div>
     </div>
@@ -380,7 +439,7 @@
         <a class="nav-link nav-blue active" onclick="showSection('problem')">The Crisis</a>
         <a class="nav-link nav-blue" onclick="showSection('solution')">Our Solution</a>
         <a class="nav-link nav-blue" onclick="showSection('ecosystem')">Full Ecosystem</a>
-        <a class="nav-link nav-blue" onclick="showSection('model')">How It Works</a>
+        <a class="nav-link nav-blue" onclick="showSection('model')">Financial Model</a>
         <a class="nav-link nav-red" onclick="showSection('leverage')">Congressional Leverage</a>
         <a class="nav-link nav-green" onclick="showSection('action')">Take Action Now</a>
         <a class="nav-link" href="https://phiersale.github.io/PHIERS-FAQ/" target="_blank" style="border-color: #6366f1; color: #6366f1;">FAQ</a>
@@ -392,43 +451,38 @@
         <div id="problem" class="page-section active">
             <div class="section-header red-header">
                 <h2>The Healthcare Death Spiral No One Is Stopping</h2>
-                <p>Congress rejected both plans. 22 million Americans are 12 days from losing healthcare. This is the moment that breaks our system.</p>
+                <p>Congress rejected both plans. 22 million Americans are 11 days from losing healthcare. Without our solution, the system collapses.</p>
             </div>
             
             <div class="urgency-box">
                 <h3>🔥 What Happened on December 11, 2025</h3>
-                <p><strong>Senate voted on TWO healthcare plans:</strong></p>
-                <p>• Democrats proposed: 3-year subsidy extension (51 votes, needed 60)</p>
-                <p>• Republicans proposed: Let subsidies expire, use health savings accounts (51 votes, needed 60)</p>
-                <p><strong>Result: BOTH FAILED.</strong> Congress deadlocked. No solution. Just failure.</p>
-                <p>Now we're 15 days from the insurance cliff, and Congress is home vulnerable. This is our forcing window.</p>
+                <p><strong>The Senate voted on TWO healthcare plans.</strong> Both failed catastrophically.</p>
+                <p style="margin-top: 20px;"><strong>Democrats:</strong> Proposed 3-year subsidy extension → 51 votes (needed 60) → FAILED</p>
+                <p><strong>Republicans:</strong> Proposed letting subsidies expire, push HSAs → 51 votes (needed 60) → FAILED</p>
+                <p style="margin-top: 20px;"><strong>Result:</strong> Congress deadlocked. Zero healthcare solution. Just failure.</p>
+                <p style="margin-top: 20px;"><strong>Now:</strong> 11 days until insurance cliff. Congress is home. They're vulnerable. WE have what they need.</p>
             </div>
             
             <div class="card card-red">
-                <h3>December 31 Premium Cliff: The Cascading Crisis</h3>
-                <p><strong>22 million Americans</strong> will lose enhanced ACA subsidies on December 31, 2025.</p>
-                <p><strong>What this means in dollars:</strong></p>
-                <p>• Average individual: $1,016 MORE per year in premiums</p>
-                <p>• 40-year-old earning $50K: +$2,000 annually</p>
-                <p>• Families with 2+ members: +$3,000-$5,000+</p>
-                <p><strong>Cascade effect:</strong> Healthier people drop coverage → adverse selection → premiums spike for remaining enrollees → more drop off → insurance market destabilization → death spiral.</p>
+                <h3>December 31 Premium Cliff: Cascading Economic Catastrophe</h3>
+                <p><strong>22 MILLION AMERICANS</strong> will lose enhanced ACA subsidies on December 31, 2025.</p>
+                <p style="margin-top: 25px;"><strong>What happens in their wallets:</strong></p>
+                <p>• Average individual: +$1,016/year in premiums</p>
+                <p>• 40-year-old earning $50K: +$2,000/year</p>
+                <p>• Family with 2+ members: +$3,000-$5,000+/year</p>
+                <p style="margin-top: 25px;"><strong>The cascade:</strong></p>
+                <p>Healthy people drop coverage → Adverse selection intensifies → Insurance pools shrink → Premiums spike for remaining people → More drop off → Market destabilization → DEATH SPIRAL begins.</p>
             </div>
             
             <div class="card card-red">
-                <h3>Congress Failed Twice in One Day</h3>
-                <p>December 11: Senate voted on healthcare. Both proposals failed.</p>
-                <p>December 31: Insurance cliff hits.</p>
-                <p>January 30: Shutdown deadline forces vote on anything (could include telehealth) OR government shuts down.</p>
-                <p><strong>The window is NOW. Congress is home. They're vulnerable. They're desperate for a solution.</strong></p>
-                <p>We have one.</p>
-            </div>
-            
-            <div class="card card-red">
-                <h3>Why Trump and Democrats' Plans Both Failed</h3>
-                <p><strong>Trump's approach:</strong> Use Health Savings Accounts to replace insurance. Problem: HSAs don't cover the actual cost of care. People die.</p>
-                <p><strong>Democrats' approach:</strong> Extend subsidies another 3 years. Problem: Subsidies don't solve underlying cost problem. We're still paying $8K-$15K per person for insurance we don't need.</p>
-                <p><strong>Neither plan:</strong> Saves taxpayers money. Creates jobs. Provides UBI. Fixes the supply chain. Builds public banking. Solves multiple problems at once.</p>
-                <p><strong>OUR plan:</strong> Does all of it. For $600/year instead of $8K+.</p>
+                <h3>Why Both Plans Failed (And Why Ours Works)</h3>
+                <p style="margin-bottom: 25px;"><strong>Trump's HSA Approach:</strong> HSAs don't pay for actual care. People get catastrophically ill without coverage. Deaths increase. Politically and morally indefensible.</p>
+                
+                <p style="margin-bottom: 25px;"><strong>Democrats' Subsidy Extension:</strong> Extends current broken system. Still paying $8K-$15K per person for insurance nobody fully utilizes. Doesn't address cost. Doesn't create jobs. Doesn't fix supply chain. Doesn't build public banking. Just delays crisis.</p>
+                
+                <p style="margin-bottom: 25px;"><strong>PHIERS' Approach:</strong> Replaces expensive insurance with $600 telehealth (covers 80% of healthcare needs). Self-sustaining growth. Creates 250K+ jobs. Builds public bank. Funds UBI. Saves $2.7 TRILLION. Solves MULTIPLE problems at once.</p>
+                
+                <p><strong>Congress knows this exists. They'll choose it if we force them.</strong></p>
             </div>
         </div>
         
@@ -436,43 +490,56 @@
         <div id="solution" class="page-section">
             <div class="section-header blue-header">
                 <h2>PHIERS: The Solution Congress Cannot Ignore</h2>
-                <p>While Congress failed, we already built what America needs. Proven. Operational. Ready to deploy.</p>
+                <p>While Congress failed, we built what America actually needs. Proven. Operational. Ready to deploy in 11 days.</p>
             </div>
             
             <div class="featured-box">
-                <h3>🎯 Our One-Year Mission (By Dec 31)</h3>
-                <p><strong>Force Congress to add telehealth insurance plans to the ACA Marketplace.</strong></p>
-                <p>That's it. One legislative change. Everything else cascades from there.</p>
-                <p>Why it works: 22 million people lose coverage Dec 31. They'll sign a petition demanding telehealth be an option. 3.5% of any district can swing elections. Organized constituents = unmovable force.</p>
+                <h3>🎯 Our Mission: Force One Legislative Change by Dec 31</h3>
+                <p><strong>Add telehealth insurance plans to the ACA Marketplace.</strong></p>
+                <p style="margin-top: 30px;">That's it. One change. Everything cascades from there.</p>
+                <p style="margin-top: 30px;">How we force it: 22 million people lose healthcare Dec 31. They sign our petition. 3.5% organized constituents can swing elections. We're targeting 100+ million. Congress CANNOT ignore that math.</p>
             </div>
             
             <div class="card card-blue">
-                <h3>The Breakthrough: Cost Reality</h3>
-                <p><strong>Insurance costs NOW (per person/year):</strong></p>
+                <h3>The Reality of Current Insurance Costs</h3>
+                
+                <p style="margin-bottom: 25px;"><strong>What Americans pay NOW (per person/year):</strong></p>
                 <p>• Medicare: $8,000-$12,000</p>
                 <p>• Medicaid: $6,000-$10,000</p>
                 <p>• VA: $7,000-$15,000</p>
                 <p>• Private (employer): $8,000-$15,000</p>
-                <p>• Private (individual post-subsidy loss): $8,000-$18,000</p>
-                <p><strong>Telehealth Insurance: $600/year</strong></p>
-                <p><strong>Why the huge gap?</strong> Traditional insurance pays for hospitalization. 80% of Americans don't need hospitalization. We're paying 10-15x more than necessary.</p>
+                <p>• Private (individual after subsidy loss): $8,000-$18,000</p>
+                
+                <p style="margin-top: 30px;"><strong>PHIERS Telehealth Insurance: $600/year</strong></p>
+                
+                <p style="margin-top: 30px;"><strong>Why the massive gap?</strong> Traditional insurance pays for hospitalization. 80% of Americans don't need hospitalization annually. We're paying 10-15X more than necessary.</p>
             </div>
             
             <div class="card card-blue">
-                <h3>Reality: Telehealth Works</h3>
-                <p><strong>ZORTT Healthcare:</strong> Cooperative telehealth network. Operating 1+ year. Real members. 60-70% cost reduction. PROVEN.</p>
-                <p><strong>Mark Cuban Cost Plus Drugs:</strong> 7 million customers in 200+ pharmacies. 80-90% prescription savings. Operational since August 2025. PROVEN.</p>
-                <p><strong>The combination:</strong> Primary care + specialist consultation + diagnostics + mental health + prescriptions = comprehensive care at 1/15th cost.</p>
-                <p><strong>Missing piece:</strong> Congressional authorization to add these plans to ACA Marketplace. That's what we're forcing by December 31.</p>
+                <h3>Proof: Telehealth Works at Scale</h3>
+                
+                <p style="margin-bottom: 25px;"><strong>ZORTT Healthcare:</strong> Cooperative telehealth network operating 1+ year. Real members. 60-70% cost reduction. OPERATIONAL.</p>
+                
+                <p style="margin-bottom: 25px;"><strong>Mark Cuban Cost Plus Drugs:</strong> 7 million customers across 200+ pharmacies. 80-90% prescription savings. Operating since August 2025. PROVEN.</p>
+                
+                <p style="margin-bottom: 25px;"><strong>The combination:</strong> Primary care + Specialists + Diagnostics + Mental health + Prescriptions = Comprehensive care at 1/15th cost.</p>
+                
+                <p><strong>Missing piece:</strong> Congressional authorization to add these plans to ACA Marketplace. That's what we're forcing by Dec 31.</p>
             </div>
             
             <div class="card card-blue">
                 <h3>What Changes for 234 Million Americans</h3>
-                <p><strong>Individual benefit:</strong> Saves $7,400+/year (from $8K traditional to $600 telehealth)</p>
-                <p><strong>Federal budget:</strong> Saves $1+ TRILLION annually (multiply $7,400 × 234M people)</p>
-                <p><strong>Employment:</strong> Creates 250K+ sustainable jobs Year 1 (enrollment, operations, telehealth expansion, coordination)</p>
-                <p><strong>UBI funding:</strong> Monthly assistance funded from government savings</p>
-                <p><strong>Public banking:</strong> USPS Bank funded and renovated from ecosystem reinvestment</p>
+                
+                <p style="margin-bottom: 28px;"><strong>Individual benefit:</strong> Saves $7,400+/year (from $8K+ traditional to $600 telehealth)</p>
+                
+                <p style="margin-bottom: 28px;"><strong>Federal budget:</strong> Saves $1+ TRILLION annually (multiply $7,400 × 234M people)</p>
+                
+                <p style="margin-bottom: 28px;"><strong>Employment:</strong> Creates 250K+ sustainable jobs Year 1 (enrollment, operations, telehealth expansion, coordination, public bank)</p>
+                
+                <p style="margin-bottom: 28px;"><strong>UBI funding:</strong> Monthly assistance funded from government savings</p>
+                
+                <p style="margin-bottom: 28px;"><strong>Public banking:</strong> USPS Bank funded and renovated from ecosystem reinvestment</p>
+                
                 <p><strong>Supply chain:</strong> Direct import partnerships eliminate middlemen on 90% of medications</p>
             </div>
         </div>
@@ -481,192 +548,283 @@
         <div id="ecosystem" class="page-section">
             <div class="section-header blue-header">
                 <h2>The Full Ecosystem: Solving Multiple Problems at Once</h2>
-                <p>This isn't just insurance. It's a platform that connects healthcare, jobs, banking, and community power.</p>
+                <p>This isn't just insurance reform. It's a complete economic rebuild—healthcare, jobs, banking, and community power integrated on ONE platform.</p>
             </div>
             
             <div class="image-block">
                 <img src="PHIERS_HIE_-_Community_.png" alt="PHIERS Ecosystem Diagram">
-                <div class="image-caption">PHIERS Co-op serves as integration point for Labs, Pharmacies, Primary Care, Hospitals, Medical Transport, Safety Net, Public Health, and Trusted Care Team</div>
+                <div class="image-caption">PHIERS Co-op integrates Labs, Pharmacies, Primary Care, Hospitals, Medical Transport, Safety Net Jobs, Public Health, and Trusted Care Teams into one seamless system.</div>
             </div>
             
             <div class="card card-blue">
-                <h3>📊 The Rubiks Cube: Multiple Problems, One Solution</h3>
-                <p>A Rubiks Cube has 6 sides. Each side represents a different audience with a different health need. PHIERS solves for all of them simultaneously.</p>
+                <h3>🧩 The Rubiks Cube: 6 Faces, 6 Solutions, 1 Platform</h3>
+                <p>A Rubiks Cube has 6 sides. PHIERS solves for all 6 simultaneously—different audience, same integrated solution.</p>
             </div>
             
             <div class="image-block">
                 <img src="PHEIRS_Rubiks_Cube_-_SYMBOLS.png" alt="PHIERS Rubiks Cube - Multiple Solutions">
-                <div class="image-caption">Each face solves a different problem: Healthcare costs, Jobs, Economics, Prescription access, Community health, Public banking</div>
+                <div class="image-caption">Each face solves a different crisis: Healthcare costs, Jobs creation, Economic stimulus, Prescription access, Community health, Public banking.</div>
             </div>
             
             <div class="card card-blue">
-                <h3>🔗 Three Interconnected Systems</h3>
-                <p><strong>System 1: Insurance Marketplace (PHIERS Co-op)</strong><br>
-                Telehealth plans on ACA. $600/year. Coverage for primary care, specialists, diagnostics, mental health, prescriptions (via Cuban).</p>
+                <h3>🔗 ONE APP: Everyone on the Same Platform</h3>
                 
-                <p style="margin-top: 25px;"><strong>System 2: Employment & Benefits Network</strong><br>
-                Jobs created at every stage: enrollment counselors, operations staff, telehealth coordinators, USPS bank tellers, supply chain specialists. Benefits come from PHIERS marketplace OR community employment OR public bank programs.</p>
+                <p style="margin-bottom: 28px;"><strong>Individuals see:</strong> Healthcare access, jobs, banking, small business directory, community services</p>
                 
-                <p style="margin-top: 25px;"><strong>System 3: USPS Public Banking System</strong><br>
-                Community financial services (savings, checking, small business loans, mortgages). Funded by PHIERS ecosystem reinvestment. Eliminates banking inequity. Operated by AFGE (federal workers union) with democratic accountability.</p>
+                <p style="margin-bottom: 28px;"><strong>Small businesses see:</strong> 234M customer base, referral network, shared services, workforce solutions</p>
+                
+                <p style="margin-bottom: 28px;"><strong>Telehealth providers see:</strong> Unified patient base, integrated payments, supply coordination, growth runway</p>
+                
+                <p style="margin-bottom: 28px;"><strong>Public servants see:</strong> Transparent health data, employment distribution, community economic health</p>
+                
+                <p style="margin-top: 35px;"><strong>Result:</strong> Connected community using shared infrastructure. Smaller, smarter government built in. Costs decrease as scale increases.</p>
             </div>
             
             <div class="card card-blue">
-                <h3>🤝 Coalition Partners (Everyone Wins)</h3>
-                <p><strong>Why unions partner:</strong> Every member gets $600 telehealth. Every member stays in care. Negotiating power increases.</p>
-                <p><strong>Why workers partner:</strong> Gig workers get benefits for first time. Fast food workers get healthcare. Amazon warehouse workers get organized healthcare access.</p>
-                <p><strong>Why communities partner:</strong> Local jobs. Public bank eliminates predatory lending. Safety net strengthened.</p>
-                <p><strong>Why Congress partners:</strong> $2+ trillion in federal savings. No new taxes. Vote counts.</p>
+                <h3>💼 Small Business Ecosystem Within PHIERS</h3>
+                
+                <p style="margin-bottom: 28px;"><strong>Small businesses GROW WITHIN our platform using shared services.</strong></p>
+                
+                <p style="margin-bottom: 28px;"><strong>Examples:</strong></p>
+                <p>• Solo telehealth practitioners launch their own practice (PHIERS handles insurance, payments, patient coordination)</p>
+                <p>• Community health workers scale up (PHIERS manages logistics, scheduling, coordination)</p>
+                <p>• Medical transport services expand (PHIERS coordinates with labs, pharmacies, hospitals)</p>
+                <p>• Wellness centers grow (PHIERS integrates mental health, nutrition, fitness within insurance)</p>
+                <p>• Manufacturing revival (PHIERS pays for domestically-made medical equipment, rebuilds supply chain)</p>
+                
+                <p style="margin-top: 28px;"><strong>Financing:</strong> USPS Public Bank provides small business loans. PHIERS provides customer base. Shared infrastructure keeps costs down.</p>
+                
+                <p style="margin-top: 28px;"><strong>Outcome:</strong> Thousands of small businesses growing simultaneously within one ecosystem. Not competing in predatory market. COLLABORATING in inclusive economy.</p>
+            </div>
+            
+            <div class="featured-box">
+                <h3>🌱 The Inclusive Moral Economy (Rebuilt from the Ashes)</h3>
+                
+                <p style="margin-top: 30px;"><strong>We're building:</strong> Not a healthcare system. Not a jobs program. An ECONOMY built on shared values.</p>
+                
+                <p style="margin-top: 35px;"><strong>Core principles:</strong></p>
+                <p>• Healthcare is a right, not a product (cost is public concern, access is guaranteed)</p>
+                <p>• Work is dignified and pays a living wage (no gig worker poverty)</p>
+                <p>• Wealth stays in communities (public banking, not Wall Street extraction)</p>
+                <p>• Growth is inclusive (small businesses benefit, not just corporations)</p>
+                <p>• Sustainability is built-in (system pays for itself, grows stronger over time)</p>
+                
+                <p style="margin-top: 35px;"><strong>How it works:</strong> Everyone on the same app. Everyone benefits from shared success. Competition replaced by collaboration. Scarcity mindset becomes abundance mindset.</p>
+                
+                <p style="margin-top: 35px;"><strong>Result:</strong> Connected community that WANTS to participate because system works FOR them, not AGAINST them.</p>
+            </div>
+            
+            <div class="urgency-box">
+                <h3>⚡ Self-Sustaining From Month 1</h3>
+                
+                <p style="margin-top: 30px;"><strong>Month 1:</strong> 100K people enroll → $61.67M monthly savings → 30% ops ($18.5M) + 70% enrollment funding ($43.2M → 864K new people)</p>
+                
+                <p style="margin-top: 30px;"><strong>Month 2:</strong> 964K enrolled → $595M monthly → 30% ops ($178.5M) + 70% new enrollment ($416.5M → 8.3M new people)</p>
+                
+                <p style="margin-top: 30px;"><strong>By Month 3:</strong> System fully self-funded. Operations complete. Growth becomes self-propelling.</p>
+                
+                <p style="margin-top: 30px;"><strong>Critical insight:</strong> This isn't a government program needing budget approval. This is a market force that CREATES its own funding. Congress doesn't fund it. The SAVINGS fund it.</p>
+            </div>
+            
+            <div class="featured-box" style="background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%); border-color: #86efac; margin-top: 50px;">
+                <h3 style="color: #16a34a; font-size: 1.8em;">🚀 THE ENDGAME: Universal Healthcare at ZERO COST</h3>
+                
+                <p style="margin-top: 35px; font-size: 1.15em;"><strong>Once we hit critical mass (50M+ people enrolled):</strong></p>
+                
+                <p style="margin-top: 35px;"><strong style="color: #16a34a; font-size: 1.2em;">Bottom 90% of society:</strong> $600 PHIERS policies become COMPLETELY FREE</p>
+                <p style="font-size: 1em; color: #3f6212; margin: 15px 0; line-height: 1.7;">Why? System efficiency is so extraordinary that covering 90% costs LESS than current overhead. The productivity gains are astronomical.</p>
+                
+                <p style="margin-top: 35px;"><strong style="color: #16a34a; font-size: 1.2em;">Everything else (prescriptions, labs, mental health, transport):</strong> Sliding scale, means-tested</p>
+                <p style="font-size: 1em; color: #3f6212; margin: 15px 0; line-height: 1.7;">Wealthy pay full cost. Upper-middle pays 50-75%. Lower-middle pays 25-50%. Poor pay $0-25%. Disabled and elderly pay $0.</p>
+                
+                <p style="margin-top: 35px;"><strong style="color: #16a34a; font-size: 1.2em;">The math:</strong></p>
+                <p style="font-size: 1em; color: #3f6212; margin: 12px 0;">• 234M × $7,400 savings = $1.73 TRILLION annual federal reduction</p>
+                <p style="font-size: 1em; color: #3f6212; margin: 12px 0;">• Cover bottom 90% free (210M people): Cost ≈ $50B (operations + subsidies) = 2.9% of savings</p>
+                <p style="font-size: 1em; color: #3f6212; margin: 12px 0;">• Sliding scale collections from top 10% + government leverage = FULLY FUNDED</p>
+                
+                <p style="margin-top: 35px;"><strong style="color: #16a34a; font-size: 1.15em;">This is not theory. This is the inevitable end-state of efficiency at scale.</strong></p>
             </div>
         </div>
         
         <!-- FINANCIAL MODEL SECTION -->
         <div id="model" class="page-section">
             <div class="section-header blue-header">
-                <h2>The Financial Model: How $600 Cascades to Save Trillions</h2>
-                <p>Show your work. Every number backed by math.</p>
+                <h2>The Financial Model: Show Your Work</h2>
+                <p>Every number backed by math. Transparent from dollar one.</p>
             </div>
             
             <div class="featured-box">
                 <h3>Step 1: One Person Switches</h3>
-                <p><strong>Person saves:</strong> $8,000 (traditional insurance) - $600 (telehealth) = <strong>$7,400/year</strong></p>
-                <p style="margin-top: 15px;"><strong>That $7,400 gets allocated:</strong></p>
-                <p>• 30% ($2,220) → Operations (staff, infrastructure, compliance)</p>
+                
+                <p style="margin-top: 30px;"><strong>Individual saves:</strong> $8,000-$12,000 (traditional) - $600 (telehealth) = <strong>$7,400/year</strong></p>
+                
+                <p style="margin-top: 35px;"><strong>That $7,400 gets allocated:</strong></p>
+                <p>• 30% ($2,220) → Operations (staff, infrastructure, compliance, coordination)</p>
                 <p>• 70% ($5,180) → Fund more transitions ($50 per person enrollment assistance)</p>
-                <p><strong>Result:</strong> $5,180 ÷ $50 = <strong>100+ NEW PEOPLE ENROLLED</strong> from one person's savings</p>
+                
+                <p style="margin-top: 30px;"><strong>Result:</strong> $5,180 ÷ $50 = <strong>100+ NEW PEOPLE ENROLLED</strong> from one person's savings</p>
             </div>
             
             <div class="card card-blue">
                 <h3>Step 2: Exponential Growth (Year 1)</h3>
-                <p>104 people enrolled → each save $7,400</p>
-                <p>Collective pool: 104 × $7,400 = $769,600/year</p>
-                <p>30% ops ($230,880) + 70% new enrollment ($538,720)</p>
+                
+                <p style="margin-bottom: 28px;">104 people enrolled → each save $7,400/year</p>
+                
+                <p style="margin-bottom: 28px;">Collective pool: 104 × $7,400 = $769,600/year</p>
+                
+                <p style="margin-bottom: 28px;">30% ops ($230,880) + 70% new enrollment ($538,720)</p>
+                
                 <p><strong>New people funded:</strong> $538,720 ÷ $50 = 10,774 MORE people Year 2</p>
             </div>
             
             <div class="card card-blue">
-                <h3>Step 3: National Scale Calculation</h3>
-                <p><strong>Addressable market:</strong> CMS (150M) + Medicaid (84M) + Private (128M) = 362M Americans</p>
-                <p><strong>Viable for telehealth:</strong> 80% (290M people — don't need hospitalization)</p>
-                <p><strong>Total annual savings:</strong> 290M × $7,400 = <strong>$2.146 TRILLION/year</strong></p>
-                <p><strong>Federal government share:</strong> $1.1+ TRILLION directly (CMS + VA)</p>
+                <h3>Step 3: National Scale</h3>
+                
+                <p style="margin-bottom: 28px;"><strong>Addressable market:</strong> CMS (150M) + Medicaid (84M) + Private (128M) = 362M Americans</p>
+                
+                <p style="margin-bottom: 28px;"><strong>Viable for telehealth:</strong> 80% (290M people who don't need hospitalization)</p>
+                
+                <p style="margin-bottom: 28px;"><strong>Total annual savings:</strong> 290M × $7,400 = <strong>$2.146 TRILLION/year</strong></p>
+                
+                <p style="margin-bottom: 28px;"><strong>Federal government share:</strong> $1.1+ TRILLION directly (CMS + VA)</p>
+                
                 <p><strong>State/private employer savings:</strong> Additional $1B+</p>
             </div>
             
             <div class="card card-blue">
-                <h3>Step 4: Jobs Created at Every Stage</h3>
-                <p><strong>Enrollment counselors:</strong> $50/enrollment × 100M people = $5B first year</p>
-                <p><strong>Operations staff:</strong> 30% of $7.4K × millions of people = $billions in payroll</p>
-                <p><strong>Telehealth expansion:</strong> ZORTT hires more practitioners, coordinators, support staff</p>
-                <p><strong>Public bank:</strong> USPS hires tellers, loan officers, financial counselors across 35K+ post offices</p>
-                <p><strong>Supply chain:</strong> Direct import coordinators, logistics, international partnerships</p>
-                <p><strong>Benefits:</strong> Healthcare comes from PHIERS plan OR from community job OR from public bank. Worker chooses.</p>
-            </div>
-            
-            <div class="urgency-box">
-                <h3>⚡ Why This Model Works (Others Failed)</h3>
-                <p><strong>Self-sustaining:</strong> No government funding needed. Savings from individual transitions fund expansion.</p>
-                <p><strong>Built-in operations:</strong> 30% of savings dedicated to infrastructure ensures system never gets underfunded.</p>
-                <p><strong>Proven components:</strong> ZORTT operational. Cuban's proven. Congressional support exists (231-195 vote). Constituent power documented (Chenoweth).</p>
-                <p><strong>Addresses real gaps:</strong> Trump's HSA plan doesn't fund care. Democrats' subsidy extension doesn't solve cost. OUR plan solves cost AND employment AND inflation AND banking.</p>
+                <h3>Step 4: Jobs Created Everywhere</h3>
+                
+                <p style="margin-bottom: 28px;"><strong>Enrollment counselors:</strong> $50/enrollment × 100M people = $5B first year</p>
+                
+                <p style="margin-bottom: 28px;"><strong>Operations staff:</strong> 30% of $7.4K × millions = $billions in payroll</p>
+                
+                <p style="margin-bottom: 28px;"><strong>Telehealth expansion:</strong> ZORTT hires practitioners, coordinators, support</p>
+                
+                <p style="margin-bottom: 28px;"><strong>Public bank:</strong> USPS hires across 35K+ post offices (tellers, loan officers, counselors)</p>
+                
+                <p style="margin-bottom: 28px;"><strong>Supply chain:</strong> Direct import coordinators, logistics, international partnerships</p>
+                
+                <p><strong>Benefits choice:</strong> Healthcare from PHIERS plan OR community job OR public bank. Worker chooses.</p>
             </div>
         </div>
         
         <!-- LEVERAGE SECTION -->
         <div id="leverage" class="page-section">
             <div class="section-header red-header">
-                <h2>PHIERStorm: How We Force Congress to Listen</h2>
+                <h2>PHIERStorm: Congressional Leverage</h2>
                 <p>Congress is home Dec 16-31. They're vulnerable. We're organized. The math is unmovable.</p>
             </div>
             
             <div class="urgency-box">
-                <h3>🔥 The Leverage Architecture</h3>
-                <p><strong>Option A:</strong> Congress says YES to telehealth marketplace entry by Dec 31. They become heroes. Save 22M people. Be remembered.</p>
-                <p><strong>Option B:</strong> Congress refuses. Face 100M+ organized constituents demanding removal. Lose primary elections. Get replaced January 2026.</p>
-                <p><strong>Congress will choose A. The pressure is mathematical.</strong></p>
+                <h3>🔥 The Choice Congress Faces</h3>
+                
+                <p style="margin-top: 35px;"><strong>OPTION A:</strong> Say YES to telehealth marketplace entry by Dec 31. Become heroes. Save 22M people. Be remembered as problem-solvers.</p>
+                
+                <p style="margin-top: 35px;"><strong>OPTION B:</strong> Refuse. Face 100M+ organized constituents demanding removal. Lose primary elections. Get replaced January 2026.</p>
+                
+                <p style="margin-top: 35px;"><strong>Congress will choose A. The pressure is mathematical. The choice is binary.</strong></p>
             </div>
             
             <div class="card card-red">
                 <h3>1. Petition & Town Hall Pressure</h3>
-                <p>1,500 signatures = mandatory town hall (Nader proved this).</p>
-                <p>We'll deliver 10,000+ per district.</p>
-                <p>Representatives forced home to face angry constituents.</p>
-                <p><strong>Multiplied by 435 districts:</strong> $1.95B constituent economic pressure. 50x re-election funds.</p>
+                
+                <p style="margin-bottom: 28px;">1,500 petition signatures = mandatory town hall (Nader proved this).</p>
+                
+                <p style="margin-bottom: 28px;">We'll deliver 10,000+ per district.</p>
+                
+                <p style="margin-bottom: 28px;">Representatives forced home to face angry constituents in real time.</p>
+                
+                <p><strong>Multiplied by 435 districts:</strong> $1.95B constituent economic pressure. 50x their re-election funds.</p>
             </div>
             
             <div class="card card-red">
                 <h3>2. Primary & Special Election Threats</h3>
-                <p>Any representative refusing telehealth faces primary challenge January 2026.</p>
-                <p>Healthcare IS the dominant issue. Refusing solution = automatic vulnerability.</p>
-                <p>PHIERS has resources to fund primary campaigns. Coalition (labor unions) provides organizers.</p>
+                
+                <p style="margin-bottom: 28px;">Any representative refusing telehealth faces immediate primary challenge (January 2026).</p>
+                
+                <p style="margin-bottom: 28px;">Healthcare IS the dominant issue for 80% of voters. Refusing solution = automatic vulnerability.</p>
+                
+                <p style="margin-bottom: 28px;">PHIERS has resources to fund primary campaigns. Coalition (labor unions) provides organizers.</p>
+                
                 <p><strong>Representatives understand:</strong> Support PHIERS or get replaced.</p>
             </div>
             
             <div class="card card-red">
                 <h3>3. Media Amplification (55M Readers)</h3>
-                <p>Pathos Communications + International Business Times have CONFIRMED they want to publish Will's story.</p>
-                <p>55+ million readers nationally.</p>
-                <p>Article publishes Dec 31 (crisis moment). Homeless public health advocate forces Congress to legislate $2T solution.</p>
-                <p>Viral story amplifies pressure 1,000x.</p>
-            </div>
-            
-            <div class="urgency-box" style="margin-top: 30px;">
-                <h3>📊 The Math Congress Cannot Ignore</h3>
-                <p><strong>22 million people</strong> lose healthcare Dec 31 if Congress does nothing.</p>
-                <p><strong>3.5% of constituents</strong> organized = guaranteed electoral victory (Chenoweth research).</p>
-                <p><strong>We target 100+ million</strong> = 9x the threshold.</p>
-                <p><strong>$1.95B per district</strong> in constituent economic pressure = Congress must respond.</p>
-                <p><strong>Congress has 15 days to choose.</strong> Option A or Option B. That's it.</p>
+                
+                <p style="margin-bottom: 28px;">Pathos Communications + International Business Times CONFIRMED they want to publish Will's story.</p>
+                
+                <p style="margin-bottom: 28px;">55+ million readers nationally.</p>
+                
+                <p style="margin-bottom: 28px;">Article publishes Dec 31 (crisis moment). Homeless public health architect forces Congress to legislate $2T solution.</p>
+                
+                <p><strong>Viral story amplifies pressure 1,000x.</strong></p>
             </div>
         </div>
         
         <!-- ACTION SECTION -->
         <div id="action" class="page-section">
             <div class="section-header green-header">
-                <h2>Take Action RIGHT NOW: 15 Days to Change Everything</h2>
+                <h2>Take Action RIGHT NOW: 11 Days to Change Everything</h2>
                 <p>Congress is home vulnerable. The subsidy cliff hits Dec 31. Our article publishes during the crisis. Your action TODAY determines what happens next.</p>
             </div>
             
             <div class="card card-green">
                 <h3>✍️ Step 1: Sign the Petition (2 minutes)</h3>
-                <p>Tell your Congressional representative: "Add Telehealth Plans to the ACA Marketplace by December 31, 2025 — or face recall/primary challenge."</p>
-                <p>1,500 signatures = mandatory town hall.</p>
-                <p>We'll deliver 10,000+.</p>
+                
+                <p style="margin-bottom: 28px;">Tell your Congressional representative: "Add Telehealth Plans to the ACA Marketplace by December 31, 2025 — or face primary challenge."</p>
+                
+                <p style="margin-bottom: 28px;">1,500 signatures = mandatory town hall. We'll deliver 10,000+.</p>
+                
                 <a href="https://docs.google.com/forms/d/1MYeQcmw8ZDXHwcjpEw5hbQCWP4FdHdyoHTo1XcAiTRA/edit" target="_blank" class="btn btn-green">✍️ Sign Petition Now</a>
             </div>
             
             <div class="card card-green">
                 <h3>📊 Step 2: Fill the Survey (3 minutes)</h3>
-                <p>Tell us your healthcare story. Costs. Premium shock. Telehealth experience. This data validates constituent demand. Congress will see it.</p>
+                
+                <p style="margin-bottom: 28px;">Tell us your healthcare story. Costs. Premium shock. Telehealth experience. This data validates constituent demand. Congress will see it.</p>
+                
                 <a href="https://docs.google.com/forms/d/1phABxQeHga26-k5ccxgL3lIZTjnyK1LsyT0zFeqMTQA/edit" target="_blank" class="btn btn-green">📝 Fill Survey Now</a>
             </div>
             
             <div class="card card-green">
                 <h3>🔁 Step 3: Recruit Others (Ongoing)</h3>
-                <p>Share this page. Text friends. Post on social media. Every person who joins multiplies our pressure exponentially.</p>
-                <p style="margin-top: 15px;"><strong>Share:</strong> https://phiers.org | Tag: #MABAH</p>
+                
+                <p style="margin-bottom: 28px;">Share this page. Text friends. Post on social media. Every person who joins multiplies our pressure exponentially.</p>
+                
+                <p style="margin-top: 28px;"><strong>Share:</strong> https://phiers.org | Tag: #MABAH</p>
             </div>
             
             <div class="card card-green">
                 <h3>💝 Step 4: Donate to Fund the Article</h3>
-                <p><strong>Pathos + IBT confirmed publication during the crisis (Dec 31).</strong> 55+ million readers. This is the forcing function.</p>
-                <p>We need $5,000 to finalize the article and guarantee placement.</p>
-                <p><strong>Your donation:</strong> Directly funds the story that reaches 55M people. That changes Congress.</p>
+                
+                <p style="margin-bottom: 28px;"><strong>Pathos + IBT confirmed publication during the crisis (Dec 31). 55+ million readers. This is the forcing function.</strong></p>
+                
+                <p style="margin-bottom: 28px;">We need $5,000 to finalize the article and guarantee placement.</p>
+                
+                <p style="margin-bottom: 28px;"><strong>Your donation:</strong> Directly funds the story that reaches 55M people. That changes Congress.</p>
+                
                 <a href="https://www.gofundme.com/f/homeless-but-hopeful-affordable-healthcare-good-jobs-ubi" target="_blank" class="btn btn-green">💝 Donate $50+ Now</a>
             </div>
             
             <div class="card card-green">
                 <h3>🚀 Step 5: Join Our Team</h3>
-                <p>Want to do more? We're recruiting organizers, data analysts, media coordinators, and grassroots leaders in every state.</p>
+                
+                <p style="margin-bottom: 28px;">Want to do more? We're recruiting organizers, data analysts, media coordinators, and grassroots leaders in every state.</p>
+                
                 <a href="https://phiersale.github.io/Join_the_Team/" target="_blank" class="btn btn-green">🚀 Join the Team</a>
             </div>
             
             <div class="cta-section">
                 <h3>💪 Congress Failed on Dec 11. We're Taking Over Dec 31.</h3>
-                <p>22 million people will lose healthcare in 15 days if Congress doesn't act.</p>
-                <p><strong>We have the solution. We have the leverage. We have the coalition.</strong></p>
-                <p style="margin-top: 30px; font-size: 1.2em; font-weight: 800;">Sign. Fill. Share. Donate. Join.</p>
-                <p style="font-size: 1.05em;">
+                
+                <p style="margin-top: 30px;">22 million people will lose healthcare in 11 days if Congress doesn't act.</p>
+                
+                <p style="margin-top: 30px;"><strong>We have the solution. We have the leverage. We have the coalition.</strong></p>
+                
+                <p style="margin-top: 40px; font-size: 1.3em; font-weight: 900; color: #16a34a;">Sign. Fill. Share. Donate. Join.</p>
+                
+                <p style="font-size: 1.1em; margin-top: 35px;">
                     <a href="https://discord.gg/narhDKJY" target="_blank" class="btn btn-green">💬 Join Discord</a>
                     <a href="https://docs.google.com/document/d/1EWz90b6WPqusRfSChuk_IL4h_4TJJd9R/edit?usp=sharing" target="_blank" class="btn btn-green">📖 Read Full Ebook</a>
                 </p>
@@ -681,15 +839,46 @@
             <a href="#" onclick="showSection('solution')">Our Solution</a>
             <a href="#" onclick="showSection('ecosystem')">Full Ecosystem</a>
             <a href="#" onclick="showSection('model')">Financial Model</a>
-            <a href="#" onclick="showSection('leverage')">Leverage Strategy</a>
+            <a href="#" onclick="showSection('leverage')">Leverage</a>
             <a href="https://phiersale.github.io/PHIERS-FAQ/" target="_blank">FAQ</a>
             <a href="https://discord.gg/narhDKJY" target="_blank">Discord</a>
         </div>
-        <p style="font-size: 1em; color: #d1d5db; margin-bottom: 15px;">PHIERS Movement | Will Price (Architect) | will@phiers.org | 301-919-0970</p>
-        <p style="font-size: 0.9em; color: #9ca3af;"><strong>Make America Better and Healthier.</strong> Healthcare Revolution for 234 Million Americans. Community-Enabling Solution. Self-Sustaining Cooperative Marketplace. Jobs + Public Bank + Safety Net.</p>
+        
+        <p style="font-size: 1.05em; color: #d1d5db; margin-bottom: 20px; font-weight: 600;">PHIERS Movement | Will Price (Architect) | 301-919-0970</p>
+        
+        <p style="font-size: 0.95em; color: #9ca3af; line-height: 1.8;"><strong>Make America Better and Healthier (MABAH)</strong> • Healthcare Revolution for 234 Million Americans • Community-Enabling Solution • Self-Sustaining Cooperative Marketplace • Jobs + Public Bank + Safety Net</p>
     </div>
     
     <script>
+        // Countdown ticker
+        function updateCountdown() {
+            const today = new Date();
+            const deadline = new Date('2025-12-31');
+            const daysLeft = Math.ceil((deadline - today) / (1000 * 60 * 60 * 24));
+            
+            const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+                             'July', 'August', 'September', 'October', 'November', 'December'];
+            const dateStr = `Today: ${monthNames[today.getMonth()]} ${today.getDate()}, ${today.getFullYear()}`;
+            
+            document.getElementById('today-date').textContent = dateStr;
+            
+            if (daysLeft > 0) {
+                document.getElementById('countdown-display').textContent = 
+                    `⏰ ${daysLeft} DAYS UNTIL HEALTHCARE COSTS SKYROCKET ⏰`;
+            } else if (daysLeft === 0) {
+                document.getElementById('countdown-display').textContent = 
+                    '🚨 TODAY IS THE DEADLINE 🚨';
+            } else {
+                document.getElementById('countdown-display').textContent = 
+                    '⏰ CONGRESS MUST ACT NOW ⏰';
+            }
+        }
+        
+        // Update on load and every minute
+        updateCountdown();
+        setInterval(updateCountdown, 60000);
+        
+        // Navigation
         function showSection(sectionId) {
             const sections = document.querySelectorAll('.page-section');
             sections.forEach(section => section.classList.remove('active'));
