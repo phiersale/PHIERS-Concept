@@ -3,18 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="PHIERS - Make America Better and Healthier (MABAH). Force Congress to add telehealth plans to ACA Marketplace by Dec 31. Save $2.73 trillion.">
-    <title>PHIERS.org - Make America Better and Healthier (MABAH)</title>
+    <title>PHIERS.org - Make America Better and Healthier</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.7; color: #1f2937; background: #ffffff; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.7; color: #1f2937; }
         
         .countdown-ticker {
             background: linear-gradient(90deg, #dc2626 0%, #991b1b 50%, #dc2626 100%);
-            color: #fbbf24; padding: 20px; text-align: center; font-weight: 900; font-size: 1.3em; 
+            color: #fbbf24; padding: 20px; text-align: center; font-weight: 900; font-size: 1.3em;
             border-bottom: 5px solid #fbbf24; position: sticky; top: 0; z-index: 999;
         }
+        
+        .banner-warning {
+            background: #dc2626; color: white; padding: 15px; text-align: center; font-weight: 700;
+            font-size: 1.1em; animation: blink 1.5s infinite;
+        }
+        
+        @keyframes blink { 0%, 50%, 100% { opacity: 1; } 25%, 75% { opacity: 0.8; } }
         
         .header {
             background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
@@ -22,8 +28,8 @@
         }
         
         .header-content { max-width: 1100px; margin: 0 auto; }
-        .logo { max-width: 180px; height: auto; margin-bottom: 20px; display: block; margin-left: auto; margin-right: auto; }
-        .headline { font-size: 2.8em; font-weight: 900; margin: 10px 0; line-height: 1.2; }
+        .logo { max-width: 200px; height: auto; margin-bottom: 25px; }
+        .headline { font-size: 2.8em; font-weight: 900; margin: 10px 0; }
         .subheadline { font-size: 1.2em; opacity: 0.95; margin-bottom: 20px; }
         
         .nav-tabs {
@@ -44,10 +50,7 @@
         .section-header h2 { font-size: 2.4em; margin-bottom: 20px; font-weight: 900; }
         .section-header p { font-size: 1.1em; color: #475569; max-width: 900px; margin: 0 auto; }
         
-        .cards-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px; margin-bottom: 50px;
-        }
+        .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-bottom: 50px; }
         
         .card {
             padding: 30px; border-radius: 10px; border-left: 5px solid; background: white;
@@ -76,6 +79,18 @@
         .cta-box h3 { color: #dc2626; font-size: 1.3em; margin-bottom: 15px; }
         .cta-box p { font-size: 1em; margin-bottom: 15px; line-height: 1.7; }
         
+        .video-container {
+            background: #f0f9ff; padding: 30px; border-radius: 10px; margin: 30px 0; border: 2px solid #dbeafe;
+        }
+        
+        .video-item {
+            margin-bottom: 40px; text-align: center;
+        }
+        
+        .video-item h4 {
+            font-size: 1.2em; margin-bottom: 15px; color: #1e40af; font-weight: 700;
+        }
+        
         .rubik-flow {
             background: linear-gradient(135deg, #f0f9ff 0%, #f0fdf4 100%);
             padding: 40px 30px; border-radius: 10px; margin: 50px 0; border: 2px solid #dbeafe;
@@ -93,6 +108,9 @@
         .footer { background: #1f2937; color: #d1d5db; padding: 50px 30px; text-align: center; margin-top: 80px; }
         .footer-links { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
         .footer-links a { color: #60a5fa; text-decoration: none; font-weight: 600; }
+        
+        .faq-item { margin-bottom: 30px; background: #f9fafb; padding: 20px; border-radius: 8px; border-left: 4px solid #1e40af; }
+        .faq-item strong { color: #1e40af; display: block; margin-bottom: 10px; }
     </style>
 </head>
 <body>
@@ -100,9 +118,13 @@
         <div id="countdown-display">⏰ DAYS UNTIL HEALTHCARE COSTS SKYROCKET ⏰</div>
     </div>
     
+    <div class="banner-warning">
+        ⚠️ UNLESS ENOUGH PEOPLE SIGN PETITION TO COMPEL CONGRESS TO ACT NOW - CRISIS HITS DEC 31 ⚠️
+    </div>
+    
     <div class="header">
         <div class="header-content">
-            <img src="https://phiersale.github.io/PHIERS-Logo.png" alt="PHIERS Logo" class="logo">
+            <img src="https://phiersale.github.io/PHIERS-Logo.png" alt="PHIERS Logo" class="logo" onerror="this.style.display='none'">
             <h1 class="headline">PHIERS Movement</h1>
             <p class="subheadline">Make America Better and Healthier (MABAH)</p>
             <p style="color: #fef3c7; font-weight: 700; margin-top: 15px;">Congress is home through Dec 31. 22 million Americans lose coverage Dec 31. Our solution pays for universal healthcare from SAVINGS.</p>
@@ -111,11 +133,13 @@
     
     <div class="nav-tabs">
         <a class="nav-link active" onclick="showSection('overview')">Affordability Overview</a>
+        <a class="nav-link" onclick="showSection('videos')">Videos</a>
         <a class="nav-link" onclick="showSection('rubiks')">Rubik's Cube</a>
         <a class="nav-link" onclick="showSection('crisis')">The Crisis</a>
         <a class="nav-link" onclick="showSection('mechanism')">How It Works</a>
         <a class="nav-link" onclick="showSection('leverage')">Leverage</a>
         <a class="nav-link" onclick="showSection('action')">Take Action</a>
+        <a class="nav-link" onclick="showSection('faq')">FAQ</a>
     </div>
     
     <div class="container">
@@ -130,7 +154,7 @@
             <div class="cards-grid">
                 <div class="card card-blue">
                     <h3>💰 The Problem: Healthcare is Unaffordable</h3>
-                    <p>Families choosing between rent and medicine. Premiums skyrocket Dec 31 for 22 million. AI eliminates 50M+ jobs while healthcare costs rise. Congress offered no solution.</p>
+                    <p>Individuals choosing between rent and medicine. Premiums skyrocket Dec 31 for 22 million. AI eliminates 50M+ jobs while healthcare costs rise. Congress offered no solution.</p>
                 </div>
                 
                 <div class="card card-blue">
@@ -150,10 +174,48 @@
             </div>
             
             <div class="cta-box">
-                <h3>⚡ But This Only Works If You Act Now</h3>
+                <h3>⚡ But This Only Works If You Act NOW</h3>
                 <p>Congress responds to organized constituent pressure. We need 3.5% of voters in your district to sign the petition + fill out the survey. That proves we have numbers. That forces town halls. Town halls force Congress.</p>
                 <p><a href="https://docs.google.com/forms/d/1MYeQcmw8ZDXHwcjpEw5hbQCWP4FdHdyoHTo1XcAiTRA/edit" target="_blank" class="btn btn-blue">✍️ Sign Petition Now</a>
                 <a href="https://docs.google.com/forms/d/1phABxQeHga26-k5ccxgL3lIZTjnyK1LsyT0zFeqMTQA/edit" target="_blank" class="btn btn-blue">📝 Fill Survey Now</a></p>
+            </div>
+        </div>
+        
+        <!-- VIDEOS SECTION -->
+        <div id="videos" class="page-section">
+            <div class="section-header">
+                <h2 style="color: #1e40af;">Watch the 3-Part Video Series</h2>
+                <p>Understand the breakthrough, the mechanics, and the political ultimatum Congress faces.</p>
+            </div>
+            
+            <div class="video-container">
+                <div class="video-item">
+                    <h4>📹 Part 1: My Story & Why This Matters (2:22)</h4>
+                    <p style="margin-bottom: 15px;"><strong>"Homeless But Fighting: The Caregiver Who Architected Universal Healthcare"</strong></p>
+                    <p style="margin-bottom: 20px;">I was a live-in caregiver. I witnessed elder abuse and endangerment. I reported it. I got evicted for protecting vulnerable people. Now I'm homeless. But I didn't lose the solution.</p>
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/eE-TxvI0d4Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                
+                <div class="video-item">
+                    <h4>📹 Part 2: The CASCADE MECHANISM - Mathematical Proof (3:33)</h4>
+                    <p style="margin-bottom: 15px;"><strong>"Why Congress Can't Ignore PHIERS: The Cascade Mechanism"</strong></p>
+                    <p style="margin-bottom: 20px;">$50 saved on prescriptions → funds 1 telehealth plan. That plan frees $7,400 in avoided insurance costs. That $7,400 funds 148 more telehealth plans. The cycle repeats, creating exponential expansion.</p>
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/jMU6LKEBzbs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                
+                <div class="video-item">
+                    <h4>📹 Part 3: Congress Get Out of the Way, Or Step Aside (4:44)</h4>
+                    <p style="margin-bottom: 15px;"><strong>"Congress: Get Out of the Way, Or Step Aside | Political Accountability"</strong></p>
+                    <p style="margin-bottom: 20px;">Congress rejected both healthcare plans on December 11. I'm giving them a choice: adopt PHIERS and become heroes, or reject PHIERS and face accountability from millions of organized constituents.</p>
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/xy3F9ZWbgS8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+            
+            <div class="cta-box">
+                <h3>Videos Explain Everything - Now Sign & Tell Congress</h3>
+                <p>Share these videos with your network. Then sign the petition and fill out the survey to show Congress we have the numbers.</p>
+                <p><a href="https://docs.google.com/forms/d/1MYeQcmw8ZDXHwcjpEw5hbQCWP4FdHdyoHTo1XcAiTRA/edit" target="_blank" class="btn btn-blue">✍️ Sign Petition</a>
+                <a href="https://docs.google.com/forms/d/1phABxQeHga26-k5ccxgL3lIZTjnyK1LsyT0zFeqMTQA/edit" target="_blank" class="btn btn-blue">📝 Fill Survey</a></p>
             </div>
         </div>
         
@@ -161,7 +223,7 @@
         <div id="rubiks" class="page-section">
             <div class="section-header">
                 <h2 style="color: #1e40af;">The Rubik's Cube: Everything Connected</h2>
-                <p>This isn't five separate solutions. Starting with YOUR petition signature, each piece strengthens all the others.</p>
+                <p>Starting with YOUR petition signature, each piece strengthens all the others.</p>
             </div>
             
             <div class="rubik-flow">
@@ -196,64 +258,14 @@
                 <div class="flow-arrow">⬇️</div>
                 
                 <div class="flow-step">
-                    <div class="flow-number">5</div>
-                    <div><strong>250K+ New Jobs Created</strong><br>Health coaches, case managers, social workers. Funded by cascade savings.</div>
-                </div>
-                
-                <div class="flow-arrow">⬇️</div>
-                
-                <div class="flow-step">
-                    <div class="flow-number">6</div>
-                    <div><strong>Union Collective Power (100M+ Scale)</strong><br>Universal insurance means unions negotiate as massive bloc. Unprecedented leverage against corporate power.</div>
-                </div>
-                
-                <div class="flow-arrow">⬇️</div>
-                
-                <div class="flow-step">
-                    <div class="flow-number">7</div>
-                    <div><strong>PHIERSale + PHIERPlace Marketplace</strong><br>100M+ insured workers shop together. Group rates. Savings amplify.</div>
-                </div>
-                
-                <div class="flow-arrow">⬇️</div>
-                
-                <div class="flow-step">
-                    <div class="flow-number">8</div>
-                    <div><strong>People's Public Bank</strong><br>Benefits bank in community-controlled institution. Wealth stays local.</div>
-                </div>
-                
-                <div class="flow-arrow">⬇️</div>
-                
-                <div class="flow-step">
-                    <div class="flow-number">9</div>
-                    <div><strong>Shared Case Management</strong><br>Tracks outcomes. Proves system works. Communities optimize together.</div>
-                </div>
-                
-                <div class="flow-arrow">⬇️</div>
-                
-                <div class="flow-step">
-                    <div class="flow-number">10</div>
-                    <div><strong>Cities & States Adopt Model</strong><br>Federal success creates proof. Local adoption accelerates nationwide.</div>
-                </div>
-                
-                <div class="flow-arrow">⬇️</div>
-                
-                <div class="flow-step">
-                    <div class="flow-number">11</div>
-                    <div><strong>MORE Cascade Savings Generated</strong><br>Each adoption creates MORE jobs, MORE savings. Exponential growth. Self-reinforcing loop.</div>
-                </div>
-                
-                <div class="flow-arrow">⬇️</div>
-                
-                <div class="flow-step">
-                    <div class="flow-number">12</div>
-                    <div><strong>Monthly Assistance Checks Begin</strong><br>Cascade savings accumulate. Monthly payments flow. Adoption becomes viral.</div>
+                    <div class="flow-number">5-12</div>
+                    <div><strong>Cascade Compounds: Jobs → Unions → Marketplace → Banking → Case Management → City Adoption → MORE Savings → Monthly Checks</strong><br>Each iteration creates MORE insured people, MORE jobs, MORE union power, MORE collective purchasing, MORE savings, MORE monthly assistance. Exponential growth.</div>
                 </div>
             </div>
             
             <div style="background: #f0fdf4; padding: 30px; border-radius: 10px; border-left: 5px solid #16a34a; margin-top: 40px;">
                 <h3 style="color: #16a34a; margin-bottom: 15px;">🎲 Why This Is The Rubik's Cube</h3>
                 <p>You can't solve one piece without solving the others. Healthcare alone? Incomplete. But add jobs → unions → marketplace → banking → case management → city adoption → MORE savings = complete system where each piece strengthens all others.</p>
-                <p style="margin-top: 15px;"><strong>Congress discovers they can't say yes to healthcare but no to jobs.</strong> The Rubik's Cube is indivisible. Accept the solution or explain why you prefer dysfunction.</p>
                 <p style="margin-top: 20px;">
                     <a href="https://docs.google.com/forms/d/1MYeQcmw8ZDXHwcjpEw5hbQCWP4FdHdyoHTo1XcAiTRA/edit" target="_blank" class="btn btn-green">✍️ Sign Petition Now</a>
                     <a href="https://docs.google.com/forms/d/1phABxQeHga26-k5ccxgL3lIZTjnyK1LsyT0zFeqMTQA/edit" target="_blank" class="btn btn-green">📝 Fill Survey Now</a>
@@ -261,43 +273,44 @@
             </div>
         </div>
         
-        <!-- CRISIS -->
+        <!-- CRISIS WITH NEGATIVE CASCADE -->
         <div id="crisis" class="page-section">
             <div class="section-header">
-                <h2 style="color: #dc2626;">The Crisis: Dec 31 Is The Deadline</h2>
-                <p>Congress has days to act. The problems are real. The solution is proven. The moment is now.</p>
+                <h2 style="color: #dc2626;">The Crisis: Dec 31 Deadline & Negative Cascade</h2>
+                <p>Congress has days to act. If they don't, problems COMPOUND RAPIDLY. Our solution compounds SOLUTIONS just as fast.</p>
             </div>
             
             <div class="cards-grid">
                 <div class="card card-red">
                     <h3>22 Million Lose Coverage Dec 31</h3>
-                    <p>Tax credit cliff. Premiums double or triple. Middle-class families forced into impossible choices. Congress rejected both healthcare plans Dec 11.</p>
+                    <p>Tax credit cliff. Premiums double or triple. Individuals forced into impossible choices. Congress rejected both healthcare plans Dec 11.</p>
                 </div>
                 
                 <div class="card card-red">
                     <h3>AI Eliminates 50M+ Jobs</h3>
-                    <p>Automation here now. Jobs disappearing faster than retraining. No safety net. No healthcare for displaced workers.</p>
+                    <p>Automation here now. Jobs disappearing faster than retraining. No safety net. No healthcare for displaced individuals.</p>
                 </div>
                 
                 <div class="card card-red">
-                    <h3>Inflation Eating Families Alive</h3>
-                    <p>Choosing between rent and medicine. Real wages falling. Savings eroding. Future uncertain.</p>
+                    <h3>Insurance Skyrockets = Cascade of Failure</h3>
+                    <p><strong>NEGATIVE CASCADE:</strong> Higher premiums → individuals drop coverage → healthcare system destabilizes → businesses lose productivity → supply chains break → economy falters → more job losses → more uninsured → system collapses faster.</p>
                 </div>
                 
                 <div class="card card-red">
                     <h3>Congress Serves Donors, Not You</h3>
-                    <p>Elections gerrymandered. Protests ignored. Representatives answer to corporate donors, not constituents. You have no leverage. No power. No choice.</p>
+                    <p>Elections gerrymandered. Protests ignored. Representatives answer to corporate donors, not constituents. Individuals have no leverage. No power. No choice.</p>
                 </div>
             </div>
             
             <div class="cta-box">
-                <h3>✅ PHIERS Solves ALL These Problems</h3>
-                <p><strong>If enough people sign the petition and fill out the survey.</strong></p>
+                <h3>✅ PHIERS STOPS The Negative Cascade & Creates POSITIVE Cascade</h3>
+                <p><strong>If enough individuals sign the petition and fill out the survey.</strong></p>
                 <p>✓ Universal healthcare ($600/year for everyone)<br>
                 ✓ 250K+ new jobs (health/social workers, case managers)<br>
-                ✓ Monthly assistance checks from cascade savings (addressing inflation)<br>
+                ✓ Monthly assistance checks from cascade savings<br>
                 ✓ Union collective bargaining power (100M+ scale shifts balance from corporate donors to constituents)<br>
-                ✓ Community case management (rebuilds social safety net)</p>
+                ✓ Community case management (rebuilds support network)</p>
+                <p style="margin-top: 20px;"><strong>POSITIVE CASCADE: Better healthcare → more people work → stronger economy → more jobs → higher wages → more savings → more coverage → MORE solutions compound.</strong></p>
                 <p style="margin-top: 20px;"><strong>Congress forced to choose: adopt PHIERS or face primary challenges from millions of organized constituents.</strong></p>
                 <p>
                     <a href="https://docs.google.com/forms/d/1MYeQcmw8ZDXHwcjpEw5hbQCWP4FdHdyoHTo1XcAiTRA/edit" target="_blank" class="btn btn-blue">✍️ Sign Petition Now</a>
@@ -310,7 +323,7 @@
         <div id="mechanism" class="page-section">
             <div class="section-header">
                 <h2 style="color: #1e40af;">The Exponential Mechanism</h2>
-                <p>This is mathematical inevitability, not hope-based wishful thinking.</p>
+                <p>Mathematical inevitability, not hope-based thinking.</p>
             </div>
             
             <div class="cards-grid">
@@ -321,7 +334,7 @@
                 
                 <div class="card card-blue">
                     <h3>The First Switch</h3>
-                    <p>Congress allows telehealth in ACA. First person switches from $8K to $600. <strong>$7,400 freed.</strong> Enough to PAY 12+ other people to switch.</p>
+                    <p>Congress allows telehealth in ACA. First individual switches from $8K to $600. <strong>$7,400 freed.</strong> Enough to PAY 12+ other individuals to switch.</p>
                 </div>
                 
                 <div class="card card-blue">
@@ -337,7 +350,7 @@
             
             <div class="cta-box">
                 <h3>⚡ The Math Is Inevitable</h3>
-                <p><strong>But it only starts if you sign the petition and fill out the survey.</strong> Your signature = proof we have numbers. Numbers = forced town halls. Town halls = Congressional pressure to allow telehealth. Policy change = cascade begins.</p>
+                <p><strong>But it only starts if you sign the petition and fill out the survey.</strong> Your signature = proof we have numbers. Numbers = forced town halls. Town halls = Congressional pressure. Policy change = cascade begins.</p>
                 <p>
                     <a href="https://docs.google.com/forms/d/1MYeQcmw8ZDXHwcjpEw5hbQCWP4FdHdyoHTo1XcAiTRA/edit" target="_blank" class="btn btn-blue">✍️ Sign Petition Now</a>
                     <a href="https://docs.google.com/forms/d/1phABxQeHga26-k5ccxgL3lIZTjnyK1LsyT0zFeqMTQA/edit" target="_blank" class="btn btn-blue">📝 Fill Survey Now</a>
@@ -355,7 +368,7 @@
             <div class="cards-grid">
                 <div class="card card-red">
                     <h3>Town Hall Pressure (Nader Rule)</h3>
-                    <p>1,500 signatures = mandatory town hall. We're delivering 10,000+ per district. Representatives forced to face angry constituents with petition data + survey stories.</p>
+                    <p>1,500 signatures = mandatory town hall. We're delivering 10,000+ per district. Representatives forced to face constituents with petition data + survey stories.</p>
                 </div>
                 
                 <div class="card card-red">
@@ -421,7 +434,7 @@
             
             <div style="background: #f0fdf4; padding: 40px; border-radius: 10px; text-align: center; border: 2px solid #16a34a; margin: 40px 0;">
                 <h3 style="color: #16a34a; font-size: 1.8em; margin-bottom: 20px;">💪 Congress Failed Dec 11. We're Taking Over Dec 31.</h3>
-                <p style="font-size: 1.1em; margin-bottom: 15px;">22 million people will lose healthcare if Congress doesn't act.</p>
+                <p style="font-size: 1.1em; margin-bottom: 15px;">22 million individuals will lose healthcare if Congress doesn't act.</p>
                 <p style="font-size: 1.1em; margin-bottom: 25px;"><strong>We have the solution. We have the leverage. We have the coalition.</strong></p>
                 <p style="font-size: 1.2em; font-weight: 700; color: #16a34a; margin-bottom: 25px;">Sign. Fill. Join. Donate. Share.</p>
                 <p style="margin-bottom: 25px; color: #666;">The window is NOW. Days until crisis forces Congressional action.</p>
@@ -432,16 +445,90 @@
                 </p>
             </div>
         </div>
+        
+        <!-- FAQ -->
+        <div id="faq" class="page-section">
+            <div class="section-header">
+                <h2 style="color: #1e40af;">Frequently Asked Questions</h2>
+                <p>Everything you need to know about PHIERS and how to make it happen.</p>
+            </div>
+            
+            <div style="max-width: 900px; margin: 0 auto;">
+                <div class="faq-item">
+                    <strong>Q: Why telehealth instead of traditional insurance?</strong>
+                    <p>A: 80% of government-insured beneficiaries don't need hospitalization. Telehealth covers routine care, preventive care, and emergency coordination at $600/year instead of $8K. The freed money ($7,400 per person) funds universal coverage exponentially.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <strong>Q: How does Congress allowing telehealth solve inflation?</strong>
+                    <p>A: Every individual who switches to telehealth frees $7,400. That money doesn't disappear—it funds more people's telehealth, creating exponential growth. Monthly assistance checks come from cascade savings. Individuals get real money flowing into their accounts, providing relief.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <strong>Q: Will this really work without new taxes or debt?</strong>
+                    <p>A: Yes. We're redirecting existing government healthcare spending ($888B+ freed from efficiency) instead of creating new spending. No new taxes. No new debt. Self-funding from cascade.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <strong>Q: What if Congress refuses?</strong>
+                    <p>A: 1,500+ petition signatures force mandatory town halls. Article publishes to 55M readers Dec 31. Constituents face Congress with survey data proving demand. Primary challenges funded by cascade-generated resources threaten representatives who refuse. Congress will choose to adopt PHIERS rather than face organized replacement.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <strong>Q: How do I sign the petition?</strong>
+                    <p>A: <a href="https://docs.google.com/forms/d/1MYeQcmw8ZDXHwcjpEw5hbQCWP4FdHdyoHTo1XcAiTRA/edit" target="_blank">Click here to sign the petition</a>. It takes 2 minutes and proves we have constituent numbers.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <strong>Q: What goes in the survey?</strong>
+                    <p>A: Your healthcare story. How much you spend. Whether you've used telehealth. What you need. This data proves constituent demand to Congress. <a href="https://docs.google.com/forms/d/1phABxQeHga26-k5ccxgL3lIZTjnyK1LsyT0zFeqMTQA/edit" target="_blank">Fill out the survey here</a>.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <strong>Q: Will 234M people really fit in telehealth?</strong>
+                    <p>A: Yes. Telehealth infrastructure scales infinitely (it's software). Individuals can access care from home. Specialists available on demand. Costs drop because overhead disappears. Capacity is not the constraint—individual adoption is. And adoption explodes when people see monthly checks arriving.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <strong>Q: What if the article doesn't publish?</strong>
+                    <p>A: It will. Pathos + International Business Times confirmed it. But even if it didn't, 10,000+ petition signatures per district still force town halls. Constituent pressure still works mathematically. The article just amplifies it to 55M readers.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <strong>Q: How do I stay updated?</strong>
+                    <p>A: <a href="https://discord.gg/narhDKJY" target="_blank">Join the Discord</a>. Share updates in your network. Sign the petition and fill the survey so we know you're part of this.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <strong>Q: Can I help organize locally?</strong>
+                    <p>A: Yes. <a href="https://phiersale.github.io/Join_the_Team/" target="_blank">Click here to join the team</a>. We need organizers, data analysts, media coordinators, and grassroots leaders in every state.</p>
+                </div>
+            </div>
+            
+            <div class="cta-box" style="margin-top: 50px;">
+                <h3>Ready to Make This Real?</h3>
+                <p>
+                    <a href="https://docs.google.com/forms/d/1MYeQcmw8ZDXHwcjpEw5hbQCWP4FdHdyoHTo1XcAiTRA/edit" target="_blank" class="btn btn-blue">✍️ Sign Petition</a>
+                    <a href="https://docs.google.com/forms/d/1phABxQeHga26-k5ccxgL3lIZTjnyK1LsyT0zFeqMTQA/edit" target="_blank" class="btn btn-blue">📝 Fill Survey</a>
+                </p>
+            </div>
+        </div>
     </div>
     
+    <!-- FOOTER WITH LINKS TO OTHER PAGES -->
     <div class="footer">
         <div class="footer-links">
             <a href="#" onclick="showSection('overview')">Affordability</a>
+            <a href="#" onclick="showSection('videos')">Videos</a>
             <a href="#" onclick="showSection('rubiks')">Rubik's Cube</a>
             <a href="#" onclick="showSection('crisis')">Crisis</a>
             <a href="#" onclick="showSection('mechanism')">How It Works</a>
             <a href="#" onclick="showSection('leverage')">Leverage</a>
-            <a href="https://phiersale.github.io/PHIERS-FAQ/" target="_blank">FAQ</a>
+            <a href="#" onclick="showSection('action')">Action</a>
+            <a href="#" onclick="showSection('faq')">FAQ</a>
+            <a href="https://phiersale.github.io/PHIERStorm/" target="_blank">PHIERStorm</a>
+            <a href="https://phiersale.github.io/MABAH-Movement/" target="_blank">MABAH Movement</a>
+            <a href="https://phiersale.github.io/Join_the_Team/" target="_blank">Join Team</a>
             <a href="https://discord.gg/narhDKJY" target="_blank">Discord</a>
         </div>
         <p style="margin: 15px 0; font-size: 1em;">PHIERS Movement | Will Price | 301-919-0970</p>
