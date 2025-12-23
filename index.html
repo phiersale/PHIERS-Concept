@@ -120,7 +120,41 @@
         
         .faq-item { margin-bottom: 30px; background: #f9fafb; padding: 20px; border-radius: 8px; border-left: 4px solid #1e40af; }
         .faq-item strong { color: #1e40af; display: block; margin-bottom: 10px; }
-    </style>
+            .nav-buttons {
+            display: flex; justify-content: space-between; align-items: center;
+            margin: 60px 0 40px; padding: 30px; background: linear-gradient(135deg, #f0f9ff 0%, #f0fdf4 100%);
+            border-radius: 10px; border-top: 3px solid #0ea5e9; border-bottom: 3px solid #16a34a;
+        }
+        
+        .nav-button {
+            padding: 12px 30px; border-radius: 8px; text-decoration: none; font-weight: 700;
+            font-size: 0.95em; cursor: pointer; border: none; transition: all 0.3s;
+        }
+        
+        .nav-button-prev {
+            background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%); color: white;
+        }
+        
+        .nav-button-prev:hover {
+            transform: translateX(-5px); box-shadow: 0 6px 20px rgba(30, 64, 175, 0.3);
+        }
+        
+        .nav-button-next {
+            background: linear-gradient(135deg, #16a34a 0%, #22c55e 100%); color: white;
+        }
+        
+        .nav-button-next:hover {
+            transform: translateX(5px); box-shadow: 0 6px 20px rgba(22, 163, 74, 0.3);
+        }
+        
+        .nav-button:disabled {
+            opacity: 0.5; cursor: not-allowed;
+        }
+        
+        .nav-page-indicator {
+            text-align: center; color: #1e40af; font-weight: 700; font-size: 1em;
+        }
+        </style>
 </head>
 <body>
     <div class="countdown-ticker">
@@ -155,6 +189,12 @@
         
         <!-- MAIN PAGE WITH VIDEOS INTEGRATED -->
         <div id="overview" class="page-section active">
+            <div class="nav-buttons">
+                <a class="nav-button nav-button-prev" disabled>← Previous</a>
+                <div class="nav-page-indicator">1 / 7</div>
+                <a class="nav-button nav-button-next" onclick="showSection('rubiks'); window.scrollTo(0,0);">Rubik's Cube →</a>
+            </div>
+            
             <div class="section-header">
                 <h2 style="color: #1e40af;">PHIERS: The Complete Affordability Solution</h2>
                 <p>One policy decision. Congress allows telehealth in the ACA marketplace. That triggers exponential solutions to healthcare, jobs, and political powerlessness—all funded from existing government savings.</p>
@@ -235,13 +275,29 @@
             </div>
             
             <!-- RUBIK'S CUBE -->
-        <div id="rubiks" class="page-section">
+
+            <div class="nav-buttons">
+                <a class="nav-button nav-button-prev" disabled>← Previous</a>
+                <div class="nav-page-indicator">1 / 7</div>
+                <a class="nav-button nav-button-next" onclick="showSection('rubiks'); window.scrollTo(0,0);">Rubik's Cube →</a>
+            </div>
+                    <div id="rubiks" class="page-section">
+            <div class="nav-buttons">
+                <a class="nav-button nav-button-prev" onclick="showSection('overview'); window.scrollTo(0,0);">← Main</a>
+                <div class="nav-page-indicator">2 / 7</div>
+                <a class="nav-button nav-button-next" onclick="showSection('crisis'); window.scrollTo(0,0);">The Crisis →</a>
+            </div>
+            
             <div class="section-header">
                 <h2 style="color: #1e40af;">The Rubik's Cube: Everything Connected</h2>
                 <p>Starting with YOUR petition signature, each piece strengthens all the others.</p>
             </div>
             
-            <div class="rubik-flow">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <img src="https://phiersale.github.io/PHEIRS_Rubiks_Cube_-_SYMBOLS.png" alt="PHIERS Rubik's Cube" style="max-width: 500px; width: 100%; height: auto; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.2);">
+            </div>
+            
+                        <div class="rubik-flow">
                 <h3 style="color: #1e40af; margin-bottom: 30px;">🎲 From Petition to Exponential Growth</h3>
                 
                 <div class="flow-step">
@@ -289,7 +345,19 @@
         </div>
         
         <!-- CRISIS WITH NEGATIVE CASCADE -->
-        <div id="crisis" class="page-section">
+
+            <div class="nav-buttons">
+                <a class="nav-button nav-button-prev" onclick="showSection('overview'); window.scrollTo(0,0);">← Main</a>
+                <div class="nav-page-indicator">2 / 7</div>
+                <a class="nav-button nav-button-next" onclick="showSection('crisis'); window.scrollTo(0,0);">The Crisis →</a>
+            </div>
+                    <div id="crisis" class="page-section">
+            <div class="nav-buttons">
+                <a class="nav-button nav-button-prev" onclick="showSection('rubiks'); window.scrollTo(0,0);">← Rubik's Cube</a>
+                <div class="nav-page-indicator">3 / 7</div>
+                <a class="nav-button nav-button-next" onclick="showSection('mechanism'); window.scrollTo(0,0);">How It Works →</a>
+            </div>
+            
             <div class="section-header">
                 <h2 style="color: #dc2626;">The Crisis: Dec 31 Deadline & Negative Cascade</h2>
                 <p>Congress has days to act. If they don't, problems COMPOUND RAPIDLY. Our solution compounds SOLUTIONS just as fast.</p>
@@ -335,7 +403,19 @@
         </div>
         
         <!-- MECHANISM -->
-        <div id="mechanism" class="page-section">
+
+            <div class="nav-buttons">
+                <a class="nav-button nav-button-prev" onclick="showSection('rubiks'); window.scrollTo(0,0);">← Rubik's Cube</a>
+                <div class="nav-page-indicator">3 / 7</div>
+                <a class="nav-button nav-button-next" onclick="showSection('mechanism'); window.scrollTo(0,0);">How It Works →</a>
+            </div>
+                    <div id="mechanism" class="page-section">
+            <div class="nav-buttons">
+                <a class="nav-button nav-button-prev" onclick="showSection('crisis'); window.scrollTo(0,0);">← The Crisis</a>
+                <div class="nav-page-indicator">4 / 7</div>
+                <a class="nav-button nav-button-next" onclick="showSection('leverage'); window.scrollTo(0,0);">Leverage →</a>
+            </div>
+            
             <div class="section-header">
                 <h2 style="color: #1e40af;">The Exponential Mechanism</h2>
                 <p>Mathematical inevitability, not hope-based thinking.</p>
@@ -359,7 +439,7 @@
                 
                 <div class="card card-blue">
                     <h3>The Endpoint</h3>
-                    <p><strong>120 million eventually switch.</strong> $888 BILLION in freed savings annually. Funds universal coverage for 234M + monthly assistance + jobs + case management. Self-sustaining. Exponential compounding.</p>
+                    <p><strong>120 million eventually switch.</strong> $2.73 TRILLION in freed government healthcare savings. Funds universal coverage for 234M + monthly assistance + jobs + case management. Self-sustaining. Exponential compounding.</p>
                 </div>
             </div>
             
@@ -374,7 +454,19 @@
         </div>
         
         <!-- LEVERAGE -->
-        <div id="leverage" class="page-section">
+
+            <div class="nav-buttons">
+                <a class="nav-button nav-button-prev" onclick="showSection('crisis'); window.scrollTo(0,0);">← The Crisis</a>
+                <div class="nav-page-indicator">4 / 7</div>
+                <a class="nav-button nav-button-next" onclick="showSection('leverage'); window.scrollTo(0,0);">Leverage →</a>
+            </div>
+                    <div id="leverage" class="page-section">
+            <div class="nav-buttons">
+                <a class="nav-button nav-button-prev" onclick="showSection('mechanism'); window.scrollTo(0,0);">← How It Works</a>
+                <div class="nav-page-indicator">5 / 7</div>
+                <a class="nav-button nav-button-next" onclick="showSection('action'); window.scrollTo(0,0);">Take Action →</a>
+            </div>
+            
             <div class="section-header">
                 <h2 style="color: #dc2626;">Congressional Leverage: Binary Choice</h2>
                 <p>Congress faces a choice: adopt PHIERS or face organized constituent replacement.</p>
@@ -415,7 +507,19 @@
         </div>
         
         <!-- ACTION -->
-        <div id="action" class="page-section">
+
+            <div class="nav-buttons">
+                <a class="nav-button nav-button-prev" onclick="showSection('mechanism'); window.scrollTo(0,0);">← How It Works</a>
+                <div class="nav-page-indicator">5 / 7</div>
+                <a class="nav-button nav-button-next" onclick="showSection('action'); window.scrollTo(0,0);">Take Action →</a>
+            </div>
+                    <div id="action" class="page-section">
+            <div class="nav-buttons">
+                <a class="nav-button nav-button-prev" onclick="showSection('leverage'); window.scrollTo(0,0);">← Leverage</a>
+                <div class="nav-page-indicator">6 / 7</div>
+                <a class="nav-button nav-button-next" onclick="showSection('faq'); window.scrollTo(0,0);">FAQ →</a>
+            </div>
+            
             <div class="section-header">
                 <h2 style="color: #16a34a;">Take Action RIGHT NOW</h2>
                 <p>Congress is home vulnerable. Dec 31 forces action. Our article amplifies pressure. Your action today determines what happens next.</p>
@@ -462,7 +566,19 @@
         </div>
         
         <!-- FAQ -->
-        <div id="faq" class="page-section">
+
+            <div class="nav-buttons">
+                <a class="nav-button nav-button-prev" onclick="showSection('leverage'); window.scrollTo(0,0);">← Leverage</a>
+                <div class="nav-page-indicator">6 / 7</div>
+                <a class="nav-button nav-button-next" onclick="showSection('faq'); window.scrollTo(0,0);">FAQ →</a>
+            </div>
+                    <div id="faq" class="page-section">
+            <div class="nav-buttons">
+                <a class="nav-button nav-button-prev" onclick="showSection('action'); window.scrollTo(0,0);">← Take Action</a>
+                <div class="nav-page-indicator">7 / 7</div>
+                <a class="nav-button nav-button-next" disabled>Next →</a>
+            </div>
+            
             <div class="section-header">
                 <h2 style="color: #1e40af;">Frequently Asked Questions</h2>
                 <p>Everything you need to know about PHIERS and how to make it happen.</p>
@@ -481,7 +597,7 @@
                 
                 <div class="faq-item">
                     <strong>Q: Will this really work without new taxes or debt?</strong>
-                    <p>A: Yes. We're redirecting existing government healthcare spending ($888B+ freed from efficiency) instead of creating new spending. No new taxes. No new debt. Self-funding from cascade.</p>
+                    <p>A: Yes. We're redirecting existing government healthcare spending ($2.73T freed from efficiency) instead of creating new spending. No new taxes. No new debt. Self-funding from cascade.</p>
                 </div>
                 
                 <div class="faq-item">
@@ -527,7 +643,13 @@
                     <a href="https://docs.google.com/forms/d/1phABxQeHga26-k5ccxgL3lIZTjnyK1LsyT0zFeqMTQA/edit" target="_blank" class="btn btn-blue">📝 Fill Survey</a>
                 </p>
             </div>
-        </div>
+
+            <div class="nav-buttons">
+                <a class="nav-button nav-button-prev" onclick="showSection('action'); window.scrollTo(0,0);">← Take Action</a>
+                <div class="nav-page-indicator">7 / 7</div>
+                <a class="nav-button nav-button-next" disabled>Next →</a>
+            </div>
+                    </div>
     </div>
     
     <!-- FOOTER WITH LINKS TO OTHER PAGES -->
