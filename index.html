@@ -31,6 +31,34 @@
             top: 0;
             z-index: 100;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .crisis-alert.hidden {
+            display: none;
+        }
+        
+        .crisis-alert-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5em;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: auto;
+            flex-shrink: 0;
+        }
+        
+        .crisis-alert-close:hover {
+            color: #ffeb3b;
         }
         
         .crisis-alert a {
@@ -200,6 +228,7 @@
             padding: 20px;
             background: rgba(0, 0, 0, 0.3);
             border-radius: 8px;
+            margin-bottom: 40px;
         }
         
         .graphic-container img {
@@ -571,12 +600,15 @@
     </style>
 </head>
 <body>
-    <div class="crisis-alert">
-        ⏰ <strong>3 DAYS UNTIL HEALTH INSURANCE CATASTROPHE</strong> ⏰<br/>
-        22 MILLION AMERICANS LOSE COVERAGE DEC 31 WITHOUT PHIERS<br/>
-        <a onclick="showSection('action')">✍️ SIGN PETITION NOW</a> | 
-        <a href="tel:202-224-3121">📞 CALL YOUR CONGRESSMAN</a> |
-        <a href="https://discord.gg/narhDKJY" target="_blank">💬 JOIN THE MOVEMENT</a>
+    <div class="crisis-alert" id="crisisAlert">
+        <div>
+            ⏰ <strong>3 DAYS UNTIL HEALTH INSURANCE CATASTROPHE</strong> ⏰<br/>
+            22 MILLION AMERICANS LOSE COVERAGE DEC 31 WITHOUT PHIERS<br/>
+            <a onclick="showSection('action')">✍️ SIGN PETITION NOW</a> | 
+            <a href="tel:202-224-3121">📞 CALL YOUR CONGRESSMAN</a> |
+            <a href="https://discord.gg/narhDKJY" target="_blank">💬 JOIN THE MOVEMENT</a>
+        </div>
+        <button class="crisis-alert-close" onclick="closeCrisisAlert()">×</button>
     </div>
 
     <div class="container">
@@ -1172,6 +1204,9 @@
         function closePopup(popupId) {
             document.getElementById(popupId).classList.remove('active');
             document.querySelector('.popup-backdrop').classList.remove('active');
+        }
+        function closeCrisisAlert() {
+            document.getElementById('crisisAlert').classList.add('hidden');
         }
         document.addEventListener('DOMContentLoaded', function() {
             const backdrop = document.querySelector('.popup-backdrop');
