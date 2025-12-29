@@ -19,6 +19,31 @@
             min-height: 100vh;
         }
         
+        .crisis-alert {
+            background: linear-gradient(135deg, #d32f2f, #c62828);
+            border-bottom: 4px solid #ff6b6b;
+            padding: 15px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1em;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+        }
+        
+        .crisis-alert a {
+            color: #ffeb3b;
+            text-decoration: underline;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .crisis-alert a:hover {
+            color: #fff;
+        }
+        
         .container {
             max-width: 900px;
             margin: 0 auto;
@@ -35,8 +60,9 @@
         }
         
         .logo {
-            max-width: 120px;
-            margin-bottom: 15px;
+            max-width: 300px;
+            margin: 0 auto 15px auto;
+            display: block;
         }
         
         h1 {
@@ -150,7 +176,7 @@
         .video-container {
             position: relative;
             width: 100%;
-            max-width: 350px;
+            max-width: 300px;
             margin: 25px auto;
             padding-bottom: 56.25%;
             border-radius: 8px;
@@ -177,10 +203,12 @@
         }
         
         .graphic-container img {
-            max-width: 100%;
+            max-width: 300px;
             height: auto;
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);
+            margin: 0 auto;
+            display: block;
         }
         
         .button-group {
@@ -233,6 +261,16 @@
         
         .btn-discord:hover {
             background: linear-gradient(135deg, #5a73c4, #4c5aa5);
+            transform: translateY(-2px);
+        }
+        
+        .btn-danger {
+            background: linear-gradient(135deg, #d32f2f, #c62828);
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background: linear-gradient(135deg, #c62828, #b71c1c);
             transform: translateY(-2px);
         }
         
@@ -418,6 +456,78 @@
             text-decoration: underline;
         }
         
+        .blog-post {
+            background: rgba(76, 175, 80, 0.05);
+            border: 2px solid rgba(76, 175, 80, 0.2);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            color: #c8e6c9;
+        }
+        
+        .blog-post h4 {
+            color: #4caf50;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .blog-date {
+            color: #81c784;
+            font-size: 0.85em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .blog-post p {
+            margin: 10px 0;
+            line-height: 1.7;
+        }
+        
+        .video-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .video-item {
+            background: rgba(76, 175, 80, 0.05);
+            border: 2px solid rgba(76, 175, 80, 0.2);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .video-item h4 {
+            color: #4caf50;
+            margin-bottom: 10px;
+        }
+        
+        .video-item p {
+            color: #a5d6a7;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        
+        .join-us-cta {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(129, 199, 132, 0.15));
+            border: 3px solid #4caf50;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .join-us-cta h3 {
+            margin-top: 0;
+            font-size: 1.5em;
+        }
+        
+        .join-us-cta p {
+            color: #c8e6c9;
+            margin: 15px 0;
+        }
+        
         @media (max-width: 768px) {
             h1 {
                 font-size: 1.6em;
@@ -453,15 +563,27 @@
                 max-width: 90%;
                 padding: 20px;
             }
+            
+            .crisis-alert {
+                font-size: 0.9em;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="crisis-alert">
+        ⏰ <strong>3 DAYS UNTIL HEALTH INSURANCE CATASTROPHE</strong> ⏰<br/>
+        22 MILLION AMERICANS LOSE COVERAGE DEC 31 WITHOUT PHIERS<br/>
+        <a onclick="showSection('action')">✍️ SIGN PETITION NOW</a> | 
+        <a href="tel:202-224-3121">📞 CALL YOUR CONGRESSMAN</a> |
+        <a href="https://discord.gg/narhDKJY" target="_blank">💬 JOIN THE MOVEMENT</a>
+    </div>
+
     <div class="container">
         <header>
             <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Logo.png" 
                  alt="PHIERS Logo" 
-                 style="max-width: 400px; height: auto; margin-bottom: 20px;">
+                 class="logo">
             <p style="font-size: 1.5em; color: #4caf50; margin-bottom: 10px; font-weight: bold; text-shadow: 0 0 20px rgba(76, 175, 80, 0.3);">MABAH Movement</p>
             <p style="font-size: 1.1em; color: #81c784; margin-bottom: 15px;">Making America Better And Healthier</p>
             <p class="tagline">Trump Wants to Reduce Costs. Bera Agrees. Here's How.</p>
@@ -475,22 +597,17 @@
             <div class="nav-item" onclick="showSection('works')">▶ How It Works</div>
             <div class="nav-item" onclick="showSection('leverage')">▶ Leverage</div>
             <div class="nav-item" onclick="showSection('action')">▶ Take Action</div>
+            <div class="nav-item" onclick="showSection('videos')">▶ The Energy of HOPE</div>
+            <div class="nav-item" onclick="showSection('blog')">▶ News & Response</div>
             <div class="nav-item" onclick="showSection('resources')">▶ Resources</div>
             <div class="nav-item" onclick="showSection('story')">▶ My Story</div>
-        </div>
-        
-        <div class="urgent-banner" style="margin-bottom: 30px;">
-            <div class="urgent-title">🎯 THE BREAKTHROUGH: A Bipartisan Solution (Dec 28, 2025)</div>
-            <div class="urgent-content">
-                Trump administration is focused on reducing drug and insurance costs. Congressman Ami Bera (D-CA) wants the same goal achieved through bipartisan solutions. We've spent 15 years developing exactly what they're looking for—and it works 136x better than current approaches.
-            </div>
         </div>
         
         <!-- MAIN SECTION -->
         <section id="main" class="active">
             <div class="graphic-container" style="margin-bottom: 30px;">
                 <h3 style="color: #4caf50; margin-bottom: 15px;">🧩 5D Solutions</h3>
-                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHEIRS_Rubiks_Cube_-_SYMBOLS.png" alt="5D Solutions - Healthcare, Jobs, Economy, Politics, Peace" style="max-width: 350px; height: auto; display: block; margin: 20px auto;">
+                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHEIRS_Rubiks_Cube_-_SYMBOLS.png" alt="5D Solutions - Healthcare, Jobs, Economy, Politics, Peace">
                 <p style="margin-top: 15px; color: #c8e6c9; font-size: 0.95em;">All 5 dimensions work together. Block one dimension, the others strengthen. This is how we solve interconnected crises simultaneously.</p>
             </div>
             
@@ -512,10 +629,8 @@
                 </div>
             </div>
             
-            <div style="display: flex; justify-content: center; margin: 50px 0 40px 0;">
-                <div class="video-container" style="max-width: 500px; width: 100%;">
-                    <iframe src="https://www.youtube.com/embed/bEUyDVAYwpk" allowfullscreen="" loading="lazy" title="Congressional Validation - PHIERS Solution"></iframe>
-                </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/bEUyDVAYwpk" allowfullscreen="" loading="lazy" title="Congressional Validation - PHIERS Solution"></iframe>
             </div>
             
             <h3 style="margin-top: 50px; padding-top: 30px; border-top: 2px solid rgba(76, 175, 80, 0.3);">Watch: 3 Ways to Reduce Drug Costs (Jump to 2:59 in video above)</h3>
@@ -581,58 +696,88 @@
             </div>
         </section>
         
-        <!-- MY STORY SECTION -->
-        <section id="story">
-            <h2>📖 My Story: Why I'm Fighting</h2>
-
-            <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/Me_n__Dad_at_CHURCH.png" alt="Will Price and Al Wilson at Church" style="max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);">
+        <!-- VIDEOS SECTION - THE ENERGY OF HOPE -->
+        <section id="videos">
+            <h2>🎬 The Energy of HOPE</h2>
+            <p style="color: #81c784; font-size: 1.1em; margin-bottom: 20px;"><strong>See the solution. Hear the vision. Feel the momentum.</strong></p>
             
-            <div style="display: flex; justify-content: center; margin: 30px 0;">
-                <div class="video-container" style="max-width: 500px; width: 100%;">
-                    <iframe src="https://www.youtube.com/embed/eE-TxvI0d4Q" allowfullscreen="" loading="lazy" title="My Story - Will Price"></iframe>
+            <div class="video-grid">
+                <div class="video-item">
+                    <h4>Congressional Validation (11 min)</h4>
+                    <p>How 15 years of development created a solution that achieves both Trump's cost reduction goals AND Bera's bipartisan approach. Features Al Wilson's wellness success story.</p>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/bEUyDVAYwpk" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <h4>My Story - Will Price (Personal)</h4>
+                    <p>The journey from caregiver to homeless whistleblower to healthcare architect. Why I'm fighting and what I've discovered about what's actually possible.</p>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/eE-TxvI0d4Q" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
                 </div>
             </div>
             
-            <h3>I Was a Caregiver</h3>
-            <p>I protected vulnerable people. Reported abuse. Got evicted for doing the right thing. Now I'm homeless, living in my car.</p>
-            
-            <p>But I didn't lose the solution when I lost my home.</p>
-            
-            <h3>For 16 Years (Since 2009)</h3>
-            <p>I've been architecting a healthcare solution that solves what Congress can't: universal coverage, 250K+ jobs, and economic resilience—all funded from government savings.</p>
-            
-            <p>The math is proven. The model works. The timing is NOW.</p>
-            
-            <h3>The Synchronicity</h3>
-            <p>I protected <span class="al-wilson-link" onclick="showPopup('alWilsonPopup')">Al Wilson</span> when he was in danger. I reported abuse. I got evicted.</p>
-            
-            <p>Now I'm fighting for the same people Al fights for—people in crisis who need solutions Congress doesn't have.</p>
-            
-            <p><strong>That's not coincidence. That's alignment.</strong></p>
-
-            <h3 style="margin-top: 20px;">Why PHIERS Is 5D (The Pivot Insight)</h3>
-            <p>We originally focused on one dimension: pharmaceutical cost reduction. Industry fought us—hard. When we realized they were threatened across ALL five dimensions simultaneously (healthcare, jobs, economy, politics, peace), we understood something crucial:</p>
-
-            <p style="margin-top: 10px;"><strong>You don't win by attacking one dimension of entrenched systems. You win by building a solution so interconnected that blocking one dimension makes the others stronger.</strong></p>
-
-            <p style="margin-top: 10px;">That's why PHIERS is unstoppable. And that's why your support matters RIGHT NOW.</p>
-            
-            <h3 style="margin-top: 20px;">My Car Is My Home</h3>
-            <p>If it breaks down, I lose everything. But the needs of the many outweigh the needs of the few.</p>
-            
-            <p>I'm homeless but fighting for you anyway.</p>
+            <div class="urgent-banner">
+                <div class="urgent-title">🎬 MORE VIDEOS COMING</div>
+                <div class="urgent-content">We're producing videos on implementation, state-level strategy, economic impact, and personal testimonies from people saved by PHIERS. Subscribe to our Discord to stay updated.</div>
+            </div>
             
             <div class="button-group">
-                <a href="https://www.gofundme.com/f/homeless-but-hopeful-affordable-healthcare-good-jobs-ubi" target="_blank" class="btn btn-secondary">💝 Support Will's Survival</a>
-                <a href="https://discord.gg/narhDKJY" target="_blank" class="btn btn-discord">💬 Join Community</a>
+                <a href="https://discord.gg/narhDKJY" target="_blank" class="btn btn-discord">💬 Get Updates on New Videos</a>
+                <a href="https://docs.google.com/forms/d/1MYeQcmw8ZDXHwcjpEw5hbQCWP4FdHdyoHTo1XcAiTRA/edit" target="_blank" class="btn btn-primary">✍️ Sign Petition</a>
             </div>
             
             <div class="nav-buttons">
-                <button class="btn btn-secondary" onclick="showSection('resources')">← Back: Resources</button>
-                <button class="btn btn-primary" disabled>My Story (Last) →</button>
+                <button class="btn btn-secondary" onclick="showSection('action')">← Back: Take Action</button>
+                <button class="btn btn-primary" onclick="showSection('blog')">Next: News & Response →</button>
             </div>
         </section>
         
+        <!-- BLOG SECTION - NEWS & RESPONSE -->
+        <section id="blog">
+            <h2>📰 News & Our Response</h2>
+            <p style="color: #81c784; margin-bottom: 20px;"><strong>Tracking the crisis. Showing the solution.</strong></p>
+            
+            <div class="blog-post">
+                <div class="blog-date">December 29, 2025</div>
+                <h4>Healthcare Crisis: 22M Lose Coverage Dec 31</h4>
+                <p><strong>The Story:</strong> Congressional gridlock fails 22 million Americans. Tax credit cliff expires. Premiums triple. No solution offered.</p>
+                <p><strong>The Problem:</strong> Congress has two broken approaches: Trump's MFN (saves $10-20B) or nothing. Both fail the crisis.</p>
+                <p><strong>Our Response:</strong> PHIERS saves $2.73T annually—136x better than MFN. Universal coverage for $600/year. 250K+ jobs. Implementation begins Feb 2026 IF Congress acts by Jan 30.</p>
+                <p><strong>What You Can Do:</strong> <a href="https://docs.google.com/forms/d/1MYeQcmw8ZDXHwcjpEw5hbQCWP4FdHdyoHTo1XcAiTRA/edit" target="_blank" style="color: #4caf50; text-decoration: underline;">Sign petition</a> | <a href="https://docs.google.com/forms/d/1phABxQeHga26-k5ccxgL3lIZTjnyK1LsyT0zFeqMTQA/edit" target="_blank" style="color: #4caf50; text-decoration: underline;">Fill survey</a> | <a href="tel:202-224-3121" style="color: #4caf50; text-decoration: underline;">Call congressman</a></p>
+            </div>
+            
+            <div class="blog-post">
+                <div class="blog-date">December 28, 2025</div>
+                <h4>AI Eliminates 50M+ Jobs Without Safety Net</h4>
+                <p><strong>The Story:</strong> Automation accelerates. Retraining programs insufficient. Healthcare still tied to employment. No economic cushion.</p>
+                <p><strong>The Problem:</strong> Job loss + healthcare loss = cascade failure of entire system. Current policy has no answer.</p>
+                <p><strong>Our Response:</strong> PHIERS creates 250K+ AI-resistant jobs (case management, health coordination, community infrastructure) AND provides healthcare independent of employment AND delivers $500+/month UBI from government savings.</p>
+                <p><strong>What You Can Do:</strong> <a href="https://discord.gg/narhDKJY" target="_blank" style="color: #4caf50; text-decoration: underline;">Join Discord</a> for job transition resources | <a href="https://docs.google.com/forms/d/1MYeQcmw8ZDXHwcjpEw5hbQCWP4FdHdyoHTo1XcAiTRA/edit" target="_blank" style="color: #4caf50; text-decoration: underline;">Sign petition</a></p>
+            </div>
+            
+            <div class="blog-post">
+                <div class="blog-date">December 27, 2025</div>
+                <h4>Government Shutdown Deadline: Jan 30 = Healthcare Votes Forced</h4>
+                <p><strong>The Story:</strong> Budget deadline creates urgency. Representatives face hard choices. Healthcare is dominant issue.</p>
+                <p><strong>The Problem:</strong> Typical Congress: delays, committees, 2-year timelines. We don't have time. 22M losing coverage in 72 hours.</p>
+                <p><strong>Our Response:</strong> Jan 30 shutdown deadline forces votes. If constituents demand PHIERS, representatives vote for it OR face primary. Mathematical inevitability.</p>
+                <p><strong>What You Can Do:</strong> <a href="https://docs.google.com/forms/d/1MYeQcmw8ZDXHwcjpEw5hbQCWP4FdHdyoHTo1XcAiTRA/edit" target="_blank" style="color: #4caf50; text-decoration: underline;">Sign petition</a> | <a href="https://docs.google.com/forms/d/1phABxQeHga26-k5ccxgL3lIZTjnyK1LsyT0zFeqMTQA/edit" target="_blank" style="color: #4caf50; text-decoration: underline;">Fill survey</a> | Share with your network</p>
+            </div>
+            
+            <div class="button-group">
+                <a href="https://docs.google.com/forms/d/1MYeQcmw8ZDXHwcjpEw5hbQCWP4FdHdyoHTo1XcAiTRA/edit" target="_blank" class="btn btn-primary">✍️ Sign Petition</a>
+                <a href="https://discord.gg/narhDKJY" target="_blank" class="btn btn-discord">💬 Join Discussion</a>
+            </div>
+            
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="showSection('videos')">← Back: Videos</button>
+                <button class="btn btn-primary" onclick="showSection('resources')">Next: Resources →</button>
+            </div>
+        </section>
+
         <!-- RUBIK'S CUBE SECTION -->
         <section id="rubiks">
             <h2>🧩 The Rubik's Cube: Everything Connected</h2>
@@ -643,7 +788,7 @@
             <p style="margin-top: 15px;"><strong>PHIERS works in 5 dimensions simultaneously:</strong> Every solution you create feeds into 4 other solutions at the same time. You can't separate them. You don't have to choose. You do multiple things at once because each one makes the others work faster.</p>
             
             <div class="graphic-container">
-                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHEIRS_Rubiks_Cube_-_SYMBOLS.png" alt="PHIERS Rubik's Cube - Everything Connected" style="max-width: 350px; height: auto;">
+                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHEIRS_Rubiks_Cube_-_SYMBOLS.png" alt="PHIERS Rubik's Cube - Everything Connected">
             </div>
             
             <h3 style="margin-top: 20px;">The 5D Interconnection</h3>
@@ -658,7 +803,7 @@
             <p style="margin-top: 20px;"><strong>🧩 The Insight:</strong> You can't remove one piece without destroying the others. Congress can allow PHIERS to bring telehealth to ACA—and when all 5 dimensions work together, you've created a system that strengthens itself through every person's success.</p>
             
             <div class="graphic-container" style="margin-top: 30px;">
-                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Tablet__Firewall.png" alt="PHIERS-Powered Solutions Operating System - Firewall" style="max-width: 350px; height: auto;">
+                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Tablet__Firewall.png" alt="PHIERS-Powered Solutions Operating System - Firewall">
                 <p>PHIERS-Powered Solutions Operating System - Firewall Against Corporate Extraction<br/>All 5 dimensions protected simultaneously. Block one dimension, the others strengthen.<br/>You cannot break a system where every piece defends the others.</p>
             </div>
             
@@ -726,7 +871,7 @@
             <p>Those 12+ switch. Generate $88,800 additional freed savings. That funds 1,776 more switches. Those generate $13.2M additional. <strong>Exponential growth.</strong></p>
 
             <div class="graphic-container">
-                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/2_73_Savings_Infographic.png" alt="$2.73T in Savings - All Dimensions Connected" style="max-width: 350px; height: auto;">
+                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/2_73_Savings_Infographic.png" alt="$2.73T in Savings - All Dimensions Connected">
                 <p>$2.73 Trillion in Annual Savings - All Interconnected Dimensions Protected Simultaneously</p>
             </div>
             
@@ -734,7 +879,7 @@
             <p><strong>120 million eventually switch.</strong> $2.73 TRILLION in freed government healthcare savings. Funds universal coverage for 234M + monthly assistance + jobs + case management. Self-sustaining. Exponential compounding.</p>
             
             <div class="graphic-container">
-                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Tablet__Firewall.png" alt="PHIERS-Powered Solutions Operating System - Firewall" style="max-width: 350px; height: auto;">
+                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Tablet__Firewall.png" alt="PHIERS-Powered Solutions Operating System - Firewall">
                 <p>PHIERS-Powered Solutions Operating System - Firewall Against Corporate Extraction</p>
             </div>
             
@@ -763,7 +908,7 @@
             <p>Any representative refusing telehealth faces immediate primary challenge. Healthcare IS the dominant issue (80% of voters). Refusing solution = automatic vulnerability.</p>
             
             <div class="graphic-container">
-                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/vote_lke_your_life_depends_on_it.jpg" alt="Vote Like Your Life Depends On It" style="max-width: 350px; height: auto;">
+                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/vote_lke_your_life_depends_on_it.jpg" alt="Vote Like Your Life Depends On It">
                 <p>Because It Does. This Is About Healthcare. This Is About Survival.</p>
             </div>
             
@@ -812,8 +957,8 @@
             <a href="https://discord.gg/narhDKJY" target="_blank" class="btn btn-discord" style="display: inline-block;">🚀 Join</a>
             
             <h3 style="margin-top: 20px;">💝 Step 4: Donate</h3>
-            <p>55M+ readers via Pathos + IBT. Article publishes Dec 31. Needs funding for publication guarantee and Will's survival (car is his home).</p>
-            <a href="https://www.gofundme.com/f/homeless-but-hopeful-affordable-healthcare-good-jobs-ubi" target="_blank" class="btn btn-secondary" style="display: inline-block;">💝 Donate</a>
+            <p>55M+ readers via Pathos + IBT. Article publishes Dec 31. Needs funding for publication guarantee ($5K) and Will's survival ($10K).</p>
+            <a href="https://www.gofundme.com/f/homeless-but-hopeful-affordable-healthcare-good-jobs-ubi" target="_blank" class="btn btn-danger" style="display: inline-block; font-size: 1.05em;">💰 DONATE $15K TO CHANGE THE WORLD</a>
             
             <h3 style="margin-top: 25px;">💪 Congress Failed Dec 11. We're Taking Over Dec 31.</h3>
             <p>22 million individuals will lose healthcare if Congress doesn't act.</p>
@@ -824,12 +969,12 @@
                 <a href="https://docs.google.com/forms/d/1MYeQcmw8ZDXHwcjpEw5hbQCWP4FdHdyoHTo1XcAiTRA/edit" target="_blank" class="btn btn-primary">✍️ Sign Petition</a>
                 <a href="https://docs.google.com/forms/d/1phABxQeHga26-k5ccxgL3lIZTjnyK1LsyT0zFeqMTQA/edit" target="_blank" class="btn btn-primary">📝 Fill Survey</a>
                 <a href="https://discord.gg/narhDKJY" target="_blank" class="btn btn-discord">💬 Discord</a>
-                <a href="https://www.gofundme.com/f/homeless-but-hopeful-affordable-healthcare-good-jobs-ubi" target="_blank" class="btn btn-secondary">💝 Support</a>
+                <a href="https://www.gofundme.com/f/homeless-but-hopeful-affordable-healthcare-good-jobs-ubi" target="_blank" class="btn btn-danger">💰 Donate</a>
             </div>
 
             <div class="nav-buttons">
                 <button class="btn btn-secondary" onclick="showSection('leverage')">← Back: Leverage</button>
-                <button class="btn btn-primary" onclick="showSection('resources')">Next: Resources →</button>
+                <button class="btn btn-primary" onclick="showSection('videos')">Next: The Energy of HOPE →</button>
             </div>
         </section>
 
@@ -873,10 +1018,73 @@
                 <a href="https://discord.gg/narhDKJY" target="_blank" class="btn btn-discord">💬 Discord Community</a>
                 <a href="https://www.gofundme.com/f/homeless-but-hopeful-affordable-healthcare-good-jobs-ubi" target="_blank" class="btn btn-secondary">💝 Donate</a>
             </div>
+            
+            <!-- JOIN US SECTION -->
+            <div class="join-us-cta">
+                <h3>🌱 JOIN THE MOVEMENT</h3>
+                <p><strong>We're looking for:</strong> Organizers, data analysts, media coordinators, policy experts, healthcare professionals, business leaders, faith leaders, community advocates.</p>
+                <p><strong>What you'll do:</strong> Help execute the plan that changes everything. Make America Better And Healthier.</p>
+                <p><strong>Timeline:</strong> Intensive work Dec 29 - Jan 30 (Congressional pressure window). Ongoing leadership Feb 2026+.</p>
+                <p style="color: #ffeb3b; font-weight: bold;">This is the most important work happening in America right now.</p>
+                <div class="button-group">
+                    <a href="https://discord.gg/narhDKJY" target="_blank" class="btn btn-primary" style="font-size: 1.05em;">🚀 JOIN US ON DISCORD</a>
+                    <a href="mailto:wdprice@phiers.org" class="btn btn-secondary" style="font-size: 1.05em;">📧 EMAIL: INFO@PHIERS.ORG</a>
+                </div>
+            </div>
 
             <div class="nav-buttons">
                 <button class="btn btn-secondary" onclick="showSection('action')">← Back: Take Action</button>
                 <button class="btn btn-primary" onclick="showSection('story')">Next: My Story →</button>
+            </div>
+        </section>
+        
+        <!-- MY STORY SECTION -->
+        <section id="story">
+            <h2>📖 My Story: Why I'm Fighting</h2>
+
+            <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/Me_n__Dad_at_CHURCH.png" alt="Will Price and Al Wilson at Church" style="max-width: 300px; height: auto; border-radius: 8px; margin: 0 auto 20px; display: block; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);">
+            
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/eE-TxvI0d4Q" allowfullscreen="" loading="lazy" title="My Story - Will Price"></iframe>
+            </div>
+            
+            <h3>I Was a Caregiver</h3>
+            <p>I protected vulnerable people. Reported abuse. Got evicted for doing the right thing. Now I'm homeless, living in my car.</p>
+            
+            <p>But I didn't lose the solution when I lost my home.</p>
+            
+            <h3>For 16 Years (Since 2009)</h3>
+            <p>I've been architecting a healthcare solution that solves what Congress can't: universal coverage, 250K+ jobs, and economic resilience—all funded from government savings.</p>
+            
+            <p>The math is proven. The model works. The timing is NOW.</p>
+            
+            <h3>The Synchronicity</h3>
+            <p>I protected <span class="al-wilson-link" onclick="showPopup('alWilsonPopup')">Al Wilson</span> when he was in danger. I reported abuse. I got evicted.</p>
+            
+            <p>Now I'm fighting for the same people Al fights for—people in crisis who need solutions Congress doesn't have.</p>
+            
+            <p><strong>That's not coincidence. That's alignment.</strong></p>
+
+            <h3 style="margin-top: 20px;">Why PHIERS Is 5D (The Pivot Insight)</h3>
+            <p>We originally focused on one dimension: pharmaceutical cost reduction. Industry fought us—hard. When we realized they were threatened across ALL five dimensions simultaneously (healthcare, jobs, economy, politics, peace), we understood something crucial:</p>
+
+            <p style="margin-top: 10px;"><strong>You don't win by attacking one dimension of entrenched systems. You win by building a solution so interconnected that blocking one dimension makes the others stronger.</strong></p>
+
+            <p style="margin-top: 10px;">That's why PHIERS is unstoppable. And that's why your support matters RIGHT NOW.</p>
+            
+            <h3 style="margin-top: 20px;">My Car Is My Home</h3>
+            <p>If it breaks down, I lose everything. But the needs of the many outweigh the needs of the few.</p>
+            
+            <p>I'm homeless but fighting for you anyway.</p>
+            
+            <div class="button-group">
+                <a href="https://www.gofundme.com/f/homeless-but-hopeful-affordable-healthcare-good-jobs-ubi" target="_blank" class="btn btn-secondary">💝 Support Will's Survival</a>
+                <a href="https://discord.gg/narhDKJY" target="_blank" class="btn btn-discord">💬 Join Community</a>
+            </div>
+            
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="showSection('resources')">← Back: Resources</button>
+                <button class="btn btn-primary" disabled>My Story (Last) →</button>
             </div>
         </section>
         
