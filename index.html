@@ -321,7 +321,6 @@
             cursor: not-allowed;
         }
 
-        /* POPUP STYLES */
         .popup-backdrop {
             display: none;
             position: fixed;
@@ -460,7 +459,11 @@
 <body>
     <div class="container">
         <header>
-            <h1>🚀 PHIERS.org</h1>
+            <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/__PHIERS_Logo_-_TRANS_-_So_So.png" 
+                 alt="PHIERS Logo" 
+                 style="max-width: 400px; height: auto; margin-bottom: 20px;">
+            <p style="font-size: 1.5em; color: #4caf50; margin-bottom: 10px; font-weight: bold; text-shadow: 0 0 20px rgba(76, 175, 80, 0.3);">MABAH Movement</p>
+            <p style="font-size: 1.1em; color: #81c784; margin-bottom: 15px;">Making America Better And Healthier</p>
             <p class="tagline">Trump Wants to Reduce Costs. Bera Agrees. Here's How.</p>
             <p class="subtitle">A Bipartisan Solution That Works</p>
         </header>
@@ -474,6 +477,12 @@
             <div class="nav-item" onclick="showSection('leverage')">▶ Leverage</div>
             <div class="nav-item" onclick="showSection('action')">▶ Take Action</div>
             <div class="nav-item" onclick="showSection('resources')">▶ Resources</div>
+        </div>
+
+        <div class="graphic-container" style="margin-bottom: 30px;">
+            <h3 style="color: #4caf50; margin-bottom: 15px;">🧩 5D Solutions</h3>
+            <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHEIRS_Rubiks_Cube_-_SYMBOLS.png" alt="5D Solutions - Healthcare, Jobs, Economy, Politics, Peace" style="max-width: 500px; height: auto;">
+            <p style="margin-top: 15px; color: #c8e6c9; font-size: 0.95em;">All 5 dimensions work together. Block one dimension, the others strengthen. This is how we solve interconnected crises simultaneously.</p>
         </div>
         
         <!-- MAIN SECTION -->
@@ -829,10 +838,7 @@
         </footer>
     </div>
 
-    <!-- POPUP BACKDROP -->
     <div class="popup-backdrop" onclick="closePopup('alWilsonPopup')"></div>
-
-    <!-- AL WILSON POPUP -->
     <div class="tooltip-popup" id="alWilsonPopup">
         <div class="popup-header">
             <h4>Al Wilson: Co-Architect & Veteran</h4>
@@ -840,46 +846,31 @@
         </div>
         <div class="popup-content">
             <p><strong>Who:</strong> Decorated veteran. Healthcare innovator. Will's co-architect for 16 years (since 2009).</p>
-            
             <p><strong>The Connection:</strong> Will protected Al when he was vulnerable. Reported abuse. Got evicted for doing the right thing. Al never forgot.</p>
-            
             <p><strong>Why He Matters:</strong> Al originated the pharmaceutical cost-reduction model that Mark Cuban launched as "Cost Plus Drugs" in 2022. Al proved the concept works in practice. Cuban took it to scale. We validated it at Congressional level.</p>
-            
             <p><strong>His Story:</strong> Veterans facing healthcare costs. Searching for solutions. Found one that works. Now fighting so millions can access what he proved works.</p>
-            
             <p><strong>Proof:</strong> His wellness in the video. His voice in the validation. His commitment to the cause—same cause that got Will evicted for protecting him.</p>
         </div>
     </div>
 
     <script>
         function showSection(sectionId) {
-            // Hide all sections
             const sections = document.querySelectorAll('section');
             sections.forEach(section => section.classList.remove('active'));
-            
-            // Show selected section
             document.getElementById(sectionId).classList.add('active');
-            
-            // Update nav items
             const navItems = document.querySelectorAll('.nav-item');
             navItems.forEach(item => item.classList.remove('active'));
             document.querySelector(`[onclick="showSection('${sectionId}')"]`).classList.add('active');
-            
-            // Scroll to top
             window.scrollTo(0, 0);
         }
-
         function showPopup(popupId) {
             document.getElementById(popupId).classList.add('active');
             document.querySelector('.popup-backdrop').classList.add('active');
         }
-
         function closePopup(popupId) {
             document.getElementById(popupId).classList.remove('active');
             document.querySelector('.popup-backdrop').classList.remove('active');
         }
-
-        // Close popup when clicking backdrop
         document.addEventListener('DOMContentLoaded', function() {
             const backdrop = document.querySelector('.popup-backdrop');
             if (backdrop) {
