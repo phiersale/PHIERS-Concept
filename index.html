@@ -79,7 +79,6 @@
             font-size: 0.9em;
             transition: all 0.3s ease;
             user-select: none;
-            pointer-events: auto;
         }
         
         .nav-item:hover {
@@ -481,6 +480,16 @@
         #leverage .graphic-container:first-of-type,
         #action .graphic-container:first-of-type,
         #resources .graphic-container:first-of-type {
+            display: none !important;
+        }
+
+        /* Hide 5D Solutions Rubik's graphic except on main and rubiks pages */
+        #story .graphic-container:nth-of-type(1),
+        #crisis .graphic-container:nth-of-type(1),
+        #works .graphic-container:nth-of-type(1),
+        #leverage .graphic-container:nth-of-type(1),
+        #action .graphic-container:nth-of-type(1),
+        #resources .graphic-container:nth-of-type(1) {
             display: none !important;
         }
     </style>
@@ -958,34 +967,17 @@
 
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         function showSection(sectionId) {
-            console.log('Switching to section:', sectionId);
-            
             // Hide all sections
-            var sections = document.querySelectorAll('section');
-            for (var i = 0; i < sections.length; i++) {
-                sections[i].classList.remove('active');
-            }
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => section.classList.remove('active'));
             
             // Show selected section
-            var targetSection = document.getElementById(sectionId);
-            if (targetSection) {
-                targetSection.classList.add('active');
-                console.log('Section activated:', sectionId);
-            }
+            document.getElementById(sectionId).classList.add('active');
             
             // Update nav items
-            var navItems = document.querySelectorAll('.nav-item');
-            for (var i = 0; i < navItems.length; i++) {
-                navItems[i].classList.remove('active');
-            }
-            
-            // Find and activate the clicked nav item
-            for (var i = 0; i < navItems.length; i++) {
-                if (navItems[i].getAttribute('onclick').includes(sectionId)) {
-                    navItems[i].classList.add('active');
-                    break;
-                }
-            }
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => item.classList.remove('active'));
+            document.querySelector(`[onclick="showSection('${sectionId}')"]`).classList.add('active');
             
             // Scroll to top
             window.scrollTo(0, 0);
