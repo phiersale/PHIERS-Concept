@@ -958,17 +958,34 @@
 
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         function showSection(sectionId) {
+            console.log('Switching to section:', sectionId);
+            
             // Hide all sections
-            const sections = document.querySelectorAll('section');
-            sections.forEach(section => section.classList.remove('active'));
+            var sections = document.querySelectorAll('section');
+            for (var i = 0; i < sections.length; i++) {
+                sections[i].classList.remove('active');
+            }
             
             // Show selected section
-            document.getElementById(sectionId).classList.add('active');
+            var targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+                console.log('Section activated:', sectionId);
+            }
             
             // Update nav items
-            const navItems = document.querySelectorAll('.nav-item');
-            navItems.forEach(item => item.classList.remove('active'));
-            document.querySelector(`[onclick="showSection('${sectionId}')"]`).classList.add('active');
+            var navItems = document.querySelectorAll('.nav-item');
+            for (var i = 0; i < navItems.length; i++) {
+                navItems[i].classList.remove('active');
+            }
+            
+            // Find and activate the clicked nav item
+            for (var i = 0; i < navItems.length; i++) {
+                if (navItems[i].getAttribute('onclick').includes(sectionId)) {
+                    navItems[i].classList.add('active');
+                    break;
+                }
+            }
             
             // Scroll to top
             window.scrollTo(0, 0);
