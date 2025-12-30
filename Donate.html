@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHIERS Campaign - Help America Choose Better Healthcare</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #e0e0e0;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, rgba(15, 52, 96, 0.9), rgba(22, 33, 62, 0.9));
+            border: 3px solid #4caf50;
+            border-radius: 12px;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #4caf50;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
+        }
+
+        .tagline {
+            font-size: 1.3em;
+            color: #81c784;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .urgency {
+            background: linear-gradient(135deg, rgba(244, 67, 54, 0.2), rgba(229, 57, 53, 0.2));
+            border: 2px solid #f44336;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+            color: #ffcdd2;
+        }
+
+        .urgency h2 {
+            color: #ef5350;
+            margin-bottom: 10px;
+        }
+
+        section {
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
+            border-left: 4px solid #4caf50;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        h2 {
+            color: #4caf50;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-bottom: 2px solid #4caf50;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #81c784;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .value-prop {
+            background: rgba(76, 175, 80, 0.1);
+            border: 2px solid #4caf50;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .value-item {
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 6px;
+            border-left: 4px solid #4caf50;
+        }
+
+        .value-item strong {
+            color: #4caf50;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .value-item p {
+            color: #c8e6c9;
+            font-size: 0.95em;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            font-size: 1em;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #4caf50, #45a049);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #45a049, #3d8b40);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #2196f3, #1976d2);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, #1976d2, #1565c0);
+            transform: translateY(-2px);
+        }
+
+        .btn-discord {
+            background: linear-gradient(135deg, #7289da, #5a73c4);
+            color: white;
+        }
+
+        .btn-discord:hover {
+            background: linear-gradient(135deg, #5a73c4, #4c5aa5);
+            transform: translateY(-2px);
+        }
+
+        .timeline {
+            background: rgba(76, 175, 80, 0.1);
+            border: 2px solid #4caf50;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .timeline-item {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(76, 175, 80, 0.3);
+            color: #c8e6c9;
+        }
+
+        .timeline-item:last-child {
+            border-bottom: none;
+        }
+
+        .timeline-date {
+            color: #4caf50;
+            font-weight: bold;
+            display: inline-block;
+            min-width: 150px;
+        }
+
+        .warrior-statement {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(66, 133, 244, 0.15));
+            border: 3px solid #4caf50;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        .warrior-statement strong {
+            color: #4caf50;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        li {
+            margin: 8px 0;
+            color: #c8e6c9;
+        }
+
+        .proof-box {
+            background: rgba(76, 175, 80, 0.1);
+            border-left: 4px solid #81c784;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 6px;
+        }
+
+        .proof-box strong {
+            color: #81c784;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 2px solid rgba(76, 175, 80, 0.3);
+            color: #81c784;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .value-prop {
+                grid-template-columns: 1fr;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚡ MAKE AMERICA BETTER AND HEALTHIER ⚡</h1>
+            <p class="tagline">Healthcare is Broken. Congress Has No Answer. We Do.</p>
+        </header>
+
+        <div class="urgency">
+            <h2>⏰ THE WINDOW IS OPEN (15 DAYS)</h2>
+            <p><strong>Congress is HOME through December 31.</strong></p>
+            <p>They're vulnerable. They're accessible. They can't hide behind staff.</p>
+            <p><strong>This is the ONLY organizing moment we have.</strong></p>
+        </div>
+
+        <!-- THE CRISIS SECTION -->
+        <section>
+            <h2>🚨 The Crisis (Coming Dec 31)</h2>
+            
+            <h3>Insurance Premiums DOUBLE for 22 Million Americans</h3>
+            <p>December 31: The affordability cliff hits. Families go from $8,500 to $24,000+ per year.</p>
+
+            <h3>AI is Destroying 50+ Million Jobs (Washington Has No Plan)</h3>
+            <p>Automation accelerates. Retraining programs fail. Healthcare tied to employment. No safety net.</p>
+
+            <h3>Inflation is Eating Purchasing Power (Wages Haven't Caught Up)</h3>
+            <p>Living costs rise. Wages stagnate. People squeezed on all sides.</p>
+
+            <h3>Trump Promised Solutions. Nothing Happened.</h3>
+            <p>Congress rejected both healthcare plans Dec 11. They have NO alternative.</p>
+
+            <p style="margin-top: 20px; font-size: 1.1em; color: #ffcdd2;"><strong>You can feel it coming. Most people do.</strong></p>
+        </section>
+
+        <!-- THE SOLUTION SECTION -->
+        <section>
+            <h2>✅ The Complete Solution (PHIERS)</h2>
+            
+            <div class="value-prop">
+                <div class="value-item">
+                    <strong>💰 Affordability</strong>
+                    <p>Healthcare drops from $8,500+ to $2,000/year</p>
+                    <p style="margin-top: 10px; color: #a8d5a8;">Saves $20,400/person annually</p>
+                </div>
+                <div class="value-item">
+                    <strong>💼 Jobs</strong>
+                    <p>5-10 million AI-resistant careers created</p>
+                    <p style="margin-top: 10px; color: #a8d5a8;">Starting within months</p>
+                </div>
+                <div class="value-item">
+                    <strong>💵 Monthly Cash</strong>
+                    <p>Direct payments from freed healthcare costs</p>
+                    <p style="margin-top: 10px; color: #a8d5a8;">ASAP once critical mass hit</p>
+                </div>
+                <div class="value-item">
+                    <strong>⚡ Political Power</strong>
+                    <p>100M+ organized Americans force Congress action</p>
+                    <p style="margin-top: 10px; color: #a8d5a8;">Jan 30 shutdown deadline</p>
+                </div>
+            </div>
+
+            <h3>This Isn't Theory. This Is Already Working:</h3>
+            
+            <div class="proof-box">
+                <strong>✅ Mark Cuban's Cost Plus Drugs:</strong> 7 million customers, 80-90% savings, 200+ pharmacies operational
+                <br><span style="font-size: 0.9em; color: #c8e6c9;">This is the model I originated in 2009</span>
+            </div>
+
+            <div class="proof-box">
+                <strong>✅ ZORTT Elite Medical:</strong> Cooperative healthcare delivery, operational 2+ years with real members
+                <br><span style="font-size: 0.9em; color: #c8e6c9;">This is the delivery framework I designed</span>
+            </div>
+
+            <div class="proof-box">
+                <strong>✅ Erica Chenoweth (Harvard Kennedy School):</strong> 3.5% organized = guaranteed systemic change
+                <br><span style="font-size: 0.9em; color: #c8e6c9;">We have 100M+ = 9x the threshold needed</span>
+            </div>
+        </section>
+
+        <!-- WHY NOW SECTION -->
+        <section>
+            <h2>⚡ Why NOW (The Window is Open)</h2>
+            
+            <h3>Congress is HOME through December 31</h3>
+            <p>They're in their districts. They're supposed to meet constituents. They can't hide behind staff or Washington politics.</p>
+
+            <h3>This is THE Organizing Moment</h3>
+            <p>If 100M+ people sign petition + survey while they're HOME + see PHIERS benefits starting, Congress CANNOT ignore it when they return Jan 31.</p>
+
+            <p style="margin-top: 20px; font-weight: bold; color: #ffeb3b;">You have 15 days. That's not much. But it's everything.</p>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="timeline-date">Dec 16-31:</span> Congress is HOME (organizing window open)
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-date">Dec 31:</span> Insurance crisis hits + Article publishes + First member benefits launch
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-date">Jan 1-30:</span> Benefits stories spread + Congressional pressure builds
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-date">Jan 30:</span> Shutdown deadline forces Congressional vote on PHIERS
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-date">Feb 2026:</span> Implementation begins nationally
+                </div>
+            </div>
+        </section>
+
+        <!-- WHAT YOUR DONATION FUNDS -->
+        <section>
+            <h2>💰 What Your Donation Actually Funds</h2>
+            
+            <h3>Every Dollar Starts the Cascade</h3>
+
+            <div style="background: rgba(76, 175, 80, 0.1); border: 2px solid #4caf50; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                <p><strong style="color: #4caf50;">$5</strong> = Article distribution to 55M readers (Pathos Communications)</p>
+                <p style="margin-top: 8px;"><strong style="color: #4caf50;">$25</strong> = Petition + organizing materials for one district</p>
+                <p style="margin-top: 8px;"><strong style="color: #4caf50;">$100</strong> = First member's healthcare launch + raffle administration</p>
+                <p style="margin-top: 8px;"><strong style="color: #4caf50;">$500</strong> = Video production (value prop distribution)</p>
+                <p style="margin-top: 8px;"><strong style="color: #4caf50;">$1,000</strong> = Organizing coordinator for 5 districts</p>
+                <p style="margin-top: 8px;"><strong style="color: #4caf50;">$5,000</strong> = Completes Pathos publication (minimum)</p>
+                <p style="margin-top: 15px; font-weight: bold; color: #81c784;"><strong style="color: #4caf50;">$18,500</strong> = FULL CAMPAIGN: Article published + Will stable + organizing infrastructure through Jan 31</p>
+            </div>
+
+            <h3>The Cascade Starts Day 1</h3>
+            <ul>
+                <li>✅ Donation comes in</li>
+                <li>✅ Article publishes to 55M readers</li>
+                <li>✅ First member gets funded + benefits launch</li>
+                <li>✅ Their story goes public (real person, real $20K savings)</li>
+                <li>✅ People see it's real, not theoretical</li>
+                <li>✅ Exponential adoption accelerates</li>
+                <li>✅ Jan 30: Congress sees 100M+ organized + working system</li>
+            </ul>
+        </section>
+
+        <!-- MULTIPLE WAYS TO PARTICIPATE -->
+        <section>
+            <h2>🎯 Multiple Ways to Participate</h2>
+            
+            <h3>Every Action Funds the Same System</h3>
+
+            <div style="background: rgba(76, 175, 80, 0.1); border: 2px solid #4caf50; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                <p><strong style="color: #4caf50;">💝 Donate</strong> → Funds article + infrastructure + your donation helps us reach goal faster</p>
+                <p style="margin-top: 12px;"><strong style="color: #4caf50;">✍️ Sign Petition</strong> → Adds your voice to 100M+ organizing Congress + enters raffle pool</p>
+                <p style="margin-top: 12px;"><strong style="color: #4caf50;">📝 Fill Survey</strong> → Documents what voters want (undeniable evidence for Congress)</p>
+                <p style="margin-top: 12px;"><strong style="color: #4caf50;">🎰 Enter Raffle</strong> → You could be First PHIERSale Member (get $20K/year benefits ASAP)</p>
+                <p style="margin-top: 12px;"><strong style="color: #4caf50;">💬 Join Discord</strong> → Help organize your district through Jan 31</p>
+                <p style="margin-top: 12px;"><strong style="color: #4caf50;">📢 Share This</strong> → Every person you bring = faster cascade</p>
+            </div>
+        </section>
+
+        <!-- WARRIOR STATEMENT -->
+        <div class="warrior-statement">
+            <p><strong>I'm homeless living in my car.</strong></p>
+            <p style="margin-top: 15px;">But the urgency isn't pity. <strong>The urgency is POWER.</strong></p>
+            <p style="margin-top: 15px;">Congress is vulnerable NOW. This window closes Dec 31.</p>
+            <p style="margin-top: 15px;"><strong>Start NOW with what we have. Build momentum while Congress is listening.</strong></p>
+            <p style="margin-top: 15px;">By Jan 31 when they return, the momentum will be unstoppable.</p>
+            <p style="margin-top: 20px; font-size: 1.2em;"><strong>This is war for healthcare. Not against people. Against systems that extract profit.</strong></p>
+            <p style="margin-top: 15px;"><strong style="color: #ffeb3b;">We're not asking for sympathy. We're organizing for victory.</strong></p>
+        </div>
+
+        <!-- CALL TO ACTION -->
+        <section style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(66, 133, 244, 0.2)); border: 3px solid #4caf50;">
+            <h2 style="text-align: center;">🔥 DONATE NOW - Choose Your Method</h2>
+            
+            <p style="text-align: center; font-size: 1.1em; margin: 20px 0;">Congress is home NOW. Dec 31 is coming. This is the moment.</p>
+
+            <h3 style="text-align: center; color: #81c784; margin-top: 30px;">Direct Payment (Lower Fees, Faster Funds)</h3>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin: 30px 0; text-align: center;">
+                <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 8px; border: 2px solid #4caf50;">
+                    <p style="font-weight: bold; color: #4caf50; margin-bottom: 10px;">Venmo</p>
+                    <p style="font-size: 0.9em; color: #c8e6c9; margin-bottom: 15px;">Scan QR or use tag below</p>
+                    <p style="font-family: monospace; background: rgba(0,0,0,0.5); padding: 10px; border-radius: 6px; color: #81c784; font-weight: bold;">@willprice-phiers</p>
+                </div>
+                <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 8px; border: 2px solid #4caf50;">
+                    <p style="font-weight: bold; color: #4caf50; margin-bottom: 10px;">PayPal</p>
+                    <p style="font-size: 0.9em; color: #c8e6c9; margin-bottom: 15px;">Scan QR or use tag below</p>
+                    <p style="font-family: monospace; background: rgba(0,0,0,0.5); padding: 10px; border-radius: 6px; color: #81c784; font-weight: bold;">willprice@phiers.org</p>
+                </div>
+                <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 8px; border: 2px solid #4caf50;">
+                    <p style="font-weight: bold; color: #4caf50; margin-bottom: 10px;">Zelle</p>
+                    <p style="font-size: 0.9em; color: #c8e6c9; margin-bottom: 15px;">Scan QR or use phone</p>
+                    <p style="font-family: monospace; background: rgba(0,0,0,0.5); padding: 10px; border-radius: 6px; color: #81c784; font-weight: bold;">301-919-0970</p>
+                </div>
+            </div>
+
+            <p style="text-align: center; color: #c8e6c9; font-size: 0.9em; margin: 20px 0;">
+                <strong>💡 Direct payment methods process faster and put more money toward the mission (no platform fees)</strong>
+            </p>
+
+            <h3 style="text-align: center; color: #81c784; margin-top: 40px;">Or Donate via GoFundMe</h3>
+            
+            <p style="text-align: center; color: #c8e6c9; font-size: 0.95em; margin: 20px 0;">
+                If you prefer a public campaign page with donor visibility and accountability:
+            </p>
+
+            <div class="button-group">
+                <a href="https://www.gofundme.com/f/homeless-but-hopeful-affordable-healthcare-good-jobs-ubi" target="_blank" class="btn btn-secondary">📋 GoFundMe Campaign Page</a>
+            </div>
+
+            <h3 style="text-align: center; color: #81c784; margin-top: 40px;">Or Participate Without Donating</h3>
+
+            <div class="button-group">
+                <a href="https://docs.google.com/forms/d/1MYeQcmw8ZDXHwcjpEw5hbQCWP4FdHdyoHTo1XcAiTRA/edit" target="_blank" class="btn btn-secondary">✍️ SIGN PETITION</a>
+                <a href="https://docs.google.com/forms/d/1phABxQeHga26-k5ccxgL3lIZTjnyK1LsyT0zFeqMTQA/edit" target="_blank" class="btn btn-secondary">📝 FILL SURVEY</a>
+                <a href="https://discord.gg/narhDKJY" target="_blank" class="btn btn-discord">💬 JOIN DISCORD</a>
+            </div>
+
+            <p style="text-align: center; color: #ffeb3b; font-weight: bold; margin-top: 25px;">Every $1 matters. Every moment counts.</p>
+        </section>
+
+        <footer>
+            <p><strong>PHIERS | Make America Better And Healthier (MABAH)</strong></p>
+            <p>Will Price | Chief Solutions Architect</p>
+            <p style="margin-top: 15px;">Phone: 301-919-0970</p>
+            <p style="margin-top: 15px; font-size: 0.9em;">© PHIERS.org - Public Health Information Exchange & Resource Services</p>
+        </footer>
+    </div>
+</body>
+</html>
