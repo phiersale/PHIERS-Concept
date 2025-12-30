@@ -19,6 +19,125 @@
             line-height: 1.6;
             min-height: 100vh;
         }
+
+        /* SURVEY FUNNEL MODAL - ADDED ONLY */
+        .survey-funnel-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            padding: 20px;
+        }
+
+        .survey-funnel-container {
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+            border: 3px solid #4caf50;
+            border-radius: 12px;
+            padding: 40px;
+            max-width: 450px;
+            width: 100%;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.9);
+            position: relative;
+            text-align: center;
+            margin: auto;
+        }
+
+        .survey-funnel-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: #4caf50;
+            font-size: 2.5em;
+            cursor: pointer;
+            padding: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            z-index: 2001;
+        }
+
+        .survey-funnel-close:hover {
+            color: #81c784;
+            transform: scale(1.1);
+        }
+
+        .survey-funnel-content {
+            animation: popIn 0.4s ease;
+        }
+
+        .survey-funnel-content h2 {
+            color: #4caf50;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+            border: none;
+            padding: 0;
+        }
+
+        .urgency-text {
+            color: #ffeb3b;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin: 15px 0;
+        }
+
+        .stats-text {
+            color: #81c784;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 20px 0;
+            line-height: 1.8;
+        }
+
+        .btn-sign {
+            background: linear-gradient(135deg, #4caf50, #45a049);
+            color: white;
+            padding: 15px 35px;
+            font-size: 1.1em;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 15px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .btn-sign:hover {
+            background: linear-gradient(135deg, #45a049, #3d8b40);
+            transform: scale(1.02);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+        }
+
+        .close-hint {
+            color: #c8e6c9;
+            font-size: 0.9em;
+        }
+
+        @keyframes popIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
         
         .crisis-alert {
             background: linear-gradient(135deg, #d32f2f, #c62828);
@@ -658,12 +777,93 @@
             }
         }
     </style>
+    <!-- ALL FUNCTIONS - DEFINED EARLY IN HEAD -->
+    <script>
+        function closeSurveyFunnel() {
+            var overlay = document.getElementById('surveyFunnelOverlay');
+            if (overlay) {
+                overlay.style.display = 'none';
+            }
+        }
+        
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => section.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => item.classList.remove('active'));
+            document.querySelector(`[onclick="showSection('${sectionId}')\"]`).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+        
+        function showPopup(popupId) {
+            document.getElementById(popupId).classList.add('active');
+            document.querySelector('.popup-backdrop').classList.add('active');
+        }
+        
+        function closePopup(popupId) {
+            document.getElementById(popupId).classList.remove('active');
+            document.querySelector('.popup-backdrop').classList.remove('active');
+        }
+        
+        function closeCrisisAlert() {
+            document.getElementById('crisisAlert').classList.add('hidden');
+        }
+    </script>
 </head>
 <body>
+    <!-- ALL FUNCTIONS - IMMEDIATE EXECUTION -->
+    <script>
+        function closeSurveyFunnel() {
+            var overlay = document.getElementById('surveyFunnelOverlay');
+            if (overlay) {
+                overlay.style.display = 'none';
+            }
+        }
+        
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => section.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => item.classList.remove('active'));
+            document.querySelector(`[onclick="showSection('${sectionId}')\"]`).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+        
+        function showPopup(popupId) {
+            document.getElementById(popupId).classList.add('active');
+            document.querySelector('.popup-backdrop').classList.add('active');
+        }
+        
+        function closePopup(popupId) {
+            document.getElementById(popupId).classList.remove('active');
+            document.querySelector('.popup-backdrop').classList.remove('active');
+        }
+        
+        function closeCrisisAlert() {
+            document.getElementById('crisisAlert').classList.add('hidden');
+        }
+    </script>
+
+    <div class="survey-funnel-overlay" id="surveyFunnelOverlay">
+        <div class="survey-funnel-container">
+            <button type="button" class="survey-funnel-close" onclick="closeSurveyFunnel()">×</button>
+            <div class="survey-funnel-content">
+                <h2>⏰ 2 DAYS TO ACT</h2>
+                <p class="urgency-text">Subsidies expire Jan 1. Congress votes by Jan 31 shutdown deadline. Sign NOW - this is the window.</p>
+                <p class="stats-text">234 MILLION AMERICANS<br>2.3 AI-PROOF JOBS<br>MONTHLY UBI * (once we hit 3.5%)</p>
+                <a href="https://docs.google.com/forms/d/1MYeQcmw8ZDXHwcjpEw5hbQCWP4FdHdyoHTo1XcAiTRA/edit" target="_blank" class="btn-sign">🔥 SIGN PETITION (2 MIN)</a>
+                <p class="close-hint">or close this (X button) to learn more</p>
+            </div>
+        </div>
+    </div>
+
     <div class="crisis-alert" id="crisisAlert">
         <div class="crisis-alert-content">
-            ⏰ <strong>3 DAYS UNTIL HEALTH INSURANCE CATASTROPHE</strong> ⏰<br/>
-            22 MILLION AMERICANS LOSE COVERAGE DEC 31 WITHOUT PHIERS<br/>
+            ⏰ <strong>2 DAYS UNTIL HEALTHCARE SUBSIDY CLIFF - JAN 1</strong> ⏰<br/>
+            22 MILLION AMERICANS LOSE COVERAGE IN 2 DAYS<br/>
+            JAN 31 SHUTDOWN DEADLINE = CONGRESS MUST VOTE ON PHIERS<br/>
             <a href="https://docs.google.com/forms/d/1MYeQcmw8ZDXHwcjpEw5hbQCWP4FdHdyoHTo1XcAiTRA/edit" target="_blank">✍️ SIGN PETITION NOW</a> | 
             <a href="tel:202-224-3121">📞 CALL YOUR CONGRESSMAN</a> |
             <a href="https://discord.gg/narhDKJY" target="_blank">💬 JOIN THE MOVEMENT</a>
@@ -813,7 +1013,7 @@
                 <h4>AI Eliminates 50M+ Jobs Without Safety Net</h4>
                 <p><strong>The Story:</strong> Automation accelerates. Retraining programs insufficient. Healthcare still tied to employment. No economic cushion.</p>
                 <p><strong>The Problem:</strong> Job loss + healthcare loss = cascade failure of entire system. Current policy has no answer.</p>
-                <p><strong>Our Response:</strong> PHIERS creates millions of AI-resistant jobs (case management, health coordination, community infrastructure) AND provides healthcare independent of employment AND delivers $500+/month UBI from government savings.</p>
+                <p><strong>Our Response:</strong> PHIERS creates millions of AI-resistant jobs (case management, health coordination, community infrastructure) AND provides healthcare independent of employment AND delivers Monthly UBI from government savings (once we hit 3.5%).</p>
                 <p><strong>What You Can Do:</strong> <a href="https://discord.gg/narhDKJY" target="_blank" style="color: #4caf50; text-decoration: underline;">Join Discord</a> for job transition resources | <a href="https://docs.google.com/forms/d/1MYeQcmw8ZDXHwcjpEw5hbQCWP4FdHdyoHTo1XcAiTRA/edit" target="_blank" style="color: #4caf50; text-decoration: underline;">Sign petition</a></p>
             </div>
             
@@ -867,7 +1067,7 @@
             <p style="margin-top: 20px;"><strong>🧩 The Insight:</strong> You can't remove one piece without destroying the others. Congress can allow PHIERS to bring telehealth to ACA—and when all 5 dimensions work together, you've created a system that strengthens itself through every person's success.</p>
             
             <div class="nav-buttons">
-                <button class="btn btn-secondary" onclick="showSection('story')">← Back: My Story</button>
+                <button class="btn btn-secondary" onclick="showSection('main')">← Back: Main</button>
                 <button class="btn btn-primary" onclick="showSection('crisis')">Next: The Crisis →</button>
             </div>
         </section>
@@ -1119,7 +1319,6 @@
                 <p style="margin-top: 15px;"><strong>Congress chooses donors over constituents - until constituent pressure makes serving donors expensive.</strong></p>
             </div>
 
-
             <!-- LINK TO EXTERNAL DEEP DIVE FAQ -->
             <div style="margin-top: 40px; padding-top: 30px; border-top: 3px solid #4caf50; text-align: center;">
                 <a href="https://phiersale.github.io/PHIERS-FAQ/" target="_blank" class="btn btn-primary" style="background: #16a34a; font-size: 1.05em; padding: 12px 25px; text-decoration: none; display: inline-block;">📚 DEEP DIVE FAQ - Comprehensive Questions & Answers</a>
@@ -1165,7 +1364,7 @@
             </div>
         </section>
 
-        <!-- RESOURCES SECTION -->
+        <!-- RESOURCES SECTION - WITH MY STORY MOVED HERE -->
         <section id="resources">
             <h2>📚 Learn More</h2>
             
@@ -1249,28 +1448,8 @@
                 <a href="https://www.gofundme.com/f/homeless-but-hopeful-affordable-healthcare-good-jobs-ubi" target="_blank" class="btn btn-secondary">💝 Donate</a>
             </div>
             
-            <!-- JOIN US SECTION -->
-            <div class="join-us-cta">
-                <h3>🌱 JOIN THE MOVEMENT</h3>
-                <p><strong>We're looking for:</strong> Organizers, data analysts, media coordinators, policy experts, healthcare professionals, business leaders, faith leaders, community advocates.</p>
-                <p><strong>What you'll do:</strong> Help execute the plan that changes everything. Make America Better And Healthier.</p>
-                <p><strong>Timeline:</strong> Intensive work Dec 29 - Jan 30 (Congressional pressure window). Ongoing leadership Feb 2026+.</p>
-                <p style="color: #ffeb3b; font-weight: bold;">This is the most important work happening in America right now.</p>
-                <div class="button-group">
-                    <a href="https://discord.gg/narhDKJY" target="_blank" class="btn btn-primary" style="font-size: 1.05em;">🚀 JOIN US ON DISCORD</a>
-                    <a href="/cdn-cgi/l/email-protection#3d4a594d4f545e587d4d5554584f4e13524f5a" class="btn btn-secondary" style="font-size: 1.05em;">📧 EMAIL: <span class="__cf_email__" data-cfemail="86cfc8c0c9c6d6cecfc3d4d5a8c9d4c1">[email&#160;protected]</span></a>
-                </div>
-            </div>
-
-            <div class="nav-buttons">
-                <button class="btn btn-secondary" onclick="showSection('blog')">← Back: News & Response</button>
-                <button class="btn btn-primary" onclick="showSection('story')">Next: My Story →</button>
-            </div>
-        </section>
-        
-        <!-- MY STORY SECTION -->
-        <section id="story">
-            <h2>📖 My Story: Why I'm Fighting</h2>
+            <!-- MY STORY - MOVED TO LEARN MORE SECTION -->
+            <h2 style="margin-top: 50px;">📖 My Story: Why I'm Fighting</h2>
 
             <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/Me_n__Dad_at_CHURCH.png" alt="Will Price and Al Wilson at Church" style="max-width: 300px; height: auto; border-radius: 8px; margin: 0 auto 20px; display: block; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);">
             
@@ -1287,14 +1466,6 @@
             <div class="video-container">
                 <iframe src="https://www.youtube.com/embed/eE-TxvI0d4Q" allowfullscreen="" loading="lazy" title="My Story - Will Price"></iframe>
             </div>
-            <p>I protected vulnerable people. Reported abuse. Got evicted for doing the right thing. Now I'm homeless, living in my car.</p>
-            
-            <p>But I didn't lose the solution when I lost my home.</p>
-            
-            <h3>For 16 Years (Since 2009)</h3>
-            <p>I've been architecting a healthcare solution that solves what Congress can't: universal coverage, millions of AI-resistant jobs, and economic resilience—all funded from government savings.</p>
-            
-            <p>The math is proven. The model works. The timing is NOW.</p>
             
             <h3>The Synchronicity</h3>
             <p>I protected <span class="al-wilson-link" onclick="showPopup('alWilsonPopup')">Al Wilson</span> when he was in danger. I reported abuse. I got evicted.</p>
@@ -1316,20 +1487,15 @@
             <p>I'm homeless but fighting for you anyway.</p>
             
             <div class="button-group">
-                <a href="https://www.gofundme.com/f/homeless-but-hopeful-affordable-healthcare-good-jobs-ubi" target="_blank" class="btn btn-secondary">💝 Support Will's Survival</a>
+                <a href="https://www.gofundme.com/f/homeless-but-hopeful-affordable-healthcare-good-jobs-ubi" target="_blank" class="btn btn-secondary">💝 Donate to the Cause</a>
                 <a href="https://discord.gg/narhDKJY" target="_blank" class="btn btn-discord">💬 Join Community</a>
-            </div>
-            
-            <div class="nav-buttons">
-                <button class="btn btn-secondary" onclick="showSection('resources')">← Back: Resources</button>
-                <button class="btn btn-primary" disabled>My Story (Last) →</button>
             </div>
         </section>
         
         <footer>
             <p><strong>PHIERS Movement | Make America Better And Healthier (MABAH)</strong></p>
             <p>Will Price | Chief Solutions Architect</p>
-            <p>Phone: 301-919-0970 | Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="cbbcafbbb9a2a8ae8bbba3a2aeb9b8e5a4b9ac">[email&#160;protected]</a></p>
+            <p>Phone: 301-919-0970 | Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f88f919494888a919b9db88890919d8a8b99949dd69b9795">[email&#160;protected]</a></p>
             <p style="margin-top: 15px;">
                 <a href="https://phiersale.github.io/Join_the_Team/" target="_blank" style="color: #81c784; text-decoration: underline;">Join Us</a> | 
                 <a href="https://phiersale.github.io/MABAH-Movement/" target="_blank" style="color: #81c784; text-decoration: underline;">MABAH Movement</a> | 
@@ -1355,7 +1521,7 @@
         </div>
     </div>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         function showSection(sectionId) {
             const sections = document.querySelectorAll('section');
             sections.forEach(section => section.classList.remove('active'));
@@ -1380,26 +1546,4 @@
             const backdrop = document.querySelector('.popup-backdrop');
             if (backdrop) {
                 backdrop.addEventListener('click', function() {
-                    document.querySelectorAll('.tooltip-popup').forEach(popup => {
-                        popup.classList.remove('active');
-                    });
-                    this.classList.remove('active');
-                });
-            }
-        });
-    </script>
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-PHIERS strategic collaboration onboarding protocol - Claude
+                    document.querySelectorAll('.tooltip-popu
