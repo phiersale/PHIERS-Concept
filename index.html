@@ -139,63 +139,6 @@
             }
         }
         
-        .crisis-alert {
-            background: linear-gradient(135deg, #d32f2f, #c62828);
-            border-bottom: 4px solid #ff6b6b;
-            padding: 15px;
-            color: white;
-            font-weight: bold;
-            font-size: 1.1em;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 15px;
-        }
-        
-        .crisis-alert-content {
-            flex: 1;
-            text-align: center;
-        }
-        
-        .crisis-alert.hidden {
-            display: none;
-        }
-        
-        .crisis-alert-close {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5em;
-            cursor: pointer;
-            padding: 0;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-left: auto;
-            flex-shrink: 0;
-        }
-        
-        .crisis-alert-close:hover {
-            color: #ffeb3b;
-        }
-        
-        .crisis-alert a {
-            color: #ffeb3b;
-            text-decoration: underline;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        
-        .crisis-alert a:hover {
-            color: #fff;
-        }
-        
         .container {
             max-width: 900px;
             margin: 0 auto;
@@ -812,6 +755,30 @@
     </script>
 </head>
 <body>
+    <!-- CONSEQUENCES MODAL POPUP -->
+    <div id="consequencesPopup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); z-index: 10000; display: flex; align-items: center; justify-content: center;">
+        <div style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border: 3px solid #ef4444; border-radius: 12px; padding: 40px; max-width: 500px; width: 90%; box-shadow: 0 10px 40px rgba(239, 68, 68, 0.3); text-align: center;">
+            <h2 style="color: #ef4444; margin-top: 0; font-size: 1.4em; margin-bottom: 20px;">⚠️ CRITICAL DEADLINE</h2>
+            
+            <div style="background: rgba(239, 68, 68, 0.1); border-left: 4px solid #ef4444; padding: 20px; margin: 20px 0; border-radius: 8px; text-align: left;">
+                <p style="color: #fca5a5; margin: 0; font-weight: bold;">December 31, 2025</p>
+                <ul style="color: #cbd5e1; margin: 15px 0 0 0; padding-left: 20px;">
+                    <li>22 Million Americans lose healthcare coverage</li>
+                    <li>Premiums triple overnight</li>
+                    <li>Cascade failure begins</li>
+                    <li>Congress is home RIGHT NOW (Dec 16-31)</li>
+                </ul>
+            </div>
+            
+            <p style="color: #81c784; font-weight: bold; font-size: 1.1em; margin: 30px 0 20px 0;">This is the window. Action matters THIS WEEK.</p>
+            
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <button onclick="closeConsequencesPopup()" style="background: linear-gradient(135deg, #4caf50, #2e7d32); color: white; border: none; padding: 12px 30px; font-size: 1em; font-weight: bold; border-radius: 6px; cursor: pointer; transition: all 0.3s;">I Understand the Stakes</button>
+                <button onclick="closeConsequencesPopup(); showSection('crisis');" style="background: linear-gradient(135deg, #3b82f6, #1e40af); color: white; border: none; padding: 12px 30px; font-size: 1em; font-weight: bold; border-radius: 6px; cursor: pointer; transition: all 0.3s;">Learn More: The Crisis →</button>
+            </div>
+        </div>
+    </div>
+
     <!-- ALL FUNCTIONS - IMMEDIATE EXECUTION -->
     <script>
         function closeSurveyFunnel() {
@@ -844,6 +811,18 @@
         function closeCrisisAlert() {
             document.getElementById('crisisAlert').classList.add('hidden');
         }
+
+        function closeConsequencesPopup() {
+            document.getElementById('consequencesPopup').style.display = 'none';
+        }
+
+        // Show consequences popup on page load (once per session)
+        window.addEventListener('load', function() {
+            if (!sessionStorage.getItem('consequencesPopupShown')) {
+                document.getElementById('consequencesPopup').style.display = 'flex';
+                sessionStorage.setItem('consequencesPopupShown', 'true');
+            }
+        });
     </script>
 
     <div class="survey-funnel-overlay" id="surveyFunnelOverlay">
@@ -857,18 +836,6 @@
                 <p class="close-hint">or close this (X button) to learn more</p>
             </div>
         </div>
-    </div>
-
-    <div class="crisis-alert" id="crisisAlert">
-        <div class="crisis-alert-content">
-            ⏰ <strong>2 DAYS UNTIL HEALTHCARE SUBSIDY CLIFF - JAN 1</strong> ⏰<br/>
-            22 MILLION AMERICANS LOSE COVERAGE IN 2 DAYS<br/>
-            JAN 31 SHUTDOWN DEADLINE = CONGRESS MUST VOTE ON PHIERS<br/>
-            <a href="https://docs.google.com/forms/d/1MYeQcmw8ZDXHwcjpEw5hbQCWP4FdHdyoHTo1XcAiTRA/edit" target="_blank">✍️ SIGN PETITION NOW</a> | 
-            <a href="tel:202-224-3121">📞 CALL YOUR CONGRESSMAN</a> |
-            <a href="https://discord.gg/narhDKJY" target="_blank">💬 JOIN THE MOVEMENT</a>
-        </div>
-        <button class="crisis-alert-close" onclick="closeCrisisAlert()">×</button>
     </div>
 
     <div class="container">
@@ -913,11 +880,11 @@
 
             <div style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(100, 200, 150, 0.1)); padding: 40px; border-radius: 12px; margin: 50px 0; border: 2px solid rgba(76, 175, 80, 0.3);">
                 <h3 style="color: #4caf50; margin-top: 0; text-align: center; font-size: 1.3em; margin-bottom: 20px;">Why 5D Solutions Matter</h3>
-                <p style="color: #c8e6c9; line-height: 1.8; margin: 0;">Most solutions fix ONE problem for ONE group of people. Healthcare advocates need healthcare. Workers need jobs. Families need money. Activists need peace. Congress looks at all these separate needs and says "we can't afford to solve everything."</p>
+                <p style="color: #c8e6c9; line-height: 1.8; margin: 0;"><span style="font-size: 1.2em; font-weight: bold; color: #81c784;">MOST SOLUTIONS</span> fix ONE problem for ONE group of people. Healthcare advocates need healthcare. Workers need jobs. Families need money. Activists need peace. Congress looks at all these separate needs and says "we can't afford to solve everything."</p>
                 
-                <p style="color: #c8e6c9; line-height: 1.8; margin-top: 15px;"><strong>PHIERS solves for ALL of them simultaneously.</strong></p>
+                <p style="color: #c8e6c9; line-height: 1.8; margin-top: 15px;"><span style="font-size: 1.2em; font-weight: bold; color: #81c784;">ONE SOLUTION</span> solves for ALL of them simultaneously.</p>
                 
-                <p style="color: #c8e6c9; line-height: 1.8; margin-top: 15px;">One solution. Five outcomes. No trade-offs. When you solve for people's deepest, shared unmet needs—healthcare, economic security, meaningful work, protection from extraction, peace with dignity—you create something that works for EVERYONE because each dimension strengthens the others.</p>
+                <p style="color: #c8e6c9; line-height: 1.8; margin-top: 15px;"><strong>One solution. Five outcomes. No trade-offs.</strong> When you solve for people's deepest, shared unmet needs—healthcare, economic security, meaningful work, protection from extraction, peace with dignity—you create something that works for EVERYONE because each dimension strengthens the others.</p>
                 
                 <p style="color: #c8e6c9; line-height: 1.8; margin-top: 15px;"><strong>That's the spiritual core of this work:</strong> Solutions that honor the whole person, not just one need. Systems that heal interconnected problems, not create new ones. Abundance that flows to everyone, not extracted from the many.</p>
                 
@@ -1207,6 +1174,19 @@
                 <li><strong>🤲 Monthly Checks (UBI):</strong> Cascade savings compound monthly. Assistance checks become baseline income guarantee. Economic security while jobs are created.</li>
                 <li><strong>🛡️ Supply Chain + Safety Net:</strong> Stronger workforce + universal healthcare + monthly checks + unified platform = supply chains stabilize. No one falls through cracks.</li>
             </ul>
+            
+            <div style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(100, 200, 150, 0.1)); padding: 30px; margin: 30px 0; border-radius: 12px; border-left: 5px solid #4caf50;">
+                <h3 style="color: #81c784; margin-top: 0;">💡 SNAP & Medicaid Work Requirements: THE OPPORTUNITY</h3>
+                <p style="color: #c8e6c9; line-height: 1.8; margin: 0;"><strong>Work requirements are coming.</strong> Congress is pushing SNAP and Medicaid work requirements—people who can't meet them risk losing coverage. That creates hardship.</p>
+                
+                <p style="color: #c8e6c9; line-height: 1.8; margin-top: 15px;"><strong>But PHIERS transforms this crisis into an OPPORTUNITY OF A LIFETIME.</strong></p>
+                
+                <p style="color: #c8e6c9; line-height: 1.8; margin-top: 15px;">We're creating millions of AI-resistant jobs RIGHT NOW. We're providing immediate training on how to be involved in building the community-enabled solution that transforms your local area. You're not just getting a job—<strong>you're becoming part of the movement that solves healthcare, jobs, economy, and peace simultaneously.</strong></p>
+                
+                <p style="color: #c8e6c9; line-height: 1.8; margin-top: 15px;">Need work for SNAP/Medicaid? We have it. Need training? Immediate. Need to be part of something that actually works? This is it. We're building real solutions in real communities, and we need people like you RIGHT NOW to be part of what happens next.</p>
+                
+                <p style="color: #81c784; font-weight: bold; margin-top: 15px; font-size: 1.05em;">When Congress moves on PHIERS, you'll be ready. We're training people NOW to execute when the gates open.</p>
+            </div>
             
             <div class="graphic-container" style="margin-top: 30px; margin-bottom: 30px;">
                 <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Tablet__Firewall.png" alt="PHIERS-Powered Solutions Operating System - Firewall">
