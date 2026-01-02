@@ -291,20 +291,26 @@
 
         .graphic-container {
             text-align: center;
-            margin: 25px 0;
+            margin: 60px 0;
             padding: 20px;
             background: rgba(0, 0, 0, 0.3);
             border-radius: 8px;
-            margin-bottom: 40px;
         }
         
         .graphic-container img {
-            max-width: 300px;
+            max-width: 280px;
             height: auto;
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);
             margin: 0 auto;
             display: block;
+        }
+        
+        .graphic-container p {
+            margin: 12px 0 0 0;
+            font-size: 0.9em;
+            color: #a3d9a5;
+            line-height: 1.4;
         }
         
         .button-group {
@@ -900,15 +906,19 @@
             document.getElementById('crisisAlert').classList.add('hidden');
         }
 
+        var popupShown = localStorage.getItem('phiersPopupShown');
+
         function closeConsequencesPopup() {
             document.getElementById('consequencesPopup').style.display = 'none';
+            localStorage.setItem('phiersPopupShown', 'true');
+            localStorage.setItem('phiersPopupClosedTime', Date.now().toString());
         }
 
-        // Show consequences popup on page load (once per session)
-        window.addEventListener('load', function() {
-            if (!sessionStorage.getItem('consequencesPopupShown')) {
+        // Show consequences popup on page load (once per user - persistent across sessions)
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!localStorage.getItem('phiersPopupShown')) {
                 document.getElementById('consequencesPopup').style.display = 'flex';
-                sessionStorage.setItem('consequencesPopupShown', 'true');
+                localStorage.setItem('phiersPopupShown', 'true');
             }
         });
     </script>
@@ -1042,8 +1052,8 @@
             <div style="text-align: center; margin: 40px 0; background: rgba(76, 175, 80, 0.1); padding: 30px; border-radius: 8px; border-left: 5px solid #4caf50;">
                 <h3 style="color: #81c784; margin-bottom: 15px;">📹 Watch: The Moment (2:22)</h3>
                 <p style="margin-bottom: 20px; color: #c8e6c9;">Congress failed to prevent it. Prices are spiking. Now we have leverage until Jan 30. You.</p>
-                <div style="display: inline-block; max-width: 500px; width: 100%;">
-                    <iframe width="100%" height="281" src="https://www.youtube.com/embed/eE-TxvI0d4Q?si=0h3ASDJUZZvQgRSq" title="The Moment - PHIERS" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 8px;"></iframe>
+                <div style="display: inline-block; max-width: 340px; width: 100%;">
+                    <iframe width="100%" height="191" src="https://www.youtube.com/embed/eE-TxvI0d4Q?si=0h3ASDJUZZvQgRSq" title="The Moment - PHIERS" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 8px;"></iframe>
                 </div>
             </div>
             
@@ -1091,7 +1101,7 @@
             <div class="button-group">
                 <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" class="btn btn-primary">✍️ Sign Petition</a>
                 <a href="https://forms.gle/xVcSk4cT3VDseSiEA" target="_blank" class="btn btn-primary">📝 Fill Survey</a>
-                <a href="https://phiersale.github.io/PHIERS-Concept/Donate.html" class="btn btn-secondary">💝 Support Mission</a>
+                <a href="https://www.gofundme.com/PHIERS" class="btn btn-secondary">💝 Support Mission</a>
                 <a href="https://discord.gg/narhDKJY" target="_blank" class="btn btn-discord">💬 Join Discord</a>
             </div>
             
@@ -1127,30 +1137,35 @@
             <h3>The Cascade</h3>
             <p>Those 12+ switch. Generate $88,800 additional freed savings. That funds 1,776 more switches. Those generate $13.2M additional. <strong>Exponential growth.</strong></p>
             
-            <div style="text-align: center; margin-bottom: 50px; background: rgba(76, 175, 80, 0.1); padding: 30px; border-radius: 8px; border-left: 5px solid #4caf50;">
+            <div style="height: 40px; border-top: 1px solid rgba(76, 175, 80, 0.2);"></div>
+            <div style="text-align: center; margin-bottom: 35px; background: rgba(76, 175, 80, 0.1); padding: 25px; border-radius: 8px; border-left: 5px solid #4caf50;">
                 <h3 style="color: #81c784; margin-bottom: 15px;">📹 Watch: The Mechanism (3:33)</h3>
-                <p style="margin-bottom: 20px; color: #c8e6c9;">The exact math. How $2+ TRILLION in savings work. Why Congress gets out of the way.</p>
-                <div style="display: inline-block; max-width: 500px; width: 100%;">
-                    <iframe width="100%" height="281" src="https://www.youtube.com/embed/jMU6LKEBzbs" title="The Mechanism - PHIERS" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 8px;"></iframe>
+                <p style="margin-bottom: 20px; color: #c8e6c9; font-size: 0.95em;">The exact math. How $2+ TRILLION in savings work. Why Congress gets out of the way.</p>
+                <div style="display: inline-block; max-width: 340px; width: 100%;">
+                    <iframe width="100%" height="191" src="https://www.youtube.com/embed/jMU6LKEBzbs" title="The Mechanism - PHIERS" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 8px;"></iframe>
                 </div>
             </div>
             
-            <p style="text-align: center; margin: 30px 0; font-size: 1.2em; color: #4caf50; font-weight: bold;">⬇️ Exponential math in action ⬇️</p>
+            <p style="text-align: center; margin: 20px 0 25px 0; font-size: 1.1em; color: #4caf50; font-weight: bold;">⬇️ Exponential math in action ⬇️</p>
 
             <div class="graphic-container">
-                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/2_73_Savings_Infographic.png" alt="$2.73T in Savings - All Dimensions Connected" class="clickable-image" style="max-width: 100%; height: auto; cursor: pointer;">
+                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/2_73_Savings_Infographic.png" alt="$2.73T in Savings - All Dimensions Connected" class="clickable-image" style="max-width: 350px; height: auto; cursor: pointer;">
                 <p>$2.73 Trillion in Annual Savings - All Interconnected Dimensions Protected Simultaneously</p>
             </div>
+            
+            <div style="height: 50px; border-top: 1px solid rgba(76, 175, 80, 0.2);"></div>
             
             <h3>The Endpoint</h3>
             <p><strong>120 million eventually switch.</strong> $2.73 TRILLION in freed government healthcare savings. Funds universal coverage for 234M + monthly assistance + jobs + case management. Self-sustaining. Exponential compounding.</p>
             
             <div class="graphic-container">
-                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Tablet__Firewall.png" alt="PHIERS-Powered Solutions Operating System - Firewall" class="clickable-image" style="cursor: pointer;">
+                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Tablet__Firewall.png" alt="PHIERS-Powered Solutions Operating System - Firewall" class="clickable-image" style="max-width: 280px; height: auto; cursor: pointer;">
                 <p>PHIERS-Powered Solutions Operating System - Firewall Against Corporate Extraction</p>
             </div>
             
-            <h3 style="margin-top: 20px;">⚡ The Math Is Inevitable</h3>
+            <div style="height: 50px; border-top: 1px solid rgba(76, 175, 80, 0.2);"></div>
+            
+            <h3 style="margin-top: 0;">⚡ The Math Is Inevitable</h3>
             <p><strong>But it only starts if you sign the petition and fill out the survey.</strong> Your signature = proof we have numbers. Numbers = forced town halls. Town halls = Congressional pressure. Policy change = cascade begins.</p>
 
             <h3 style="margin-top: 30px; padding-top: 30px; border-top: 2px solid rgba(76, 175, 80, 0.3);">⚡ See Your Impact: Timeline & Counter-Strategy</h3>
@@ -1209,8 +1224,8 @@
             <div style="text-align: center; margin-bottom: 50px; background: rgba(76, 175, 80, 0.1); padding: 30px; border-radius: 8px; border-left: 5px solid #4caf50;">
                 <h3 style="color: #81c784; margin-bottom: 15px;">📹 Watch: The Vision (4:44)</h3>
                 <p style="margin-bottom: 20px; color: #c8e6c9;">What happens after we win. Organized people governing themselves.</p>
-                <div style="display: inline-block; max-width: 500px; width: 100%;">
-                    <iframe width="100%" height="281" src="https://www.youtube.com/embed/xy3F9ZWbgS8" title="The Vision - PHIERS" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 8px;"></iframe>
+                <div style="display: inline-block; max-width: 340px; width: 100%;">
+                    <iframe width="100%" height="191" src="https://www.youtube.com/embed/xy3F9ZWbgS8" title="The Vision - PHIERS" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 8px;"></iframe>
                 </div>
             </div>
             
@@ -1256,7 +1271,7 @@
             
             <h3 style="margin-top: 25px;">💝 Step 4: Donate</h3>
             <p><strong>Pathos Communications</strong> will publish our story to 55M+ readers when funding goal is reached. <strong>$5K minimum for publication guarantee + $10K campaign operations</strong> (comms, travel, coordination through Jan 31). Your donation directly funds media amplification.</p>
-            <a href="https://phiersale.github.io/PHIERS-Concept/Donate.html" class="btn btn-danger" style="display: inline-block; font-size: 1.05em;">💰 DONATE TO THE CAMPAIGN - $15K GOAL</a>
+            <a href="https://www.gofundme.com/PHIERS" class="btn btn-danger" style="display: inline-block; font-size: 1.05em;">💰 DONATE TO THE CAMPAIGN - $15K GOAL</a>
             
             <h3 style="margin-top: 25px;">💪 Congress Failed Dec 11. We're Taking Over Dec 31.</h3>
             <p>22 million individuals will lose healthcare if Congress doesn't act.</p>
@@ -1267,7 +1282,7 @@
                 <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" class="btn btn-primary">✍️ Sign Petition</a>
                 <a href="https://forms.gle/xVcSk4cT3VDseSiEA" target="_blank" class="btn btn-primary">📝 Fill Survey</a>
                 <a href="https://discord.gg/narhDKJY" target="_blank" class="btn btn-discord">💬 Discord</a>
-                <a href="https://phiersale.github.io/PHIERS-Concept/Donate.html" target="_blank" class="btn btn-danger">💰 Donate</a>
+                <a href="https://www.gofundme.com/PHIERS" target="_blank" class="btn btn-danger">💰 Donate</a>
             </div>
 
             <div class="nav-buttons">
@@ -1298,6 +1313,11 @@
                 <li><strong>🛡️ Supply Chain + Safety Net:</strong> Stronger workforce + universal healthcare + monthly checks + unified platform = supply chains stabilize. No one falls through cracks.</li>
             </ul>
             
+            <div class="graphic-container" style="margin: 60px 0;">
+                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Tablet__Firewall.png" alt="PHIERS-Powered Solutions Operating System - Firewall" class="clickable-image" style="max-width: 280px; height: auto; cursor: pointer;">
+                <p>PHIER-Powered Solutions Operating System - Firewall Against Corporate Extraction<br/>All 5 dimensions protected simultaneously. Block one dimension, the others strengthen.</p>
+            </div>
+            
             <div style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(100, 200, 150, 0.1)); padding: 30px; margin: 30px 0; border-radius: 12px; border-left: 5px solid #4caf50;">
                 <h3 style="color: #81c784; margin-top: 0;">💡 SNAP & Medicaid Work Requirements: THE OPPORTUNITY</h3>
                 <p style="color: #c8e6c9; line-height: 1.8; margin: 0;"><strong>Work requirements are coming.</strong> Congress is pushing SNAP and Medicaid work requirements—people who can't meet them risk losing coverage. That creates hardship.</p>
@@ -1309,11 +1329,6 @@
                 <p style="color: #c8e6c9; line-height: 1.8; margin-top: 15px;">Need work for SNAP/Medicaid? We have it. Need training? Immediate. Need to be part of something that actually works? This is it. We're building real solutions in real communities, and we need people like you RIGHT NOW to be part of what happens next.</p>
                 
                 <p style="color: #81c784; font-weight: bold; margin-top: 15px; font-size: 1.05em;">When Congress moves on PHIERS, you'll be ready. We're training people NOW to execute when the gates open.</p>
-            </div>
-            
-            <div class="graphic-container" style="margin-top: 30px; margin-bottom: 30px;">
-                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Tablet__Firewall.png" alt="PHIERS-Powered Solutions Operating System - Firewall" class="clickable-image" style="cursor: pointer;">
-                <p>PHIER-Powered Solutions Operating System - Firewall Against Corporate Extraction<br/>All 5 dimensions protected simultaneously. Block one dimension, the others strengthen.<br/>You cannot break a system where every piece defends the others.</p>
             </div>
             
             <p style="margin-top: 20px;"><strong>🧩 The Insight:</strong> You can't remove one piece without destroying the others. Congress can allow PHIERS to bring telehealth to ACA—and when all 5 dimensions work together, you've created a system that strengthens itself through every person's success.</p>
@@ -1603,7 +1618,7 @@
                 <h4 style="color: #e74c3c; margin-top: 0;">📰 Pathos Story Publication</h4>
                 <p><strong>Your funding makes the story happen.</strong> Pathos is ready to publish PHIERS fundraiser once we reach our goal. This story will reach 55+ million readers.</p>
                 <p style="margin-top: 10px; font-size: 0.9em;"><strong>Fund the solution → Get the story published → Change healthcare</strong></p>
-                <a href="https://phiersale.github.io/PHIERS-Concept/Donate.html" class="btn btn-primary" style="display: block; margin-top: 25px; background: #e74c3c; width: fit-content; text-align: center;">💰 Make America Better and Healthier</a>
+                <a href="https://www.gofundme.com/PHIERS" class="btn btn-primary" style="display: block; margin-top: 25px; background: #e74c3c; width: fit-content; text-align: center;">💰 Make America Better and Healthier</a>
             </div>
             
             <div style="height: 50px;"></div>
@@ -1619,7 +1634,7 @@
             <div style="background: rgba(76, 175, 80, 0.1); border: 2px solid #4caf50; padding: 25px; margin: 40px 0; border-radius: 8px;">
                 <h4 style="color: #4caf50; margin-top: 0;">💪 MABAH Movement</h4>
                 <p>Making America Better And Healthier. The full vision. The complete strategy. The transformation ahead.</p>
-                <a href="https://phiersale.github.io/MABAH-Movement/" target="_blank" class="btn btn-primary" style="display: inline-block; margin-top: 20px;">🇺🇸 Explore MABAH</a>
+                <p style="color: #c8e6c9; margin-top: 15px;"><em>Full MABAH strategy documentation coming soon. For now, explore the complete PHIERS framework below.</em></p>
             </div>
             
             <div style="height: 50px;"></div>
@@ -1627,7 +1642,7 @@
             <div style="background: rgba(76, 175, 80, 0.1); border: 2px solid #4caf50; padding: 25px; margin: 40px 0; border-radius: 8px;">
                 <h4 style="color: #4caf50; margin-top: 0;">🎯 Congressional Strategy: Bera & Van Hollen's Goal</h4>
                 <p><strong>Congressman Chris Van Hollen got the ball rolling for us.</strong> Now positioning Sacramento and California as solution-leaders alongside Congressman Ami Bera. Bipartisan healthcare solution both champions can claim credit for.</p>
-                <a href="https://phiersale.github.io/Ami_Bera/" target="_blank" class="btn btn-primary" style="display: inline-block; margin-top: 20px;">📋 Congressional Strategy</a>
+                <p style="color: #c8e6c9; margin-top: 15px;"><em>Detailed strategy documentation coming soon. Contact us to learn more.</em></p>
             </div>
             
             <h3 style="margin-top: 30px;">📊 State-Level Implementation Guides</h3>
@@ -1662,7 +1677,7 @@
                 <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" class="btn btn-primary">✍️ Sign Petition</a>
                 <a href="https://forms.gle/xVcSk4cT3VDseSiEA" target="_blank" class="btn btn-primary">📝 Fill Survey</a>
                 <a href="https://discord.gg/narhDKJY" target="_blank" class="btn btn-discord">💬 Discord Community</a>
-                <a href="https://phiersale.github.io/PHIERS-Concept/Donate.html" target="_blank" class="btn btn-secondary">💝 Donate</a>
+                <a href="https://www.gofundme.com/PHIERS" target="_blank" class="btn btn-secondary">💝 Support on GFM</a>
             </div>
             
             <!-- MY STORY SECTION -->
@@ -1704,7 +1719,7 @@
             <p>I'm homeless but fighting for you anyway.</p>
             
             <div class="button-group">
-                <a href="https://phiersale.github.io/PHIERS-Concept/Donate.html" target="_blank" class="btn btn-secondary">💝 Donate to the Cause</a>
+                <a href="https://www.gofundme.com/PHIERS" target="_blank" class="btn btn-secondary">💝 Donate to the Cause</a>
                 <a href="https://discord.gg/narhDKJY" target="_blank" class="btn btn-discord">💬 Join Community</a>
             </div>
 
@@ -1756,7 +1771,7 @@
             <p>I'm homeless but fighting for you anyway.</p>
             
             <div class="button-group">
-                <a href="https://phiersale.github.io/PHIERS-Concept/Donate.html" target="_blank" class="btn btn-secondary">💝 Donate to the Cause</a>
+                <a href="https://www.gofundme.com/PHIERS" target="_blank" class="btn btn-secondary">💝 Donate to the Cause</a>
                 <a href="https://discord.gg/narhDKJY" target="_blank" class="btn btn-discord">💬 Join Community</a>
             </div>
 
