@@ -889,9 +889,9 @@
                 
                 <p style="color: #c8e6c9; line-height: 1.8; margin-top: 15px;"><span style="font-size: 1.2em; font-weight: bold; color: #81c784;">ONE SOLUTION</span> solves for ALL of them simultaneously.</p>
                 
-                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; align-items: center; margin: 25px 0;">
-                    <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Tablet__Firewall.png" alt="PHIER-Powered Solutions - All Dimensions" style="max-width: 250px; height: auto;">
-                    <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/5D_Solutions_Cube.png" alt="5D Solutions - Interconnected" style="max-width: 250px; height: auto;">
+                <div class="five-d-flex-container" style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; align-items: center; margin: 25px 0;">
+                    <img class="five-d-tablet" src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Tablet__Firewall.png" alt="PHIER-Powered Solutions - All Dimensions" style="max-width: 250px; height: auto;">
+                    <img class="five-d-cube" src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/5D_Solutions_Cube.png" alt="5D Solutions - Interconnected" style="max-width: 250px; height: auto;">
                 </div>
                 
                 <p style="color: #c8e6c9; line-height: 1.8; margin-top: 15px;"><strong>One solution. Five outcomes. No trade-offs.</strong> When you solve for people's deepest, shared unmet needs—healthcare, economic security, meaningful work, protection from extraction, peace with dignity—you create something that works for EVERYONE because each dimension strengthens the others.</p>
@@ -899,16 +899,46 @@
                 <p style="color: #c8e6c9; line-height: 1.8; margin-top: 15px;"><strong>That's the spiritual core of this work:</strong> Solutions that honor the whole person, not just one need. Systems that heal interconnected problems, not create new ones. Abundance that flows to everyone, not extracted from the many.</p>
                 
                 <p style="color: #81c784; line-height: 1.8; margin-top: 20px; text-align: center; font-weight: bold;">We're glad you're here. This solution was built for people like you.</p>
+                
+                <style>
+                    /* Mobile layout: Cube on top, paragraph between, tablet below */
+                    @media (max-width: 768px) {
+                        .five-d-flex-container {
+                            display: grid !important;
+                            grid-template-columns: 1fr !important;
+                            grid-template-areas: 
+                                "cube"
+                                "para"
+                                "tablet" !important;
+                            gap: 20px !important;
+                            justify-items: center !important;
+                        }
+                        
+                        .five-d-cube {
+                            grid-area: cube !important;
+                            order: 1 !important;
+                        }
+                        
+                        .five-d-tablet {
+                            grid-area: tablet !important;
+                            order: 3 !important;
+                        }
+                    }
+                    
+                    /* Desktop layout: stays side by side */
+                    @media (min-width: 769px) {
+                        .five-d-flex-container {
+                            display: flex !important;
+                        }
+                        
+                        .five-d-cube,
+                        .five-d-tablet {
+                            order: auto !important;
+                        }
+                    }
+                </style>
             </div>
             
-            <h2>📹 Watch: The Bipartisan Solution (11:11)</h2>
-            <p>How 15 years of development created a solution that achieves Trump's cost reduction goals AND Bera's bipartisan approach. Features <span class="al-wilson-link" onclick="showPopup('alWilsonPopup')">Al Wilson</span>'s wellness success story and the 3 ways to actually reduce drug costs.</p>
-            
-            <div class="video-container" style="margin-bottom: 30px;">
-                <iframe width="100%" height="560" src="https://www.youtube.com/embed/bEUyDVAYwpk" frameborder="0" allowfullscreen="true" loading="lazy" title="The Bipartisan Solution - PHIERS"></iframe>
-            </div>
-            
-            <div class="validation-box">
                 <div class="validation-title">✅ What This Solution Delivers</div>
                 <div class="validation-content">
                     <p><strong>Trump's Goal:</strong> Reduce drug and insurance costs</p>
@@ -933,6 +963,13 @@
             
             <h3>The Problem: Healthcare is Unaffordable</h3>
             <p>Individuals choosing between rent and medicine. Premiums skyrocket Dec 31 for 22 million. AI eliminates 50M+ jobs while healthcare costs rise. Congress offered no solution until now.</p>
+            
+            <h2 style="margin-top: 40px;">📹 Watch: The Bipartisan Solution (11:11)</h2>
+            <p>How 15 years of development created a solution that achieves Trump's cost reduction goals AND Bera's bipartisan approach. Features <span class="al-wilson-link" onclick="showPopup('alWilsonPopup')">Al Wilson</span>'s wellness success story and the 3 ways to actually reduce drug costs.</p>
+            
+            <div class="video-container" style="margin-bottom: 30px;">
+                <iframe width="100%" height="560" src="https://www.youtube.com/embed/bEUyDVAYwpk" frameborder="0" allowfullscreen="true" loading="lazy" title="The Bipartisan Solution - PHIERS"></iframe>
+            </div>
             
             <div style="height: 30px;"></div>
             
