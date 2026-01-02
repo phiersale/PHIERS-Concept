@@ -904,6 +904,16 @@
             }
             // Set flag so popup won't show again
             localStorage.setItem('phiersPopupClosed', 'true');
+            
+            // Show survey funnel next (unless they've already closed it)
+            if (!localStorage.getItem('surveyFunnelClosed')) {
+                setTimeout(function() {
+                    var surveyOverlay = document.getElementById('surveyFunnelOverlay');
+                    if (surveyOverlay) {
+                        surveyOverlay.style.display = 'flex';
+                    }
+                }, 300);
+            }
         }
 
         // Hide popup if user previously closed it
