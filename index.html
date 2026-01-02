@@ -298,7 +298,8 @@
         }
         
         .graphic-container img {
-            max-width: 280px;
+            max-width: 25%;
+            min-width: 140px;
             height: auto;
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);
@@ -491,7 +492,7 @@
             border: 2px solid #4caf50;
             padding: 30px;
             border-radius: 12px;
-            max-width: 350px;
+            max-width: 25%;
             max-height: 80vh;
             z-index: 1000;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
@@ -849,7 +850,7 @@
 </head>
 <body>
     <!-- CONSEQUENCES MODAL POPUP -->
-    <div id="consequencesPopup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); z-index: 10000; display: flex; align-items: center; justify-content: center;">
+    <div id="consequencesPopup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); z-index: 10000; align-items: center; justify-content: center;">
         <div style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border: 3px solid #ef4444; border-radius: 12px; padding: 30px; max-width: 500px; width: 100%; max-height: 85vh; overflow-y: auto; box-shadow: 0 10px 40px rgba(239, 68, 68, 0.3); text-align: center;">
             <h2 style="color: #ef4444; margin-top: 0; font-size: 1.4em; margin-bottom: 15px;">⚠️ THE CRISIS IS REAL. WE HAVE THE SOLUTION. ⚠️</h2>
             
@@ -909,18 +910,43 @@
         var popupShown = localStorage.getItem('phiersPopupShown');
 
         function closeConsequencesPopup() {
-            document.getElementById('consequencesPopup').style.display = 'none';
+            var popup = document.getElementById('consequencesPopup');
+            if (popup) {
+                popup.style.display = 'none';
+            }
+            // Triple-set the flag to ensure it sticks
             localStorage.setItem('phiersPopupShown', 'true');
+            sessionStorage.setItem('phiersPopupShown', 'true');
             localStorage.setItem('phiersPopupClosedTime', Date.now().toString());
         }
 
-        // Show consequences popup on page load (once per user - persistent across sessions)
+        // Check on every interaction to keep popup closed
+        function enforcePopupClosed() {
+            if (localStorage.getItem('phiersPopupShown') === 'true') {
+                var popup = document.getElementById('consequencesPopup');
+                if (popup && popup.style.display !== 'none') {
+                    popup.style.display = 'none';
+                }
+            }
+        }
+
+        // Show consequences popup on page load (only if never shown before)
         document.addEventListener('DOMContentLoaded', function() {
-            if (!localStorage.getItem('phiersPopupShown')) {
-                document.getElementById('consequencesPopup').style.display = 'flex';
-                localStorage.setItem('phiersPopupShown', 'true');
+            // Check if popup has ever been closed
+            if (!localStorage.getItem('phiersPopupShown') && !sessionStorage.getItem('phiersPopupShown')) {
+                var popup = document.getElementById('consequencesPopup');
+                if (popup) {
+                    popup.style.display = 'flex';
+                    localStorage.setItem('phiersPopupShown', 'true');
+                }
+            } else {
+                // Ensure popup stays hidden
+                enforcePopupClosed();
             }
         });
+        
+        // Keep checking popup state
+        setInterval(enforcePopupClosed, 500);
     </script>
 
     <div class="survey-funnel-overlay" id="surveyFunnelOverlay">
@@ -997,8 +1023,8 @@
                 <p style="color: #c8e6c9; line-height: 1.8; margin-top: 15px;"><span style="font-size: 1.2em; font-weight: bold; color: #81c784;">ONE SOLUTION</span> solves for ALL of them simultaneously.</p>
                 
                 <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; align-items: center; margin: 25px 0;">
-                    <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Tablet__Firewall.png" alt="PHIER-Powered Solutions - All Dimensions" class="clickable-image" style="max-width: 250px; height: auto; cursor: pointer;">
-                    <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/5D_Solutions_Cube.png" alt="5D Solutions - Interconnected" class="clickable-image" style="max-width: 250px; height: auto; cursor: pointer;">
+                    <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Tablet__Firewall.png" alt="PHIER-Powered Solutions - All Dimensions" class="clickable-image" style="max-width: 25%; height: auto; cursor: pointer;">
+                    <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/5D_Solutions_Cube.png" alt="5D Solutions - Interconnected" class="clickable-image" style="max-width: 25%; height: auto; cursor: pointer;">
                 </div>
                 
                 <p style="color: #c8e6c9; line-height: 1.8; margin-top: 15px;"><strong>One solution. Five outcomes. No trade-offs.</strong> When you solve for people's deepest, shared unmet needs—healthcare, economic security, meaningful work, protection from extraction, peace with dignity—you create something that works for EVERYONE because each dimension strengthens the others.</p>
@@ -1040,7 +1066,7 @@
             
             <div style="text-align: center; margin: 40px 0; background: rgba(76, 175, 80, 0.1); padding: 20px; border-radius: 8px;">
                 <p style="color: #81c784; margin-bottom: 15px; font-weight: bold;">💡 Academic R&D Proves It Works</p>
-                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/Drug_DEV_Costs__UAEM.png" alt="Drug Development Cost Comparison - Academic vs Big Pharma" class="clickable-image" style="max-width: 350px; height: auto; border-radius: 8px; cursor: pointer; margin: 0 auto; display: block;">
+                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/Drug_DEV_Costs__UAEM.png" alt="Drug Development Cost Comparison - Academic vs Big Pharma" class="clickable-image" style="max-width: 25%; height: auto; border-radius: 8px; cursor: pointer; margin: 0 auto; display: block;">
                 <p style="color: #c8e6c9; margin-top: 15px; font-size: 0.95em;">Alternative R&D models produce new drugs at 1/24th the cost of big pharma. Universities and nonprofits are already proving this works.</p>
             </div>
             
@@ -1149,7 +1175,7 @@
             <p style="text-align: center; margin: 20px 0 25px 0; font-size: 1.1em; color: #4caf50; font-weight: bold;">⬇️ Exponential math in action ⬇️</p>
 
             <div class="graphic-container">
-                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/2_73_Savings_Infographic.png" alt="$2.73T in Savings - All Dimensions Connected" class="clickable-image" style="max-width: 350px; height: auto; cursor: pointer;">
+                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/2_73_Savings_Infographic.png" alt="$2.73T in Savings - All Dimensions Connected" class="clickable-image" style="max-width: 25%; height: auto; cursor: pointer;">
                 <p>$2.73 Trillion in Annual Savings - All Interconnected Dimensions Protected Simultaneously</p>
             </div>
             
@@ -1159,7 +1185,7 @@
             <p><strong>120 million eventually switch.</strong> $2.73 TRILLION in freed government healthcare savings. Funds universal coverage for 234M + monthly assistance + jobs + case management. Self-sustaining. Exponential compounding.</p>
             
             <div class="graphic-container">
-                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Tablet__Firewall.png" alt="PHIERS-Powered Solutions Operating System - Firewall" class="clickable-image" style="max-width: 280px; height: auto; cursor: pointer;">
+                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Tablet__Firewall.png" alt="PHIERS-Powered Solutions Operating System - Firewall" class="clickable-image" style="max-width: 25%; height: auto; cursor: pointer;">
                 <p>PHIERS-Powered Solutions Operating System - Firewall Against Corporate Extraction</p>
             </div>
             
@@ -1198,7 +1224,7 @@
             <div style="height: 30px;"></div>
             
             <div class="graphic-container">
-                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/LEVERAGE_Pwr_of_the_People.png" alt="Power of the People - Congressional Leverage" class="clickable-image" style="max-width: 300px; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2); margin: 0 auto; display: block; cursor: pointer;">
+                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/LEVERAGE_Pwr_of_the_People.png" alt="Power of the People - Congressional Leverage" class="clickable-image" style="max-width: 25%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2); margin: 0 auto; display: block; cursor: pointer;">
                 <p>Power of the People: 100M+ Constituents vs. $8.5M Corporate Average = 230:1 Advantage</p>
             </div>
             
@@ -1314,7 +1340,7 @@
             </ul>
             
             <div class="graphic-container" style="margin: 60px 0;">
-                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Tablet__Firewall.png" alt="PHIERS-Powered Solutions Operating System - Firewall" class="clickable-image" style="max-width: 280px; height: auto; cursor: pointer;">
+                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Tablet__Firewall.png" alt="PHIERS-Powered Solutions Operating System - Firewall" class="clickable-image" style="max-width: 25%; height: auto; cursor: pointer;">
                 <p>PHIER-Powered Solutions Operating System - Firewall Against Corporate Extraction<br/>All 5 dimensions protected simultaneously. Block one dimension, the others strengthen.</p>
             </div>
             
@@ -1344,7 +1370,7 @@
             <h2>🚨 The Crisis: Dec 31 Deadline & Negative Cascade</h2>
 
             <div class="graphic-container">
-                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/US_Millions_Face_Soaring_Health_Costs_as_Subsidies_Expire.png" alt="Millions Face Soaring Health Costs as Subsidies Expire" class="clickable-image" style="max-width: 300px; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2); margin: 0 auto; display: block; cursor: pointer;">
+                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/US_Millions_Face_Soaring_Health_Costs_as_Subsidies_Expire.png" alt="Millions Face Soaring Health Costs as Subsidies Expire" class="clickable-image" style="max-width: 25%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2); margin: 0 auto; display: block; cursor: pointer;">
                 <p>The Crisis Is Real: 22 Million Americans Losing Coverage Dec 31. Congress Has Failed to Act.</p>
             </div>
             
@@ -1370,7 +1396,7 @@
             <p>Trillions spent on military conflicts while Americans can't afford healthcare or housing. Priorities are backwards.</p>
             
             <div class="graphic-container">
-                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/2_73_Savings_Infographic.png" alt="PHIERS-Powered Solutions - $2.73T in Savings" class="clickable-image" style="max-width: 300px; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2); margin: 0 auto; display: block; cursor: pointer;">
+                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/2_73_Savings_Infographic.png" alt="PHIERS-Powered Solutions - $2.73T in Savings" class="clickable-image" style="max-width: 25%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2); margin: 0 auto; display: block; cursor: pointer;">
                 <p>The Savings Fund the Solution: $2.73 Trillion in Freed Government Healthcare Spending</p>
             </div>
             
@@ -1683,7 +1709,7 @@
             <!-- MY STORY SECTION -->
             <h2 style="margin-top: 50px;">📖 My Story: Why I'm Fighting</h2>
 
-            <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/Me_n__Dad_at_CHURCH.png" alt="Will Price and Al Wilson at Church" style="max-width: 300px; height: auto; border-radius: 8px; margin: 0 auto 20px; display: block; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);">
+            <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/Me_n__Dad_at_CHURCH.png" alt="Will Price and Al Wilson at Church" style="max-width: 25%; height: auto; border-radius: 8px; margin: 0 auto 20px; display: block; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);">
             
             <h3>I Was a Caregiver</h3>
             <p>I protected vulnerable people. Reported abuse. Got evicted for doing the right thing. Now I'm homeless, living in my car.</p>
@@ -1734,7 +1760,7 @@
             <h2>📖 My Story: Why I'm Fighting</h2>
 
             <div style="text-align: center; margin-bottom: 30px;">
-                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/Me_n__Dad_at_CHURCH.png" alt="Will Price and Al Wilson at Bethany Evangelical Missionary Church" style="max-width: 300px; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);">
+                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/Me_n__Dad_at_CHURCH.png" alt="Will Price and Al Wilson at Bethany Evangelical Missionary Church" style="max-width: 25%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);">
             </div>>
             
             <h3>I Was a Caregiver</h3>
