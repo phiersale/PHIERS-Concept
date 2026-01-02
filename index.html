@@ -28,7 +28,7 @@
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.85);
-            display: flex;
+            display: none;
             align-items: center;
             justify-content: center;
             z-index: 2000;
@@ -849,8 +849,15 @@
     </script>
 </head>
 <body>
+    <!-- EARLY POPUP STATE CHECK - Run before popup renders -->
+    <script>
+        if (localStorage.getItem('phiersPopupClosed') === 'true') {
+            document.write('<style>#consequencesPopup { display: none !important; }</style>');
+        }
+    </script>
+
     <!-- CONSEQUENCES MODAL POPUP -->
-    <div id="consequencesPopup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); z-index: 10000; align-items: center; justify-content: center;">
+    <div id="consequencesPopup" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); z-index: 10000; display: flex; align-items: center; justify-content: center;">
         <div style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border: 3px solid #ef4444; border-radius: 12px; padding: 30px; max-width: 500px; width: 100%; max-height: 85vh; overflow-y: auto; box-shadow: 0 10px 40px rgba(239, 68, 68, 0.3); text-align: center;">
             <h2 style="color: #ef4444; margin-top: 0; font-size: 1.4em; margin-bottom: 15px;">⚠️ THE CRISIS IS REAL. WE HAVE THE SOLUTION. ⚠️</h2>
             
@@ -907,46 +914,26 @@
             document.getElementById('crisisAlert').classList.add('hidden');
         }
 
-        var popupShown = localStorage.getItem('phiersPopupShown');
-
         function closeConsequencesPopup() {
             var popup = document.getElementById('consequencesPopup');
             if (popup) {
                 popup.style.display = 'none';
             }
-            // Triple-set the flag to ensure it sticks
-            localStorage.setItem('phiersPopupShown', 'true');
-            sessionStorage.setItem('phiersPopupShown', 'true');
-            localStorage.setItem('phiersPopupClosedTime', Date.now().toString());
+            // Set flag so popup won't show again
+            localStorage.setItem('phiersPopupClosed', 'true');
         }
 
-        // Check on every interaction to keep popup closed
-        function enforcePopupClosed() {
-            if (localStorage.getItem('phiersPopupShown') === 'true') {
-                var popup = document.getElementById('consequencesPopup');
-                if (popup && popup.style.display !== 'none') {
-                    popup.style.display = 'none';
+        // Hide popup if user previously closed it
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                if (localStorage.getItem('phiersPopupClosed') === 'true') {
+                    var popup = document.getElementById('consequencesPopup');
+                    if (popup) {
+                        popup.style.display = 'none';
+                    }
                 }
-            }
-        }
-
-        // Show consequences popup on page load (only if never shown before)
-        document.addEventListener('DOMContentLoaded', function() {
-            // Check if popup has ever been closed
-            if (!localStorage.getItem('phiersPopupShown') && !sessionStorage.getItem('phiersPopupShown')) {
-                var popup = document.getElementById('consequencesPopup');
-                if (popup) {
-                    popup.style.display = 'flex';
-                    localStorage.setItem('phiersPopupShown', 'true');
-                }
-            } else {
-                // Ensure popup stays hidden
-                enforcePopupClosed();
-            }
+            }, 100);
         });
-        
-        // Keep checking popup state
-        setInterval(enforcePopupClosed, 500);
     </script>
 
     <div class="survey-funnel-overlay" id="surveyFunnelOverlay">
