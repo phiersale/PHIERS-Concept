@@ -849,7 +849,7 @@
             
             <div style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(66, 133, 244, 0.15)); border: 2px solid rgba(76, 175, 80, 0.4); padding: 25px 30px; border-radius: 12px; max-width: 600px; margin: 0 auto;">
                 <p style="font-size: 1.1em; color: white; margin: 0 0 15px 0; font-weight: bold;">Congress Failed. Now They Have to Fix It.</p>
-                <p style="font-size: 0.95em; color: #81c784; margin: 0; font-weight: bold;">Prices spiking. Coverage dropping. We have leverage until <span style="color: #ffeb3b;">Jan 30 Shutdown.</span></p>
+                <p style="font-size: 0.95em; color: #81c784; margin: 0; font-weight: bold;">Prices spiking. Coverage dropping. We have leverage until Jan 30 <span style="color: #ffeb3b;">Shutdown.</span></p>
             </div>
         </header>
         
@@ -860,24 +860,34 @@
             <div class="nav-item" onclick="showSection('works')">▶ How It Works</div>
             <div class="nav-item" onclick="showSection('leverage')">▶ Leverage</div>
             <div class="nav-item" onclick="showSection('action')">▶ Take Action</div>
-            <div class="nav-item" onclick="showSection('faq')">▶ FAQ 🔥 <span style="background: #e74c3c; color: white; padding: 2px 6px; border-radius: 3px; font-size: 0.8em; font-weight: bold; margin-left: 5px;">UPDATED</span></div>
-            <div class="nav-item" onclick="showSection('blog')">▶ News & Response</div>
-            <div class="nav-item" onclick="showSection('resources')">▶ Learn More</div>
-            <div class="nav-item" onclick="showSection('mystory')">▶ My Story</div>
-            <div class="nav-item" onclick="showSection('about')">▶ The Full Story</div>
+            <div class="nav-item" onclick="toggleSecondaryNav()">▼ More Resources</div>
         </div>
+        
+        <div class="nav-menu" id="secondaryNav" style="display: none; border-top: 1px solid rgba(76, 175, 80, 0.3); padding-top: 10px; margin-top: 10px;">
+            <div class="nav-item" onclick="showSection('faq'); toggleSecondaryNav()">▶ FAQ 🔥 <span style="background: #e74c3c; color: white; padding: 2px 6px; border-radius: 3px; font-size: 0.8em; font-weight: bold; margin-left: 5px;">UPDATED</span></div>
+            <div class="nav-item" onclick="showSection('blog'); toggleSecondaryNav()">▶ News & Response</div>
+            <div class="nav-item" onclick="showSection('resources'); toggleSecondaryNav()">▶ Learn More</div>
+            <div class="nav-item" onclick="showSection('mystory'); toggleSecondaryNav()">▶ My Story</div>
+            <div class="nav-item" onclick="showSection('about'); toggleSecondaryNav()">▶ The Full Story</div>
+        </div>
+        
+        <script>
+            function toggleSecondaryNav() {
+                const secondary = document.getElementById('secondaryNav');
+                const moreButton = document.querySelector('[onclick="toggleSecondaryNav()"]');
+                if (secondary.style.display === 'none') {
+                    secondary.style.display = 'grid';
+                    moreButton.textContent = '▲ More Resources';
+                } else {
+                    secondary.style.display = 'none';
+                    moreButton.textContent = '▼ More Resources';
+                }
+            }
+        </script>
         
 
         <!-- MAIN SECTION -->
         <section id="main" class="active">
-
-            <div style="text-align: center; margin-bottom: 50px; background: rgba(76, 175, 80, 0.1); padding: 30px; border-radius: 8px; border-left: 5px solid #4caf50;">
-                <h3 style="color: #81c784; margin-bottom: 15px;">📹 Watch: The Moment (2:22)</h3>
-                <p style="margin-bottom: 20px; color: #c8e6c9;">Congress failed to prevent it. Prices are spiking. Now we have leverage until Jan 30. You.</p>
-                <div style="display: inline-block; max-width: 500px; width: 100%;">
-                    <iframe width="100%" height="281" src="https://www.youtube.com/embed/eE-TxvI0d4Q?si=0h3ASDJUZZvQgRSq" title="The Moment - PHIERS" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 8px;"></iframe>
-                </div>
-            </div>
 
             <h2 style="margin-bottom: 30px;">🧩 5D Solutions</h2>
             <p style="color: #c8e6c9; font-size: 0.95em;">All 5 dimensions work together. Block one dimension, the others strengthen. This is how we solve interconnected crises simultaneously.</p>
@@ -889,9 +899,9 @@
                 
                 <p style="color: #c8e6c9; line-height: 1.8; margin-top: 15px;"><span style="font-size: 1.2em; font-weight: bold; color: #81c784;">ONE SOLUTION</span> solves for ALL of them simultaneously.</p>
                 
-                <div class="five-d-flex-container" style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; align-items: center; margin: 25px 0;">
-                    <img class="five-d-tablet" src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Tablet__Firewall.png" alt="PHIER-Powered Solutions - All Dimensions" style="max-width: 250px; height: auto;">
-                    <img class="five-d-cube" src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/5D_Solutions_Cube.png" alt="5D Solutions - Interconnected" style="max-width: 250px; height: auto;">
+                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; align-items: center; margin: 25px 0;">
+                    <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Tablet__Firewall.png" alt="PHIER-Powered Solutions - All Dimensions" style="max-width: 250px; height: auto;">
+                    <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/5D_Solutions_Cube.png" alt="5D Solutions - Interconnected" style="max-width: 250px; height: auto;">
                 </div>
                 
                 <p style="color: #c8e6c9; line-height: 1.8; margin-top: 15px;"><strong>One solution. Five outcomes. No trade-offs.</strong> When you solve for people's deepest, shared unmet needs—healthcare, economic security, meaningful work, protection from extraction, peace with dignity—you create something that works for EVERYONE because each dimension strengthens the others.</p>
@@ -899,46 +909,16 @@
                 <p style="color: #c8e6c9; line-height: 1.8; margin-top: 15px;"><strong>That's the spiritual core of this work:</strong> Solutions that honor the whole person, not just one need. Systems that heal interconnected problems, not create new ones. Abundance that flows to everyone, not extracted from the many.</p>
                 
                 <p style="color: #81c784; line-height: 1.8; margin-top: 20px; text-align: center; font-weight: bold;">We're glad you're here. This solution was built for people like you.</p>
-                
-                <style>
-                    /* Mobile layout: Cube on top, paragraph between, tablet below */
-                    @media (max-width: 768px) {
-                        .five-d-flex-container {
-                            display: grid !important;
-                            grid-template-columns: 1fr !important;
-                            grid-template-areas: 
-                                "cube"
-                                "para"
-                                "tablet" !important;
-                            gap: 20px !important;
-                            justify-items: center !important;
-                        }
-                        
-                        .five-d-cube {
-                            grid-area: cube !important;
-                            order: 1 !important;
-                        }
-                        
-                        .five-d-tablet {
-                            grid-area: tablet !important;
-                            order: 3 !important;
-                        }
-                    }
-                    
-                    /* Desktop layout: stays side by side */
-                    @media (min-width: 769px) {
-                        .five-d-flex-container {
-                            display: flex !important;
-                        }
-                        
-                        .five-d-cube,
-                        .five-d-tablet {
-                            order: auto !important;
-                        }
-                    }
-                </style>
             </div>
             
+            <h2>📹 Watch: The Bipartisan Solution (11:11)</h2>
+            <p>How 15 years of development created a solution that achieves Trump's cost reduction goals AND Bera's bipartisan approach. Features <span class="al-wilson-link" onclick="showPopup('alWilsonPopup')">Al Wilson</span>'s wellness success story and the 3 ways to actually reduce drug costs.</p>
+            
+            <div class="video-container" style="margin-bottom: 30px;">
+                <iframe width="100%" height="560" src="https://www.youtube.com/embed/bEUyDVAYwpk" frameborder="0" allowfullscreen="true" loading="lazy" title="The Bipartisan Solution - PHIERS"></iframe>
+            </div>
+            
+            <div class="validation-box">
                 <div class="validation-title">✅ What This Solution Delivers</div>
                 <div class="validation-content">
                     <p><strong>Trump's Goal:</strong> Reduce drug and insurance costs</p>
@@ -961,15 +941,17 @@
                 <li><strong>Academic Partnerships</strong> - Experts finding better alternatives, increasing competition, driving down costs</li>
             </ol>
             
-            <h3>The Problem: Healthcare is Unaffordable</h3>
-            <p>Individuals choosing between rent and medicine. Premiums skyrocket Dec 31 for 22 million. AI eliminates 50M+ jobs while healthcare costs rise. Congress offered no solution until now.</p>
-            
-            <h2 style="margin-top: 40px;">📹 Watch: The Bipartisan Solution (11:11)</h2>
-            <p>How 15 years of development created a solution that achieves Trump's cost reduction goals AND Bera's bipartisan approach. Features <span class="al-wilson-link" onclick="showPopup('alWilsonPopup')">Al Wilson</span>'s wellness success story and the 3 ways to actually reduce drug costs.</p>
-            
-            <div class="video-container" style="margin-bottom: 30px;">
-                <iframe width="100%" height="560" src="https://www.youtube.com/embed/bEUyDVAYwpk" frameborder="0" allowfullscreen="true" loading="lazy" title="The Bipartisan Solution - PHIERS"></iframe>
+            <div style="text-align: center; margin-bottom: 50px; background: rgba(76, 175, 80, 0.1); padding: 30px; border-radius: 8px; border-left: 5px solid #4caf50;">
+                <h3 style="color: #81c784; margin-bottom: 15px;">📹 Watch: The Moment (2:22)</h3>
+                <p style="margin-bottom: 20px; color: #c8e6c9;">Congress failed to prevent it. Prices are spiking. Now we have leverage until Jan 30. You.</p>
+                <div style="display: inline-block; max-width: 500px; width: 100%;">
+                    <iframe width="100%" height="281" src="https://www.youtube.com/embed/eE-TxvI0d4Q?si=0h3ASDJUZZvQgRSq" title="The Moment - PHIERS" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 8px;"></iframe>
+                </div>
             </div>
+            
+            <h3>The Problem: The Cascade Congress Created</h3>
+            <p><strong>What happened Dec 31:</strong> Congress let subsidies expire. 22 million people lost coverage. Prices will spike as companies raise rates to keep profits. Uninsured people use ERs for care. Taxpayers pay for uncompensated care. The system collapses faster.</p>
+            <p style="margin-top: 15px; color: #ffeb3b; font-weight: bold;">Congress created this problem. Now they must fix it before Jan 30 shutdown.</p>
             
             <div style="height: 30px;"></div>
             
@@ -1007,8 +989,8 @@
             
             <div style="height: 40px;"></div>
             
-            <h3 style="margin-top: 25px;">⚡ You Just Watched Congressional Validation. Now Make It Real.</h3>
-            <p>Congress responds to organized constituent pressure. We need 3.5% of voters in your district to sign the petition + fill out the survey. That proves we have numbers. That forces town halls. Town halls force Congress to act.</p>
+            <h3 style="margin-top: 25px;">⚡ Congress Failed. Now Demand They Fix It Before Jan 30.</h3>
+            <p>Organized constituent pressure works. We need 3.5% of voters in your district to sign the petition and demand Congress implement PHIERS before the Jan 30 shutdown deadline. That proves we have numbers. That forces town halls. Town halls force accountability. Policy change triggers the cascade.</p>
             
             <div class="button-group">
                 <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" class="btn btn-primary">✍️ Sign Petition</a>
@@ -1704,7 +1686,7 @@
             <div style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(100, 200, 150, 0.1)); border: 2px solid #4caf50; border-radius: 12px; padding: 40px; text-align: center; margin: 40px 0;">
                 <h3 style="color: #81c784; margin-bottom: 20px; font-size: 1.3em;">⚡ In Response to Your Questions</h3>
                 <p style="color: #c8e6c9; margin-bottom: 30px;">Read the full story on Intelligent Glue, our 16-year journey, how we honor ZORTT and Mark Cuban, and why we're building democratic power instead of competing with anyone.</p>
-                <a href="clarification.html" style="background: linear-gradient(135deg, #4caf50, #2e7d32); color: white; padding: 15px 40px; font-size: 1em; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.3s;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 5px 20px rgba(76, 175, 80, 0.4)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">🔗 Read The Full Story</a>
+                <a href="Clarification_FINAL_INTELLIGENT_GLUE_OPENING_Dec31_2025.html" style="background: linear-gradient(135deg, #4caf50, #2e7d32); color: white; padding: 15px 40px; font-size: 1em; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.3s;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 5px 20px rgba(76, 175, 80, 0.4)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">🔗 Read The Full Story</a>
             </div>
             
             <div style="background: rgba(76, 175, 80, 0.05); border-left: 5px solid #81c784; padding: 25px; border-radius: 8px; margin: 30px 0;">
@@ -1716,7 +1698,7 @@
             
             <div class="nav-buttons">
                 <button class="btn btn-secondary" onclick="showSection('main')">← Back: Main</button>
-                <button class="btn btn-primary" onclick="window.location.href='clarification.html';">The Full Story →</button>
+                <button class="btn btn-primary" onclick="window.location.href='Clarification_FINAL_INTELLIGENT_GLUE_OPENING_Dec31_2025.html';">The Full Story →</button>
             </div>
         </section>
         
