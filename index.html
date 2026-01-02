@@ -557,6 +557,57 @@
             text-decoration: underline;
         }
         
+        /* LIGHTBOX STYLES */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            padding-top: 50px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.95);
+        }
+
+        .lightbox-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-content {
+            max-width: 90vw;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: #81c784;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .lightbox-close:hover {
+            color: #4caf50;
+        }
+
+        img.clickable-image {
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        img.clickable-image:hover {
+            transform: scale(1.02);
+            opacity: 0.8;
+        }
+        
         .blog-post {
             background: rgba(76, 175, 80, 0.05);
             border: 2px solid rgba(76, 175, 80, 0.2);
@@ -752,6 +803,42 @@
         function closeCrisisAlert() {
             document.getElementById('crisisAlert').classList.add('hidden');
         }
+
+        // Lightbox functionality for clickable images
+        function openLightbox(imageSrc) {
+            const modal = document.getElementById('lightboxModal');
+            const img = modal.querySelector('.lightbox-content');
+            img.src = imageSrc;
+            modal.classList.add('active');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightboxModal').classList.remove('active');
+        }
+
+        // Close lightbox when clicking outside image
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('lightboxModal');
+            if (event.target === modal) {
+                closeLightbox();
+            }
+        });
+
+        // Close lightbox on Escape key
+        window.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+
+        // Initialize clickable images on page load
+        window.addEventListener('load', function() {
+            document.querySelectorAll('img.clickable-image').forEach(img => {
+                img.addEventListener('click', function() {
+                    openLightbox(this.src);
+                });
+            });
+        });
     </script>
 </head>
 <body>
@@ -941,6 +1028,13 @@
                 <li><strong>Academic Partnerships</strong> - Experts finding better alternatives, increasing competition, driving down costs</li>
             </ol>
             
+            <div style="text-align: center; margin: 40px 0; background: rgba(76, 175, 80, 0.1); padding: 20px; border-radius: 8px;">
+                <p style="color: #81c784; margin-bottom: 15px; font-weight: bold;">💡 Academic R&D Proves It Works</p>
+                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/Drug_DEV_Costs__UAEM.png" alt="Drug Development Cost Comparison - Academic vs Big Pharma" class="clickable-image" style="max-width: 100%; height: auto; border-radius: 8px; cursor: pointer;">
+                <p style="color: #c8e6c9; margin-top: 15px; font-size: 0.95em;">Alternative R&D models produce new drugs at 1/24th the cost of big pharma. Universities and nonprofits are already proving this works.</p>
+            </div>
+            
+            <div style="height: 20px;"></div>
             <div style="text-align: center; margin-bottom: 50px; background: rgba(76, 175, 80, 0.1); padding: 30px; border-radius: 8px; border-left: 5px solid #4caf50;">
                 <h3 style="color: #81c784; margin-bottom: 15px;">📹 Watch: The Moment (2:22)</h3>
                 <p style="margin-bottom: 20px; color: #c8e6c9;">Congress failed to prevent it. Prices are spiking. Now we have leverage until Jan 30. You.</p>
@@ -1057,14 +1151,6 @@
             <h3 style="margin-top: 20px;">⚡ The Math Is Inevitable</h3>
             <p><strong>But it only starts if you sign the petition and fill out the survey.</strong> Your signature = proof we have numbers. Numbers = forced town halls. Town halls = Congressional pressure. Policy change = cascade begins.</p>
 
-            <h3 style="margin-top: 30px; padding-top: 30px; border-top: 2px solid rgba(76, 175, 80, 0.3);">⚡ Watch: The Mechanism (3:33) - THE MATH</h3>
-            <p style="margin-bottom: 20px;"><strong>How TRILLIONS in savings work. Why telehealth + pharma optimization is unstoppable. This video goes VIRAL.</strong></p>
-            <div style="text-align: center; margin-bottom: 40px; background: rgba(76, 175, 80, 0.1); padding: 30px; border-radius: 8px; border-left: 5px solid #4caf50;">
-                <div style="display: inline-block; max-width: 380px; width: 100%;">
-                    <iframe width="100%" height="214" src="https://www.youtube.com/embed/jMU6LKEBzbs" title="PHIERS: The Mechanism" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 8px;"></iframe>
-                </div>
-            </div>
-            
             <h3 style="margin-top: 30px; padding-top: 30px; border-top: 2px solid rgba(76, 175, 80, 0.3);">⚡ See Your Impact: Timeline & Counter-Strategy</h3>
             <p>Want to understand exactly HOW constituent power forces Congressional action, and HOW PHIERS counters Project 2025/DOGE across all 5 dimensions? Check out our interactive analysis:</p>
             <div style="text-align: center;">
@@ -1731,3 +1817,11 @@
     </div>
 
     <scr
+    <!-- LIGHTBOX MODAL FOR CLICKABLE IMAGES -->
+    <div id="lightboxModal" class="lightbox-modal">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img class="lightbox-content" src="" alt="Enlarged image">
+    </div>
+
+</body>
+</html>
