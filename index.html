@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- PHIERS Index - Updated: 2:52 PM, January 2, 2026 -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -871,6 +872,8 @@
             if (overlay) {
                 overlay.style.display = 'none';
             }
+            // Set flag so survey won't show again
+            localStorage.setItem('surveyFunnelClosed', 'true');
         }
         
         function showSection(sectionId) {
@@ -925,6 +928,12 @@
                         popup.style.display = 'none';
                     }
                 }
+                if (localStorage.getItem('surveyFunnelClosed') === 'true') {
+                    var survey = document.getElementById('surveyFunnelOverlay');
+                    if (survey) {
+                        survey.style.display = 'none';
+                    }
+                }
             }, 100);
         });
     </script>
@@ -937,7 +946,7 @@
                 <p class="urgency-text">Become the 3.5% That Forces Congress to Listen<br>Fix Healthcare. End Wars. Reverse Destructive Policies.</p>
                 <p class="stats-text">3.5% = GUARANTEED SYSTEMIC CHANGE<br>WE HAVE 100M+ = 9x THE THRESHOLD<br>COOPERATIVE POWER = UNSTOPPABLE</p>
                 <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" class="btn-sign">🔥 SIGN PETITION (2 MIN) - BUILD THE MOVEMENT</a>
-                <p class="close-hint">or close this (X button) to learn how we'll fix everything</p>
+                <p class="close-hint">or close this (X button) to learn how PHIERS actually works</p>
             </div>
         </div>
     </div>
@@ -953,7 +962,7 @@
             <div style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(66, 133, 244, 0.15)); border: 2px solid rgba(76, 175, 80, 0.4); padding: 25px 30px; border-radius: 12px; max-width: 600px; margin: 0 auto;">
                 <p style="font-size: 1.1em; color: white; margin: 0 0 15px 0; font-weight: bold;">Congress Failed. Now They Have to Fix It.</p>
                 <p style="font-size: 0.95em; color: #81c784; margin: 0 0 15px 0; font-weight: bold;">Prices spiking. Coverage dropping. Jobs cut. Shutdown on Jan 31<span style="color: #4caf50; font-size: 1.3em; font-weight: bold;">?</span></p>
-                <p style="font-size: 1.1em; color: #4caf50; margin: 0; font-weight: bold;">NOT IF 3.5% MOBILIZE</p>
+                <p style="font-size: 1.1em; color: #4caf50; margin: 0; font-weight: bold;">NOT IF 3.5% join the PHIERStorm Movement</p>
             </div>
         </header>
         
@@ -1844,12 +1853,14 @@
         </div>
     </div>
 
-    <scr
     <!-- LIGHTBOX MODAL FOR CLICKABLE IMAGES -->
     <div id="lightboxModal" class="lightbox-modal">
         <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
         <img class="lightbox-content" src="" alt="Enlarged image">
     </div>
+
+    <!-- Version timestamp footer -->
+    <div style="text-align: center; padding: 15px; margin-top: 40px; color: rgba(129, 199, 132, 0.6); font-size: 0.85em; font-family: monospace; border-top: 1px solid rgba(129, 199, 132, 0.2);">Updated 2:55 PM, 02 Jan 2026</div>
 
 </body>
 </html>
