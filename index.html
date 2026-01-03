@@ -781,12 +781,6 @@
     </style>
     <!-- ALL FUNCTIONS - DEFINED EARLY IN HEAD -->
     <script>
-        function closeSurveyFunnel() {
-            var overlay = document.getElementById('surveyFunnelOverlay');
-            if (overlay) {
-                overlay.style.display = 'none';
-            }
-        }
         
         function showSection(sectionId) {
             const sections = document.querySelectorAll('section');
@@ -852,6 +846,25 @@
 <body>
     <!-- EARLY POPUP STATE CHECK - Run before popup renders -->
     <script>
+        // Define function FIRST so button can call it
+        function closeConsequencesPopup() {
+            var popup = document.getElementById('consequencesPopup');
+            if (popup) {
+                popup.style.display = 'none';
+            }
+            localStorage.setItem('phiersPopupClosed', 'true');
+            // Show survey funnel next
+            if (!localStorage.getItem('surveyFunnelClosed')) {
+                setTimeout(function() {
+                    var surveyOverlay = document.getElementById('surveyFunnelOverlay');
+                    if (surveyOverlay) {
+                        surveyOverlay.style.display = 'flex';
+                    }
+                }, 300);
+            }
+        }
+        
+        // Hide popup if already closed
         if (localStorage.getItem('phiersPopupClosed') === 'true') {
             document.write('<style>#consequencesPopup { display: none !important; }</style>');
         }
@@ -962,7 +975,8 @@
             <div style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(66, 133, 244, 0.15)); border: 2px solid rgba(76, 175, 80, 0.4); padding: 25px 30px; border-radius: 12px; max-width: 600px; margin: 0 auto;">
                 <p style="font-size: 1.1em; color: white; margin: 0 0 15px 0; font-weight: bold;">Congress Failed. Now They Have to Fix It.</p>
                 <p style="font-size: 0.95em; color: #81c784; margin: 0 0 15px 0; font-weight: bold;">Prices spiking. Coverage dropping. Jobs cut. Shutdown on Jan 31<span style="color: #4caf50; font-size: 1.3em; font-weight: bold;">?</span></p>
-                <p style="font-size: 1.1em; color: #4caf50; margin: 0; font-weight: bold;">NOT IF 3.5% join the PHIERStorm Movement</p>
+                <p style="font-size: 1.1em; color: #4caf50; margin: 0 0 25px 0; font-weight: bold;">NOT IF 3.5% join the PHIERStorm Movement</p>
+                <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" style="background: linear-gradient(135deg, #4caf50, #2e7d32); color: white; padding: 14px 32px; font-size: 1.1em; font-weight: bold; border: 2px solid #4caf50; border-radius: 8px; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.3s; box-shadow: 0 5px 20px rgba(76, 175, 80, 0.3);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 30px rgba(76, 175, 80, 0.5)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 5px 20px rgba(76, 175, 80, 0.3)';">🔥 Join PHIERStorm Now - Sign Petition</a>
             </div>
         </header>
         
@@ -1809,7 +1823,7 @@
             <div style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(100, 200, 150, 0.1)); border: 2px solid #4caf50; border-radius: 12px; padding: 40px; text-align: center; margin: 40px 0;">
                 <h3 style="color: #81c784; margin-bottom: 20px; font-size: 1.3em;">⚡ In Response to Your Questions</h3>
                 <p style="color: #c8e6c9; margin-bottom: 30px;">Read the full story on Intelligent Glue, our 16-year journey, how we honor ZORTT and Mark Cuban, and why we're building democratic power instead of competing with anyone.</p>
-                <a href="Clarification_FINAL_INTELLIGENT_GLUE_OPENING_Dec31_2025.html" style="background: linear-gradient(135deg, #4caf50, #2e7d32); color: white; padding: 15px 40px; font-size: 1em; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.3s;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 5px 20px rgba(76, 175, 80, 0.4)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">🔗 Read The Full Story</a>
+                <a href="clarification.html" style="background: linear-gradient(135deg, #4caf50, #2e7d32); color: white; padding: 15px 40px; font-size: 1em; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.3s;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 5px 20px rgba(76, 175, 80, 0.4)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">🔗 Read The Full Story</a>
             </div>
             
             <div style="background: rgba(76, 175, 80, 0.05); border-left: 5px solid #81c784; padding: 25px; border-radius: 8px; margin: 30px 0;">
@@ -1821,14 +1835,14 @@
             
             <div class="nav-buttons">
                 <button class="btn btn-secondary" onclick="showSection('main')">← Back: Main</button>
-                <button class="btn btn-primary" onclick="window.location.href='Clarification_FINAL_INTELLIGENT_GLUE_OPENING_Dec31_2025.html';">The Full Story →</button>
+                <button class="btn btn-primary" onclick="window.location.href='clarification.html';">The Full Story →</button>
             </div>
         </section>
         
         <footer>
             <p><strong>PHIERS Movement | Make America Better And Healthier (MABAH)</strong></p>
             <p>Will Price | Chief Solutions Architect</p>
-            <p>Phone: 301-919-0970 | Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ddaab9adafb4beb89dadb5b4b8afaef3b2afba">[email&#160;protected]</a></p>
+            <p>Phone: 301-919-0970 | Email: <a href="mailto:info@phiers.org" style="color: #4caf50; text-decoration: underline;">info@phiers.org</a></p>
             <p style="margin-top: 15px;">
                 <a href="https://phiersale.github.io/Join_the_Team/" target="_blank" style="color: #81c784; text-decoration: underline;">Join Us</a> | 
                 <a href="https://phiersale.github.io/MABAH-Movement/" target="_blank" style="color: #81c784; text-decoration: underline;">MABAH Movement</a> | 
@@ -1860,7 +1874,7 @@
     </div>
 
     <!-- Version timestamp footer -->
-    <div style="text-align: center; padding: 15px; margin-top: 40px; color: rgba(129, 199, 132, 0.6); font-size: 0.85em; font-family: monospace; border-top: 1px solid rgba(129, 199, 132, 0.2);">Updated 2:55 PM, 02 Jan 2026</div>
+    <div style="text-align: center; padding: 15px; margin-top: 40px; color: rgba(129, 199, 132, 0.6); font-size: 0.85em; font-family: monospace; border-top: 1px solid rgba(129, 199, 132, 0.2);">Updated 3:08 PM, 02 Jan 2026</div>
 
 </body>
 </html>
