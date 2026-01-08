@@ -30,7 +30,7 @@
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.95);
-            display: flex;
+            display: none;
             align-items: center;
             justify-content: center;
             z-index: 3000;
@@ -685,18 +685,23 @@
                 <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Logo.png" alt="PHIERS Logo" style="max-width: 150px; height: auto;">
             </div>
             
-            <h3 style="color: #4caf50; margin-top: 0; font-size: 1.4em; text-align: center;">💡 PHIERS: People-Owned Healthcare Solution</h3>
+            <h3 style="color: #4caf50; margin-top: 0; font-size: 1.5em; text-align: center;">Quick Question</h3>
+            <p style="color: #ffb74d; font-size: 0.95em; text-align: center; margin: 5px 0 20px 0; font-style: italic;">(Before entering the main website)</p>
             
             <p style="color: #fff3e0; font-size: 1.05em; line-height: 1.8; margin: 15px 0;">
-                <strong>PHIERS connects existing validated resources to save CMS and prevent cascade failures across VA, Medicare, and Medicaid.</strong> Our goal: Get CMS to approve PEOPLE-OWNED telehealth platforms, creating market power that makes providers WANT to participate.
+                <strong>Quick Question:</strong> What if we used what already exists—smarter? The pieces are proven: pharmaceutical savings (Mark Cuban's model), cooperative telehealth platforms (like ZORTT), validated organizing thresholds (Chenoweth's research). Status quo connects these slowly, one at a time. <strong>PHIERS connects them all at once—fixing the healthcare system AND using the savings to create jobs, strengthen the safety net, and provide universal basic support.</strong>
             </p>
             
             <p style="color: #fff3e0; font-size: 1.05em; line-height: 1.8; margin: 15px 0;">
-                <strong>This strategy creates market dominance.</strong> 120M members = unprecedented buying power. Providers compete for access to OUR membership. Competition = innovation + better service + lower costs. Members control which platforms get approved.
+                <strong>Here's the invitation:</strong> Join us as we move from mind to market. Right now, this is aspirational—a framework ready to launch. <strong>But if enough people act, we make it real.</strong> At 3.5% organized (11.6M people), we gain leverage to compel Congress to adopt this AND force CMS to embrace health reform that actually works.
             </p>
             
-            <p style="color: #4caf50; font-size: 1.1em; line-height: 1.8; margin: 15px 0; font-weight: bold;">
-                With 3.5% organized (11.6M), we gain LEVERAGE to force Congress to approve this, offer something better, step aside or be recalled and replaced BEFORE the 2026 election.
+            <p style="color: #ff9800; font-size: 1.1em; line-height: 1.8; margin: 15px 0; font-weight: bold; background: rgba(255, 152, 0, 0.1); padding: 15px; border-radius: 8px; border: 2px solid rgba(255, 152, 0, 0.3);">
+                ⚠️ <strong>URGENT: Jan 30 shutdown deadline.</strong> We MUST hit 3.5% before then to avoid crisis and force Congress to approve this, offer something better, step aside, or be recalled and replaced BEFORE the 2026 election.
+            </p>
+            
+            <p style="color: #4caf50; font-size: 1.05em; line-height: 1.8; margin: 15px 0; font-weight: bold;">
+                <strong>Your role in making this real:</strong> Sign the petition. That's how we reach 3.5%. <strong>Your signature moves us from concept to reality.</strong>
             </p>
             
             <div style="background: rgba(76, 175, 80, 0.1); padding: 20px; border-radius: 8px; margin: 20px 0;">
@@ -1383,5 +1388,28 @@
                 closeAlWilsonPopup();
                 closeLightbox();
                 closeSurveyFunnel();
+                closeClarificationModal();
+            }
+        });
+
+        // Clarification Modal
+        function closeClarificationModal() {
+            document.getElementById('clarificationModal').style.display = 'none';
+            localStorage.setItem('phiersModalSeen', 'true');
+        }
+
+        // Show clarification modal on page load (if not seen before)
+        window.addEventListener('load', () => {
+            if (!localStorage.getItem('phiersModalSeen')) {
+                setTimeout(() => {
+                    document.getElementById('clarificationModal').style.display = 'flex';
+                }, 1000);
+            }
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('clarificationModal').addEventListener('click', (e) => {
+            if (e.target.id === 'clarificationModal') {
+                closeClarificationModal();
             }
         });
