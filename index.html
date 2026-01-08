@@ -182,12 +182,27 @@
 
         /* SECTIONS */
         section {
-            background: rgba(22, 33, 62, 0.7);
+            background: linear-gradient(135deg, rgba(22, 33, 62, 0.85) 0%, rgba(15, 52, 96, 0.75) 100%);
             border-radius: 12px;
             padding: 40px;
             margin-bottom: 40px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(76, 175, 80, 0.2);
             border-left: 5px solid #4caf50;
+            border-top: 4px solid transparent;
+            border-image: linear-gradient(90deg, #ff9800, #4caf50, #2196f3) 1;
+            border-image-slice: 1 0 0 0;
+            position: relative;
+        }
+        
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff9800 0%, #4caf50 50%, #2196f3 100%);
+            border-radius: 12px 12px 0 0;
         }
 
         h1 {
