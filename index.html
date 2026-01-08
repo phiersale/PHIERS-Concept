@@ -58,23 +58,50 @@
             position: absolute;
             top: 15px;
             right: 15px;
-            background: none;
-            border: none;
-            color: #4caf50;
+            background: linear-gradient(135deg, #ff9800, #f57c00);
+            border: 3px solid #ffb74d;
+            border-radius: 50%;
+            color: white;
             font-size: 2.5em;
             cursor: pointer;
             padding: 0;
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
+            box-shadow: 0 4px 12px rgba(255, 152, 0, 0.6);
+            transition: all 0.3s;
+            z-index: 10001;
         }
 
         .modal-close:hover {
-            color: #81c784;
-            transform: scale(1.1);
+            background: linear-gradient(135deg, #ffb74d, #ff9800);
+            transform: scale(1.15);
+            box-shadow: 0 6px 20px rgba(255, 152, 0, 0.8);
+        }
+        
+        .clarification-modal-close {
+            background: linear-gradient(135deg, #2196f3, #1565c0);
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            font-weight: bold;
+            border: 2px solid #42a5f5;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            display: block;
+        }
+        
+        .clarification-modal-close:hover {
+            background: linear-gradient(135deg, #42a5f5, #1976d2);
+            transform: scale(1.02);
+            box-shadow: 0 5px 20px rgba(33, 150, 243, 0.4);
         }
 
         .modal-content h2 {
@@ -302,7 +329,27 @@
             h2 { font-size: 1.5em; }
             .container { padding: 20px 15px; }
             section { padding: 25px 20px; }
-            .modal-content { padding: 25px; }
+            .modal-content { 
+                padding: 60px 20px 25px 20px;
+                max-height: 90vh;
+            }
+            .modal-close {
+                font-size: 3em;
+                width: 55px;
+                height: 55px;
+                background: linear-gradient(135deg, #ff9800, #f57c00);
+                border: 4px solid #ffb74d;
+                border-radius: 50%;
+                box-shadow: 0 6px 16px rgba(255, 152, 0, 0.8);
+                z-index: 10001;
+                top: 10px;
+                right: 10px;
+            }
+            .clarification-modal-close {
+                padding: 14px 20px;
+                font-size: 1em;
+                width: 100%;
+            }
             .btn { padding: 12px 25px; font-size: 1em; }
             .reopen-modal-btn { top: 10px; right: 10px; padding: 10px 15px; font-size: 0.9em; }
         }
@@ -315,38 +362,19 @@
         <div class="modal-content">
             <button class="modal-close" id="closeModal">&times;</button>
             
-            <h2>💡 How PHIERS Actually Works</h2>
+            <h2>💡 Welcome to PHIERS</h2>
             
-            <h3>🧩 I'm Will Price - Pattern Recognition Explained</h3>
-            <p><strong>I'm Will Price.</strong> My brain works like an expert Rubik's cube solver. When expert solvers look at a scrambled cube, they don't see chaos—they see the COMPLETE SOLUTION. The solved state is visible even though it hasn't been executed yet.</p>
+            <p style="font-size: 1.15em; line-height: 1.7;"><strong>We're fixing healthcare by saving CMS.</strong></p>
             
-            <p><strong>That's why PHIERS operates from pattern recognition:</strong></p>
-            <ul>
-                <li>All validated pieces exist NOW (Cuban 7M customers, multiple telehealth platforms, USPS infrastructure, Chenoweth 3.5% research)</li>
-                <li>I see how they connect automatically → the complete pattern becomes visible</li>
-                <li>The endpoint is mathematically certain once connected</li>
-            </ul>
+            <p>Every $50 in Rx savings → Funds 1 person's switch to telehealth → CMS saves $7,400/year → That funds 130 MORE switches → Exponential cascade until 80% converted (120M people)</p>
             
-            <p>This website describes the complete system once connected (the endpoint), not just the starting state. The pieces exist. The integration is what we're building. The outcome is what I see as certain.</p>
+            <p style="margin-top: 20px; color: #4caf50; font-weight: bold;">Mathematical inevitability. Cuban proved it at 7M scale. We scale to 120M.</p>
             
-            <h3>🤝 The Genius of the AND</h3>
-            <p><strong>PHIERS connects existing validated pieces. Everyone wins bigger together:</strong></p>
-            <ul>
-                <li><strong>Mark Cuban:</strong> PHIERS brings 100M+ customers to Cost Plus (exponential growth for him)</li>
-                <li><strong>Telehealth platforms:</strong> PHIERS scales their models nationwide (exponential growth for them)</li>
-                <li><strong>USPS:</strong> PHIERS makes them financially sustainable (they win)</li>
-                <li><strong>Workers:</strong> PHIERS creates millions of AI-resistant jobs (they win)</li>
-                <li><strong>Members:</strong> Universal healthcare + economic power (we all win)</li>
-            </ul>
-            
-            <p><strong>This is cooperative economics, not competition.</strong> Member-owned. Member-controlled. Accountable only to members. No tech oligarchs. No extraction. Profits return to people.</p>
-            
-            <p><strong>Anyone competing against this is trying to get over on We the People. Shun them.</strong></p>
-            
-            <p style="margin-top: 25px; padding-top: 20px; border-top: 2px solid #4caf50; font-size: 1.1em; color: #81c784;"><strong>Got it?</strong> The pieces exist. Pattern recognition connects them. Cooperative ownership protects them. Mathematical inevitability drives them. Everyone wins.</p>
-            
-            <button class="clarification-modal-close" id="closeModalMain">I Understand - Continue to Site</button>
-            <button class="clarification-modal-close" id="joinNow" style="background: linear-gradient(135deg, #4caf50, #2e7d32); margin-top: 10px;">Join PHIERStorm Now - Sign Petition</button>
+            <div style="margin-top: 30px; display: flex; flex-direction: column; gap: 15px; align-items: center;">
+                <button class="clarification-modal-close" id="closeModalMain" style="background: linear-gradient(135deg, #ff9800, #f57c00); border-color: #ffb74d; font-size: 1.2em;">✓ I Understand - Continue to Site</button>
+                <button class="clarification-modal-close" id="joinNow" style="background: linear-gradient(135deg, #4caf50, #2e7d32); border-color: #66bb6a;">🔥 Join PHIERStorm Now - Sign Petition</button>
+                <p style="margin-top: 10px; font-size: 0.9em; color: #aaa; text-align: center;"><em>Click X above or orange button to continue</em></p>
+            </div>
         </div>
     </div>
 
