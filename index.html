@@ -166,9 +166,6 @@
             padding: 20px 0;
             text-align: center;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            position: sticky;
-            top: 0;
-            z-index: 999;
         }
 
         header img {
@@ -362,6 +359,10 @@
         <div class="modal-content">
             <button class="modal-close" id="closeModal">&times;</button>
             
+            <p style="font-size: 0.95em; color: #ffb74d; margin: 0 0 20px 0; text-align: center; font-weight: bold; padding: 12px; background: rgba(255, 152, 0, 0.15); border-radius: 8px; border: 2px solid rgba(255, 152, 0, 0.3);">
+                💡 <strong>TO CLOSE THIS:</strong> Click orange X above, or click orange button below, or tap the dark background
+            </p>
+            
             <h2>💡 Welcome to PHIERS</h2>
             
             <p style="font-size: 1.15em; line-height: 1.7;"><strong>We're fixing healthcare by saving CMS.</strong></p>
@@ -373,7 +374,7 @@
             <div style="margin-top: 30px; display: flex; flex-direction: column; gap: 15px; align-items: center;">
                 <button class="clarification-modal-close" id="closeModalMain" style="background: linear-gradient(135deg, #ff9800, #f57c00); border-color: #ffb74d; font-size: 1.2em;">✓ I Understand - Continue to Site</button>
                 <button class="clarification-modal-close" id="joinNow" style="background: linear-gradient(135deg, #4caf50, #2e7d32); border-color: #66bb6a;">🔥 Join PHIERStorm Now - Sign Petition</button>
-                <p style="margin-top: 10px; font-size: 0.9em; color: #aaa; text-align: center;"><em>Click X above or orange button to continue</em></p>
+                <p style="margin-top: 10px; font-size: 0.9em; color: #aaa; text-align: center;"><em>Or: Click orange X at top, or tap dark background anywhere to close</em></p>
             </div>
         </div>
     </div>
@@ -883,10 +884,10 @@
         const modalSeen = localStorage.getItem('phiersModalSeen');
 
         if (!modalSeen) {
-            // Show modal after 3 seconds
+            // Show modal after 1 second
             setTimeout(() => {
                 modal.classList.add('active');
-            }, 3000);
+            }, 1000);
         } else {
             // Show reopen button if modal was previously seen
             reopenBtn.style.display = 'block';
