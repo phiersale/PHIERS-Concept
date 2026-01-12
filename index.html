@@ -21,14 +21,14 @@
             min-height: 100vh;
         }
 
-        /* SURVEY FUNNEL MODAL - ADDED ONLY */
-        .survey-funnel-overlay {
+        /* OPENING MODAL - 3 BUTTON VERSION */
+        .opening-modal-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.85);
+            background: rgba(0, 0, 0, 0.9);
             display: none;
             align-items: center;
             justify-content: center;
@@ -36,12 +36,12 @@
             padding: 20px;
         }
 
-        .survey-funnel-container {
+        .opening-modal-container {
             background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
             border: 3px solid #4caf50;
             border-radius: 12px;
-            padding: 40px;
-            max-width: 450px;
+            padding: 50px 40px;
+            max-width: 600px;
             width: 100%;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.9);
             position: relative;
@@ -49,7 +49,7 @@
             margin: auto;
         }
 
-        .survey-funnel-close {
+        .opening-modal-close {
             position: absolute;
             top: 15px;
             right: 15px;
@@ -68,65 +68,82 @@
             z-index: 2001;
         }
 
-        .survey-funnel-close:hover {
+        .opening-modal-close:hover {
             color: #81c784;
             transform: scale(1.1);
         }
 
-        .survey-funnel-content {
+        .opening-modal-content {
             animation: popIn 0.4s ease;
         }
 
-        .survey-funnel-content h2 {
+        .opening-modal-content h2 {
             color: #4caf50;
-            margin-bottom: 15px;
-            font-size: 1.8em;
+            margin-bottom: 20px;
+            font-size: 2em;
             border: none;
             padding: 0;
         }
 
-        .urgency-text {
-            color: #ffeb3b;
+        .opening-tagline {
+            color: #fbbf24;
             font-weight: bold;
+            font-size: 1.3em;
+            margin: 20px 0 30px;
+        }
+
+        .opening-description {
+            color: #c8e6c9;
             font-size: 1.1em;
-            margin: 15px 0;
+            margin-bottom: 40px;
+            line-height: 1.6;
         }
 
-        .stats-text {
-            color: #81c784;
-            font-size: 1.2em;
-            font-weight: bold;
-            margin: 20px 0;
-            line-height: 1.8;
+        .modal-button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
         }
 
-        .btn-sign {
+        .modal-btn {
             background: linear-gradient(135deg, #4caf50, #45a049);
             color: white;
-            padding: 15px 35px;
-            font-size: 1.1em;
+            padding: 18px 35px;
+            font-size: 1.15em;
             font-weight: bold;
             border: none;
-            border-radius: 6px;
+            border-radius: 8px;
             cursor: pointer;
             display: block;
             width: 100%;
             text-align: center;
-            margin-bottom: 15px;
             text-decoration: none;
             transition: all 0.3s ease;
             box-sizing: border-box;
         }
 
-        .btn-sign:hover {
+        .modal-btn:hover {
             background: linear-gradient(135deg, #45a049, #3d8b40);
             transform: scale(1.02);
             box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
         }
 
-        .close-hint {
-            color: #c8e6c9;
-            font-size: 0.9em;
+        .modal-btn-secondary {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+        }
+
+        .modal-btn-secondary:hover {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+        }
+
+        .modal-btn-accent {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: #1e3a8a;
+        }
+
+        .modal-btn-accent:hover {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
         }
 
         @keyframes popIn {
@@ -853,12 +870,12 @@
                 popup.style.display = 'none';
             }
             localStorage.setItem('phiersPopupClosed', 'true');
-            // Show survey funnel next
-            if (!localStorage.getItem('surveyFunnelClosed')) {
+            // Show opening modal next
+            if (!localStorage.getItem('openingModalClosed')) {
                 setTimeout(function() {
-                    var surveyOverlay = document.getElementById('surveyFunnelOverlay');
-                    if (surveyOverlay) {
-                        surveyOverlay.style.display = 'flex';
+                    var openingOverlay = document.getElementById('openingModalOverlay');
+                    if (openingOverlay) {
+                        openingOverlay.style.display = 'flex';
                     }
                 }, 300);
             }
@@ -871,7 +888,7 @@
     </script>
 
     <!-- CONSEQUENCES MODAL POPUP -->
-    <div id="consequencesPopup" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); z-index: 10000; display: flex; align-items: center; justify-content: center;">
+    <div id="consequencesPopup" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); z-index: 10000; display: none; align-items: center; justify-content: center;">
         <div style="position: relative; max-width: 90vw; max-height: 90vh;">
             <button onclick="closeConsequencesPopup()" style="position: absolute; top: -40px; right: 0; background: #4caf50; color: white; border: none; padding: 8px 12px; font-size: 1.5em; font-weight: bold; border-radius: 50%; cursor: pointer; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">×</button>
             <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/99_to_1_Great_Odds_wide.png" alt="99 to 1 - Those Are Great Odds" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);">
@@ -880,13 +897,13 @@
 
     <!-- ALL FUNCTIONS - IMMEDIATE EXECUTION -->
     <script>
-        function closeSurveyFunnel() {
-            var overlay = document.getElementById('surveyFunnelOverlay');
+        function closeOpeningModal() {
+            var overlay = document.getElementById('openingModalOverlay');
             if (overlay) {
                 overlay.style.display = 'none';
             }
-            // Set flag so survey won't show again
-            localStorage.setItem('surveyFunnelClosed', 'true');
+            // Set flag so modal won't show again
+            localStorage.setItem('openingModalClosed', 'true');
         }
         
         function showSection(sectionId) {
@@ -921,12 +938,12 @@
             // Set flag so popup won't show again
             localStorage.setItem('phiersPopupClosed', 'true');
             
-            // Show survey funnel next (unless they've already closed it)
-            if (!localStorage.getItem('surveyFunnelClosed')) {
+            // Show opening modal next (unless they've already closed it)
+            if (!localStorage.getItem('openingModalClosed')) {
                 setTimeout(function() {
-                    var surveyOverlay = document.getElementById('surveyFunnelOverlay');
-                    if (surveyOverlay) {
-                        surveyOverlay.style.display = 'flex';
+                    var openingOverlay = document.getElementById('openingModalOverlay');
+                    if (openingOverlay) {
+                        openingOverlay.style.display = 'flex';
                     }
                 }, 300);
             }
@@ -934,32 +951,49 @@
 
         // Hide popup if user previously closed it
         window.addEventListener('load', function() {
+            // Show opening modal after 5 seconds as teaser (unless already closed)
             setTimeout(function() {
+                if (!localStorage.getItem('openingModalClosed')) {
+                    var openingOverlay = document.getElementById('openingModalOverlay');
+                    if (openingOverlay) {
+                        openingOverlay.style.display = 'flex';
+                    }
+                }
+                
+                // Hide other popups if already closed
                 if (localStorage.getItem('phiersPopupClosed') === 'true') {
                     var popup = document.getElementById('consequencesPopup');
                     if (popup) {
                         popup.style.display = 'none';
                     }
                 }
-                if (localStorage.getItem('surveyFunnelClosed') === 'true') {
-                    var survey = document.getElementById('surveyFunnelOverlay');
-                    if (survey) {
-                        survey.style.display = 'none';
-                    }
-                }
-            }, 100);
+            }, 5000); // 5 second delay
         });
     </script>
 
-    <div class="survey-funnel-overlay" id="surveyFunnelOverlay">
-        <div class="survey-funnel-container">
-            <button type="button" class="survey-funnel-close" onclick="closeSurveyFunnel()">×</button>
-            <div class="survey-funnel-content">
-                <h2>⚠️ WE HAVE THE SOLUTION ⚠️</h2>
-                <p class="urgency-text">Become the 3.5% That Forces Congress to Listen<br>Fix Healthcare. End Wars. Reverse Destructive Policies.</p>
-                <p class="stats-text">3.5% = GUARANTEED SYSTEMIC CHANGE<br>WE HAVE 100M+ = 9x THE THRESHOLD<br>COOPERATIVE POWER = UNSTOPPABLE</p>
-                <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" class="btn-sign">🔥 SIGN PETITION (2 MIN) - BUILD THE MOVEMENT</a>
-                <p class="close-hint">or close this (X button) to learn how PHIERS actually works</p>
+    <div class="opening-modal-overlay" id="openingModalOverlay">
+        <div class="opening-modal-container">
+            <button type="button" class="opening-modal-close" onclick="closeOpeningModal()">×</button>
+            <div class="opening-modal-content">
+                <h2>How ONE Person Creates Universal Coverage</h2>
+                <p class="opening-tagline">This isn't a cut; it's a conversion.</p>
+                <p class="opening-description">
+                    $50/month in prescription savings → $600/year telehealth plan<br>
+                    → replaces $8,000 Medicaid insurance → saves $7,400/year<br>
+                    → funds 12 more conversions → exponential cascade → 120M coverage<br><br>
+                    <strong>9 iterations. 8-13 months. $888 BILLION saved annually.</strong>
+                </p>
+                <div class="modal-button-group">
+                    <a href="SimpleMath.html" class="modal-btn">
+                        📊 See The Simple Math
+                    </a>
+                    <a href="#" onclick="closeOpeningModal(); return false;" class="modal-btn modal-btn-secondary">
+                        🌍 Go to Main Site
+                    </a>
+                    <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" class="modal-btn modal-btn-accent">
+                        ✍️ Sign Petition Now
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -979,7 +1013,7 @@
                 <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" style="background: linear-gradient(135deg, #4caf50, #2e7d32); color: white; padding: 14px 32px; font-size: 1.1em; font-weight: bold; border: 2px solid #4caf50; border-radius: 8px; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.3s; box-shadow: 0 5px 20px rgba(76, 175, 80, 0.3);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 30px rgba(76, 175, 80, 0.5)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 5px 20px rgba(76, 175, 80, 0.3)';">🔥 Join PHIERStorm Now - Sign Petition</a>
             </div>
         </header>
-        
+
         <div class="nav-menu">
             <div class="nav-item" onclick="showSection('main')">▼ Main</div>
             <div class="nav-item" onclick="showSection('rubiks')">▶ 5D Solutions</div>
@@ -1046,6 +1080,13 @@
                 <p style="color: #c8e6c9; line-height: 1.8; margin-top: 15px;"><strong>That's the spiritual core of this work:</strong> Solutions that honor the whole person, not just one need. Systems that heal interconnected problems, not create new ones. Abundance that flows to everyone, not extracted from the many.</p>
                 
                 <p style="color: #81c784; line-height: 1.8; margin-top: 20px; text-align: center; font-weight: bold;">We're glad you're here. This solution was built for people like you.</p>
+                
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="SimpleMath.html" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #1e3a8a; padding: 15px 30px; font-size: 1.1em; font-weight: bold; border-radius: 8px; text-decoration: none; transition: all 0.3s; box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 20px rgba(251, 191, 36, 0.5)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 15px rgba(251, 191, 36, 0.3)';">
+                        📊 See The Simple Math - How Cascade Savings Work
+                    </a>
+                    <p style="color: #c8e6c9; font-size: 0.9em; margin-top: 10px;">(Opens in new tab so you can reference while exploring)</p>
+                </div>
             </div>
             
             <h2>📹 Watch: The Bipartisan Solution (11:11)</h2>
@@ -1345,6 +1386,12 @@
             </div>
             
             <h3 style="margin-top: 20px;">The 5D Interconnection</h3>
+            
+            <div style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(37, 99, 235, 0.1)); border: 2px solid #3b82f6; padding: 20px 25px; border-radius: 8px; margin-bottom: 25px; text-align: center;">
+                <p style="color: #93c5fd; margin-bottom: 12px; font-size: 1.05em;">💡 <strong>Want to see exactly how the savings cascade works?</strong></p>
+                <a href="SimpleMath.html" target="_blank" style="background: linear-gradient(135deg, #3b82f6, #2563eb); color: white; padding: 12px 28px; font-size: 1em; font-weight: bold; border-radius: 6px; text-decoration: none; display: inline-block; transition: all 0.3s ease;" onmouseover="this.style.background='linear-gradient(135deg, #2563eb, #1d4ed8)'; this.style.transform='scale(1.05)';" onmouseout="this.style.background='linear-gradient(135deg, #3b82f6, #2563eb)'; this.style.transform='scale(1)';">📊 See The Simple Math (Opens in New Tab)</a>
+            </div>
+            
             <ul>
                 <li><strong>💰 Healthcare Savings:</strong> 120M Americans switch to $600/year telehealth. Frees $7,400 per person. $888 BILLION annually funds everything else.</li>
                 <li><strong>💼 Jobs Guarantee (AI-Proof):</strong> AI-resistant jobs created from savings: case managers, health coordinators, supply chain workers. No robots. Real human work.</li>
@@ -1775,7 +1822,7 @@
 
             <div style="text-align: center; margin-bottom: 30px;">
                 <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/Me_n__Dad_at_CHURCH.png" alt="Will Price and Al Wilson at Bethany Evangelical Missionary Church" style="max-width: 25%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);">
-            </div>>
+            </div>
             
             <h3>I Was a Caregiver</h3>
             <p>I protected vulnerable people. Reported abuse. Got evicted for doing the right thing. Now I'm homeless, living in my car.</p>
@@ -1854,7 +1901,7 @@
                 <a href="https://phiersale.github.io/MABAH-Movement/" target="_blank" style="color: #81c784; text-decoration: underline;">MABAH Movement</a> | 
                 <a href="https://phiersale.github.io/PHIERS-FAQ/" target="_blank" style="color: #e74c3c; text-decoration: underline; font-weight: bold;">🔥 FAQ (UPDATED - 25 Questions)</a>
             </p>
-            <p style="margin-top: 15px;">© PHIERS.org - Peoples Health Insurance Exchange and Referral Service | Prior art documented since 2014</p>
+            <p style="margin-top: 15px;">© PHIERS.org - People's Health Insurance Endowment and Referral Service | Prior art documented since 2014</p>
         </footer>
     </div>
 
@@ -1880,32 +1927,10 @@
     </div>
 
     <!-- Version timestamp footer -->
-    <div style="text-align: center; padding: 15px; margin-top: 40px; color: rgba(129, 199, 132, 0.6); font-size: 0.85em
+    <div style="text-align: center; padding: 15px; margin-top: 40px; color: rgba(129, 199, 132, 0.6); font-size: 0.85em;">
+        Last Updated: January 2, 2026 | Version 3.13
+    </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+</body>
+</html>
