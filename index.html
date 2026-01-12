@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<!-- PHIERS Complete Integrated - January 8, 2026 -->
-<!-- Will's design + refined content + all 5 videos + CMS focus + people-owned message -->
+<!-- PHIERS Index - Updated: 3:13 PM, January 2, 2026 -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -22,54 +21,7 @@
             min-height: 100vh;
         }
 
-        /* CLARIFICATION MODAL */
-        .clarification-modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 3000;
-            padding: 20px;
-        }
-
-        .clarification-modal-container {
-            background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(46, 125, 50, 0.15));
-            border: 4px solid #4caf50;
-            border-radius: 16px;
-            padding: 35px 40px;
-            max-width: 800px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            box-shadow: 0 12px 48px rgba(76, 175, 80, 0.4);
-            position: relative;
-        }
-
-        .clarification-modal-close {
-            background: linear-gradient(135deg, #4caf50, #2e7d32);
-            color: white;
-            border: none;
-            padding: 14px 32px;
-            font-size: 1.1em;
-            font-weight: bold;
-            border-radius: 8px;
-            cursor: pointer;
-            margin-top: 25px;
-            width: 100%;
-            transition: all 0.3s;
-        }
-
-        .clarification-modal-close:hover {
-            background: linear-gradient(135deg, #66bb6a, #43a047);
-            transform: scale(1.02);
-        }
-
-        /* SURVEY FUNNEL MODAL */
+        /* SURVEY FUNNEL MODAL - ADDED ONLY */
         .survey-funnel-overlay {
             position: fixed;
             top: 0;
@@ -94,6 +46,7 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.9);
             position: relative;
             text-align: center;
+            margin: auto;
         }
 
         .survey-funnel-close {
@@ -112,11 +65,24 @@
             align-items: center;
             justify-content: center;
             font-weight: bold;
+            z-index: 2001;
         }
 
         .survey-funnel-close:hover {
             color: #81c784;
             transform: scale(1.1);
+        }
+
+        .survey-funnel-content {
+            animation: popIn 0.4s ease;
+        }
+
+        .survey-funnel-content h2 {
+            color: #4caf50;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+            border: none;
+            padding: 0;
         }
 
         .urgency-text {
@@ -149,16 +115,29 @@
             margin-bottom: 15px;
             text-decoration: none;
             transition: all 0.3s ease;
+            box-sizing: border-box;
         }
 
         .btn-sign:hover {
             background: linear-gradient(135deg, #45a049, #3d8b40);
             transform: scale(1.02);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
         }
 
         .close-hint {
             color: #c8e6c9;
             font-size: 0.9em;
+        }
+
+        @keyframes popIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
         
         .container {
@@ -242,18 +221,6 @@
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
             display: none;
-            position: relative;
-        }
-        
-        section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #ff9800 0%, #4caf50 50%, #2196f3 100%);
-            border-radius: 8px 8px 0 0;
         }
         
         section.active {
@@ -401,6 +368,16 @@
             transform: translateY(-2px);
         }
         
+        .btn-danger {
+            background: linear-gradient(135deg, #d32f2f, #c62828);
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background: linear-gradient(135deg, #c62828, #b71c1c);
+            transform: translateY(-2px);
+        }
+        
         .urgent-banner {
             background: linear-gradient(135deg, rgba(244, 67, 54, 0.2), rgba(229, 57, 53, 0.2));
             border-left: 4px solid #f44336;
@@ -470,6 +447,25 @@
         ul li {
             margin: 14px 0;
             color: #c8e6c9;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid rgba(76, 175, 80, 0.3);
+        }
+        
+        .nav-buttons .btn {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .nav-buttons .btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
         }
 
         .popup-backdrop {
@@ -566,8 +562,10 @@
 
         .al-wilson-link:hover {
             color: #4caf50;
+            text-decoration: underline;
         }
         
+        /* LIGHTBOX STYLES */
         .lightbox-modal {
             display: none;
             position: fixed;
@@ -618,6 +616,33 @@
             opacity: 0.8;
         }
         
+        .blog-post {
+            background: rgba(76, 175, 80, 0.05);
+            border: 2px solid rgba(76, 175, 80, 0.2);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            color: #c8e6c9;
+        }
+        
+        .blog-post h4 {
+            color: #4caf50;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .blog-date {
+            color: #81c784;
+            font-size: 0.85em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .blog-post p {
+            margin: 10px 0;
+            line-height: 1.7;
+        }
+        
         .video-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -664,752 +689,1223 @@
         }
         
         @media (max-width: 768px) {
-            h1 { font-size: 1.6em; }
-            h2 { font-size: 1.4em; }
-            .nav-menu { gap: 8px; }
-            .nav-item { padding: 6px 12px; font-size: 0.8em; }
-            .stats { grid-template-columns: 1fr; }
-            .button-group { flex-direction: column; gap: 8px; }
-            .btn { width: 100%; }
-            .tooltip-popup { max-width: 90%; padding: 20px; }
-            .container { padding: 15px; }
-            header { padding: 25px 15px; }
+            h1 {
+                font-size: 1.6em;
+            }
+            
+            h2 {
+                font-size: 1.4em;
+            }
+            
+            .nav-menu {
+                gap: 8px;
+            }
+            
+            .nav-item {
+                padding: 6px 12px;
+                font-size: 0.8em;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .button-group {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+
+            .tooltip-popup {
+                max-width: 90%;
+                padding: 20px;
+            }
+            
+            .crisis-alert {
+                font-size: 0.9em;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            header {
+                padding: 25px 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.3em;
+            }
+            
+            h2 {
+                font-size: 1.1em;
+            }
+
+            .logo {
+                max-width: 100px;
+            }
+
+            .nav-item {
+                padding: 5px 8px;
+                font-size: 0.7em;
+            }
+
+            .crisis-alert {
+                font-size: 0.8em;
+                padding: 10px;
+            }
+
+            .crisis-alert-content {
+                line-height: 1.4;
+            }
+
+            .container {
+                padding: 10px;
+            }
+
+            header {
+                padding: 20px 10px;
+                margin-bottom: 20px;
+            }
+
+            .btn {
+                padding: 10px 15px;
+                font-size: 0.9em;
+            }
         }
     </style>
-</head>
-<body>
-    <!-- CLARIFICATION MODAL -->
-    <div id="clarificationModal" class="clarification-modal-overlay">
-        <div class="clarification-modal-container">
-            <div style="text-align: center; margin-bottom: 20px;">
-                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Logo.png" alt="PHIERS Logo" style="max-width: 150px; height: auto;">
-            </div>
-            
-            <h3 style="color: #4caf50; margin-top: 0; font-size: 1.5em; text-align: center;">Quick Question</h3>
-            <p style="color: #ffb74d; font-size: 0.95em; text-align: center; margin: 5px 0 20px 0; font-style: italic;">(Before entering the main website)</p>
-            
-            <p style="color: #fff3e0; font-size: 1.05em; line-height: 1.8; margin: 15px 0;">
-                <strong>Quick Question:</strong> What if we used what already exists—smarter? The pieces are proven: pharmaceutical savings (Mark Cuban's model), cooperative telehealth platforms (like ZORTT), validated organizing thresholds (Chenoweth's research). Status quo connects these slowly, one at a time. <strong>PHIERS connects them all at once—fixing the healthcare system AND using the savings to create jobs, strengthen the safety net, and provide universal basic support.</strong>
-            </p>
-            
-            <p style="color: #fff3e0; font-size: 1.05em; line-height: 1.8; margin: 15px 0;">
-                <strong>Here's the invitation:</strong> Join us as we move from mind to market. Right now, this is aspirational—a framework ready to launch. <strong>But if enough people act, we make it real.</strong> At 3.5% organized (11.6M people), we gain leverage to compel Congress to adopt this AND force CMS to embrace health reform that actually works.
-            </p>
-            
-            <p style="color: #ff9800; font-size: 1.1em; line-height: 1.8; margin: 15px 0; font-weight: bold; background: rgba(255, 152, 0, 0.1); padding: 15px; border-radius: 8px; border: 2px solid rgba(255, 152, 0, 0.3);">
-                ⚠️ <strong>URGENT: Jan 30 shutdown deadline.</strong> We MUST hit 3.5% before then to avoid crisis and force Congress to approve this, offer something better, step aside, or be recalled and replaced BEFORE the 2026 election.
-            </p>
-            
-            <p style="color: #4caf50; font-size: 1.05em; line-height: 1.8; margin: 15px 0; font-weight: bold;">
-                <strong>Your role in making this real:</strong> Sign the petition. That's how we reach 3.5%. <strong>Your signature moves us from concept to reality.</strong>
-            </p>
-            
-            <div style="background: rgba(76, 175, 80, 0.1); padding: 20px; border-radius: 8px; margin: 20px 0;">
-                <p style="color: #a5d6a7; font-weight: bold; margin: 0 0 15px 0;">WHAT'S REAL (Independently Validated):</p>
-                <ul style="color: #c8e6c9; margin: 0; padding-left: 20px; line-height: 1.8;">
-                    <li><strong>Mark Cuban's Cost Plus:</strong> 7M customers, 80-90% Rx savings. Pharmaceutical model WORKS.</li>
-                    <li><strong>ZORTT Elite Medical:</strong> Operational 2+ years. Cooperative delivery model WORKS.</li>
-                    <li><strong>Erica Chenoweth Research:</strong> 3.5% organized = guaranteed systemic change.</li>
-                    <li><strong>The Math:</strong> CMS saves $7,400/person switching to telehealth. Cascade is REAL.</li>
-                </ul>
-            </div>
-            
-            <div style="background: rgba(33, 150, 243, 0.1); padding: 20px; border-radius: 8px; margin: 20px 0;">
-                <p style="color: #90caf9; font-weight: bold; margin: 0 0 15px 0;">THE CASCADE (How It Works):</p>
-                <ul style="color: #bbdefb; margin: 0; padding-left: 20px; line-height: 1.8;">
-                    <li><strong>$50 saved ONE TIME</strong> (off one prescription) funds 1 person to switch</li>
-                    <li><strong>That person saves CMS $7,400/year</strong> (vs traditional insurance)</li>
-                    <li><strong>That $7,400 funds 130 MORE switches</strong> (after 15% operations)</li>
-                    <li><strong>Exponential growth until 80% converted</strong> (120M people on Medicaid)</li>
-                    <li><strong>Then extend to VA, Medicare, hospitals, clinics</strong> nationwide</li>
-                    <li><strong>Saves CMS</strong> = prevents collapse of essential infrastructure</li>
-                </ul>
-                <p style="color: #90caf9; margin: 15px 0 0 0; font-weight: bold;">People-owned platforms. Market dominance. Providers want access to OUR members.</p>
-                <p style="color: #4caf50; margin: 10px 0 0 0; font-weight: bold;">At 3.5%, Congress approves this or gets replaced.</p>
-            </div>
-            
-            <p style="color: #fff3e0; font-size: 1.05em; line-height: 1.8; margin: 15px 0;">
-                <strong>This is a 5D solution:</strong> Healthcare (universal coverage) + Jobs (8-14M created) + Economy ($2.73T savings) + Politics (Congressional leverage) + Peace (healing transformation).
-            </p>
-
-            <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 25px;">
-                <button class="clarification-modal-close" onclick="closeClarificationModal()" style="background: linear-gradient(135deg, #4caf50, #2e7d32);">✓ I Understand - Join the Movement</button>
-                <button class="clarification-modal-close" onclick="closeClarificationModal()" style="background: linear-gradient(135deg, #ff9800, #f57c00); border-color: #ffb74d;">⏸️ Maybe Later - Continue Reading</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <!-- HEADER -->
-        <header>
-            <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Logo.png" 
-                 alt="PHIERS Logo" 
-                 class="logo">
-            <p style="font-size: 1.5em; color: #4caf50; margin-bottom: 10px; font-weight: bold;">MABAH Movement</p>
-            <p style="font-size: 1.1em; color: #81c784; margin-bottom: 25px;">Making America Better And Healthier</p>
-            
-            <!-- CRISIS BOX -->
-            <div style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(66, 133, 244, 0.15)); border: 2px solid rgba(76, 175, 80, 0.4); padding: 25px 30px; border-radius: 12px; max-width: 600px; margin: 0 auto;">
-                <p style="font-size: 1.1em; color: white; margin: 0 0 15px 0; font-weight: bold;">Congress Failed. Now They Have to Fix It.</p>
-                <p style="font-size: 0.95em; color: #81c784; margin: 0 0 15px 0; font-weight: bold;">Prices spiking. Coverage dropping. CMS at risk. Shutdown Jan 31?</p>
-                <p style="font-size: 1.1em; color: #4caf50; margin: 0 0 25px 0; font-weight: bold;">NOT IF 3.5% join the PHIERStorm Movement</p>
-                <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" style="background: linear-gradient(135deg, #4caf50, #2e7d32); color: white; padding: 14px 32px; font-size: 1.1em; font-weight: bold; border: 2px solid #4caf50; border-radius: 8px; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.3s; box-shadow: 0 5px 20px rgba(76, 175, 80, 0.3);">🔥 Join PHIERStorm - Sign Petition</a>
-            </div>
-        </header>
-
-        <!-- HERO: 5D SOLUTION FOCUS (NOT PERSONAL) -->
-        <div style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(76, 175, 80, 0.1)); border: 2px solid #4caf50; border-radius: 12px; padding: 30px; margin-bottom: 30px; text-align: center;">
-            <h3 style="color: #4caf50; margin-top: 0; font-size: 1.4em;">🧩 5D Solution to Interconnected Crises</h3>
-            
-            <p style="font-size: 1.05em; color: #c8e6c9; line-height: 1.8; margin: 15px 0;">
-                Traditional approaches fail because they try to solve healthcare, jobs, economy, politics, and peace separately. That's like solving a Rubik's cube one face at a time—it can't be done. Every move affects all others.
-            </p>
-            
-            <p style="font-size: 1.05em; color: #c8e6c9; line-height: 1.8; margin: 15px 0;">
-                <strong>PHIERS solves all 5 dimensions simultaneously by getting CMS to approve people-owned telehealth platforms.</strong> This saves CMS, prevents cascade failures across VA/Medicare/Medicaid, creates 8-14M AI-resistant jobs, generates $2.73T in annual savings, and gives us LEVERAGE over Congress.
-            </p>
-            
-            <p style="font-size: 1.05em; color: #81c784; line-height: 1.8; margin: 15px 0; font-weight: bold;">
-                The trigger: $50 saved ONE TIME funds the cascade. Market dominance makes providers want access to OUR 120M members.
-            </p>
-            
-            <div style="margin-top: 20px;">
-                <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" class="btn btn-primary">✍️ Sign Petition</a>
-                <a href="https://phiersale.github.io/PHIERS-Concept/evidence-hub/" target="_blank" class="btn btn-secondary" style="margin-left: 10px;">📊 Evidence Hub</a>
-            </div>
-        </div>
-
-        <!-- NAVIGATION MENU -->
-        <div class="nav-menu">
-            <div class="nav-item active" data-section="main">Main</div>
-            <div class="nav-item" data-section="how-it-works">How It Works</div>
-            <div class="nav-item" data-section="5d-solutions">5D Solutions</div>
-            <div class="nav-item" data-section="crisis">The Crisis</div>
-            <div class="nav-item" data-section="leverage">Why Congress Will Act</div>
-            <div class="nav-item" data-section="take-action">Take Action</div>
-            <div class="nav-item" data-section="faq">FAQ</div>
-            <div class="nav-item" data-section="my-story">My Story</div>
-            <div class="nav-item" data-section="resources">Resources</div>
-        </div>
-
-        <!-- MAIN SECTION -->
-        <section id="main" class="active">
-            <h2>🏥 A Healthcare Solution Where No One Else Has One</h2>
-            
-            <div class="validation-box">
-                <div class="validation-title">⚡ The Breakthrough</div>
-                <div class="validation-content">
-                    <p><strong>Goal: Get CMS to approve people-owned telehealth platforms.</strong> This creates market power (120M members = unprecedented buying power). Providers compete for access. Competition = innovation + better service + lower costs.</p>
-                    <p style="margin-top: 10px;"><strong>The trigger:</strong> $50 saved ONE TIME (off one prescription) funds 1 person to switch → saves CMS $7,400/year → funds 130 MORE switches → exponential cascade until 80% converted.</p>
-                    <p style="margin-top: 10px;"><strong>The validation:</strong> Cuban proved Rx model (7M customers). ZORTT proved delivery model (2+ years operational). Chenoweth proved 3.5% threshold (guaranteed systemic change).</p>
-                </div>
-            </div>
-
-            <div class="graphic-container">
-                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Rubiks_Cube_-_SYMBOLS.png" 
-                     alt="5D Solutions - Rubik's Cube" 
-                     class="clickable-image">
-                <p><strong>5D Solutions - All dimensions connected</strong><br>(Click to enlarge)</p>
-            </div>
-
-            <h3>📹 Watch: The Complete Solution</h3>
-            
-            <div class="video-grid">
-                <div class="video-item">
-                    <h4>The Problem & Solution (2:22)</h4>
-                    <p>Congress failed Dec 31. Here's the crisis and how we solve it.</p>
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/eE-TxvI0d4Q" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-
-                <div class="video-item">
-                    <h4>The CASCADE Mechanism (3:33)</h4>
-                    <p>How $50 cascades into universal coverage</p>
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/jMU6LKEBzbs" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-            </div>
-
-            <div class="join-us-cta">
-                <h3>🚀 Join the Movement</h3>
-                <p>We need 11.6M Americans (3.5% threshold). Every signature creates leverage over Congress.</p>
-                <p style="font-weight: bold; color: #4caf50;">Sign petition. Fill survey. Share widely. Force Congress to act.</p>
-                <div class="button-group">
-                    <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" class="btn btn-primary">✍️ Sign Petition</a>
-                    <a href="https://forms.gle/xVcSk4cT3VDseSiEA" target="_blank" class="btn btn-secondary">📝 Fill Survey</a>
-                    <a href="https://gofund.me/b5af1eb6" target="_blank" class="btn btn-secondary">💰 Support Mission</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- HOW IT WORKS SECTION -->
-        <section id="how-it-works">
-            <h2>⚙️ How It Works</h2>
-
-            <div style="background: rgba(76, 175, 80, 0.1); padding: 25px; border-radius: 8px; margin-bottom: 30px;">
-                <h3 style="color: #81c784; margin-top: 0;">The Simple Version</h3>
-                
-                <p style="font-size: 1.05em; color: #c8e6c9; line-height: 1.9;"><strong>GOAL:</strong> Get CMS to approve people-owned telehealth platforms. This saves CMS and prevents cascade failures across VA, Medicare, Medicaid.</p>
-                
-                <ol style="font-size: 1.05em; line-height: 1.9; color: #c8e6c9; margin-top: 15px;">
-                    <li><strong>PHIERSale marketplace</strong> sources cheapest meds (Cuban model + international importers)</li>
-                    <li><strong>$50 saved ONE TIME</strong> (off one prescription) funds 1 person to switch to people-owned telehealth</li>
-                    <li><strong>That person saves CMS $7,400/year</strong> (vs traditional insurance)</li>
-                    <li><strong>That $7,400 funds 130 MORE switches</strong> (after 15% operations, proven sustainable by Cuban)</li>
-                    <li><strong>Exponential cascade until 80% converted</strong> (120M on Medicaid)</li>
-                    <li><strong>Then extend to VA, Medicare, hospitals, clinics</strong> nationwide</li>
-                </ol>
-                
-                <p style="color: #81c784; font-weight: bold; margin-top: 20px;">
-                    <strong>THE POWER:</strong> 120M members = unprecedented buying power. Providers compete for access. ZORTT wants to join US (not us chasing them).
-                </p>
-                
-                <p style="color: #4caf50; font-weight: bold; margin-top: 15px;">
-                    <strong>THE RESULT:</strong> CMS saved. Cascade failures prevented. Universal coverage achieved. 8-14M jobs created. Congress forced to respond.
-                </p>
-            </div>
-
-            <details>
-                <summary style="color: #4caf50; font-size: 1.1em; font-weight: bold; cursor: pointer;">▼ See detailed math and cascade mechanics</summary>
-                <div style="margin-top: 20px; color: #c8e6c9;">
-                    
-                    <h3>Why People-Owned Platforms?</h3>
-                    <p><strong>Members choose which telehealth platforms PHIERS approves.</strong> You decide. PHIERS pays the bill. No partnerships. No contracts. Members control.</p>
-                    
-                    <div style="background: #a3d9a5; border-left: 4px solid #27ae60; padding: 15px; margin: 15px 0; border-radius: 5px; color: #000;">
-                        <strong>This Creates Market Dominance:</strong>
-                        <ul style="margin: 15px 0 0 20px;">
-                            <li><strong>120M members</strong> = unprecedented buying power</li>
-                            <li><strong>Providers compete</strong> for access to our membership</li>
-                            <li><strong>Competition</strong> = innovation + better service + lower costs</li>
-                            <li><strong>Members can switch</strong> anytime (providers stay sharp)</li>
-                            <li><strong>ZORTT wants to join US</strong> (not us chasing them)</li>
-                        </ul>
-                    </div>
-                    
-                    <h3>Current Reality</h3>
-                    <p><strong>CMS pays $8,000/year per Medicaid beneficiary</strong> for traditional insurance. <strong>80% don't need hospitalization.</strong> They'd be fine with telehealth at $600/year. <strong>Difference: $7,400 saved per person.</strong></p>
-                    
-                    <h3>The First Switch</h3>
-                    <p>Congress approves people-owned telehealth in ACA. First individual switches from $8K to $600. <strong>CMS saves $7,400.</strong> That funds 130 more people to switch (after 15% operations captured for sustainability).</p>
-                    
-                    <h3>The Cascade</h3>
-                    <p>Those 130 switch. Generate $962,000 additional CMS savings. After 15% operations, funds 16,900 more switches. Those 16,900 generate $125M additional. <strong>Exponential growth.</strong></p>
-                    
-                    <p><strong>Timeline: Reaches 120M Medicaid beneficiaries in 6-8 months.</strong></p>
-                    
-                    <h3>Then Extend to Everyone</h3>
-                    <p><strong>Once Medicaid is converted (80% = 120M people):</strong></p>
-                    <ul style="margin-left: 20px;">
-                        <li><strong>VA benefits extended</strong> (8M veterans get same coverage)</li>
-                        <li><strong>Medicare conversion begins</strong> (64M seniors eligible)</li>
-                        <li><strong>Hospitals & clinics funded</strong> (infrastructure strengthened)</li>
-                        <li><strong>CMS saved</strong> (prevents cascade failures across all programs)</li>
-                    </ul>
-                    
-                    <div style="background: #a3d9a5; border-left: 4px solid #27ae60; padding: 15px; margin: 15px 0; border-radius: 5px; color: #000;">
-                        <strong>Annual Numbers at Full Scale:</strong>
-                        <ul style="margin: 15px 0 0 20px;">
-                            <li><strong>Total CMS Savings:</strong> $888B/year (120M × $7,400)</li>
-                            <li><strong>PHIERS Operating Revenue (15%):</strong> $133.2B/year (sustainable operations)</li>
-                            <li><strong>Expansion Fund (85%):</strong> $754.8B/year (jobs + UBI + infrastructure)</li>
-                        </ul>
-                        <p style="margin-top: 15px;"><strong>Why 15%?</strong> Cuban's Cost Plus uses 15% markup and is profitable at 7M customers. We're following his proven model at 17x scale.</p>
-                    </div>
-                    
-                    <h3>The Jobs Created</h3>
-                    <p>Case managers, health coordinators, community organizers, supply chain workers, tech specialists. <strong>8-14M AI-resistant positions</strong> funded by savings cascade.</p>
-                    
-                    <h3>The UBI Component</h3>
-                    <p>$754.8B expansion fund supports monthly payments. $6,000/year = 125M people receiving UBI. Economic stability during AI transition.</p>
-                </div>
-            </details>
-
-            <div class="validation-box" style="margin-top: 30px;">
-                <div class="validation-title">✅ Validation Trinity</div>
-                <div class="validation-content">
-                    <p><strong>Mark Cuban (Cost Plus):</strong> 7M customers, 80-90% Rx savings. Pharmaceutical model works at scale.</p>
-                    <p><strong>ZORTT Elite Medical:</strong> Operational 2+ years. Cooperative delivery model works.</p>
-                    <p><strong>Erica Chenoweth (Harvard):</strong> 3.5% participation = guaranteed systemic change. Never failed.</p>
-                </div>
-            </div>
-
-            <!-- VIDEO: LEVERAGE (4:44) -->
-            <div class="video-item" style="margin-top: 30px;">
-                <h4>Our Leverage Over Congress (4:44)</h4>
-                <p>$1.95B per district. 400:1 advantage. Why they MUST respond.</p>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/xy3F9ZWbgS8" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
-
-            <div class="button-group" style="margin-top: 30px;">
-                <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" class="btn btn-primary">✍️ Sign Petition</a>
-                <a href="https://forms.gle/xVcSk4cT3VDseSiEA" target="_blank" class="btn btn-primary">📝 Fill Survey</a>
-            </div>
-        </section>
-
-        <!-- 5D SOLUTIONS SECTION -->
-        <section id="5d-solutions">
-            <h2>🧩 The 5D Framework (All Dimensions Connected)</h2>
-            
-            <div class="graphic-container">
-                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Operating_System_Firewall.png" 
-                     alt="PHIERS Operating System" 
-                     class="clickable-image" 
-                     style="max-width: 40%; min-width: 200px;">
-                <p><strong>PHIERS Operating System - Distributed Intelligence</strong><br>(Click to enlarge)</p>
-            </div>
-            
-            <div class="validation-box">
-                <div class="validation-title">The Rubik's Cube Problem</div>
-                <div class="validation-content">
-                    <p>Traditional approaches try to solve healthcare, jobs, economy, politics, and peace separately. This fails because every move on one dimension affects all others—like solving a Rubik's cube one face at a time.</p>
-                    <p style="margin-top: 10px;"><strong>PHIERS solves all 5 dimensions simultaneously by creating market power through people-owned telehealth approval.</strong></p>
-                </div>
-            </div>
-
-            <div style="background: rgba(76, 175, 80, 0.05); padding: 25px; border-radius: 8px; margin: 20px 0;">
-                <h3 style="margin-top: 0;">Dimension 1: Healthcare 🏥</h3>
-                <p><strong>Problem:</strong> CMS at risk. 22M lost coverage. Prices spiking.</p>
-                <p><strong>Solution:</strong> People-owned telehealth approved by CMS → cascade → 120M converted → CMS saved → cascade failures prevented</p>
-                
-                <h3>Dimension 2: Jobs 💼</h3>
-                <p><strong>Problem:</strong> AI eliminating 50M positions. No replacement.</p>
-                <p><strong>Solution:</strong> Savings fund 8-14M AI-resistant jobs (case managers, coordinators, organizers) from $754.8B expansion fund</p>
-                
-                <h3>Dimension 3: Economy 💰</h3>
-                <p><strong>Problem:</strong> Healthcare costs draining economy. Families bankrupted.</p>
-                <p><strong>Solution:</strong> $888B annual CMS savings + UBI ($6K/year × 125M) = economic stimulus + poverty reduction</p>
-                
-                <h3>Dimension 4: Politics 🗳️</h3>
-                <p><strong>Problem:</strong> Congress gridlocked. People powerless.</p>
-                <p><strong>Solution:</strong> 3.5% organized (11.6M) = mathematical leverage. Primary challenges force accountability. Use PHIERS or step aside.</p>
-                
-                <h3>Dimension 5: Peace ☮️</h3>
-                <p><strong>Problem:</strong> Division, anger, system feels rigged.</p>
-                <p><strong>Solution:</strong> Healing-focused transformation. Everyone wins through cooperative economics. Safety net strengthened. People empowered.</p>
-            </div>
-
-            <!-- VIDEO: BERA/TRUMP (11:11) -->
-            <div class="video-item" style="margin-top: 30px;">
-                <h4>Bipartisan Support - Bera & Trump Agree (11:11)</h4>
-                <p>Both want lower costs. PHIERS delivers what both promised.</p>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/bEUyDVAYwpk" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
-
-            <p style="color: #81c784; font-weight: bold; margin-top: 20px;">
-                This is why it works when nothing else does. We're not solving one problem—we're solving the interconnected system.
-            </p>
-        </section>
-
-        <!-- THE CRISIS SECTION -->
-        <section id="crisis">
-            <h2>⚠️ The Crisis (Why CMS Matters)</h2>
-            
-            <div class="urgent-banner">
-                <div class="urgent-title">🔥 CMS at Critical Risk</div>
-                <div class="urgent-content">
-                    22M lost coverage Dec 31. Jan 31 shutdown deadline. If CMS fails, cascade failures hit VA, Medicare, Medicaid. Millions lose essential services.
-                </div>
-            </div>
-
-            <h3>What Just Happened</h3>
-            <ul>
-                <li><strong>Congress failed to extend ACA subsidies.</strong> 22M lost coverage Jan 1.</li>
-                <li><strong>Premiums spiked 400%+ for millions.</strong> Families can't afford coverage.</li>
-                <li><strong>Trump eliminating 30K VA jobs.</strong> Veterans losing critical services.</li>
-                <li><strong>CMS under severe stress.</strong> Cascade failures threaten entire safety net.</li>
-            </ul>
-
-            <h3>Why This Is Existential</h3>
-            <p><strong>CMS (Centers for Medicare & Medicaid Services) is the foundation.</strong> If it fails:</p>
-            <ul>
-                <li><strong>VA benefits collapse</strong> (relies on CMS infrastructure)</li>
-                <li><strong>Medicare threatened</strong> (same administrative system)</li>
-                <li><strong>Medicaid disappears</strong> (150M people lose coverage)</li>
-                <li><strong>Hospitals close</strong> (no reimbursement mechanism)</li>
-                <li><strong>Safety net destroyed</strong> (cascade failures everywhere)</li>
-            </ul>
-
-            <h3>Why PHIERS Saves CMS</h3>
-            <p><strong>By getting CMS to approve people-owned telehealth:</strong></p>
-            <ul>
-                <li><strong>Immediate savings:</strong> $7,400/person switched = billions annually</li>
-                <li><strong>Cascade relief:</strong> Exponential savings reduce CMS burden</li>
-                <li><strong>Infrastructure preserved:</strong> VA/Medicare/Medicaid all protected</li>
-                <li><strong>Political support:</strong> 3.5% organized forces Congressional action</li>
-            </ul>
-
-            <div class="stats">
-                <div class="stat-box">
-                    <div class="stat-number">$888B</div>
-                    <div class="stat-label">Annual CMS Savings at Scale</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-number">120M</div>
-                    <div class="stat-label">Medicaid Beneficiaries Converted</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-number">11.6M</div>
-                    <div class="stat-label">Needed for 3.5% Threshold</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-number">8-14M</div>
-                    <div class="stat-label">Jobs Created from Savings</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- LEVERAGE SECTION -->
-        <section id="leverage">
-            <h2>🎯 Why Congress Will Act</h2>
-            
-            <div class="graphic-container">
-                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/99-to-1_Odds.png" 
-                     alt="99-to-1 Odds - Congressional Leverage" 
-                     class="clickable-image" 
-                     style="max-width: 50%; min-width: 200px;">
-                <p><strong>400:1 Advantage Over Corporate Lobbying</strong><br>(Click to enlarge)</p>
-            </div>
-            
-            <div class="validation-box">
-                <div class="validation-title">Political Mathematics</div>
-                <div class="validation-content">
-                    <p>At 3.5% organized (11.6M Americans), Congress has no choice. Four leverage points make approval politically inevitable:</p>
-                </div>
-            </div>
-
-            <h3>Leverage Point 1: Electoral Math</h3>
-            <p><strong>275,000 organized voters per district.</strong> Exceeds margin of victory in 90%+ of races. Opposing PHIERS = electoral suicide.</p>
-
-            <h3>Leverage Point 2: Economic Impact</h3>
-            <p><strong>$1.95B saved per district annually.</strong> CMS savings + jobs created = economic transformation impossible to ignore.</p>
-
-            <h3>Leverage Point 3: Job Creation</h3>
-            <p><strong>18K-32K jobs per district.</strong> AI-resistant positions with paychecks. Representatives want credit.</p>
-
-            <h3>Leverage Point 4: Primary Challenges</h3>
-            <p><strong>Funding for challengers in every district.</strong> Use PHIERS, offer something better, or step aside.</p>
-
-            <!-- VIDEO: MAMDANI (5:55) -->
-            <div class="video-item" style="margin-top: 30px;">
-                <h4>Funding Progressive Agenda with PHIERS (5:55)</h4>
-                <p>$2.73T annual savings funds housing, education, infrastructure, jobs.</p>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/aGmPwBFGYOs" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
-
-            <div class="validation-box" style="margin-top: 30px;">
-                <div class="validation-title">Structural Power, Not Persuasion</div>
-                <div class="validation-content">
-                    <p>This isn't lobbying. This is mathematical reality:</p>
-                    <ul style="margin-top: 10px;">
-                        <li>275K voters per district (exceeds 90% of margins)</li>
-                        <li>$1.95B economic impact per district</li>
-                        <li>18K-32K jobs per district</li>
-                        <li>Primary challenge funding ready</li>
-                    </ul>
-                    <p style="margin-top: 10px;"><strong>Political cost of refusing exceeds cost of implementing.</strong></p>
-                </div>
-            </div>
-        </section>
-
-        <!-- TAKE ACTION SECTION -->
-        <section id="take-action">
-            <h2>🚀 Take Action</h2>
-            
-            <h3>Step 1: Sign the Petition</h3>
-            <p>Every signature moves us toward 11.6M (3.5% threshold). Foundation of structural power.</p>
-            <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" class="btn btn-primary">✍️ Sign Petition Now</a>
-
-            <h3 style="margin-top: 30px;">Step 2: Fill the Survey</h3>
-            <p>Tell your story. Help us understand who's affected. Data strengthens our case.</p>
-            <a href="https://forms.gle/xVcSk4cT3VDseSiEA" target="_blank" class="btn btn-primary">📝 Complete Survey</a>
-
-            <h3 style="margin-top: 30px;">Step 3: Share Widely</h3>
-            <p>Every share reaches people who need this. Use hashtags: #PHIERS #MABAH #PHIERStorm</p>
-            <div class="button-group">
-                <a href="https://twitter.com/intent/tweet?text=Saving%20CMS%20prevents%20cascade%20failures%20across%20VA%2C%20Medicare%2C%20Medicaid.%20PHIERS%20creates%20people-owned%20solution.%20Join%3A%20https%3A%2F%2Fforms.gle%2F3yRQA4Cv64HDqt6eA%20%23PHIERS" target="_blank" class="btn btn-secondary">Share on X/Twitter</a>
-                <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fphiers.org" target="_blank" class="btn btn-secondary">Share on Facebook</a>
-            </div>
-
-            <h3 style="margin-top: 30px;">Step 4: Join Discord</h3>
-            <p>Connect with organizers, coordinate local action, build the movement.</p>
-            <a href="https://discord.gg/narhDKJY" target="_blank" class="btn btn-discord">💬 Join Discord</a>
-
-            <h3 style="margin-top: 30px;">Step 5: Support the Mission</h3>
-            <p>Fund petition drives, media outreach, organizing tools. People-powered, not corporate.</p>
-            <a href="https://gofund.me/b5af1eb6" target="_blank" class="btn btn-primary">💰 Contribute</a>
-
-            <div class="join-us-cta" style="margin-top: 40px;">
-                <h3>The Time Is Now</h3>
-                <p>CMS at risk. Jan 31 deadline. 3.5% = mathematical leverage.</p>
-                <p style="font-weight: bold; color: #4caf50;">Sign. Share. Organize. Save CMS. Force Congress to act.</p>
-            </div>
-        </section>
-
-        <!-- FAQ SECTION -->
-        <section id="faq">
-            <h2>❓ Frequently Asked Questions</h2>
-            
-            <h3>Q: Is this real?</h3>
-            <p><strong>A: Yes. Three independent validations:</strong></p>
-            <ul>
-                <li>Mark Cuban (7M customers, 80-90% Rx savings)</li>
-                <li>ZORTT Elite Medical (2+ years operational)</li>
-                <li>Erica Chenoweth (3.5% threshold, Harvard research)</li>
-            </ul>
-
-            <h3>Q: Why does CMS matter so much?</h3>
-            <p><strong>A: CMS is the foundation.</strong> If it fails, cascade failures hit VA, Medicare, Medicaid, hospitals, clinics. Saving CMS saves the entire safety net.</p>
-
-            <h3>Q: How does people-owned work?</h3>
-            <p><strong>A: Members choose platforms. PHIERS pays bills.</strong> No partnerships. No contracts. Members control which telehealth providers get approved. This creates competition = better service + lower costs.</p>
-
-            <h3>Q: Why would ZORTT want to join?</h3>
-            <p><strong>A: Access to 120M members.</strong> That's unprecedented market power. Providers compete for access to OUR membership. We're not chasing them—they want us.</p>
-
-            <h3>Q: Will Congress actually listen?</h3>
-            <p><strong>A: At 3.5%, they have no choice.</strong> 275K organized voters per district. $1.95B economic impact. 18K-32K jobs. Political cost of refusing exceeds cost of implementing.</p>
-
-            <h3>Q: How long will this take?</h3>
-            <p><strong>A: 6-8 months to full Medicaid conversion.</strong> Cascade is exponential. Once Congress approves, growth is mathematically inevitable.</p>
-
-            <h3>Q: Is this partisan?</h3>
-            <p><strong>A: No.</strong> CMS crisis affects everyone. Savings help everyone. Jobs help everyone. This is about healing the system, not taking sides.</p>
-
-            <h3>Q: Who's Will Price?</h3>
-            <p><strong>A: Public health advocate, systems designer.</strong> 15+ years developing PHIERS. Partnered with <span class="al-wilson-link">Al Wilson</span> on pharmaceutical strategy. Validated by Cuban, ZORTT, Chenoweth.</p>
-        </section>
-
-        <!-- MY STORY SECTION -->
-        <section id="my-story">
-            <h2>👤 My Story (Why I'm Doing This)</h2>
-            
-            <p style="font-size: 1.05em; color: #c8e6c9; line-height: 1.9;">
-                I'm <strong>Will Price</strong>, a public health advocate and systems designer. I didn't set out to revolutionize healthcare—I was forced into it by watching people I cared about suffer in a broken system.
-            </p>
-
-            <h3>The Realization</h3>
-            <p>The healthcare crisis isn't about money—it's about misaligned incentives. We have resources. We have technology. What we lack is a system that rewards healing instead of extraction.</p>
-
-            <h3>The 15-Year Journey</h3>
-            <p>Partnered with <span class="al-wilson-link">Al Wilson</span> on pharmaceutical strategy. Watched Cuban prove the Rx model. Watched ZORTT prove delivery. Studied Chenoweth's organizing research. Every piece validated independently.</p>
-
-            <h3>Why Now</h3>
-            <p>CMS is at risk. Dec 31 crisis. Jan 31 shutdown. The pieces exist NOW. Cuban proved it (2022). ZORTT proved it (2023). Chenoweth proved it (published research). This is the moment.</p>
-
-            <h3>The Vision</h3>
-            <p>Every American has healthcare. Millions work AI-resistant jobs. UBI provides stability. System rewards healing. CMS saved. Safety net strengthened. We can all be all we can be.</p>
-
-            <p style="margin-top: 30px; font-size: 1.1em; color: #4caf50; font-weight: bold;">
-                This isn't about me. This is about saving CMS and preventing cascade failures. Sign petition. Share widely. Force Congress to act.
-            </p>
-
-            <div class="button-group" style="margin-top: 30px;">
-                <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" class="btn btn-primary">✍️ Sign Petition</a>
-                <a href="https://discord.gg/narhDKJY" target="_blank" class="btn btn-discord">💬 Join Movement</a>
-            </div>
-        </section>
-
-        <!-- RESOURCES SECTION -->
-        <section id="resources">
-            <h2>📚 Resources & Documentation</h2>
-            
-            <h3>Core Documents</h3>
-            <ul>
-                <li><a href="https://phiersale.github.io/PHIERS-FAQ/" target="_blank" style="color: #4caf50;">Comprehensive FAQ</a></li>
-                <li><a href="https://phiersale.github.io/PHIERS-Concept/evidence-hub/" target="_blank" style="color: #4caf50;">Evidence Hub</a></li>
-                <li><a href="https://phiersale.github.io/PHIERS-Concept/clarification.html" target="_blank" style="color: #4caf50;">Full Story</a></li>
-            </ul>
-
-            <h3>Validation Sources</h3>
-            <ul>
-                <li><a href="https://costplusdrugs.com/" target="_blank" style="color: #4caf50;">Mark Cuban Cost Plus</a></li>
-                <li><a href="https://www.zorttelitemedical.com/" target="_blank" style="color: #4caf50;">ZORTT Elite Medical</a></li>
-                <li><a href="https://carrcenter.hks.harvard.edu/publications/nonviolent-resistance-and-prevention-mass-killings-during-popular-uprisings" target="_blank" style="color: #4caf50;">Erica Chenoweth Research</a></li>
-            </ul>
-
-            <h3>Action Links</h3>
-            <ul>
-                <li><a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" style="color: #4caf50;">Sign Petition</a></li>
-                <li><a href="https://forms.gle/xVcSk4cT3VDseSiEA" target="_blank" style="color: #4caf50;">Fill Survey</a></li>
-                <li><a href="https://gofund.me/b5af1eb6" target="_blank" style="color: #4caf50;">Support Mission</a></li>
-                <li><a href="https://discord.gg/narhDKJY" target="_blank" style="color: #4caf50;">Join Discord</a></li>
-            </ul>
-
-            <h3>Contact</h3>
-            <p>Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="11667561637872516179787463623f7e6376">[email&#160;protected]</a></p>
-            <p>Phone: 301-919-0970</p>
-        </section>
-
-        <!-- Footer -->
-        <footer>
-            <p><strong>PHIERS Movement | Make America Better And Healthier</strong></p>
-            <p>Save CMS. Prevent Cascade Failures. People-Owned Healthcare.</p>
-            <p>Contact: 301-919-0970 | <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f2859682809b91b2829a9b978081dc9d8095">[email&#160;protected]</a></p>
-            <p style="margin-top: 15px;">
-                <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" style="color: #4caf50;">Sign Petition</a> |
-                <a href="https://forms.gle/xVcSk4cT3VDseSiEA" target="_blank" style="color: #4caf50;">Fill Survey</a> |
-                <a href="https://gofund.me/b5af1eb6" target="_blank" style="color: #4caf50;">Support Mission</a> |
-                <a href="https://discord.gg/narhDKJY" target="_blank" style="color: #4caf50;">Join Discord</a>
-            </p>
-        </footer>
-    </div>
-
-    <!-- AL WILSON POPUP -->
-    <div class="popup-backdrop" id="alWilsonBackdrop"></div>
-    <div class="tooltip-popup" id="alWilsonPopup">
-        <div class="popup-header">
-            <h4>Al Wilson Partnership</h4>
-            <button class="popup-close" onclick="closeAlWilsonPopup()">&times;</button>
-        </div>
-        <div class="popup-content">
-            <p><strong>Al Wilson</strong> is Will Price's 16-year strategic partner on pharmaceutical cost reduction.</p>
-            <p style="margin-top: 10px;">Together, they developed the SureSafe model in 2009—eliminate profit from drug pricing. Mark Cuban implemented identical model in 2022.</p>
-            <p style="margin-top: 10px;">Al's expertise in supply chain and cost reduction is foundational to PHIERSale's ability to deliver lowest prices.</p>
-        </div>
-    </div>
-
-    <!-- LIGHTBOX MODAL -->
-    <div class="lightbox-modal" id="lightboxModal">
-        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
-        <img class="lightbox-content" id="lightboxImage">
-    </div>
-
-    <!-- SURVEY FUNNEL POPUP -->
-    <div class="survey-funnel-overlay" id="surveyFunnelOverlay">
-        <div class="survey-funnel-container">
-            <button class="survey-funnel-close" onclick="closeSurveyFunnel()">&times;</button>
-            <div style="animation: popIn 0.4s ease;">
-                <h2 style="color: #4caf50; margin-bottom: 15px; border: none; padding: 0;">⚡ We're Building Power</h2>
-                <p class="urgency-text">CMS at risk. Jan 31 deadline.<br>3.5% = mathematical leverage.</p>
-                <p class="stats-text">We need 11.6M signatures.<br>Every one counts.</p>
-                <p style="color: #c8e6c9; margin: 20px 0;">Sign petition. Force Congress to save CMS.</p>
-                <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" class="btn-sign" onclick="closeSurveyFunnel()">✍️ Sign Petition Now</a>
-                <p class="close-hint">(Click X to close)</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- JAVASCRIPT -->
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        // Section Navigation
-        const navItems = document.querySelectorAll('.nav-item');
-        const sections = document.querySelectorAll('section');
-
-        navItems.forEach(item => {
-            item.addEventListener('click', () => {
-                const targetSection = item.getAttribute('data-section');
-                navItems.forEach(nav => nav.classList.remove('active'));
-                item.classList.add('active');
-                sections.forEach(section => section.classList.remove('active'));
-                document.getElementById(targetSection).classList.add('active');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-        });
-
-        // Al Wilson Popup
-        function showAlWilsonPopup() {
-            document.getElementById('alWilsonPopup').classList.add('active');
-            document.getElementById('alWilsonBackdrop').classList.add('active');
+    <!-- ALL FUNCTIONS - DEFINED EARLY IN HEAD -->
+    <script>
+        
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => section.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => item.classList.remove('active'));
+            document.querySelector(`[onclick="showSection('${sectionId}')\"]`).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+        
+        function showPopup(popupId) {
+            document.getElementById(popupId).classList.add('active');
+            document.querySelector('.popup-backdrop').classList.add('active');
+        }
+        
+        function closePopup(popupId) {
+            document.getElementById(popupId).classList.remove('active');
+            document.querySelector('.popup-backdrop').classList.remove('active');
+        }
+        
+        function closeCrisisAlert() {
+            document.getElementById('crisisAlert').classList.add('hidden');
         }
 
-        function closeAlWilsonPopup() {
-            document.getElementById('alWilsonPopup').classList.remove('active');
-            document.getElementById('alWilsonBackdrop').classList.remove('active');
-        }
-
-        document.querySelectorAll('.al-wilson-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                showAlWilsonPopup();
-            });
-        });
-
-        document.getElementById('alWilsonBackdrop').addEventListener('click', closeAlWilsonPopup);
-
-        // Lightbox
+        // Lightbox functionality for clickable images
         function openLightbox(imageSrc) {
-            document.getElementById('lightboxModal').classList.add('active');
-            document.getElementById('lightboxImage').src = imageSrc;
+            const modal = document.getElementById('lightboxModal');
+            const img = modal.querySelector('.lightbox-content');
+            img.src = imageSrc;
+            modal.classList.add('active');
         }
 
         function closeLightbox() {
             document.getElementById('lightboxModal').classList.remove('active');
         }
 
-        document.querySelectorAll('.clickable-image').forEach(img => {
-            img.addEventListener('click', () => openLightbox(img.src));
-        });
-
-        document.getElementById('lightboxModal').addEventListener('click', (e) => {
-            if (e.target === e.currentTarget) closeLightbox();
-        });
-
-        // Survey Funnel (45 seconds)
-        function showSurveyFunnel() {
-            if (!sessionStorage.getItem('surveyFunnelDismissed')) {
-                document.getElementById('surveyFunnelOverlay').style.display = 'flex';
-            }
-        }
-
-        function closeSurveyFunnel() {
-            document.getElementById('surveyFunnelOverlay').style.display = 'none';
-            sessionStorage.setItem('surveyFunnelDismissed', 'true');
-        }
-
-        setTimeout(showSurveyFunnel, 45000);
-
-        // Keyboard shortcuts
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                closeAlWilsonPopup();
+        // Close lightbox when clicking outside image
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('lightboxModal');
+            if (event.target === modal) {
                 closeLightbox();
-                closeSurveyFunnel();
-                closeClarificationModal();
             }
         });
 
-        // Clarification Modal
-        function closeClarificationModal() {
-            document.getElementById('clarificationModal').style.display = 'none';
-            localStorage.setItem('phiersModalSeen', 'true');
+        // Close lightbox on Escape key
+        window.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+
+        // Initialize clickable images on page load
+        window.addEventListener('load', function() {
+            document.querySelectorAll('img.clickable-image').forEach(img => {
+                img.addEventListener('click', function() {
+                    openLightbox(this.src);
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- EARLY POPUP STATE CHECK - Run before popup renders -->
+    <script>
+        // Define function FIRST so button can call it
+        function closeConsequencesPopup() {
+            var popup = document.getElementById('consequencesPopup');
+            if (popup) {
+                popup.style.display = 'none';
+            }
+            localStorage.setItem('phiersPopupClosed', 'true');
+            // Show survey funnel next
+            if (!localStorage.getItem('surveyFunnelClosed')) {
+                setTimeout(function() {
+                    var surveyOverlay = document.getElementById('surveyFunnelOverlay');
+                    if (surveyOverlay) {
+                        surveyOverlay.style.display = 'flex';
+                    }
+                }, 300);
+            }
+        }
+        
+        // Hide popup if already closed
+        if (localStorage.getItem('phiersPopupClosed') === 'true') {
+            document.write('<style>#consequencesPopup { display: none !important; }</style>');
+        }
+    </script>
+
+    <!-- CONSEQUENCES MODAL POPUP -->
+    <div id="consequencesPopup" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); z-index: 10000; display: flex; align-items: center; justify-content: center;">
+        <div style="position: relative; max-width: 90vw; max-height: 90vh;">
+            <button onclick="closeConsequencesPopup()" style="position: absolute; top: -40px; right: 0; background: #4caf50; color: white; border: none; padding: 8px 12px; font-size: 1.5em; font-weight: bold; border-radius: 50%; cursor: pointer; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">×</button>
+            <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/99_to_1_Great_Odds_wide.png" alt="99 to 1 - Those Are Great Odds" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);">
+        </div>
+    </div>
+
+    <!-- ALL FUNCTIONS - IMMEDIATE EXECUTION -->
+    <script>
+        function closeSurveyFunnel() {
+            var overlay = document.getElementById('surveyFunnelOverlay');
+            if (overlay) {
+                overlay.style.display = 'none';
+            }
+            // Set flag so survey won't show again
+            localStorage.setItem('surveyFunnelClosed', 'true');
+        }
+        
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => section.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => item.classList.remove('active'));
+            document.querySelector(`[onclick="showSection('${sectionId}')\"]`).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+        
+        function showPopup(popupId) {
+            document.getElementById(popupId).classList.add('active');
+            document.querySelector('.popup-backdrop').classList.add('active');
+        }
+        
+        function closePopup(popupId) {
+            document.getElementById(popupId).classList.remove('active');
+            document.querySelector('.popup-backdrop').classList.remove('active');
+        }
+        
+        function closeCrisisAlert() {
+            document.getElementById('crisisAlert').classList.add('hidden');
         }
 
-        // Show clarification modal on page load (if not seen before)
-        window.addEventListener('load', () => {
-            if (!localStorage.getItem('phiersModalSeen')) {
-                setTimeout(() => {
-                    document.getElementById('clarificationModal').style.display = 'flex';
-                }, 1000);
+        function closeConsequencesPopup() {
+            var popup = document.getElementById('consequencesPopup');
+            if (popup) {
+                popup.style.display = 'none';
             }
-        });
+            // Set flag so popup won't show again
+            localStorage.setItem('phiersPopupClosed', 'true');
+            
+            // Show survey funnel next (unless they've already closed it)
+            if (!localStorage.getItem('surveyFunnelClosed')) {
+                setTimeout(function() {
+                    var surveyOverlay = document.getElementById('surveyFunnelOverlay');
+                    if (surveyOverlay) {
+                        surveyOverlay.style.display = 'flex';
+                    }
+                }, 300);
+            }
+        }
 
-        // Close modal when clicking outside
-        document.getElementById('clarificationModal').addEventListener('click', (e) => {
-            if (e.target.id === 'clarificationModal') {
-                closeClarificationModal();
-            }
+        // Hide popup if user previously closed it
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                if (localStorage.getItem('phiersPopupClosed') === 'true') {
+                    var popup = document.getElementById('consequencesPopup');
+                    if (popup) {
+                        popup.style.display = 'none';
+                    }
+                }
+                if (localStorage.getItem('surveyFunnelClosed') === 'true') {
+                    var survey = document.getElementById('surveyFunnelOverlay');
+                    if (survey) {
+                        survey.style.display = 'none';
+                    }
+                }
+            }, 100);
         });
+    </script>
+
+    <div class="survey-funnel-overlay" id="surveyFunnelOverlay">
+        <div class="survey-funnel-container">
+            <button type="button" class="survey-funnel-close" onclick="closeSurveyFunnel()">×</button>
+            <div class="survey-funnel-content">
+                <h2>⚠️ WE HAVE THE SOLUTION ⚠️</h2>
+                <p class="urgency-text">Become the 3.5% That Forces Congress to Listen<br>Fix Healthcare. End Wars. Reverse Destructive Policies.</p>
+                <p class="stats-text">3.5% = GUARANTEED SYSTEMIC CHANGE<br>WE HAVE 100M+ = 9x THE THRESHOLD<br>COOPERATIVE POWER = UNSTOPPABLE</p>
+                <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" class="btn-sign">🔥 SIGN PETITION (2 MIN) - BUILD THE MOVEMENT</a>
+                <p class="close-hint">or close this (X button) to learn how PHIERS actually works</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <header>
+            <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Logo.png" 
+                 alt="PHIERS Logo" 
+                 class="logo">
+            <p style="font-size: 1.5em; color: #4caf50; margin-bottom: 10px; font-weight: bold; text-shadow: 0 0 20px rgba(76, 175, 80, 0.3);">MABAH Movement</p>
+            <p style="font-size: 1.1em; color: #81c784; margin-bottom: 25px;">Making America Better And Healthier</p>
+            
+            <div style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(66, 133, 244, 0.15)); border: 2px solid rgba(76, 175, 80, 0.4); padding: 25px 30px; border-radius: 12px; max-width: 600px; margin: 0 auto;">
+                <p style="font-size: 1.1em; color: white; margin: 0 0 15px 0; font-weight: bold;">Congress Failed. Now They Have to Fix It.</p>
+                <p style="font-size: 0.95em; color: #81c784; margin: 0 0 15px 0; font-weight: bold;">Prices spiking. Coverage dropping. Jobs cut. Shutdown on Jan 31<span style="color: #4caf50; font-size: 1.3em; font-weight: bold;">?</span></p>
+                <p style="font-size: 1.1em; color: #4caf50; margin: 0 0 25px 0; font-weight: bold;">NOT IF 3.5% join the PHIERStorm Movement</p>
+                <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" style="background: linear-gradient(135deg, #4caf50, #2e7d32); color: white; padding: 14px 32px; font-size: 1.1em; font-weight: bold; border: 2px solid #4caf50; border-radius: 8px; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.3s; box-shadow: 0 5px 20px rgba(76, 175, 80, 0.3);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 30px rgba(76, 175, 80, 0.5)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 5px 20px rgba(76, 175, 80, 0.3)';">🔥 Join PHIERStorm Now - Sign Petition</a>
+            </div>
+        </header>
+        
+        <div class="nav-menu">
+            <div class="nav-item" onclick="showSection('main')">▼ Main</div>
+            <div class="nav-item" onclick="showSection('rubiks')">▶ 5D Solutions</div>
+            <div class="nav-item" onclick="showSection('crisis')">▶ The Crisis</div>
+            <div class="nav-item" onclick="showSection('works')">▶ How It Works</div>
+            <div class="nav-item" onclick="showSection('leverage')">▶ Leverage</div>
+            <div class="nav-item" onclick="showSection('action')">▶ Take Action</div>
+            <div class="nav-item" onclick="toggleSecondaryNav()">▼ More Resources</div>
+        </div>
+        
+        <div class="nav-menu" id="secondaryNav" style="display: none; border-top: 1px solid rgba(76, 175, 80, 0.3); padding-top: 10px; margin-top: 10px;">
+            <div class="nav-item" onclick="showSection('faq'); toggleSecondaryNav()">▶ FAQ 🔥 <span style="background: #e74c3c; color: white; padding: 2px 6px; border-radius: 3px; font-size: 0.8em; font-weight: bold; margin-left: 5px;">UPDATED</span></div>
+            <div class="nav-item" onclick="showSection('blog'); toggleSecondaryNav()">▶ News & Response</div>
+            <div class="nav-item" onclick="showSection('resources'); toggleSecondaryNav()">▶ Learn More</div>
+            <div class="nav-item" onclick="showSection('mystory'); toggleSecondaryNav()">▶ My Story</div>
+            <div class="nav-item" onclick="window.location.href='clarification.html'; toggleSecondaryNav()">▶ The Full Story 📖</div>
+        </div>
+        
+        <script>
+            function toggleSecondaryNav() {
+                const secondary = document.getElementById('secondaryNav');
+                const moreButton = document.querySelector('[onclick="toggleSecondaryNav()"]');
+                if (secondary.style.display === 'none') {
+                    secondary.style.display = 'grid';
+                    moreButton.textContent = '▲ More Resources';
+                } else {
+                    secondary.style.display = 'none';
+                    moreButton.textContent = '▼ More Resources';
+                }
+            }
+        </script>
+        
+
+        <!-- MAIN SECTION -->
+        <section id="main" class="active">
+
+            <div style="background: linear-gradient(135deg, rgba(52, 211, 153, 0.15), rgba(76, 175, 80, 0.1)); border: 2px solid #20c997; border-radius: 12px; padding: 25px 30px; margin-bottom: 40px; text-align: center;">
+                <h3 style="color: #4caf50; margin-top: 0; margin-bottom: 12px; font-size: 1.2em;">📖 Want the Complete Story?</h3>
+                <p style="color: #c8e6c9; margin-bottom: 15px; font-size: 0.95em;">Questions about our approach? Curious about our 16-year journey? Read the full context on Intelligent Glue, our partnership model, and building democratic power through solidarity.</p>
+                <a href="clarification.html" style="background: linear-gradient(135deg, #20c997, #0d9488); color: white; padding: 10px 24px; font-size: 0.95em; font-weight: bold; border-radius: 6px; text-decoration: none; display: inline-block; transition: all 0.3s;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 5px 15px rgba(32, 201, 151, 0.3)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">Read The Full Story →</a>
+            </div>
+
+            <h2 style="margin-bottom: 30px;">🧩 5D Solutions</h2>
+            <p style="color: #c8e6c9; font-size: 0.95em;">All 5 dimensions work together. Block one dimension, the others strengthen. This is how we solve interconnected crises simultaneously.</p>
+
+            <div style="text-align: center; margin-bottom: 50px; background: rgba(76, 175, 80, 0.1); padding: 30px; border-radius: 8px; border-left: 5px solid #4caf50;">
+
+                <h3 style="color: #4caf50; margin-top: 0; text-align: center; font-size: 1.3em; margin-bottom: 20px;">Why 5D Solutions Matter</h3>
+                
+                <div style="text-align: center; margin-bottom: 30px;">
+                    <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Rubiks_Cube_-_SYMBOLS.png" alt="5D Solutions - Interconnected" class="clickable-image" style="max-width: 20%; height: auto; cursor: pointer;">
+                </div>
+                
+                <p style="color: #c8e6c9; line-height: 1.8; margin: 0;"><span style="font-size: 1.2em; font-weight: bold; color: #81c784;">MOST SOLUTIONS</span> fix ONE problem for ONE group of people. Healthcare advocates need healthcare. Workers need jobs. Families need money. Activists need peace. Congress looks at all these separate needs and says "we can't afford to solve everything."</p>
+                
+                <p style="color: #c8e6c9; line-height: 1.8; margin-top: 15px;"><span style="font-size: 1.2em; font-weight: bold; color: #81c784;">ONE SOLUTION</span> solves for ALL of them simultaneously.</p>
+                
+                <div style="text-align: center; margin: 30px 0;">
+                    <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Tablet__Firewall.png" alt="PHIER-Powered Solutions - All Dimensions" class="clickable-image" style="max-width: 20%; height: auto; cursor: pointer;">
+                </div>
+                
+                <p style="color: #c8e6c9; line-height: 1.8; margin-top: 15px;"><strong>One solution. Five outcomes. No trade-offs.</strong> When you solve for people's deepest, shared unmet needs—healthcare, economic security, meaningful work, protection from extraction, peace with dignity—you create something that works for EVERYONE because each dimension strengthens the others.</p>
+                
+                <p style="color: #c8e6c9; line-height: 1.8; margin-top: 15px;"><strong>That's the spiritual core of this work:</strong> Solutions that honor the whole person, not just one need. Systems that heal interconnected problems, not create new ones. Abundance that flows to everyone, not extracted from the many.</p>
+                
+                <p style="color: #81c784; line-height: 1.8; margin-top: 20px; text-align: center; font-weight: bold;">We're glad you're here. This solution was built for people like you.</p>
+            </div>
+            
+            <h2>📹 Watch: The Bipartisan Solution (11:11)</h2>
+            <p>How 15 years of development created a solution that achieves Trump's cost reduction goals AND Bera's bipartisan approach. Features <span class="al-wilson-link" onclick="showPopup('alWilsonPopup')">Al Wilson</span>'s wellness success story and the 3 ways to actually reduce drug costs.</p>
+            
+            <div class="video-container" style="margin-bottom: 30px;">
+                <iframe width="100%" height="560" src="https://www.youtube.com/embed/bEUyDVAYwpk" frameborder="0" allowfullscreen="true" loading="lazy" title="The Bipartisan Solution - PHIERS"></iframe>
+            </div>
+            
+            <div class="validation-box">
+                <div class="validation-title">✅ What This Solution Delivers</div>
+                <div class="validation-content">
+                    <p><strong>Trump's Goal:</strong> Reduce drug and insurance costs</p>
+                    <p style="margin-top: 10px;"><strong>Bera's Goal:</strong> Bipartisan solution that helps everyone</p>
+                    <p style="margin-top: 10px;"><strong>Our Offer (3 Proven Ways):</strong></p>
+                    <ul>
+                        <li><a href="https://costpluspills.com" target="_blank" style="color: #81c784; text-decoration: underline;">Mark Cuban Cost Plus</a>: 7 million customers, 80-90% savings (<span class="al-wilson-link" onclick="showPopup('alWilsonPopup')">Al Wilson</span> originated this)</li>
+                        <li><strong>Cooperative Healthcare & Telemedicine:</strong> Al Wilson and Bill Wiggins (SureSafe Pharma founders) pioneered this in 2014. Now proven operational across the market - Mark Cuban with 7M customers, new telemedicine platforms with community marketplaces, all validating the model works.</li>
+                        <li><a href="https://www.ted.com/speakers/erica_chenoweth" target="_blank" style="color: #81c784; text-decoration: underline;">Erica Chenoweth (Harvard Kennedy School)</a>: 3.5% participation = systemic change guaranteed (See her TED Talk and published research)</li>
+                    </ul>
+                    <p style="margin-top: 10px;"><strong>The Results:</strong> $2.73 TRILLION annually (136x more than MFN alone) + millions of AI-resistant jobs + universal healthcare + economic stimulus</p>
+                </div>
+            </div>
+            
+            <h3 style="margin-top: 50px; padding-top: 30px; border-top: 2px solid rgba(76, 175, 80, 0.3);">Watch: 3 Ways to Reduce Drug Costs (Jump to 2:59 in video above)</h3>
+            <p>Instead of Trump's MFN negotiation or asking Big Pharma to voluntarily reduce prices, we're offering 3 proven ways that actually work:</p>
+            <ol style="margin-left: 20px; margin-top: 10px; color: #c8e6c9;">
+                <li><strong>Volume Discounts</strong> - Mark Cuban Cost Plus model (<span class="al-wilson-link" onclick="showPopup('alWilsonPopup')">Al Wilson</span> originated this)</li>
+                <li><strong>No Middlemen/Markups</strong> - Cooperative structure eliminates extraction</li>
+                <li><strong>Academic Partnerships</strong> - Experts finding better alternatives, increasing competition, driving down costs</li>
+            </ol>
+            
+            <div style="text-align: center; margin: 40px 0; background: rgba(76, 175, 80, 0.1); padding: 20px; border-radius: 8px;">
+                <p style="color: #81c784; margin-bottom: 15px; font-weight: bold;">💡 Academic R&D Proves It Works</p>
+                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/Drug_DEV_Costs__UAEM.png" alt="Drug Development Cost Comparison - Academic vs Big Pharma" class="clickable-image" style="max-width: 25%; height: auto; border-radius: 8px; cursor: pointer; margin: 0 auto; display: block;">
+                <p style="color: #c8e6c9; margin-top: 15px; font-size: 0.95em;">Alternative R&D models produce new drugs at 1/24th the cost of big pharma. Universities and nonprofits are already proving this works.</p>
+            </div>
+            
+            <div style="height: 20px;"></div>
+            
+            <h3>The Problem: The Cascade Congress Created</h3>
+            <p><strong>What happened Dec 31:</strong> Congress let subsidies expire. 22 million people lost coverage. Prices will spike as companies raise rates to keep profits. Uninsured people use ERs for care. Taxpayers pay for uncompensated care. The system collapses faster.</p>
+            
+            <div style="text-align: center; margin: 40px 0; background: rgba(76, 175, 80, 0.1); padding: 30px; border-radius: 8px; border-left: 5px solid #4caf50;">
+                <h3 style="color: #81c784; margin-bottom: 15px;">📹 Watch: The Moment (2:22)</h3>
+                <p style="margin-bottom: 20px; color: #c8e6c9;">Congress failed to prevent it. Prices are spiking. Now we have leverage until Jan 30. You.</p>
+                <div style="display: inline-block; max-width: 340px; width: 100%;">
+                    <iframe width="100%" height="191" src="https://www.youtube.com/embed/eE-TxvI0d4Q?si=0h3ASDJUZZvQgRSq" title="The Moment - PHIERS" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 8px;"></iframe>
+                </div>
+            </div>
+            
+            <p style="margin-top: 15px; color: #ffeb3b; font-weight: bold;">Congress created this problem. Now they must fix it before Jan 30 shutdown.</p>
+            
+            <div style="height: 30px;"></div>
+            
+            <h3>The Solution: Telehealth + Cascade Savings</h3>
+            <p>80% of government-insured beneficiaries don't need hospitalization. Switching them to $600/year telehealth (vs $8K traditional) = $7,400 freed per person. <strong>That saved money funds EVERYTHING else.</strong></p>
+            
+            <div class="stats">
+                <div class="stat-box">
+                    <div class="stat-number">$7,900</div>
+                    <div class="stat-label">Savings per person annually</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">11+</div>
+                    <div class="stat-label">People funded per conversion</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">$2.73T</div>
+                    <div class="stat-label">Total annual government savings</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">2.3M</div>
+                    <div class="stat-label">Jobs created through implementation</div>
+                </div>
+            </div>
+            
+            <div style="height: 40px;"></div>
+            
+            <h3>The Results: Universal Everything</h3>
+            <ul>
+                <li>✓ Healthcare for 234 million Americans</li>
+                <li>✓ Millions of new AI-resistant jobs</li>
+                <li>✓ Monthly assistance checks from cascade savings</li>
+                <li>✓ Union collective power at 100M+ scale</li>
+            </ul>
+            
+            <div style="height: 40px;"></div>
+            
+            <h3 style="margin-top: 25px;">⚡ Congress Failed. Now Demand They Fix It Before Jan 30.</h3>
+            <p>Organized constituent pressure works. We need 3.5% of voters in your district to sign the petition and demand Congress implement PHIERS before the Jan 30 shutdown deadline. That proves we have numbers. That forces town halls. Town halls force accountability. Policy change triggers the cascade.</p>
+            
+            <div class="button-group">
+                <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" class="btn btn-primary">✍️ Sign Petition</a>
+                <a href="https://forms.gle/xVcSk4cT3VDseSiEA" target="_blank" class="btn btn-primary">📝 Fill Survey</a>
+                <a href="https://www.gofundme.com/PHIERS" class="btn btn-secondary">💝 Support Mission</a>
+                <a href="https://discord.gg/narhDKJY" target="_blank" class="btn btn-discord">💬 Join Discord</a>
+            </div>
+            
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" disabled>← Back</button>
+                <button class="btn btn-primary" onclick="showSection('rubiks')">Next: 5D Solutions →</button>
+            </div>
+        </section>
+        
+        <!-- HOW IT WORKS SECTION -->
+        <section id="works">
+            <h2>⚙️ How It Works: The Exponential Mechanism</h2>
+            
+            <h3>Member Control: You Choose Your Provider</h3>
+            <p><strong>You decide which telehealth platform you use. PHIERS pays the bill.</strong> No partnerships. No contracts. No middlemen. Members are in charge.</p>
+            <div style="background: #a3d9a5; border-left: 4px solid #27ae60; padding: 15px; margin: 15px 0; border-radius: 5px; color: #000;">
+                <strong style="color: #000;">This Creates Market Dominance:</strong>
+                <ul style="margin: 15px 0 0 20px; color: #000;">
+                    <li style="color: #000;"><strong>175M members</strong> = unprecedented buying power</li>
+                    <li style="color: #000;"><strong>Providers compete</strong> for access to our membership</li>
+                    <li style="color: #000;"><strong>Competition</strong> = innovation + better service + lower costs</li>
+                    <li style="color: #000;"><strong>Members can switch</strong> anytime (providers stay sharp)</li>
+                    <li style="color: #000;"><strong>Market dominance</strong> funds RX savings + everything else</li>
+                </ul>
+            </div>
+            
+            <h3>Current Reality</h3>
+            <p><strong>CMS pays $8,000/year per beneficiary</strong> for traditional insurance. <strong>80% don't need hospitalization.</strong> They'd be fine with telehealth at $600/year. Difference: $7,400 freed per person.</p>
+            
+            <h3>The First Switch</h3>
+            <p>Congress allows telehealth in ACA. First individual switches from $8K to $600. <strong>$7,400 freed.</strong> Enough to PAY 12+ other individuals to switch.</p>
+            
+            <h3>The Cascade</h3>
+            <p>Those 12+ switch. Generate $88,800 additional freed savings. That funds 1,776 more switches. Those generate $13.2M additional. <strong>Exponential growth.</strong></p>
+            
+            <div style="height: 40px; border-top: 1px solid rgba(76, 175, 80, 0.2);"></div>
+            <div style="text-align: center; margin-bottom: 35px; background: rgba(76, 175, 80, 0.1); padding: 25px; border-radius: 8px; border-left: 5px solid #4caf50;">
+                <h3 style="color: #81c784; margin-bottom: 15px;">📹 Watch: The Mechanism (3:33)</h3>
+                <p style="margin-bottom: 20px; color: #c8e6c9; font-size: 0.95em;">The exact math. How $2+ TRILLION in savings work. Why Congress gets out of the way.</p>
+                <div style="display: inline-block; max-width: 340px; width: 100%;">
+                    <iframe width="100%" height="191" src="https://www.youtube.com/embed/jMU6LKEBzbs" title="The Mechanism - PHIERS" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 8px;"></iframe>
+                </div>
+            </div>
+            
+            <p style="text-align: center; margin: 20px 0 25px 0; font-size: 1.1em; color: #4caf50; font-weight: bold;">⬇️ Exponential math in action ⬇️</p>
+
+            <div class="graphic-container">
+                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/2_73_Savings_Infographic.png" alt="$2.73T in Savings - All Dimensions Connected" class="clickable-image" style="max-width: 25%; height: auto; cursor: pointer;">
+                <p>$2.73 Trillion in Annual Savings - All Interconnected Dimensions Protected Simultaneously</p>
+            </div>
+            
+            <div style="height: 50px; border-top: 1px solid rgba(76, 175, 80, 0.2);"></div>
+            
+            <h3>The Endpoint</h3>
+            <p><strong>120 million eventually switch.</strong> $2.73 TRILLION in freed government healthcare savings. Funds universal coverage for 234M + monthly assistance + jobs + case management. Self-sustaining. Exponential compounding.</p>
+            
+            <div class="graphic-container">
+                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Tablet__Firewall.png" alt="PHIERS-Powered Solutions Operating System - Firewall" class="clickable-image" style="max-width: 25%; height: auto; cursor: pointer;">
+                <p>PHIERS-Powered Solutions Operating System - Firewall Against Corporate Extraction</p>
+            </div>
+            
+            <div style="height: 50px; border-top: 1px solid rgba(76, 175, 80, 0.2);"></div>
+            
+            <h3 style="margin-top: 0;">⚡ The Math Is Inevitable</h3>
+            <p><strong>But it only starts if you sign the petition and fill out the survey.</strong> Your signature = proof we have numbers. Numbers = forced town halls. Town halls = Congressional pressure. Policy change = cascade begins.</p>
+
+            <h3 style="margin-top: 30px; padding-top: 30px; border-top: 2px solid rgba(76, 175, 80, 0.3);">⚡ See Your Impact: Timeline & Counter-Strategy</h3>
+            <p>Want to understand exactly HOW constituent power forces Congressional action, and HOW PHIERS counters Project 2025/DOGE across all 5 dimensions? Check out our interactive analysis:</p>
+            <div style="text-align: center;">
+                <a href="https://phiersale.github.io/PHIERS-Concept/phiers-interactive-impact.html" target="_blank" class="btn btn-primary" style="display: inline-block; margin-top: 15px; background: #16a34a;">⚡ Your Impact Timeline & DOGE Counter-Strategy</a>
+            </div>
+            
+            <div class="button-group">
+                <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" class="btn btn-primary">✍️ Sign Petition</a>
+                <a href="https://forms.gle/xVcSk4cT3VDseSiEA" target="_blank" class="btn btn-primary">📝 Fill Survey</a>
+            </div>
+            
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="showSection('crisis')">← Back: The Crisis</button>
+                <button class="btn btn-primary" onclick="showSection('leverage')">Next: Leverage →</button>
+            </div>
+        </section>
+        
+        <!-- LEVERAGE SECTION -->
+        <section id="leverage">
+            <h2>⚡ Congressional Leverage: Binary Choice</h2>
+
+            <h3 style="margin-top: 0;">⚡ See Your Impact: Timeline & Counter-Strategy</h3>
+            <p>Understand exactly HOW constituent power forces Congressional action, and HOW PHIERS counters Project 2025/DOGE across all 5 dimensions:</p>
+            <div style="text-align: center;">
+                <a href="https://phiersale.github.io/PHIERS-Concept/phiers-interactive-impact.html" target="_blank" class="btn btn-primary" style="display: inline-block; margin-top: 15px; background: #16a34a;">⚡ Your Impact Timeline & DOGE Counter-Strategy</a>
+            </div>
+            
+            <div style="height: 30px;"></div>
+            
+            <div class="graphic-container">
+                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/LEVERAGE_Pwr_of_the_People.png" alt="Power of the People - Congressional Leverage" class="clickable-image" style="max-width: 25%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2); margin: 0 auto; display: block; cursor: pointer;">
+                <p>Power of the People: 100M+ Constituents vs. $8.5M Corporate Average = 230:1 Advantage</p>
+            </div>
+            
+            <h3>Town Hall Pressure (Nader Rule)</h3>
+            <p>1,500 signatures = mandatory town hall. We're targeting 10,000+ per district. Representatives forced to face constituents with petition data + survey stories.</p>
+            
+            <h3>Primary Challenge Threat (Jan 2026)</h3>
+            <p>Any representative refusing telehealth faces immediate primary challenge. Healthcare IS the dominant issue (80% of voters). Refusing solution = automatic vulnerability.</p>
+            
+            <div class="graphic-container">
+                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/vote_lke_your_life_depends_on_it.jpg" alt="Vote Like Your Life Depends On It" class="clickable-image" style="cursor: pointer;">
+                <p>Because It Does. This Is About Healthcare. This Is About Survival.</p>
+            </div>
+            
+            <h3>Media Amplification (55M Readers)</h3>
+            <p><strong>Pathos Communications + International Business Times</strong> - Ready to publish PHIERS story. <strong>Publication happens when fundraising goal is reached.</strong> Your contribution directly funds the story that reaches 55M+ readers and changes the national conversation.</p>
+            
+            <h3>Mathematical Inevitability</h3>
+            <p>$1.95B per district constituent pressure vs. $8.5M corporate average. 230:1 advantage minimum. Congress cannot ignore mathematical superiority.</p>
+            
+            <h3 style="margin-top: 25px;">Congress's Choice Is Binary</h3>
+            
+            <div style="text-align: center; margin-bottom: 50px; background: rgba(76, 175, 80, 0.1); padding: 30px; border-radius: 8px; border-left: 5px solid #4caf50;">
+                <h3 style="color: #81c784; margin-bottom: 15px;">📹 Watch: The Vision (4:44)</h3>
+                <p style="margin-bottom: 20px; color: #c8e6c9;">What happens after we win. Organized people governing themselves.</p>
+                <div style="display: inline-block; max-width: 340px; width: 100%;">
+                    <iframe width="100%" height="191" src="https://www.youtube.com/embed/xy3F9ZWbgS8" title="The Vision - PHIERS" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 8px;"></iframe>
+                </div>
+            </div>
+            
+            <div style="background: rgba(76, 175, 80, 0.1); border: 2px solid #4caf50; padding: 20px; border-radius: 8px; margin: 15px 0;">
+                <h3 style="color: #4caf50; margin-top: 0;">OPTION A: LEAD THIS</h3>
+                <p>Say YES to telehealth in ACA by Jan 30. Become heroes. Save 22M people. Trigger exponential cascade. Be remembered as problem-solvers.</p>
+            </div>
+            
+            <div style="background: rgba(244, 67, 54, 0.1); border: 2px solid #f44336; padding: 20px; border-radius: 8px; margin: 15px 0;">
+                <h3 style="color: #ef5350; margin-top: 0;">OPTION B: FACE REPLACEMENT</h3>
+                <p>Refuse. Face 100M+ organized constituents demanding removal. Lose primary elections Jan 2026.</p>
+            </div>
+            
+            <p style="margin-top: 20px; color: #ffcdd2; font-weight: bold; text-align: center;"><strong>Congress will choose A. The pressure is mathematical. The choice is binary.</strong></p>
+            
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="showSection('works')">← Back: How It Works</button>
+                <button class="btn btn-primary" onclick="showSection('action')">Next: Take Action →</button>
+            </div>
+        </section>
+
+        <!-- TAKE ACTION SECTION -->
+        <section id="action">
+            <h2>✍️ Take Action RIGHT NOW</h2>
+
+            <h3 style="margin-top: 0;">⚡ See Your Impact: Timeline & Counter-Strategy</h3>
+            <p>Understand exactly HOW this works and HOW PHIERS counters Project 2025/DOGE across all 5 dimensions:</p>
+            <a href="https://phiersale.github.io/PHIERS-Concept/phiers-interactive-impact.html" target="_blank" class="btn btn-primary" style="display: block; margin-top: 15px; background: #16a34a; width: fit-content;">⚡ Your Impact Timeline & DOGE Counter-Strategy</a>
+
+            <div style="height: 30px;"></div>
+            
+            <h3>✍️ Step 1: Sign Petition (2 min)</h3>
+            <p>Tell Congress: "Add Telehealth to ACA by Dec 31 or face primary challenge." 1,500 = mandatory town hall. We're targeting 10,000+.</p>
+            <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" class="btn btn-primary" style="display: inline-block; margin-top: 15px;">✍️ Sign</a>
+            
+            <h3 style="margin-top: 20px;">📊 Step 2: Fill Survey (3 min)</h3>
+            <p>Share your healthcare story. Costs. Telehealth experience. Congress will see this data proving constituent demand.</p>
+            <a href="https://forms.gle/xVcSk4cT3VDseSiEA" target="_blank" class="btn btn-primary" style="display: inline-block; margin-top: 15px;">📝 Fill</a>
+            
+            <h3 style="margin-top: 20px;">🚀 Step 3: Join Team</h3>
+            <p>Organizers, data analysts, media coordinators needed in every state.</p>
+            <a href="https://discord.gg/narhDKJY" target="_blank" class="btn btn-discord" style="display: inline-block; margin-top: 15px;">🚀 Join</a>
+            
+            <h3 style="margin-top: 25px;">💝 Step 4: Donate</h3>
+            <p><strong>Pathos Communications</strong> will publish our story to 55M+ readers when funding goal is reached. <strong>$5K minimum for publication guarantee + $10K campaign operations</strong> (comms, travel, coordination through Jan 31). Your donation directly funds media amplification.</p>
+            <a href="https://www.gofundme.com/PHIERS" class="btn btn-danger" style="display: inline-block; font-size: 1.05em;">💰 DONATE TO THE CAMPAIGN - $15K GOAL</a>
+            
+            <h3 style="margin-top: 25px;">💪 Congress Failed Dec 11. We're Taking Over Dec 31.</h3>
+            <p>22 million individuals will lose healthcare if Congress doesn't act.</p>
+            <p><strong>We have the solution. We have the leverage. We have the coalition.</strong></p>
+            <p>Sign. Fill. Join. Donate. Share.</p>
+            
+            <div class="button-group">
+                <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" class="btn btn-primary">✍️ Sign Petition</a>
+                <a href="https://forms.gle/xVcSk4cT3VDseSiEA" target="_blank" class="btn btn-primary">📝 Fill Survey</a>
+                <a href="https://discord.gg/narhDKJY" target="_blank" class="btn btn-discord">💬 Discord</a>
+                <a href="https://www.gofundme.com/PHIERS" target="_blank" class="btn btn-danger">💰 Donate</a>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="showSection('leverage')">← Back: Leverage</button>
+                <button class="btn btn-primary" onclick="showSection('faq')">Next: FAQ →</button>
+            </div>
+        </section>
+
+        <!-- RUBIK'S CUBE SECTION -->
+        <section id="rubiks">
+            <h2>🧩 5D Solutions: Everything Connected</h2>
+            
+            <h3>The Rubik's Cube Metaphor: How 5D Solutions Work</h3>
+            <p><strong>Most people think in straight lines:</strong> "Fix healthcare, THEN fix jobs, THEN fix the economy."</p>
+            
+            <p style="margin-top: 15px;"><strong>PHIERS works in 5 dimensions simultaneously:</strong> Every solution you create feeds into 4 other solutions at the same time. You can't separate them. You don't have to choose. You do multiple things at once because each one makes the others work faster.</p>
+            
+            <div class="graphic-container">
+                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Rubiks_Cube_-_SYMBOLS.png" alt="PHIERS Rubik's Cube - Everything Connected" class="clickable-image" style="cursor: pointer;">
+            </div>
+            
+            <h3 style="margin-top: 20px;">The 5D Interconnection</h3>
+            <ul>
+                <li><strong>💰 Healthcare Savings:</strong> 120M Americans switch to $600/year telehealth. Frees $7,400 per person. $888 BILLION annually funds everything else.</li>
+                <li><strong>💼 Jobs Guarantee (AI-Proof):</strong> AI-resistant jobs created from savings: case managers, health coordinators, supply chain workers. No robots. Real human work.</li>
+                <li><strong>🤝 Free Workforce Insurance (GIG-WORKERS WELCOME & SOUGHT AFTER!!!):</strong> FREE insurance for all employees AND gig workers. Employers save on benefits = increase wages. Higher pay + shorter workdays = better work-life balance. Gig workers touch EVERYBODY—help us spread the word to the people they serve!</li>
+                <li><strong>🤲 Monthly Checks (UBI):</strong> Cascade savings compound monthly. Assistance checks become baseline income guarantee. Economic security while jobs are created.</li>
+                <li><strong>🛡️ Supply Chain + Safety Net:</strong> Stronger workforce + universal healthcare + monthly checks + unified platform = supply chains stabilize. No one falls through cracks.</li>
+            </ul>
+            
+            <div class="graphic-container" style="margin: 60px 0;">
+                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Tablet__Firewall.png" alt="PHIERS-Powered Solutions Operating System - Firewall" class="clickable-image" style="max-width: 25%; height: auto; cursor: pointer;">
+                <p>PHIER-Powered Solutions Operating System - Firewall Against Corporate Extraction<br/>All 5 dimensions protected simultaneously. Block one dimension, the others strengthen.</p>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(100, 200, 150, 0.1)); padding: 30px; margin: 30px 0; border-radius: 12px; border-left: 5px solid #4caf50;">
+                <h3 style="color: #81c784; margin-top: 0;">💡 SNAP & Medicaid Work Requirements: THE OPPORTUNITY</h3>
+                <p style="color: #c8e6c9; line-height: 1.8; margin: 0;"><strong>Work requirements are coming.</strong> Congress is pushing SNAP and Medicaid work requirements—people who can't meet them risk losing coverage. That creates hardship.</p>
+                
+                <p style="color: #c8e6c9; line-height: 1.8; margin-top: 15px;"><strong>But PHIERS transforms this crisis into an OPPORTUNITY OF A LIFETIME.</strong></p>
+                
+                <p style="color: #c8e6c9; line-height: 1.8; margin-top: 15px;">We're creating millions of AI-resistant jobs RIGHT NOW. We're providing immediate training on how to be involved in building the community-enabled solution that transforms your local area. You're not just getting a job—<strong>you're becoming part of the movement that solves healthcare, jobs, economy, and peace simultaneously.</strong></p>
+                
+                <p style="color: #c8e6c9; line-height: 1.8; margin-top: 15px;">Need work for SNAP/Medicaid? We have it. Need training? Immediate. Need to be part of something that actually works? This is it. We're building real solutions in real communities, and we need people like you RIGHT NOW to be part of what happens next.</p>
+                
+                <p style="color: #81c784; font-weight: bold; margin-top: 15px; font-size: 1.05em;">When Congress moves on PHIERS, you'll be ready. We're training people NOW to execute when the gates open.</p>
+            </div>
+            
+            <p style="margin-top: 20px;"><strong>🧩 The Insight:</strong> You can't remove one piece without destroying the others. Congress can allow PHIERS to bring telehealth to ACA—and when all 5 dimensions work together, you've created a system that strengthens itself through every person's success.</p>
+
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="showSection('main')">← Back: Main</button>
+                <button class="btn btn-primary" onclick="showSection('crisis')">Next: The Crisis →</button>
+            </div>
+        </section>
+        
+        <!-- CRISIS SECTION -->
+        <section id="crisis">
+            <h2>🚨 The Crisis: Dec 31 Deadline & Negative Cascade</h2>
+
+            <div class="graphic-container">
+                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/US_Millions_Face_Soaring_Health_Costs_as_Subsidies_Expire.png" alt="Millions Face Soaring Health Costs as Subsidies Expire" class="clickable-image" style="max-width: 25%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2); margin: 0 auto; display: block; cursor: pointer;">
+                <p>The Crisis Is Real: 22 Million Americans Losing Coverage Dec 31. Congress Has Failed to Act.</p>
+            </div>
+            
+            <h3>22 Million Lose Coverage Dec 31</h3>
+            <p>Tax credit cliff. Premiums double or triple. Individuals forced into impossible choices. Congress rejected both healthcare plans Dec 11.</p>
+            
+            <h3>AI Eliminates 50M+ Jobs</h3>
+            <p>Automation here now. Jobs disappearing faster than retraining. No safety net. No healthcare for displaced individuals.</p>
+            
+            <h3>Insurance Skyrockets = Cascade of Failure</h3>
+            <p><strong>NEGATIVE CASCADE:</strong> Higher premiums → individuals drop coverage → healthcare system destabilizes → businesses lose productivity → supply chains break → economy falters → more job losses → more uninsured → system collapses faster.</p>
+            
+            <h3>Housing Affordability Crisis</h3>
+            <p>Rising costs force families to choose between rent and healthcare. Homelessness accelerates. Economic security disappears.</p>
+            
+            <h3>Cost of Living Unsustainable</h3>
+            <p>Inflation + no wage growth = impossible choices for ordinary Americans. Food, utilities, transportation - all consuming survival budgets.</p>
+            
+            <h3>Destructive Executive Orders</h3>
+            <p>Environmental, AI, and policy orders harming the 99% without Congressional consent. Water, air, jobs, regulations all at risk.</p>
+            
+            <h3>Wars Draining Resources</h3>
+            <p>Trillions spent on military conflicts while Americans can't afford healthcare or housing. Priorities are backwards.</p>
+            
+            <div class="graphic-container">
+                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/2_73_Savings_Infographic.png" alt="PHIERS-Powered Solutions - $2.73T in Savings" class="clickable-image" style="max-width: 25%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2); margin: 0 auto; display: block; cursor: pointer;">
+                <p>The Savings Fund the Solution: $2.73 Trillion in Freed Government Healthcare Spending</p>
+            </div>
+            
+            <h3 style="margin-top: 20px;">✅ PHIERS STOPS The Negative Cascade & Creates POSITIVE Cascade</h3>
+            <p><strong>If enough individuals sign the petition and build the 3.5% cooperative movement.</strong></p>
+            
+            <ul>
+                <li>✓ <strong>Healthcare:</strong> Universal telemedicine ($600/year for everyone) + cooperative medication access without middlemen</li>
+                <li>✓ <strong>Jobs:</strong> 8-14 million new AI-resistant positions (health/social workers, case managers, community coordinators)</li>
+                <li>✓ <strong>Economy:</strong> Monthly assistance checks from $2.73T in freed healthcare spending + housing affordability improvements</li>
+                <li>✓ <strong>Cost of Living:</strong> Lower healthcare costs → more money for rent, food, utilities. $7,900+ per person savings annually</li>
+                <li>✓ <strong>Political Power:</strong> 100M+ organized constituents = Congress forced to REVERSE destructive policies + END unnecessary wars</li>
+                <li>✓ <strong>Peace:</strong> Democratic power restores government to We the People. Solutions that honor whole person + dignity</li>
+            </ul>
+            
+            <p style="margin-top: 15px;"><strong>POSITIVE CASCADE:</strong> Better healthcare → more people work → stronger economy → higher wages → housing affordability improves → families have choices → children have futures → organized democracy holds government accountable → destructive policies reverse → wars end → MORE solutions compound.</p>
+            
+            <p style="margin-top: 15px;"><strong>Congress forced to choose: adopt PHIERS or face primary challenges and pressure from millions of organized constituents demanding their government work for them.</strong></p>
+            
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="showSection('rubiks')">← Back: Rubik's Cube</button>
+                <button class="btn btn-primary" onclick="showSection('works')">Next: How It Works →</button>
+            </div>
+        </section>
+        
+        <!-- FAQ SECTION -->
+        <section id="faq">
+            <h2>❓ Frequently Asked Questions</h2>
+            
+            <details style="background: rgba(200, 200, 200, 0.08); padding: 25px; margin-bottom: 40px; border-left: 5px solid #4caf50; padding-left: 25px; border-radius: 8px;">
+                <summary style="color: #4caf50; font-size: 1.1em; font-weight: bold; cursor: pointer; user-select: none;">How much does PHIERS healthcare cost?</summary>
+                <div style="padding-top: 15px;">
+                    <p><strong>$600/year</strong> for comprehensive telehealth access to 80% of healthcare needs.</p>
+                    <div style="background: #c8e6c9; border-left: 4px solid #16a34a; padding: 15px; margin: 15px 0; border-radius: 5px; color: #000;">
+                        <strong>The Numbers:</strong><br>
+                        <strong>Individual:</strong><br>
+                        Traditional insurance: $8,500+ per year<br>
+                        PHIERS telehealth: $600 per year<br>
+                        Individual savings: $7,400 - $23,400 annually<br>
+                        <br>
+                        <strong>Family:</strong><br>
+                        Traditional insurance: $24,000+ per year<br>
+                        PHIERS telehealth: $600 per person per year<br>
+                        Family savings: $18,000 - $72,000+ annually
+                    </div>
+                </div>
+            </details>
+
+            <details style="background: rgba(200, 200, 200, 0.08); padding: 25px; margin-bottom: 40px; border-left: 5px solid #4caf50; padding-left: 25px; border-radius: 8px;">
+                <summary style="color: #4caf50; font-size: 1.1em; font-weight: bold; cursor: pointer; user-select: none;">Is this really proven to work?</summary>
+                <div style="padding-top: 15px;">
+                    <p><strong>Yes. Three independent validations:</strong></p>
+                    <div style="background: #c8e6c9; border-left: 4px solid #16a34a; padding: 15px; margin: 15px 0; border-radius: 5px; color: #000;">
+                        <ul style="margin: 0; padding-left: 20px; color: #000;">
+                            <li style="color: #000;"><strong><a href="https://costpluspills.com" target="_blank" style="color: #000; text-decoration: underline;">Mark Cuban's Cost Plus Drugs</a>:</strong> 7 million customers, 80-90% savings, 200+ pharmacies operational</li>
+                            <li style="color: #000;"><strong>Cooperative Healthcare & Telemedicine (2014):</strong> Al Wilson and Bill Wiggins pioneered importing medications WITHOUT markups/middlemen. Now proven at scale: Mark Cuban's 7M customers, new telemedicine platforms with community experiences - all proving the concept works.</li>
+                            <li style="color: #000;"><strong><a href="https://www.ted.com/speakers/erica_chenoweth" target="_blank" style="color: #000; text-decoration: underline;">Erica Chenoweth (Harvard Kennedy School)</a>:</strong> 3.5% organized population = guaranteed systemic change. We have 100M+ = 9x threshold (See her TED Talk and published research)</li>
+                        </ul>
+                    </div>
+                </div>
+            </details>
+
+            <details style="background: rgba(200, 200, 200, 0.08); padding: 25px; margin-bottom: 40px; border-left: 5px solid #4caf50; padding-left: 25px; border-radius: 8px;">
+                <summary style="color: #4caf50; font-size: 1.1em; font-weight: bold; cursor: pointer; user-select: none;">What jobs get created?</summary>
+                <div style="padding-top: 15px;">
+                    <p><strong>Millions of AI-resistant, human-centered positions:</strong></p>
+                    <div style="background: #c8e6c9; border-left: 4px solid #16a34a; padding: 15px; margin: 15px 0; border-radius: 5px; color: #000;">
+                        <ul style="margin: 0; padding-left: 20px; color: #000;">
+                            <li style="color: #000;">Case managers helping people navigate healthcare</li>
+                            <li style="color: #000;">Health coordinators connecting patients with services</li>
+                            <li style="color: #000;">Community health workers preventing crises</li>
+                            <li style="color: #000;">Mental health counselors and therapists</li>
+                            <li style="color: #000;">Pharmacists and pharmacy technicians</li>
+                            <li style="color: #000;">Primary care and urgent care workers</li>
+                            <li style="color: #000;">Medical transportation and logistics coordinators</li>
+                            <li style="color: #000;">Child and adult day care workers</li>
+                            <li style="color: #000;">Community organizers and mobilizers</li>
+                            <li style="color: #000;">Gig workers for deliveries and services</li>
+                            <li style="color: #000;">Community gardening and environmental cleanup crews</li>
+                            <li style="color: #000;">Skilled trades workers: repair, maintenance, construction</li>
+                            <li style="color: #000;">Training coordinators teaching communities about health</li>
+                        </ul>
+                    </div>
+                    <p style="margin-top: 15px;"><strong>Why AI-resistant?</strong> These require human judgment, empathy, and trust that AI cannot replicate.</p>
+                </div>
+            </details>
+
+            <details style="background: rgba(200, 200, 200, 0.08); padding: 25px; margin-bottom: 40px; border-left: 5px solid #4caf50; padding-left: 25px; border-radius: 8px;">
+                <summary style="color: #4caf50; font-size: 1.1em; font-weight: bold; cursor: pointer; user-select: none;">How much money does PHIERS save?</summary>
+                <div style="padding-top: 15px;">
+                    <div style="background: #a8d8ea; border-left: 4px solid #17a2b8; padding: 15px; margin: 15px 0; border-radius: 5px; font-weight: bold; color: #000;">
+                        $2.73 TRILLION annually in documented savings<br>
+                        (Government + private insurance sector)<br>
+                        <br>
+                        That's 136x more than Trump's current healthcare plan
+                    </div>
+                </div>
+            </details>
+
+            <details style="background: rgba(200, 200, 200, 0.08); padding: 25px; margin-bottom: 40px; border-left: 5px solid #4caf50; padding-left: 25px; border-radius: 8px;">
+                <summary style="color: #4caf50; font-size: 1.1em; font-weight: bold; cursor: pointer; user-select: none;">Where does that money come from?</summary>
+                <div style="padding-top: 15px;">
+                    <p><strong>Replacing expensive, inefficient systems with efficient ones:</strong></p>
+                    <div style="background: #c8e6c9; border-left: 4px solid #16a34a; padding: 15px; margin: 15px 0; border-radius: 5px; color: #000;">
+                        <ul style="margin: 0; padding-left: 20px; color: #000;">
+                            <li style="color: #000;"><strong>Traditional insurance:</strong> $8,500+/year (includes massive profit margins, overhead)</li>
+                            <li style="color: #000;"><strong>PHIERS telehealth:</strong> $600/year (direct service delivery, minimal overhead)</li>
+                            <li style="color: #000;"><strong>Difference:</strong> $7,400+ per person × 100M+ = $2.73T+ total savings</li>
+                        </ul>
+                    </div>
+                    <p style="margin-top: 15px;"><strong>No tax increases. No new debt. Just better business models.</strong></p>
+                </div>
+            </details>
+
+            <details style="background: rgba(200, 200, 200, 0.08); padding: 25px; margin-bottom: 40px; border-left: 5px solid #4caf50; padding-left: 25px; border-radius: 8px;">
+                <summary style="color: #4caf50; font-size: 1.1em; font-weight: bold; cursor: pointer; user-select: none;">Can I get PHIERS healthcare now?</summary>
+                <div style="padding-top: 15px;">
+                    <p>Cuban Cost Plus is operational NOW with 80-90% prescription savings. PHIERS telehealth framework is ready for Congressional approval to expand to everyone.</p>
+                    <div style="background: #c8e6c9; border-left: 4px solid #16a34a; padding: 15px; margin: 15px 0; border-radius: 5px; color: #000;">
+                        <strong>🚨 CRITICAL - Coverage for EVERYONE happens AS SOON AS WE HIT CRITICAL MASS:</strong><br><br>
+                        <strong>3.5% of the population organized = GUARANTEED systemic change (Harvard research)</strong><br>
+                        That's 11.6 million Americans = mathematically unstoppable<br>
+                        <br>
+                        <strong>Timeline:</strong><br>
+                        Congressional action needed: Authorize CMS to cover telehealth at $600/year<br>
+                        Implementation: Could begin immediately upon approval<br>
+                        Scale: 100M+ Americans within 6 months OF CONGRESSIONAL ACTION
+                    </div>
+                </div>
+            </details>
+
+            <details style="background: rgba(200, 200, 200, 0.08); padding: 25px; margin-bottom: 40px; border-left: 5px solid #4caf50; padding-left: 25px; border-radius: 8px;">
+                <summary style="color: #4caf50; font-size: 1.1em; font-weight: bold; cursor: pointer; user-select: none;">Why hasn't Congress approved this already?</summary>
+                <div style="padding-top: 15px;">
+                    <p><strong>Because pharmaceutical lobbies profit from the current system:</strong></p>
+                    <div style="background: #ffeaa7; border-left: 4px solid #ffc107; padding: 15px; margin: 15px 0; border-radius: 5px; color: #000;">
+                        <ul style="margin: 0; padding-left: 20px; color: #000;">
+                            <li style="color: #000;">Pharmaceutical industry profits: $1.2+ trillion annually</li>
+                            <li style="color: #000;">Insurance company profits: $800B+ annually</li>
+                            <li style="color: #000;">These industries lobby Congress to prevent change</li>
+                            <li style="color: #000;">PHIERS eliminates their profit extraction model</li>
+                        </ul>
+                    </div>
+                    <p style="margin-top: 15px;"><strong>Congress chooses donors over constituents - until constituent pressure makes serving donors expensive.</strong></p>
+                </div>
+            </details>
+
+            <details style="background: rgba(200, 200, 200, 0.08); padding: 25px; margin-bottom: 40px; border-left: 5px solid #4caf50; padding-left: 25px; border-radius: 8px;">
+                <summary style="color: #4caf50; font-size: 1.1em; font-weight: bold; cursor: pointer; user-select: none;">What does "3.5%" mean? Why is it important?</summary>
+                <div style="padding-top: 15px;">
+                    <p><strong>Research by Erica Chenoweth (Harvard Kennedy School) is groundbreaking:</strong></p>
+                    
+                    <p style="margin-top: 15px; color: #c8e6c9;"><strong>Her finding:</strong> In her study of 323 political campaigns over a century (1900-2006), she discovered that <strong>NO campaign where 3.5% of the population participated in sustained, organized action EVER failed to achieve systemic change.</strong></p>
+                    
+                    <div style="background: #c8e6c9; border-left: 4px solid #16a34a; padding: 15px; margin: 15px 0; border-radius: 5px; color: #000;">
+                        <strong>The Math That Makes Change Inevitable:</strong><br><br>
+                        <strong>3.5% threshold:</strong> 11.6 million Americans<br>
+                        <strong>Americans affected by our crises:</strong> 100+ million<br>
+                        <strong>Our advantage:</strong> 9x the threshold needed<br><br>
+                        <strong>Translation:</strong> Mathematically unstoppable. Systemic change is not just possible - it's guaranteed once we reach and sustain 3.5% organized participation.
+                    </div>
+                    
+                    <p style="margin-top: 15px; color: #c8e6c9;"><strong>Why this matters:</strong> Congress responds when constituents are organized. 3.5% of the population can demand that their government act. And when 3.5% demands change, Congress listens.</p>
+                    
+                    <p style="margin-top: 15px; color: #c8e6c9;"><strong>Your role:</strong> Sign the petition. Fill out the survey. Tell your friends. Be part of the 3.5% that forces Congress to fix healthcare, reverse destructive policies, end wars, and make America Better and Healthier.</p>
+                    
+                    <p style="margin-top: 15px;"><a href="https://www.ted.com/speakers/erica_chenoweth" target="_blank" style="color: #4caf50; text-decoration: underline; font-weight: bold;">→ Watch Erica Chenoweth's TED Talk on how movements actually win</a></p>
+                </div>
+            </details>
+
+            <!-- LINK TO EXTERNAL DEEP DIVE FAQ -->
+            <div style="margin-top: 40px; padding-top: 30px; border-top: 3px solid #4caf50; text-align: center;">
+                <a href="https://phiersale.github.io/PHIERS-FAQ/" target="_blank" class="btn btn-primary" style="background: #16a34a; font-size: 1.05em; padding: 12px 25px; text-decoration: none; display: inline-block;">📚 DEEP DIVE FAQ - Comprehensive Questions & Answers</a>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="showSection('action')">← Back: Take Action</button>
+                <button class="btn btn-primary" onclick="showSection('blog')">Next: News & Response →</button>
+            </div>
+
+        </section>
+
+        <!-- BLOG SECTION - NEWS & RESPONSE -->
+        <section id="blog">
+            <h2>📰 News & Our Response</h2>
+            <p style="color: #81c784; margin-bottom: 20px;"><strong>Tracking the crisis. Showing the solution.</strong></p>
+            
+            <div class="blog-post">
+                <div class="blog-date">December 29, 2025</div>
+                <h4>Healthcare Crisis: 22M Lose Coverage Dec 31</h4>
+                <p><strong>The Story:</strong> Congressional gridlock fails 22 million Americans. Tax credit cliff expires. Premiums triple. No solution offered.</p>
+                <p><strong>The Problem:</strong> Congress has two broken approaches: Trump's MFN (saves $10-20B) or nothing. Both fail the crisis.</p>
+                <p><strong>Our Response:</strong> PHIERS saves $2.73T annually—136x better than MFN. Universal coverage for $600/year. Millions of AI-resistant jobs. Implementation begins Feb 2026 IF Congress acts by Jan 30.</p>
+                <p><strong>What You Can Do:</strong> <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" style="color: #4caf50; text-decoration: underline;">Sign petition</a> | <a href="https://forms.gle/xVcSk4cT3VDseSiEA" target="_blank" style="color: #4caf50; text-decoration: underline;">Fill survey</a> | <a href="tel:202-224-3121" style="color: #4caf50; text-decoration: underline;">Call congressman</a></p>
+            </div>
+            
+            <div class="blog-post">
+                <div class="blog-date">December 28, 2025</div>
+                <h4>AI Eliminates 50M+ Jobs Without Safety Net</h4>
+                <p><strong>The Story:</strong> Automation accelerates. Retraining programs insufficient. Healthcare still tied to employment. No economic cushion.</p>
+                <p><strong>The Problem:</strong> Job loss + healthcare loss = cascade failure of entire system. Current policy has no answer.</p>
+                <p><strong>Our Response:</strong> PHIERS creates millions of AI-resistant jobs (case management, health coordination, community infrastructure) AND provides healthcare independent of employment AND delivers Monthly UBI from government savings (once we hit 3.5%).</p>
+                <p><strong>What You Can Do:</strong> <a href="https://discord.gg/narhDKJY" target="_blank" style="color: #4caf50; text-decoration: underline;">Join Discord</a> for job transition resources | <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" style="color: #4caf50; text-decoration: underline;">Sign petition</a></p>
+            </div>
+            
+            <div class="blog-post">
+                <div class="blog-date">December 27, 2025</div>
+                <h4>Government Shutdown Deadline: Jan 30 = Healthcare Votes Forced</h4>
+                <p><strong>The Story:</strong> Budget deadline creates urgency. Representatives face hard choices. Healthcare is dominant issue.</p>
+                <p><strong>The Problem:</strong> Typical Congress: delays, committees, 2-year timelines. We don't have time. 22M losing coverage in 72 hours.</p>
+                <p><strong>Our Response:</strong> Jan 30 shutdown deadline forces votes. If constituents demand PHIERS, representatives vote for it OR face primary. Mathematical inevitability.</p>
+                <p><strong>What You Can Do:</strong> <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" style="color: #4caf50; text-decoration: underline;">Sign petition</a> | <a href="https://forms.gle/xVcSk4cT3VDseSiEA" target="_blank" style="color: #4caf50; text-decoration: underline;">Fill survey</a> | Share with your network</p>
+            </div>
+            
+            <div class="button-group">
+                <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" class="btn btn-primary">✍️ Sign Petition</a>
+                <a href="https://discord.gg/narhDKJY" target="_blank" class="btn btn-discord">💬 Join Discussion</a>
+            </div>
+            
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="showSection('faq')">← Back: FAQ</button>
+                <button class="btn btn-primary" onclick="showSection('resources')">Next: Learn More →</button>
+            </div>
+        </section>
+
+        <!-- RESOURCES SECTION -->
+        <section id="resources">
+            <h2>📚 Learn More</h2>
+            
+            <p>Everything you need to dive deeper, join the team, or get your questions answered.</p>
+            
+            <div style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(66, 133, 244, 0.15)); border: 2px solid #4caf50; padding: 30px; margin: 40px 0; border-radius: 8px; text-align: center;">
+                <h4 style="color: #4caf50; margin-top: 0;">📚 DEEP DIVE FAQ</h4>
+                <p><strong>Comprehensive answers to all your questions about PHIERS, the solution, and how it works.</strong></p>
+                <a href="https://phiersale.github.io/PHIERS-FAQ/" target="_blank" class="btn btn-primary" style="background: #4caf50; font-size: 1.05em; padding: 12px 25px; display: inline-block; margin-top: 20px;">📚 Access DEEP DIVE FAQ</a>
+            </div>
+            
+            <div style="height: 50px;"></div>
+            
+            <h3>🌐 Explore Our Full Ecosystem</h3>
+            
+            <div style="height: 30px;"></div>
+            <div style="background: linear-gradient(135deg, rgba(231, 76, 60, 0.15), rgba(76, 175, 80, 0.15)); border: 2px solid #e74c3c; padding: 25px; margin: 40px 0; border-radius: 8px; position: relative;">
+                <span style="position: absolute; top: 10px; right: 10px; background: #e74c3c; color: white; padding: 5px 10px; border-radius: 4px; font-size: 0.8em; font-weight: bold;">🔥 UPDATED</span>
+                <h4 style="color: #e74c3c; margin-top: 0;">📰 Pathos Story Publication</h4>
+                <p><strong>Your funding makes the story happen.</strong> Pathos is ready to publish PHIERS fundraiser once we reach our goal. This story will reach 55+ million readers.</p>
+                <p style="margin-top: 10px; font-size: 0.9em;"><strong>Fund the solution → Get the story published → Change healthcare</strong></p>
+                <a href="https://www.gofundme.com/PHIERS" class="btn btn-primary" style="display: block; margin-top: 25px; background: #e74c3c; width: fit-content; text-align: center;">💰 Make America Better and Healthier</a>
+            </div>
+            
+            <div style="height: 50px;"></div>
+            
+            <div style="background: rgba(76, 175, 80, 0.1); border: 2px solid #4caf50; padding: 25px; margin: 40px 0; border-radius: 8px;">
+                <h4 style="color: #4caf50; margin-top: 0;">🚀 Join the Team</h4>
+                <p>Organizers, data analysts, media coordinators, policy experts. We're building the movement that changes everything.</p>
+                <a href="https://phiersale.github.io/Join_the_Team/" target="_blank" class="btn btn-primary" style="display: inline-block; margin-top: 20px;">🌱 Join Us</a>
+            </div>
+            
+            <div style="height: 50px;"></div>
+            
+            <div style="background: rgba(76, 175, 80, 0.1); border: 2px solid #4caf50; padding: 25px; margin: 40px 0; border-radius: 8px;">
+                <h4 style="color: #4caf50; margin-top: 0;">💪 MABAH Movement</h4>
+                <p>Making America Better And Healthier. The full vision. The complete strategy. The transformation ahead.</p>
+                <p style="color: #c8e6c9; margin-top: 15px;"><em>Full MABAH strategy documentation coming soon. For now, explore the complete PHIERS framework below.</em></p>
+            </div>
+            
+            <div style="height: 50px;"></div>
+            
+            <div style="background: rgba(76, 175, 80, 0.1); border: 2px solid #4caf50; padding: 25px; margin: 40px 0; border-radius: 8px;">
+                <h4 style="color: #4caf50; margin-top: 0;">🎯 Congressional Strategy: Bera & Van Hollen's Goal</h4>
+                <p><strong>Congressman Chris Van Hollen got the ball rolling for us.</strong> Now positioning Sacramento and California as solution-leaders alongside Congressman Ami Bera. Bipartisan healthcare solution both champions can claim credit for.</p>
+                <p style="color: #c8e6c9; margin-top: 15px;"><em>Detailed strategy documentation coming soon. Contact us to learn more.</em></p>
+            </div>
+            
+            <h3 style="margin-top: 30px;">📊 State-Level Implementation Guides</h3>
+            
+            <div style="background: rgba(76, 175, 80, 0.1); border: 2px solid #4caf50; padding: 25px; margin: 40px 0; border-radius: 8px;">
+                <h4 style="color: #4caf50; margin-top: 0;">🌴 California PHIERS Initiative</h4>
+                <p>$110+ billion in annual savings. Millions of AI-resistant jobs. Bicoastal leadership with Maryland.</p>
+                <a href="https://docs.google.com/document/d/17abpDTOkbqLjE4BYVye33K7degdkurJBd8Wy--U37jo/edit?usp=sharing" target="_blank" class="btn btn-primary" style="display: inline-block; margin-top: 20px;">📖 Read White Paper</a>
+            </div>
+            
+            <div style="background: rgba(76, 175, 80, 0.1); border: 2px solid #4caf50; padding: 25px; margin: 40px 0; border-radius: 8px;">
+                <h4 style="color: #4caf50; margin-top: 0;">🏛️ Maryland PHIERS Initiative - Van Hollen's Vision</h4>
+                <p><strong>Congressman Chris Van Hollen got the ball rolling.</strong> $17+ billion in annual savings. His "Fight Club" vision of fighting corporate extraction now operational. Blueprint for national transformation.</p>
+                <a href="https://docs.google.com/document/d/1IQdyc4g-PAO50pb_MZOdaTrmsIp7XbxIZjQN_-xHShY/edit?usp=sharing" target="_blank" class="btn btn-primary" style="display: inline-block; margin-top: 20px;">📖 Read White Paper</a>
+            </div>
+            
+            <div style="background: rgba(76, 175, 80, 0.1); border: 2px solid #4caf50; padding: 25px; margin: 40px 0; border-radius: 8px;">
+                <h4 style="color: #4caf50; margin-top: 0;">🗽 NYC PHIERS Initiative</h4>
+                <p>$55+ billion in annual savings. Urban proof-of-concept that scales nationally.</p>
+                <a href="https://docs.google.com/document/d/1yMl0kHRmxSCCGdmR8NweSJ6oJS3KPYIjqogmQ4PbSk8/edit?usp=sharing" target="_blank" class="btn btn-primary" style="display: inline-block; margin-top: 20px;">📖 Read White Paper</a>
+            </div>
+
+            <div style="background: rgba(76, 175, 80, 0.1); border: 2px solid #4caf50; padding: 25px; margin: 40px 0; border-radius: 8px;">
+                <h4 style="color: #4caf50; margin-top: 0;">🇺🇸 National PHIERS Initiative</h4>
+                <p>$2.73 trillion in annual savings. Complete national framework and Fight Club strategy.</p>
+                <a href="https://docs.google.com/document/d/1LBnU4KCgnWEuc7fLYU9nYAAtlpZ6wYSm880INmey4NI/edit?usp=sharing" target="_blank" class="btn btn-primary" style="display: inline-block; margin-top: 20px;">📖 Read White Paper</a>
+            </div>
+
+            <h3 style="margin-top: 25px;">Tools & Data</h3>
+            
+            <div class="button-group">
+                <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" class="btn btn-primary">✍️ Sign Petition</a>
+                <a href="https://forms.gle/xVcSk4cT3VDseSiEA" target="_blank" class="btn btn-primary">📝 Fill Survey</a>
+                <a href="https://discord.gg/narhDKJY" target="_blank" class="btn btn-discord">💬 Discord Community</a>
+                <a href="https://www.gofundme.com/PHIERS" target="_blank" class="btn btn-secondary">💝 Support on GFM</a>
+            </div>
+            
+            <!-- MY STORY SECTION -->
+            <h2 style="margin-top: 50px;">📖 My Story: Why I'm Fighting</h2>
+
+            <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/Me_n__Dad_at_CHURCH.png" alt="Will Price and Al Wilson at Church" style="max-width: 25%; height: auto; border-radius: 8px; margin: 0 auto 20px; display: block; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);">
+            
+            <h3>I Was a Caregiver</h3>
+            <p>I protected vulnerable people. Reported abuse. Got evicted for doing the right thing. Now I'm homeless, living in my car.</p>
+            
+            <p>But I didn't lose the solution when I lost my home.</p>
+            
+            <h3>For 16 Years (Since 2009)</h3>
+            <p>I've been architecting a healthcare solution that solves what Congress can't: universal coverage, millions of AI-resistant jobs, and economic resilience—all funded from government savings.</p>
+            
+            <p>The math is proven. The model works. The timing is NOW.</p>
+            
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/eE-TxvI0d4Q" allowfullscreen="" loading="lazy" title="My Story - Will Price"></iframe>
+            </div>
+            
+            <h3>The Synchronicity</h3>
+            <p>I protected <span class="al-wilson-link" onclick="showPopup('alWilsonPopup')">Al Wilson</span> when he was in danger. I reported abuse. I got evicted.</p>
+            
+            <p>Now I'm fighting for the same people Al fights for—people in crisis who need solutions Congress doesn't have.</p>
+            
+            <p><strong>That's not coincidence. That's alignment.</strong></p>
+
+            <h3 style="margin-top: 20px;">Why PHIERS Is 5D (The Pivot Insight)</h3>
+            <p>We originally focused on one dimension: pharmaceutical cost reduction. Industry fought us—hard. When we realized they were threatened across ALL five dimensions simultaneously (healthcare, jobs, economy, politics, peace), we understood something crucial:</p>
+
+            <p style="margin-top: 10px;"><strong>You don't win by attacking one dimension of entrenched systems. You win by building a solution so interconnected that blocking one dimension makes the others stronger.</strong></p>
+
+            <p style="margin-top: 10px;">That's why PHIERS is unstoppable. And that's why your support matters RIGHT NOW.</p>
+            
+            <h3 style="margin-top: 20px;">My Car Is My Home</h3>
+            <p>If it breaks down, I lose everything. But the needs of the many outweigh the needs of the few.</p>
+            
+            <p>I'm homeless but fighting for you anyway.</p>
+            
+            <div class="button-group">
+                <a href="https://www.gofundme.com/PHIERS" target="_blank" class="btn btn-secondary">💝 Donate to the Cause</a>
+                <a href="https://discord.gg/narhDKJY" target="_blank" class="btn btn-discord">💬 Join Community</a>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="showSection('blog')">← Back: News & Response</button>
+                <button class="btn btn-primary" onclick="showSection('mystory')">Next: My Story →</button>
+            </div>
+        </section>
+
+        <!-- MY STORY SECTION -->
+        <section id="mystory">
+            <h2>📖 My Story: Why I'm Fighting</h2>
+
+            <div style="text-align: center; margin-bottom: 30px;">
+                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/Me_n__Dad_at_CHURCH.png" alt="Will Price and Al Wilson at Bethany Evangelical Missionary Church" style="max-width: 25%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);">
+            </div>>
+            
+            <h3>I Was a Caregiver</h3>
+            <p>I protected vulnerable people. Reported abuse. Got evicted for doing the right thing. Now I'm homeless, living in my car.</p>
+            
+            <p>But I didn't lose the solution when I lost my home.</p>
+            
+            <h3>For 16 Years (Since 2009)</h3>
+            <p>I've been architecting a healthcare solution that solves what Congress can't: universal coverage, millions of AI-resistant jobs, and economic resilience—all funded from government savings.</p>
+            
+            <p>The math is proven. The model works. The timing is NOW.</p>
+            
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/eE-TxvI0d4Q" allowfullscreen="" loading="lazy" title="My Story - Will Price"></iframe>
+            </div>
+            
+            <h3>The Synchronicity</h3>
+            <p>I protected <span class="al-wilson-link" onclick="showPopup('alWilsonPopup')">Al Wilson</span> when he was in danger. I reported abuse. I got evicted.</p>
+            
+            <p>Now I'm fighting for the same people Al fights for—people in crisis who need solutions Congress doesn't have.</p>
+            
+            <p><strong>That's not coincidence. That's alignment.</strong></p>
+
+            <h3 style="margin-top: 20px;">Why PHIERS Is 5D (The Pivot Insight)</h3>
+            <p>We originally focused on one dimension: pharmaceutical cost reduction. Industry fought us—hard. When we realized they were threatened across ALL five dimensions simultaneously (healthcare, jobs, economy, politics, peace), we understood something crucial:</p>
+
+            <p style="margin-top: 10px;"><strong>You don't win by attacking one dimension of entrenched systems. You win by building a solution so interconnected that blocking one dimension makes the others stronger.</strong></p>
+
+            <p style="margin-top: 10px;">That's why PHIERS is unstoppable. And that's why your support matters RIGHT NOW.</p>
+            
+            <h3 style="margin-top: 20px;">My Car Is My Home</h3>
+            <p>If it breaks down, I lose everything. But the needs of the many outweigh the needs of the few.</p>
+            
+            <p>I'm homeless but fighting for you anyway.</p>
+            
+            <div class="button-group">
+                <a href="https://www.gofundme.com/PHIERS" target="_blank" class="btn btn-secondary">💝 Donate to the Cause</a>
+                <a href="https://discord.gg/narhDKJY" target="_blank" class="btn btn-discord">💬 Join Community</a>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="showSection('resources')">← Back: Learn More</button>
+                <button class="btn btn-primary" disabled>Next →</button>
+            </div>
+        </section>
+        
+        <!-- THE FULL STORY SECTION -->
+        <section id="about">
+            <h2>The Full Story: Intelligent Glue & 16 Years of Pioneering</h2>
+            <p style="font-size: 1.1em; margin-bottom: 20px; text-align: center;">We're not here to compete. We're here to amplify. If you want the complete context on what we are, why we waited 16 years, and how we honor our partners, click below:</p>
+            
+            <div style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(100, 200, 150, 0.1)); border: 2px solid #4caf50; border-radius: 12px; padding: 40px; text-align: center; margin: 40px 0;">
+                <h3 style="color: #81c784; margin-bottom: 20px; font-size: 1.3em;">⚡ In Response to Your Questions</h3>
+                <p style="color: #c8e6c9; margin-bottom: 30px;">Read the full story on Intelligent Glue, our 16-year journey, how we honor ZORTT and Mark Cuban, and building democratic power through solidarity instead of competing with anyone.</p>
+                <a href="clarification.html" style="background: linear-gradient(135deg, #4caf50, #2e7d32); color: white; padding: 15px 40px; font-size: 1em; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.3s;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 5px 20px rgba(76, 175, 80, 0.4)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">🔗 Read The Full Story</a>
+            </div>
+            
+            <div style="background: rgba(76, 175, 80, 0.05); border-left: 5px solid #81c784; padding: 25px; border-radius: 8px; margin: 30px 0;">
+                <h4 style="color: #81c784; margin-bottom: 15px;">Why This Page Exists</h4>
+                <p style="margin-bottom: 10px;"><strong>We get questions.</strong> Why are we launching now? What are we actually offering? Do we compete with others? How do we honor ZORTT and Mark Cuban? What makes us "Intelligent Glue"?</p>
+                <p style="margin-bottom: 10px;"><strong>This page has the complete answers.</strong> It explains our 16-year history (including the threats and pivots we faced), why we waited for the right moment, and building democratic power through solidarity instead of another healthcare startup.</p>
+                <p><strong>It's designed for people who want deep context before joining the movement.</strong></p>
+            </div>
+            
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="showSection('main')">← Back: Main</button>
+                <button class="btn btn-primary" onclick="window.location.href='clarification.html';">The Full Story →</button>
+            </div>
+        </section>
+        
+        <footer>
+            <p><strong>PHIERS Movement | Make America Better And Healthier (MABAH)</strong></p>
+            <p>Will Price | Chief Solutions Architect</p>
+            <p>Phone: 301-919-0970 | Email: <a href="/cdn-cgi/l/email-protection#94fdfaf2fbd4e4fcfdf1e6e7bafbe6f3" style="color: #4caf50; text-decoration: underline;"><span class="__cf_email__" data-cfemail="442d2a222b04342c2d2136376a2b3623">[email&#160;protected]</span></a></p>
+            <p style="margin-top: 15px;">
+                <a href="https://phiersale.github.io/Join_the_Team/" target="_blank" style="color: #81c784; text-decoration: underline;">Join Us</a> | 
+                <a href="https://phiersale.github.io/MABAH-Movement/" target="_blank" style="color: #81c784; text-decoration: underline;">MABAH Movement</a> | 
+                <a href="https://phiersale.github.io/PHIERS-FAQ/" target="_blank" style="color: #e74c3c; text-decoration: underline; font-weight: bold;">🔥 FAQ (UPDATED - 25 Questions)</a>
+            </p>
+            <p style="margin-top: 15px;">© PHIERS.org - Peoples Health Insurance Exchange and Referral Service | Prior art documented since 2014</p>
+        </footer>
+    </div>
+
+    <div class="popup-backdrop" onclick="closePopup('alWilsonPopup')"></div>
+    <div class="tooltip-popup" id="alWilsonPopup">
+        <div class="popup-header">
+            <h4>Al Wilson: Co-Architect & Veteran</h4>
+            <button class="popup-close" onclick="closePopup('alWilsonPopup')">×</button>
+        </div>
+        <div class="popup-content">
+            <p><strong>Who:</strong> Decorated veteran. Healthcare innovator. Will's co-architect for 16 years (since 2009).</p>
+            <p><strong>The Connection:</strong> Will protected Al when he was vulnerable. Reported abuse. Got evicted for doing the right thing. Al never forgot.</p>
+            <p><strong>Why He Matters:</strong> Al originated the pharmaceutical cost-reduction model that Mark Cuban launched as "Cost Plus Drugs" in 2022. Al proved the concept works in practice. Cuban took it to scale. We validated it at Congressional level.</p>
+            <p><strong>His Story:</strong> Veterans facing healthcare costs. Searching for solutions. Found one that works. Now fighting so millions can access what he proved works.</p>
+            <p><strong>Proof:</strong> His wellness in the video. His voice in the validation. His commitment to the cause—same cause that got Will evicted for protecting him.</p>
+        </div>
+    </div>
+
+    <!-- LIGHTBOX MODAL FOR CLICKABLE IMAGES -->
+    <div id="lightboxModal" class="lightbox-modal">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img class="lightbox-content" src="" alt="Enlarged image">
+    </div>
+
+    <!-- Version timestamp footer -->
+    <div style="text-align: center; padding: 15px; margin-top: 40px; color: rgba(129, 199, 132, 0.6); font-size: 0.85em
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
