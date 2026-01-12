@@ -19,6 +19,33 @@
             color: #e0e0e0;
             line-height: 1.6;
             min-height: 100vh;
+            padding-top: 60px; /* Space for sticky bar */
+        }
+
+        /* STICKY CTA BAR */
+        .sticky-cta-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #4caf50, #2e7d32);
+            color: white;
+            padding: 12px 20px;
+            text-align: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            font-size: 1.05em;
+            font-weight: bold;
+        }
+
+        .sticky-cta-bar a {
+            color: white;
+            text-decoration: underline;
+            margin: 0 10px;
+        }
+
+        .sticky-cta-bar a:hover {
+            color: #ffeb3b;
         }
 
         /* OPENING MODAL - 3 BUTTON VERSION */
@@ -949,6 +976,11 @@
     </script>
 </head>
 <body>
+    <!-- STICKY CTA BAR -->
+    <div class="sticky-cta-bar">
+        <a href="https://c.org/MKFTGSQHBZ" target="_blank">🔥 Sign Petition - Congress Must Act by Jan 31</a>
+    </div>
+    
     <!-- SCROLLING ALERT BANNER -->
     <div class="alert-banner">
         <div class="alert-content">
@@ -1009,8 +1041,8 @@
             if (overlay) {
                 overlay.style.display = 'none';
             }
-            // Set flag so modal won't show again
-            localStorage.setItem('openingModalClosed', 'true');
+            // Save version instead of simple flag
+            localStorage.setItem('modalVersion', 'v2_jan12_free');
         }
         
         function showSection(sectionId) {
@@ -1058,9 +1090,14 @@
 
         // Hide popup if user previously closed it
         window.addEventListener('load', function() {
-            // Show opening modal after 5 seconds as teaser (unless already closed)
+            // Check modal version - if site was updated, show modal again
+            var currentModalVersion = 'v2_jan12_free'; // Change this when modal content updates
+            var lastSeenVersion = localStorage.getItem('modalVersion');
+            
+            // Show opening modal after 5 seconds as teaser (unless already closed on THIS version)
             setTimeout(function() {
-                if (!localStorage.getItem('openingModalClosed')) {
+                if (lastSeenVersion !== currentModalVersion) {
+                    // New version - show modal even if they closed old version
                     var openingOverlay = document.getElementById('openingModalOverlay');
                     if (openingOverlay) {
                         openingOverlay.style.display = 'flex';
@@ -1090,7 +1127,9 @@
                          style="max-width: 120px; height: auto;">
                 </div>
                 
-                <h2 style="font-size: 1.8em; color: white; text-align: center; margin-bottom: 20px;">WE the People Can Compel Congress to Make Better Decisions</h2>
+                <h2 style="font-size: 1.8em; color: white; text-align: center; margin-bottom: 20px;">How One Person's Savings Can Cover 120 Million — The Simple Math</h2>
+                
+                <p style="font-size: 1em; color: #c8e6c9; text-align: center; margin-bottom: 20px; font-style: italic;">See how $600 telehealth and $7,400 savings create exponential coverage — no new taxes.</p>
                 
                 <p style="font-size: 1.1em; color: #81c784; text-align: center; margin-bottom: 10px; line-height: 1.7;">
                     <strong style="color: #4caf50;">3.5% organized = GUARANTEED systemic change</strong> <span style="color: #c8e6c9;">(Harvard research)</span><br>
@@ -1121,7 +1160,7 @@
                     <a href="#" onclick="closeOpeningModal(); return false;" class="modal-btn" style="background: linear-gradient(135deg, #4caf50, #2e7d32); color: white; padding: 14px 28px; font-size: 1.05em; font-weight: bold; border-radius: 8px; text-decoration: none; transition: all 0.3s;">
                         🌍 Go to Main Site
                     </a>
-                    <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" onclick="closeOpeningModal();" class="modal-btn" style="background: linear-gradient(135deg, #e74c3c, #c0392b); color: white; padding: 14px 28px; font-size: 1.05em; font-weight: bold; border-radius: 8px; text-decoration: none; transition: all 0.3s;">
+                    <a href="https://c.org/MKFTGSQHBZ" target="_blank" onclick="closeOpeningModal();" class="modal-btn" style="background: linear-gradient(135deg, #e74c3c, #c0392b); color: white; padding: 14px 28px; font-size: 1.05em; font-weight: bold; border-radius: 8px; text-decoration: none; transition: all 0.3s;">
                         🔥 Sign Petition Now
                     </a>
                 </div>
@@ -1145,7 +1184,7 @@
                 <p style="font-size: 1.1em; color: white; margin: 0 0 15px 0; font-weight: bold;">Congress Failed. Now They Have to Fix It.</p>
                 <p style="font-size: 0.95em; color: #81c784; margin: 0 0 15px 0; font-weight: bold;">Prices spiking. Coverage dropping. Jobs cut. Shutdown on Jan 31<span style="color: #4caf50; font-size: 1.3em; font-weight: bold;">?</span></p>
                 <p style="font-size: 1.1em; color: #4caf50; margin: 0 0 25px 0; font-weight: bold;">NOT IF 3.5% join the PHIERStorm Movement</p>
-                <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" style="background: linear-gradient(135deg, #4caf50, #2e7d32); color: white; padding: 14px 32px; font-size: 1.1em; font-weight: bold; border: 2px solid #4caf50; border-radius: 8px; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.3s; box-shadow: 0 5px 20px rgba(76, 175, 80, 0.3);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 30px rgba(76, 175, 80, 0.5)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 5px 20px rgba(76, 175, 80, 0.3)';">🔥 Join PHIERStorm Now - Sign Petition</a>
+                <a href="https://c.org/MKFTGSQHBZ" target="_blank" style="background: linear-gradient(135deg, #4caf50, #2e7d32); color: white; padding: 14px 32px; font-size: 1.1em; font-weight: bold; border: 2px solid #4caf50; border-radius: 8px; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.3s; box-shadow: 0 5px 20px rgba(76, 175, 80, 0.3);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 30px rgba(76, 175, 80, 0.5)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 5px 20px rgba(76, 175, 80, 0.3)';">🔥 Join PHIERStorm Now - Sign Petition</a>
             </div>
         </header>
 
@@ -1347,10 +1386,7 @@
             <p>Organized constituent pressure works. We need 3.5% of voters in your district to sign the petition and demand Congress implement PHIERS before the Jan 30 shutdown deadline. That proves we have numbers. That forces town halls. Town halls force accountability. Policy change triggers the cascade.</p>
             
             <div class="button-group">
-                <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" class="btn btn-primary">✍️ Sign Petition</a>
-                <a href="https://forms.gle/xVcSk4cT3VDseSiEA" target="_blank" class="btn btn-primary">📝 Fill Survey</a>
-                <a href="https://www.gofundme.com/PHIERS" class="btn btn-secondary">💝 Support Mission</a>
-                <a href="https://discord.gg/narhDKJY" target="_blank" class="btn btn-discord">💬 Join Discord</a>
+                <a href="https://c.org/MKFTGSQHBZ" target="_blank" class="btn btn-primary">🔥 Sign Petition - Congress Must Act by Jan 31</a>
             </div>
             
             <div class="nav-buttons">
@@ -1444,8 +1480,7 @@
             </div>
             
             <div class="button-group">
-                <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" class="btn btn-primary">✍️ Sign Petition</a>
-                <a href="https://forms.gle/xVcSk4cT3VDseSiEA" target="_blank" class="btn btn-primary">📝 Fill Survey</a>
+                <a href="https://c.org/MKFTGSQHBZ" target="_blank" class="btn btn-primary">🔥 Sign Petition - Congress Must Act by Jan 31</a>
             </div>
             
             <div class="nav-buttons">
@@ -1528,11 +1563,11 @@
             
             <h3>✍️ Step 1: Sign Petition (2 min)</h3>
             <p>Tell Congress: "Add Telehealth to ACA by Dec 31 or face primary challenge." 1,500 = mandatory town hall. We're targeting 10,000+.</p>
-            <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" class="btn btn-primary" style="display: inline-block; margin-top: 15px;">✍️ Sign</a>
+            <a href="https://c.org/MKFTGSQHBZ" target="_blank" class="btn btn-primary" style="display: inline-block; margin-top: 15px;">✍️ Sign</a>
             
             <h3 style="margin-top: 20px;">📊 Step 2: Fill Survey (3 min)</h3>
             <p>Share your healthcare story. Costs. Telehealth experience. Congress will see this data proving constituent demand.</p>
-            <a href="https://forms.gle/xVcSk4cT3VDseSiEA" target="_blank" class="btn btn-primary" style="display: inline-block; margin-top: 15px;">📝 Fill</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdzHqnS-uoMj5z5HAbRWZ5vjFukj-Zx-NwGhhPX7MC4n83dkA/viewform" target="_blank" class="btn btn-primary" style="display: inline-block; margin-top: 15px;">📝 Fill</a>
             
             <h3 style="margin-top: 20px;">🚀 Step 3: Join Team</h3>
             <p>Organizers, data analysts, media coordinators needed in every state.</p>
@@ -1548,8 +1583,8 @@
             <p>Sign. Fill. Join. Donate. Share.</p>
             
             <div class="button-group">
-                <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" class="btn btn-primary">✍️ Sign Petition</a>
-                <a href="https://forms.gle/xVcSk4cT3VDseSiEA" target="_blank" class="btn btn-primary">📝 Fill Survey</a>
+                <a href="https://c.org/MKFTGSQHBZ" target="_blank" class="btn btn-primary">✍️ Sign Petition</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdzHqnS-uoMj5z5HAbRWZ5vjFukj-Zx-NwGhhPX7MC4n83dkA/viewform" target="_blank" class="btn btn-primary">📝 Fill Survey</a>
                 <a href="https://discord.gg/narhDKJY" target="_blank" class="btn btn-discord">💬 Discord</a>
                 <a href="https://www.gofundme.com/PHIERS" target="_blank" class="btn btn-danger">💰 Donate</a>
             </div>
@@ -1839,7 +1874,7 @@
                 <p><strong>The Story:</strong> Congressional gridlock fails 22 million Americans. Tax credit cliff expires. Premiums triple. No solution offered.</p>
                 <p><strong>The Problem:</strong> Congress has two broken approaches: Trump's MFN (saves $10-20B) or nothing. Both fail the crisis.</p>
                 <p><strong>Our Response:</strong> PHIERS saves $2.73T annually—136x better than MFN. Universal coverage for $600/year. Millions of AI-resistant jobs. Implementation begins Feb 2026 IF Congress acts by Jan 30.</p>
-                <p><strong>What You Can Do:</strong> <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" style="color: #4caf50; text-decoration: underline;">Sign petition</a> | <a href="https://forms.gle/xVcSk4cT3VDseSiEA" target="_blank" style="color: #4caf50; text-decoration: underline;">Fill survey</a> | <a href="tel:202-224-3121" style="color: #4caf50; text-decoration: underline;">Call congressman</a></p>
+                <p><strong>What You Can Do:</strong> <a href="https://c.org/MKFTGSQHBZ" target="_blank" style="color: #4caf50; text-decoration: underline;">Sign petition</a> | <a href="https://docs.google.com/forms/d/e/1FAIpQLSdzHqnS-uoMj5z5HAbRWZ5vjFukj-Zx-NwGhhPX7MC4n83dkA/viewform" target="_blank" style="color: #4caf50; text-decoration: underline;">Fill survey</a> | <a href="tel:202-224-3121" style="color: #4caf50; text-decoration: underline;">Call congressman</a></p>
             </div>
             
             <div class="blog-post">
@@ -1848,7 +1883,7 @@
                 <p><strong>The Story:</strong> Automation accelerates. Retraining programs insufficient. Healthcare still tied to employment. No economic cushion.</p>
                 <p><strong>The Problem:</strong> Job loss + healthcare loss = cascade failure of entire system. Current policy has no answer.</p>
                 <p><strong>Our Response:</strong> PHIERS creates millions of AI-resistant jobs (case management, health coordination, community infrastructure) AND provides healthcare independent of employment AND delivers Monthly UBI from government savings (once we hit 3.5%).</p>
-                <p><strong>What You Can Do:</strong> <a href="https://discord.gg/narhDKJY" target="_blank" style="color: #4caf50; text-decoration: underline;">Join Discord</a> for job transition resources | <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" style="color: #4caf50; text-decoration: underline;">Sign petition</a></p>
+                <p><strong>What You Can Do:</strong> <a href="https://discord.gg/narhDKJY" target="_blank" style="color: #4caf50; text-decoration: underline;">Join Discord</a> for job transition resources | <a href="https://c.org/MKFTGSQHBZ" target="_blank" style="color: #4caf50; text-decoration: underline;">Sign petition</a></p>
             </div>
             
             <div class="blog-post">
@@ -1857,11 +1892,11 @@
                 <p><strong>The Story:</strong> Budget deadline creates urgency. Representatives face hard choices. Healthcare is dominant issue.</p>
                 <p><strong>The Problem:</strong> Typical Congress: delays, committees, 2-year timelines. We don't have time. 22M losing coverage in 72 hours.</p>
                 <p><strong>Our Response:</strong> Jan 30 shutdown deadline forces votes. If constituents demand PHIERS, representatives vote for it OR face primary. Mathematical inevitability.</p>
-                <p><strong>What You Can Do:</strong> <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" style="color: #4caf50; text-decoration: underline;">Sign petition</a> | <a href="https://forms.gle/xVcSk4cT3VDseSiEA" target="_blank" style="color: #4caf50; text-decoration: underline;">Fill survey</a> | Share with your network</p>
+                <p><strong>What You Can Do:</strong> <a href="https://c.org/MKFTGSQHBZ" target="_blank" style="color: #4caf50; text-decoration: underline;">Sign petition</a> | <a href="https://docs.google.com/forms/d/e/1FAIpQLSdzHqnS-uoMj5z5HAbRWZ5vjFukj-Zx-NwGhhPX7MC4n83dkA/viewform" target="_blank" style="color: #4caf50; text-decoration: underline;">Fill survey</a> | Share with your network</p>
             </div>
             
             <div class="button-group">
-                <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" class="btn btn-primary">✍️ Sign Petition</a>
+                <a href="https://c.org/MKFTGSQHBZ" target="_blank" class="btn btn-primary">✍️ Sign Petition</a>
                 <a href="https://discord.gg/narhDKJY" target="_blank" class="btn btn-discord">💬 Join Discussion</a>
             </div>
             
@@ -1958,10 +1993,7 @@
             <h3 style="margin-top: 25px;">Tools & Data</h3>
             
             <div class="button-group">
-                <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" class="btn btn-primary">✍️ Sign Petition</a>
-                <a href="https://forms.gle/xVcSk4cT3VDseSiEA" target="_blank" class="btn btn-primary">📝 Fill Survey</a>
-                <a href="https://discord.gg/narhDKJY" target="_blank" class="btn btn-discord">💬 Discord Community</a>
-                <a href="https://www.gofundme.com/PHIERS" target="_blank" class="btn btn-secondary">💝 Support on GFM</a>
+                <a href="https://c.org/MKFTGSQHBZ" target="_blank" class="btn btn-primary">🔥 Sign Petition - Congress Must Act by Jan 31</a>
             </div>
             
             <!-- MY STORY SECTION -->
@@ -2097,6 +2129,12 @@
                 <a href="https://phiersale.github.io/Join_the_Team/" target="_blank" style="color: #81c784; text-decoration: underline;">Join Us</a> | 
                 <a href="https://phiersale.github.io/MABAH-Movement/" target="_blank" style="color: #81c784; text-decoration: underline;">MABAH Movement</a> | 
                 <a href="https://phiersale.github.io/PHIERS-FAQ/" target="_blank" style="color: #e74c3c; text-decoration: underline; font-weight: bold;">🔥 FAQ (UPDATED - 25 Questions)</a>
+            </p>
+            <p style="margin-top: 20px; padding-top: 20px; border-top: 2px solid rgba(76, 175, 80, 0.3);">
+                <strong style="color: #4caf50;">Take Action:</strong><br>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdzHqnS-uoMj5z5HAbRWZ5vjFukj-Zx-NwGhhPX7MC4n83dkA/viewform" target="_blank" style="color: #81c784; text-decoration: underline;">Fill Survey</a> | 
+                <a href="https://www.gofundme.com/PHIERS" target="_blank" style="color: #81c784; text-decoration: underline;">Support Mission (GFM)</a> | 
+                <a href="https://discord.gg/narhDKJY" target="_blank" style="color: #81c784; text-decoration: underline;">Join Discord</a>
             </p>
             <p style="margin-top: 15px;">© PHIERS.org - People's Health Insurance Endowment and Referral Service | Prior art documented since 2014</p>
         </footer>
