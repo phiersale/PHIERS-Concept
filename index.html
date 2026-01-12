@@ -233,8 +233,8 @@
         section {
             background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
             border-left: 4px solid #4caf50;
-            padding: 30px;
-            margin-bottom: 30px;
+            padding: 40px;
+            margin-bottom: 40px;
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
             display: none;
@@ -252,7 +252,8 @@
         
         h2 {
             color: #4caf50;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            margin-top: 10px;
             font-size: 1.8em;
             border-bottom: 2px solid #4caf50;
             padding-bottom: 10px;
@@ -260,8 +261,8 @@
         
         h3 {
             color: #81c784;
-            margin-top: 20px;
-            margin-bottom: 10px;
+            margin-top: 30px;
+            margin-bottom: 15px;
             font-size: 1.2em;
         }
         
@@ -351,6 +352,12 @@
             display: inline-block;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
         }
         
         .btn-primary {
@@ -464,6 +471,12 @@
         ul li {
             margin: 14px 0;
             color: #c8e6c9;
+            line-height: 1.7;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            line-height: 1.7;
         }
         
         .nav-buttons {
@@ -729,11 +742,13 @@
             
             .button-group {
                 flex-direction: column;
-                gap: 8px;
+                gap: 10px;
             }
             
             .btn {
                 width: 100%;
+                padding: 14px 20px;
+                font-size: 1em;
             }
 
             .tooltip-popup {
@@ -752,15 +767,30 @@
             header {
                 padding: 25px 15px;
             }
+            
+            section {
+                padding: 25px 20px;
+            }
+            
+            p {
+                font-size: 0.95em;
+            }
         }
 
         @media (max-width: 480px) {
             h1 {
                 font-size: 1.3em;
+                line-height: 1.3;
             }
             
             h2 {
-                font-size: 1.1em;
+                font-size: 1.2em;
+                line-height: 1.3;
+            }
+            
+            h3 {
+                font-size: 1.05em;
+                line-height: 1.3;
             }
 
             .logo {
@@ -769,16 +799,16 @@
 
             .nav-item {
                 padding: 5px 8px;
-                font-size: 0.7em;
+                font-size: 0.75em;
             }
 
             .crisis-alert {
-                font-size: 0.8em;
+                font-size: 0.85em;
                 padding: 10px;
             }
 
             .crisis-alert-content {
-                line-height: 1.4;
+                line-height: 1.5;
             }
 
             .container {
@@ -791,8 +821,66 @@
             }
 
             .btn {
-                padding: 10px 15px;
+                padding: 12px 18px;
+                font-size: 0.95em;
+            }
+            
+            section {
+                padding: 20px 15px;
+            }
+            
+            p {
                 font-size: 0.9em;
+                line-height: 1.6;
+            }
+            
+            ul li {
+                font-size: 0.9em;
+                line-height: 1.6;
+            }
+        }
+        
+        /* SCROLLING ALERT BANNER */
+        .alert-banner {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 8px 0;
+            overflow: hidden;
+            position: relative;
+            border-bottom: 2px solid #c0392b;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+        
+        .alert-content {
+            display: flex;
+            animation: scroll 45s linear infinite;
+            white-space: nowrap;
+        }
+        
+        .alert-item {
+            padding: 0 40px;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .alert-item::before {
+            content: "⚠️";
+            margin-right: 8px;
+        }
+        
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        @media (max-width: 768px) {
+            .alert-banner {
+                font-size: 0.8em;
+                padding: 6px 0;
+            }
+            .alert-item {
+                padding: 0 20px;
             }
         }
     </style>
@@ -861,6 +949,25 @@
     </script>
 </head>
 <body>
+    <!-- SCROLLING ALERT BANNER -->
+    <div class="alert-banner">
+        <div class="alert-content">
+            <span class="alert-item">Dec 31: 22M Americans lost healthcare coverage</span>
+            <span class="alert-item">Jan 31: Shutdown deadline - Congress must Do Better - WE CAN HELP!</span>
+            <span class="alert-item">3.5% organized = GUARANTEED systemic change (Harvard research)</span>
+            <span class="alert-item">$888 BILLION in annual savings ready to deploy</span>
+            <span class="alert-item">120M Americans can get $600/year healthcare (vs $8K+)</span>
+            <span class="alert-item">8-13 months to universal coverage once approved</span>
+            <!-- Duplicate for seamless loop -->
+            <span class="alert-item">Dec 31: 22M Americans lost healthcare coverage</span>
+            <span class="alert-item">Jan 31: Shutdown deadline - Congress must Do Better - WE CAN HELP!</span>
+            <span class="alert-item">3.5% organized = GUARANTEED systemic change (Harvard research)</span>
+            <span class="alert-item">$888 BILLION in annual savings ready to deploy</span>
+            <span class="alert-item">120M Americans can get $600/year healthcare (vs $8K+)</span>
+            <span class="alert-item">8-13 months to universal coverage once approved</span>
+        </div>
+    </div>
+    
     <!-- EARLY POPUP STATE CHECK - Run before popup renders -->
     <script>
         // Define function FIRST so button can call it
@@ -972,28 +1079,56 @@
     </script>
 
     <div class="opening-modal-overlay" id="openingModalOverlay">
-        <div class="opening-modal-container">
+        <div class="opening-modal-container" style="max-width: 900px; background: linear-gradient(135deg, #0f3460 0%, #16213e 100%); border: 3px solid #4caf50;">
             <button type="button" class="opening-modal-close" onclick="closeOpeningModal()">×</button>
-            <div class="opening-modal-content">
-                <h2>How ONE Person Creates Universal Coverage</h2>
-                <p class="opening-tagline">This isn't a cut; it's a conversion.</p>
-                <p class="opening-description">
-                    $50/month in prescription savings → $600/year telehealth plan<br>
-                    → replaces $8,000 Medicaid insurance → saves $7,400/year<br>
-                    → funds 12 more conversions → exponential cascade → 120M coverage<br><br>
-                    <strong>9 iterations. 8-13 months. $888 BILLION saved annually.</strong>
+            <div class="opening-modal-content" style="padding: 40px 30px;">
+                
+                <!-- Rubik's Cube Visual -->
+                <div style="text-align: center; margin-bottom: 25px;">
+                    <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Rubiks_Cube_-_SYMBOLS.png" 
+                         alt="5D Solutions - All Connected" 
+                         style="max-width: 120px; height: auto;">
+                </div>
+                
+                <h2 style="font-size: 1.8em; color: white; text-align: center; margin-bottom: 20px;">WE the People Can Compel Congress to Make Better Decisions</h2>
+                
+                <p style="font-size: 1.1em; color: #81c784; text-align: center; margin-bottom: 10px; line-height: 1.7;">
+                    <strong style="color: #4caf50;">3.5% organized = GUARANTEED systemic change</strong> <span style="color: #c8e6c9;">(Harvard research)</span><br>
+                    That's 11.6 million Americans. We have 100M+ affected = <strong style="color: #4caf50;">9x the threshold</strong>
                 </p>
-                <div class="modal-button-group">
-                    <a href="SimpleMath.html" class="modal-btn">
-                        📊 See The Simple Math
+                
+                <div style="background: rgba(76, 175, 80, 0.1); border: 2px solid #4caf50; border-radius: 8px; padding: 25px; margin: 25px 0;">
+                    <p style="font-size: 1.2em; color: #4caf50; text-align: center; margin-bottom: 15px;">
+                        <strong>🧩 5D Solution (All at Once):</strong>
+                    </p>
+                    <p style="color: #c8e6c9; line-height: 1.8; margin-bottom: 0;">
+                        ✓ Universal Healthcare ($600/year vs $8K+)<br>
+                        ✓ 8-14M AI-Resistant Jobs Created<br>
+                        ✓ $888B Annual Economic Stimulus<br>
+                        ✓ End Trump's Expansionist Wars + Guardrails on Administration<br>
+                        ✓ Restore Government to We the People
+                    </p>
+                </div>
+                
+                <p style="font-size: 1em; color: #ffeb3b; text-align: center; margin: 20px 0; font-weight: bold;">
+                    ⚠️ Jan 31 Shutdown Deadline = Congress Must Do Better or Face Primary Challenges
+                </p>
+                
+                <div class="modal-button-group" style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                    <a href="SimpleMath.html" class="modal-btn" style="background: linear-gradient(135deg, #2196f3, #1976d2); color: white; padding: 14px 28px; font-size: 1.05em; font-weight: bold; border-radius: 8px; text-decoration: none; transition: all 0.3s;">
+                        📊 See Simple Math Site
                     </a>
-                    <a href="#" onclick="closeOpeningModal(); return false;" class="modal-btn modal-btn-secondary">
+                    <a href="#" onclick="closeOpeningModal(); return false;" class="modal-btn" style="background: linear-gradient(135deg, #4caf50, #2e7d32); color: white; padding: 14px 28px; font-size: 1.05em; font-weight: bold; border-radius: 8px; text-decoration: none; transition: all 0.3s;">
                         🌍 Go to Main Site
                     </a>
-                    <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" class="modal-btn modal-btn-accent">
-                        ✍️ Sign Petition Now
+                    <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" onclick="closeOpeningModal();" class="modal-btn" style="background: linear-gradient(135deg, #e74c3c, #c0392b); color: white; padding: 14px 28px; font-size: 1.05em; font-weight: bold; border-radius: 8px; text-decoration: none; transition: all 0.3s;">
+                        🔥 Sign Petition Now
                     </a>
                 </div>
+                
+                <p style="text-align: center; color: #81c784; font-size: 0.9em; margin-top: 20px;">
+                    Close this to explore the site (you can always return to Simple Math or sign the petition from any page)
+                </p>
             </div>
         </div>
     </div>
@@ -1051,9 +1186,9 @@
         <section id="main" class="active">
 
             <div style="background: linear-gradient(135deg, rgba(52, 211, 153, 0.15), rgba(76, 175, 80, 0.1)); border: 2px solid #20c997; border-radius: 12px; padding: 25px 30px; margin-bottom: 40px; text-align: center;">
-                <h3 style="color: #4caf50; margin-top: 0; margin-bottom: 12px; font-size: 1.2em;">📖 Want the BackStory?</h3>
+                <h3 style="color: #4caf50; margin-top: 0; margin-bottom: 12px; font-size: 1.2em;">📖 Want the Back Story?</h3>
                 <p style="color: #c8e6c9; margin-bottom: 15px; font-size: 0.95em;">Questions about our approach? Curious about our 16-year journey? Read the full context on Intelligent Glue, our partnership model, and building democratic power through solidarity.</p>
-                <a href="clarification.html" style="background: linear-gradient(135deg, #20c997, #0d9488); color: white; padding: 10px 24px; font-size: 0.95em; font-weight: bold; border-radius: 6px; text-decoration: none; display: inline-block; transition: all 0.3s;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 5px 15px rgba(32, 201, 151, 0.3)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">Read The Full Story →</a>
+                <a href="clarification.html" style="background: linear-gradient(135deg, #20c997, #0d9488); color: white; padding: 10px 24px; font-size: 0.95em; font-weight: bold; border-radius: 6px; text-decoration: none; display: inline-block; transition: all 0.3s;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 5px 15px rgba(32, 201, 151, 0.3)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">Read The Back Story →</a>
             </div>
 
             <h2 style="margin-bottom: 30px;">🧩 5D Solutions</h2>
@@ -1090,7 +1225,7 @@
             </div>
             
             <h2>📹 Watch: The Bipartisan Solution (11:11)</h2>
-            <p>How 15 years of development created a solution that achieves Trump's cost reduction goals AND Bera's bipartisan approach. Features <span class="al-wilson-link" onclick="showPopup('alWilsonPopup')">Al Wilson</span>'s wellness success story and the 3 ways to actually reduce drug costs.</p>
+            <p>How 15 years of development created a solution that achieves Trump's cost reduction goals AND Bera's bipartisan approach. Features <span class="al-wilson-link" onclick="showPopup('alWilsonPopup')">Al Wilson</span>'s forward-thinking pharmaceutical solution (delayed by Panama Free Trade Agreement—6 years later, Mark Cuban is doing what Al planned) and the 3 ways to actually reduce drug costs.</p>
             
             <div class="video-container" style="margin-bottom: 30px;">
                 <iframe width="100%" height="560" src="https://www.youtube.com/embed/bEUyDVAYwpk" frameborder="0" allowfullscreen="true" loading="lazy" title="The Bipartisan Solution - PHIERS"></iframe>
@@ -1758,6 +1893,15 @@
                 <a href="https://docs.google.com/document/d/1LBnU4KCgnWEuc7fLYU9nYAAtlpZ6wYSm880INmey4NI/edit?usp=sharing" target="_blank" class="btn btn-primary" style="display: inline-block; margin-top: 20px;">📖 Read White Paper</a>
             </div>
 
+            <div style="height: 50px;"></div>
+
+            <div style="background: linear-gradient(135deg, rgba(66, 133, 244, 0.15), rgba(76, 175, 80, 0.1)); border: 2px solid #4285f4; padding: 25px; margin: 40px 0; border-radius: 8px;">
+                <h4 style="color: #4285f4; margin-top: 0;">🔬 Evidence Hub - Deep Dive Analysis</h4>
+                <p><strong>For analysts, researchers, and policymakers who want comprehensive evidence.</strong></p>
+                <p style="margin-top: 15px; color: #c8e6c9;">Detailed analysis covering: 16-year development journey, competitive landscape comparison, congressional strategy breakdown, analyst-grade documentation, proper response framework, and complete timeline/roadmap.</p>
+                <a href="https://phiersale.github.io/PHIERS-Concept/evidence-hub/" target="_blank" class="btn btn-primary" style="display: inline-block; margin-top: 20px; background: #4285f4;">🔬 Access Evidence Hub</a>
+            </div>
+
             <h3 style="margin-top: 25px;">Tools & Data</h3>
             
             <div class="button-group">
@@ -1914,9 +2058,9 @@
         <div class="popup-content">
             <p><strong>Who:</strong> Decorated veteran. Healthcare innovator. Will's co-architect for 16 years (since 2009).</p>
             <p><strong>The Connection:</strong> Will protected Al when he was vulnerable. Reported abuse. Got evicted for doing the right thing. Al never forgot.</p>
-            <p><strong>Why He Matters:</strong> Al originated the pharmaceutical cost-reduction model that Mark Cuban launched as "Cost Plus Drugs" in 2022. Al proved the concept works in practice. Cuban took it to scale. We validated it at Congressional level.</p>
-            <p><strong>His Story:</strong> Veterans facing healthcare costs. Searching for solutions. Found one that works. Now fighting so millions can access what he proved works.</p>
-            <p><strong>Proof:</strong> His wellness in the video. His voice in the validation. His commitment to the cause—same cause that got Will evicted for protecting him.</p>
+            <p><strong>Why He Matters:</strong> Al was ahead of the curve with a forward-thinking pharmaceutical solution in 2009. Implementation was delayed when the Panama Free Trade Agreement stalled. 6 years later in 2022, Mark Cuban launched "Cost Plus Drugs"—doing exactly what Al had planned. Al proved the concept. Cuban scaled it. We validated it at Congressional level.</p>
+            <p><strong>His Story:</strong> Veterans facing healthcare costs. Designed a solution that eliminates profit extraction. Delayed by trade politics. Vindicated when Cuban proved the model works at scale (7M customers, 80-90% savings).</p>
+            <p><strong>Proof:</strong> His vision in the video. His voice in the validation. His commitment to the cause—same cause that got Will evicted for protecting him.</p>
         </div>
     </div>
 
