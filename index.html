@@ -1066,15 +1066,13 @@
                 popup.style.display = 'none';
             }
             localStorage.setItem('phiersPopupClosed', 'true');
-            // Show opening modal next
-            if (!localStorage.getItem('openingModalClosed')) {
-                setTimeout(function() {
-                    var openingOverlay = document.getElementById('openingModalOverlay');
-                    if (openingOverlay) {
-                        openingOverlay.style.display = 'flex';
-                    }
-                }, 300);
-            }
+            // Show opening modal next (always - no localStorage check)
+            setTimeout(function() {
+                var openingOverlay = document.getElementById('openingModalOverlay');
+                if (openingOverlay) {
+                    openingOverlay.style.display = 'flex';
+                }
+            }, 300);
         }
         
         // Hide popup if already closed
@@ -1098,8 +1096,7 @@
             if (overlay) {
                 overlay.style.display = 'none';
             }
-            // Save version instead of simple flag
-            localStorage.setItem('modalVersion', 'v3_jan12_hybrid');
+            // Modal will show again on next visit (no localStorage persistence)
         }
         
         function closeStickyCTA() {
@@ -1154,15 +1151,13 @@
             // Set flag so popup won't show again
             localStorage.setItem('phiersPopupClosed', 'true');
             
-            // Show opening modal next (unless they've already closed it)
-            if (!localStorage.getItem('openingModalClosed')) {
-                setTimeout(function() {
-                    var openingOverlay = document.getElementById('openingModalOverlay');
-                    if (openingOverlay) {
-                        openingOverlay.style.display = 'flex';
-                    }
-                }, 300);
-            }
+            // Show opening modal next (always - no localStorage check)
+            setTimeout(function() {
+                var openingOverlay = document.getElementById('openingModalOverlay');
+                if (openingOverlay) {
+                    openingOverlay.style.display = 'flex';
+                }
+            }, 300);
         }
 
         // Hide popup if user previously closed it
@@ -1184,18 +1179,11 @@
                 }
             }
             
-            // Check modal version - if site was updated, show modal again
-            var currentModalVersion = 'v3_jan12_hybrid'; // Change this when modal content updates
-            var lastSeenVersion = localStorage.getItem('modalVersion');
-            
-            // Show opening modal after 5 seconds as teaser (unless already closed on THIS version)
+            // Show opening modal after 5 seconds as teaser (ALWAYS - no localStorage check)
             setTimeout(function() {
-                if (lastSeenVersion !== currentModalVersion) {
-                    // New version - show modal even if they closed old version
-                    var openingOverlay = document.getElementById('openingModalOverlay');
-                    if (openingOverlay) {
-                        openingOverlay.style.display = 'flex';
-                    }
+                var openingOverlay = document.getElementById('openingModalOverlay');
+                if (openingOverlay) {
+                    openingOverlay.style.display = 'flex';
                 }
                 
                 // Hide other popups if already closed
@@ -1278,8 +1266,8 @@
             <div style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(66, 133, 244, 0.15)); border: 2px solid rgba(76, 175, 80, 0.4); padding: 25px 30px; border-radius: 12px; max-width: 600px; margin: 0 auto;">
                 <p style="font-size: 1.1em; color: white; margin: 0 0 15px 0; font-weight: bold;">Congress Failed. Now They Have to Fix It.</p>
                 <p style="font-size: 0.95em; color: #81c784; margin: 0 0 15px 0; font-weight: bold;">Prices spiking. Coverage dropping. Jobs cut. Shutdown on Jan 31<span style="color: #4caf50; font-size: 1.3em; font-weight: bold;">?</span></p>
-                <p style="font-size: 1.1em; color: #4caf50; margin: 0 0 25px 0; font-weight: bold;">NOT IF 3.5% join the PHIERStorm Movement</p>
-                <a href="https://c.org/MKFTGSQHBZ" target="_blank" style="background: linear-gradient(135deg, #4caf50, #2e7d32); color: white; padding: 14px 32px; font-size: 1.1em; font-weight: bold; border: 2px solid #4caf50; border-radius: 8px; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.3s; box-shadow: 0 5px 20px rgba(76, 175, 80, 0.3);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 30px rgba(76, 175, 80, 0.5)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 5px 20px rgba(76, 175, 80, 0.3)';">🔥 Join PHIERStorm Now - Sign Petition</a>
+                <p style="font-size: 1.1em; color: #4caf50; margin: 0 0 25px 0; font-weight: bold;">NOT IF 3.5% organize and force action</p>
+                <a href="https://c.org/MKFTGSQHBZ" target="_blank" style="background: linear-gradient(135deg, #4caf50, #2e7d32); color: white; padding: 14px 32px; font-size: 1.1em; font-weight: bold; border: 2px solid #4caf50; border-radius: 8px; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.3s; box-shadow: 0 5px 20px rgba(76, 175, 80, 0.3);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 30px rgba(76, 175, 80, 0.5)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 5px 20px rgba(76, 175, 80, 0.3)';">🔥 Sign Petition Now</a>
             </div>
         </header>
 
