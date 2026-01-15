@@ -1,255 +1,155 @@
-<!DOCTYPE html>
-<!-- PHIERS Index - Final, video-first, CTA-ready, ready to paste and publish -->
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="color-scheme" content="dark light">
-  <title>PHIERS - Make America Better and Healthier</title>
+<!-- DEEP DIVE (for policy wonks & politicians) -->
+<section id="deep-dive" aria-labelledby="deep-dive-heading">
+  <h2 id="deep-dive-heading">Deep Dive — For Policy Makers and Analysts</h2>
+  <p style="color:#cfead1; margin-bottom:12px;">
+    Detailed policy, legal, financial, and technical appendices for analysts, staffers, and legislators.
+    Expand the sections you need; each subsection has a permalink for briefings.
+  </p>
 
-  <!-- PRESERVED & POLISHED CSS (visual identity + accessibility) -->
-  <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
-    html,body { height:100%; }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);
-      color:#e0e0e0; line-height:1.6; min-height:100vh;
-      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-      padding:20px;
-    }
-    .container { max-width:1100px; margin:18px auto; padding:18px; }
+  <nav style="margin-bottom:12px;">
+    <a class="inline-link" href="#rationale">Policy Rationale</a> •
+    <a class="inline-link" href="#finance">Financial Model</a> •
+    <a class="inline-link" href="#legal">Legal Considerations</a> •
+    <a class="inline-link" href="#roadmap">Implementation Roadmap</a> •
+    <a class="inline-link" href="#data">Data & Sources</a> •
+    <a class="inline-link" href="#appendix">Technical Appendix</a>
+  </nav>
 
-    header {
-      text-align:center; padding:28px 18px; border-radius:10px;
-      background:linear-gradient(135deg, rgba(15,52,96,0.85), rgba(22,33,62,0.85));
-      border:2px solid rgba(76,175,80,0.18); box-shadow:0 8px 30px rgba(0,0,0,0.5);
-    }
-    .logo { max-width:140px; display:block; margin:0 auto 12px; }
-    h1 { font-size:2.1rem; color:#4caf50; text-shadow:0 0 18px rgba(76,175,80,0.25); margin-bottom:6px; }
-    .tagline { color:#aee6b8; font-size:1rem; margin-bottom:6px; }
-    .subtitle { color:#cfead1; font-size:0.95rem; margin-bottom:12px; }
+  <div class="accordion">
 
-    /* Nav */
-    .nav-menu { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:14px; padding:10px; background:rgba(26,26,46,0.45); border-radius:8px; }
-    .nav-item { padding:8px 14px; border-radius:8px; color:#4caf50; font-weight:700; cursor:pointer; border:1px solid rgba(76,175,80,0.12); background:linear-gradient(135deg, rgba(76,175,80,0.06), rgba(129,199,132,0.03)); transition:all .18s ease; }
-    .nav-item:hover { transform:translateY(-3px); box-shadow:0 8px 20px rgba(0,0,0,0.45); }
-    .nav-item.active { background:linear-gradient(135deg,#4caf50,#45a049); color:#fff; }
-
-    /* Hero video + side card */
-    .hero { margin-top:22px; display:grid; gap:18px; }
-    .hero-grid { display:grid; grid-template-columns: 1fr 360px; gap:24px; align-items:start; }
-    @media (max-width:900px){ .hero-grid { grid-template-columns:1fr; } .video-container { max-width:100%; } .side-card { order:2; } }
-
-    .video-container {
-      position:relative; width:100%; padding-bottom:56.25%; border-radius:10px; overflow:hidden;
-      border:2px solid rgba(76,175,80,0.18); box-shadow:0 10px 30px rgba(0,0,0,0.6); background:#000;
-    }
-    .video-container iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
-
-    .side-card {
-      background:linear-gradient(135deg, rgba(15,52,96,0.6), rgba(22,33,62,0.6));
-      border-radius:10px; padding:18px; border:1px solid rgba(76,175,80,0.12);
-      box-shadow:0 8px 20px rgba(0,0,0,0.45);
-    }
-    .side-card h3 { color:#81c784; margin-bottom:8px; font-size:1.05rem; }
-    .side-card p { color:#cfead1; font-size:0.95rem; margin-bottom:12px; }
-
-    /* Buttons */
-    .button-group { display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin-top:8px; }
-    .btn { padding:12px 18px; border-radius:8px; font-weight:800; text-decoration:none; display:inline-block; color:#fff; box-shadow:0 6px 18px rgba(0,0,0,0.45); transition:transform .15s ease; }
-    .btn:hover { transform:translateY(-3px); }
-    .btn-primary { background:linear-gradient(135deg,#4caf50,#45a049); }
-    .btn-secondary { background:linear-gradient(135deg,#2196f3,#1976d2); }
-    .btn-discord { background:linear-gradient(135deg,#7289da,#5a73c4); }
-    .btn-ghost { background:transparent; border:1px solid rgba(255,255,255,0.06); color:#aee6b8; }
-
-    /* Sections */
-    section { margin-top:22px; background:linear-gradient(135deg, rgba(26,26,46,0.9), rgba(22,33,62,0.9)); border-left:4px solid #4caf50; padding:22px; border-radius:10px; box-shadow:0 8px 30px rgba(0,0,0,0.45); }
-    h2 { color:#4caf50; font-size:1.5rem; margin-bottom:12px; border-bottom:2px solid rgba(76,175,80,0.08); padding-bottom:8px; }
-    h3 { color:#81c784; margin-bottom:8px; }
-    p { color:#cfead1; margin-bottom:12px; }
-
-    .validation-box { background:linear-gradient(135deg, rgba(76,175,80,0.06), rgba(129,199,132,0.03)); border:1px solid rgba(76,175,80,0.12); padding:16px; border-radius:8px; color:#dff3dc; }
-    .graphic-container { text-align:center; padding:18px; }
-    .graphic-container img { max-width:320px; width:100%; height:auto; border-radius:8px; box-shadow:0 8px 30px rgba(0,0,0,0.45); }
-
-    .urgent-banner { background:linear-gradient(135deg, rgba(244,67,54,0.08), rgba(229,57,53,0.06)); border-left:4px solid #f44336; padding:14px; border-radius:8px; color:#ffdede; margin-bottom:12px; }
-    .stats { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:12px; }
-    .stat-box { background:rgba(76,175,80,0.06); padding:12px; border-radius:8px; text-align:center; border:1px solid rgba(76,175,80,0.08); }
-    .stat-number { color:#4caf50; font-weight:900; font-size:1.4rem; }
-    .stat-label { color:#cfead1; font-size:0.95rem; }
-
-    footer { text-align:center; margin-top:28px; padding:18px; color:#aee6b8; border-top:1px solid rgba(76,175,80,0.08); font-size:0.95rem; }
-    a.inline-link { color:#81c784; text-decoration:underline; font-weight:700; }
-
-    .muted { color:#9fcaa0; font-size:0.95rem; }
-    ul { margin-left:18px; }
-    li { margin:8px 0; color:#dff3dc; }
-  </style>
-</head>
-<body>
-  <div class="container" role="main">
-
-    <!-- Header -->
-    <header aria-label="PHIERS header">
-      <img src="assets/logo.png" alt="PHIERS logo" class="logo" onerror="this.style.display='none'">
-      <h1>PHIERS — Make America Better and Healthier</h1>
-      <div class="tagline">A people-powered movement to fix healthcare, lower costs, and deliver universal coverage — funded from savings, not taxes.</div>
-      <div class="subtitle">Urgent: prices spike, coverage drops, jobs are at risk. We have a narrow window to act.</div>
-
-      <nav class="nav-menu" role="navigation" aria-label="Main navigation">
-        <div class="nav-item active" data-target="how-it-works">How It Works</div>
-        <div class="nav-item" data-target="the-crisis">The Crisis</div>
-        <div class="nav-item" data-target="solutions">5D Solutions</div>
-        <div class="nav-item" data-target="leverage">Leverage</div>
-        <div class="nav-item" data-target="take-action">Take Action</div>
-        <div class="nav-item" data-target="resources">Resources</div>
-      </nav>
-    </header>
-
-    <!-- Hero: video + side card -->
-    <section class="hero" aria-label="Intro">
-      <div class="hero-grid">
-        <div>
-          <h2 style="margin-bottom:8px;">Watch: The Mechanism — 1:51</h2>
-          <div class="video-container" role="region" aria-label="PHIERS intro video">
-            <iframe src="https://www.youtube.com/embed/kd6kTJM_SuM?rel=0&modestbranding=1" title="PHIERS Intro Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div>
-
-          <div class="button-group" style="margin-top:14px;">
-            <a class="btn btn-primary" href="https://c.org/q9vrMCQZsY" id="btn-join" target="_blank" rel="noopener">Sign the Petition</a>
-            <a class="btn btn-secondary" href="https://forms.gle/xVcSk4cT3VDseSiEA" id="btn-survey" target="_blank" rel="noopener">Fill the Survey</a>
-            <a class="btn btn-primary" href="https://gofund.me/43c506768" id="btn-support" target="_blank" rel="noopener">Support the Mission</a>
-            <a class="btn btn-discord" href="#discord" id="btn-discord">Join Discord (TBD)</a>
-          </div>
-        </div>
-
-        <aside class="side-card" aria-label="Quick facts">
-          <h3>Quick 10‑second explainer</h3>
-          <p class="muted"><strong>PHIERS</strong> converts telehealth savings into universal coverage. Telehealth ≈ <strong>$600</strong> vs traditional insurance ≈ <strong>$8,000</strong>. The freed savings fund the next wave — an exponential cascade to coverage.</p>
-
-          <div style="margin-top:12px;">
-            <h3 style="margin-bottom:6px;">Why this matters</h3>
-            <ul>
-              <li>Lower costs for routine care</li>
-              <li>Coverage for millions without new taxes</li>
-              <li>Jobs and local investment</li>
-            </ul>
-          </div>
-        </aside>
+    <!-- Policy Rationale -->
+    <div class="accordion-item">
+      <button class="accordion-toggle" aria-expanded="false" aria-controls="rationale-panel" id="rationale">
+        <strong>Policy Rationale</strong> — Why PHIERS is a viable public policy lever
+      </button>
+      <div id="rationale-panel" class="accordion-panel" hidden>
+        <h3>Executive summary</h3>
+        <p>Concise policy framing: how telehealth savings create fiscal space, reduce uncompensated care, and align incentives for preventive care.</p>
+        <h4>Key policy levers</h4>
+        <ul>
+          <li>Exchange subsidy alignment and regulatory carve-outs</li>
+          <li>State waivers and federal demonstration pathways</li>
+          <li>Constituent pressure thresholds and legislative triggers</li>
+        </ul>
+        <p class="muted">Permalink: <a class="inline-link" href="#rationale">#rationale</a></p>
       </div>
-    </section>
+    </div>
 
-    <!-- The Crisis -->
-    <section id="the-crisis" aria-labelledby="crisis-heading">
-      <h2 id="crisis-heading">The Crisis</h2>
-      <div class="urgent-banner" role="alert">
-        <div style="font-weight:800; color:#ffbdbd;">Congress let subsidies expire — 22 million lost coverage</div>
-        <div class="muted" style="margin-top:6px;">Prices are spiking and coverage is dropping. We have a narrow window to force action before the system destabilizes. Organized constituent pressure works — 3.5% participation triggers town halls and policy change.</div>
+    <!-- Financial Model -->
+    <div class="accordion-item">
+      <button class="accordion-toggle" aria-expanded="false" aria-controls="finance-panel" id="finance">
+        <strong>Financial Model & Assumptions</strong> — math, sensitivity, and scenarios
+      </button>
+      <div id="finance-panel" class="accordion-panel" hidden>
+        <h3>Core assumptions</h3>
+        <ul>
+          <li>Telehealth per‑person cost: <strong>$600</strong></li>
+          <li>Traditional insurance per‑person cost: <strong>$8,000</strong></li>
+          <li>Conversion multipliers and cascade steps (illustrative)</li>
+        </ul>
+        <h3>Sensitivity analysis</h3>
+        <p>Tables and scenarios: best case, base case, stress case. (Placeholder for numeric tables.)</p>
+        <h3>Downloadable data</h3>
+        <p class="muted">If you want, we can embed CSV tables or inline data tables here for staff analysis.</p>
+        <p class="muted">Permalink: <a class="inline-link" href="#finance">#finance</a></p>
       </div>
+    </div>
 
-      <h3>What this means for people</h3>
-      <ul>
-        <li>Higher premiums and fewer options</li>
-        <li>More uncompensated ER care and taxpayer burden</li>
-        <li>Millions at risk of losing access to routine care</li>
-      </ul>
-    </section>
-
-    <!-- How it works -->
-    <section id="how-it-works" aria-labelledby="how-heading">
-      <h2 id="how-heading">How It Works — The Exponential Mechanism</h2>
-
-      <div class="validation-box" role="note" aria-live="polite">
-        <strong style="color:#dff3dc;">Core math</strong>
-        <p class="muted" style="margin-top:8px;">Traditional insurance: <strong>$8,000+</strong> / year. Telehealth alternative: <strong>$600</strong> / year. That frees roughly <strong>$7,400</strong> per person — savings that fund additional conversions and create an exponential cascade.</p>
+    <!-- Legal & Regulatory -->
+    <div class="accordion-item">
+      <button class="accordion-toggle" aria-expanded="false" aria-controls="legal-panel" id="legal">
+        <strong>Legal & Regulatory Considerations</strong> — compliance, waivers, and risk
+      </button>
+      <div id="legal-panel" class="accordion-panel" hidden>
+        <h3>Federal considerations</h3>
+        <p>Medicaid/ACA exchange interactions, CMS waiver pathways, and federal preemption risks.</p>
+        <h3>State considerations</h3>
+        <p>Licensure, telehealth parity, and state budget impacts.</p>
+        <p class="muted">Permalink: <a class="inline-link" href="#legal">#legal</a></p>
       </div>
+    </div>
 
-      <div class="graphic-container" style="margin-top:14px;">
-        <img src="assets/cascade-placeholder.png" alt="Exponential cascade graphic" onerror="this.style.display='none'">
-        <p style="color:#cfead1; margin-top:10px; font-weight:700;">1 → 12 → 148 → 1,825 → 22,508 → 302K → 3.7M → 46M → 120M</p>
+    <!-- Implementation Roadmap -->
+    <div class="accordion-item">
+      <button class="accordion-toggle" aria-expanded="false" aria-controls="roadmap-panel" id="roadmap">
+        <strong>Implementation Roadmap</strong> — pilot, scale, governance
+      </button>
+      <div id="roadmap-panel" class="accordion-panel" hidden>
+        <h3>Phase 1 — Pilot</h3>
+        <ul>
+          <li>Target districts, partner clinics, and measurement plan</li>
+          <li>Key metrics: conversion rate, cost per conversion, utilization</li>
+        </ul>
+        <h3>Phase 2 — Regional scale</h3>
+        <p>Governance, funding flows, and oversight mechanisms.</p>
+        <p class="muted">Permalink: <a class="inline-link" href="#roadmap">#roadmap</a></p>
       </div>
+    </div>
 
-      <div class="stats" aria-hidden="false">
-        <div class="stat-box">
-          <div class="stat-number">$2.73T</div>
-          <div class="stat-label">Potential annual savings at scale</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-number">234M</div>
-          <div class="stat-label">People covered (endpoint)</div>
-        </div>
+    <!-- Data & Sources -->
+    <div class="accordion-item">
+      <button class="accordion-toggle" aria-expanded="false" aria-controls="data-panel" id="data">
+        <strong>Data & Sources</strong> — datasets, citations, and methodology
+      </button>
+      <div id="data-panel" class="accordion-panel" hidden>
+        <h3>Primary datasets</h3>
+        <ul>
+          <li>Claims datasets (anonymized)</li>
+          <li>Telehealth utilization studies</li>
+          <li>CMS and CBO baseline estimates</li>
+        </ul>
+        <h3>Methodology notes</h3>
+        <p>How we estimate per‑person savings, cascade multipliers, and uncertainty bounds.</p>
+        <p class="muted">Permalink: <a class="inline-link" href="#data">#data</a></p>
       </div>
+    </div>
 
-      <p class="muted" style="margin-top:12px;">Savings fund telehealth for the 80% who don't need hospitalization and enhanced coverage for the 20% who do. Members choose providers; PHIERS pays the bill.</p>
-    </section>
-
-    <!-- 5D Solutions -->
-    <section id="solutions" aria-labelledby="solutions-heading">
-      <h2 id="solutions-heading">5D Solutions — One solution, five outcomes</h2>
-      <p class="muted">PHIERS addresses healthcare access, economic security, dignified work, protection from extraction, and sustainable communities — together these create a resilient system.</p>
-
-      <ul>
-        <li><strong>Healthcare:</strong> Universal coverage at point of service</li>
-        <li><strong>Economy:</strong> Millions of AI-resistant jobs</li>
-        <li><strong>Community:</strong> Local investment and case management</li>
-        <li><strong>Democracy:</strong> Constituent power forcing policy change</li>
-        <li><strong>Justice:</strong> No new taxes; funded from savings</li>
-      </ul>
-    </section>
-
-    <!-- Take Action -->
-    <section id="take-action" aria-labelledby="action-heading">
-      <h2 id="action-heading">Take Action — Your signature is the spark</h2>
-      <p class="muted">Sign the petition and fill the survey. 3.5% participation in a district forces town halls, which forces Congressional action. Policy change triggers the cascade — and the math does the rest.</p>
-
-      <div class="button-group" style="margin-top:12px;">
-        <a class="btn btn-primary" href="https://c.org/q9vrMCQZsY" target="_blank" rel="noopener">Sign the Petition</a>
-        <a class="btn btn-secondary" href="https://forms.gle/xVcSk4cT3VDseSiEA" target="_blank" rel="noopener">Fill the Survey</a>
-        <a class="btn btn-primary" href="https://gofund.me/43c506768" target="_blank" rel="noopener">Support the Mission</a>
-        <a class="btn btn-discord" href="#discord">Join Discord (TBD)</a>
+    <!-- Technical Appendix -->
+    <div class="accordion-item">
+      <button class="accordion-toggle" aria-expanded="false" aria-controls="appendix-panel" id="appendix">
+        <strong>Technical Appendix</strong> — formulas, derivations, and code snippets
+      </button>
+      <div id="appendix-panel" class="accordion-panel" hidden>
+        <h3>Mathematical derivation</h3>
+        <p>Full cascade math, stepwise multipliers, and closed‑form approximations.</p>
+        <pre style="background:#0f1720; color:#dff3dc; padding:12px; border-radius:6px; overflow:auto;">
+// Example (illustrative)
+let baseSavings = 7400; // per person
+let initial = 1;
+let multiplier = 12;
+let steps = [1,12,148,1825]; // etc.
+        </pre>
+        <p class="muted">Permalink: <a class="inline-link" href="#appendix">#appendix</a></p>
       </div>
+    </div>
 
-      <div style="margin-top:14px; color:#cfead1;">
-        <strong>Quick links:</strong>
-        <a class="inline-link" href="#faq">FAQ (25 Questions)</a> •
-        <a class="inline-link" href="#resources">More Resources</a>
-      </div>
-    </section>
-
-    <!-- Contact / Credibility -->
-    <section id="contact" aria-labelledby="contact-heading">
-      <h2 id="contact-heading">Leadership & Contact</h2>
-      <p class="muted"><strong>Will Price</strong><br>Chief Solutions Architect<br>Phone: 301‑919‑0970 • Email: <a class="inline-link" href="mailto:[email protected]">[email protected]</a></p>
-      <p class="muted">Prior art documented since 2014. Version 3.13 — Last updated January 2, 2026.</p>
-    </section>
-
-    <footer role="contentinfo">
-      <p>PHIERS Movement | Make America Better And Healthier</p>
-      <p>© PHIERS.org — People's Health Insurance Endowment and Referral Service</p>
-    </footer>
   </div>
+</section>
 
-  <!-- Minimal JS: nav scrolling + smooth behavior -->
-  <script>
-    // Smooth nav scrolling
-    document.querySelectorAll('.nav-item').forEach(function(el){
-      el.addEventListener('click', function(){
-        document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
-        el.classList.add('active');
-        var target = el.getAttribute('data-target');
-        if(target){
-          var node = document.getElementById(target);
-          if(node) node.scrollIntoView({behavior:'smooth', block:'start'});
-        }
+<!-- Minimal accordion JS (paste once in page) -->
+<script>
+  (function(){
+    document.querySelectorAll('.accordion-toggle').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var panel = document.getElementById(btn.getAttribute('aria-controls'));
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        if(!expanded){ panel.hidden = false; panel.style.maxHeight = panel.scrollHeight + 'px'; }
+        else { panel.style.maxHeight = null; setTimeout(()=>panel.hidden=true,300); }
       });
     });
+    // Optional: open first item for quick access
+    // document.querySelectorAll('.accordion-toggle')[0].click();
+  })();
+</script>
 
-    // Accessibility: focus outlines for keyboard users
-    document.body.addEventListener('keyup', function(e){
-      if(e.key === 'Tab') document.documentElement.classList.add('user-is-tabbing');
-    });
-  </script>
-</body>
-</html>
+<style>
+  /* Accordion styles (keeps visual identity) */
+  .accordion-item { margin-bottom:12px; }
+  .accordion-toggle {
+    width:100%; text-align:left; padding:12px 14px; border-radius:8px;
+    background:linear-gradient(135deg, rgba(15,52,96,0.6), rgba(22,33,62,0.6));
+    color:#dff3dc; border:1px solid rgba(76,175,80,0.08); font-weight:700; cursor:pointer;
+  }
+  .accordion-panel { padding:12px 14px; margin-top:8px; border-radius:8px; background:rgba(0,0,0,0.25); overflow:hidden; transition:max-height .28s ease; }
+</style>
