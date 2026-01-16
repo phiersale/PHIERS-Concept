@@ -564,134 +564,6 @@
             color: #4caf50;
             text-decoration: underline;
         }
-
-        /* MODAL STYLES - CHOICE NAVIGATION */
-        .modal-backdrop {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            z-index: 9999;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .modal-backdrop.active {
-            display: flex;
-        }
-
-        .modal-content {
-            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
-            border: 3px solid #4caf50;
-            border-radius: 16px;
-            padding: 50px 40px;
-            max-width: 600px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            text-align: center;
-            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.9);
-            animation: modalSlide 0.4s ease;
-        }
-
-        @keyframes modalSlide {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        .modal-content h2 {
-            color: #4caf50;
-            font-size: 2em;
-            margin-bottom: 15px;
-        }
-
-        .modal-content p {
-            color: #c8e6c9;
-            font-size: 1.1em;
-            margin-bottom: 30px;
-            line-height: 1.7;
-        }
-
-        .modal-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .modal-btn {
-            padding: 16px 30px;
-            font-size: 1.1em;
-            font-weight: bold;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: block;
-        }
-
-        .modal-btn.quick {
-            background: linear-gradient(135deg, #fbbf24, #f59e0b);
-            color: #1e3a8a;
-        }
-
-        .modal-btn.quick:hover {
-            background: linear-gradient(135deg, #f59e0b, #d97706);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(251, 191, 36, 0.4);
-        }
-
-        .modal-btn.full {
-            background: linear-gradient(135deg, #4caf50, #45a049);
-            color: white;
-        }
-
-        .modal-btn.full:hover {
-            background: linear-gradient(135deg, #45a049, #3d8b40);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
-        }
-
-        .modal-btn.resources {
-            background: transparent;
-            border: 2px solid #2196f3;
-            color: #2196f3;
-        }
-
-        .modal-btn.resources:hover {
-            background: rgba(33, 150, 243, 0.1);
-            transform: translateY(-2px);
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: none;
-            border: none;
-            color: #4caf50;
-            font-size: 2em;
-            cursor: pointer;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-close:hover {
-            color: #81c784;
-        }
         
         /* LIGHTBOX STYLES */
         .lightbox-modal {
@@ -1003,6 +875,10 @@
         <div style="position: relative; max-width: 90vw; max-height: 90vh;">
             <button onclick="closeConsequencesPopup()" style="position: absolute; top: -40px; right: 0; background: #4caf50; color: white; border: none; padding: 8px 12px; font-size: 1.5em; font-weight: bold; border-radius: 50%; cursor: pointer; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">×</button>
             <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/99_to_1_Great_Odds_wide.png" alt="99 to 1 - Those Are Great Odds" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);">
+            <div style="text-align: center; margin-top: 20px;">
+                <p style="color: #c8e6c9; font-size: 0.9em; margin-bottom: 10px;">💡 Trump just expanded HSAs. See how we're ahead of the curve:</p>
+                <a href="#" onclick="closeConsequencesPopup(); showSection('trump-hsa'); return false;" style="background: linear-gradient(135deg, #4caf50, #2e7d32); color: white; padding: 10px 20px; font-size: 0.9em; font-weight: bold; border: none; border-radius: 6px; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.3s;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 5px 15px rgba(76, 175, 80, 0.4)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">⚡ PHIERS Response to HSA Plan</a>
+            </div>
         </div>
     </div>
 
@@ -1086,48 +962,8 @@
                 <h2>⚠️ WE HAVE THE SOLUTION ⚠️</h2>
                 <p class="urgency-text">Become the 3.5% That Forces Congress to Listen<br>Fix Healthcare. End Wars. Reverse Destructive Policies.</p>
                 <p class="stats-text">3.5% = GUARANTEED SYSTEMIC CHANGE<br>WE HAVE 100M+ = 9x THE THRESHOLD<br>COOPERATIVE POWER = UNSTOPPABLE</p>
-                <a href="https://c.org/q9vrMCQZsY" target="_blank" class="btn-sign">🔥 SIGN PETITION (2 MIN) - BUILD THE MOVEMENT</a>
+                <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" class="btn-sign">🔥 SIGN PETITION (2 MIN) - BUILD THE MOVEMENT</a>
                 <p class="close-hint">or close this (X button) to learn how PHIERS actually works</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- CHOICE MODAL WITH VIDEO - Navigation between Quick Story and Full Breakdown -->
-    <div class="modal-backdrop active" id="choiceModal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal()">×</button>
-            
-            <!-- PHIERS LOGO -->
-            <div style="margin-bottom: 25px;">
-                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Logo.png" alt="PHIERS Logo" style="height: 87px; width: auto;">
-            </div>
-            
-            <!-- WELCOME MESSAGE -->
-            <div style="margin-bottom: 30px; text-align: center;">
-                <h2 style="color: #4caf50; font-size: 1.8em; margin-bottom: 12px;">We Have the Solution</h2>
-                <p style="color: #c8e6c9; font-size: 1.05em; line-height: 1.6; margin: 0;">
-                    Congress failed. 22 million lost coverage. But we have a way to fix this—<strong style="color: #81c784;">without raising taxes</strong>. Watch this.
-                </p>
-            </div>
-            
-            <!-- VIDEO INTRO -->
-            <div style="margin-bottom: 30px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 20px rgba(76, 175, 80, 0.2);">
-                <iframe width="100%" height="280" src="https://www.youtube.com/embed/2j-dF3hgdeE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            
-            <!-- VIDEO DESCRIPTOR BOX -->
-            <div style="background: white; color: #000; padding: 20px; border-radius: 8px; margin-bottom: 30px; text-align: center;">
-                <h3 style="margin: 0 0 10px 0; font-size: 1.1em; font-weight: bold; color: #000;">WATCH THIS</h3>
-                <p style="margin: 0; font-size: 0.95em; line-height: 1.6; color: #333;">
-                    A 71-second breakdown of the $600 math that can cover 234 million Americans — using existing law, telehealth, and people-powered leverage to force Congress to act.
-                </p>
-            </div>
-            
-            <!-- CHOICE BUTTONS -->
-            <div class="modal-buttons">
-                <a href="SimpleMath.html" class="modal-btn quick">⚡ Quick Story (2 min read)</a>
-                <button class="modal-btn full" onclick="stayOnPage()">📖 Dive Deep (You're Here)</button>
-                <a href="https://c.org/q9vrMCQZsY" target="_blank" class="modal-btn evidence" style="background: linear-gradient(135deg, #f59e0b, #ea580c); border: none; color: white;">🔥 Sign Petition Now</a>
             </div>
         </div>
     </div>
@@ -1144,7 +980,7 @@
                 <p style="font-size: 1.1em; color: white; margin: 0 0 15px 0; font-weight: bold;">Congress Failed. Now They Have to Fix It.</p>
                 <p style="font-size: 0.95em; color: #81c784; margin: 0 0 15px 0; font-weight: bold;">Prices spiking. Coverage dropping. Jobs cut. Shutdown on Jan 31<span style="color: #4caf50; font-size: 1.3em; font-weight: bold;">?</span></p>
                 <p style="font-size: 1.1em; color: #4caf50; margin: 0 0 25px 0; font-weight: bold;">NOT IF 3.5% join the PHIERStorm Movement</p>
-                <a href="https://c.org/q9vrMCQZsY" target="_blank" style="background: linear-gradient(135deg, #4caf50, #2e7d32); color: white; padding: 14px 32px; font-size: 1.1em; font-weight: bold; border: 2px solid #4caf50; border-radius: 8px; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.3s; box-shadow: 0 5px 20px rgba(76, 175, 80, 0.3);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 30px rgba(76, 175, 80, 0.5)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 5px 20px rgba(76, 175, 80, 0.3)';">🔥 Join PHIERStorm Now - Sign Petition</a>
+                <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" style="background: linear-gradient(135deg, #4caf50, #2e7d32); color: white; padding: 14px 32px; font-size: 1.1em; font-weight: bold; border: 2px solid #4caf50; border-radius: 8px; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.3s; box-shadow: 0 5px 20px rgba(76, 175, 80, 0.3);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 30px rgba(76, 175, 80, 0.5)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 5px 20px rgba(76, 175, 80, 0.3)';">🔥 Join PHIERStorm Now - Sign Petition</a>
             </div>
         </header>
         
@@ -1160,6 +996,7 @@
         
         <div class="nav-menu" id="secondaryNav" style="display: none; border-top: 1px solid rgba(76, 175, 80, 0.3); padding-top: 10px; margin-top: 10px;">
             <div class="nav-item" onclick="showSection('faq'); toggleSecondaryNav()">▶ FAQ 🔥 <span style="background: #e74c3c; color: white; padding: 2px 6px; border-radius: 3px; font-size: 0.8em; font-weight: bold; margin-left: 5px;">UPDATED</span></div>
+            <div class="nav-item" onclick="showSection('trump-hsa'); toggleSecondaryNav()">▶ Trump HSA Response 🚀</div>
             <div class="nav-item" onclick="showSection('blog'); toggleSecondaryNav()">▶ News & Response</div>
             <div class="nav-item" onclick="showSection('resources'); toggleSecondaryNav()">▶ Learn More</div>
             <div class="nav-item" onclick="showSection('mystory'); toggleSecondaryNav()">▶ My Story</div>
@@ -1183,12 +1020,6 @@
 
         <!-- MAIN SECTION -->
         <section id="main" class="active">
-
-            <div style="text-align: center; margin-bottom: 40px; background: rgba(76, 175, 80, 0.1); padding: 30px; border-radius: 8px;">
-                <div style="display: inline-block; max-width: 600px; width: 100%;">
-                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/kd6kTJM_SuM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 8px;"></iframe>
-                </div>
-            </div>
 
             <div style="background: linear-gradient(135deg, rgba(52, 211, 153, 0.15), rgba(76, 175, 80, 0.1)); border: 2px solid #20c997; border-radius: 12px; padding: 25px 30px; margin-bottom: 40px; text-align: center;">
                 <h3 style="color: #4caf50; margin-top: 0; margin-bottom: 12px; font-size: 1.2em;">📖 Want the Complete Story?</h3>
@@ -1222,11 +1053,11 @@
                 <p style="color: #81c784; line-height: 1.8; margin-top: 20px; text-align: center; font-weight: bold;">We're glad you're here. This solution was built for people like you.</p>
             </div>
             
-            <h2>📹 Watch: The Full Picture (5:55)</h2>
-            <p>How healthcare savings can fund universal coverage, monthly UBI checks, and millions of meaningful jobs without raising taxes. The complete blueprint.</p>
+            <h2>📹 Watch: The Bipartisan Solution (11:11)</h2>
+            <p>How 15 years of development created a solution that achieves Trump's cost reduction goals AND Bera's bipartisan approach. Features <span class="al-wilson-link" onclick="showPopup('alWilsonPopup')">Al Wilson</span>'s wellness success story and the 3 ways to actually reduce drug costs.</p>
             
             <div class="video-container" style="margin-bottom: 30px;">
-                <iframe width="100%" height="560" src="https://www.youtube.com/embed/VdeniYs1QsQ" frameborder="0" allowfullscreen="true" loading="lazy" title="The Full Picture - PHIERS"></iframe>
+                <iframe width="100%" height="560" src="https://www.youtube.com/embed/bEUyDVAYwpk" frameborder="0" allowfullscreen="true" loading="lazy" title="The Bipartisan Solution - PHIERS"></iframe>
             </div>
             
             <div class="validation-box">
@@ -1242,13 +1073,6 @@
                     </ul>
                     <p style="margin-top: 10px;"><strong>The Results:</strong> $2.73 TRILLION annually (136x more than MFN alone) + millions of AI-resistant jobs + universal healthcare + economic stimulus</p>
                 </div>
-            </div>
-            
-            <h3 style="margin-top: 50px; padding-top: 30px; border-top: 2px solid rgba(76, 175, 80, 0.3);">📹 Watch: The Bipartisan Solution (11:11)</h3>
-            <p>How 15 years of development created a solution that achieves Trump's cost reduction goals AND Bera's bipartisan approach. Features <span class="al-wilson-link" onclick="showPopup('alWilsonPopup')">Al Wilson</span>'s wellness success story and the 3 ways to actually reduce drug costs.</p>
-            
-            <div class="video-container" style="margin-bottom: 30px;">
-                <iframe width="100%" height="400" src="https://www.youtube.com/embed/bEUyDVAYwpk" frameborder="0" allowfullscreen="true" loading="lazy" title="The Bipartisan Solution - PHIERS"></iframe>
             </div>
             
             <h3 style="margin-top: 50px; padding-top: 30px; border-top: 2px solid rgba(76, 175, 80, 0.3);">Watch: 3 Ways to Reduce Drug Costs (Jump to 2:59 in video above)</h3>
@@ -1320,7 +1144,7 @@
             <p>Organized constituent pressure works. We need 3.5% of voters in your district to sign the petition and demand Congress implement PHIERS before the Jan 30 shutdown deadline. That proves we have numbers. That forces town halls. Town halls force accountability. Policy change triggers the cascade.</p>
             
             <div class="button-group">
-                <a href="https://c.org/q9vrMCQZsY" target="_blank" class="btn btn-primary">✍️ Sign Petition</a>
+                <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" class="btn btn-primary">✍️ Sign Petition</a>
                 <a href="https://forms.gle/xVcSk4cT3VDseSiEA" target="_blank" class="btn btn-primary">📝 Fill Survey</a>
                 <a href="https://www.gofundme.com/PHIERS" class="btn btn-secondary">💝 Support Mission</a>
                 <a href="https://discord.gg/narhDKJY" target="_blank" class="btn btn-discord">💬 Join Discord</a>
@@ -1357,8 +1181,6 @@
             
             <h3>The Cascade</h3>
             <p>Those 12+ switch. Generate $88,800 additional freed savings. That funds 1,776 more switches. Those generate $13.2M additional. <strong>Exponential growth.</strong></p>
-            
-            <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/SIMPLE_MATH.png" alt="Mathematical Cascade Chart - From One Conversion to 234 Million Covered" style="max-width: 100%; height: auto; margin: 30px 0; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
             
             <div style="height: 40px; border-top: 1px solid rgba(76, 175, 80, 0.2);"></div>
             <div style="text-align: center; margin-bottom: 35px; background: rgba(76, 175, 80, 0.1); padding: 25px; border-radius: 8px; border-left: 5px solid #4caf50;">
@@ -1398,7 +1220,7 @@
             </div>
             
             <div class="button-group">
-                <a href="https://c.org/q9vrMCQZsY" target="_blank" class="btn btn-primary">✍️ Sign Petition</a>
+                <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" class="btn btn-primary">✍️ Sign Petition</a>
                 <a href="https://forms.gle/xVcSk4cT3VDseSiEA" target="_blank" class="btn btn-primary">📝 Fill Survey</a>
             </div>
             
@@ -1482,7 +1304,7 @@
             
             <h3>✍️ Step 1: Sign Petition (2 min)</h3>
             <p>Tell Congress: "Add Telehealth to ACA by Dec 31 or face primary challenge." 1,500 = mandatory town hall. We're targeting 10,000+.</p>
-            <a href="https://c.org/q9vrMCQZsY" target="_blank" class="btn btn-primary" style="display: inline-block; margin-top: 15px;">✍️ Sign</a>
+            <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" class="btn btn-primary" style="display: inline-block; margin-top: 15px;">✍️ Sign</a>
             
             <h3 style="margin-top: 20px;">📊 Step 2: Fill Survey (3 min)</h3>
             <p>Share your healthcare story. Costs. Telehealth experience. Congress will see this data proving constituent demand.</p>
@@ -1502,7 +1324,7 @@
             <p>Sign. Fill. Join. Donate. Share.</p>
             
             <div class="button-group">
-                <a href="https://c.org/q9vrMCQZsY" target="_blank" class="btn btn-primary">✍️ Sign Petition</a>
+                <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" class="btn btn-primary">✍️ Sign Petition</a>
                 <a href="https://forms.gle/xVcSk4cT3VDseSiEA" target="_blank" class="btn btn-primary">📝 Fill Survey</a>
                 <a href="https://discord.gg/narhDKJY" target="_blank" class="btn btn-discord">💬 Discord</a>
                 <a href="https://www.gofundme.com/PHIERS" target="_blank" class="btn btn-danger">💰 Donate</a>
@@ -1776,10 +1598,160 @@
 
         </section>
 
+        <!-- TRUMP HSA RESPONSE SECTION -->
+        <section id="trump-hsa">
+            <h2>⚡ PHIERS Response: Why We're Ahead of Trump's HSA Plan</h2>
+            
+            <div style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(66, 133, 244, 0.15)); border: 2px solid #4caf50; padding: 30px; margin: 40px 0; border-radius: 8px; text-align: center;">
+                <h3 style="color: #4caf50; margin-top: 0;">Trump Just Expanded HSAs. Here's Why PHIERS Is Better.</h3>
+                <p style="color: #c8e6c9; font-size: 0.95em;">Trump's "Big Beautiful Bill" doubled HSA contribution limits and made Bronze plans HSA-eligible. That's good for wealthy people. PHIERS solves healthcare for EVERYONE.</p>
+            </div>
+
+            <h3>✅ What Trump's HSA Plan Does (Good News)</h3>
+            <ul>
+                <li>Doubled HSA contribution limits ($8,600 individual, $17,100 family)</li>
+                <li>Made Bronze and Catastrophic marketplace plans HSA-eligible</li>
+                <li>Made telehealth permanently compatible with HSA eligibility</li>
+                <li>Made Direct Primary Care ($150-$300/month) HSA-eligible</li>
+            </ul>
+            <p><strong>Result:</strong> Wealthy people can save $4,000-$8,000+ annually in taxes while funding healthcare.</p>
+
+            <h3 style="margin-top: 25px;">❌ The Problem HSAs Don't Solve</h3>
+            <ul>
+                <li>Requires people to HAVE money saved before accessing healthcare</li>
+                <li>Abandons 22 million Americans currently on ACA subsidies</li>
+                <li>Republican counter-proposal offers only $1,000-$1,500 per person (vs. real healthcare costs of $8,000+)</li>
+                <li>Doesn't help poor people access healthcare—only helps wealthy people save taxes</li>
+                <li>Bronze plans still require high deductibles ($1,700+ individual) before coverage kicks in</li>
+                <li>No job creation. No economic stimulus. Just personal tax benefits.</li>
+            </ul>
+            <p><strong>Translation:</strong> HSAs are a luxury product for people who already have income.</p>
+
+            <div style="background: rgba(76, 175, 80, 0.1); border-left: 5px solid #4caf50; padding: 25px; margin: 30px 0; border-radius: 8px;">
+                <h3 style="color: #4caf50; margin-top: 0;">🧩 Enter PHIERS: Healthcare That Works For Everyone</h3>
+                
+                <h4 style="color: #81c784;">For Wealthy People (Who Could Benefit From HSAs):</h4>
+                <p>You STILL benefit from PHIERS, even more than HSAs alone:</p>
+                <ul>
+                    <li>Enroll in PHIERS telehealth at $600/year (vs. $1,700+ Bronze deductible)</li>
+                    <li>Save $4,000-$8,000 that you CAN invest tax-free in your HSA</li>
+                    <li>Your HSA funds cover REAL emergencies (hospitalization, surgery, complex procedures)</li>
+                    <li>Get comprehensive healthcare + maximize tax-advantaged savings</li>
+                </ul>
+                <p><strong>You get BOTH: immediate healthcare access AND massive retirement savings.</strong></p>
+
+                <h4 style="color: #81c784; margin-top: 20px;">For Middle & Lower-Income Americans (Whom HSAs Don't Help):</h4>
+                <p>PHIERS offers what Trump's plan never will:</p>
+                <ul>
+                    <li>$600/year comprehensive telehealth (no savings requirement)</li>
+                    <li>No income restrictions or complex eligibility rules</li>
+                    <li>Real jobs created from $2.73T in government savings</li>
+                    <li>Monthly assistance checks from cascade savings</li>
+                    <li>Healthcare for 234M Americans, not just the wealthy</li>
+                </ul>
+                <p><strong>PHIERS reaches everyone HSAs never will.</strong></p>
+            </div>
+
+            <h3>🔢 The Mathematics</h3>
+            
+            <div style="background: rgba(76, 175, 80, 0.05); border: 2px solid rgba(76, 175, 80, 0.2); padding: 20px; margin: 20px 0; border-radius: 8px;">
+                <h4 style="color: #4caf50;">Trump's HSA Plan (Best Case - Wealthy Family)</h4>
+                <ul>
+                    <li>Contribute $17,100 tax-free to HSA (requires having $17,100 to save)</li>
+                    <li>Enroll in Bronze plan with $1,700+ deductible</li>
+                    <li>Use HSA funds to cover deductible + costs before coverage begins</li>
+                    <li><strong>Tax savings:</strong> ~$4,275 (30% bracket)</li>
+                    <li><strong>Result:</strong> Works ONLY if you already have money</li>
+                </ul>
+            </div>
+
+            <div style="background: rgba(76, 175, 80, 0.1); border: 2px solid #4caf50; padding: 20px; margin: 20px 0; border-radius: 8px;">
+                <h4 style="color: #4caf50;">PHIERS (Works for Everyone)</h4>
+                <ul>
+                    <li>Pay $600/year for comprehensive telehealth (everyone)</li>
+                    <li>Government saves $7,400 per person from traditional insurance replacement</li>
+                    <li>Those savings fund: universal coverage, millions of AI-resistant jobs, monthly UBI, economic stimulus</li>
+                    <li><strong>Individual savings:</strong> $7,400+ per year (not just tax benefits—actual money saved)</li>
+                    <li><strong>Result:</strong> Works whether you have savings or not</li>
+                </ul>
+            </div>
+
+            <h3 style="margin-top: 30px;">⚡ The Strategic Opportunity (For Wealthy People)</h3>
+            
+            <p>Here's what Trump's HSA expansion actually creates for forward-thinking individuals:</p>
+            
+            <div style="background: rgba(66, 133, 244, 0.1); border-left: 5px solid #2196f3; padding: 20px; margin: 20px 0; border-radius: 8px;">
+                <h4 style="color: #2196f3; margin-top: 0;">Maximum Financial Optimization + Social Impact</h4>
+                <p style="margin-bottom: 15px;"><strong>Step 1:</strong> Enroll in ACA Bronze plan paired with PHIERS $600 telehealth</p>
+                <p style="margin-bottom: 15px;"><strong>Step 2:</strong> Contribute maximum to HSA ($8,600 individual, $17,100 family)</p>
+                <p style="margin-bottom: 15px;"><strong>Step 3:</strong> Use HSA funds for deductible + emergencies/specialty care</p>
+                <p style="margin-bottom: 15px;"><strong>Step 4:</strong> Save $4,000-$8,000 annually in taxes</p>
+                <p style="margin-bottom: 15px;"><strong>Step 5:</strong> Join 100M+ person movement that forces Congressional action on healthcare</p>
+                <p style="margin-bottom: 0;"><strong>Result:</strong> Maximum wealth preservation + universal healthcare participation + political transformation</p>
+            </div>
+
+            <h3 style="margin-top: 30px;">📊 Why PHIERS Is Structurally Superior</h3>
+            
+            <div class="stats">
+                <div class="stat-box">
+                    <div class="stat-number">$4,300</div>
+                    <div class="stat-label">Annual HSA tax benefit (wealthy)</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">$7,400+</div>
+                    <div class="stat-label">PHIERS savings per person (everyone)</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">59M</div>
+                    <div class="stat-label">Americans with HSAs today</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">234M</div>
+                    <div class="stat-label">Americans PHIERS would cover</div>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 30px;">🎯 The Real Story</h3>
+            
+            <p><strong>Trump's HSA plan:</strong> Tax code optimization for the wealthy.</p>
+            <p><strong>PHIERS:</strong> System transformation for everyone.</p>
+            
+            <p style="margin-top: 20px; color: #ffeb3b; font-weight: bold;">Trump made HSAs better. PHIERS makes healthcare actually work.</p>
+            
+            <p style="margin-top: 20px;">The two aren't competing. The wealthy can use HSAs AND participate in PHIERS. But only PHIERS solves the healthcare crisis for 22M+ people losing subsidies Dec 31.</p>
+
+            <h3 style="margin-top: 30px;">💪 What This Means For You</h3>
+            
+            <div style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(100, 200, 150, 0.1)); border: 2px solid #4caf50; border-radius: 12px; padding: 30px; text-align: center;">
+                <h4 style="color: #81c784; margin-top: 0;">If You Can Afford an HSA</h4>
+                <p style="color: #c8e6c9; margin-bottom: 20px;">You're already winning financially. Now help everyone else win too.</p>
+                <div class="button-group">
+                    <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" class="btn btn-primary">✍️ Sign Petition</a>
+                    <a href="https://forms.gle/xVcSk4cT3VDseSiEA" target="_blank" class="btn btn-primary">📝 Fill Survey</a>
+                    <a href="https://www.gofundme.com/PHIERS" target="_blank" class="btn btn-secondary">💰 Support Movement</a>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="showSection('faq')">← Back: FAQ</button>
+                <button class="btn btn-primary" onclick="showSection('blog')">Next: News & Response →</button>
+            </div>
+        </section>
+
         <!-- BLOG SECTION - NEWS & RESPONSE -->
         <section id="blog">
             <h2>📰 News & Our Response</h2>
             <p style="color: #81c784; margin-bottom: 20px;"><strong>Tracking the crisis. Showing the solution.</strong></p>
+            
+            <div class="blog-post" style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(66, 133, 244, 0.1)); border: 2px solid #4caf50;">
+                <div class="blog-date">January 16, 2026</div>
+                <h4>🚀 Trump Expanded HSAs. Here's Why PHIERS Is Ahead of the Curve.</h4>
+                <p><strong>The Story:</strong> Trump's "Big Beautiful Bill" doubled HSA contribution limits and made Bronze marketplace plans HSA-eligible. Tax benefits for wealthy people. But it abandons 22 million Americans losing ACA subsidies.</p>
+                <p><strong>The Problem:</strong> HSAs require people to HAVE money saved before accessing healthcare. They don't solve the crisis for people without savings.</p>
+                <p><strong>Our Response:</strong> PHIERS works for EVERYONE. Wealthy people benefit from HSAs + PHIERS combined (save $4,000-$8,000 in taxes while joining universal healthcare movement). Poor people get healthcare without needing savings first. The two aren't competing—they complement each other.</p>
+                <p><strong>The Math:</strong> Trump's HSA plan offers ~$4,300 annual tax benefit (for wealthy). PHIERS delivers $7,400+ in actual healthcare savings (for everyone) PLUS millions of jobs PLUS monthly UBI.</p>
+                <p style="margin-top: 15px; font-weight: bold; color: #4caf50;"><a href="#" onclick="showSection('trump-hsa'); return false;" style="color: #4caf50; text-decoration: underline;">→ Read Full PHIERS Response to Trump's HSA Plan</a></p>
+            </div>
             
             <div class="blog-post">
                 <div class="blog-date">December 29, 2025</div>
@@ -1787,7 +1759,7 @@
                 <p><strong>The Story:</strong> Congressional gridlock fails 22 million Americans. Tax credit cliff expires. Premiums triple. No solution offered.</p>
                 <p><strong>The Problem:</strong> Congress has two broken approaches: Trump's MFN (saves $10-20B) or nothing. Both fail the crisis.</p>
                 <p><strong>Our Response:</strong> PHIERS saves $2.73T annually—136x better than MFN. Universal coverage for $600/year. Millions of AI-resistant jobs. Implementation begins Feb 2026 IF Congress acts by Jan 30.</p>
-                <p><strong>What You Can Do:</strong> <a href="https://c.org/q9vrMCQZsY" target="_blank" style="color: #4caf50; text-decoration: underline;">Sign petition</a> | <a href="https://forms.gle/xVcSk4cT3VDseSiEA" target="_blank" style="color: #4caf50; text-decoration: underline;">Fill survey</a> | <a href="tel:202-224-3121" style="color: #4caf50; text-decoration: underline;">Call congressman</a></p>
+                <p><strong>What You Can Do:</strong> <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" style="color: #4caf50; text-decoration: underline;">Sign petition</a> | <a href="https://forms.gle/xVcSk4cT3VDseSiEA" target="_blank" style="color: #4caf50; text-decoration: underline;">Fill survey</a> | <a href="tel:202-224-3121" style="color: #4caf50; text-decoration: underline;">Call congressman</a></p>
             </div>
             
             <div class="blog-post">
@@ -1796,7 +1768,7 @@
                 <p><strong>The Story:</strong> Automation accelerates. Retraining programs insufficient. Healthcare still tied to employment. No economic cushion.</p>
                 <p><strong>The Problem:</strong> Job loss + healthcare loss = cascade failure of entire system. Current policy has no answer.</p>
                 <p><strong>Our Response:</strong> PHIERS creates millions of AI-resistant jobs (case management, health coordination, community infrastructure) AND provides healthcare independent of employment AND delivers Monthly UBI from government savings (once we hit 3.5%).</p>
-                <p><strong>What You Can Do:</strong> <a href="https://discord.gg/narhDKJY" target="_blank" style="color: #4caf50; text-decoration: underline;">Join Discord</a> for job transition resources | <a href="https://c.org/q9vrMCQZsY" target="_blank" style="color: #4caf50; text-decoration: underline;">Sign petition</a></p>
+                <p><strong>What You Can Do:</strong> <a href="https://discord.gg/narhDKJY" target="_blank" style="color: #4caf50; text-decoration: underline;">Join Discord</a> for job transition resources | <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" style="color: #4caf50; text-decoration: underline;">Sign petition</a></p>
             </div>
             
             <div class="blog-post">
@@ -1805,11 +1777,11 @@
                 <p><strong>The Story:</strong> Budget deadline creates urgency. Representatives face hard choices. Healthcare is dominant issue.</p>
                 <p><strong>The Problem:</strong> Typical Congress: delays, committees, 2-year timelines. We don't have time. 22M losing coverage in 72 hours.</p>
                 <p><strong>Our Response:</strong> Jan 30 shutdown deadline forces votes. If constituents demand PHIERS, representatives vote for it OR face primary. Mathematical inevitability.</p>
-                <p><strong>What You Can Do:</strong> <a href="https://c.org/q9vrMCQZsY" target="_blank" style="color: #4caf50; text-decoration: underline;">Sign petition</a> | <a href="https://forms.gle/xVcSk4cT3VDseSiEA" target="_blank" style="color: #4caf50; text-decoration: underline;">Fill survey</a> | Share with your network</p>
+                <p><strong>What You Can Do:</strong> <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" style="color: #4caf50; text-decoration: underline;">Sign petition</a> | <a href="https://forms.gle/xVcSk4cT3VDseSiEA" target="_blank" style="color: #4caf50; text-decoration: underline;">Fill survey</a> | Share with your network</p>
             </div>
             
             <div class="button-group">
-                <a href="https://c.org/q9vrMCQZsY" target="_blank" class="btn btn-primary">✍️ Sign Petition</a>
+                <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" class="btn btn-primary">✍️ Sign Petition</a>
                 <a href="https://discord.gg/narhDKJY" target="_blank" class="btn btn-discord">💬 Join Discussion</a>
             </div>
             
@@ -1897,7 +1869,7 @@
             <h3 style="margin-top: 25px;">Tools & Data</h3>
             
             <div class="button-group">
-                <a href="https://c.org/q9vrMCQZsY" target="_blank" class="btn btn-primary">✍️ Sign Petition</a>
+                <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" class="btn btn-primary">✍️ Sign Petition</a>
                 <a href="https://forms.gle/xVcSk4cT3VDseSiEA" target="_blank" class="btn btn-primary">📝 Fill Survey</a>
                 <a href="https://discord.gg/narhDKJY" target="_blank" class="btn btn-discord">💬 Discord Community</a>
                 <a href="https://www.gofundme.com/PHIERS" target="_blank" class="btn btn-secondary">💝 Support on GFM</a>
@@ -2037,7 +2009,7 @@
                 <a href="https://phiersale.github.io/MABAH-Movement/" target="_blank" style="color: #81c784; text-decoration: underline;">MABAH Movement</a> | 
                 <a href="https://phiersale.github.io/PHIERS-FAQ/" target="_blank" style="color: #e74c3c; text-decoration: underline; font-weight: bold;">🔥 FAQ (UPDATED - 25 Questions)</a>
             </p>
-            <p style="margin-top: 15px;">© PHIERS.org - People's Health insurance Endowment and Referral Service | Prior art documented since 2014</p>
+            <p style="margin-top: 15px;">© PHIERS.org - Peoples Health Insurance Exchange and Referral Service | Prior art documented since 2014</p>
         </footer>
     </div>
 
@@ -2056,29 +2028,6 @@
         </div>
     </div>
 
-    <!-- MODAL CONTROL FUNCTIONS -->
-    <script>
-        function closeModal() {
-            document.getElementById('choiceModal').classList.remove('active');
-        }
-
-        function stayOnPage() {
-            document.getElementById('choiceModal').classList.remove('active');
-        }
-
-        // Allow click outside modal to close
-        document.getElementById('choiceModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
-            }
-        });
-
-        // Check if coming from SimpleMath with skip-modal hash
-        if (window.location.hash === '#skip-modal') {
-            document.getElementById('choiceModal').classList.remove('active');
-        }
-    </script>
-
     <!-- LIGHTBOX MODAL FOR CLICKABLE IMAGES -->
     <div id="lightboxModal" class="lightbox-modal">
         <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
@@ -2086,6 +2035,4 @@
     </div>
 
     <!-- Version timestamp footer -->
-    <div style="text-align: center; padding: 15px; margin-top: 40px; color: rgba(129, 199, 132, 0.6); font-size: 0.85em;">Last updated: January 15, 2026</div>
-</body>
-</html>
+    <div style="text-align: center; padding: 15px; margin-top: 40px; color: rgba(129, 199, 132, 0.6); font-size: 0.85em
