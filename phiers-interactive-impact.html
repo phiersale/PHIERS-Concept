@@ -3,691 +3,606 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Impact & Counter-Strategy | PHIERS</title>
+    <title>⚡ Your Impact & Counter-Strategy | PHIERS</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: #e2e8f0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #e0e0e0;
             line-height: 1.6;
+            min-height: 100vh;
         }
-
-        .header {
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            border-bottom: 2px solid #3b82f6;
-            padding: 2rem;
-            text-align: center;
-            margin-bottom: 2rem;
-            position: relative;
-        }
-
-        .back-button {
-            position: absolute;
-            top: 1.5rem;
-            left: 2rem;
-            background: linear-gradient(135deg, #3b82f6, #1e40af);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 6px;
-            font-weight: bold;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .back-button:hover {
-            background: linear-gradient(135deg, #1e40af, #1e3a8a);
-            transform: translateY(-2px);
-        }
-
-        .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            color: #60a5fa;
-        }
-
-        .header p {
-            font-size: 1.1rem;
-            color: #cbd5e1;
-        }
-
+        
         .container {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 0 1rem;
+            padding: 20px;
         }
-
-        .tabs {
+        
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, rgba(15, 52, 96, 0.8), rgba(22, 33, 62, 0.8));
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border: 2px solid rgba(76, 175, 80, 0.3);
+        }
+        
+        .logo {
+            max-width: 120px;
+            margin: 0 auto 15px auto;
+            display: block;
+        }
+        
+        h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #4caf50;
+            text-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
+        }
+        
+        .tagline {
+            font-size: 0.95em;
+            color: #81c784;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 0.85em;
+            color: #a5d6a7;
+        }
+        
+        .nav-top {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .nav-top a {
+            color: #81c784;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95em;
+        }
+        
+        .nav-top a:hover {
+            color: #4caf50;
+            text-decoration: underline;
+        }
+        
+        .nav-tabs {
             display: flex;
-            border-bottom: 2px solid #334155;
-            margin-bottom: 2rem;
-            gap: 0;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(26, 26, 46, 0.6);
+            border-radius: 8px;
         }
-
-        .tab-button {
-            flex: 1;
-            padding: 1rem;
-            background: #1e293b;
-            border: none;
-            color: #94a3b8;
-            font-size: 1rem;
-            font-weight: 600;
+        
+        .nav-tab {
             cursor: pointer;
-            transition: all 0.3s;
-            border-bottom: 3px solid transparent;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(129, 199, 132, 0.2));
+            border: 1px solid rgba(76, 175, 80, 0.4);
+            border-radius: 6px;
+            color: #4caf50;
+            font-weight: bold;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+            user-select: none;
         }
-
-        .tab-button:hover {
-            background: #334155;
-            color: #cbd5e1;
+        
+        .nav-tab:hover {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.4), rgba(129, 199, 132, 0.4));
+            box-shadow: 0 0 15px rgba(76, 175, 80, 0.3);
         }
-
-        .tab-button.active {
-            background: #1e293b;
-            color: #60a5fa;
-            border-bottom-color: #3b82f6;
+        
+        .nav-tab.active {
+            background: linear-gradient(135deg, #4caf50, #45a049);
+            color: white;
         }
-
-        .tab-content {
+        
+        section {
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
+            border-left: 4px solid #4caf50;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
             display: none;
         }
-
-        .tab-content.active {
+        
+        section.active {
             display: block;
-            animation: fadeIn 0.3s;
         }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        
+        h2 {
+            color: #4caf50;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-bottom: 2px solid #4caf50;
+            padding-bottom: 10px;
         }
-
-        .timeline-item {
-            background: #1e293b;
+        
+        h3 {
+            color: #81c784;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        
+        h4 {
+            color: #81c784;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            font-size: 1.05em;
+        }
+        
+        p {
+            color: #c8e6c9;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+            color: #c8e6c9;
+        }
+        
+        li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+        
+        .timeline-step {
+            background: rgba(76, 175, 80, 0.1);
+            border: 2px solid #4caf50;
+            padding: 20px;
+            margin: 20px 0;
             border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            border-left: 4px solid;
-            position: relative;
+            box-shadow: 0 0 20px rgba(76, 175, 80, 0.15);
         }
-
-        .timeline-item.step-1 { border-left-color: #10b981; }
-        .timeline-item.step-2 { border-left-color: #3b82f6; }
-        .timeline-item.step-3 { border-left-color: #f59e0b; }
-        .timeline-item.step-4 { border-left-color: #ef4444; }
-        .timeline-item.step-5 { border-left-color: #06b6d4; }
-
-        .timeline-item h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: #93c5fd;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+        
+        .timeline-step h4 {
+            margin-top: 0;
+            color: #4caf50;
+            font-size: 1.1em;
         }
-
-        .timeline-item.step-1 h3 { color: #86efac; }
-        .timeline-item.step-2 h3 { color: #93c5fd; }
-        .timeline-item.step-3 h3 { color: #fdba74; }
-        .timeline-item.step-4 h3 { color: #fca5a5; }
-        .timeline-item.step-5 h3 { color: #67e8f9; }
-
-        .timeline-item p {
-            color: #cbd5e1;
-            margin-bottom: 1rem;
+        
+        .dimension-box {
+            background: rgba(76, 175, 80, 0.05);
+            border: 2px solid rgba(76, 175, 80, 0.2);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
         }
-
-        .timeline-detail {
-            background: #0f172a;
-            border-radius: 6px;
-            padding: 1rem;
-            font-size: 0.95rem;
-            color: #cbd5e1;
-            margin-bottom: 1rem;
-            border-left: 3px solid currentColor;
+        
+        .dimension-box h4 {
+            color: #4caf50;
+            margin-top: 0;
+            font-size: 1.15em;
         }
-
-        .timeline-detail strong {
-            color: #e0e7ff;
+        
+        .dimension-box ul {
+            margin-bottom: 10px;
         }
-
-        .timeline-badges {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            margin-top: 1rem;
+        
+        .dimension-box li {
+            margin-bottom: 8px;
         }
-
-        .badge {
-            background: #334155;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            color: #cbd5e1;
-        }
-
-        .timeline-meta {
-            font-size: 0.85rem;
-            color: #64748b;
-            margin-top: 1rem;
+        
+        .connection {
+            color: #ffeb3b;
             font-style: italic;
+            margin-top: 10px;
+            padding: 10px;
+            background: rgba(255, 235, 59, 0.1);
+            border-left: 3px solid #ffeb3b;
+            border-radius: 4px;
         }
-
-        .arrow {
-            text-align: center;
-            font-size: 2rem;
-            color: #3b82f6;
-            margin: 1.5rem 0;
-        }
-
-        .cta-section {
-            background: linear-gradient(135deg, #065f46 0%, #047857 100%);
-            border: 2px solid #10b981;
-            border-radius: 8px;
-            padding: 2rem;
-            margin-top: 2rem;
+        
+        .call-to-action {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(100, 200, 150, 0.1));
+            border: 2px solid #4caf50;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
             text-align: center;
         }
-
-        .cta-section h3 {
-            font-size: 1.5rem;
-            color: #86efac;
-            margin-bottom: 1rem;
+        
+        .call-to-action h3 {
+            margin-top: 0;
+            font-size: 1.4em;
         }
-
-        .cta-section p {
-            color: #d1fae5;
-            margin-bottom: 1rem;
-            font-size: 1rem;
+        
+        .button-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 25px 0;
         }
-
-        .cta-button {
-            display: inline-block;
-            background: #059669;
-            hover: #047857;
-            color: white;
+        
+        .btn {
+            padding: 12px 25px;
+            font-size: 0.95em;
             font-weight: bold;
-            padding: 1rem 2rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 1rem;
-            transition: background 0.3s;
             border: none;
+            border-radius: 8px;
             cursor: pointer;
-        }
-
-        .cta-button:hover {
-            background: #047857;
-        }
-
-        .comparison-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .comparison-box {
-            border-radius: 6px;
-            padding: 1rem;
-        }
-
-        .comparison-bad {
-            background: #7f1d1d;
-        }
-
-        .comparison-good {
-            background: #064e3b;
-        }
-
-        .comparison-box h4 {
-            font-size: 1rem;
-            margin-bottom: 0.75rem;
-            font-weight: 600;
-        }
-
-        .comparison-bad h4 {
-            color: #fca5a5;
-        }
-
-        .comparison-good h4 {
-            color: #86efac;
-        }
-
-        .comparison-box ul {
-            list-style: none;
-            font-size: 0.9rem;
-        }
-
-        .comparison-box li {
-            margin-bottom: 0.5rem;
-            color: #e2e8f0;
-        }
-
-        .dimension-section {
-            background: #1e293b;
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            border-left: 4px solid;
-        }
-
-        .dimension-section.healthcare { border-left-color: #ef4444; }
-        .dimension-section.jobs { border-left-color: #f59e0b; }
-        .dimension-section.economy { border-left-color: #eab308; }
-        .dimension-section.politics { border-left-color: #a855f7; }
-        .dimension-section.peace { border-left-color: #3b82f6; }
-
-        .dimension-section h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: #93c5fd;
-        }
-
-        .connection-box {
-            background: #0f172a;
-            border-radius: 6px;
-            padding: 1rem;
-            margin-top: 1rem;
-            border-left: 3px solid #10b981;
-        }
-
-        .connection-box strong {
-            color: #86efac;
-        }
-
-        .connection-box p {
-            color: #cbd5e1;
-            font-size: 0.95rem;
-        }
-
-        .yin-yang-section {
-            background: linear-gradient(135deg, #1e3a5f 0%, #2d1b54 100%);
-            border: 2px solid #3b82f6;
-            border-radius: 8px;
-            padding: 2rem;
-            margin-top: 2rem;
-            text-align: center;
-        }
-
-        .yin-yang-section h3 {
-            font-size: 1.5rem;
-            color: #93c5fd;
-            margin-bottom: 1rem;
-        }
-
-        .yin-yang-section p {
-            color: #cbd5e1;
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-        }
-
-        .yin-yang-section strong {
-            color: #e0e7ff;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        @media (max-width: 768px) {
-            .comparison-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .header h1 {
-                font-size: 1.8rem;
-            }
-
-            .tabs {
-                flex-direction: column;
-            }
-        }
-
-        .back-link {
-            display: inline-block;
-            margin-bottom: 2rem;
-            color: #60a5fa;
             text-decoration: none;
-            font-size: 0.9rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
-
-        .back-link:hover {
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #4caf50, #45a049);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #45a049, #3d8b40);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #2196f3, #1976d2);
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, #1976d2, #1565c0);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4);
+        }
+        
+        .btn-discord {
+            background: linear-gradient(135deg, #7289da, #5a73c4);
+            color: white;
+        }
+        
+        .btn-discord:hover {
+            background: linear-gradient(135deg, #5a73c4, #4c5aa5);
+            transform: translateY(-2px);
+        }
+        
+        .btn-big {
+            padding: 20px 50px;
+            font-size: 1.2em;
+            width: 100%;
+            max-width: 500px;
+            margin: 20px auto;
+            display: block;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 2px solid rgba(76, 175, 80, 0.3);
+            color: #81c784;
+            margin-top: 40px;
+        }
+        
+        .footer a {
+            color: #4caf50;
             text-decoration: underline;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        
+        .footer a:hover {
+            color: #81c784;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5em;
+            }
+            
+            h2 {
+                font-size: 1.4em;
+            }
+            
+            .nav-tabs {
+                gap: 8px;
+            }
+            
+            .nav-tab {
+                padding: 8px 12px;
+                font-size: 0.8em;
+            }
+            
+            .button-group {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .btn-big {
+                width: 100%;
+                max-width: 100%;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Logo.png" alt="PHIERS Logo" style="max-width: 120px; height: auto; margin-bottom: 20px;">
-        <h1>⚡ Your Impact & Counter-Strategy</h1>
-        <p>See exactly how constituent power forces Congressional action. See how PHIERS stops Project 2025.</p>
-    </div>
-
     <div class="container">
-        <a href="/" class="back-link">← Back to Main</a>
-
-        <div class="tabs">
-            <button class="tab-button active" onclick="switchTab(event, 'yourimpact')">
-                ⚡ Your Impact (Live Timeline)
-            </button>
-            <button class="tab-button" onclick="switchTab(event, 'countstrategy')">
-                🛡️ DOGE Counter-Strategy
-            </button>
+        <header>
+            <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Logo.png" alt="PHIERS Logo" class="logo">
+            <h1>⚡ Your Impact & Counter-Strategy</h1>
+            <p class="tagline">See exactly how constituent power forces Congressional action.</p>
+            <p class="subtitle">See how PHIERS stops Project 2025.</p>
+        </header>
+        
+        <div class="nav-top">
+            <a href="https://phiersale.github.io/PHIERS-Concept/index.html#leverage">← Back to Main</a>
         </div>
-
-        <!-- TAB 1: YOUR IMPACT -->
-        <div id="yourimpact" class="tab-content active">
-            <p style="font-size: 1.1rem; color: #cbd5e1; margin-bottom: 2rem;">
-                Watch how your signature triggers Congressional action in real time. This is not someday. This is NOW.
-            </p>
-
-            <!-- STEP 1 -->
-            <div class="timeline-item step-1">
-                <h3>✍️ Step 1: You Sign Petition</h3>
+        
+        <div class="nav-tabs">
+            <div class="nav-tab active" onclick="showTab('timeline')">⚡ Your Impact (Live Timeline)</div>
+            <div class="nav-tab" onclick="showTab('doge')">🛡️ DOGE Counter-Strategy</div>
+        </div>
+        
+        <!-- YOUR IMPACT SECTION -->
+        <section id="timeline" class="active">
+            <h2>⚡ Your Impact (Live Timeline)</h2>
+            <p><strong>Watch how your signature triggers Congressional action in real time. This is not someday. This is NOW.</strong></p>
+            
+            <div class="timeline-step">
+                <h4>✍️ Step 1: You Sign Petition</h4>
                 <p>Takes 2 minutes. Your name goes on constituent demand list for your district.</p>
-                <div class="timeline-detail">
-                    <strong>What happens:</strong> We aggregate signatures by Congressional district. Each district tracks progress toward 1,500 = Nader Rule threshold.
-                </div>
-                <div class="timeline-meta">Timeline: NOW → Dec 31</div>
+                <p><strong>What happens:</strong> We aggregate signatures by Congressional district. Each district tracks progress toward 1,500 = Nader Rule threshold.</p>
+                <p><strong>Timeline:</strong> NOW → Dec 31</p>
             </div>
-
-            <div class="arrow">↓</div>
-
-            <!-- STEP 2 -->
-            <div class="timeline-item step-2">
-                <h3>📊 Step 2: Critical Mass at 1,500 Signatures</h3>
+            
+            <div class="timeline-step">
+                <h4>📊 Step 2: Critical Mass at 1,500 Signatures</h4>
                 <p>When your district hits 1,500+ signatures, Nader Rule is triggered automatically.</p>
-                <div class="timeline-detail">
-                    <strong>Nader Rule (Verified):</strong> Any representative refusing to hold town hall on issue that 1,500+ constituents demand = vulnerability to primary challenge.
-                </div>
-                <div class="timeline-meta">Timeline: Dec 29 → Jan 5 (projected for most districts)</div>
+                <p><strong>Nader Rule (Verified):</strong> Any representative refusing to hold town hall on issue that 1,500+ constituents demand = vulnerability to primary challenge.</p>
+                <p><strong>Timeline:</strong> Dec 29 → Jan 5 (projected for most districts)</p>
             </div>
-
-            <div class="arrow">↓</div>
-
-            <!-- STEP 3 -->
-            <div class="timeline-item step-3">
-                <h3>🎤 Step 3: Town Hall Pressure (Jan 5-20)</h3>
+            
+            <div class="timeline-step">
+                <h4>🎤 Step 3: Town Hall Pressure (Jan 5-20)</h4>
                 <p>Representatives must hold town halls to face constituent pressure. They can't hide in Washington.</p>
-                <div class="timeline-detail">
-                    <strong>What you do:</strong> Show up with your story. Bring the survey data. Tell your representative: "Support PHIERS or face primary challenge."
-                </div>
-                <div class="timeline-badges">
-                    <span class="badge">Constituents: Real stories</span>
-                    <span class="badge">Media: Local coverage</span>
-                </div>
-                <div class="timeline-meta">Timeline: Jan 5-20 (Winter break ends Jan 2)</div>
+                <p><strong>What you do:</strong> Show up with your story. Bring the survey data. Tell your representative: "Support PHIERS or face primary challenge."</p>
+                <ul>
+                    <li>Constituents: Real stories</li>
+                    <li>Media: Local coverage</li>
+                </ul>
+                <p><strong>Timeline:</strong> Jan 5-20 (Winter break ends Jan 2)</p>
             </div>
-
-            <div class="arrow">↓</div>
-
-            <!-- STEP 4 -->
-            <div class="timeline-item step-4">
-                <h3>✋ Step 4: Forced Vote (By Jan 30)</h3>
+            
+            <div class="timeline-step">
+                <h4>✋ Step 4: Forced Vote (By Jan 30)</h4>
                 <p>Jan 30 government shutdown deadline forces healthcare vote. Representatives must choose: support PHIERS or face primary.</p>
-                <div class="timeline-detail">
-                    <strong>The binary choice:</strong><br/>
-                    ✓ OPTION A: Vote YES on telehealth in ACA → Be remembered as problem-solver → Protect seat<br/>
-                    ✗ OPTION B: Vote NO → Face 100M+ organized constituents → Lose primary
-                </div>
-                <div class="timeline-meta">Timeline: Jan 20-30 (Shutdown deadline creates urgency)</div>
+                <p><strong>The binary choice:</strong></p>
+                <ul>
+                    <li>✓ OPTION A: Vote YES on telehealth in ACA → Be remembered as problem-solver → Protect seat</li>
+                    <li>✗ OPTION B: Vote NO → Face 100M+ organized constituents → Lose primary</li>
+                </ul>
+                <p><strong>Timeline:</strong> Jan 20-30 (Shutdown deadline creates urgency)</p>
             </div>
-
-            <div class="arrow">↓</div>
-
-            <!-- STEP 5 -->
-            <div class="timeline-item step-5">
-                <h3>🚀 Step 5: Cascade Begins (Feb-Aug 2026)</h3>
+            
+            <div class="timeline-step">
+                <h4>🚀 Step 5: Cascade Begins (Feb-Aug 2026)</h4>
                 <p>Congressional authorization → CMS allows telehealth in ACA → Exponential adoption begins.</p>
-                <div class="timeline-detail">
-                    <strong>What happens next:</strong><br/>
-                    <strong>Feb 2026:</strong> First individuals switch from $8K → $600. Save $7,400 each.<br/>
-                    <strong>Mar 2026:</strong> Savings fund 12+ more switches. Cascade accelerates.<br/>
-                    <strong>Apr-Jun 2026:</strong> Exponential adoption accelerates (desperate self-preservation).<br/>
-                    <strong>Jul-Aug 2026:</strong> Critical mass reached. System becomes self-sustaining.
-                </div>
-                <p style="margin-top: 1rem; font-weight: bold; color: #86efac;">
-                    By Aug 2026: 120M+ switched. $2.73T in freed savings. Universal healthcare. Millions of jobs. UBI payments begin.
-                </p>
+                <p><strong>What happens next:</strong></p>
+                <ul>
+                    <li><strong>Feb 2026:</strong> First individuals switch from $8K → $600. Save $7,400 each.</li>
+                    <li><strong>Mar 2026:</strong> Savings fund 12+ more switches. Cascade accelerates.</li>
+                    <li><strong>Apr-Jun 2026:</strong> Exponential adoption accelerates (desperate self-preservation).</li>
+                    <li><strong>Jul-Aug 2026:</strong> Critical mass reached. System becomes self-sustaining.</li>
+                </ul>
+                <p><strong>By Aug 2026:</strong> 120M+ switched. $2.73T in freed savings. Universal healthcare. Millions of jobs. UBI payments begin.</p>
             </div>
-
-            <!-- CTA -->
-            <div class="cta-section">
+            
+            <div class="call-to-action">
                 <h3>This Is How Constituent Power Works</h3>
-                <p>
-                    Your signature isn't symbolic. It's mechanical. It triggers Nader Rule. Nader Rule forces town halls. Town halls force votes. Votes force policy change. Policy change forces cascade. Cascade forces universal healthcare.
-                </p>
-                <p style="font-weight: 600;">
-                    Mathematical certainty: If 3.5% of voters in your district organize, Congress cannot refuse. It's mathematics, not politics.
-                </p>
+                <p>Your signature isn't symbolic. It's mechanical. It triggers Nader Rule → forced town halls → forced votes → policy change → cascade → universal healthcare.</p>
+                <p style="color: #ffeb3b; font-weight: bold; margin-top: 15px;">Mathematical certainty: If 3.5% of voters in your district organize, Congress cannot refuse.</p>
+            </div>
+        </section>
+        
+        <!-- DOGE COUNTER-STRATEGY SECTION -->
+        <section id="doge">
+            <h2>🛡️ DOGE Counter-Strategy: 5D Defense</h2>
+            <p>Project 2025 and DOGE weaponized distraction and deliberately sabotaged critical systems. PHIERS fixes what they broke by replacing extraction with cooperation.</p>
+            
+            <h3>💊 HEALTHCARE: The Cliff & The Solution</h3>
+            
+            <div class="dimension-box">
+                <h4>❌ What DOGE Did</h4>
+                <ul>
+                    <li>Eliminated ACA subsidies (22M lose coverage)</li>
+                    <li>Eliminated Medicaid for 10M+ in red states</li>
+                    <li>Premiums tripled overnight</li>
+                    <li>Millions forced to choose between rent and medicine</li>
+                    <li>Healthcare system destabilizes</li>
+                </ul>
+            </div>
+            
+            <div class="dimension-box">
+                <h4>✅ What PHIERS Does</h4>
+                <ul>
+                    <li>Universal telehealth ($600/year for everyone)</li>
+                    <li>Covers 80% of healthcare needs (proven model)</li>
+                    <li>Funded from government savings, not taxes</li>
+                    <li>No one loses coverage</li>
+                    <li>Healthcare system stabilizes & strengthens</li>
+                </ul>
+                <div class="connection">🔗 Universal healthcare → mental health improves → productivity up → economy stabilizes → job creation accelerates → supply chains stabilize.</div>
+            </div>
+            
+            <h3>💼 JOBS: AI Displacement & Economic Security</h3>
+            
+            <div class="dimension-box">
+                <h4>❌ What DOGE Did</h4>
+                <ul>
+                    <li>No safety net for AI-displaced workers</li>
+                    <li>Eliminated job training programs</li>
+                    <li>Healthcare tied to employment = panic</li>
+                    <li>50M+ jobs disappearing without solutions</li>
+                    <li>Economic insecurity skyrockets</li>
+                </ul>
+            </div>
+            
+            <div class="dimension-box">
+                <h4>✅ What PHIERS Does</h4>
+                <ul>
+                    <li>Creates 2M+ AI-resistant jobs (human-centered)</li>
+                    <li>Case managers, health coordinators, community workers</li>
+                    <li>Healthcare independent of employment</li>
+                    <li>$500+/month UBI from cascade savings</li>
+                    <li>Economic security, not fear</li>
+                </ul>
+                <div class="connection">🔗 Job creation → income security → demand for goods/services → small businesses thrive → supply chains strengthen → innovation accelerates.</div>
+            </div>
+            
+            <h3>📈 ECONOMY: Stimulus vs. Extraction</h3>
+            
+            <div class="dimension-box">
+                <h4>❌ What DOGE Did</h4>
+                <ul>
+                    <li>Tax cuts for billionaires (extraction)</li>
+                    <li>Middle class purchasing power collapses</li>
+                    <li>Small business loses customers</li>
+                    <li>Supply chains weaken</li>
+                    <li>Inequality explodes</li>
+                </ul>
+            </div>
+            
+            <div class="dimension-box">
+                <h4>✅ What PHIERS Does</h4>
+                <ul>
+                    <li>$2.73T economic stimulus from freed savings</li>
+                    <li>Direct to workers ($500+/month UBI)</li>
+                    <li>Immediate consumer demand surge</li>
+                    <li>Small business revenue increases</li>
+                    <li>Prosperity shared by all</li>
+                </ul>
+                <div class="connection">🔗 Money in workers' hands → demand for goods → small business growth → more jobs → tax revenue increases → government budget surplus (not cuts).</div>
+            </div>
+            
+            <h3>🗳️ POLITICS: Corporate Control vs. People Power</h3>
+            
+            <div class="dimension-box">
+                <h4>❌ What DOGE Did</h4>
+                <ul>
+                    <li>Corporations control Congress ($8.5M average lobbying)</li>
+                    <li>Citizens have no leverage</li>
+                    <li>Gridlock serves corporate interests</li>
+                    <li>Democracy becomes theater</li>
+                    <li>People lose faith in government</li>
+                </ul>
+            </div>
+            
+            <div class="dimension-box">
+                <h4>✅ What PHIERS Does</h4>
+                <ul>
+                    <li>100M+ organized constituents (230:1 advantage vs. corporate money)</li>
+                    <li>Congress faces mathematical pressure</li>
+                    <li>Primary election threats force compliance</li>
+                    <li>Democracy becomes functional</li>
+                    <li>People reclaim power from corporations</li>
+                </ul>
+                <div class="connection">🔗 People power → Congress responds → policy changes → corporate extraction stops → community power grows → systemic change accelerates.</div>
+            </div>
+            
+            <h3>☮️ PEACE: Destruction vs. Construction</h3>
+            
+            <div class="dimension-box">
+                <h4>❌ What DOGE Did</h4>
+                <ul>
+                    <li>Destructive approach (break systems)</li>
+                    <li>Chaos replaces order</li>
+                    <li>People suffer in transition</li>
+                    <li>No safety net, no vision</li>
+                    <li>Yin missing (healing, building)</li>
+                </ul>
+            </div>
+            
+            <div class="dimension-box">
+                <h4>✅ What PHIERS Does</h4>
+                <ul>
+                    <li>Constructive approach (build systems)</li>
+                    <li>Order replaces chaos</li>
+                    <li>Safety net catches everyone</li>
+                    <li>Clear vision, proven model</li>
+                    <li>Yin + Yang = wholeness</li>
+                </ul>
+                <div class="connection">🔗 Healthcare + Jobs + Economy + Politics all stabilize → Social cohesion returns → Community heals → Families strengthen → Peace becomes possible.</div>
+            </div>
+            
+            <h3>🎯 The Bigger Picture: Yin & Yang</h3>
+            
+            <p><strong>Trump/DOGE = Yang (Masculine, Destructive, Disruptive)</strong><br>Breaking what was broken. Necessary chaos. Clearing the field.</p>
+            
+            <p><strong>PHIERS = Yin (Feminine, Healing, Constructive)</strong><br>Building what will replace it. Healing the destruction. Creating prosperity.</p>
+            
+            <p style="color: #ffeb3b; font-weight: bold; margin-top: 15px;">Together: Destruction + Construction = Complete Transformation</p>
+            
+            <p>You cannot transform a system by only breaking it. You need both forces in balance. That's what makes PHIERS unstoppable—it completes the cycle.</p>
+            
+            <h3 style="margin-top: 30px;">Congress's Choice Is Binary</h3>
+            
+            <p style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(76, 175, 80, 0.05)); padding: 20px; border-radius: 8px; border-left: 4px solid #4caf50;">Support PHIERS and fix what DOGE broke (become heroes) — or face 100M+ organized constituents demanding removal.</p>
+            
+            <p style="color: #4caf50; font-weight: bold; margin-top: 15px;">Congress will choose to fix it. The pressure is mathematical. The choice is inevitable.</p>
+        </section>
+        
+        <!-- CALL TO ACTION -->
+        <div class="call-to-action">
+            <h3>🌟 Ready to Make Your Impact?</h3>
+            <p>Start the cascade. One signature at a time. Your action triggers everyone else's.</p>
+            
+            <div style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(100, 200, 150, 0.1)); border: 2px solid #4caf50; border-radius: 12px; padding: 30px; margin: 30px 0; text-align: center;">
+                <h4 style="color: #4caf50; margin-top: 0; font-size: 1.3em;">📖 Read Full PHIERS Website</h4>
+                <p style="color: #c8e6c9; margin-bottom: 20px;">Learn the complete solution. See all 5 dimensions. Understand how this works.</p>
+                <a href="https://phiersale.github.io/PHIERS-Concept/index.html" target="_blank" class="btn btn-primary btn-big">🌐 LEARN MORE: Full PHIERS Website</a>
+            </div>
+            
+            <div class="button-group">
+                <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" class="btn btn-primary">✍️ Sign Petition</a>
+                <a href="https://forms.gle/xVcSk4cT3VDseSiEA" target="_blank" class="btn btn-primary">📝 Fill Survey</a>
+                <a href="https://discord.gg/narhDKJY" target="_blank" class="btn btn-discord">💬 Join Discord</a>
             </div>
         </div>
-
-        <!-- TAB 2: COUNTER STRATEGY -->
-        <div id="countstrategy" class="tab-content">
-            <p style="font-size: 1.1rem; color: #cbd5e1; margin-bottom: 2rem;">
-                Project 2025 and DOGE weaponized distraction and deliberately sabotaged critical systems. PHIERS fixes what they broke by replacing extraction with cooperation.
-            </p>
-
-            <!-- HEALTHCARE -->
-            <div class="dimension-section healthcare">
-                <h3>💊 HEALTHCARE: The Cliff & The Solution</h3>
-                <div class="comparison-grid">
-                    <div class="comparison-box comparison-bad">
-                        <h4>❌ What DOGE Did</h4>
-                        <ul>
-                            <li>• Eliminated ACA subsidies (22M lose coverage)</li>
-                            <li>• Eliminated Medicaid for 10M+ in red states</li>
-                            <li>• Premiums tripled overnight</li>
-                            <li>• Millions forced to choose between rent and medicine</li>
-                            <li>• Healthcare system destabilizes</li>
-                        </ul>
-                    </div>
-                    <div class="comparison-box comparison-good">
-                        <h4>✅ What PHIERS Does</h4>
-                        <ul>
-                            <li>• Universal telehealth ($600/year for everyone)</li>
-                            <li>• Covers 80% of healthcare needs (proven model)</li>
-                            <li>• Funded from government savings, not taxes</li>
-                            <li>• No one loses coverage</li>
-                            <li>• Healthcare system stabilizes & strengthens</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="connection-box">
-                    <strong>The 5D Connection:</strong>
-                    <p>Universal healthcare → mental health improves → productivity up → economy stabilizes → job creation accelerates → supply chains stabilize.</p>
-                </div>
-            </div>
-
-            <!-- JOBS -->
-            <div class="dimension-section jobs">
-                <h3>💼 JOBS: AI Displacement & Economic Security</h3>
-                <div class="comparison-grid">
-                    <div class="comparison-box comparison-bad">
-                        <h4>❌ What DOGE Did</h4>
-                        <ul>
-                            <li>• No safety net for AI-displaced workers</li>
-                            <li>• Eliminated job training programs</li>
-                            <li>• Healthcare tied to employment = panic</li>
-                            <li>• 50M+ jobs disappearing without solutions</li>
-                            <li>• Economic insecurity skyrockets</li>
-                        </ul>
-                    </div>
-                    <div class="comparison-box comparison-good">
-                        <h4>✅ What PHIERS Does</h4>
-                        <ul>
-                            <li>• Creates 2M+ AI-resistant jobs (human-centered)</li>
-                            <li>• Case managers, health coordinators, community workers</li>
-                            <li>• Healthcare independent of employment</li>
-                            <li>• $500+/month UBI from cascade savings</li>
-                            <li>• Economic security, not fear</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="connection-box">
-                    <strong>The 5D Connection:</strong>
-                    <p>Job creation → income security → demand for goods/services → small businesses thrive → supply chains strengthen → innovation accelerates.</p>
-                </div>
-            </div>
-
-            <!-- ECONOMY -->
-            <div class="dimension-section economy">
-                <h3>📈 ECONOMY: Stimulus vs. Extraction</h3>
-                <div class="comparison-grid">
-                    <div class="comparison-box comparison-bad">
-                        <h4>❌ What DOGE Did</h4>
-                        <ul>
-                            <li>• Tax cuts for billionaires (extraction)</li>
-                            <li>• Middle class purchasing power collapses</li>
-                            <li>• Small business loses customers</li>
-                            <li>• Supply chains weaken</li>
-                            <li>• Inequality explodes</li>
-                        </ul>
-                    </div>
-                    <div class="comparison-box comparison-good">
-                        <h4>✅ What PHIERS Does</h4>
-                        <ul>
-                            <li>• $2.73T economic stimulus from freed savings</li>
-                            <li>• Direct to workers ($500+/month UBI)</li>
-                            <li>• Immediate consumer demand surge</li>
-                            <li>• Small business revenue increases</li>
-                            <li>• Prosperity shared by all</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="connection-box">
-                    <strong>The 5D Connection:</strong>
-                    <p>Money in workers' hands → demand for goods → small business growth → more jobs → tax revenue increases → government budget surplus (not cuts).</p>
-                </div>
-            </div>
-
-            <!-- POLITICS -->
-            <div class="dimension-section politics">
-                <h3>🗳️ POLITICS: Corporate Control vs. People Power</h3>
-                <div class="comparison-grid">
-                    <div class="comparison-box comparison-bad">
-                        <h4>❌ What DOGE Did</h4>
-                        <ul>
-                            <li>• Corporations control Congress ($8.5M average lobbying)</li>
-                            <li>• Citizens have no leverage</li>
-                            <li>• Gridlock serves corporate interests</li>
-                            <li>• Democracy becomes theater</li>
-                            <li>• People lose faith in government</li>
-                        </ul>
-                    </div>
-                    <div class="comparison-box comparison-good">
-                        <h4>✅ What PHIERS Does</h4>
-                        <ul>
-                            <li>• 100M+ organized constituents (230:1 advantage vs. corporate money)</li>
-                            <li>• Congress faces mathematical pressure</li>
-                            <li>• Primary election threats force compliance</li>
-                            <li>• Democracy becomes functional</li>
-                            <li>• People reclaim power from corporations</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="connection-box">
-                    <strong>The 5D Connection:</strong>
-                    <p>People power → Congress responds → policy changes → corporate extraction stops → community power grows → systemic change accelerates.</p>
-                </div>
-            </div>
-
-            <!-- PEACE -->
-            <div class="dimension-section peace">
-                <h3>☮️ PEACE: Destruction vs. Construction</h3>
-                <div class="comparison-grid">
-                    <div class="comparison-box comparison-bad">
-                        <h4>❌ What DOGE Did</h4>
-                        <ul>
-                            <li>• Destructive approach (break systems)</li>
-                            <li>• Chaos replaces order</li>
-                            <li>• People suffer in transition</li>
-                            <li>• No safety net, no vision</li>
-                            <li>• Yin missing (healing, building)</li>
-                        </ul>
-                    </div>
-                    <div class="comparison-box comparison-good">
-                        <h4>✅ What PHIERS Does</h4>
-                        <ul>
-                            <li>• Constructive approach (build systems)</li>
-                            <li>• Order replaces chaos</li>
-                            <li>• Safety net catches everyone</li>
-                            <li>• Clear vision, proven model</li>
-                            <li>• Yin + Yang = wholeness</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="connection-box">
-                    <strong>The 5D Connection:</strong>
-                    <p>Healthcare + Jobs + Economy + Politics all stabilize → Social cohesion returns → Community heals → Families strengthen → Peace becomes possible.</p>
-                </div>
-            </div>
-
-            <!-- YIN YANG SECTION -->
-            <div class="yin-yang-section">
-                <h3>🎯 The Bigger Picture: Yin & Yang</h3>
-                <p>
-                    <strong>Trump/DOGE = Yang (Masculine, Destructive, Disruptive)</strong><br/>
-                    Breaking what was broken. Necessary chaos. Clearing the field.
-                </p>
-                <p>
-                    <strong>PHIERS = Yin (Feminine, Healing, Constructive)</strong><br/>
-                    Building what will replace it. Healing the destruction. Creating prosperity.
-                </p>
-                <p style="font-weight: 600; margin-top: 1.5rem;">
-                    <strong>Together: Destruction + Construction = Complete Transformation</strong><br/>
-                    <span style="font-weight: normal;">You cannot transform a system by only breaking it. You need both forces in balance. That's what makes PHIERS unstoppable—it completes the cycle.</span>
-                </p>
-            </div>
-
-            <!-- CTA -->
-            <div class="cta-section">
-                <h3>Congress's Choice Is Binary</h3>
-                <p>
-                    Support PHIERS and fix what DOGE broke (become heroes) — or face 100M+ organized constituents demanding removal.
-                </p>
-                <p style="font-weight: 600;">
-                    Congress will choose to fix it. The pressure is mathematical. The choice is inevitable.
-                </p>
-            </div>
+        
+        <div class="footer">
+            <a href="https://phiersale.github.io/PHIERS-Concept/index.html#leverage">← Back to Main</a>
+            <span style="margin: 0 10px;">|</span>
+            <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank">✍️ Sign Petition</a>
+            <span style="margin: 0 10px;">|</span>
+            <a href="https://discord.gg/narhDKJY" target="_blank">💬 Discord</a>
         </div>
-
     </div>
-
+    
     <script>
-        function switchTab(e, tabName) {
-            // Hide all content
-            const contents = document.querySelectorAll('.tab-content');
-            contents.forEach(content => content.classList.remove('active'));
-
-            // Remove active class from all buttons
-            const buttons = document.querySelectorAll('.tab-button');
-            buttons.forEach(button => button.classList.remove('active'));
-
-            // Show selected content
+        function showTab(tabName) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => section.classList.remove('active'));
             document.getElementById(tabName).classList.add('active');
-
-            // Add active class to clicked button
-            e.target.classList.add('active');
+            
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            window.scrollTo(0, 0);
         }
     </script>
-
-    <!-- RETURN TO MAIN SITE BUTTONS -->
-    <div style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border-top: 2px solid #4caf50; padding: 30px 20px; margin-top: 40px; text-align: center;">
-        <p style="color: #81c784; margin-bottom: 20px; font-weight: bold;">Ready to make your impact?</p>
-        <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-            <a href="https://phiersale.github.io/PHIERS-Concept/index.html#leverage" class="btn btn-primary" style="display: inline-block; padding: 12px 25px; background: #4caf50; color: white; text-decoration: none; border-radius: 6px; font-weight: bold;">← Back to Main</a>
-            <a href="https://forms.gle/3yRQA4Cv64HDqt6eA" target="_blank" class="btn btn-primary" style="display: inline-block; padding: 12px 25px; background: #16a34a; color: white; text-decoration: none; border-radius: 6px; font-weight: bold;">✍️ Sign Petition</a>
-            <a href="https://discord.gg/narhDKJY" target="_blank" class="btn btn-discord" style="display: inline-block; padding: 12px 25px; background: #5865f2; color: white; text-decoration: none; border-radius: 6px; font-weight: bold;">💬 Join Discord</a>
-        </div>
-    </div>
-
 </body>
 </html>
