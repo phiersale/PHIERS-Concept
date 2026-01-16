@@ -20,7 +20,135 @@
             min-height: 100vh;
             padding: 40px 20px;
         }
-        
+
+        /* MODAL STYLES */
+        .modal-backdrop {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-backdrop.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+            border: 3px solid #4caf50;
+            border-radius: 16px;
+            padding: 50px 40px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            text-align: center;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.9);
+            animation: modalSlide 0.4s ease;
+        }
+
+        @keyframes modalSlide {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .modal-content h2 {
+            color: #4caf50;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .modal-content p {
+            color: #c8e6c9;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        .modal-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .modal-btn {
+            padding: 16px 30px;
+            font-size: 1.1em;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: block;
+        }
+
+        .modal-btn.quick {
+            background: linear-gradient(135deg, #4caf50, #45a049);
+            color: white;
+        }
+
+        .modal-btn.quick:hover {
+            background: linear-gradient(135deg, #45a049, #3d8b40);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+        }
+
+        .modal-btn.full {
+            background: linear-gradient(135deg, #2196f3, #1976d2);
+            color: white;
+        }
+
+        .modal-btn.full:hover {
+            background: linear-gradient(135deg, #1976d2, #1565c0);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4);
+        }
+
+        .modal-btn.evidence {
+            background: transparent;
+            border: 2px solid #fbbf24;
+            color: #fbbf24;
+        }
+
+        .modal-btn.evidence:hover {
+            background: rgba(251, 191, 36, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: #4caf50;
+            font-size: 2em;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            color: #81c784;
+        }
+
         .container {
             max-width: 1000px;
             margin: 0 auto;
@@ -28,7 +156,7 @@
         
         .header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
         
         .logo {
@@ -50,7 +178,134 @@
             font-weight: bold;
             margin-bottom: 30px;
         }
-        
+
+        /* CRISIS SECTION - AT TOP */
+        .crisis-section {
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.15), rgba(153, 27, 27, 0.15));
+            border: 2px solid rgba(220, 38, 38, 0.5);
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+        }
+
+        .crisis-section h2 {
+            color: #ef5350;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .crisis-section p {
+            font-size: 1.15em;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #ffcdd2;
+        }
+
+        .crisis-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .crisis-list li {
+            font-size: 1.1em;
+            margin: 12px 0;
+            color: #ffcdd2;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .crisis-list li:before {
+            content: "⚠️";
+            position: absolute;
+            left: 0;
+        }
+
+        /* HOPE/SOLUTION SECTION */
+        .hope-section {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(56, 142, 60, 0.2));
+            border: 2px solid #4caf50;
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+        }
+
+        .hope-section h2 {
+            color: #4caf50;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .hope-section p {
+            font-size: 1.15em;
+            line-height: 1.8;
+            color: #c8e6c9;
+        }
+
+        .solution-def {
+            background: rgba(76, 175, 80, 0.1);
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid #4caf50;
+        }
+
+        .solution-def strong {
+            color: #81c784;
+            font-size: 1.1em;
+        }
+
+        /* VIDEO SECTION */
+        .video-section {
+            text-align: center;
+            background: rgba(76, 175, 80, 0.1);
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            border: 2px solid rgba(76, 175, 80, 0.3);
+        }
+
+        .video-section h3 {
+            color: #4caf50;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+        }
+
+        .video-container {
+            display: inline-block;
+            max-width: 600px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 350px;
+            border-radius: 8px;
+        }
+
+        /* CTA SECTION - EARLY */
+        .cta-early {
+            text-align: center;
+            padding: 40px 30px;
+            background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+            border-radius: 12px;
+            margin-bottom: 40px;
+        }
+
+        .cta-early h2 {
+            font-size: 1.8em;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .cta-early p {
+            font-size: 1.1em;
+            color: white;
+            margin-bottom: 25px;
+            opacity: 0.95;
+        }
+
+        /* INTRO SECTION */
         .intro-section {
             background: linear-gradient(135deg, rgba(15, 52, 96, 0.8), rgba(22, 33, 62, 0.8));
             padding: 40px;
@@ -297,6 +552,37 @@
             background: #e0e0e0;
             transform: scale(1.05);
         }
+
+        .resource-links {
+            text-align: center;
+            padding: 30px;
+            background: rgba(76, 175, 80, 0.05);
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+
+        .resource-links h3 {
+            color: #4caf50;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+        }
+
+        .resource-links a {
+            display: inline-block;
+            margin: 10px;
+            padding: 12px 24px;
+            background: rgba(76, 175, 80, 0.2);
+            border: 1px solid #4caf50;
+            color: #81c784;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .resource-links a:hover {
+            background: rgba(76, 175, 80, 0.4);
+            color: #4caf50;
+        }
         
         footer {
             text-align: center;
@@ -309,6 +595,15 @@
         footer p {
             margin: 10px 0;
         }
+
+        footer a {
+            color: #81c784;
+            text-decoration: underline;
+        }
+
+        footer a:hover {
+            color: #4caf50;
+        }
         
         @media (max-width: 768px) {
             h1 {
@@ -319,32 +614,119 @@
                 font-size: 1.1em;
             }
             
-            .intro-section, .genius-section, .cascade-section, .expansion-section {
+            .crisis-section, .hope-section, .intro-section, .genius-section, .cascade-section, .expansion-section {
                 padding: 25px 20px;
             }
             
             .stats-grid {
                 grid-template-columns: 1fr;
             }
+
+            .modal-content {
+                padding: 35px 25px;
+            }
+
+            .video-container iframe {
+                height: 250px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- MODAL -->
+    <!-- MODAL WITH VIDEO INTRO -->
+    <div class="modal-backdrop active" id="choiceModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            
+            <!-- PHIERS LOGO -->
+            <div style="margin-bottom: 25px;">
+                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Logo.png" alt="PHIERS Logo" style="height: 60px; width: auto;">
+            </div>
+            
+            <!-- WELCOME MESSAGE -->
+            <div style="margin-bottom: 30px; text-align: center;">
+                <h2 style="color: #4caf50; font-size: 1.8em; margin-bottom: 12px;">We Have the Solution</h2>
+                <p style="color: #c8e6c9; font-size: 1.05em; line-height: 1.6; margin: 0;">
+                    Congress failed. 22 million lost coverage. But we have a way to fix this—<strong style="color: #81c784;">without raising taxes</strong>. Watch this.
+                </p>
+            </div>
+            
+            <!-- VIDEO INTRO -->
+            <div style="margin-bottom: 30px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 20px rgba(76, 175, 80, 0.2);">
+                <iframe width="100%" height="280" src="https://www.youtube.com/embed/bEUyDVAYwpk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            
+            <!-- VIDEO DESCRIPTOR BOX -->
+            <div style="background: white; color: #000; padding: 20px; border-radius: 8px; margin-bottom: 30px; text-align: center;">
+                <h3 style="margin: 0 0 10px 0; font-size: 1.1em; font-weight: bold; color: #000;">WATCH THIS</h3>
+                <p style="margin: 0; font-size: 0.95em; line-height: 1.6; color: #333;">
+                    A 71-second breakdown of the $600 math that can cover 234 million Americans — using existing law, telehealth, and people-powered leverage to force Congress to act.
+                </p>
+            </div>
+            
+            <!-- CHOICE BUTTONS -->
+            <div class="modal-buttons">
+                <button class="modal-btn quick" onclick="stayOnPage()">⚡ Quick Story (2 min read)</button>
+                <a href="index.html" class="modal-btn full">📖 Dive Deep (20+ min)</a>
+                <a href="https://c.org/q9vrMCQZsY" target="_blank" class="modal-btn evidence" style="background: linear-gradient(135deg, #f59e0b, #ea580c); border: none; color: white;">🔥 Sign Petition Now</a>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="header">
             <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Logo.png" alt="PHIERS Logo" class="logo">
             <h1>The Simple Math</h1>
-            <p class="tagline">How ONE Person Creates Universal Coverage</p>
+            <p class="tagline">How to Fix Healthcare in 9 Months</p>
         </div>
 
-        <!-- INTRODUCTION -->
+        <!-- CRISIS SECTION - EMOTIONAL ENTRY -->
+        <div class="crisis-section">
+            <h2>🚨 We're in Crisis</h2>
+            <ul class="crisis-list">
+                <li>22 million Americans just lost healthcare coverage (Dec 31 subsidy cliff)</li>
+                <li>Congress is home and broken</li>
+                <li>Premiums are spiking</li>
+                <li>Families choosing between rent and medicine</li>
+                <li>The system is collapsing</li>
+            </ul>
+            <p style="margin-top: 20px; font-size: 1.2em; font-weight: bold;">But we have a moment of leverage. And we have a solution.</p>
+        </div>
+
+        <!-- HOPE/SOLUTION SECTION -->
+        <div class="hope-section">
+            <h2>✨ We Have the Fix</h2>
+            <p>Meet <strong>PHIERS</strong> — the people-powered solution. Government savings from converting expensive insurance plans into $600/year telehealth coverage will fund universal healthcare for 234 million Americans, PLUS monthly UBI checks, PLUS millions of meaningful jobs.</p>
+            <div class="solution-def">
+                <strong>PHIERS</strong> (People's Health insurance Endowment and Referral Service) uses existing law, proven models (Mark Cuban's Cost Plus Drugs + ZORTT Elite Medical), and simple math to cover everyone—without raising taxes.
+            </div>
+            <p style="margin-top: 20px;">This isn't a dream. The pieces already work. We just need to assemble them.</p>
+        </div>
+
+        <!-- VIDEO SECTION -->
+        <div class="video-section">
+            <h3>📹 See It in 111 Seconds</h3>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/bEUyDVAYwpk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <!-- EARLY CTA -->
+        <div class="cta-early">
+            <h2>✍️ Sign the Petition</h2>
+            <p>Force Congress to act before the Jan 30 shutdown deadline</p>
+            <a href="https://c.org/q9vrMCQZsY" target="_blank" class="btn btn-primary">Sign Petition Now</a>
+        </div>
+
+        <!-- INTRODUCTION & MATH -->
         <div class="intro-section">
             <div style="text-align: center; margin-bottom: 40px;">
                 <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Rubiks_Cube_-_SYMBOLS.png" alt="PHIERS Rubik's Cube - 5D Solutions" style="max-width: 25%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);">
                 <p style="margin-top: 15px; color: #81c784; font-size: 0.95em;">All 5 dimensions work together. Healthcare → Jobs → Economy → Politics → Peace</p>
             </div>
             
-            <p><strong style="color: #4caf50; font-size: 1.3em;">This page shows the mathematical cascade</strong> that transforms one person's $50/month prescription savings into universal healthcare coverage for 234 million Americans.</p>
+            <p><strong style="color: #4caf50; font-size: 1.3em;">Here's the mathematical cascade</strong> that transforms one person's $50/month prescription savings into universal healthcare coverage for 234 million Americans.</p>
             
             <p>It's not theory. It's not hope. It's <strong>mathematical certainty</strong> based on proven models already operating at scale (Mark Cuban's Cost Plus Drugs with 7 million customers, ZORTT Elite Medical's cooperative delivery).</p>
             
@@ -378,7 +760,7 @@
                     <div class="genius-icon">📈</div>
                     <div>
                         <strong style="font-size: 1.2em;">Creates Foundation for Expansion</strong>
-                        <p style="margin-top: 8px;">Once 80% of CMS beneficiaries convert (120M people), $888B in annual government savings is generated. The cascade then extends to ACA marketplace, private insurance, and the uninsured—reaching all 234M Americans. Total system savings: $2.73 TRILLION annually (government + private + out-of-pocket reductions).</p>
+                        <p style="margin-top: 8px;">Once 80% of CMS beneficiaries convert (120M people), $888B in annual government savings is generated. The cascade then extends to ACA marketplace, private insurance, and the uninsured—reaching all 234M Americans. Total system savings: $2.73 TRILLION annually.</p>
                     </div>
                 </div>
                 
@@ -473,39 +855,35 @@
             <p style="font-size: 1.15em; margin-bottom: 30px; color: #c8e6c9;">Once we've proven the model works with 120 million Medicaid beneficiaries, we extend to everyone else—reaching true universal coverage.</p>
             
             <div class="expansion-path">
-                <!-- Step 1: Medicaid -->
                 <div class="expansion-step">
                     <h3>Step 1: Medicaid (120M people) - FOUNDATION</h3>
                     <p><strong>Why first:</strong> Highest cost per person ($8,000/year average), largest savings potential ($7,400 per conversion), most vulnerable population protected first.</p>
-                    <p style="margin-top: 10px;"><strong>Result:</strong> $888 billion saved annually from CMS budget. Proof of concept at massive scale. Infrastructure built and tested.</p>
+                    <p style="margin-top: 10px;"><strong>Result:</strong> $888 billion saved annually from CMS budget. Proof of concept at massive scale.</p>
                 </div>
                 
-                <!-- Step 2: ACA Marketplace -->
                 <div class="expansion-step">
                     <h3>Step 2: ACA Marketplace (~14M people) - EXPANSION</h3>
-                    <p><strong>Why second:</strong> Individual marketplace insurance averages $8,500/year with high deductibles. Same $7,400+ savings per conversion. People are already seeking better options.</p>
-                    <p style="margin-top: 10px;"><strong>Result:</strong> Additional $103 billion saved annually. Proven model scales to private market. Marketplace competition forces premium reductions.</p>
+                    <p><strong>Why second:</strong> Individual marketplace insurance averages $8,500/year. Same $7,400+ savings per conversion. People are seeking better options.</p>
+                    <p style="margin-top: 10px;"><strong>Result:</strong> Additional $103 billion saved annually.</p>
                 </div>
                 
-                <!-- Step 3: Private Insurance (voluntary) -->
                 <div class="expansion-step">
-                    <h3>Step 3: Private Insurance (~150M people) - VOLUNTARY ADOPTION</h3>
-                    <p><strong>Why third:</strong> Employer-sponsored insurance averages $8,000-$24,000/year (family plans). Workers and employers both save dramatically. Adoption is voluntary but economically rational.</p>
-                    <p style="margin-top: 10px;"><strong>Result:</strong> $1.1 TRILLION+ additional annual savings. Employers can increase wages instead of insurance costs. Workers keep healthcare while gaining economic freedom.</p>
+                    <h3>Step 3: Private Insurance (~150M people) - VOLUNTARY</h3>
+                    <p><strong>Why third:</strong> Employer-sponsored insurance averages $8,000-$24,000/year. Workers and employers save dramatically.</p>
+                    <p style="margin-top: 10px;"><strong>Result:</strong> $1.1 TRILLION+ additional annual savings.</p>
                 </div>
                 
-                <!-- Step 4: The Uninsured -->
                 <div class="expansion-step">
                     <h3>Step 4: The Uninsured (~27M people) - COMPLETION</h3>
-                    <p><strong>Why last:</strong> By this point, $600/year telehealth is easily affordable through savings from other programs, community pooling, or subsidies. No one left behind.</p>
-                    <p style="margin-top: 10px;"><strong>Result:</strong> True universal coverage. Every American has access to comprehensive healthcare. Total system transformation complete.</p>
+                    <p><strong>Why last:</strong> By this point, $600/year telehealth is easily affordable. No one left behind.</p>
+                    <p style="margin-top: 10px;"><strong>Result:</strong> True universal coverage. Every American has access to healthcare.</p>
                 </div>
             </div>
             
             <div style="margin-top: 40px; padding: 30px; background: rgba(76, 175, 80, 0.1); border-radius: 8px; text-align: center;">
                 <p style="font-size: 1.3em; color: #4caf50; font-weight: bold; margin-bottom: 15px;">Total Coverage at Full Scale</p>
                 <p style="font-size: 2.5em; color: #fbbf24; font-weight: bold; margin-bottom: 10px;">234M Americans</p>
-                <p style="font-size: 1.1em; color: #c8e6c9;">That's how we reach true universal healthcare—by starting with the foundation and building systematically.</p>
+                <p style="font-size: 1.1em; color: #c8e6c9;">That's how we reach true universal healthcare.</p>
             </div>
         </div>
 
@@ -517,24 +895,50 @@
             <p style="margin-top: 20px; font-size: 1.3em;"><strong>We can make this vision a reality.</strong></p>
         </div>
 
-        <!-- CALL TO ACTION -->
+        <!-- RESOURCE LINKS -->
+        <div class="resource-links">
+            <h3>Want to Learn More?</h3>
+            <a href="index.html">📖 Full PHIERS Breakdown</a>
+            <a href="https://phiersale.github.io/PHIERS-FAQ/" target="_blank">❓ FAQ & Evidence</a>
+            <a href="https://forms.gle/xVcSk4cT3VDseSiEA" target="_blank">📊 Fill Survey</a>
+        </div>
+
+        <!-- FINAL CTA -->
         <div class="cta-section">
             <h2>✍️ Be Part of the 3.5%</h2>
-            <p>Sign the petition. Join the movement. Help us reach the threshold that makes systemic change mathematically inevitable.</p>
-            <a href="https://c.org/bmqPpJjGfS" target="_blank" class="btn btn-primary">Sign Petition Now</a>
-            <a href="index.html" class="btn btn-secondary">Explore Full PHIERS Site</a>
+            <p>Sign the petition. Join the movement. Force Congress to act before the Jan 30 shutdown deadline.</p>
+            <a href="https://c.org/q9vrMCQZsY" target="_blank" class="btn btn-primary">Sign Petition Now</a>
+            <a href="https://forms.gle/xVcSk4cT3VDseSiEA" target="_blank" class="btn btn-secondary">Fill Survey</a>
         </div>
 
         <!-- FOOTER -->
         <footer>
             <p><strong>PHIERS Movement | Make America Better And Healthier (MABAH)</strong></p>
-            <p>People's Health Insurance Endowment and Referral Service</p>
+            <p>People's Health Insurance Exchange and Referral Service</p>
             <p style="margin-top: 15px;">
-                <a href="index.html" style="color: #81c784; text-decoration: underline;">← Back to Main Site</a> | 
-                <a href="https://c.org/bmqPpJjGfS" target="_blank" style="color: #81c784; text-decoration: underline;">Sign Petition</a>
+                <a href="index.html">← Back to Full Site</a> | 
+                <a href="https://c.org/q9vrMCQZsY" target="_blank">Sign Petition</a> |
+                <a href="https://phiersale.github.io/PHIERS-FAQ/" target="_blank">FAQ & Evidence</a>
             </p>
             <p style="margin-top: 15px;">© PHIERS.org | Prior art documented since 2014</p>
         </footer>
     </div>
+
+    <script>
+        function closeModal() {
+            document.getElementById('choiceModal').classList.remove('active');
+        }
+
+        function stayOnPage() {
+            document.getElementById('choiceModal').classList.remove('active');
+        }
+
+        // Allow click outside modal to close
+        document.getElementById('choiceModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    </script>
 </body>
 </html>
