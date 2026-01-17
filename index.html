@@ -47,6 +47,8 @@
             padding: 40px;
             max-width: 550px;
             width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.9);
             position: relative;
             animation: slideUp 0.4s ease;
@@ -98,7 +100,8 @@
 
         .modal-btn.quick {
             background: linear-gradient(135deg, #fbbf24, #f59e0b);
-            color: #1e3a8a;
+            color: #000;
+            font-weight: bold;
         }
 
         .modal-btn.quick:hover {
@@ -843,7 +846,7 @@
     <div class="modal-backdrop active" id="phiersModal">
         <div class="modal-content">
             <div style="margin-bottom: 25px; text-align: center;">
-                <img src="PHIERS_Logo.png" alt="PHIERS Logo" style="height: 80px; width: auto;">
+                <img src="PHIERS_Logo.png" alt="PHIERS Logo" style="height: 87px; width: auto;">
             </div>
             
             <h2 style="margin: 0 0 12px 0; font-size: 1.6em; text-align: center;">22 Million Just Lost Coverage. Congress Has Until Jan 31 to Fix It. 🧠</h2>
@@ -890,14 +893,7 @@
     <script>
         function closePhiersModal() {
             document.getElementById('phiersModal').classList.remove('active');
-            localStorage.setItem('phiersModalClosed', 'true');
         }
-        
-        window.addEventListener('load', function() {
-            if (localStorage.getItem('phiersModalClosed') === 'true') {
-                document.getElementById('phiersModal').classList.remove('active');
-            }
-        });
     </script>
 
     <div class="container">
