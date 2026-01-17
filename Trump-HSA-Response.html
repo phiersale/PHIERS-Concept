@@ -287,6 +287,57 @@
             font-size: 1.5em;
         }
         
+        /* LIGHTBOX STYLES */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            padding-top: 50px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.95);
+        }
+
+        .lightbox-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-content {
+            max-width: 90vw;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: #81c784;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .lightbox-close:hover {
+            color: #4caf50;
+        }
+
+        img.clickable-image {
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        img.clickable-image:hover {
+            transform: scale(1.02);
+            opacity: 0.8;
+        }
+        
         @media (max-width: 768px) {
             h1 {
                 font-size: 1.6em;
@@ -313,7 +364,40 @@
             }
         }
     </style>
-</head>
+    
+    <script>
+        function openLightbox(imageSrc) {
+            const modal = document.getElementById('lightboxModal');
+            const img = modal.querySelector('.lightbox-content');
+            img.src = imageSrc;
+            modal.classList.add('active');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightboxModal').classList.remove('active');
+        }
+
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('lightboxModal');
+            if (event.target === modal) {
+                closeLightbox();
+            }
+        });
+
+        window.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+
+        window.addEventListener('load', function() {
+            document.querySelectorAll('img.clickable-image').forEach(img => {
+                img.addEventListener('click', function() {
+                    openLightbox(this.src);
+                });
+            });
+        });
+    </script>
 <body>
     <div class="container">
         <header>
@@ -434,7 +518,8 @@
             <div style="text-align: center; margin: 40px 0; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);">
                 <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/2_73_Savings_Infographic.png" 
                      alt="$2.73T Annual Savings - All Dimensions Connected" 
-                     style="max-width: 40%; height: auto; display: block; margin: 0 auto;">
+                     class="clickable-image"
+                     style="max-width: 70%; height: auto; display: block; margin: 0 auto; cursor: pointer;">
             </div>
             
             <h3>⚡ The Strategic Opportunity (For Wealthy People)</h3>
@@ -459,7 +544,8 @@
             <div style="text-align: center; margin: 40px 0; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);">
                 <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Tablet__Firewall.png" 
                      alt="PHIERS Operating System - Firewall Against Corporate Extraction" 
-                     style="max-width: 35%; height: auto; display: block; margin: 0 auto;">
+                     class="clickable-image"
+                     style="max-width: 70%; height: auto; display: block; margin: 0 auto; cursor: pointer;">
             </div>
             
             <p style="margin-top: 20px; color: #ffeb3b; font-weight: bold;">Trump made HSAs better. PHIERS makes healthcare actually work.</p>
@@ -492,6 +578,12 @@
             </p>
             <p style="margin-top: 15px;">© PHIERS.org - People's Health Insurance Endowment and Referral Service</p>
         </footer>
+    </div>
+
+    <!-- LIGHTBOX MODAL FOR IMAGES -->
+    <div id="lightboxModal" class="lightbox-modal">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img class="lightbox-content" src="" alt="Enlarged image">
     </div>
 </body>
 </html>
