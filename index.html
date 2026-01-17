@@ -1040,6 +1040,14 @@
             }
         });
 
+        // Check if coming from Quick Story page (Interactive Impact) with skip-modal hash
+        if (window.location.hash === '#skip-modal') {
+            document.getElementById('choiceModal').classList.remove('active');
+            localStorage.setItem('modalClosed', 'true');
+            // Clean up hash from URL
+            window.history.replaceState(null, null, window.location.pathname);
+        }
+        
         // Don't show modal if already closed in this session
         window.addEventListener('load', function() {
             if (localStorage.getItem('modalClosed') === 'true') {
