@@ -1049,7 +1049,7 @@
     </p>
 
     <p style="margin: 10px 0; font-size: 15px; font-weight: 500;">
-        <a href="#" style="color:#9cd3ff; text-decoration:none; margin:0 8px;">Donate Here</a> |
+        <a href="https://phiersale.github.io/PHIERS-Concept/Donate.html" style="color:#9cd3ff; text-decoration:none; margin:0 8px;">Donate Here</a> |
         <a href="#" style="color:#9cd3ff; text-decoration:none; margin:0 8px;">Sign Petition</a> |
         <a href="#" style="color:#9cd3ff; text-decoration:none; margin:0 8px;">FAQ</a> |
         <a href="#" style="color:#9cd3ff; text-decoration:none; margin:0 8px;">Join Us</a>
@@ -1063,51 +1063,4 @@
         Prior art documented since 2014 • Healthcare solution developed over more than 15 years • Ready for Congressional implementation
     </p>
 </footer>
-
-</div>
-
-<script>
-
-    function showSection(sectionId) {
-        const sections = document.querySelectorAll('section');
-        sections.forEach(section => section.classList.remove('active'));
-        
-        document.getElementById(sectionId).classList.add('active');
-        
-        const navItems = document.querySelectorAll('.nav-item');
-        navItems.forEach(item => item.classList.remove('active'));
-        
-        const navItem = Array.from(navItems).find(item => {
-            const text = item.textContent.toLowerCase();
-            return text.includes(sectionId.toLowerCase()) || 
-                   (sectionId === 'media' && text.includes('media')) ||
-                   (sectionId === 'power' && text.includes('buying')) ||
-                   (sectionId === 'action' && text.includes('take'));
-        });
-        if (navItem) navItem.classList.add('active');
-        
-        window.scrollTo(0, 0);
-    }
-
-    function closeModal() {
-        document.getElementById('phiersModal').classList.add('hidden');
-    }
-
-    // Keyboard shortcut: ESC to close modal
-    document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape') {
-            closeModal();
-        }
-    });
-
-    // ⭐ Skip modal automatically if URL contains #skip-modal
-    if (window.location.hash === "#skip-modal") {
-        closeModal();
-        location.href = "#skip-modal";
-    }
-
-</script>
-
-</body>
-</html>
 
