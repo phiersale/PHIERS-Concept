@@ -583,9 +583,7 @@
             <!-- BUTTONS -->
             <div class="modal-buttons">
                 <a href="Telehealth-Insurance.html" class="modal-btn primary">⚡ Quick Story (2 min read)</a>
-               <button class="modal-btn secondary" onclick="closeModal(); showSection('main');">
-    ✅ Deep Dive (Full breakdown)
-                </button>
+                <button class="modal-btn secondary" onclick="closeModal()">✅ Deep Dive (Full breakdown)</button>
             </div>
             
             <!-- CTA -->
@@ -1027,7 +1025,8 @@
             <h3 style="margin-top: 30px;">🎯 Join the Movement</h3>
             <div class="button-group">
                 <a href="https://c.org/q9vrMCQZsY" target="_blank" class="btn btn-primary">✍️ Sign Petition</a>
-                <a href="https://phiersale.github.io/PHIERS-Concept/Donate.html" target="_blank" class="btn btn-secondary">💝 Donate</a>
+                <a href="https://discord.gg/narhDKJY" target="_blank" class="btn btn-discord">💬 Discord</a>
+                <a href="https://www.gofundme.com/PHIERS" target="_blank" class="btn btn-secondary">💝 Donate</a>
             </div>
 
             <div class="nav-buttons">
@@ -1035,7 +1034,7 @@
                 <button class="btn btn-primary" disabled>Next →</button>
             </div>
         </section>
-
+        
 <footer style="
     text-align: center;
     padding: 40px 20px;
@@ -1085,5 +1084,50 @@
         Prior art documented since 2014 • Healthcare solution developed over more than 15 years • Ready for Congressional implementation
     </p>
 </footer>
+
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => section.classList.remove('active'));
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Update nav items
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => item.classList.remove('active'));
+            
+            // Find and activate the corresponding nav item
+            const navItem = Array.from(navItems).find(item => {
+                const text = item.textContent.toLowerCase();
+                return text.includes(sectionId.toLowerCase()) || 
+                       (sectionId === 'media' && text.includes('media')) ||
+                       (sectionId === 'power' && text.includes('buying')) ||
+                       (sectionId === 'action' && text.includes('take'));
+            });
+            if (navItem) navItem.classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        function closeModal() {
+            document.getElementById('phiersModal').classList.add('hidden');
+        }
+
+        // Keyboard shortcut: ESC to close modal
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+
+</body>
+</html>
+
 
 
