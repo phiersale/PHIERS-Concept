@@ -3,419 +3,282 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHIERS - Donate Now</title>
+    <title>PHIERS - Make America Better and Healthier</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            color: #e0e0e0;
             line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 20px;
         }
-        
+
+        /* Back to Main Button - Persistent & Modal-Bypass */
+        .back-to-main-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 10000; /* High z-index to ensure it appears above all modals */
+            background-color: #ff6b6b;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-to-main-btn:hover {
+            background-color: #ff5252;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .back-to-main-btn:active {
+            transform: translateY(0);
+        }
+
+        .back-to-main-btn::before {
+            content: "←";
+            font-size: 18px;
+        }
+
+        /* Container */
         .container {
             max-width: 900px;
             margin: 0 auto;
-        }
-        
-        .header {
-            text-align: center;
-            padding: 30px 20px;
-            background: linear-gradient(135deg, rgba(15, 52, 96, 0.8), rgba(22, 33, 62, 0.8));
-            border-radius: 10px;
-            margin-bottom: 30px;
-            border: 2px solid rgba(76, 175, 80, 0.3);
-        }
-        
-        h1 {
-            font-size: 2.2em;
-            margin-bottom: 10px;
-            color: #4caf50;
-            text-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
-        }
-        
-        .subtitle {
-            font-size: 1em;
-            color: #81c784;
-            margin-bottom: 10px;
-        }
-        
-        .urgency {
-            font-size: 1.1em;
-            color: #ffeb3b;
-            font-weight: bold;
-            margin-top: 15px;
-        }
-        
-        .thank-you-section {
-            background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(129, 199, 132, 0.2));
-            border: 2px solid #4caf50;
-            border-radius: 10px;
-            padding: 30px;
-            margin: 30px 0;
-            text-align: center;
-        }
-        
-        .thank-you-section h2 {
-            color: #4caf50;
-            margin-top: 0;
-            font-size: 1.5em;
-            margin-bottom: 15px;
-        }
-        
-        .thank-you-section p {
-            color: #c8e6c9;
-            font-size: 1.05em;
-            margin: 10px 0;
-        }
-        
-        .collapsible-section {
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
-            border: 2px solid rgba(76, 175, 80, 0.3);
-            border-radius: 10px;
-            padding: 25px;
-            margin: 30px 0;
-        }
-        
-        .collapsible-header {
-            color: #4caf50;
-            margin: 0;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.15em;
-            user-select: none;
-        }
-        
-        .collapsible-header:hover {
-            color: #81c784;
-        }
-        
-        .toggle-icon {
-            display: inline-block;
-            transition: transform 0.3s ease;
-        }
-        
-        .collapsible-content {
-            display: block;
-            color: #c8e6c9;
-            line-height: 1.8;
-            margin-top: 20px;
-        }
-        
-        .collapsible-content.active {
-            display: block;
-        }
-        
-        .funding-box {
-            margin: 15px 0;
-            padding: 15px;
-            background: rgba(76, 175, 80, 0.1);
-            border-left: 3px solid #4caf50;
-            border-radius: 5px;
-        }
-        
-        .funding-box p {
-            margin: 5px 0;
-            font-size: 0.95em;
-        }
-        
-        .funding-box p:first-child {
-            font-weight: bold;
-            color: #ffeb3b;
-            margin-bottom: 10px;
-        }
-        
-        .goal-statement {
-            margin: 20px 0 0 0;
-            font-weight: bold;
-            color: #81c784;
-            text-align: center;
-        }
-        
-        .payment-section-title {
-            color: #4caf50;
-            text-align: center;
-            margin: 40px 0 30px 0;
-            font-size: 1.2em;
-        }
-        
-        .payment-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
-        }
-        
-        .payment-card {
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
-            border: 2px solid #4caf50;
-            border-radius: 12px;
-            padding: 25px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-            transition: all 0.3s ease;
-        }
-        
-        .payment-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);
-        }
-        
-        .payment-title {
-            color: #4caf50;
-            font-size: 1.3em;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-        
-        .qr-code {
-            width: 180px;
-            height: 180px;
-            margin: 0 auto 15px;
-            border-radius: 8px;
             background: white;
-            padding: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-        }
-        
-        .qr-code img {
-            width: 100%;
-            height: 100%;
-            border-radius: 6px;
-        }
-        
-        .payment-handle {
-            color: #c8e6c9;
-            font-size: 1em;
-            font-weight: bold;
-            word-break: break-all;
-            margin-top: 10px;
-            padding: 10px;
-            background: rgba(76, 175, 80, 0.1);
-            border-radius: 6px;
-        }
-        
-        .or-divider {
-            text-align: center;
-            color: #81c784;
-            font-weight: bold;
-            font-size: 1.1em;
-            margin: 40px 0;
-            padding: 20px 0;
-            border-top: 2px solid rgba(76, 175, 80, 0.3);
-            border-bottom: 2px solid rgba(76, 175, 80, 0.3);
-        }
-        
-        .alternate-methods {
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
-            border: 2px solid rgba(76, 175, 80, 0.3);
+            padding: 40px;
             border-radius: 10px;
-            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            margin-top: 60px;
+        }
+
+        h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
             text-align: center;
         }
-        
-        .alternate-methods h2 {
-            color: #4caf50;
-            margin-bottom: 20px;
+
+        h2 {
+            color: #764ba2;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #555;
             font-size: 1.3em;
+            margin-top: 20px;
+            margin-bottom: 10px;
         }
-        
-        .button-group {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        
-        .btn {
-            padding: 12px 25px;
-            font-size: 0.95em;
-            font-weight: bold;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            text-decoration: none;
-            display: block;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, #4caf50, #45a049);
-            color: white;
-        }
-        
-        .btn-primary:hover {
-            background: linear-gradient(135deg, #45a049, #3d8b40);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
-        }
-        
-        .btn-secondary {
-            background: linear-gradient(135deg, #2196f3, #1976d2);
-            color: white;
-        }
-        
-        .btn-secondary:hover {
-            background: linear-gradient(135deg, #1976d2, #1565c0);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4);
-        }
-        
-        footer {
+
+        .subtitle {
             text-align: center;
-            padding: 30px 20px;
-            color: #81c784;
-            margin-top: 40px;
-            font-size: 0.9em;
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 30px;
         }
-        
-        footer a {
-            color: #4caf50;
-            text-decoration: underline;
+
+.donation-method {
+            background: #f5f5f5;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
         }
-        
+
+        .donation-method h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .qr-code {
+            display: block;
+            margin: 15px auto;
+            text-align: center;
+        }
+
+        .qr-code img {
+            max-width: 250px;
+            height: auto;
+            border: 3px solid #667eea;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .payment-methods {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+.footer-note {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #ddd;
+            color: #999;
+            font-size: 0.95em;
+        }
+
         @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin-top: 80px;
+            }
+
             h1 {
-                font-size: 1.6em;
+                font-size: 1.8em;
             }
-            
-            .payment-grid {
-                grid-template-columns: 1fr;
+
+            h2 {
+                font-size: 1.3em;
             }
-            
-            .qr-code {
-                width: 150px;
-                height: 150px;
+
+            .back-to-main-btn {
+                padding: 10px 15px;
+                font-size: 12px;
+                top: 10px;
+                left: 10px;
+            }
+
+            .payment-methods {
+                flex-direction: column;
             }
         }
     </style>
-    <script>
-        function toggleFunding() {
-            const content = document.getElementById('fundingDetails');
-            const icon = document.getElementById('fundingToggle');
-            content.classList.toggle('active');
-            icon.style.transform = content.classList.contains('active') ? 'rotate(90deg)' : 'rotate(0deg)';
-        }
-        
-        function togglePayment(method) {
-            const details = document.getElementById(method + 'Details');
-            const toggle = document.getElementById(method + 'Toggle');
-            details.style.display = details.style.display === 'none' ? 'block' : 'none';
-            toggle.style.transform = details.style.display === 'none' ? 'rotate(0deg)' : 'rotate(90deg)';
-        }
-    </script>
 </head>
 <body>
+    <!-- Back to Main Button - Ensures it bypasses modals with high z-index -->
+    <a href="index.html" class="back-to-main-btn" onclick="this.href='index.html'; return true;">Back to Main</a>
+
     <div class="container">
-        <div class="header">
-            <h1>💝 Support PHIERS</h1>
-            <p class="subtitle">Help us spread the solution that Congress rejected</p>
-            <p class="urgency">⏰ 2 DAYS LEFT: Congress home through Dec 31</p>
-        </div>
+        <h1>PHIERS - Make America Better and Healthier</h1>
+
+        <h2>Why Your Support Matters</h2>
+        <p>PHIERS was built for one purpose: to give America a healthcare system that finally works for everyone. No corporate sponsors. No political machine. No hidden backers. Just a small team that refused to wait for permission to solve a national crisis.</p>
         
-        <!-- THANK YOU MESSAGE -->
-        <div class="thank-you-section">
-            <h2>🙏 Thank You for Fighting With Us</h2>
-            <p>Every dollar funds the campaign that forces Congress to act before the Jan 30 shutdown deadline.</p>
-            <p style="color: #81c784; font-weight: bold;">Your support makes the impossible inevitable.</p>
-        </div>
+        <p>Every model, every line of code, every policy blueprint — all of it has been created through personal sacrifice. We've poured our savings, our stability, and even our housing into building a solution that could change millions of lives. We did it because the mission is bigger than us.</p>
         
-        <!-- COLLAPSIBLE FUNDING BREAKDOWN -->
-        <div class="collapsible-section">
-            <h3 class="collapsible-header" onclick="toggleFunding()">
-                <span class="toggle-icon" id="fundingToggle">▶</span> How Your Donation Is Used
-            </h3>
+        <p><strong>But we can't sustain this work alone.</strong></p>
+
+        <h2>What Your Contribution Supports</h2>
+        <p>Your support keeps PHIERS alive and moving forward. It helps us:</p>
+        <ul>
+            <li>Maintain the infrastructure that powers the model</li>
+            <li>Continue the research and development behind the solution</li>
+            <li>Reach communities, lawmakers, and partners who can help implement it</li>
+            <li>Cover basic survival needs so we can keep working full‑time on the mission</li>
+        </ul>
+        <p><strong>Every dollar goes directly into the work — not overhead, not salaries, not politics.</strong></p>
+
+        <h2>A Movement Powered by People</h2>
+        <p>PHIERS is entirely self‑financed. That was intentional. We wanted to prove that a small group of committed people can build something powerful enough to reshape the future of American healthcare.</p>
+        
+        <p>If you believe in this mission — if you believe America deserves better — your support helps us keep going.</p>
+        
+        <p style="text-align: center; margin-top: 30px; font-size: 1.1em;"><strong>Thank you for standing with us.</strong></p>
+
+        <h2 style="text-align: center; margin-top: 40px;">💳 Donate Now</h2>
+
+        <div class="payment-methods">
+            <div class="donation-method" style="flex: 1; min-width: 250px; text-align: center;">
+                <h4>▶ Venmo</h4>
+                <div class="qr-code">
+                    <img src="https://phiersale.github.io/PHIERS-Concept/Venmo.png" alt="Venmo QR Code">
+                </div>
+                <p><strong>@Will4PHIERS</strong></p>
+            </div>
+
+            <div class="donation-method" style="flex: 1; min-width: 250px; text-align: center;">
+                <h4>▶ PayPal</h4>
+                <div class="qr-code">
+                    <img src="https://phiersale.github.io/PHIERS-Concept/PayPal.png" alt="PayPal QR Code">
+                </div>
+                <p><strong>phierscampaign@gmail.com</strong></p>
+            </div>
+
+            <div class="donation-method" style="flex: 1; min-width: 250px; text-align: center;">
+                <h4>▶ Zelle</h4>
+                <div class="qr-code">
+                    <img src="https://phiersale.github.io/PHIERS-Concept/Zelle.png" alt="Zelle QR Code">
+                </div>
+                <p><strong>301-919-0970</strong></p>
+            </div>
+        </div>
+
+        <h2 style="text-align: center; margin-top: 40px;">🔘 Back to Main Page</h2>
+        <p style="text-align: center; font-size: 1.05em;">You can return to the main site here:</p>
+        <p style="text-align: center; margin-top: 15px;">
+            <a href="index.html" style="display: inline-block; padding: 15px 30px; background: #667eea; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 1.1em; transition: background 0.3s;">⬅️ Back to Main Page</a>
+        </p>
+
+        <div class="footer-note">
+            <p>PHIERS - Building the Future of American Healthcare</p>
+        </div>
+    </div>
+
+    <script>
+        // Ensure Back to Main button always works and bypasses any modals
+        document.addEventListener('DOMContentLoaded', function() {
+            const backBtn = document.querySelector('.back-to-main-btn');
             
-            <div id="fundingDetails" class="collapsible-content active">
-                <div class="funding-box">
-                    <p>📰 PATHOS PR CAMPAIGN</p>
-                    <p>$5,000+ = Publishing guarantee + media amplification to 55M+ readers</p>
-                </div>
-                
-                <div class="funding-box">
-                    <p>⚙️ OPERATING EXPENSES</p>
-                    <p>• New laptop (current dying - essential for coordination)</p>
-                    <p>• Internet + online services (Discord, Google Workspace, hosting)</p>
-                    <p>• AI support tools (Claude, ChatGPT for content creation)</p>
-                    <p>• Organizing coordinator support (travel, materials)</p>
-                </div>
-                
-                <div class="funding-box">
-                    <p>🚀 CAMPAIGN OPERATIONS</p>
-                    <p>• Petition printing + distribution materials</p>
-                    <p>• Video production + Discord coordination</p>
-                    <p>• Congressional outreach + media tracking</p>
-                </div>
-                
-                <p class="goal-statement">🎯 $15K GOAL = Complete mission through Jan 31 shutdown deadline</p>
-            </div>
-        </div>
-        
-        <!-- PAYMENT LOGOS -->
-        <div style="text-align: center; margin: 30px 0 20px 0; padding: 15px; background: rgba(76, 175, 80, 0.05); border-radius: 10px; border: 2px solid rgba(76, 175, 80, 0.2);">
-            <img src="https://phiersale.github.io/PHIERS-Concept/paypal_venmo_zelle_GFM.png" alt="PayPal, Venmo, Zelle, GoFundMe" style="max-width: 450px; width: 100%; height: auto;">
-        </div>
-        
-        <!-- QR CODES - PAYMENT OPTIONS (COLLAPSIBLE) -->
-        <div class="payment-grid">
-            <div class="payment-card">
-                <h4 class="payment-header" onclick="togglePayment('venmo')" style="cursor: pointer; margin: 0; display: flex; align-items: center; gap: 8px; color: #4caf50;">
-                    <span class="payment-toggle" id="venmoToggle">▶</span> Venmo
-                </h4>
-                <div id="venmoDetails" class="payment-details" style="display: none; margin-top: 15px;">
-                    <div class="qr-code">
-                        <img src="https://phiersale.github.io/PHIERS-Concept/Venmo.png" alt="Venmo QR Code">
-                    </div>
-                    <div class="payment-handle">@Will4PHIERS</div>
-                </div>
-            </div>
+            // Ensure button maintains highest z-index
+            backBtn.style.zIndex = '10000';
             
-            <div class="payment-card">
-                <h4 class="payment-header" onclick="togglePayment('paypal')" style="cursor: pointer; margin: 0; display: flex; align-items: center; gap: 8px; color: #4caf50;">
-                    <span class="payment-toggle" id="paypalToggle">▶</span> PayPal
-                </h4>
-                <div id="paypalDetails" class="payment-details" style="display: none; margin-top: 15px;">
-                    <div class="qr-code">
-                        <img src="https://phiersale.github.io/PHIERS-Concept/PayPal.png" alt="PayPal QR Code">
-                    </div>
-                    <div class="payment-handle"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b2c5dbdedef2c2dadbd7c0c19cddc0d5">[email&#160;protected]</a></div>
-                </div>
-            </div>
-            
-            <div class="payment-card">
-                <h4 class="payment-header" onclick="togglePayment('zelle')" style="cursor: pointer; margin: 0; display: flex; align-items: center; gap: 8px; color: #4caf50;">
-                    <span class="payment-toggle" id="zelleToggle">▶</span> Zelle
-                </h4>
-                <div id="zelleDetails" class="payment-details" style="display: none; margin-top: 15px;">
-                    <div class="qr-code">
-                        <img src="https://phiersale.github.io/PHIERS-Concept/Zelle.png" alt="Zelle QR Code">
-                    </div>
-                    <div class="payment-handle">301-919-0970</div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="or-divider">OR</div>
-        
-        <!-- ALTERNATE METHODS -->
-        <div class="alternate-methods">
-            <h2>Other Ways to Help</h2>
-            <div class="button-group">
-                <a href="https://www.gofundme.com/f/homeless-but-hopeful-affordable-healthcare-good-jobs-ubi" target="_blank" class="btn btn-secondary">💰 GoFundMe Campaign</a>
-                <a href="https://docs.google.com/forms/d/1MYeQcmw8ZDXHwcjpEw5hbQCWP4FdHdyoHTo1XcAiTRA/edit" target="_blank" class="btn btn-primary">✍️ Sign Petition (Free)</a>
-                <a href="https://discord.gg/narhDKJY" target="_blank" class="btn btn-primary">💬 Join Discord Community</a>
-            </div>
-        </div>
-        
-        <footer>
-            <p>Every dollar funds publishing our story to 55+ million readers</p>
-            <p style="margin-top: 15px;"><a href=
+            // Add click handler to ensure navigation works
+            backBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                // Close any open modals by removing modal overlays
+                const modals = document.querySelectorAll('[role="dialog"], .modal, .modal-overlay');
+                modals.forEach(modal => {
+                    modal.style.display = 'none';
+                    modal.remove();
+                });
+                
+                // Navigate to main page
+                window.location.href = 'index.html';
+                return false;
+            });
+        });
+
+        // Keyboard shortcut: Press 'H' to go back home
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'h' || e.key === 'H') {
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+</body>
+</html>
