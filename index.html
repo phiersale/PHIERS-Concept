@@ -424,6 +424,13 @@
             }
         }
 
+        // Skip modal on load if #skip-modal in URL
+        window.addEventListener('load', function() {
+            if (window.location.hash === '#skip-modal') {
+                closeConsequencesPopup();
+            }
+        });
+
         function showSection(sectionId) {
             const sections = document.querySelectorAll('section');
             sections.forEach(section => section.classList.remove('active'));
@@ -463,7 +470,7 @@
                 <iframe width="100%" height="240" src="https://www.youtube.com/embed/2j-dF3hgdeE" title="The Math Congress Doesn't Want You To Understand" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 10px;"></iframe>
             </div>
 
-            <button onclick="window.open('https://phiersale.github.io/PHIERS-Concept/Telehealth-Insurance.html', '_blank'); return false;" style="background: linear-gradient(135deg, #4caf50, #45a049); color: white; padding: 14px 24px; font-size: 1.05em; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; text-align: center; width: 100%; box-sizing: border-box; transition: all 0.3s; display: block; margin-bottom: 12px; box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);">Quick Story (2 min read)</button>
+            <button onclick="window.open('https://phiersale.github.io/PHIERS-Concept/Telehealth-Insurance.html', '_blank'); return false;" style="background: linear-gradient(135deg, #4caf50, #45a049); color: white; padding: 14px 24px; font-size: 1.05em; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; text-align: center; width: 100%; box-sizing: border-box; transition: all 0.3s; display: block; margin-bottom: 12px; box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);">About Telehealth (2 min read)</button>
 
             <button onclick="window.open('https://phiersale.github.io/PHIERS-Concept/', '_blank'); return false;" style="background: transparent; color: #4caf50; padding: 14px 24px; font-size: 1.05em; font-weight: bold; border: 2px solid #4caf50; border-radius: 8px; cursor: pointer; text-align: center; width: 100%; box-sizing: border-box; transition: all 0.3s; display: block; margin-bottom: 20px;">✅ Deep Dive (Full breakdown)</button>
 
@@ -850,6 +857,17 @@
             <p><strong>Mathematical inevitability.</strong> Each person saved is paid FOR by the savings from previous conversions. The system funds itself through exponential compounding. Congress can't "defund" it—they literally freed the money through healthcare cost reduction.</p>
 
             <p style="margin-top: 15px;"><strong>Political inevitability.</strong> 3.5% of Americans organized = guaranteed systemic change (Chenoweth research). We have 100M+ Americans affected = 9x the threshold. Mathematically unstoppable.</p>
+
+            <div class="graphic-container">
+                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/SIMPLE_MATH.png" 
+                     alt="Simple Math - $7,400 ÷ $600 = 12 Conversions"
+                     style="max-width: 60%;">
+                <p>The Math That Changes Everything: One Person's Savings Funds 12 Others</p>
+            </div>
+
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="https://phiersale.github.io/PHIERS-Concept/SimpleMath.html" target="_blank" class="btn btn-secondary">Deep Dive: Full Simple Math Analysis</a>
+            </div>
 
             <div class="content-break"></div>
 
