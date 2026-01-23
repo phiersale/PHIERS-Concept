@@ -653,10 +653,20 @@
             }
         }
 
-        // Skip modal on load if #skip-modal in URL
+        // Modal skip logic:
+        // 1. If sessionStorage has phiersModalSkipped, don't show modal
+        // 2. If URL has a hash (#solutions, #action, etc.), skip modal (user wants specific content)
         window.addEventListener('load', function() {
-            if (window.location.hash === '#skip-modal') {
-                closeConsequencesPopup();
+            const modal = document.getElementById('consequencesPopup');
+            const hash = window.location.hash.substring(1); // Get hash without #
+            
+            if (sessionStorage.getItem('phiersModalSkipped') || hash) {
+                modal.style.display = 'none';
+            }
+            
+            // If there's a hash, show that section
+            if (hash && document.getElementById(hash)) {
+                showSection(hash);
             }
         });
 
