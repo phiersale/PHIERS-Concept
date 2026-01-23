@@ -68,6 +68,33 @@
             margin-bottom: 30px;
         }
 
+        .hero-branding {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(76, 175, 80, 0.3);
+        }
+
+        .hero-branding img {
+            max-width: 30%;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .hero-branding .mabah-title {
+            font-size: 1.3em;
+            color: #4caf50;
+            margin: 0 0 5px 0;
+            font-weight: bold;
+            text-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
+        }
+
+        .hero-branding .mabah-tagline {
+            font-size: 0.95em;
+            color: #81c784;
+            margin: 0;
+        }
+
         .hero-inner {
             display: flex;
             flex-wrap: wrap;
@@ -153,6 +180,18 @@
             max-width: 100%;
             height: auto;
             border-radius: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-inner {
+                flex-direction: column;
+            }
+            .hero-visual {
+                flex: 1 1 100%;
+            }
+            .hero-branding img {
+                max-width: 50%;
+            }
         }
 
         .hero-badge {
@@ -621,6 +660,13 @@
             }
         });
 
+        // Close modal with Escape key
+        window.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeConsequencesPopup();
+            }
+        });
+
         function showSection(sectionId) {
             const sections = document.querySelectorAll('section');
             sections.forEach(section => section.classList.remove('active'));
@@ -671,7 +717,16 @@
     </div>
 
     <div class="container">
-        <section class="hero" id="top">
+        <div class="hero" id="top">
+            <!-- Centered Branding Section -->
+            <div class="hero-branding">
+                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Logo.png" 
+                     alt="PHIERS Logo">
+                <p class="mabah-title">MABAH Movement</p>
+                <p class="mabah-tagline">Making America Better And Healthier</p>
+            </div>
+
+            <!-- Two-Column Content Section -->
             <div class="hero-inner">
                 <div class="hero-text">
                     <h1>22 Million Lost Coverage. Congress Failed. We Fix It.</h1>
@@ -686,7 +741,7 @@
                          alt="PHIERS pyramid showing path to universal coverage" />
                 </div>
             </div>
-        </section>
+        </div>
 
         <div class="nav-menu">
             <div class="nav-item active" onclick="showSection('main')">▼ Main</div>
@@ -704,7 +759,7 @@
 
         <!-- MAIN SECTION -->
         <section id="main" class="active">
-            <h2>The Moment: Congress Failed. Now They Have to Fix It.</h2>
+            <h2>⚡ The Moment: Congress Failed. Now They Have to Fix It.</h2>
             
             <p style="font-size: 1.05em; color: #c8e6c9; margin-bottom: 20px;">Congress created this crisis by failing to prevent the subsidy cliff. But the real issue goes deeper: jobs disappearing, supply chains broken, housing unaffordable, and most Americans have lost faith in their government. We the People can fix this—not by begging Congress, but by offering them a choice: adopt this better plan or step aside for representatives who will. This is the People's plan to Make America Better And Healthier.</p>
 
@@ -714,7 +769,7 @@
                 </div>
             </div>
 
-            <h2>The Solution: Separate Care from Catastrophe</h2>
+            <h2>✓ The Solution: Separate Care from Catastrophe</h2>
             
             <p>Congress let healthcare subsidies expire on December 31, 2025. Twenty-two million Americans lost coverage. Premiums are spiking. Congress had solutions on the table, but rejected both.</p>
 
@@ -788,10 +843,10 @@
 
             <h3>How It Works (30-second version)</h3>
             <ul>
-                <li><strong>80% of healthcare needs don't require hospitalization.</strong> They can be handled via telehealth at $600/year instead of $8,000+ traditional insurance.</li>
-                <li><strong>That $7,400+ difference per person gets freed up.</strong> It's enough to pay for 12 other people's healthcare completely.</li>
-                <li><strong>Those 12 people free up savings that fund 148 more.</strong> That cascade becomes exponential.</li>
-                <li><strong>At critical mass (6-8 months), Congress is forced to act.</strong> The math is unstoppable.</li>
+                <li><strong>✓ 80% of healthcare needs don't require hospitalization.</strong> They can be handled via telehealth at $600/year instead of $8,000+ traditional insurance.</li>
+                <li><strong>✓ That $7,400+ difference per person gets freed up.</strong> It's enough to pay for 12 other people's healthcare completely.</li>
+                <li><strong>✓ Those 12 people free up savings that fund 148 more.</strong> That cascade becomes exponential.</li>
+                <li><strong>✓ At critical mass (6-8 months), Congress is forced to act.</strong> The math is unstoppable.</li>
             </ul>
 
             <div class="content-break"></div>
@@ -848,7 +903,7 @@
 
         <!-- 5D SOLUTIONS SECTION -->
         <section id="solutions">
-            <h2>5D Solutions: Everything Connected</h2>
+            <h2>⚙ 5D Solutions: Everything Connected</h2>
 
             <p>Most people think linearly: "Fix healthcare, THEN fix jobs, THEN fix the economy."</p>
             <p style="margin-top: 15px;"><strong>PHIERS works in 5 dimensions simultaneously.</strong> Every solution strengthens all the others. You can't remove one piece without destroying the whole system. That's what makes it unstoppable.</p>
@@ -926,7 +981,7 @@
 
         <!-- CRISIS SECTION -->
         <section id="crisis">
-            <h2>The Crisis: December 31 Deadline & Negative Cascade</h2>
+            <h2>⚠ The Crisis: December 31 Deadline & Negative Cascade</h2>
 
             <div class="graphic-container">
                 <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/US_Millions_Face_Soaring_Health_Costs_as_Subsidies_Expire.png" 
@@ -997,9 +1052,17 @@
 
         <!-- SIMPLE MATH SECTION -->
         <section id="simplemath">
-            <h2>Simple Math: The Exponential Growth Pattern</h2>
+            <h2>📊 Simple Math: The Exponential Growth Pattern</h2>
 
-            <p style="color: #c8e6c9; font-size: 1.05em; text-align: center; margin: 30px 0; background: rgba(76, 175, 80, 0.1); padding: 20px; border-radius: 8px;"><strong>One conversion funds twelve more. Twelve fund 148. 148 fund 1,800. Exponential growth toward universal coverage.</strong></p>
+            <div style="background: rgba(244, 67, 54, 0.08); border-left: 5px solid #ef5350; padding: 20px; margin: 25px 0; border-radius: 6px;">
+                <p style="color: #ffcdd2; margin: 0; font-size: 1.05em;"><strong>Congress failed to prevent the healthcare subsidy cliff.</strong> Twenty-two million Americans lost coverage Dec 31. Premiums are spiking. This is our moment of leverage.</p>
+            </div>
+
+            <p style="color: #c8e6c9; font-size: 1.05em; text-align: center; margin: 30px 0; background: rgba(76, 175, 80, 0.1); padding: 20px; border-radius: 8px;"><strong>But the math shows there's a way to fix it that funds itself.</strong></p>
+
+            <p style="color: #c8e6c9; font-size: 1.05em; text-align: center; margin: 25px 0; background: rgba(76, 175, 80, 0.1); padding: 20px; border-radius: 8px;"><strong>One conversion funds twelve more. Twelve fund 148. 148 fund 1,800. Exponential growth toward universal coverage.</strong></p>
+
+            <p style="margin: 25px 0; font-size: 1.05em; color: #a5d6a7;"><strong>Here's how the first conversion works.</strong></p>
 
             <h3>The Mechanism</h3>
             <p>Congress allows telehealth in ACA. One individual switches from $8K traditional insurance to $600/year telehealth. <strong>$7,400 freed per person.</strong> Enough to PAY 12+ other individuals to switch.</p>
@@ -1013,51 +1076,70 @@
             <h3>The Cascade Begins</h3>
             <p>Those 12 switch. They generate $88,800 in additional freed savings. That funds 148 more switches. Those 148 generate $1.1M+ additional. That funds 1,825 more switches.</p>
 
+            <div style="text-align: center; margin: 40px 0; background: rgba(76, 175, 80, 0.08); padding: 30px; border-radius: 8px; border-left: 5px solid #4caf50;">
+                <p style="color: #c8e6c9; font-size: 1.1em; margin: 0; letter-spacing: 2px;">
+                    <span style="color: #4caf50; font-weight: bold; font-size: 1.3em;">1</span>
+                    <span style="color: #81c784; margin: 0 12px;">→</span>
+                    <span style="color: #4caf50; font-weight: bold; font-size: 1.3em;">12</span>
+                    <span style="color: #81c784; margin: 0 12px;">→</span>
+                    <span style="color: #4caf50; font-weight: bold; font-size: 1.3em;">148</span>
+                    <span style="color: #81c784; margin: 0 12px;">→</span>
+                    <span style="color: #4caf50; font-weight: bold; font-size: 1.3em;">1,825</span>
+                    <span style="color: #81c784; margin: 0 12px;">→</span>
+                    <span style="color: #4caf50; font-weight: bold; font-size: 1.3em;">22,508</span>
+                </p>
+                <p style="color: #c8e6c9; font-size: 1.1em; margin: 15px 0 0 0; letter-spacing: 2px;">
+                    <span style="color: #4caf50; font-weight: bold; font-size: 1.3em;">→ 302K → 3.7M → 46M → 120M+</span>
+                </p>
+            </div>
+
             <div class="content-break"></div>
 
-            <div style="text-align: center; margin: 50px 0; background: rgba(76, 175, 80, 0.1); padding: 40px 30px; border-radius: 8px; border-top: 3px solid rgba(76, 175, 80, 0.3); border-bottom: 3px solid rgba(76, 175, 80, 0.3);">
-                <h3 style="color: #81c784; margin-bottom: 30px;">🧮 The Nine Iterations</h3>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; max-width: 600px; margin: 0 auto;">
-                    <div style="background: rgba(76, 175, 80, 0.2); padding: 20px; border-radius: 6px;">
-                        <div style="font-size: 1.5em; color: #4caf50; font-weight: bold;">1</div>
-                        <div style="font-size: 0.95em; color: #c8e6c9;">Initial</div>
+            <div style="text-align: center; margin: 60px 0; background: rgba(76, 175, 80, 0.1); padding: 40px 30px; border-radius: 8px; border-top: 3px solid rgba(76, 175, 80, 0.3); border-bottom: 3px solid rgba(76, 175, 80, 0.3);">
+                <h3 style="color: #81c784; margin-bottom: 40px;">🧮 The Nine Iterations</h3>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 700px; margin: 0 auto;">
+                    <div style="background: rgba(76, 175, 80, 0.2); padding: 25px; border-radius: 6px; border: 1px solid rgba(76, 175, 80, 0.4);">
+                        <div style="font-size: 1.6em; color: #4caf50; font-weight: bold; margin-bottom: 8px;">1</div>
+                        <div style="font-size: 0.9em; color: #c8e6c9; font-weight: bold;">Initial</div>
                     </div>
-                    <div style="background: rgba(76, 175, 80, 0.2); padding: 20px; border-radius: 6px;">
-                        <div style="font-size: 1.5em; color: #4caf50; font-weight: bold;">→ 12</div>
-                        <div style="font-size: 0.95em; color: #c8e6c9;">Iteration 1</div>
+                    <div style="background: rgba(76, 175, 80, 0.2); padding: 25px; border-radius: 6px; border: 1px solid rgba(76, 175, 80, 0.4);">
+                        <div style="font-size: 1.6em; color: #4caf50; font-weight: bold; margin-bottom: 8px;">→ 12</div>
+                        <div style="font-size: 0.9em; color: #c8e6c9; font-weight: bold;">Iteration 1</div>
                     </div>
-                    <div style="background: rgba(76, 175, 80, 0.2); padding: 20px; border-radius: 6px;">
-                        <div style="font-size: 1.5em; color: #4caf50; font-weight: bold;">→ 148</div>
-                        <div style="font-size: 0.95em; color: #c8e6c9;">Iteration 2</div>
+                    <div style="background: rgba(76, 175, 80, 0.2); padding: 25px; border-radius: 6px; border: 1px solid rgba(76, 175, 80, 0.4);">
+                        <div style="font-size: 1.6em; color: #4caf50; font-weight: bold; margin-bottom: 8px;">→ 148</div>
+                        <div style="font-size: 0.9em; color: #c8e6c9; font-weight: bold;">Iteration 2</div>
                     </div>
-                    <div style="background: rgba(76, 175, 80, 0.2); padding: 20px; border-radius: 6px;">
-                        <div style="font-size: 1.5em; color: #4caf50; font-weight: bold;">→ 1,825</div>
-                        <div style="font-size: 0.95em; color: #c8e6c9;">Iteration 3</div>
+                    <div style="background: rgba(76, 175, 80, 0.2); padding: 25px; border-radius: 6px; border: 1px solid rgba(76, 175, 80, 0.4);">
+                        <div style="font-size: 1.6em; color: #4caf50; font-weight: bold; margin-bottom: 8px;">→ 1,825</div>
+                        <div style="font-size: 0.9em; color: #c8e6c9; font-weight: bold;">Iteration 3</div>
                     </div>
-                    <div style="background: rgba(76, 175, 80, 0.2); padding: 20px; border-radius: 6px;">
-                        <div style="font-size: 1.5em; color: #4caf50; font-weight: bold;">→ 22,508</div>
-                        <div style="font-size: 0.95em; color: #c8e6c9;">Iteration 4</div>
+                    <div style="background: rgba(76, 175, 80, 0.2); padding: 25px; border-radius: 6px; border: 1px solid rgba(76, 175, 80, 0.4);">
+                        <div style="font-size: 1.6em; color: #4caf50; font-weight: bold; margin-bottom: 8px;">→ 22,508</div>
+                        <div style="font-size: 0.9em; color: #c8e6c9; font-weight: bold;">Iteration 4</div>
                     </div>
-                    <div style="background: rgba(76, 175, 80, 0.2); padding: 20px; border-radius: 6px;">
-                        <div style="font-size: 1.5em; color: #4caf50; font-weight: bold;">→ 302K</div>
-                        <div style="font-size: 0.95em; color: #c8e6c9;">Iteration 5</div>
+                    <div style="background: rgba(76, 175, 80, 0.2); padding: 25px; border-radius: 6px; border: 1px solid rgba(76, 175, 80, 0.4);">
+                        <div style="font-size: 1.6em; color: #4caf50; font-weight: bold; margin-bottom: 8px;">→ 302K</div>
+                        <div style="font-size: 0.9em; color: #c8e6c9; font-weight: bold;">Iteration 5</div>
                     </div>
-                    <div style="background: rgba(76, 175, 80, 0.2); padding: 20px; border-radius: 6px;">
-                        <div style="font-size: 1.5em; color: #4caf50; font-weight: bold;">→ 3.7M</div>
-                        <div style="font-size: 0.95em; color: #c8e6c9;">Iteration 6</div>
+                    <div style="background: rgba(76, 175, 80, 0.2); padding: 25px; border-radius: 6px; border: 1px solid rgba(76, 175, 80, 0.4);">
+                        <div style="font-size: 1.6em; color: #4caf50; font-weight: bold; margin-bottom: 8px;">→ 3.7M</div>
+                        <div style="font-size: 0.9em; color: #c8e6c9; font-weight: bold;">Iteration 6</div>
                     </div>
-                    <div style="background: rgba(76, 175, 80, 0.2); padding: 20px; border-radius: 6px;">
-                        <div style="font-size: 1.5em; color: #4caf50; font-weight: bold;">→ 46M</div>
-                        <div style="font-size: 0.95em; color: #c8e6c9;">Iteration 7</div>
+                    <div style="background: rgba(76, 175, 80, 0.2); padding: 25px; border-radius: 6px; border: 1px solid rgba(76, 175, 80, 0.4);">
+                        <div style="font-size: 1.6em; color: #4caf50; font-weight: bold; margin-bottom: 8px;">→ 46M</div>
+                        <div style="font-size: 0.9em; color: #c8e6c9; font-weight: bold;">Iteration 7</div>
                     </div>
-                    <div style="background: rgba(76, 175, 80, 0.2); padding: 20px; border-radius: 6px;">
-                        <div style="font-size: 1.5em; color: #4caf50; font-weight: bold;">→ 120M+</div>
-                        <div style="font-size: 0.95em; color: #c8e6c9;">Critical Mass</div>
+                    <div style="background: rgba(76, 175, 80, 0.3); padding: 25px; border-radius: 6px; border: 2px solid #4caf50;">
+                        <div style="font-size: 1.6em; color: #4caf50; font-weight: bold; margin-bottom: 8px;">→ 120M+</div>
+                        <div style="font-size: 0.9em; color: #c8e6c9; font-weight: bold;">Critical Mass</div>
                     </div>
                 </div>
             </div>
 
             <div class="content-break"></div>
+
+            <p style="margin: 25px 0; font-size: 1.05em; color: #a5d6a7;"><strong>Once the cascade begins, here's how quickly it compounds.</strong></p>
 
             <h3>Timeline to Universal Coverage</h3>
             <p>Each iteration takes 1-3 months (crisis-driven viral adoption). This progression from 1 to 120M+ is not linear—it's exponential. At critical mass (120M conversions), the system has freed enough money to cover EVERYONE (234M Americans) at some level.</p>
@@ -1067,7 +1149,10 @@
             <h3>Why It Can't Be Stopped</h3>
             <p><strong>Mathematical inevitability.</strong> Each person saved is paid FOR by the savings from previous conversions. The system funds itself through exponential compounding. Congress can't "defund" it—they literally freed the money through healthcare cost reduction.</p>
 
-            <p style="margin-top: 15px;"><strong>Political inevitability.</strong> 3.5% of Americans organized = guaranteed systemic change (Chenoweth research). We have 100M+ Americans affected = 9x the threshold. Mathematically unstoppable.</p>
+            <div class="highlight-box" style="margin: 30px 0;">
+                <div class="highlight-title">⚡ Political Inevitability</div>
+                <div class="highlight-content"><strong>3.5% of Americans organized = guaranteed systemic change</strong> (Chenoweth research). We have 100M+ Americans affected = <strong>9x the threshold</strong>. Mathematically unstoppable.</div>
+            </div>
 
             <div class="graphic-container">
                 <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/SIMPLE_MATH.png" 
@@ -1094,7 +1179,7 @@
 
         <!-- HOW IT WORKS SECTION -->
         <section id="works">
-            <h2>How It Works: The Exponential Mechanism</h2>
+            <h2>⚙️ How It Works: The Exponential Mechanism</h2>
 
             <div class="graphic-container">
                 <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/How_It_Works.png" 
@@ -1170,7 +1255,7 @@
 
         <!-- LEVERAGE SECTION -->
         <section id="leverage">
-            <h2>Congressional Leverage: Binary Choice</h2>
+            <h2>⚡ Congressional Leverage: Binary Choice</h2>
 
             <div class="graphic-container">
                 <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/LEVERAGE_Pwr_of_the_People.png" 
@@ -1222,7 +1307,7 @@
 
         <!-- BUYING POWER SECTION -->
         <section id="buying">
-            <h2>Cooperative Purchasing Power: The Nuclear Option</h2>
+            <h2>💪 Cooperative Purchasing Power: The Nuclear Option</h2>
 
             <h3>What Most People Don't Understand</h3>
             <p>When 100+ million people organize as a cooperative buying group, we become something unprecedented in history.</p>
@@ -1270,7 +1355,7 @@
 
         <!-- MEDIA SECTION -->
         <section id="media">
-            <h2>Media Library: All Resources in One Place</h2>
+            <h2>📚 Media Library: All Resources in One Place</h2>
 
             <h3>Core Videos</h3>
             <ul>
@@ -1329,7 +1414,7 @@
 
         <!-- TAKE ACTION SECTION -->
         <section id="action">
-            <h2>Take Action RIGHT NOW</h2>
+            <h2>✅ Take Action RIGHT NOW</h2>
 
             <div class="graphic-container">
                 <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/99_to_1_Great_Odds_PHIERStorm.png" 
@@ -1388,7 +1473,7 @@
 
         <!-- FAQ SECTION -->
         <section id="faq">
-            <h2>Frequently Asked Questions</h2>
+            <h2>❓ Frequently Asked Questions</h2>
 
             <details>
                 <summary>How much does PHIERS healthcare cost?</summary>
@@ -1496,7 +1581,7 @@
 
         <!-- RESOURCES SECTION -->
         <section id="resources">
-            <h2>Resources & Implementation</h2>
+            <h2>📋 Resources & Implementation</h2>
 
             <h3>State-Level Implementation Guides</h3>
             
@@ -1573,53 +1658,14 @@
             <p><strong>PHIERS Movement | Make America Better And Healthier (MABAH)</strong></p>
             <p>Will Price | Chief Solutions Architect</p>
             <p>Phone: 301-919-0970 | Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="15627c797955657d7c7067663b7a6772">[email&#160;protected]</a></p>
+            <p style="margin-top: 25px; padding-top: 20px; border-top: 1px solid rgba(76, 175, 80, 0.3);">
+                <a href="https://c.org/q9vrMCQZsY" target="_blank" style="background: linear-gradient(135deg, #4caf50, #45a049); color: white; padding: 12px 24px; font-size: 1.05em; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.3s; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);">Join the Movement →</a>
+                <a href="Simple-Math-Fast-Read.html" target="_blank" style="color: #81c784; text-decoration: none; padding: 12px 24px; display: inline-block;">Quick Summary →</a>
+            </p>
             <p style="margin-top: 15px;">
                 <a href="https://phiersale.github.io/Join_the_Team/" target="_blank" style="color: #81c784; text-decoration: underline;">Join Us</a> | 
                 <a href="https://phiersale.github.io/MABAH-Movement/" target="_blank" style="color: #81c784; text-decoration: underline;">MABAH Movement</a>
             </p>
             <p style="margin-top: 15px;">© PHIERS.org — People's Health Insurance Endowment and Referral Service | Prior art documented since 2014</p>
         </footer>
-    </div>
-
-    <script>
-        function showSection(sectionId) {
-            // Hide all sections
-            const sections = document.querySelectorAll('section');
-            sections.forEach(section => section.classList.remove('active'));
-            
-            // Show selected section
-            document.getElementById(sectionId).classList.add('active');
-            
-            // Update nav items
-            const navItems = document.querySelectorAll('.nav-item');
-            navItems.forEach(item => item.classList.remove('active'));
-            
-            // Find and activate the corresponding nav item
-            const navItem = Array.from(navItems).find(item => {
-                const text = item.textContent.toLowerCase();
-                return text.includes(sectionId.toLowerCase()) || 
-                       (sectionId === 'media' && text.includes('media')) ||
-                       (sectionId === 'power' && text.includes('buying')) ||
-                       (sectionId === 'action' && text.includes('take'));
-            });
-            if (navItem) navItem.classList.add('active');
-            
-            // Scroll to top
-            window.scrollTo(0, 0);
-        }
-
-        function closeModal() {
-            document.getElementById('phiersModal').classList.add('hidden');
-        }
-
-        // Keyboard shortcut: ESC to close modal
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeModal();
-            }
-        });
-    </script>
-
-</body>
-</html>
-
+            <p style="margin-top: 15px;">© PHIERS.org — People's Health Insur
