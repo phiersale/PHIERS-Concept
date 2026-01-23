@@ -306,18 +306,19 @@
         }
     </style>
     <script>
-        // Modal behavior - show only on 1st visit per session
+        // Modal behavior - show only on 1st visit per session, then skip permanently
         function closeModal() {
             const modal = document.getElementById('consequencesPopup');
             if (modal) {
                 modal.style.display = 'none';
-                sessionStorage.setItem('modalClosed', 'true');
             }
+            sessionStorage.setItem('phiersModalSkipped', 'true');
         }
 
         window.addEventListener('load', function() {
-            if (sessionStorage.getItem('modalClosed')) {
-                closeModal();
+            const modal = document.getElementById('consequencesPopup');
+            if (sessionStorage.getItem('phiersModalSkipped')) {
+                modal.style.display = 'none';
             }
         });
 
@@ -390,12 +391,14 @@
 
         <!-- CRISIS SECTION -->
         <div class="home-section">
-            <h2>🚨 The Crisis: Why Now</h2>
+            <h2>🚨 The Crisis: Congress Must Act by Jan 30</h2>
             
             <div class="crisis-box">
-                <p><strong>22 million people lost coverage when Congress let protections expire.</strong></p>
+                <p><strong>22 million people lost coverage when Congress let protections expire Dec 31.</strong></p>
                 <p><strong>Premiums are rising. Deductibles are rising. Families are choosing between rent, food, and medicine.</strong></p>
-                <p>The system is failing in real time — not because Americans want it this way, but because Congress keeps breaking the basic math that holds healthcare together.</p>
+                <p style="margin-top: 20px; color: #ff7043; font-weight: bold;">⏰ DEADLINE: Jan 30 Government Shutdown</p>
+                <p style="color: #ffcdd2;">Congress has until Jan 30 to fix the healthcare crisis. After that, the government shuts down and the ability to act is lost.</p>
+                <p style="margin-top: 20px;">The system is failing in real time — not because Americans want it this way, but because Congress keeps breaking the basic math that holds healthcare together.</p>
                 <p style="margin-top: 20px;"><strong>This moment isn't just a crisis.</strong></p>
                 <p><strong>It's leverage.</strong></p>
             </div>
@@ -498,13 +501,10 @@
 
     <footer>
         <p><strong>PHIERS Movement | Make America Better And Healthier (MABAH)</strong></p>
-        <p>Will Price | Chief Solutions Architect | 916-306-8967 | info@phiers.org</p>
+        <p>Will Price | Chief Solutions Architect | 916-306-8967 | <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="11787f777e516179787463623f7e6376">[email&#160;protected]</a></p>
         <p style="margin-top: 15px;">
             <a href="https://phiersale.github.io/PHIERS-Concept/Donate.html" style="color: #81c784; text-decoration: underline;">Donate</a> |
             <a href="index.html" style="color: #81c784; text-decoration: none;">Home</a> |
             <a href="SimpleMath.html" style="color: #81c784; text-decoration: none;">View Full Explainer</a>
         </p>
-        <p style="margin-top: 15px; font-size: 0.85em;">© PHIERS.org — People's Health Insurance Endowment and Referral Service | Prior art documented since 2014</p>
-    </footer>
-</body>
-</html>
+        <p style="margin-top: 15px; font-size: 0.85em;">© PHIERS.org — People'
