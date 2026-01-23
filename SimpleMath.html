@@ -682,6 +682,22 @@
             }
             window.scrollTo(0, 0);
         }
+
+        // Handle hash-based navigation (e.g., SimpleMath.html#action)
+        window.addEventListener('load', function() {
+            const hash = window.location.hash.substring(1); // Remove # from hash
+            if (hash && document.getElementById(hash)) {
+                showSection(hash);
+            }
+        });
+
+        // Also handle hash changes without page reload
+        window.addEventListener('hashchange', function() {
+            const hash = window.location.hash.substring(1);
+            if (hash && document.getElementById(hash)) {
+                showSection(hash);
+            }
+        });
     </script>
 </head>
 <body>
@@ -774,6 +790,11 @@
             <h2>✓ The Solution: Separate Care from Catastrophe</h2>
             
             <p>Congress let healthcare subsidies expire on December 31, 2025. Twenty-two million Americans lost coverage. Premiums are spiking. Congress had solutions on the table, but rejected both.</p>
+
+            <div style="background: linear-gradient(135deg, rgba(244, 67, 54, 0.2), rgba(229, 57, 53, 0.2)); border-left: 5px solid #ef5350; padding: 20px; margin: 25px 0; border-radius: 8px;">
+                <p style="color: #ff7043; font-weight: bold; margin: 0; font-size: 1.1em;">⏰ CRITICAL DEADLINE: Jan 30 Government Shutdown</p>
+                <p style="color: #ffcdd2; margin: 10px 0 0 0;">Congress must act by Jan 30 or the government shuts down. After that, the window to fix this crisis closes.</p>
+            </div>
 
             <p style="margin-top: 15px;"><strong>But there's a proven way to fix this—if 3.5% of voters demand action NOW.</strong></p>
 
@@ -1654,12 +1675,10 @@
         
         <footer>
             <p><strong>PHIERS Movement | Make America Better And Healthier (MABAH)</strong></p>
-            <p>Will Price | Chief Solutions Architect | 916-306-8967 | info@phiers.org</p>
+            <p>Will Price | Chief Solutions Architect | 916-306-8967 | <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="620b0c040d22120a0b0710114c0d1005">[email&#160;protected]</a></p>
             <p style="margin-top: 15px;">
                 <a href="https://phiersale.github.io/PHIERS-Concept/Donate.html" target="_blank" style="color: #81c784; text-decoration: underline;">Donate</a> |
                 <a href="index.html" style="color: #81c784; text-decoration: underline;">Home</a> |
                 <a href="Simple-Math-Fast-Read.html" target="_blank" style="color: #81c784; text-decoration: none;">Quick Summary →</a>
             </p>
-            <p style="margin-top: 15px; font-size: 0.85em;">© PHIERS.org — People's Health Insurance Endowment and Referral Service | Prior art documented since 2014</p>
-        </footer>
-            <p style="margin-top: 15px;">© PHIERS.org — People's Health Insur
+            <p style="margin-top: 15px; font-size: 0.85em;">© PHIERS.org — People's Health Insurance Endowment and Referral Service | Prior art docume
