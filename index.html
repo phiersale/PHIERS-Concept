@@ -68,6 +68,33 @@
             margin-bottom: 30px;
         }
 
+        .hero-branding {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(76, 175, 80, 0.3);
+        }
+
+        .hero-branding img {
+            max-width: 30%;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .hero-branding .mabah-title {
+            font-size: 1.3em;
+            color: #4caf50;
+            margin: 0 0 5px 0;
+            font-weight: bold;
+            text-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
+        }
+
+        .hero-branding .mabah-tagline {
+            font-size: 0.95em;
+            color: #81c784;
+            margin: 0;
+        }
+
         .hero-inner {
             display: flex;
             flex-wrap: wrap;
@@ -153,6 +180,18 @@
             max-width: 100%;
             height: auto;
             border-radius: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-inner {
+                flex-direction: column;
+            }
+            .hero-visual {
+                flex: 1 1 100%;
+            }
+            .hero-branding img {
+                max-width: 50%;
+            }
         }
 
         .hero-badge {
@@ -621,6 +660,13 @@
             }
         });
 
+        // Close modal with Escape key
+        window.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeConsequencesPopup();
+            }
+        });
+
         function showSection(sectionId) {
             const sections = document.querySelectorAll('section');
             sections.forEach(section => section.classList.remove('active'));
@@ -672,6 +718,15 @@
 
     <div class="container">
         <div class="hero" id="top">
+            <!-- Centered Branding Section -->
+            <div class="hero-branding">
+                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Logo.png" 
+                     alt="PHIERS Logo">
+                <p class="mabah-title">MABAH Movement</p>
+                <p class="mabah-tagline">Making America Better And Healthier</p>
+            </div>
+
+            <!-- Two-Column Content Section -->
             <div class="hero-inner">
                 <div class="hero-text">
                     <h1>22 Million Lost Coverage. Congress Failed. We Fix It.</h1>
