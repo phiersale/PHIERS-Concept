@@ -3,282 +3,445 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHIERS - Make America Better and Healthier</title>
+    <meta name="color-scheme" content="dark light">
+    <title>💝 Support PHIERS - Donate Now</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #e0e0e0;
+            line-height: 1.8;
             min-height: 100vh;
-            padding: 20px;
+            padding-bottom: 80px;
         }
 
-        /* Back to Main Button - Persistent & Modal-Bypass */
-        .back-to-main-btn {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 10000; /* High z-index to ensure it appears above all modals */
-            background-color: #ff6b6b;
-            color: white;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: bold;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .back-to-main-btn:hover {
-            background-color: #ff5252;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        .back-to-main-btn:active {
-            transform: translateY(0);
-        }
-
-        .back-to-main-btn::before {
-            content: "←";
-            font-size: 18px;
-        }
-
-        /* Container */
         .container {
             max-width: 900px;
             margin: 0 auto;
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            margin-top: 60px;
+            padding: 20px;
         }
-
-        h1 {
-            color: #667eea;
-            font-size: 2.5em;
-            margin-bottom: 10px;
+        
+        header {
             text-align: center;
+            padding: 45px 20px;
+            background: linear-gradient(135deg, rgba(15, 52, 96, 0.8), rgba(22, 33, 62, 0.8));
+            border-radius: 10px;
+            margin-bottom: 50px;
+            border: 2px solid rgba(76, 175, 80, 0.3);
         }
-
-        h2 {
-            color: #764ba2;
-            font-size: 1.8em;
-            margin-top: 30px;
+        
+        .logo {
+            max-width: 100px;
+            margin: 0 auto 15px auto;
+            display: block;
+        }
+        
+        h1 {
+            font-size: 2.2em;
             margin-bottom: 15px;
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 10px;
-        }
-
-        h3 {
-            color: #555;
-            font-size: 1.3em;
-            margin-top: 20px;
-            margin-bottom: 10px;
+            color: #4caf50;
+            text-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
         }
 
         .subtitle {
-            text-align: center;
-            color: #666;
             font-size: 1.1em;
+            color: #81c784;
             margin-bottom: 30px;
+            font-weight: bold;
         }
 
-.donation-method {
-            background: #f5f5f5;
-            padding: 20px;
-            margin-bottom: 20px;
+        .urgency-banner {
+            background: linear-gradient(135deg, rgba(244, 67, 54, 0.2), rgba(229, 57, 53, 0.2));
+            border-left: 5px solid #ef5350;
+            padding: 25px;
+            margin: 30px 0;
             border-radius: 8px;
-            border-left: 4px solid #667eea;
         }
 
-        .donation-method h4 {
-            color: #667eea;
-            margin-bottom: 10px;
-            font-size: 1.1em;
+        .urgency-banner p {
+            color: #ffcdd2;
+            margin: 10px 0;
+            line-height: 1.7;
         }
 
-        .qr-code {
-            display: block;
-            margin: 15px auto;
-            text-align: center;
+        .urgency-banner strong {
+            color: #ff7043;
         }
-
-        .qr-code img {
-            max-width: 250px;
-            height: auto;
-            border: 3px solid #667eea;
+        
+        section {
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
+            border-left: 4px solid #4caf50;
+            padding: 45px;
+            margin-bottom: 60px;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+        
+        h2 {
+            color: #4caf50;
+            margin-bottom: 35px;
+            margin-top: 0;
+            font-size: 1.8em;
+            border-bottom: 2px solid #4caf50;
+            padding-bottom: 15px;
+        }
+        
+        h3 {
+            color: #81c784;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            font-size: 1.2em;
         }
 
-        .payment-methods {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-bottom: 30px;
+        .donation-method {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(129, 199, 132, 0.1));
+            border: 2px solid #4caf50;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(76, 175, 80, 0.15);
         }
 
-ul {
-            margin-left: 20px;
+        .method-title {
+            color: #4caf50;
+            font-size: 1.3em;
+            font-weight: bold;
             margin-bottom: 15px;
         }
 
-        li {
+        .method-details {
+            color: #c8e6c9;
+            line-height: 1.8;
+        }
+
+        .qr-code {
+            max-width: 200px;
+            height: auto;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .usage-box {
+            background: rgba(76, 175, 80, 0.15);
+            border: 2px solid #4caf50;
+            padding: 30px;
+            margin: 35px 0;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(76, 175, 80, 0.15);
+        }
+
+        .usage-title {
+            color: #4caf50;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .usage-item {
+            background: rgba(26, 26, 46, 0.6);
+            padding: 20px;
+            margin: 12px 0;
+            border-radius: 6px;
+            border-left: 4px solid #81c784;
+        }
+
+        .usage-item-title {
+            color: #81c784;
+            font-weight: bold;
             margin-bottom: 8px;
+        }
+
+        .usage-item-desc {
+            color: #c8e6c9;
+            font-size: 0.95em;
             line-height: 1.6;
         }
 
-.footer-note {
-            text-align: center;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 2px solid #ddd;
-            color: #999;
+        .button-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 35px 0;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 14px 28px;
             font-size: 0.95em;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #4caf50, #45a049);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #45a049, #3d8b40);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #2196f3, #1976d2);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, #1976d2, #1565c0);
+            transform: translateY(-2px);
+        }
+
+        ul {
+            margin-left: 25px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        ul li {
+            margin: 18px 0;
+            color: #c8e6c9;
+            line-height: 1.7;
+        }
+
+        p {
+            margin-bottom: 18px;
+            line-height: 1.8;
+        }
+
+        .goal-box {
+            background: rgba(76, 175, 80, 0.15);
+            border: 2px solid #4caf50;
+            padding: 30px;
+            margin: 35px 0;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .goal-amount {
+            color: #4caf50;
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .goal-text {
+            color: #c8e6c9;
+            font-size: 1.05em;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 2px solid rgba(76, 175, 80, 0.3);
+            color: #81c784;
+            margin-top: 40px;
+            font-size: 0.9em;
+            line-height: 1.8;
+        }
+
+        footer a {
+            color: #4caf50;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        /* STICKY CTA BAR */
+        .sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.95), rgba(45, 125, 50, 0.95));
+            border-top: 2px solid #4caf50;
+            padding: 15px 20px;
+            z-index: 99;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.4);
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .sticky-cta a {
+            padding: 10px 20px;
+            background: white;
+            color: #2e7d32;
+            font-weight: bold;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .sticky-cta a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
         @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-                margin-top: 80px;
-            }
-
-            h1 {
-                font-size: 1.8em;
-            }
-
-            h2 {
-                font-size: 1.3em;
-            }
-
-            .back-to-main-btn {
-                padding: 10px 15px;
-                font-size: 12px;
-                top: 10px;
-                left: 10px;
-            }
-
-            .payment-methods {
-                flex-direction: column;
-            }
+            h1 { font-size: 1.6em; }
+            h2 { font-size: 1.4em; }
+            section { padding: 30px; margin-bottom: 40px; }
+            .button-group { flex-direction: column; gap: 8px; }
+            .btn { width: 100%; }
         }
     </style>
 </head>
 <body>
-    <!-- Back to Main Button - Ensures it bypasses modals with high z-index -->
-    <a href="index.html" class="back-to-main-btn" onclick="this.href='index.html'; return true;">Back to Main</a>
-
     <div class="container">
-        <h1>PHIERS - Make America Better and Healthier</h1>
+        <header>
+            <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Logo.png" 
+                 alt="PHIERS Logo" 
+                 class="logo">
+            <h1>💝 Support PHIERS</h1>
+            <p class="subtitle">Help us spread the solution that Congress rejected</p>
 
-        <h2>Why Your Support Matters</h2>
-        <p>PHIERS was built for one purpose: to give America a healthcare system that finally works for everyone. No corporate sponsors. No political machine. No hidden backers. Just a small team that refused to wait for permission to solve a national crisis.</p>
-        
-        <p>Every model, every line of code, every policy blueprint — all of it has been created through personal sacrifice. We've poured our savings, our stability, and even our housing into building a solution that could change millions of lives. We did it because the mission is bigger than us.</p>
-        
-        <p><strong>But we can't sustain this work alone.</strong></p>
+            <div class="urgency-banner">
+                <p><strong>⏰ CRITICAL WINDOW: Congress home through Dec 31</strong></p>
+                <p>Every dollar funds the campaign that forces Congress to act before the Jan 30 shutdown deadline.</p>
+                <p style="margin-top: 15px; color: #ff7043;"><strong>Your support makes the impossible inevitable.</strong></p>
+            </div>
+        </header>
 
-        <h2>What Your Contribution Supports</h2>
-        <p>Your support keeps PHIERS alive and moving forward. It helps us:</p>
-        <ul>
-            <li>Maintain the infrastructure that powers the model</li>
-            <li>Continue the research and development behind the solution</li>
-            <li>Reach communities, lawmakers, and partners who can help implement it</li>
-            <li>Cover basic survival needs so we can keep working full‑time on the mission</li>
-        </ul>
-        <p><strong>Every dollar goes directly into the work — not overhead, not salaries, not politics.</strong></p>
+        <!-- HOW DONATIONS ARE USED -->
+        <section>
+            <h2>💰 How Your Donation Is Used</h2>
 
-        <h2>A Movement Powered by People</h2>
-        <p>PHIERS is entirely self‑financed. That was intentional. We wanted to prove that a small group of committed people can build something powerful enough to reshape the future of American healthcare.</p>
-        
-        <p>If you believe in this mission — if you believe America deserves better — your support helps us keep going.</p>
-        
-        <p style="text-align: center; margin-top: 30px; font-size: 1.1em;"><strong>Thank you for standing with us.</strong></p>
-
-        <h2 style="text-align: center; margin-top: 40px;">💳 Donate Now</h2>
-
-        <div class="payment-methods">
-            <div class="donation-method" style="flex: 1; min-width: 250px; text-align: center;">
-                <h4>▶ Venmo</h4>
-                <div class="qr-code">
-                    <img src="https://phiersale.github.io/PHIERS-Concept/Venmo.png" alt="Venmo QR Code">
+            <div class="usage-box">
+                <div class="usage-title">📰 PATHOS PR CAMPAIGN</div>
+                <div class="usage-item">
+                    <div class="usage-item-title">$5,000+ = Publishing Guarantee</div>
+                    <div class="usage-item-desc">Media amplification to 55M+ readers. Your donation directly funds the story that reaches the nation.</div>
                 </div>
-                <p><strong>@Will4PHIERS</strong></p>
             </div>
 
-            <div class="donation-method" style="flex: 1; min-width: 250px; text-align: center;">
-                <h4>▶ PayPal</h4>
-                <div class="qr-code">
-                    <img src="https://phiersale.github.io/PHIERS-Concept/PayPal.png" alt="PayPal QR Code">
+            <h3>⚙️ Operating Expenses</h3>
+            <ul>
+                <li>New laptop (current dying—essential for coordination)</li>
+                <li>Internet + online services (Google Workspace, hosting)</li>
+                <li>AI support tools (Claude, ChatGPT for content creation)</li>
+                <li>Organizing coordinator support (travel, materials)</li>
+            </ul>
+
+            <h3>🚀 Campaign Operations</h3>
+            <ul>
+                <li>Petition printing + distribution materials</li>
+                <li>Video production + coordination</li>
+                <li>Congressional outreach + media tracking</li>
+            </ul>
+
+            <div class="goal-box">
+                <div class="goal-amount">$15K GOAL</div>
+                <div class="goal-text">Complete mission through Jan 31 shutdown deadline</div>
+            </div>
+        </section>
+
+        <!-- DONATION METHODS -->
+        <section>
+            <h2>💳 Donate Now</h2>
+
+            <p style="text-align: center; margin-bottom: 35px; color: #c8e6c9; font-size: 1.05em;"><strong>Choose your method:</strong></p>
+
+            <!-- VENMO -->
+            <div class="donation-method">
+                <div class="method-title">💬 Venmo</div>
+                <div class="method-details">
+                    <p><strong>@Will4PHIERS</strong></p>
+                    <p style="font-size: 0.95em; color: #a5d6a7;">Send to: will@phiers.org</p>
+                    <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/Venmo.png" 
+                         alt="Venmo QR Code" 
+                         class="qr-code">
                 </div>
-                <p><strong>phierscampaign@gmail.com</strong></p>
             </div>
 
-            <div class="donation-method" style="flex: 1; min-width: 250px; text-align: center;">
-                <h4>▶ Zelle</h4>
-                <div class="qr-code">
-                    <img src="https://phiersale.github.io/PHIERS-Concept/Zelle.png" alt="Zelle QR Code">
+            <!-- PAYPAL -->
+            <div class="donation-method">
+                <div class="method-title">📱 PayPal</div>
+                <div class="method-details">
+                    <p><strong>will@phiers.org</strong></p>
+                    <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PayPal.png" 
+                         alt="PayPal QR Code" 
+                         class="qr-code">
                 </div>
-                <p><strong>301-919-0970</strong></p>
             </div>
-        </div>
 
-        <h2 style="text-align: center; margin-top: 40px;">🔘 Back to Main Page</h2>
-        <p style="text-align: center; font-size: 1.05em;">You can return to the main site here:</p>
-        <p style="text-align: center; margin-top: 15px;">
-            <a href="index.html" style="display: inline-block; padding: 15px 30px; background: #667eea; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 1.1em; transition: background 0.3s;">⬅️ Back to Main Page</a>
-        </p>
+            <!-- ZELLE -->
+            <div class="donation-method">
+                <div class="method-title">🏦 Zelle</div>
+                <div class="method-details">
+                    <p><strong>301-919-0970</strong></p>
+                    <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/Zelle.png" 
+                         alt="Zelle QR Code" 
+                         class="qr-code">
+                </div>
+            </div>
 
-        <div class="footer-note">
-            <p>PHIERS - Building the Future of American Healthcare</p>
-        </div>
+            <h3 style="margin-top: 45px; text-align: center;">OR</h3>
+
+            <div style="text-align: center; margin: 35px 0;">
+                <a href="https://www.gofundme.com/f/homeless-but-hopeful-affordable-healthcare-good-jobs-ubi" target="_blank" class="btn btn-secondary">💰 GoFundMe Campaign (Backup)</a>
+            </div>
+        </section>
+
+        <!-- OTHER WAYS -->
+        <section>
+            <h2>✍️ Other Ways to Help</h2>
+
+            <div class="button-group">
+                <a href="https://c.org/q9vrMCQZsY" target="_blank" class="btn btn-primary">✏️ Sign Petition</a>
+                <a href="https://docs.google.com/forms/u/2/d/1MYeQcmw8ZDXHwcjpEw5hbQCWP4FdHdyoHTo1XcAiTRA/edit" target="_blank" class="btn btn-primary">📋 Fill Survey</a>
+                <a href="https://phiersale.github.io/Join_the_Team/" target="_blank" class="btn btn-secondary">🚀 Join the Team</a>
+            </div>
+
+            <div style="background: rgba(76, 175, 80, 0.15); border: 2px solid #4caf50; padding: 30px; margin: 40px 0; border-radius: 8px; text-align: center;">
+                <p style="color: #c8e6c9; font-size: 1.05em; line-height: 1.8;"><strong>Every dollar funds publishing our story to 55+ million readers.</strong></p>
+                <p style="color: #81c784; margin-top: 15px;">Congress Failed Dec 11. We're Taking Over Dec 31–Jan 30.</p>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            <p><strong>PHIERS Movement | Make America Better And Healthier (MABAH)</strong></p>
+            <p>Will Price | Chief Solutions Architect | 916-306-8967 | <a href="mailto:info@phiers.org">info@phiers.org</a></p>
+            <p style="margin-top: 20px;">
+                <a href="https://phiersale.github.io/PHIERS-Concept/">Main Site</a> | 
+                <a href="https://phiersale.github.io/Join_the_Team/">Join the Team</a> | 
+                <a href="https://phiersale.github.io/PHIERS-Concept/SimpleMath.html#media">Media Library</a>
+            </p>
+            <p style="margin-top: 15px;">© PHIERS.org - People's Health Insurance Endowment and Referral Service | Prior art documented since 2014</p>
+        </footer>
     </div>
 
-    <script>
-        // Ensure Back to Main button always works and bypasses any modals
-        document.addEventListener('DOMContentLoaded', function() {
-            const backBtn = document.querySelector('.back-to-main-btn');
-            
-            // Ensure button maintains highest z-index
-            backBtn.style.zIndex = '10000';
-            
-            // Add click handler to ensure navigation works
-            backBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                // Close any open modals by removing modal overlays
-                const modals = document.querySelectorAll('[role="dialog"], .modal, .modal-overlay');
-                modals.forEach(modal => {
-                    modal.style.display = 'none';
-                    modal.remove();
-                });
-                
-                // Navigate to main page
-                window.location.href = 'index.html';
-                return false;
-            });
-        });
+    <!-- STICKY CTA BAR -->
+    <div class="sticky-cta">
+        <a href="https://c.org/q9vrMCQZsY" target="_blank">✏️ SIGN PETITION</a>
+        <a href="https://docs.google.com/forms/u/2/d/1MYeQcmw8ZDXHwcjpEw5hbQCWP4FdHdyoHTo1XcAiTRA/edit" target="_blank">📋 FILL SURVEY</a>
+        <a href="https://www.gofundme.com/f/homeless-but-hopeful-affordable-healthcare-good-jobs-ubi" target="_blank">💰 GOFUNDME</a>
+    </div>
 
-        // Keyboard shortcut: Press 'H' to go back home
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'h' || e.key === 'H') {
-                window.location.href = 'index.html';
-            }
-        });
-    </script>
 </body>
 </html>
