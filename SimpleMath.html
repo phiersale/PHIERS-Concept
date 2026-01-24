@@ -299,8 +299,8 @@
         section {
             background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
             border-left: 4px solid #4caf50;
-            padding: 30px;
-            margin-bottom: 30px;
+            padding: 45px;
+            margin-bottom: 60px;
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
             display: none;
@@ -318,16 +318,17 @@
         
         h2 {
             color: #4caf50;
-            margin-bottom: 20px;
+            margin-bottom: 35px;
+            margin-top: 0;
             font-size: 1.8em;
             border-bottom: 2px solid #4caf50;
-            padding-bottom: 10px;
+            padding-bottom: 15px;
         }
         
         h3 {
             color: #81c784;
-            margin-top: 20px;
-            margin-bottom: 10px;
+            margin-top: 35px;
+            margin-bottom: 15px;
             font-size: 1.2em;
         }
         
@@ -510,13 +511,20 @@
         }
         
         ul {
-            margin-left: 20px;
-            margin-top: 15px;
+            margin-left: 25px;
+            margin-top: 20px;
+            margin-bottom: 20px;
         }
         
         ul li {
-            margin: 15px 0;
+            margin: 18px 0;
             color: #c8e6c9;
+            line-height: 1.7;
+        }
+
+        p {
+            margin-bottom: 18px;
+            line-height: 1.8;
         }
         
         footer {
@@ -655,7 +663,96 @@
             }
         }
 
-        /* STICKY CTA BAR */
+        /* FLOATING TOC */
+        .floating-toc {
+            position: fixed;
+            right: 20px;
+            top: 100px;
+            width: 250px;
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.95), rgba(15, 52, 96, 0.95));
+            border: 2px solid #4caf50;
+            border-radius: 8px;
+            padding: 20px;
+            z-index: 98;
+            max-height: 70vh;
+            overflow-y: auto;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .floating-toc h4 {
+            color: #4caf50;
+            font-size: 0.95em;
+            margin-bottom: 12px;
+            border-bottom: 1px solid rgba(76, 175, 80, 0.3);
+            padding-bottom: 8px;
+        }
+
+        .floating-toc ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .floating-toc li {
+            margin: 8px 0;
+            padding-left: 0;
+        }
+
+        .floating-toc a {
+            color: #81c784;
+            text-decoration: none;
+            font-size: 0.85em;
+            display: block;
+            padding: 6px 8px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .floating-toc a:hover {
+            background: rgba(76, 175, 80, 0.2);
+            color: #4caf50;
+            padding-left: 12px;
+        }
+
+        .floating-toc .toc-close {
+            background: none;
+            border: none;
+            color: #4caf50;
+            cursor: pointer;
+            font-size: 1.4em;
+            float: right;
+            padding: 0;
+            margin-top: -5px;
+        }
+
+        @media (max-width: 1200px) {
+            .floating-toc {
+                display: none;
+            }
+        }
+
+        /* STICKY TOC TOGGLE (Mobile) */
+        .toc-toggle {
+            display: none;
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            background: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            z-index: 97;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 1200px) {
+            .toc-toggle {
+                display: block;
+            }
+        }
         .sticky-cta {
             position: fixed;
             bottom: 0;
@@ -778,7 +875,7 @@
             </div>
 
             <div style="margin-bottom: 25px; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);">
-                <iframe src="https://player.vimeo.com/video/1157747396?h=b25448cf2b" width="100%" height="240" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 10px;"></iframe>
+                <iframe src="https://player.vimeo.com/video/1157760168" width="100%" height="240" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 10px;"></iframe>
             </div>
 
             <button onclick="window.open('https://phiersale.github.io/PHIERS-Concept/Telehealth-Insurance.html', '_blank'); return false;" style="background: linear-gradient(135deg, #4caf50, #45a049); color: white; padding: 14px 24px; font-size: 1.05em; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; text-align: center; width: 100%; box-sizing: border-box; transition: all 0.3s; display: block; margin-bottom: 12px; box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);">Quick Start (2 min read)</button>
@@ -983,12 +1080,6 @@
 
             <div style="background: rgba(76, 175, 80, 0.15); border: 2px solid #4caf50; padding: 30px; border-radius: 8px; margin: 40px 0; text-align: center;">
                 <p style="color: #4caf50; font-size: 1.2em; font-weight: bold; margin: 0;">The math is unstoppable once it starts.</p>
-            </div>
-
-            <div class="button-group">
-                <a href="https://c.org/q9vrMCQZsY" target="_blank" class="btn btn-primary">✏️ Sign Petition</a>
-                <a href="https://c.org/q9vrMCQZsY" target="_blank" class="btn btn-primary">📋 Fill Survey</a>
-                <a href="https://phiersale.github.io/PHIERS-Concept/Donate.html" target="_blank" class="btn btn-secondary">💰 Support Mission</a>
             </div>
 
             <div class="nav-buttons">
@@ -1781,7 +1872,7 @@
         
         <footer>
             <p><strong>PHIERS Movement | Make America Better And Healthier (MABAH)</strong></p>
-            <p>Will Price | Chief Solutions Architect | 916-306-8967 | <a href="mailto:info@phiers.org">info@phiers.org</a></p>
+            <p>Will Price | Chief Solutions Architect | 916-306-8967 | <a href="/cdn-cgi/l/email-protection#9ff6f1f9f0dfeff7f6faedecb1f0edf8"><span class="__cf_email__" data-cfemail="6900070f06291901000c1b1a47061b0e">[email&#160;protected]</span></a></p>
             <p style="margin-top: 15px;">
                 <a href="https://phiersale.github.io/PHIERS-Concept/Donate.html" target="_blank" style="color: #81c784; text-decoration: underline;">Donate</a> |
                 <a href="index.html" style="color: #81c784; text-decoration: underline;">Home</a> |
@@ -1790,11 +1881,26 @@
             <p style="margin-top: 15px; font-size: 0.85em;">© PHIERS.org — People's Health Insurance Endowment and Referral Service | Prior art documented since 2014</p>
         </footer>
 
-    <!-- STICKY CTA BAR -->
-    <div class="sticky-cta">
-        <a href="https://c.org/q9vrMCQZsY" target="_blank">✏️ SIGN PETITION</a>
-        <a href="https://c.org/q9vrMCQZsY" target="_blank">📋 FILL SURVEY</a>
+    <!-- FLOATING TABLE OF CONTENTS -->
+    <div class="floating-toc" id="floatingTOC">
+        <button class="toc-close" onclick="document.getElementById('floatingTOC').style.display='none';">×</button>
+        <h4>📑 Navigate</h4>
+        <ul>
+            <li><a href="#top">↑ Top</a></li>
+            <li><a href="#main">⚡ The Moment</a></li>
+            <li><a href="#solutions">🧩 5D Solutions</a></li>
+            <li><a href="#crisis">🚨 The Crisis</a></li>
+            <li><a href="#simplemath">📊 Simple Math</a></li>
+            <li><a href="#works">⚙️ How It Works</a></li>
+            <li><a href="#leverage">⚡ Leverage</a></li>
+            <li><a href="#buying">💪 Buying Power</a></li>
+            <li><a href="#media">📚 Media</a></li>
+            <li><a href="#action">✍️ Take Action</a></li>
+            <li><a href="#faq">❓ FAQ</a></li>
+            <li><a href="#resources">📖 Resources</a></li>
+        </ul>
     </div>
 
-</body>
-</html>
+    <!-- TOC TOGGLE BUTTON (Mobile) -->
+    <button class="toc-toggle" onclick="document.getElementById('floatingTOC').style.display = document.getElementById('floatingTOC').style.display === 'none' ? 'block' : 'none';">📑 Menu</button>
+        <a href="https://c.org/q9vrMCQZsY" target="_blank">✏�
