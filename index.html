@@ -59,6 +59,74 @@
  line-height: 1.6;
  }
  
+ .modal-btn-primary {
+            background: linear-gradient(135deg, #4caf50, #45a049) !important;
+            color: white !important;
+            padding: 14px 24px;
+            font-size: 1.05em;
+            font-weight: bold;
+            border: none !important;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+            display: block;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+        }
+        
+        .modal-btn-primary:hover {
+            background: linear-gradient(135deg, #45a049, #3d8b40) !important;
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4) !important;
+            transform: translateY(-2px);
+        }
+        
+        .modal-btn-secondary {
+            background: transparent !important;
+            color: #4caf50 !important;
+            padding: 14px 24px;
+            font-size: 1.05em;
+            font-weight: bold;
+            border: 2px solid #4caf50 !important;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+            display: block;
+            margin-bottom: 20px;
+        }
+        
+        .modal-btn-secondary:hover {
+            background: rgba(76, 175, 80, 0.2) !important;
+            transform: translateY(-2px);
+        }
+        
+        .modal-btn-petition {
+            background: linear-gradient(135deg, #4caf50, #2e7d32) !important;
+            color: white !important;
+            padding: 14px 32px;
+            font-size: 1.05em;
+            font-weight: bold;
+            border: none !important;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        }
+        
+        .modal-btn-petition:hover {
+            background: linear-gradient(135deg, #45a049, #1b5e20) !important;
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4) !important;
+            transform: translateY(-2px);
+        }
+ 
  h1 {
  font-size: 2.2em;
  margin-bottom: 10px;
@@ -89,27 +157,28 @@
  }
  
  .nav-item {
- cursor: pointer;
- padding: 8px 15px;
- background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(129, 199, 132, 0.2));
- border: 1px solid rgba(76, 175, 80, 0.4);
- border-radius: 6px;
- color: #4caf50;
- font-weight: bold;
- font-size: 0.9em;
- transition: all 0.3s ease;
- user-select: none;
- }
- 
- .nav-item:hover {
- background: linear-gradient(135deg, rgba(76, 175, 80, 0.4), rgba(129, 199, 132, 0.4));
- box-shadow: 0 0 15px rgba(76, 175, 80, 0.3);
- }
- 
- .nav-item.active {
- background: linear-gradient(135deg, #4caf50, #45a049);
- color: white;
- }
+            cursor: pointer;
+            padding: 8px 15px;
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(129, 199, 132, 0.2));
+            border: 1px solid rgba(76, 175, 80, 0.4);
+            border-radius: 6px;
+            color: #4caf50;
+            font-weight: bold;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+        
+        .nav-item:hover {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.4), rgba(129, 199, 132, 0.4));
+            box-shadow: 0 0 15px rgba(76, 175, 80, 0.3);
+            transform: scale(1.05);
+        }
+        
+        .nav-item.active {
+            background: linear-gradient(135deg, #4caf50, #45a049);
+            color: white;
+        }
  
  section {
  background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
@@ -451,50 +520,123 @@
  popup.style.display = 'none';
  }
  }
+ 
+ // Escape key to close modal
+ document.addEventListener('keydown', function(event) {
+ if (event.key === 'Escape') {
+ var popup = document.getElementById('consequencesPopup');
+ if (popup && popup.style.display === 'flex') {
+ closeConsequencesPopup();
+ }
+ }
+ });
 
  function showSection(sectionId) {
  const sections = document.querySelectorAll('section');
- sections.forEach(section => section.classList.remove('active'));
+ if (sections && sections.length > 0) {
+ sections.forEach(section => {
+ if (section && section.classList) {
+ section.classList.remove('active');
+ }
+ });
+ }
  const target = document.getElementById(sectionId);
- if (target) {
+ if (target && target.classList) {
  target.classList.add('active');
  }
+ 
+ // Set active nav item using data-section attribute
  const navItems = document.querySelectorAll('.nav-item');
- navItems.forEach(item => item.classList.remove('active'));
+ if (navItems && navItems.length > 0) {
+ navItems.forEach(item => {
+ if (item && item.classList) {
+ if (item.getAttribute('data-section') === sectionId) {
+ item.classList.add('active');
+ } else {
+ item.classList.remove('active');
+ }
+ }
+ });
+ }
+ 
+ // Update capstone statement based on section
+ const capstoneTexts = {
+ 'main': 'The Math Works. The Leverage Is Real. Congress Chooses Yes.',
+ 'solutions': 'All 5 Dimensions Strengthening Each Other. Unstoppable.',
+ 'crisis': 'Congress Failed. We Fix It. Exponential Cascade Begins.',
+ 'simplemath': '1→12→148→234M. The Exponential Cascade Congress Can\'t Stop.',
+ 'works': 'One Conversion Funds Twelve More. Exponential Growth Inevitable.',
+ 'leverage': '100M Organized Beats Corporate Average. Congress Chooses Yes.',
+ 'buying': 'We Are The Largest Pharma Buyer. Market Dominance Wins.',
+ 'media': 'The Story Reaches 55 Million Readers. Change Accelerates.',
+ 'action': 'Your Signature Starts The Cascade. Sign. Fill. Join.',
+ 'faq': 'Everything You Need To Know. Questions Answered.',
+ 'resources': 'State By State Breakdown. National Framework Ready.'
+ };
+ 
+ const capstoneEl = document.querySelector('.capstone-statement p');
+ if (capstoneEl && capstoneEl.textContent && capstoneTexts[sectionId]) {
+ capstoneEl.textContent = capstoneTexts[sectionId];
+ }
+ 
  window.scrollTo(0, 0);
  }
 
  function showPopup(popupId) {
- document.getElementById(popupId).classList.add('active');
- document.querySelector('.popup-backdrop').classList.add('active');
+ const popup = document.getElementById(popupId);
+ const backdrop = document.querySelector('.popup-backdrop');
+ if (popup && popup.classList) {
+ popup.classList.add('active');
+ }
+ if (backdrop && backdrop.classList) {
+ backdrop.classList.add('active');
+ }
  }
 
  function closePopup(popupId) {
- document.getElementById(popupId).classList.remove('active');
- document.querySelector('.popup-backdrop').classList.remove('active');
+ const popup = document.getElementById(popupId);
+ const backdrop = document.querySelector('.popup-backdrop');
+ if (popup && popup.classList) {
+ popup.classList.remove('active');
+ }
+ if (backdrop && backdrop.classList) {
+ backdrop.classList.remove('active');
+ }
  }
 
  function toggleSecondaryNav() {
  const secondary = document.getElementById('secondaryNav');
  const moreButton = document.querySelector('[onclick="toggleSecondaryNav()"]');
+ if (secondary) {
  if (secondary.style.display === 'none') {
  secondary.style.display = 'grid';
- moreButton.textContent = ' More Resources';
  } else {
  secondary.style.display = 'none';
+ }
+ }
+ if (moreButton) {
  moreButton.textContent = ' More Resources';
  }
  }
 
  function openLightbox(imageSrc) {
  const modal = document.getElementById('lightboxModal');
+ if (modal) {
  const img = modal.querySelector('.lightbox-content');
+ if (img) {
  img.src = imageSrc;
+ }
+ if (modal.classList) {
  modal.classList.add('active');
+ }
+ }
  }
 
  function closeLightbox() {
- document.getElementById('lightboxModal').classList.remove('active');
+ const modal = document.getElementById('lightboxModal');
+ if (modal && modal.classList) {
+ modal.classList.remove('active');
+ }
  }
 
  // Lightbox close on click or escape
@@ -514,9 +656,9 @@
 </head>
 <body>
  <!-- OPENING MODAL - Exact Design Match -->
- <div id="consequencesPopup" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); z-index: 10000; display: flex; align-items: center; justify-content: center; padding: 20px;">
+ <div id="consequencesPopup" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); z-index: 10000; display: flex; align-items: center; justify-content: center; padding: 20px;" onclick="if(event.target === this) closeConsequencesPopup();">
  <div style="position: relative; max-width: 620px; width: 100%; background: linear-gradient(135deg, #0a2844 0%, #1a3a52 100%); border: 3px solid #4caf50; border-radius: 16px; padding: 40px 30px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);">
- <button onclick="closeConsequencesPopup()" style="position: absolute; top: 15px; right: 15px; background: none; border: none; color: #4caf50; font-size: 2.5em; font-weight: bold; cursor: pointer; padding: 0; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; z-index: 10001; line-height: 1;"></button>
+ <button onclick="closeConsequencesPopup()" style="position: absolute; top: 10px; right: 10px; background: none; border: none; color: #4caf50; font-size: 3.5em; font-weight: bold; cursor: pointer; padding: 0; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; z-index: 10001; line-height: 1; transition: all 0.2s;" onmouseover="this.style.color='#81c784'; this.style.transform='scale(1.2)';" onmouseout="this.style.color='#4caf50'; this.style.transform='scale(1)';">×</button>
  
  <!-- Logo -->
  <div style="text-align: center; margin-bottom: 25px;">
@@ -528,9 +670,10 @@
  22 Million Just Lost Coverage. Congress Has Until Jan 31 to Fix It. 
  </h2>
 
- <!-- Description Box with Border -->
- <div style="background: transparent; border: 2px solid #4caf50; border-radius: 10px; padding: 20px; margin-bottom: 25px; text-align: center;">
- <p style="color: #c8e6c9; font-size: 0.95em; line-height: 1.7; margin: 0;">Congress let healthcare subsidies expire. Millions are now uninsured. But there's a proven way to fix itif 3.5% of voters demand action NOW.</p>
+ <!-- FAST OVERVIEW -->
+ <div style="background: rgba(76, 175, 80, 0.05); border: 2px solid #4caf50; border-radius: 10px; padding: 20px; margin-bottom: 25px; text-align: center;">
+ <p style="color: #4caf50; font-size: 0.9em; font-weight: bold; margin-bottom: 10px;">FAST OVERVIEW</p>
+ <p style="color: #c8e6c9; font-size: 0.95em; line-height: 1.7; margin: 0;">Congress failed to fix healthcare. Millions lost coverage, but we realized insurance doesn't provide care. Telehealth is cheaper and gets better outcomes if it replaces traditional insurance where appropriate. One person saves $7,400 → funds 12 others → exponential cascade to 234M covered in 8–13 months. Congress has until Jan 30. We need 3.5% of Americans organized. That's you.</p>
  </div>
 
  <!-- Video -->
@@ -539,14 +682,14 @@
  </div>
 
  <!-- Quick Story Button -->
- <button onclick="closeConsequencesPopup(); showSection('main'); return false;" style="background: linear-gradient(135deg, #4caf50, #45a049); color: white; padding: 14px 24px; font-size: 1.05em; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; text-align: center; width: 100%; box-sizing: border-box; transition: all 0.3s; display: block; margin-bottom: 12px; box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);"> Quick Story (2 min read)</button>
+ <button onclick="closeConsequencesPopup(); showSection('main'); return false;" class="modal-btn-primary"> Quick Story (2 min read)</button>
 
  <!-- Deep Dive Button -->
- <button onclick="window.open('https://phiersale.github.io/PHIERS-Concept/', '_blank'); return false;" style="background: transparent; color: #4caf50; padding: 14px 24px; font-size: 1.05em; font-weight: bold; border: 2px solid #4caf50; border-radius: 8px; cursor: pointer; text-align: center; width: 100%; box-sizing: border-box; transition: all 0.3s; display: block; margin-bottom: 20px;"> Deep Dive (Full breakdown)</button>
+ <button onclick="window.open('https://phiersale.github.io/PHIERS-Concept/', '_blank'); return false;" class="modal-btn-secondary"> Deep Dive (Full breakdown)</button>
 
  <!-- Sign Petition Box -->
  <div style="background: transparent; border: 2px solid #4caf50; border-radius: 10px; padding: 20px; text-align: center;">
- <a href="https://c.org/q9vrMCQZsY" target="_blank" style="background: linear-gradient(135deg, #4caf50, #2e7d32); color: white; padding: 14px 32px; font-size: 1.05em; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; text-align: center; text-decoration: none; display: inline-block; transition: all 0.3s; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);"> Sign Petition Now</a>
+ <a href="https://c.org/q9vrMCQZsY" target="_blank" class="modal-btn-petition"> Sign Petition Now</a>
  </div>
  </div>
  </div>
@@ -573,17 +716,17 @@
  </div>
 
  <div class="nav-menu">
- <div class="nav-item active" onclick="showSection('main')"> Main</div>
- <div class="nav-item" onclick="showSection('solutions')"> 5D Solutions</div>
- <div class="nav-item" onclick="showSection('crisis')"> The Crisis</div>
- <div class="nav-item" onclick="showSection('simplemath')"> Simple Math</div>
- <div class="nav-item" onclick="showSection('works')"> How It Works</div>
- <div class="nav-item" onclick="showSection('leverage')"> Leverage</div>
- <div class="nav-item" onclick="showSection('buying')"> Buying Power</div>
- <div class="nav-item" onclick="showSection('media')"> Media</div>
- <div class="nav-item" onclick="showSection('action')"> Take Action</div>
- <div class="nav-item" onclick="showSection('faq')"> FAQ</div>
- <div class="nav-item" onclick="showSection('resources')"> Resources</div>
+ <div class="nav-item active" data-section="main" onclick="showSection('main')"> Main</div>
+ <div class="nav-item" data-section="solutions" onclick="showSection('solutions')"> 5D Solutions</div>
+ <div class="nav-item" data-section="crisis" onclick="showSection('crisis')"> The Crisis</div>
+ <div class="nav-item" data-section="simplemath" onclick="showSection('simplemath')"> Simple Math</div>
+ <div class="nav-item" data-section="works" onclick="showSection('works')"> How It Works</div>
+ <div class="nav-item" data-section="leverage" onclick="showSection('leverage')"> Leverage</div>
+ <div class="nav-item" data-section="buying" onclick="showSection('buying')"> Buying Power</div>
+ <div class="nav-item" data-section="media" onclick="showSection('media')"> Media</div>
+ <div class="nav-item" data-section="action" onclick="showSection('action')"> Take Action</div>
+ <div class="nav-item" data-section="faq" onclick="showSection('faq')"> FAQ</div>
+ <div class="nav-item" data-section="resources" onclick="showSection('resources')"> Resources</div>
  </div>
 
  <!-- MAIN SECTION -->
@@ -1297,4 +1440,3 @@
 </body>
 </html>
  navItems.forEach(item =>
- 
