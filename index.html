@@ -559,28 +559,25 @@
  });
  }
  
- // Update capstone statement based on section
- const capstoneTexts = {
- 'main': 'The Math Works. The Leverage Is Real. Congress Chooses Yes.',
- 'solutions': 'All 5 Dimensions Strengthening Each Other. Unstoppable.',
- 'crisis': 'Congress Failed. We Fix It. Exponential Cascade Begins.',
- 'simplemath': '1→12→148→234M. The Exponential Cascade Congress Can\'t Stop.',
- 'works': 'One Conversion Funds Twelve More. Exponential Growth Inevitable.',
- 'leverage': '100M Organized Beats Corporate Average. Congress Chooses Yes.',
- 'buying': 'We Are The Largest Pharma Buyer. Market Dominance Wins.',
- 'media': 'The Story Reaches 55 Million Readers. Change Accelerates.',
- 'action': 'Your Signature Starts The Cascade. Sign. Fill. Join.',
- 'faq': 'Everything You Need To Know. Questions Answered.',
- 'resources': 'State By State Breakdown. National Framework Ready.'
- };
- 
- const capstoneEl = document.querySelector('.capstone-statement p');
- if (capstoneEl && capstoneEl.textContent && capstoneTexts[sectionId]) {
- capstoneEl.textContent = capstoneTexts[sectionId];
+ // Show/hide anchor messages based on section
+ const anchorIds = ['main', 'solutions', 'crisis', 'simplemath', 'works', 'leverage', 'buying', 'media', 'action', 'faq', 'resources'];
+ anchorIds.forEach(id => {
+ const anchorEl = document.getElementById(`anchor-${id}`);
+ if (anchorEl) {
+ anchorEl.style.display = id === sectionId ? 'block' : 'none';
  }
+ });
  
  window.scrollTo(0, 0);
  }
+
+ window.addEventListener('load', function() {
+ // Show main anchor on page load
+ const mainAnchor = document.getElementById('anchor-main');
+ if (mainAnchor) {
+ mainAnchor.style.display = 'block';
+ }
+ });
 
  function showPopup(popupId) {
  const popup = document.getElementById(popupId);
@@ -665,20 +662,24 @@
  <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Logo.png" alt="PHIERS Logo" style="max-width: 70px; height: auto;">
  </div>
 
- <!-- Headline in GREEN -->
- <h2 style="color: #4caf50; text-align: center; font-size: 2.2em; margin-bottom: 25px; line-height: 1.3; font-weight: bold;">
- The Affordability Crisis Demands Solutions. Healthcare Done Right Generates Savings That Fund Everything.
+ <!-- Integrated Headline + Overview -->
+ <h2 style="color: #4caf50; text-align: center; font-size: 1.5em; margin-bottom: 20px; line-height: 1.4; font-weight: bold;">
+ Congress Let 22 Million Lose Coverage. We Give 100M+ Insurance.
  </h2>
 
  <!-- AT A GLANCE - Three formatted paragraphs with strategic bolding -->
- <div style="background: rgba(76, 175, 80, 0.05); border: 2px solid #4caf50; border-radius: 10px; padding: 20px; margin-bottom: 25px;">
- <p style="color: #4caf50; font-size: 1.1em; font-weight: bold; margin: 0 0 15px 0; letter-spacing: 0.5px;">AT A GLANCE</p>
+ <div style="background: rgba(76, 175, 80, 0.05); border: 2px solid #4caf50; border-radius: 10px; padding: 25px; margin-bottom: 25px;">
+ <p style="color: #c8e6c9; font-size: 0.95em; line-height: 1.7; margin: 0 0 20px 0;"><strong style="color: #81c784;">Healthcare done right costs $600/year, not $10K insurance.</strong> When you free that much money, you don't just fix the 22 million who lost coverage—you cover everyone. Universal healthcare becomes mathematically inevitable.</p>
 
- <p style="color: #c8e6c9; font-size: 0.95em; line-height: 1.7; margin: 0 0 15px 0;">The affordability crisis isn't just about healthcare—it's about survival. Healthcare done right costs <strong style="color: #81c784;">$600/year</strong> (not $10K insurance). That frees <strong style="color: #81c784;">$2.73 trillion</strong> in government spending annually.</p>
+ <p style="color: #c8e6c9; font-size: 0.95em; line-height: 1.7; margin: 0 0 20px 0;"><strong>How it works:</strong></p>
+ <ul style="margin: 0 0 0 20px; color: #c8e6c9; font-size: 0.95em;">
+ <li style="margin: 8px 0;"><strong style="color: #81c784;">One person saves $7,400</strong> → funds 12 others completely</li>
+ <li style="margin: 8px 0;"><strong style="color: #81c784;">Those 12 fund 148</strong> → exponential cascade begins</li>
+ <li style="margin: 8px 0;"><strong style="color: #81c784;">Congress has until Jan 30</strong> to approve the solution</li>
+ <li style="margin: 8px 0;"><strong style="color: #81c784;">3.5% of Americans organized</strong> = change guaranteed</li>
+ </ul>
 
- <p style="color: #c8e6c9; font-size: 0.95em; line-height: 1.7; margin: 0 0 15px 0;">We invest those savings in <strong style="color: #81c784;">housing, food security, healthcare, and dignified work</strong> through PHIERWorks. This is economic restructuring. This is the future.</p>
-
- <p style="color: #c8e6c9; font-size: 0.95em; line-height: 1.7; margin: 0;">Congress has until Jan 30 to approve. We need <strong style="color: #81c784;">3.5% of Americans organized</strong>. That's you.</p>
+ <p style="color: #c8e6c9; font-size: 0.95em; line-height: 1.7; margin: 20px 0 0 0;"><strong>That's you.</strong> Sign the petition. Prove the numbers. Force Congress to choose: lead or step aside.</p>
  </div>
 
  <!-- Video -->
@@ -707,17 +708,51 @@
  <p style="font-size: 1.5em; color: #4caf50; margin-bottom: 10px; font-weight: bold; text-shadow: 0 0 20px rgba(76, 175, 80, 0.3);">MABAH Movement</p>
  <p style="font-size: 1.1em; color: #81c784; margin-bottom: 25px;">Making America Better And Healthier</p>
  
- <div style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(66, 133, 244, 0.15)); border: 2px solid rgba(76, 175, 80, 0.4); padding: 25px 30px; border-radius: 12px; max-width: 600px; margin: 0 auto;">
- <p style="font-size: 1.1em; color: white; margin: 0 0 15px 0; font-weight: bold;">Congress Failed. Now They Have to Fix It.</p>
- <p style="font-size: 0.95em; color: #81c784; margin: 0 0 15px 0; font-weight: bold;">Prices spiking. Coverage dropping. Jobs cut. Shutdown on Jan 31?</p>
- <p style="font-size: 1.1em; color: #4caf50; margin: 0 0 25px 0; font-weight: bold;">NOT IF 3.5% join the PHIERStorm Movement</p>
- <a href="https://c.org/q9vrMCQZsY" target="_blank" style="background: linear-gradient(135deg, #4caf50, #2e7d32); color: white; padding: 14px 32px; font-size: 1.1em; font-weight: bold; border: 2px solid #4caf50; border-radius: 8px; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.3s;"> Join PHIERStorm Now</a>
- </div>
  </header>
  
+ <!-- SECTION-SPECIFIC ANCHOR MESSAGES -->
+ <div id="anchor-main" style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(66, 133, 244, 0.15)); border: 2px solid rgba(76, 175, 80, 0.4); padding: 20px 30px; border-radius: 12px; max-width: 700px; margin: 0 auto 30px auto; text-align: center; display: block;">
+ <p style="font-size: 1.1em; color: #4caf50; margin: 0; font-weight: bold;">Insurance failed 22 million people. Telehealth fixes 100 million. Congress has until Jan 30 to approve it.</p>
+ </div>
 
- <div id="skip-modal" class="capstone-statement">
- <p>The Math Works. The Leverage Is Real. Congress Chooses Yes.</p>
+ <div id="anchor-solutions" style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(66, 133, 244, 0.15)); border: 2px solid rgba(76, 175, 80, 0.4); padding: 20px 30px; border-radius: 12px; max-width: 700px; margin: 0 auto 30px auto; text-align: center; display: none;">
+ <p style="font-size: 1.1em; color: #4caf50; margin: 0; font-weight: bold;">Fix one thing, the system breaks. Fix everything at once, it becomes unstoppable.</p>
+ </div>
+
+ <div id="anchor-crisis" style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(66, 133, 244, 0.15)); border: 2px solid rgba(76, 175, 80, 0.4); padding: 20px 30px; border-radius: 12px; max-width: 700px; margin: 0 auto 30px auto; text-align: center; display: none;">
+ <p style="font-size: 1.1em; color: #4caf50; margin: 0; font-weight: bold;">The problem isn't just healthcare. It's jobs, housing, supply chains, and hope. Here's the cascade.</p>
+ </div>
+
+ <div id="anchor-simplemath" style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(66, 133, 244, 0.15)); border: 2px solid rgba(76, 175, 80, 0.4); padding: 20px 30px; border-radius: 12px; max-width: 700px; margin: 0 auto 30px auto; text-align: center; display: none;">
+ <p style="font-size: 1.1em; color: #4caf50; margin: 0; font-weight: bold;">One person saves $7,400. That funds 12 others. Those 12 fund 148. Exponential growth is inevitable.</p>
+ </div>
+
+ <div id="anchor-works" style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(66, 133, 244, 0.15)); border: 2px solid rgba(76, 175, 80, 0.4); padding: 20px 30px; border-radius: 12px; max-width: 700px; margin: 0 auto 30px auto; text-align: center; display: none;">
+ <p style="font-size: 1.1em; color: #4caf50; margin: 0; font-weight: bold;">Members control the market. 100M+ people = the largest pharmaceutical buyer in the nation. No middlemen.</p>
+ </div>
+
+ <div id="anchor-leverage" style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(66, 133, 244, 0.15)); border: 2px solid rgba(76, 175, 80, 0.4); padding: 20px 30px; border-radius: 12px; max-width: 700px; margin: 0 auto 30px auto; text-align: center; display: none;">
+ <p style="font-size: 1.1em; color: #4caf50; margin: 0; font-weight: bold;">Congress faces a binary choice: lead this or get replaced. The math makes it simple.</p>
+ </div>
+
+ <div id="anchor-buying" style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(66, 133, 244, 0.15)); border: 2px solid rgba(76, 175, 80, 0.4); padding: 20px 30px; border-radius: 12px; max-width: 700px; margin: 0 auto 30px auto; text-align: center; display: none;">
+ <p style="font-size: 1.1em; color: #4caf50; margin: 0; font-weight: bold;">100M+ organized people = the nuclear option. We don't negotiate drug prices. We just buy direct.</p>
+ </div>
+
+ <div id="anchor-media" style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(66, 133, 244, 0.15)); border: 2px solid rgba(76, 175, 80, 0.4); padding: 20px 30px; border-radius: 12px; max-width: 700px; margin: 0 auto 30px auto; text-align: center; display: none;">
+ <p style="font-size: 1.1em; color: #4caf50; margin: 0; font-weight: bold;">The proof is documented. The story reaches 55M+ readers. Congress will see the numbers.</p>
+ </div>
+
+ <div id="anchor-action" style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(66, 133, 244, 0.15)); border: 2px solid rgba(76, 175, 80, 0.4); padding: 20px 30px; border-radius: 12px; max-width: 700px; margin: 0 auto 30px auto; text-align: center; display: none;">
+ <p style="font-size: 1.1em; color: #4caf50; margin: 0; font-weight: bold;">Your signature triggers the cascade. Your voice forces Congress to listen. Your action changes everything.</p>
+ </div>
+
+ <div id="anchor-faq" style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(66, 133, 244, 0.15)); border: 2px solid rgba(76, 175, 80, 0.4); padding: 20px 30px; border-radius: 12px; max-width: 700px; margin: 0 auto 30px auto; text-align: center; display: none;">
+ <p style="font-size: 1.1em; color: #4caf50; margin: 0; font-weight: bold;">You have questions. We have answers. And the math backs every single one.</p>
+ </div>
+
+ <div id="anchor-resources" style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(66, 133, 244, 0.15)); border: 2px solid rgba(76, 175, 80, 0.4); padding: 20px 30px; border-radius: 12px; max-width: 700px; margin: 0 auto 30px auto; text-align: center; display: none;">
+ <p style="font-size: 1.1em; color: #4caf50; margin: 0; font-weight: bold;">State by state. District by district. Here's how we implement universal healthcare in 8-13 months.</p>
  </div>
 
  <div class="nav-menu">
@@ -738,11 +773,8 @@
  <section id="main" class="active">
  <h2>The Moment: Congress Failed. Now They Have to Fix It.</h2>
  
- <div style="text-align: center; margin-bottom: 30px; background: rgba(76, 175, 80, 0.1); padding: 20px; border-radius: 8px;">
- <p style="margin-bottom: 20px; color: #c8e6c9;">Congress created this crisis by failing to prevent the subsidy cliff. Now we have leverage until Jan 30 shutdown.</p>
- <div style="display: inline-block; max-width: 340px; width: 100%;">
- <iframe width="100%" height="191" src="https://www.youtube.com/embed/eE-TxvI0d4Q?si=0h3ASDJUZZvQgRSq" title="The Moment - PHIERS" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 8px;"></iframe>
- </div>
+ <div style="text-align: center; margin-bottom: 40px; background: rgba(76, 175, 80, 0.08); border-left: 4px solid #4caf50; padding: 25px 20px; border-radius: 8px;">
+ <p style="color: #81c784; font-size: 1.1em; font-weight: bold; margin: 0; line-height: 1.5;">One person's savings funds 12 others.<br>That's the entire system.</p>
  </div>
 
  <h2>The Solution: Separate Care from Catastrophe</h2>
@@ -833,8 +865,16 @@
  <section id="solutions">
  <h2>5D Solutions: Everything Connected</h2>
 
- <p>Most people think linearly: "Fix healthcare, THEN fix jobs, THEN fix the economy."</p>
- <p style="margin-top: 15px;"><strong>PHIERS works in 5 dimensions simultaneously.</strong> Every solution strengthens all the others. You can't remove one piece without destroying the whole system. That's what makes it unstoppable.</p>
+ <div style="text-align: center; margin-bottom: 40px; background: rgba(76, 175, 80, 0.08); border-left: 4px solid #4caf50; padding: 25px 20px; border-radius: 8px;">
+ <p style="color: #81c784; font-size: 1.1em; font-weight: bold; margin: 0; line-height: 1.5;">Five dimensions work together.<br>Break one, all fall. That's the design.</p>
+ </div>
+
+ <div class="graphic-container">
+ <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_5D_Solutions.png" 
+      alt="PHIERS 5D Solutions - Fundamentals, Distribution, Digital, Demand, Direct Pay"
+      style="max-width: 55%;">
+ <p>PHIERS 5D Solutions Framework — Affordable Healthcare at the Center</p>
+ </div>
 
  <div class="graphic-container">
  <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Rubiks_Cube_-_SYMBOLS.png" 
@@ -897,6 +937,10 @@
  <section id="crisis">
  <h2>The Crisis: December 31 Deadline & Negative Cascade</h2>
 
+ <div style="text-align: center; margin-bottom: 40px; background: rgba(244, 67, 54, 0.08); border-left: 4px solid #f44336; padding: 25px 20px; border-radius: 8px;">
+ <p style="color: #ef5350; font-size: 1.1em; font-weight: bold; margin: 0; line-height: 1.5;">Healthcare collapse triggers economic cascade.<br>PHIERS reverses it completely.</p>
+ </div>
+
  <div class="graphic-container">
  <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/US_Millions_Face_Soaring_Health_Costs_as_Subsidies_Expire.png" 
  alt="Healthcare Crisis - 22M Lose Coverage"
@@ -958,7 +1002,15 @@
  <section id="simplemath">
  <h2>Simple Math: The Exponential Growth Pattern</h2>
 
- <p style="color: #c8e6c9; font-size: 1.05em; text-align: center; margin-bottom: 25px;"><strong>One conversion funds twelve more. Twelve fund 148. 148 fund 1,800. Exponential growth toward universal coverage.</strong></p>
+ <div style="text-align: center; margin-bottom: 40px; background: rgba(76, 175, 80, 0.08); border-left: 4px solid #4caf50; padding: 25px 20px; border-radius: 8px;">
+ <p style="color: #81c784; font-size: 1.1em; font-weight: bold; margin: 0; line-height: 1.5;">$7,400 ÷ $600 = 12 conversions.<br>Repeat nine times = 234 million covered.</p>
+ </div>
+ <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/SIMPLE_MATH.png" 
+      alt="Simple Math - $7,400 divided by $600 equals 12 Conversions">
+ <p>One Person's Savings Funds 12 Others — The Foundation of Exponential Growth</p>
+ </div>
+
+ <p style="color: #c8e6c9; font-size: 1.05em; text-align: center; margin: 30px 0 25px 0;"><strong>One conversion funds twelve more. Twelve fund 148. 148 fund 1,800. Exponential growth toward universal coverage.</strong></p>
 
  <h3>The Mechanism</h3>
  <p>Congress allows telehealth in ACA. One individual switches from $8K traditional insurance to $600/year telehealth. <strong>$7,400 freed per person.</strong> Enough to PAY 12+ other individuals to switch.</p>
@@ -1030,6 +1082,10 @@
  <section id="works">
  <h2>How It Works: The Exponential Mechanism</h2>
 
+ <div style="text-align: center; margin-bottom: 40px; background: rgba(76, 175, 80, 0.08); border-left: 4px solid #4caf50; padding: 25px 20px; border-radius: 8px;">
+ <p style="color: #81c784; font-size: 1.1em; font-weight: bold; margin: 0; line-height: 1.5;">Members control the market.<br>100M+ people create the rules.</p>
+ </div>
+
  <div class="graphic-container">
  <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/How_It_Works.png" 
  alt="How It Works - The Exponential Cascade"
@@ -1052,6 +1108,12 @@
 
  <h3>Current Reality</h3>
  <p><strong>CMS pays $8,000/year per beneficiary</strong> for traditional insurance. <strong>80% don't need hospitalization.</strong> They'd be fine with telehealth at $600/year. Difference: $7,400 freed per person.</p>
+
+ <div class="graphic-container">
+ <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/80-20_Healthcare_Model_-PHIERS_v_Insurance_Cost.png" 
+      alt="The 80-20 Healthcare Model - Telehealth for Everyday Care, Insurance for Catastrophe">
+ <p>The 80-20 Model: Telehealth Handles Routine Care — Insurance Covers Catastrophe</p>
+ </div>
 
  <h3>The First Switch</h3>
  <p>Congress allows telehealth in ACA. First individual switches from $8K to $600. <strong>$7,400 freed.</strong> Enough to PAY 12+ other individuals to switch.</p>
@@ -1094,6 +1156,10 @@
  <!-- LEVERAGE SECTION -->
  <section id="leverage">
  <h2>Congressional Leverage: Binary Choice</h2>
+
+ <div style="text-align: center; margin-bottom: 40px; background: rgba(76, 175, 80, 0.08); border-left: 4px solid #4caf50; padding: 25px 20px; border-radius: 8px;">
+ <p style="color: #81c784; font-size: 1.1em; font-weight: bold; margin: 0; line-height: 1.5;">Congress chooses: lead or get replaced.<br>The math is binary.</p>
+ </div>
 
  <div class="graphic-container">
  <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/LEVERAGE_Pwr_of_the_People.png" 
@@ -1145,7 +1211,9 @@
  <section id="buying">
  <h2>Cooperative Purchasing Power: The Nuclear Option</h2>
 
- <h3>What Most People Don't Understand</h3>
+ <div style="text-align: center; margin-bottom: 40px; background: rgba(76, 175, 80, 0.08); border-left: 4px solid #4caf50; padding: 25px 20px; border-radius: 8px;">
+ <p style="color: #81c784; font-size: 1.1em; font-weight: bold; margin: 0; line-height: 1.5;">100M organized buyers undercut Big Pharma.<br>No negotiation needed.</p>
+ </div>
  <p>When 100+ million people organize as a cooperative buying group, we become something unprecedented in history.</p>
 
  <h3>The Market Reality</h3>
@@ -1181,7 +1249,12 @@
  <section id="media">
  <h2>Media Library: All Resources in One Place</h2>
 
- <h3>Core Videos</h3>
+ <div class="graphic-container">
+ <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/Trump_HSA_Plan_Announcement_Jan2026_Orig.png" 
+      alt="Trump's Great Healthcare Plan Announcement - Context for PHIERS Response"
+      style="max-width: 70%;">
+ <p>The Administration's Plan — And Why PHIERS Goes Much Further</p>
+ </div>
  <ul>
  <li><strong><a href="https://youtu.be/bEUyDVAYwpk" target="_blank" style="color: #81c784; text-decoration: underline;">The Bipartisan Solution (11:11)</a></strong>  Complete framework with Al Wilson story</li>
  <li><strong><a href="https://youtu.be/2j-dF3hgdeE" target="_blank" style="color: #81c784; text-decoration: underline;">The Math Congress Doesn't Want You to See (71 sec)</a></strong>  Core concept in 70 seconds</li>
@@ -1373,6 +1446,13 @@
  <!-- RESOURCES SECTION -->
  <section id="resources">
  <h2>Resources & Implementation</h2>
+
+ <div class="graphic-container">
+ <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/Guaranteed_Benefits.jpg" 
+      alt="Guaranteed Benefits - What PHIERS Delivers"
+      style="max-width: 65%;">
+ <p>Guaranteed Benefits Across All 5 Dimensions</p>
+ </div>
 
  <h3>State-Level Implementation Guides</h3>
  
