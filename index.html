@@ -521,6 +521,27 @@
  }
  }
  
+ function expandImage(imgElement) {
+ const modal = document.createElement('div');
+ modal.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 5000; display: flex; align-items: center; justify-content: center; padding: 20px;';
+ 
+ const expandedImg = document.createElement('img');
+ expandedImg.src = imgElement.src;
+ expandedImg.alt = imgElement.alt;
+ expandedImg.style.cssText = 'max-width: 95%; max-height: 95%; border-radius: 8px; cursor: pointer;';
+ 
+ const closeBtn = document.createElement('button');
+ closeBtn.innerHTML = '&times;';
+ closeBtn.style.cssText = 'position: absolute; top: 20px; right: 30px; background: none; border: none; color: white; font-size: 40px; cursor: pointer; z-index: 5001;';
+ closeBtn.onclick = () => modal.remove();
+ 
+ modal.appendChild(expandedImg);
+ modal.appendChild(closeBtn);
+ expandedImg.onclick = () => modal.remove();
+ modal.onclick = (e) => { if (e.target === modal) modal.remove(); };
+ document.body.appendChild(modal);
+ }
+ 
  // Escape key to close modal
  document.addEventListener('keydown', function(event) {
  if (event.key === 'Escape') {
@@ -873,15 +894,9 @@
  <div class="graphic-container">
  <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_5D_Solutions.png" 
       alt="PHIERS 5D Solutions - Fundamentals, Distribution, Digital, Demand, Direct Pay"
-      style="max-width: 55%;">
- <p>PHIERS 5D Solutions Framework — Affordable Healthcare at the Center</p>
- </div>
-
- <div class="graphic-container">
- <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Rubiks_Cube_-_SYMBOLS.png" 
- alt="PHIERS 5D Solutions - Interconnected Rubik's Cube"
- style="max-width: 50%;">
- <p>All 5 Dimensions Strengthening Each Other  The Rubik's Cube Model</p>
+      style="max-width: 50%; cursor: pointer;"
+      onclick="expandImage(this)">
+ <p style="font-size: 0.9em;">PHIERS 5D Framework — Affordable Healthcare at Center — Click to expand</p>
  </div>
 
  <h3>The Interconnection</h3>
@@ -915,10 +930,19 @@
  <p style="margin-top: 10px;"><strong>Result:</strong> Community healing. Social cohesion. Dignity for everyone.</p>
 
  <div class="graphic-container">
+ <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Rubiks_Cube_-_SYMBOLS.png" 
+ alt="PHIERS 5D Solutions - All Dimensions Interconnected"
+ style="max-width: 50%; cursor: pointer; margin-top: 40px;"
+ onclick="expandImage(this)">
+ <p style="font-size: 0.9em;">All 5 Dimensions Strengthen Each Other — Click to expand</p>
+ </div>
+
+ <div class="graphic-container">
  <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Tablet__Firewall.png" 
  alt="PHIERS Operating System - Firewall Against Extraction"
- style="max-width: 50%;">
- <p>PHIERS Operating System  Firewall Against Corporate Extraction</p>
+ style="max-width: 50%; cursor: pointer;"
+ onclick="expandImage(this)">
+ <p style="font-size: 0.9em;">PHIERS Operating System — Firewall Against Extraction — Click to expand</p>
  </div>
 
  <div class="validation-box">
@@ -945,7 +969,8 @@
  <div class="graphic-container">
  <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/US_Millions_Face_Soaring_Health_Costs_as_Subsidies_Expire.png" 
  alt="Healthcare Crisis - 22M Lose Coverage"
- style="max-width: 50%;">
+ style="max-width: 45%; cursor: pointer;"
+ onclick="expandImage(this)">
  <p>The Crisis Is Real: 22 Million Americans Lost Coverage — Congress Must Act By Jan 30</p>
  </div>
 
@@ -973,7 +998,8 @@
  <div class="graphic-container">
  <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/2_73_Savings_Infographic.png" 
  alt="PHIERS-Powered Solutions - $2.73T in Savings"
- style="max-width: 50%;">
+ style="max-width: 45%; cursor: pointer;"
+ onclick="expandImage(this)">
  <p>The Savings Fund the Solution: $2.73 Trillion in Freed Government Healthcare Spending</p>
  </div>
 
@@ -1004,11 +1030,15 @@
  <h2>Simple Math: The Exponential Growth Pattern</h2>
 
  <div style="text-align: center; margin-bottom: 40px; background: rgba(76, 175, 80, 0.08); border-left: 4px solid #4caf50; padding: 25px 20px; border-radius: 8px;">
- <p style="color: #81c784; font-size: 1.1em; font-weight: bold; margin: 0; line-height: 1.5;">$7,400 ÷ $600 = 12 conversions.<br>Repeat nine times = 234 million covered.</p>
+ <p style="color: #81c784; font-size: 1.05em; font-weight: bold; margin: 0; line-height: 1.5;">One conversion funds twelve more. Twelve fund 148. 148 fund 1,800. Exponential growth toward universal coverage.</p>
  </div>
+
+ <div class="graphic-container">
  <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/SIMPLE_MATH.png" 
-      alt="Simple Math - $7,400 divided by $600 equals 12 Conversions">
- <p>One Person's Savings Funds 12 Others — The Foundation of Exponential Growth</p>
+      alt="Simple Math - $7,400 divided by $600 equals 12 Conversions"
+      style="max-width: 45%; cursor: pointer;"
+      onclick="expandImage(this)">
+ <p style="font-size: 0.9em;">One Person's Savings Funds 12 Others — Click to expand</p>
  </div>
 
  <p style="color: #c8e6c9; font-size: 1.05em; text-align: center; margin: 30px 0 25px 0;"><strong>One conversion funds twelve more. Twelve fund 148. 148 fund 1,800. Exponential growth toward universal coverage.</strong></p>
@@ -1083,15 +1113,17 @@
  <section id="works">
  <h2>How It Works: The Exponential Mechanism</h2>
 
- <div style="text-align: center; margin-bottom: 40px; background: rgba(76, 175, 80, 0.08); border-left: 4px solid #4caf50; padding: 25px 20px; border-radius: 8px;">
- <p style="color: #81c784; font-size: 1.1em; font-weight: bold; margin: 0; line-height: 1.5;">Members control the market.<br>100M+ people create the rules.</p>
- </div>
-
+ <!-- ANCHOR IMAGE -->
  <div class="graphic-container">
  <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/How_It_Works.png" 
- alt="How It Works - The Exponential Cascade"
- style="max-width: 60%;">
- <p>The Mechanism: One Conversion Triggers Exponential Growth</p>
+ alt="How It Works - From One Conversion to 234 Million Covered"
+ style="max-width: 50%; cursor: pointer;"
+ onclick="expandImage(this)">
+ <p style="font-size: 0.9em;">The Cascade: One Conversion Funds Exponential Growth — Click to expand</p>
+ </div>
+
+ <div style="text-align: center; margin-bottom: 40px; background: rgba(76, 175, 80, 0.08); border-left: 4px solid #4caf50; padding: 25px 20px; border-radius: 8px;">
+ <p style="color: #81c784; font-size: 1.05em; font-weight: bold; margin: 0; line-height: 1.5;">Members control the market.<br>100M+ people create the rules.</p>
  </div>
 
  <h3>Member Control: You Choose Your Provider</h3>
@@ -1112,41 +1144,14 @@
 
  <div class="graphic-container">
  <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/80-20_Healthcare_Model_-PHIERS_v_Insurance_Cost.png" 
-      alt="The 80-20 Healthcare Model - Telehealth for Everyday Care, Insurance for Catastrophe">
- <p>The 80-20 Model: Telehealth Handles Routine Care — Insurance Covers Catastrophe</p>
+      alt="The 80-20 Healthcare Model - Telehealth for Everyday Care, Insurance for Catastrophe"
+      style="max-width: 45%; cursor: pointer;"
+      onclick="expandImage(this)">
+ <p style="font-size: 0.9em;">The 80-20 Model: Telehealth for Routine Care, Insurance for Catastrophe — Click to expand</p>
  </div>
 
- <h3>The First Switch</h3>
- <p>Congress allows telehealth in ACA. First individual switches from $8K to $600. <strong>$7,400 freed.</strong> Enough to PAY 12+ other individuals to switch.</p>
-
- <h3>The Cascade Explained</h3>
- <p><strong>Day 1:</strong> One person switches from $8,000 insurance to $600 telehealth. $7,400 freed.</p>
- <p style="margin-top: 10px;"><strong>That $7,400 funds 12 other people's healthcare completely.</strong></p>
-
- <h3>The Exponential Growth Pattern</h3>
- <p><strong>The mathematical progression:</strong></p>
- <ul>
- <li>Month 1: 1 person (1 conversion)</li>
- <li>Month 2: 12 people (12 conversions)</li>
- <li>Month 3: 148 people (exponential growth)</li>
- <li>Month 4: 1,825 people</li>
- <li>Month 5: 22,508 people</li>
- <li>Month 6: 302,000 people</li>
- <li>Month 7: 3.7 million people</li>
- <li>Month 8: 46 million people</li>
- <li>Month 9: 120 million people (critical mass reached)</li>
- </ul>
-
- <p style="margin-top: 20px;"><strong>At Month 9 (critical mass):</strong> Congress cannot ignore 120M+ people organized around a single demand. The system is forced to implement.</p>
-
- <h3>The Endpoint</h3>
- <p><strong>120 million eventually switch.</strong> $2.73 TRILLION in freed government healthcare savings. Funds universal coverage for 234M + monthly assistance + jobs + case management. Self-sustaining. Exponential compounding.</p>
-
- <h3>The Math Is Inevitable</h3>
- <p><strong>But it only starts if you sign the petition and fill out the survey.</strong> Your signature = proof we have numbers. Numbers = forced town halls. Town halls = Congressional pressure. Policy change = cascade begins.</p>
-
- <h3>Why This Is Inevitable</h3>
- <p>This isn't about hope or belief. This is pure mathematics. Once the cascade starts, it cannot be stopped by policy, regulation, or corporate lobbying. Every person who converts strengthens the system for the next 12 conversions.</p>
+ <h3>Why Members Win</h3>
+ <p><strong>Once approved by Congress, implementation is automatic:</strong> Members sign up → savings cascade begins → exponential growth is mathematically inevitable. See "Simple Math" section for the progression. The point here is that members control every step through market choice.</p>
 
  <div class="nav-buttons">
  <button class="btn btn-secondary" onclick="showSection('simplemath')"> Back: Simple Math</button>
@@ -1158,15 +1163,17 @@
  <section id="leverage">
  <h2>Congressional Leverage: Binary Choice</h2>
 
- <div style="text-align: center; margin-bottom: 40px; background: rgba(76, 175, 80, 0.08); border-left: 4px solid #4caf50; padding: 25px 20px; border-radius: 8px;">
- <p style="color: #81c784; font-size: 1.1em; font-weight: bold; margin: 0; line-height: 1.5;">Congress chooses: lead or get replaced.<br>The math is binary.</p>
- </div>
-
+ <!-- ANCHOR IMAGE -->
  <div class="graphic-container">
  <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/LEVERAGE_Pwr_of_the_People.png" 
- alt="Power of the People - Congressional Leverage"
- style="max-width: 50%;">
- <p>Power of the People: 100M+ Constituents vs Corporate Average = 230:1 Advantage</p>
+ alt="Power of the People - Congressional Leverage - 230:1 Advantage"
+ style="max-width: 50%; cursor: pointer;"
+ onclick="expandImage(this)">
+ <p style="font-size: 0.9em;">100M+ Constituents vs. Corporate Average: 230:1 Advantage — Click to expand</p>
+ </div>
+
+ <div style="text-align: center; margin-bottom: 40px; background: rgba(76, 175, 80, 0.08); border-left: 4px solid #4caf50; padding: 25px 20px; border-radius: 8px;">
+ <p style="color: #81c784; font-size: 1.05em; font-weight: bold; margin: 0; line-height: 1.5;">Congress chooses: lead or get replaced.<br>The math is binary.</p>
  </div>
 
  <h3>Town Hall Pressure (Nader Rule)</h3>
@@ -1197,9 +1204,10 @@
 
  <div class="graphic-container">
  <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/vote_lke_your_life_depends_on_it.jpg" 
- alt="Vote Like Your Life Depends On It"
- style="max-width: 50%;">
- <p>Because It Does  This Is About Healthcare, Jobs, and Survival</p>
+ alt="Vote Like Your Life Depends On It - Healthcare, Jobs, and Survival"
+ style="max-width: 45%; cursor: pointer;"
+ onclick="expandImage(this)">
+ <p style="font-size: 0.9em;">Because It Does — Click to expand</p>
  </div>
 
  <div class="nav-buttons">
@@ -1212,8 +1220,17 @@
  <section id="buying">
  <h2>Cooperative Purchasing Power: The Nuclear Option</h2>
 
+ <!-- ANCHOR IMAGE -->
+ <div class="graphic-container">
+ <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/Guaranteed_Benefits.jpg" 
+ alt="Guaranteed Benefits - All 5 Dimensions United"
+ style="max-width: 50%; cursor: pointer;"
+ onclick="expandImage(this)">
+ <p style="font-size: 0.9em;">Guaranteed Benefits Across All 5 Dimensions — Click to expand</p>
+ </div>
+
  <div style="text-align: center; margin-bottom: 40px; background: rgba(76, 175, 80, 0.08); border-left: 4px solid #4caf50; padding: 25px 20px; border-radius: 8px;">
- <p style="color: #81c784; font-size: 1.1em; font-weight: bold; margin: 0; line-height: 1.5;">100M organized buyers undercut Big Pharma.<br>No negotiation needed.</p>
+ <p style="color: #81c784; font-size: 1.05em; font-weight: bold; margin: 0; line-height: 1.5;">100M organized buyers undercut Big Pharma.<br>No negotiation needed.</p>
  </div>
  <p>When 100+ million people organize as a cooperative buying group, we become something unprecedented in history.</p>
 
@@ -1253,8 +1270,9 @@
  <div class="graphic-container">
  <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/Trump_HSA_Plan_Announcement_Jan2026_Orig.png" 
       alt="Trump's Great Healthcare Plan Announcement - Context for PHIERS Response"
-      style="max-width: 70%;">
- <p>The Administration's Plan — And Why PHIERS Goes Much Further</p>
+      style="max-width: 45%; cursor: pointer;"
+      onclick="expandImage(this)">
+ <p style="font-size: 0.9em;">The Administration's Plan — And Why PHIERS Goes Much Further — Click to expand</p>
  </div>
  <ul>
  <li><strong><a href="https://youtu.be/bEUyDVAYwpk" target="_blank" style="color: #81c784; text-decoration: underline;">The Bipartisan Solution (11:11)</a></strong>  Complete framework with Al Wilson story</li>
@@ -1447,13 +1465,6 @@
  <!-- RESOURCES SECTION -->
  <section id="resources">
  <h2>Resources & Implementation</h2>
-
- <div class="graphic-container">
- <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/Guaranteed_Benefits.jpg" 
-      alt="Guaranteed Benefits - What PHIERS Delivers"
-      style="max-width: 65%;">
- <p>Guaranteed Benefits Across All 5 Dimensions</p>
- </div>
 
  <h3>State-Level Implementation Guides</h3>
  
