@@ -499,8 +499,15 @@
             }
         });
 
+        // Escape key to close any modal
         window.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
+                // Close main modal if open
+                var popup = document.getElementById('consequencesPopup');
+                if (popup && popup.style.display === 'flex') {
+                    closeConsequencesPopup();
+                }
+                // Close lightbox if open
                 closeLightbox();
             }
         });
@@ -508,7 +515,7 @@
 </head>
 <body>
     <!-- OPENING MODAL - HUMAN STORY FOCUSED -->
-    <div id="consequencesPopup" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); z-index: 10000; display: flex; align-items: center; justify-content: center; padding: 20px;">
+    <div id="consequencesPopup" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); z-index: 10000; display: flex; align-items: center; justify-content: center; padding: 20px;" onclick="if(event.target.id === 'consequencesPopup') closeConsequencesPopup();">
         <div style="position: relative; max-width: 620px; width: 100%; background: linear-gradient(135deg, #0a2844 0%, #1a3a52 100%); border: 3px solid #4caf50; border-radius: 16px; padding: 40px 30px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);">
             <button onclick="closeConsequencesPopup()" style="position: absolute; top: 15px; right: 15px; background: none; border: none; color: #4caf50; font-size: 2.5em; font-weight: bold; cursor: pointer; padding: 0; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; z-index: 10001; line-height: 1;">×</button>
             
@@ -603,6 +610,9 @@
             <p>Congress let healthcare subsidies expire on December 31, 2025. Twenty-two million Americans lost coverage. Premiums are spiking. The system is destabilizing. Congress had solutions on the table, but rejected both.</p>
             
             <p style="margin-top: 15px;"><strong>We have a proven way to fix this—if 3.5% of voters demand action NOW.</strong></p>
+            
+            <h3>Why This Matters NOW</h3>
+            <p style="line-height: 1.8; color: #c8e6c9;">Congress has until January 30. After that, 22 million people remain uninsured. Families choose between rent and healthcare. Jobs disappear. Supply chains break. The system collapses faster. But here's what they don't want you to know: <strong>we have the solution, and it's unstoppable.</strong> Once 3.5% of Americans are organized around telehealth, the cascade becomes inevitable. Universal coverage in 8-13 months. Not because Congress grants it. Because the math forces it. Sign now. Build the leverage. Change happens in spring.</p>
             
             <h3>The Math Nobody's Talking About</h3>
             <p><strong>CMS (government insurance):</strong> $888 BILLION annually covering 120+ million Americans</p>
@@ -767,6 +777,40 @@
                 <div style="text-align: center;">
                     <a href="https://discord.gg/narhDKJY" target="_blank" class="btn btn-discord" style="width: 100%; margin-bottom: 8px;">💬 Join Discord</a>
                     <p style="color: #81c784; font-size: 0.75em; margin: 0;">Organizers. Analysts. Community. Now.</p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 40px;">What Happens After You Sign (This Is Not Symbolic)</h3>
+
+            <div style="text-align: center; margin: 40px 0; background: rgba(76, 175, 80, 0.08); border-left: 4px solid #4caf50; padding: 30px; border-radius: 8px;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; max-width: 900px; margin: 0 auto;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 2.5em; color: #4caf50; margin-bottom: 15px;">📝</div>
+                        <div style="font-size: 1em; color: #4caf50; font-weight: bold; margin-bottom: 10px;">Your Signature</div>
+                        <div style="font-size: 0.9em; color: #c8e6c9; line-height: 1.6;">Counted in petition total. Real number. Real pressure.</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2.5em; color: #4caf50; margin-bottom: 15px;">📊</div>
+                        <div style="font-size: 1em; color: #4caf50; font-weight: bold; margin-bottom: 10px;">Data Aggregation</div>
+                        <div style="font-size: 0.9em; color: #c8e6c9; line-height: 1.6;">Combined with 10,000+ in YOUR district = town hall forced (Nader Rule).</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2.5em; color: #4caf50; margin-bottom: 15px;">🎤</div>
+                        <div style="font-size: 1em; color: #4caf50; font-weight: bold; margin-bottom: 10px;">Congressional Pressure</div>
+                        <div style="font-size: 0.9em; color: #c8e6c9; line-height: 1.6;">Reps face constituent demand face-to-face. Math is undeniable. Choice is binary.</div>
+                    </div>
+                </div>
+                <p style="margin-top: 30px; color: #81c784; font-size: 0.95em; font-weight: bold; line-height: 1.8;">This isn't a petition that gets filed. <strong>This is a mechanical trigger for systemic pressure.</strong> Your signature is part of the cascade that forces Congress to choose: adopt telehealth or face replacement.</p>
+            </div>
+
+            <h3 style="margin-top: 40px;">Share the Cascade</h3>
+
+            <div style="text-align: center; margin: 40px 0; background: rgba(76, 175, 80, 0.08); border: 2px solid rgba(76, 175, 80, 0.3); padding: 30px; border-radius: 8px;">
+                <p style="color: #c8e6c9; font-size: 1em; margin-bottom: 25px;">Every share reaches 10–100 more people. Multiply the movement.</p>
+                <div class="button-group" style="justify-content: center; margin: 0;">
+                    <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied!');" class="btn btn-primary" style="padding: 12px 30px; font-size: 0.95em;">📋 Copy Link</button>
+                    <a href="https://twitter.com/intent/tweet?text=We%20have%20a%20proven%20way%20to%20fix%20healthcare.%20Universal%20coverage%20in%208-13%20months.%20Sign%20the%20petition:%20https://c.org/q9vrMCQZsY%20%23PHIERSMovement" target="_blank" class="btn btn-primary" style="padding: 12px 30px; font-size: 0.95em;">𝕏 Share on X</a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://c.org/q9vrMCQZsY" target="_blank" class="btn btn-primary" style="padding: 12px 30px; font-size: 0.95em;">f Share on Facebook</a>
                 </div>
             </div>
 
@@ -1380,6 +1424,10 @@
         </section>
         
         <footer>
+            <div style="text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid rgba(76, 175, 80, 0.2);">
+                <p style="color: #a5d6a7; font-size: 0.9em; margin: 0;">Built by public health analysts, policy researchers, and community organizers</p>
+            </div>
+            
             <p><strong>PHIERS Movement | Make America Better And Healthier (MABAH)</strong></p>
             <p>Will Price | Chief Solutions Architect</p>
             <p>Phone: 301-919-0970 | Email: info@phiers.org</p>
@@ -1393,8 +1441,4 @@
                 <a href="https://phiersale.github.io/Join_the_Team/" target="_blank" style="color: #81c784; text-decoration: underline;">Join Team</a> | 
                 <a href="https://phiersale.github.io/MABAH-Movement/" target="_blank" style="color: #81c784; text-decoration: underline;">MABAH Movement</a>
             </p>
-            <p style="margin-top: 15px;">© PHIERS.org — People's Health Insurance Endowment and Referral Service | Prior art documented since 2014</p>
-        </footer>
-    </div>
-</body>
-</html>
+            <p style="margin-top: 15px;">© PHIERS.org — People's Health Insur
