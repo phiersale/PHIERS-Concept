@@ -491,20 +491,39 @@
                 if (img) {
                     img.src = imageSrc;
                 }
-                modal.classList.add('active');
+                modal.style.display = 'flex';
             }
         }
 
         function closeLightbox() {
             const modal = document.getElementById('lightboxModal');
             if (modal) {
-                modal.classList.remove('active');
+                modal.style.display = 'none';
             }
         }
 
         window.addEventListener('click', function(event) {
             const modal = document.getElementById('lightboxModal');
             if (modal && event.target === modal) {
+                closeLightbox();
+            }
+        });
+
+        // Attach click handlers to all images in graphic-containers for lightbox enlargement
+        window.addEventListener('load', function() {
+            const graphicImages = document.querySelectorAll('.graphic-container img');
+            graphicImages.forEach(img => {
+                img.style.cursor = 'pointer';
+                img.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    openLightbox(this.src);
+                });
+            });
+        });
+
+        // Close lightbox on ESC key
+        window.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
                 closeLightbox();
             }
         });
@@ -580,6 +599,11 @@
     </script>
 </head>
 <body>
+    <!-- LIGHTBOX MODAL FOR IMAGE ENLARGEMENT -->
+    <div id="lightboxModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.95); z-index: 5000; display: none; align-items: center; justify-content: center; padding: 20px;" onclick="if(event.target === this) closeLightbox();">
+        <button onclick="closeLightbox()" style="position: absolute; top: 20px; right: 30px; background: none; border: none; color: #4caf50; font-size: 40px; cursor: pointer; z-index: 5001; padding: 0; width: 50px; height: 50px;">×</button>
+        <img class="lightbox-content" src="" alt="" style="max-width: 90%; max-height: 90%; border-radius: 8px; cursor: pointer;">
+    </div>
     <!-- OPENING MODAL - MOBILE RESPONSIVE -->
     <div id="consequencesPopup" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); z-index: 10000; display: flex; align-items: center; justify-content: center; padding: 10px; overflow: hidden;" onclick="if(event.target.id === 'consequencesPopup') closeConsequencesPopup();">
         <div style="position: relative; max-width: 620px; width: 100%; max-height: 95vh; overflow-y: auto; background: linear-gradient(135deg, #0a2844 0%, #1a3a52 100%); border: 3px solid #4caf50; border-radius: 16px; padding: 30px 25px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);">
@@ -729,7 +753,8 @@
                 </div>
             </div>
 
-            <p style="margin-top: 20px;"><strong>But the $2.73T comes from EVERYWHERE:</strong></p>
+            <h3 style="margin-top: 80px; margin-bottom: 40px;">Where the $2.73T Comes From</h3>
+            <p style="margin-bottom: 20px;"><strong>But the $2.73T comes from EVERYWHERE:</strong></p>
             <ul>
                 <li>CMS members switching: $888B freed</li>
                 <li>ACA members: Additional cascade</li>
@@ -761,7 +786,7 @@
                 <li><strong>At critical mass (6-8 months), Congress is forced to act.</strong> The math is unstoppable.</li>
             </ul>
 
-            <h3 style="margin-top: 50px;">Our Timeline: The Patriotic Restoration</h3>
+            <h3 style="margin-top: 100px;">Our Timeline: The Patriotic Restoration</h3>
 
             <div style="text-align: center; margin: 40px 0; background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(66, 133, 244, 0.1)); border: 2px solid rgba(76, 175, 80, 0.4); padding: 30px; border-radius: 8px;">
                 <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr; gap: 15px; max-width: 100%; margin: 0 auto;">
@@ -797,7 +822,7 @@
                 <li><strong>Supply Chain Dominance (Long-Term):</strong> Direct importing from global manufacturers, eliminating middlemen and markups</li>
             </ol>
 
-            <div class="graphic-container">
+            <div class="graphic-container" style="margin-top: 80px;">
                 <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/Drug_DEV_Costs__UAEM.png" 
                      alt="Drug Development Cost Comparison - Academic vs Big Pharma"
                      style="max-width: 50%;">
