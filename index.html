@@ -434,6 +434,45 @@
             .container { padding: 15px; }
             header { padding: 25px 15px; }
         }
+        
+        /* SCROLLING BANNER */
+        .news-banner {
+            background: linear-gradient(135deg, #ff5722, #ff9800);
+            color: white;
+            padding: 12px 0;
+            overflow: hidden;
+            position: relative;
+            font-weight: bold;
+            font-size: 0.95em;
+            border-bottom: 3px solid #4caf50;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .news-banner-content {
+            display: flex;
+            animation: scroll-left 60s linear infinite;
+            white-space: nowrap;
+        }
+        
+        .news-banner-item {
+            padding: 0 50px;
+            display: inline-block;
+        }
+        
+        .news-banner-item .timestamp {
+            color: #ffeb3b;
+            font-size: 0.85em;
+            margin-left: 10px;
+        }
+        
+        @keyframes scroll-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        .news-banner:hover .news-banner-content {
+            animation-play-state: paused;
+        }
     </style>
     <script>
         function closeConsequencesPopup() {
@@ -608,6 +647,46 @@
     </script>
 </head>
 <body>
+    <!-- SCROLLING NEWS BANNER -->
+    <div class="news-banner">
+        <div class="news-banner-content">
+            <!-- Messages repeat twice for seamless scroll -->
+            <div class="news-banner-item">
+                🔥 STRIKE IS ON. We can do better with LEVERAGE. 
+                <span class="timestamp">UPDATED: Thu, Jan 30, 2026 @ 3:45pm PT</span>
+            </div>
+            <div class="news-banner-item">
+                ⚡ PHIERS gives TEETH to your demands. 
+                <span class="timestamp">Check back daily for emerging threats</span>
+            </div>
+            <div class="news-banner-item">
+                🎆 JULY 4, 2026: Independence from corporate control. 
+                <span class="timestamp">90 days to force compliance</span>
+            </div>
+            <div class="news-banner-item">
+                💪 BUILD. DON'T DESTROY. 
+                <span class="timestamp">Constructive power beats destructive strikes</span>
+            </div>
+            <!-- Duplicate for seamless loop -->
+            <div class="news-banner-item">
+                🔥 STRIKE IS ON. We can do better with LEVERAGE. 
+                <span class="timestamp">UPDATED: Thu, Jan 30, 2026 @ 3:45pm PT</span>
+            </div>
+            <div class="news-banner-item">
+                ⚡ PHIERS gives TEETH to your demands. 
+                <span class="timestamp">Check back daily for emerging threats</span>
+            </div>
+            <div class="news-banner-item">
+                🎆 JULY 4, 2026: Independence from corporate control. 
+                <span class="timestamp">90 days to force compliance</span>
+            </div>
+            <div class="news-banner-item">
+                💪 BUILD. DON'T DESTROY. 
+                <span class="timestamp">Constructive power beats destructive strikes</span>
+            </div>
+        </div>
+    </div>
+    
     <!-- LIGHTBOX MODAL FOR IMAGE ENLARGEMENT -->
     <div id="lightboxModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.95); z-index: 5000; display: none; align-items: center; justify-content: center; padding: 20px;" onclick="if(event.target === this) closeLightbox();">
         <button onclick="closeLightbox()" style="position: absolute; top: 20px; right: 30px; background: none; border: none; color: #4caf50; font-size: 40px; cursor: pointer; z-index: 5001; padding: 0; width: 50px; height: 50px;">×</button>
@@ -853,13 +932,26 @@
                 <p style="margin-top: 25px; color: #81c784; font-size: 0.95em; font-weight: bold;">We declared independence from corporate healthcare. Democracy proved it still works.</p>
             </div>
 
-            <h3 style="margin-top: 30px;">Three Ways to Reduce Drug Costs Without Government Negotiation</h3>
-            <p><strong>Instead of relying on political gridlock, PHIERS offers three proven market-driven approaches:</strong></p>
-            <ol style="margin-left: 20px; margin-top: 10px; color: #c8e6c9;">
-                <li><strong>Volume Aggregation (Immediate):</strong> Mark Cuban's Cost Plus model - validated by 7M customers, 80-90% savings, 200+ pharmacies</li>
-                <li><strong>Academic Partnerships (Market-Driven):</strong> Universities and nonprofits developing drugs at 1/24th the cost of Big Pharma</li>
-                <li><strong>Supply Chain Dominance (Long-Term):</strong> Direct importing from global manufacturers, eliminating middlemen and markups</li>
-            </ol>
+            <h3 style="margin-top: 60px; color: #4caf50; font-size: 1.3em;">Three Ways to Reduce Drug Costs Without Government Negotiation</h3>
+            
+            <p style="margin-top: 20px; color: #c8e6c9; font-size: 1.05em;"><strong>Instead of relying on political gridlock, PHIERS offers three proven market-driven approaches:</strong></p>
+            
+            <div style="background: rgba(76, 175, 80, 0.08); padding: 30px; margin: 25px 0; border-left: 4px solid #4caf50; border-radius: 8px;">
+                <ol style="margin: 0; padding-left: 25px; color: #c8e6c9; line-height: 2;">
+                    <li style="margin-bottom: 20px;">
+                        <strong style="color: #81c784; font-size: 1.05em;">Volume Aggregation (Immediate):</strong><br>
+                        <span style="margin-top: 8px; display: block;">Mark Cuban's Cost Plus model - validated by 7M customers, 80-90% savings, 200+ pharmacies</span>
+                    </li>
+                    <li style="margin-bottom: 20px;">
+                        <strong style="color: #81c784; font-size: 1.05em;">Academic Partnerships (Market-Driven):</strong><br>
+                        <span style="margin-top: 8px; display: block;">Universities and nonprofits developing drugs at 1/24th the cost of Big Pharma</span>
+                    </li>
+                    <li>
+                        <strong style="color: #81c784; font-size: 1.05em;">Supply Chain Dominance (Long-Term):</strong><br>
+                        <span style="margin-top: 8px; display: block;">Direct importing from global manufacturers, eliminating middlemen and markups</span>
+                    </li>
+                </ol>
+            </div>
 
             <div class="graphic-container" style="margin-top: 80px;">
                 <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/Drug_DEV_Costs__UAEM.png" 
@@ -1050,8 +1142,8 @@
         </div>
         <!-- END STRIKE BANNER V1 -->
 
-        <!-- 5D SOLUTIONS SECTION -->
-        <section id="solutions">
+        <!-- 5D SOLUTIONS / THE LEVERAGE SECTION -->
+        <section id="solutions" style="margin-top: 60px; padding-top: 40px; border-top: 2px solid rgba(76, 175, 80, 0.2);">
             <h2>⚡ The Leverage: 5D Power Over Congress</h2>
 
             <p style="color: #4caf50; font-size: 1.15em; font-weight: bold; margin: 0 0 20px 0; line-height: 1.5; text-align: center; font-style: italic;">
@@ -1190,7 +1282,7 @@
         <!-- END STRIKE BANNER V2 -->
 
         <!-- CRISIS SECTION -->
-        <section id="crisis">
+        <section id="crisis" style="margin-top: 60px; padding-top: 40px; border-top: 2px solid rgba(76, 175, 80, 0.2);">
             <h2>🚨 The Crisis: December 31 Deadline & Negative Cascade</h2>
             
             <!-- Emotional Validation Line -->
@@ -1333,7 +1425,7 @@
             </div>
         </section>
 
-        <section id="works">
+        <section id="works" style="margin-top: 60px; padding-top: 40px; border-top: 2px solid rgba(76, 175, 80, 0.2);">
             <h2>⚙️ How It Works: The Exponential Mechanism</h2>
             
             <!-- Internal Mini-Nav -->
@@ -1490,7 +1582,7 @@
         </section>
 
         <!-- LEVERAGE SECTION -->
-        <section id="leverage">
+        <section id="leverage" style="margin-top: 60px; padding-top: 40px; border-top: 2px solid rgba(76, 175, 80, 0.2);">
             <h2>⚡ Congressional Leverage: Binary Choice</h2>
             
             <!-- Internal Mini-Nav -->
@@ -1555,7 +1647,7 @@
         </section>
 
         <!-- BUYING POWER SECTION -->
-        <section id="buying">
+        <section id="buying" style="margin-top: 60px; padding-top: 40px; border-top: 2px solid rgba(76, 175, 80, 0.2);">
             <h2>💪 Cooperative Purchasing Power: The Nuclear Option</h2>
             
             <!-- Internal Mini-Nav -->
@@ -1653,7 +1745,7 @@
         </section>
 
         <!-- TAKE ACTION SECTION -->
-        <section id="action">
+        <section id="action" style="margin-top: 60px; padding-top: 40px; border-top: 2px solid rgba(76, 175, 80, 0.2);">
             <h2>✏️ Take Action RIGHT NOW</h2>
 
             <div class="graphic-container">
@@ -1697,7 +1789,7 @@
         </section>
 
         <!-- FAQ SECTION -->
-        <section id="faq">
+        <section id="faq" style="margin-top: 60px; padding-top: 40px; border-top: 2px solid rgba(76, 175, 80, 0.2);">
             <h2>❓ Frequently Asked Questions</h2>
             
             <!-- Validation Line for Skeptics -->
