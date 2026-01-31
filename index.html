@@ -834,42 +834,72 @@
     </script>
 </head>
 <body>
+    <!-- CLOSEABLE VISUAL IMAGES - MAIN PAGE ONLY, SESSION PERSISTENT -->
+    <div id="cascadeVisual" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 15000; background: rgba(0, 0, 0, 0.95); padding: 30px; border-radius: 16px; border: 3px solid #4caf50; box-shadow: 0 10px 50px rgba(0, 0, 0, 0.9); max-width: 90%; max-height: 90vh; overflow: auto;">
+        <button onclick="closeVisual('cascadeVisual')" style="position: absolute; top: 10px; right: 10px; background: rgba(76, 175, 80, 0.3); border: 2px solid #4caf50; color: #4caf50; font-size: 1.5em; font-weight: bold; cursor: pointer; padding: 5px 12px; border-radius: 6px; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.5)';" onmouseout="this.style.background='rgba(76, 175, 80, 0.3)';" title="Close">×</button>
+        <img src="/mnt/user-data/uploads/PHIERS_Cascade_Leverage_Visual_v1.png" alt="Cascade Leverage Visual" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <p style="color: #81c784; text-align: center; margin-top: 15px; font-size: 0.9em; font-style: italic;">One person unlocks $7,400 → Funds 12 others → Exponential cascade</p>
+    </div>
+
+    <div id="pyramidVisual" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 15000; background: rgba(255, 255, 255, 0.98); padding: 30px; border-radius: 16px; border: 3px solid #4caf50; box-shadow: 0 10px 50px rgba(0, 0, 0, 0.9); max-width: 90%; max-height: 90vh; overflow: auto;">
+        <button onclick="closeVisual('pyramidVisual')" style="position: absolute; top: 10px; right: 10px; background: rgba(76, 175, 80, 0.2); border: 2px solid #4caf50; color: #2e7d32; font-size: 1.5em; font-weight: bold; cursor: pointer; padding: 5px 12px; border-radius: 6px; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.4)';" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)';" title="Close">×</button>
+        <img src="/mnt/user-data/uploads/SIMPLE_MATH_Pyramid_Universal_Coverage.png" alt="Universal Coverage Pyramid" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <p style="color: #2e7d32; text-align: center; margin-top: 15px; font-size: 0.9em; font-style: italic; font-weight: 600;">Medicaid → Medicare → ACA → Universal Coverage (234M Americans)</p>
+    </div>
+
+    <script>
+        // Show visuals on page load if not seen this session
+        window.addEventListener('load', function() {
+            // Only show on main section
+            const mainSection = document.getElementById('main');
+            if (mainSection && mainSection.classList.contains('active')) {
+                // Check sessionStorage
+                if (!sessionStorage.getItem('cascadeVisualSeen')) {
+                    setTimeout(() => {
+                        document.getElementById('cascadeVisual').style.display = 'block';
+                    }, 2000); // Show after 2 seconds
+                }
+                
+                if (!sessionStorage.getItem('pyramidVisualSeen')) {
+                    setTimeout(() => {
+                        document.getElementById('pyramidVisual').style.display = 'block';
+                    }, 5000); // Show after 5 seconds (if cascade already closed)
+                }
+            }
+        });
+
+        // Close visual and mark as seen
+        function closeVisual(visualId) {
+            document.getElementById(visualId).style.display = 'none';
+            sessionStorage.setItem(visualId + 'Seen', 'true');
+        }
+
+        // Close on click outside
+        document.addEventListener('click', function(e) {
+            const cascade = document.getElementById('cascadeVisual');
+            const pyramid = document.getElementById('pyramidVisual');
+            if (e.target === cascade) closeVisual('cascadeVisual');
+            if (e.target === pyramid) closeVisual('pyramidVisual');
+        });
+
+        // Close on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeVisual('cascadeVisual');
+                closeVisual('pyramidVisual');
+            }
+        });
+    </script>
+
     <!-- SCROLLING NEWS BANNER -->
     <div class="news-banner">
         <div class="news-banner-content">
-            <!-- Messages repeat twice for seamless scroll -->
             <div class="news-banner-item">
-                🔥 STRIKE IS ON. PHIERS gives you LEVERAGE. 
-                <span class="timestamp">Thu, Jan 30, 2026 @ 3:45pm PT</span>
+                🔥 234 MILLION AMERICANS. 90 DAYS. JULY 4TH INDEPENDENCE FROM CORPORATE CONTROL.
             </div>
+            <!-- Duplicate for seamless scroll -->
             <div class="news-banner-item">
-                ⚡ Force Congress to act — or replace them. 
-                <span class="timestamp">90-day timeline → July 4th Independence</span>
-            </div>
-            <div class="news-banner-item">
-                💪 BUILD. DON'T DESTROY. 
-                <span class="timestamp">Constructive power beats strikes</span>
-            </div>
-            <div class="news-banner-item">
-                🎆 234 million Americans covered in 90 days. 
-                <span class="timestamp">One action unlocks exponential cascade</span>
-            </div>
-            <!-- Duplicate for seamless loop -->
-            <div class="news-banner-item">
-                🔥 STRIKE IS ON. PHIERS gives you LEVERAGE. 
-                <span class="timestamp">Thu, Jan 30, 2026 @ 3:45pm PT</span>
-            </div>
-            <div class="news-banner-item">
-                ⚡ Force Congress to act — or replace them. 
-                <span class="timestamp">90-day timeline → July 4th Independence</span>
-            </div>
-            <div class="news-banner-item">
-                💪 BUILD. DON'T DESTROY. 
-                <span class="timestamp">Constructive power beats strikes</span>
-            </div>
-            <div class="news-banner-item">
-                🎆 234 million Americans covered in 90 days. 
-                <span class="timestamp">One action unlocks exponential cascade</span>
+                🔥 234 MILLION AMERICANS. 90 DAYS. JULY 4TH INDEPENDENCE FROM CORPORATE CONTROL.
             </div>
         </div>
     </div>
@@ -899,13 +929,13 @@
                 We're Forcing Them - Or Replacing Them.
             </p>
 
-            <!-- VIDEO - THE GATEWAY (71 seconds) -->
-            <div style="margin-bottom: 20px; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);">
+            <!-- VIDEO - THE GATEWAY (1:11) -->
+            <div id="modalVideo" style="margin-bottom: 20px; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);">
                 <iframe width="100%" height="280" src="https://player.vimeo.com/video/1157747396" title="The Math Congress Doesn't Want You To Understand" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="border-radius: 10px;"></iframe>
             </div>
-            <p style="color: #81c784; text-align: center; font-size: 0.9em; margin: 0 0 30px 0; font-style: italic;">
-                71 seconds: The math Congress doesn't want you to understand
-            </p>
+            <button onclick="document.getElementById('modalVideo').scrollIntoView({behavior: 'smooth', block: 'center'});" style="background: rgba(76, 175, 80, 0.2); border: 2px solid #4caf50; color: #81c784; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 0.9em; font-style: italic; margin: 0 auto 30px auto; display: block; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)';" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)';">
+                ▶ 1:11 — The math Congress doesn't want you to understand
+            </button>
 
             <!-- PRIMARY CTA - DOMINANT -->
             <div style="margin-bottom: 15px;">
@@ -966,6 +996,17 @@
         </div>
     </div>
 
+    <!-- CASCADE MATH GRAPHIC -->
+    <div class="container" style="margin-top: 40px;">
+        <div style="text-align: center; max-width: 900px; margin: 0 auto;">
+            <h3 style="color: #4caf50; font-size: 1.6em; margin-bottom: 25px; text-align: center;">The Math That Makes It Work</h3>
+            <div style="background: rgba(76, 175, 80, 0.05); border: 2px solid #4caf50; padding: 20px; border-radius: 12px; cursor: pointer;" onclick="openLightbox('/mnt/user-data/uploads/PHIERS_Cascade_Leverage_Visual_v1.png')">
+                <img src="/mnt/user-data/uploads/PHIERS_Cascade_Leverage_Visual_v1.png" alt="PHIERS Cascade Leverage Visual" style="max-width: 100%; height: auto; border-radius: 8px;">
+                <p style="color: #81c784; font-size: 0.9em; margin-top: 15px; font-style: italic;">Click to enlarge • One conversion funds 12 → Those 12 fund 148 → Exponential cascade</p>
+            </div>
+        </div>
+    </div>
+
     <!-- QUICK START SECTION -->
     <div class="container">
         <section id="quickstart" style="margin-top: 60px; padding-top: 40px; border-top: 2px solid rgba(76, 175, 80, 0.2);">
@@ -977,7 +1018,7 @@
 
             <!-- THE VIDEO -->
             <div style="background: rgba(76, 175, 80, 0.08); padding: 30px; margin: 0 0 40px 0; border-radius: 10px; border: 2px solid rgba(76, 175, 80, 0.3);">
-                <h3 style="color: #4caf50; text-align: center; margin: 0 0 20px 0;">Watch: The Math Congress Doesn't Want You To Understand (71 seconds)</h3>
+                <h3 style="color: #4caf50; text-align: center; margin: 0 0 20px 0;">Watch: The Math Congress Doesn't Want You To Understand (1:11)</h3>
                 <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);">
                     <iframe width="100%" height="315" src="https://player.vimeo.com/video/1157747396" title="The Math Congress Doesn't Want You To Understand" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="border-radius: 10px;"></iframe>
                 </div>
@@ -1097,15 +1138,30 @@
         </header>
         
 
-        <div class="nav-menu">
-            <div class="nav-item active" data-section="main" onclick="showSection('main')">▼ Home</div>
-            <div class="nav-item" data-section="quickstart" onclick="showSection('quickstart')">▶ Quick Start</div>
-            <div class="nav-item" data-section="crisis" onclick="showSection('crisis')">▶ The Crisis</div>
-            <div class="nav-item" data-section="works" onclick="showSection('works')">▶ How It Works</div>
-            <div class="nav-item" data-section="solutions" onclick="showSection('solutions')">▶ The Leverage</div>
-            <div class="nav-item" data-section="action" onclick="showSection('action')">▶ Take Action</div>
-            <div class="nav-item" data-section="faq" onclick="showSection('faq')">▶ FAQ</div>
-        </div>
+        <!-- NAVIGATION - GROUPED INTO 3 CLUSTERS -->
+        <nav class="nav-menu" style="position: sticky; top: 0; z-index: 5000; background: linear-gradient(135deg, rgba(26, 26, 46, 0.95), rgba(22, 33, 62, 0.95)); backdrop-filter: blur(10px); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);">
+            <!-- Cluster 1: Start Here -->
+            <div style="flex: 1; min-width: 200px; border-right: 1px solid rgba(76, 175, 80, 0.2); padding: 10px 15px;">
+                <div style="color: #4caf50; font-size: 0.75em; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; text-align: center;">Start Here</div>
+                <div class="nav-item active" data-section="main" onclick="showSection('main')">🏠 Home</div>
+                <div class="nav-item" data-section="quickstart" onclick="showSection('quickstart')">🚀 Quick Start</div>
+            </div>
+
+            <!-- Cluster 2: Understand the Crisis -->
+            <div style="flex: 1; min-width: 250px; border-right: 1px solid rgba(76, 175, 80, 0.2); padding: 10px 15px;">
+                <div style="color: #4caf50; font-size: 0.75em; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; text-align: center;">Understand</div>
+                <div class="nav-item" data-section="crisis" onclick="showSection('crisis')">🚨 The Crisis</div>
+                <div class="nav-item" data-section="works" onclick="showSection('works')">⚙️ How It Works</div>
+                <div class="nav-item" data-section="solutions" onclick="showSection('solutions')">⚡ The Leverage</div>
+            </div>
+
+            <!-- Cluster 3: Take Action -->
+            <div style="flex: 1; min-width: 200px; padding: 10px 15px;">
+                <div style="color: #4caf50; font-size: 0.75em; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; text-align: center;">Take Action</div>
+                <div class="nav-item" data-section="action" onclick="showSection('action')">✏️ Petition</div>
+                <div class="nav-item" data-section="faq" onclick="showSection('faq')">❓ FAQ</div>
+            </div>
+        </nav>
 
 
         
@@ -1852,6 +1908,15 @@
                 <li>Month 9: 120 million people (critical mass reached)</li>
             </ul>
 
+            <!-- PYRAMID GRAPHIC - PATH TO UNIVERSAL COVERAGE -->
+            <div style="margin: 40px 0; text-align: center;">
+                <h4 style="color: #4caf50; font-size: 1.4em; margin-bottom: 20px;">The Path to Universal Coverage</h4>
+                <div style="background: rgba(76, 175, 80, 0.05); border: 2px solid #4caf50; padding: 20px; border-radius: 12px; display: inline-block; max-width: 800px; cursor: pointer;" onclick="openLightbox('/mnt/user-data/uploads/SIMPLE_MATH_Pyramid_Universal_Coverage.png')">
+                    <img src="/mnt/user-data/uploads/SIMPLE_MATH_Pyramid_Universal_Coverage.png" alt="Universal Coverage Pyramid" style="max-width: 100%; height: auto; border-radius: 8px;">
+                    <p style="color: #81c784; font-size: 0.9em; margin-top: 15px; font-style: italic;">Click to enlarge • Medicaid → Medicare → ACA → 234M Americans Covered</p>
+                </div>
+            </div>
+
             <p style="margin-top: 20px;"><strong>At Month 9 (critical mass):</strong> Congress cannot ignore 120M+ people organized around a single demand. The system is forced to implement.</p>
 
             <h3>The Endpoint</h3>
@@ -1911,7 +1976,7 @@
                 <p style="color: #c8e6c9; font-size: 0.9em; line-height: 1.6; margin: 0; text-align: center;">If Congress authorizes telehealth through the ACA, one conversion funds 12 more. Those 12 fund 148. <strong style="color: #81c784;">Exponential. Unstoppable. Universal healthcare in 90 days to critical mass.</strong></p>
             </div>
 
-            <!-- Video - The Math (71 sec) -->
+            <!-- Video - The Math (1:11) -->
             <div style="margin: 30px 0; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);">
                 <iframe width="100%" height="315" src="https://player.vimeo.com/video/1157747396" title="The Math Congress Doesn't Want You To Understand" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="border-radius: 10px;"></iframe>
             </div>
@@ -2045,7 +2110,7 @@
             <h3>📹 Core Videos</h3>
             <ul>
                 <li><strong><a href="https://youtu.be/bEUyDVAYwpk" target="_blank" style="color: #81c784; text-decoration: underline;">The Bipartisan Solution (11:11)</a></strong> – Complete framework with Al Wilson story</li>
-                <li><strong><a href="https://youtu.be/2j-dF3hgdeE" target="_blank" style="color: #81c784; text-decoration: underline;">The Math Congress Doesn't Want You to See (71 sec)</a></strong> – Core concept in 70 seconds</li>
+                <li><strong><a href="https://youtu.be/2j-dF3hgdeE" target="_blank" style="color: #81c784; text-decoration: underline;">The Math Congress Doesn't Want You to See (1:11)</a></strong> – Core concept explained</li>
                 <li><strong><a href="https://youtu.be/jMU6LKEBzbs" target="_blank" style="color: #81c784; text-decoration: underline;">The Mechanism (3:33)</a></strong> – How $2.73T savings work</li>
                 <li><strong><a href="https://youtu.be/eE-TxvI0d4Q" target="_blank" style="color: #81c784; text-decoration: underline;">The Moment (2:22)</a></strong> – Why Congress created this crisis</li>
                 <li><strong><a href="https://youtu.be/xy3F9ZWbgS8" target="_blank" style="color: #81c784; text-decoration: underline;">The Vision (4:44)</a></strong> – What happens after we win</li>
