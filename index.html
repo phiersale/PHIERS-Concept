@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <!--
 ──────────────────────────────────────────────────────────────
-PHIERS v8.6 - TEETH GRAPHIC INTEGRATION
-Version: 8.6 (TEETH UPDATE)
-Updated: February 01, 2026 @ 12:45 PM PST
+PHIERS v8.8 - SCOPE EXPANSION & UX IMPROVEMENTS
+Version: 8.8 (FULL SCOPE)
+Updated: February 01, 2026 @ 1:30 PM PST
 
-CHANGES IN v8.6:
-- Added "Power Concedes Nothing" TEETH graphic to modal
-- Integrated Frederick Douglass quote throughout
-- Added "This petition is the BITE" reminder before petition CTA
-- Updated video intro: "71 seconds. $600. 234M covered. $888B saved"
-- Changed "cooperative intelligence" → "organized power" framing
+CHANGES IN v8.8:
+- Updated modal line to show full scope (affordable care, jobs, real independence)
+- Added ESC key handler for modal (now both modal and lightbox close on ESC)
+- Expanded Quick Start with "Beyond Healthcare" section showing all pillars:
+  * Jobs (100K+ nurse jobs, community health workers)
+  * Economic Security ($888B saved annually)
+  * Supply Chain Independence (domestic manufacturing)
+  * Cascading Safety Net (mutual aid encoded)
+  * Democratic Accountability (3.5% organized power)
+- Validates that people are overwhelmed, shows comprehensive response
 
-CHANGES IN v8.5:
-- Added full accessibility: role="dialog", aria-labelledby, aria-describedby
-- Improved video intro text with rhythm and urgency
-- Updated iframe title for screen readers
-
-CHANGES IN v8.4:
-- Fixed 4 broken image URLs (relative → full GitHub URLs)
-- Restored complete modal content (was stripped in v8.3)
-- Added all 3 clarifier lines throughout site
+CHANGES IN v8.7:
+- Added unified mission statement at top
+- Added "Why This Matters" 30-second on-ramp
+- Added 4-step participation ladder
+- Added microheaders for navigation
+- Softened sharp lines for broader inclusivity
 ──────────────────────────────────────────────────────────────
 -->
 <!-- PHIERS Complete Composite - Original + Enhanced merged without deletion -->
@@ -807,10 +808,11 @@ CHANGES IN v8.4:
             });
         });
 
-        // Close lightbox on ESC key
+        // Close lightbox and modal on ESC key
         window.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
                 closeLightbox();
+                closeConsequencesPopup();
             }
         });
 
@@ -987,7 +989,7 @@ CHANGES IN v8.4:
             
             <!-- THESIS STATEMENT - Leverage Frame -->
             <p style="color: #4caf50; text-align: center; font-size: 2em; margin: 20px 0 25px 0; line-height: 1.2; font-weight: bold; text-shadow: 0 0 15px rgba(76, 175, 80, 0.4);">
-                We're Forcing Them — Or Replacing Them.
+                We're Forcing Them — Or Replacing Them. On our timeline, not theirs.
             </p>
 
             <!-- TEETH GRAPHIC & DOUGLASS QUOTE -->
@@ -1032,7 +1034,7 @@ CHANGES IN v8.4:
 
             <!-- LEVERAGE LINE -->
             <p style="color: #4caf50; font-size: 1.1em; font-weight: bold; margin: 0 0 20px 0; line-height: 1.7; text-align: center;">
-                Congress can lead and be heroes — or face the most organized healthcare movement in American history.
+                Congress can lead and be heroes — or stand against the movement fighting for affordable care, good jobs, and real independence for the American people.
             </p>
 
             <!-- PETITION FUNNEL -->
@@ -1213,38 +1215,103 @@ CHANGES IN v8.4:
                 </p>
             </div>
 
-            <!-- 3-STEP GETTING STARTED -->
-            <div style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(66, 133, 244, 0.1)); border: 2px solid #4caf50; padding: 30px; margin: 0 0 40px 0; border-radius: 10px;">
-                <h3 style="color: #4caf50; text-align: center; margin: 0 0 30px 0; font-size: 1.4em;">Get Started in 3 Steps</h3>
+            <!-- BEYOND HEALTHCARE: THE FULL PICTURE -->
+            <div style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.12), rgba(66, 133, 244, 0.12)); border: 3px solid #4caf50; padding: 35px 30px; margin: 40px 0; border-radius: 12px;">
+                <h3 style="color: #4caf50; text-align: center; margin: 0 0 20px 0; font-size: 1.5em;">You're Overwhelmed. We Know Why.</h3>
                 
-                <div style="display: flex; flex-direction: column; gap: 20px;">
+                <p style="color: #c8e6c9; font-size: 1.1em; text-align: center; margin: 0 0 30px 0; line-height: 1.7;">
+                    It's not just healthcare. It's everything at once — jobs, costs, security, democracy itself. <strong style="color: #4caf50;">PHIERS addresses the whole crisis, not just one symptom.</strong>
+                </p>
+
+                <div style="background: rgba(0,0,0,0.15); padding: 25px; border-radius: 10px; margin-bottom: 25px;">
+                    <p style="color: #4caf50; font-size: 1.2em; font-weight: bold; text-align: center; margin: 0 0 20px 0;">
+                        Healthcare is the entry point. Here's what else PHIERS delivers:
+                    </p>
+                    
+                    <div style="display: grid; gap: 15px;">
+                        <!-- Jobs -->
+                        <div style="background: rgba(76, 175, 80, 0.15); padding: 18px; border-left: 4px solid #4caf50; border-radius: 8px;">
+                            <p style="color: #4caf50; font-size: 1.05em; font-weight: bold; margin: 0 0 8px 0;">💼 Good Jobs</p>
+                            <p style="color: #c8e6c9; font-size: 0.95em; margin: 0; line-height: 1.6;">
+                                100,000+ nurse jobs, community health workers, local care infrastructure — union scale, real careers
+                            </p>
+                        </div>
+
+                        <!-- Economic Security -->
+                        <div style="background: rgba(76, 175, 80, 0.15); padding: 18px; border-left: 4px solid #4caf50; border-radius: 8px;">
+                            <p style="color: #4caf50; font-size: 1.05em; font-weight: bold; margin: 0 0 8px 0;">💰 Economic Security</p>
+                            <p style="color: #c8e6c9; font-size: 0.95em; margin: 0; line-height: 1.6;">
+                                $888 billion saved annually — money back in family budgets, not insurance profit margins
+                            </p>
+                        </div>
+
+                        <!-- Supply Chain Independence -->
+                        <div style="background: rgba(76, 175, 80, 0.15); padding: 18px; border-left: 4px solid #4caf50; border-radius: 8px;">
+                            <p style="color: #4caf50; font-size: 1.05em; font-weight: bold; margin: 0 0 8px 0;">🏭 Supply Chain Independence</p>
+                            <p style="color: #c8e6c9; font-size: 0.95em; margin: 0; line-height: 1.6;">
+                                90% of U.S. meds are imports — PHIERS redirects savings to rebuild domestic manufacturing
+                            </p>
+                        </div>
+
+                        <!-- Safety Net -->
+                        <div style="background: rgba(76, 175, 80, 0.15); padding: 18px; border-left: 4px solid #4caf50; border-radius: 8px;">
+                            <p style="color: #4caf50; font-size: 1.05em; font-weight: bold; margin: 0 0 8px 0;">🛡️ Cascading Safety Net</p>
+                            <p style="color: #c8e6c9; font-size: 0.95em; margin: 0; line-height: 1.6;">
+                                Your $600 funds 12 others — mutual aid encoded in the mechanism, not charity afterward
+                            </p>
+                        </div>
+
+                        <!-- Democratic Accountability -->
+                        <div style="background: rgba(76, 175, 80, 0.15); padding: 18px; border-left: 4px solid #4caf50; border-radius: 8px;">
+                            <p style="color: #4caf50; font-size: 1.05em; font-weight: bold; margin: 0 0 8px 0;">⚖️ Democratic Accountability</p>
+                            <p style="color: #c8e6c9; font-size: 0.95em; margin: 0; line-height: 1.6;">
+                                3.5% organized = unstoppable — proven threshold for forcing systemic change without violence
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <p style="color: #81c784; font-size: 1.05em; text-align: center; margin: 0; line-height: 1.7; font-style: italic;">
+                    This isn't a healthcare plan. <strong style="color: #4caf50;">It's an economic recovery plan that starts with healthcare.</strong>
+                </p>
+            </div>
+
+            <!-- PARTICIPATION LADDER - HOW TO JOIN THE MOVEMENT -->
+            <div style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(66, 133, 244, 0.1)); border: 2px solid #4caf50; padding: 30px; margin: 0 0 40px 0; border-radius: 10px;">
+                <h3 style="color: #4caf50; text-align: center; margin: 0 0 30px 0; font-size: 1.4em;">How to Join the Movement</h3>
+                
+                <div style="display: flex; flex-direction: column; gap: 15px; max-width: 650px; margin: 0 auto;">
                     <!-- Step 1 -->
-                    <div style="background: rgba(0, 0, 0, 0.2); padding: 20px; border-radius: 8px; border-left: 4px solid #4caf50;">
-                        <p style="color: #4caf50; font-size: 1.2em; font-weight: bold; margin: 0 0 10px 0;">Step 1: Sign the Petition (30 seconds)</p>
-                        <p style="color: #c8e6c9; font-size: 0.95em; margin: 0 0 15px 0; line-height: 1.7;">
-                            Add your name to force Congress to hold mandatory town halls. 1,500 signatures per district = they must face you.
-                        </p>
-                        <a href="https://c.org/q9vrMCQZsY" target="_blank" style="background: linear-gradient(135deg, #4caf50, #2e7d32); color: white; padding: 12px 24px; font-size: 1em; font-weight: bold; border: none; border-radius: 8px; text-decoration: none; display: inline-block;">
+                    <div style="background: rgba(76, 175, 80, 0.15); padding: 20px; border-radius: 8px; border-left: 4px solid #4caf50;">
+                        <p style="color: #4caf50; font-size: 1.1em; font-weight: bold; margin: 0 0 8px 0;">1. Watch the 71-second intro video</p>
+                        <p style="color: #c8e6c9; font-size: 0.95em; margin: 0;">Understand the mission — see the math Congress doesn't want you to know</p>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div style="background: rgba(76, 175, 80, 0.15); padding: 20px; border-radius: 8px; border-left: 4px solid #4caf50;">
+                        <p style="color: #4caf50; font-size: 1.1em; font-weight: bold; margin: 0 0 8px 0;">2. Sign the petition</p>
+                        <p style="color: #c8e6c9; font-size: 0.95em; margin: 0 0 12px 0;">Add your weight to the demand — 1,500 signatures = mandatory town hall</p>
+                        <a href="https://c.org/q9vrMCQZsY" target="_blank" style="background: linear-gradient(135deg, #4caf50, #2e7d32); color: white; padding: 10px 20px; font-size: 0.95em; font-weight: bold; border: none; border-radius: 8px; text-decoration: none; display: inline-block;">
                             ✏️ Sign Now
                         </a>
                     </div>
                     
-                    <!-- Step 2 -->
-                    <div style="background: rgba(0, 0, 0, 0.2); padding: 20px; border-radius: 8px; border-left: 4px solid #2196F3;">
-                        <p style="color: #2196F3; font-size: 1.2em; font-weight: bold; margin: 0 0 10px 0;">Step 2: Share the Cascade (2 minutes)</p>
-                        <p style="color: #c8e6c9; font-size: 0.95em; margin: 0; line-height: 1.7;">
-                            Every share reaches 10-100 more people. Each person who signs multiplies the pressure. This is exponential leverage.
-                        </p>
+                    <!-- Step 3 -->
+                    <div style="background: rgba(76, 175, 80, 0.15); padding: 20px; border-radius: 8px; border-left: 4px solid #4caf50;">
+                        <p style="color: #4caf50; font-size: 1.1em; font-weight: bold; margin: 0 0 8px 0;">3. Join a local or digital team</p>
+                        <p style="color: #c8e6c9; font-size: 0.95em; margin: 0;">Meet others building pressure — organize your community</p>
                     </div>
                     
-                    <!-- Step 3 -->
-                    <div style="background: rgba(0, 0, 0, 0.2); padding: 20px; border-radius: 8px; border-left: 4px solid #FF9800;">
-                        <p style="color: #FF9800; font-size: 1.2em; font-weight: bold; margin: 0 0 10px 0;">Step 3: Watch It Spread (Exponential)</p>
-                        <p style="color: #c8e6c9; font-size: 0.95em; margin: 0; line-height: 1.7;">
-                            1 person → 12 people → 148 people → millions. The cascade can't be stopped once it starts. That's the power of mechanical leverage.
-                        </p>
+                    <!-- Step 4 -->
+                    <div style="background: rgba(76, 175, 80, 0.15); padding: 20px; border-radius: 8px; border-left: 4px solid #4caf50;">
+                        <p style="color: #4caf50; font-size: 1.1em; font-weight: bold; margin: 0 0 8px 0;">4. Organize others</p>
+                        <p style="color: #c8e6c9; font-size: 0.95em; margin: 0;">Help grow the Teeth — every person multiplies the leverage</p>
                     </div>
                 </div>
+
+                <p style="color: #81c784; font-size: 0.95em; text-align: center; margin: 25px 0 0 0; font-style: italic;">
+                    This is your path from awareness → action → power. Each step builds the movement.
+                </p>
             </div>
 
             <!-- CTA TO CONTINUE -->
@@ -1284,19 +1351,26 @@ CHANGES IN v8.4:
                 </p>
             </div>
             
-            <!-- ULTRA-SHORT MISSION STATEMENT -->
-            <div style="text-align: center; margin: 25px auto; max-width: 700px;">
-                <p style="color: #81c784; font-size: 1.15em; font-weight: 600; line-height: 1.6; margin: 0 0 10px 0;">
-                    Making healthcare, UBI, good jobs, and guardrails on authoritarianism inevitable through cooperative leverage
+            <!-- UNIFIED MISSION STATEMENT - THE IDENTITY ANCHOR -->
+            <div style="text-align: center; margin: 30px auto 20px auto; max-width: 800px; padding: 25px; background: rgba(76, 175, 80, 0.12); border: 3px solid #4caf50; border-radius: 12px;">
+                <p style="color: #4caf50; font-size: 1.6em; font-weight: bold; line-height: 1.4; margin: 0;">
+                    PHIERS is a people-powered movement forcing Congress to authorize a $600 telehealth plan and reclaim healthcare independence for every American.
                 </p>
-                <p style="color: #c8e6c9; font-size: 0.95em; font-style: italic; margin: 0 0 15px 0; line-height: 1.5;">
-                    Leading America from fear and profit-driven healthcare to compassion, security, and solidarity
+            </div>
+
+            <!-- WHY THIS MATTERS - 30 SECOND ON-RAMP -->
+            <div style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(66, 133, 244, 0.15)); border: 2px solid #4caf50; padding: 30px; margin: 20px auto 30px auto; border-radius: 10px; max-width: 750px;">
+                <h3 style="color: #4caf50; text-align: center; margin: 0 0 20px 0; font-size: 1.4em;">Why This Matters</h3>
+                <p style="color: #c8e6c9; font-size: 1.1em; line-height: 1.8; margin: 0; text-align: left;">
+                    America's healthcare system is broken on purpose. Costs rise, coverage shrinks, and Congress refuses to act. A simple $600 telehealth plan would give millions immediate access to care, lower national costs, and strengthen every family's economic security. <strong style="color: #4caf50;">PHIERS is the movement built to force Congress to do its job — and we're doing it together.</strong>
                 </p>
-                <div style="background: rgba(244, 67, 54, 0.15); border: 2px solid #ff5722; padding: 15px 20px; border-radius: 8px; margin-top: 20px;">
-                    <p style="color: #ffb74d; font-size: 1em; font-weight: bold; margin: 0; line-height: 1.5;">
-                        ⏰ <strong style="color: #ff9800;">3.5% before next No Kings Day</strong> — Organize 11.6M to force Presidential accountability
-                    </p>
-                </div>
+            </div>
+
+            <!-- 3.5% URGENCY BOX -->
+            <div style="background: rgba(244, 67, 54, 0.15); border: 2px solid #ff5722; padding: 15px 20px; border-radius: 8px; margin: 20px auto; max-width: 700px;">
+                <p style="color: #ffb74d; font-size: 1em; font-weight: bold; margin: 0; line-height: 1.5; text-align: center;">
+                    ⏰ <strong style="color: #ff9800;">3.5% before next No Kings Day</strong> — Organize 11.6M to force Presidential accountability
+                </p>
             </div>
             
             <!-- WHAT PHIERS IS - ANCHOR BLOCK -->
@@ -1491,7 +1565,7 @@ CHANGES IN v8.4:
                 </p>
             </div>
             
-            <p>Congress failed to prevent the healthcare subsidy cliff. 22 million Americans lost coverage. But there's a proven way to fix it. Here's what Congress needs to understand: <strong>80% of people get better health outcomes from telehealth than from traditional insurance.</strong> Not equally good. Better. Faster care, zero denials, immediate access, lower costs. Congress must authorize telehealth through the ACA exchange immediately. AND for all CMS beneficiaries. AND for all Veterans through the VA. This honors our commitment to the American people AND to those who served us.</p>
+            <p>Congress has left millions behind — 22 million Americans lost coverage when subsidies expired. But there's a proven way to fix it. Here's what Congress needs to understand: <strong>80% of people get better health outcomes from telehealth than from traditional insurance.</strong> Not equally good. Better. Faster care, zero denials, immediate access, lower costs. Congress must authorize telehealth through the ACA exchange immediately. AND for all CMS beneficiaries. AND for all Veterans through the VA. This honors our commitment to the American people AND to those who served us.</p>
 
             <!-- 80-20 MODEL GRAPHIC -->
             <div class="graphic-container">
@@ -1721,7 +1795,7 @@ CHANGES IN v8.4:
                 </p>
                 
                 <p style="margin-top: 15px; color: #81c784; font-size: 0.95em; font-weight: bold; line-height: 1.8; text-align: center; border-top: 2px solid rgba(76, 175, 80, 0.2); padding-top: 25px;">
-                    This isn't a petition that gets filed. <strong>This is a mechanical trigger for systemic pressure.</strong> Your signature is part of the cascade that forces Congress to choose: adopt telehealth or face replacement.
+                    This isn't a petition that gets filed. <strong>This is a mechanical trigger for systemic pressure.</strong> Your signature is part of the cascade that forces Congress to choose: lead with us — or make room for those who will.
                 </p>
             </div>
 
@@ -2226,6 +2300,16 @@ CHANGES IN v8.4:
             <div style="background: rgba(76, 175, 80, 0.15); border: 2px solid #4caf50; padding: 20px; margin: 30px 0 20px 0; border-radius: 10px; text-align: center;">
                 <p style="color: #4caf50; font-size: 1.2em; font-weight: bold; margin: 0; line-height: 1.6;">
                     This is the ignition switch. One signature → exponential leverage.
+                </p>
+            </div>
+
+            <!-- MICROHEADER: DEEP DIVE -->
+            <div style="background: rgba(66, 133, 244, 0.1); padding: 15px 20px; border-left: 4px solid #2196F3; margin: 40px 0 20px 0; border-radius: 8px;">
+                <p style="color: #64B5F6; font-size: 0.95em; font-weight: bold; margin: 0 0 5px 0;">
+                    DEEP DIVE — The Mechanics
+                </p>
+                <p style="color: #c8e6c9; font-size: 0.9em; margin: 0; line-height: 1.6;">
+                    This section explains HOW one person funds 12 others — the cascade math that makes universal coverage inevitable.
                 </p>
             </div>
 
@@ -2895,6 +2979,16 @@ CHANGES IN v8.4:
                 </div>
             </div>
 
+            <!-- MICROHEADER: BACKGROUND -->
+            <div style="background: rgba(255, 152, 0, 0.1); padding: 15px 20px; border-left: 4px solid #ff9800; margin: 40px 0 20px 0; border-radius: 8px;">
+                <p style="color: #ffb74d; font-size: 0.95em; font-weight: bold; margin: 0 0 5px 0;">
+                    BACKGROUND — The Movement Structure
+                </p>
+                <p style="color: #c8e6c9; font-size: 0.9em; margin: 0; line-height: 1.6;">
+                    Understanding PHIERS and MABAH shows why this movement has the architecture to force Congressional action.
+                </p>
+            </div>
+
             <h3>What Is PHIERS?</h3>
             <p><strong>PHIERS stands for People's Health Insurance Endowment and Referral Service.</strong> But it's more than a name. It's the architecture of a proven, mathematically unstoppable pathway to universal healthcare in 8-13 months.</p>
 
@@ -2903,7 +2997,7 @@ CHANGES IN v8.4:
             <h3>What Is MABAH?</h3>
             <p><strong>MABAH stands for Make America Better And Healthier.</strong> It's the movement that brings PHIERS to life. It's 100M+ Americans organized around a single demand: authorize telehealth in the ACA. It's constituents showing their representatives that they have options—candidates who will honor their wishes, or get replaced.</p>
 
-            <p style="margin-top: 20px;">MABAH is the organized voice that forces the choice. Congress can lead this or face replacement. That's not a threat. That's democracy working the way our founders intended.</p>
+            <p style="margin-top: 20px;">MABAH is the organized voice that forces the choice. Congress can lead with us — or make room for those who will. That's not a threat. That's democracy working the way our founders intended.</p>
 
             <h3>The 7-Step Trigger Sequence</h3>
             <p>PHIERS doesn't just hope for change. It was engineered with precision. Every step triggers the next. Every action compounds. Here's how the cascade unfolds:</p>
@@ -3018,7 +3112,7 @@ CHANGES IN v8.4:
                 Accessibility | Privacy Policy
             </p>
             <p style="margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(76, 175, 80, 0.2); color: #4caf50; font-size: 0.85em; text-align: center;">
-                <strong>Site Version:</strong> v8.6 (TEETH UPDATE) | Updated: February 01, 2026 @ 12:45 PM PST
+                <strong>Site Version:</strong> v8.8 (FULL SCOPE) | Updated: February 01, 2026 @ 1:30 PM PST
             </p>
             <p style="margin-top: 20px; font-size: 0.9em; color: #4caf50; font-weight: bold; line-height: 1.6; text-align: center;">
                 If you see an error in the math or policy, tell us — we'll fix it.
