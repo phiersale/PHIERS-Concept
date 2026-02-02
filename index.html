@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <!--
 ──────────────────────────────────────────────────────────────
-PHIERS v8.4.6 - Copilot resized the Pyramid image 
-Version: 8.4.6 (COMPLETE POLISH)
+PHIERS v8.4 - COMPLETE POLISH UPDATE
+Version: 8.4 (COMPLETE POLISH)
 Updated: February 01, 2026 @ 12:30 PM PST
 
-CHANGES IN v8.4.6:
-- Rolled back to v 8.4 and implemented ChatGPTs' fixes 
+CHANGES IN v8.4:
+- Fixed 4 broken image URLs (relative → full GitHub URLs)
+- Restored complete modal content (was stripped in v8.3)
+- Added all 3 clarifier lines throughout site
+- Increased PHIERS logo from 140px → 170px in modal
+- Added accessibility: role="dialog", aria-labelledby, aria-describedby
+- Improved video intro text (eliminated redundancy, added rhythm)
+- Updated iframe title to "1:11 – INTRO to PHIERS"
+- Added id="modal-title" and id="modal-body" for screen readers
+- Verified mission reframe and values section present
+- Confirmed petition funnel clarifier present
 ──────────────────────────────────────────────────────────────
 -->
 <!-- PHIERS Complete Composite - Original + Enhanced merged without deletion -->
@@ -888,6 +897,12 @@ CHANGES IN v8.4.6:
         <p style="color: #81c784; text-align: center; margin-top: 15px; font-size: 0.9em; font-style: italic;">One person unlocks $7,400 → Funds 12 others → Exponential cascade</p>
     </div>
          
+    <div id="pyramidVisual" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 15000; background: rgba(255, 255, 255, 0.98); padding: 30px; border-radius: 16px; border: 3px solid #4caf50; box-shadow: 0 10px 50px rgba(0, 0, 0, 0.9); max-width: 90%; max-height: 90vh; overflow: auto;">
+        <button onclick="closeVisual('pyramidVisual')" style="position: absolute; top: 10px; right: 10px; background: rgba(76, 175, 80, 0.2); border: 2px solid #4caf50; color: #2e7d32; font-size: 1.5em; font-weight: bold; cursor: pointer; padding: 5px 12px; border-radius: 6px; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.4)';" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)';" title="Close">×</button>
+        <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/SIMPLE_MATH_Pyramid_Universal_Coverage.png" alt="Universal Coverage Pyramid" style="max-width: 100%; height: auto; border-radius: 8px;">
+        <p style="color: #2e7d32; text-align: center; margin-top: 15px; font-size: 0.9em; font-style: italic; font-weight: 600;">Medicaid → Medicare → ACA → Universal Coverage (234M Americans)</p>
+    </div>
+
     <script>
         // Show visuals on page load if not seen this session
         window.addEventListener('load', function() {
@@ -977,23 +992,6 @@ CHANGES IN v8.4.6:
                 This isn't a protest. It's a cooperative intelligence project.
             </p>
 
-            <!-- TEETH IMAGE (MODAL ONLY — SAFE) -->
-            <div style="text-align: center; margin: 30px auto 20px auto;">
-              <img
-                src="Power_Concedes_Nothing_TEETH.png"
-                alt="POWER CONCEDES NOTHING WITHOUT A DEMAND THAT HAS TEETH — We are the TEETH"
-                style="
-                  max-width: 420px;
-                  width: 90%;
-                  height: auto;
-                  display: block;
-                  margin: 0 auto;
-                  border-radius: 12px;
-                  box-shadow: 0 0 14px rgba(76, 175, 80, 0.45);
-                "
-              >
-            </div>
-                
             <!-- VIDEO INTRO TEXT -->
             <p style="color: #c8e6c9; text-align: center; font-size: 1.05em; margin: 0 0 20px 0; line-height: 1.6;">
                 <strong>71 seconds. $600. 234 million covered.</strong><br>
@@ -1114,14 +1112,15 @@ CHANGES IN v8.4.6:
              <h4 style="color: #4caf50; font-size: 1.4em; margin-bottom: 20px;">
                  The Path to Universal Coverage
              </h4>
-
-             <div style="text-align: center; margin: 40px 0;">
-              <img src="SIMPLE_MATH_Pyramid_Universal_Coverage.png"
-                   alt="Diagram showing how Medicaid, Medicare, and ACA stack to unlock universal coverage for 234 million Americans. Pyramid structure with arrow pointing upward from Medicaid to ACA, culminating in Universal Coverage."
-                   style="width: 100%; max-width: 600px; height: auto; border-radius: 8px;" />
-              <p style="font-size: 0.9em; color: #555;">Click to enlarge • Medicaid → Medicare → ACA → 234M Americans Covered</p>
-            </div>
-
+             <div style="background: rgba(76, 175, 80, 0.05); border: 2px solid #4caf50; padding: 20px; border-radius: 12px; display: inline-block; max-width: 800px; cursor: pointer;"
+                  onclick="openLightbox('https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/SIMPLE_MATH_Pyramid_Universal_Coverage.png')">
+                 <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/SIMPLE_MATH_Pyramid_Universal_Coverage.png"
+                      alt="Universal Coverage Pyramid"
+                      style="max-width: 100%; height: auto; border-radius: 8px;">
+                 <p style="color: #81c784; font-size: 0.9em; margin-top: 15px; font-style: italic;">
+                     Click to enlarge • Medicaid → Medicare → ACA → 234M Americans Covered
+                 </p>
+             </div>
 
              <p class="clarifier">These programs already exist — and <strong>when we connect them</strong>, they cover everyone.</p>
 
@@ -1725,12 +1724,16 @@ CHANGES IN v8.4.6:
                 </div>
             </div>
 
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" disabled>← Back</button>
+                <button class="btn btn-primary" onclick="showSection('crisis')">Next: The Crisis →</button>
+            </div>
         </section>
 
         <!-- TRANSITION: Why PHIERS Instead of Strikes -->
         <div style="background: rgba(76, 175, 80, 0.08); padding: 25px; margin: 40px 0 20px 0; border-radius: 10px; text-align: center;">
             <p style="color: #4caf50; font-size: 1.2em; font-weight: bold; margin: 0 0 15px 0;">
-             <h3 Right now, people are choosing between striking and suffering.</h3>
+                Right now, people are choosing between striking and suffering.
             </p>
             <p style="color: #c8e6c9; font-size: 1em; margin: 0; line-height: 1.7;">
                 PHIERS offers a third option: <strong style="color: #81c784;">Build power that forces Congress to act.</strong>
@@ -1740,7 +1743,7 @@ CHANGES IN v8.4.6:
         <!-- URGENT BANNER: STRIKES + ICE - VERSION 1 (AFTER HERO) -->
         <div style="background: linear-gradient(135deg, rgba(244, 67, 54, 0.2), rgba(255, 152, 0, 0.2)); border: 3px solid #ff5722; padding: 20px; margin: 10px 0 30px 0; border-radius: 10px; text-align: center;">
             <div style="font-size: 1.4em; color: #ff5722; font-weight: bold; margin-bottom: 20px;">
-                🚨 National Strikes Hurt Everyone when Workers, Small Businesses + Protests Shut Everything Down
+                🚨 National Strike Tomorrow: Workers + ICE Protests Shutting Everything Down
             </div>
             
             <!-- THE PROBLEM -->
