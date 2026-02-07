@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark light">
+    <title>Buying Power - PHIERS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .orientation-panel {
+            background: #0f172a;
+            color: #e5e7eb;
+            padding: 14px 18px;
+            border-bottom: 1px solid #1e293b;
+            font-size: 0.95rem;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+        
+        .orientation-panel strong { color: #fff; }
+        .orientation-panel span { display: block; margin-top: 4px; color: #cbd5f5; }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, rgba(15, 52, 96, 0.8), rgba(22, 33, 62, 0.8));
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border: 2px solid rgba(76, 175, 80, 0.3);
+        }
+        
+        .logo {
+            height: 120px;
+            width: auto;
+            margin: 0 auto 20px auto;
+            display: block;
+        }
+
+        h1 {
+            color: #4caf50;
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
+        }
+
+        h2 {
+            color: #4caf50;
+            font-size: 1.6em;
+            margin: 40px 0 20px 0;
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            color: #81c784;
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: #c8e6c9;
+            margin: 15px 0;
+            line-height: 1.8;
+        }
+
+        .highlight-box {
+            background: rgba(76, 175, 80, 0.1);
+            border: 2px solid #4caf50;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+
+        .graphic-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .graphic-container img {
+            max-width: 50%;
+            height: auto;
+            border-radius: 8px;
+            border: 2px solid rgba(76, 175, 80, 0.3);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .graphic-container img:hover {
+            transform: scale(1.05);
+        }
+
+        .graphic-caption {
+            color: #81c784;
+            font-size: 0.9em;
+            font-style: italic;
+            margin-top: 10px;
+        }
+
+        .power-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .power-card {
+            background: rgba(76, 175, 80, 0.1);
+            border: 2px solid #4caf50;
+            padding: 25px;
+            border-radius: 8px;
+        }
+
+        .power-card h3 {
+            color: #4caf50;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #4caf50, #2e7d32);
+            color: white;
+            padding: 14px 32px;
+            font-size: 1.1em;
+            font-weight: bold;
+            border: 2px solid #4caf50;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #66bb6a, #388e3c);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(76, 175, 80, 0.1));
+            border: 2px solid #4caf50;
+        }
+
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.3), rgba(76, 175, 80, 0.2));
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin: 40px 0;
+            padding-top: 30px;
+            border-top: 2px solid rgba(76, 175, 80, 0.3);
+        }
+
+        .nav-buttons .btn {
+            flex: 1;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 2px solid rgba(76, 175, 80, 0.3);
+            color: #81c784;
+            margin-top: 40px;
+            font-size: 0.9em;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        footer a {
+            color: #81c784;
+            text-decoration: underline;
+        }
+
+        footer a:hover {
+            color: #4caf50;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8em; }
+            h2 { font-size: 1.4em; }
+            .logo { height: 100px; }
+            .graphic-container img { max-width: 80%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="orientation-panel">
+        <strong>Buying Power: We're turning wasted premiums into direct care and political leverage.</strong>
+        <span>
+            100M+ organized = largest pharmaceutical buyer in the nation. 
+            We undercut Big Pharma through pure market dominance.
+        </span>
+    </div>
+
+    <div class="container">
+        <header>
+            <a href="index.html">
+                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Logo.png" 
+                     alt="PHIERS Logo" 
+                     class="logo">
+            </a>
+            <h1>💪 Cooperative Purchasing Power: The Nuclear Option</h1>
+            <p class="subtitle">We're turning wasted premiums into direct care and political leverage.</p>
+        </header>
+
+        <!-- NAVIGATION BUTTONS (Under Hero) -->
+        <nav style="
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
+            border: 2px solid rgba(76, 175, 80, 0.3);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 40px;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        ">
+            <a href="index.html" style="background: linear-gradient(135deg, #4caf50, #45a049); color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s; box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(76, 175, 80, 0.5)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(76, 175, 80, 0.3)'">🏠 Home</a>
+            
+            <a href="quickstart.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">🚀 Quick Start</a>
+            
+            <a href="crisis.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">🚨 Crisis</a>
+            
+            <a href="how-it-works.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">⚙️ How It Works</a>
+            
+            <a href="simple-math.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">📊 Simple Math</a>
+            
+            <a href="leverage.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">⚡ Leverage</a>
+            
+            <a href="buying-power.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">💪 Buying Power</a>
+            
+            <a href="solutions.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">🎯 Solutions</a>
+            
+            <a href="unions.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">💪 Unions</a>
+            
+            <a href="media.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">📚 Media</a>
+            
+            <a href="action.html" style="background: linear-gradient(135deg, #2196f3, #1976d2); color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s; box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(33, 150, 243, 0.5)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(33, 150, 243, 0.3)'">✏️ Take Action</a>
+            
+            <a href="faq.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">❓ FAQ</a>
+        </nav>
+
+
+        <section>
+            <h2>What Most People Don't Understand</h2>
+            
+            <div class="highlight-box">
+                <p style="font-size: 1.1em; color: white; font-weight: bold; margin-bottom: 15px;">
+                    When 100+ million people organize as a cooperative buying group, we become something 
+                    unprecedented in history.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>📊 The Market Reality</h2>
+            
+            <div class="graphic-container">
+                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/90pct_of_US_Meds_are_Imports.png" 
+                     alt="90% of US Medications are Imports"
+                     onclick="window.open(this.src, '_blank')">
+                <p class="graphic-caption">Click to enlarge • US imports 90% of its medications - this gives us massive leverage</p>
+            </div>
+
+            <div class="power-grid">
+                <div class="power-card">
+                    <h3>🌍 Import Reality</h3>
+                    <p>US imports 90% of its medications from global manufacturers</p>
+                </div>
+                
+                <div class="power-card">
+                    <h3>💪 Market Dominance</h3>
+                    <p>100M+ cooperative members = LARGEST PHARMACEUTICAL BUYER IN THE NATION</p>
+                </div>
+                
+                <div class="power-card">
+                    <h3>💰 Cost Advantage</h3>
+                    <p>Buying cooperatively (no markups, no middlemen) = UNDERCUTS ENTIRE US PHARMA MARKET</p>
+                </div>
+                
+                <div class="power-card">
+                    <h3>🎯 Result</h3>
+                    <p>Drug costs 10x lower without any government negotiation</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>💊 We Already Know How to Cut Drug Costs 80-90%</h2>
+            
+            <div class="highlight-box">
+                <h3 style="color: #4caf50; margin-top: 0;">Proof we can deliver:</h3>
+                <ul style="margin-top: 15px; padding-left: 20px;">
+                    <li style="color: #c8e6c9; margin: 10px 0;">
+                        <strong style="color: white;">Cost Plus Drugs:</strong> 80-90% savings, 7M customers, 
+                        operational now
+                    </li>
+                    <li style="color: #c8e6c9; margin: 10px 0;">
+                        <strong style="color: white;">Academic R&D:</strong> Universities produce drugs at 
+                        1/24th Big Pharma cost
+                    </li>
+                    <li style="color: #c8e6c9; margin: 10px 0;">
+                        <strong style="color: white;">Direct supply:</strong> 175M members = buying power to 
+                        eliminate middlemen
+                    </li>
+                </ul>
+                <p style="margin-top: 20px; font-size: 1.05em;">
+                    This isn't theory. These models are working right now. PHIERS scales them to 234M Americans.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>🔬 Alternative Drug Development Models</h2>
+            
+            <div class="graphic-container">
+                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/Drug_DEV_Costs__UAEM.png" 
+                     alt="Drug Development Costs - Academic vs Big Pharma"
+                     onclick="window.open(this.src, '_blank')">
+                <p class="graphic-caption">Click to enlarge • Alternative R&D Models Produce New Drugs at 1/24th the Cost of Big Pharma</p>
+            </div>
+
+            <p style="text-align: center; font-size: 1.05em; margin: 30px 0;">
+                Universities and Nonprofits Are Already Proving This Works
+            </p>
+        </section>
+
+        <section>
+            <h2>🚀 Why This Is Unstoppable</h2>
+            
+            <div class="highlight-box">
+                <p style="margin-bottom: 15px;">
+                    <strong style="color: white;">Trump's plan:</strong> Negotiate drug prices. 
+                    Big Pharma fights back. Political gridlock.
+                </p>
+                <p style="margin-bottom: 15px;">
+                    <strong style="color: #4caf50;">PHIERS approach:</strong> We don't negotiate. 
+                    We just buy direct from global manufacturers at bulk rates.
+                </p>
+                <p style="margin-top: 20px; font-size: 1.1em; color: white; font-weight: bold;">
+                    Result: We undercut Big Pharma not through law, but through pure market dominance 
+                    and purchasing power.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>⚡ This Is Why 100M+ Organized People Literally Cannot Be Stopped</h2>
+            
+            <div class="highlight-box">
+                <p style="font-size: 1.1em; color: white; font-weight: bold; margin-bottom: 15px;">
+                    We have THREE forms of power simultaneously:
+                </p>
+                <ul style="margin-top: 15px; padding-left: 20px;">
+                    <li style="color: #c8e6c9; margin: 12px 0;">
+                        <strong style="color: white;">Financial power:</strong> Largest pharma buyer in the nation
+                    </li>
+                    <li style="color: #c8e6c9; margin: 12px 0;">
+                        <strong style="color: white;">Political power:</strong> 3.5% systemic change threshold 
+                        (Chenoweth proven)
+                    </li>
+                    <li style="color: #c8e6c9; margin: 12px 0;">
+                        <strong style="color: white;">Structural power:</strong> Everyone benefits → 
+                        impossible to divide us
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section style="text-align: center; margin: 50px 0;">
+            <h2>Ready to Join the Buying Power?</h2>
+            <p style="font-size: 1.1em; margin: 20px 0;">
+                Sign the petition. Become part of the largest cooperative pharmaceutical buyer in American history.
+            </p>
+            
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin: 30px 0;">
+                <a href="https://c.org/q9vrMCQZsY" target="_blank" class="btn">✏️ Sign Petition Now</a>
+                <a href="solutions.html" class="btn btn-secondary">🧩 See 5D Solutions →</a>
+            </div>
+        </section>
+
+        <div class="nav-buttons">
+            <a href="leverage.html" class="btn btn-secondary">← Back: Leverage</a>
+            <a href="solutions.html" class="btn btn-secondary">Next: 5D Solutions →</a>
+        </div>
+
+        <footer>
+            <p><strong>PHIERS Movement | Make America Better And Healthier (MABAH)</strong></p>
+            <p>Will Price | Chief Solutions Architect</p>
+            <p>Phone: 916-306-8967 | Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c2abaca4ad82b2aaaba7b0b1ecadb0a5">[email&#160;protected]</a></p>
+            
+            <p style="margin-top: 20px;">
+                <a href="https://c.org/q9vrMCQZsY" target="_blank">Sign Petition</a> | 
+                <a href="https://forms.gle/GekCB2xwHfFb4WLF6" target="_blank">Fill Survey</a> | 
+                <a href="Donate.html">Fund the Cascade</a> | 
+                <a href="https://discord.gg/narhDKJY" target="_blank">Join Discord</a>
+            </p>
+            
+            <p style="margin-top: 15px;">
+                <a href="about.html">About Us</a> | 
+                <a href="index.html">Home</a> | 
+                <a href="faq.html">FAQ</a>
+            </p>
+            
+            <p style="margin-top: 20px;">
+                © PHIERS.org — People's Health Insurance Economic Recovery Solutions
+            </p>
+            <p style="font-size: 0.85em; color: #a5d6a7;">
+                Accessibility | Privacy Policy
+            </p>
+            <p style="margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(76, 175, 80, 0.2); color: #4caf50; font-size: 0.85em;">
+                <strong>File:</strong> buying-power.html v1.0 | <strong>Created:</strong> 2026-02-05 @ 1:10 PM PST | <strong>Source:</strong> phiers.org "Cooperative Purchasing Power" section
+            </p>
+            <p style="margin-top: 15px; font-size: 0.9em; font-weight: bold;">
+                If you see an error in the math or policy, tell us — we'll                If you see an error in the math or policy, tell us — we'll fix it.
+            </p>
+        </footer>
+    </div>
+
+    <!-- PHIERS Universal Enhancements Script -->
+    <script src="phiers-enhancements.js"></script>
+</body>
+</html>
