@@ -1,310 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>PHIERS — Make America Better and Healthier</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="PHIERS is the People's Health Insurance Endowment & Referral Service — forcing real healthcare reform through organized district-level pressure. 3.5% by March 28. 100M by July 4th." />
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-      background: linear-gradient(135deg, #0a0e1a 0%, #0f1419 25%, #1a1f2e 50%, #0f3460 100%);
-      color: #e5e7eb;
-      line-height: 1.6;
-      min-height: 100vh;
-    }
-    
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 1.5rem;
-    }
-    
-    header {
-      text-align: center;
-      padding: 3rem 1.5rem;
-      margin-bottom: 2rem;
-    }
-    
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.4rem 1rem;
-      border-radius: 999px;
-      background: rgba(15, 52, 96, 0.4);
-      border: 1px solid rgba(76, 175, 80, 0.3);
-      font-size: 0.75rem;
-      color: #81c784;
-      margin-bottom: 1.5rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
-    
-    .badge-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: #4caf50;
-      box-shadow: 0 0 10px rgba(76, 175, 80, 0.6);
-    }
-    
-    .logo {
-      max-width: 140px;
-      height: auto;
-      margin: 0 auto 1.5rem;
-      display: block;
-    }
-    
-    .eyebrow {
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      font-size: 0.75rem;
-      color: #81c784;
-      margin-bottom: 0.75rem;
-      font-weight: 600;
-    }
-    
-    h1 {
-      font-size: 2.5rem;
-      line-height: 1.2;
-      color: #4caf50;
-      margin-bottom: 1rem;
-      text-shadow: 0 0 30px rgba(76, 175, 80, 0.3);
-      font-weight: 700;
-    }
-    
-    .subtitle {
-      font-size: 1.1rem;
-      color: #c8e6c9;
-      margin-bottom: 2rem;
-      line-height: 1.5;
-    }
-    
-    .hero-image {
-      max-width: 100%;
-      height: auto;
-      border-radius: 12px;
-      margin: 2rem 0;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-    }
-    
-    .cta-group {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin: 2rem 0;
-    }
-    
-    .btn {
-      display: inline-block;
-      padding: 1rem 2rem;
-      font-size: 1rem;
-      font-weight: 700;
-      border-radius: 999px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      border: 2px solid transparent;
-    }
-    
-    .btn-primary {
-      background: linear-gradient(135deg, #4caf50, #45a049);
-      color: #fff;
-      box-shadow: 0 4px 20px rgba(76, 175, 80, 0.4);
-    }
-    
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 30px rgba(76, 175, 80, 0.6);
-    }
-    
-    .btn-secondary {
-      background: transparent;
-      color: #4caf50;
-      border: 2px solid #4caf50;
-    }
-    
-    .btn-secondary:hover {
-      background: rgba(76, 175, 80, 0.1);
-      border-color: #66bb6a;
-    }
-    
-    .disclaimer {
-      font-size: 0.85rem;
-      color: #9ca3af;
-      text-align: center;
-      margin-top: 1rem;
-    }
-    
-    section {
-      background: linear-gradient(135deg, rgba(26, 26, 46, 0.6), rgba(15, 52, 96, 0.4));
-      border-left: 4px solid #4caf50;
-      border-radius: 12px;
-      padding: 2.5rem;
-      margin: 3rem 0;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    }
-    
-    h2 {
-      color: #4caf50;
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      border-bottom: 2px solid rgba(76, 175, 80, 0.3);
-      padding-bottom: 0.75rem;
-    }
-    
-    h3 {
-      color: #81c784;
-      font-size: 1.3rem;
-      margin: 1.5rem 0 1rem;
-    }
-    
-    p {
-      color: #c8e6c9;
-      margin: 1rem 0;
-      line-height: 1.7;
-    }
-    
-    ul {
-      margin: 1.5rem 0;
-      padding-left: 1.5rem;
-    }
-    
-    li {
-      color: #c8e6c9;
-      margin: 0.75rem 0;
-      line-height: 1.6;
-    }
-    
-    strong {
-      color: #4caf50;
-      font-weight: 700;
-    }
-    
-    .highlight-box {
-      background: rgba(76, 175, 80, 0.1);
-      border: 2px solid #4caf50;
-      border-radius: 12px;
-      padding: 2rem;
-      margin: 2rem 0;
-      box-shadow: 0 0 30px rgba(76, 175, 80, 0.15);
-    }
-    
-    .stat {
-      text-align: center;
-      margin: 1.5rem 0;
-    }
-    
-    .stat-number {
-      font-size: 2.5rem;
-      color: #4caf50;
-      font-weight: 700;
-      display: block;
-      text-shadow: 0 0 20px rgba(76, 175, 80, 0.4);
-    }
-    
-    .stat-label {
-      color: #81c784;
-      font-size: 1rem;
-      margin-top: 0.5rem;
-    }
-    
-    .video-container {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
-      border-radius: 12px;
-      margin: 2rem 0;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-    }
-    
-    .video-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-    
-    footer {
-      text-align: center;
-      padding: 3rem 1.5rem 2rem;
-      margin-top: 4rem;
-      border-top: 1px solid rgba(76, 175, 80, 0.2);
-      color: #9ca3af;
-      font-size: 0.9rem;
-    }
-    
-    footer a {
-      color: #81c784;
-      text-decoration: none;
-      border-bottom: 1px dotted #81c784;
-    }
-    
-    footer a:hover {
-      color: #4caf50;
-      border-bottom-color: #4caf50;
-    }
-    
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      justify-content: center;
-      margin: 2rem 0;
-    }
-    
-    .nav-links a {
-      color: #81c784;
-      text-decoration: none;
-      font-size: 0.95rem;
-      transition: color 0.3s ease;
-      white-space: nowrap;
-    }
-    
-    .nav-links a:hover {
-      color: #4caf50;
-    }
-    
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2rem;
-      }
-      
-      .cta-group {
-        flex-direction: column;
-      }
-      
-      .btn {
-        width: 100%;
-        text-align: center;
-      }
-      
-      section {
-        padding: 1.5rem;
-      }
-      
-      .nav-links {
-        flex-direction: column;
-        gap: 0.75rem;
-      }
-      
-      .nav-links a {
-        text-align: center;
-      }
-    }
-  </style>
-</head>
-
 <body>
 
 <div class="container">
@@ -381,7 +74,7 @@
       Most of it never reaches actual care. It disappears into admin, billing games, and 
       insurance overhead — while people skip treatment, drown in debt, or die waiting.
     </p>
-    
+
     <div class="video-container">
       <iframe src="https://www.youtube.com/embed/2j-dF3hgdeE" 
               title="1:11 PHIERS Explainer — The Math Congress Fears"
@@ -454,16 +147,16 @@
     </p>
 
     <div class="nav-links">
-      <a href="quickstart.html">🚀 Quick Start</a>
-      <a href="crisis.html">🚨 The Crisis</a>
-      <a href="how-it-works.html">⚙️ How It Works</a>
-      <a href="leverage.html">⚡ The Leverage</a>
-      <a href="solutions.html">📋 5D Solutions</a>
-      <a href="simple-math.html">📊 The Math</a>
-      <a href="buying-power.html">💰 Buying Power</a>
-      <a href="faq.html">❓ FAQ</a>
-      <a href="resources.html">📚 Resources</a>
-      <a href="media.html">📺 Media</a>
+      <a href="quickstart.html">Quick Start</a>
+      <a href="crisis.html">The Crisis</a>
+      <a href="how-it-works.html">How It Works</a>
+      <a href="leverage.html">The Leverage</a>
+      <a href="solutions.html">5D Solutions</a>
+      <a href="simple-math.html">The Math</a>
+      <a href="buying-power.html">Buying Power</a>
+      <a href="faq.html">FAQ</a>
+      <a href="resources.html">Resources</a>
+      <a href="media.html">Media</a>
     </div>
   </section>
 
@@ -474,19 +167,19 @@
     </p>
     
     <div class="nav-links">
-      <a href="index.html">🏠 Home</a>
-      <a href="quickstart.html">🚀 Quick Start</a>
-      <a href="crisis.html">🚨 The Crisis</a>
-      <a href="how-it-works.html">⚙️ How It Works</a>
-      <a href="leverage.html">⚡ The Leverage</a>
-      <a href="solutions.html">📋 Solutions</a>
-      <a href="buying-power.html">💰 Buying Power</a>
-      <a href="action.html">✏️ Petition</a>
-      <a href="simple-math.html">📊 The Math</a>
-      <a href="faq.html">❓ FAQ</a>
-      <a href="resources.html">📚 Resources</a>
-      <a href="media.html">📺 Media</a>
-      <a href="about.html">ℹ️ About</a>
+      <a href="index.html">Home</a>
+      <a href="quickstart.html">Quick Start</a>
+      <a href="crisis.html">The Crisis</a>
+      <a href="how-it-works.html">How It Works</a>
+      <a href="leverage.html">The Leverage</a>
+      <a href="solutions.html">Solutions</a>
+      <a href="buying-power.html">Buying Power</a>
+      <a href="action.html">Petition</a>
+      <a href="simple-math.html">The Math</a>
+      <a href="faq.html">FAQ</a>
+      <a href="resources.html">Resources</a>
+      <a href="media.html">Media</a>
+      <a href="about.html">About</a>
     </div>
     
     <p style="margin-top: 2rem; font-size: 0.85rem;">
@@ -501,4 +194,3 @@
 </div>
 
 </body>
-</html>
