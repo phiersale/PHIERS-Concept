@@ -5,13 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="dark light">
     <title>Fund the Cascade - PHIERS Campaign</title>
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
@@ -21,12 +18,8 @@
             padding-bottom: 80px;
         }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+
         header {
             text-align: center;
             padding: 45px 20px;
@@ -35,14 +28,14 @@
             margin-bottom: 50px;
             border: 2px solid rgba(76, 175, 80, 0.3);
         }
-       
+
         .logo {
             height: 140px;
             width: auto;
             display: block;
             margin: 0 auto 1.5rem auto;
         }
-        
+
         h1 {
             font-size: 2.2em;
             margin-bottom: 15px;
@@ -65,16 +58,9 @@
             border-radius: 8px;
         }
 
-        .urgency-banner p {
-            color: #ffcdd2;
-            margin: 10px 0;
-            line-height: 1.7;
-        }
+        .urgency-banner p { color: #ffcdd2; margin: 10px 0; }
+        .urgency-banner strong { color: #ff7043; }
 
-        .urgency-banner strong {
-            color: #ff7043;
-        }
-        
         section {
             background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
             border-left: 4px solid #4caf50;
@@ -83,16 +69,15 @@
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
         }
-        
+
         h2 {
             color: #4caf50;
             margin-bottom: 35px;
-            margin-top: 0;
             font-size: 1.8em;
             border-bottom: 2px solid #4caf50;
             padding-bottom: 15px;
         }
-        
+
         h3 {
             color: #81c784;
             margin-top: 35px;
@@ -116,163 +101,35 @@
             margin-bottom: 15px;
         }
 
-        .method-details {
-            color: #c8e6c9;
-            line-height: 1.8;
+        .method-details { color: #c8e6c9; line-height: 1.8; }
+
+        .qr-wrapper {
+            text-align: center;
+            margin: 1.5rem 0;
         }
 
-        .qr-code {
-            max-width: 200px;
-            height: auto;
-            margin: 15px 0;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        .usage-box {
-            background: rgba(76, 175, 80, 0.15);
-            border: 2px solid #4caf50;
-            padding: 30px;
-            margin: 35px 0;
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(76, 175, 80, 0.15);
-        }
-
-        .usage-title {
-            color: #4caf50;
-            font-size: 1.2em;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        .usage-item {
-            background: rgba(26, 26, 46, 0.6);
-            padding: 20px;
-            margin: 12px 0;
-            border-radius: 6px;
-            border-left: 4px solid #81c784;
-        }
-
-        .usage-item-title {
-            color: #81c784;
-            font-weight: bold;
-            margin-bottom: 8px;
-        }
-
-        .usage-item-desc {
-            color: #c8e6c9;
-            font-size: 0.95em;
-            line-height: 1.6;
-        }
-
-        .button-group {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin: 35px 0;
-            justify-content: center;
-        }
-
-        .btn {
-            padding: 14px 28px;
-            font-size: 0.95em;
-            font-weight: bold;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            text-decoration: none;
+        .qr-wrapper img {
             display: inline-block;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            max-width: 220px;
+            height: auto;
         }
 
-        .btn-primary {
-            background: linear-gradient(135deg, #4caf50, #45a049);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: linear-gradient(135deg, #45a049, #3d8b40);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
-        }
-
-        .btn-secondary {
-            background: linear-gradient(135deg, #2196f3, #1976d2);
-            color: white;
-        }
-
-        .btn-secondary:hover {
-            background: linear-gradient(135deg, #1976d2, #1565c0);
-            transform: translateY(-2px);
-        }
-
-        ul {
-            margin-left: 25px;
-            margin-top: 20px;
-            margin-bottom: 20px;
-        }
-
-        ul li {
-            margin: 18px 0;
-            color: #c8e6c9;
-            line-height: 1.7;
-        }
-
-        p {
-            margin-bottom: 18px;
-            line-height: 1.8;
-        }
-
-        .goal-box {
+        .use-of-funds {
             background: rgba(76, 175, 80, 0.15);
             border: 2px solid #4caf50;
-            padding: 30px;
-            margin: 35px 0;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        .goal-amount {
-            color: #4caf50;
-            font-size: 2em;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .goal-text {
-            color: #c8e6c9;
-            font-size: 1.05em;
-        }
-
-        .cascade-box {
-            background: linear-gradient(135deg, rgba(129, 199, 132, 0.15), rgba(76, 175, 80, 0.1));
-            border: 2px solid #81c784;
             padding: 35px;
-            margin: 40px 0;
+            margin-top: 50px;
             border-radius: 8px;
-            text-align: center;
         }
 
-        .cascade-title {
+        .use-of-funds h3 {
             color: #81c784;
             font-size: 1.3em;
-            font-weight: bold;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
-        .cascade-content {
-            color: #c8e6c9;
-            line-height: 1.9;
-            font-size: 1.05em;
-        }
-
-        .cascade-math {
-            color: #4caf50;
-            font-weight: bold;
-            margin-top: 20px;
-            font-size: 1.15em;
-        }
+        .use-of-funds ul { margin-left: 25px; }
+        .use-of-funds li { margin: 15px 0; color: #c8e6c9; }
 
         footer {
             text-align: center;
@@ -284,237 +141,199 @@
             line-height: 1.8;
         }
 
-        footer a {
-            color: #4caf50;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        footer p {
-            margin: 10px 0;
-        }
-
-        /* STICKY CTA BAR */
-        .sticky-cta {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(135deg, rgba(76, 175, 80, 0.95), rgba(45, 125, 50, 0.95));
-            border-top: 2px solid #4caf50;
-            padding: 15px 20px;
-            z-index: 99;
-            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.4);
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        .sticky-cta a {
-            padding: 10px 20px;
-            background: white;
-            color: #2e7d32;
-            font-weight: bold;
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 0.9em;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .sticky-cta a:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        }
+        footer a { color: #4caf50; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
 
         @media (max-width: 768px) {
             h1 { font-size: 1.6em; }
             h2 { font-size: 1.4em; }
             section { padding: 30px; margin-bottom: 40px; }
-            .button-group { flex-direction: column; gap: 8px; }
-            .btn { width: 100%; }
         }
-
-        .logo {
-            height: 120px;
-            width: auto;
-            display: block;
-            margin: 0 auto 20px auto;
-        }
-
-        .qr-wrapper {
-            text-align: center;
-            margin: 1.5rem 0;
-        }
-        
-        .qr-wrapper img {
-            display: inline-block;
-            max-width: 220px; /* adjust if needed */
-            height: auto;
-        }
-
-
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <header>
-            <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Logo.png" 
-                 alt="PHIERS Logo" 
-                 class="logo">
-            <h1>Fund the Cascade</h1>
-            <p class="subtitle">Every dollar triggers exponential growth toward universal healthcare</p>
+<div class="container">
 
-            <div class="urgency-banner">
-                <p><strong>⏰ CRITICAL WINDOW: Congress home through Jan 30</strong></p>
-                <p>Every dollar funds the campaign that forces Congress to act before the Jan 30 shutdown deadline.</p>
-                <p style="margin-top: 15px; color: #ff7043;"><strong>Your support makes the cascade inevitable.</strong></p>
+    <header>
+        <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Logo.png" alt="PHIERS Logo" class="logo">
+        <h1>Fund the Cascade</h1>
+        <p class="subtitle">Every dollar triggers exponential growth toward universal healthcare</p>
+
+        <div class="urgency-banner">
+            <p><strong>⏰ CRITICAL WINDOW: Congress home through Jan 30</strong></p>
+            <p>Every dollar funds the campaign that forces Congress to act before the Jan 30 shutdown deadline.</p>
+            <p style="margin-top: 15px; color: #ff7043;"><strong>Your support makes the cascade inevitable.</strong></p>
+        </div>
+    </header>
+
+    <!-- CASCADE SECTION (unchanged) -->
+    <section>
+        <h2>How Your Donation Triggers the Cascade</h2>
+
+        <div class="cascade-box">
+            <div class="cascade-title">The Math of Exponential Impact</div>
+            <div class="cascade-content">
+                <p>Our homepage proves: <strong>$7,400 freed per person funds 12 more conversions.</strong></p>
+                <p>Your donation doesn't just support operations. It funds the publishing and media strategy that reaches Congress with proof that millions demand this solution.</p>
+                <div class="cascade-math">1 → 12 → 148 → 1,825 → ... → 234 Million Covered</div>
+                <p style="margin-top: 20px; font-size: 0.95em;">Your $15 isn't an expense. It's the trigger that starts this cascade.</p>
             </div>
-        </header>
+        </div>
 
-        <!-- THE CASCADE CONNECTION -->
-        <section>
-            <h2>How Your Donation Triggers the Cascade</h2>
+        <h3>📰 How Your Money Works</h3>
 
-            <div class="cascade-box">
-                <div class="cascade-title">The Math of Exponential Impact</div>
-                <div class="cascade-content">
-                    <p>Our homepage proves: <strong>$7,400 freed per person funds 12 more conversions.</strong></p>
-                    <p>Your donation doesn't just support operations. It funds the publishing and media strategy that reaches Congress with proof that millions demand this solution.</p>
-                    <div class="cascade-math">
-                        1 → 12 → 148 → 1,825 → ... → 234 Million Covered
-                    </div>
-                    <p style="margin-top: 20px; font-size: 0.95em;">Your $15 isn't an expense. It's the trigger that starts this cascade.</p>
+        <div class="usage-box">
+            <div class="usage-title">🎯 PATHOS PR CAMPAIGN - Primary Impact</div>
+            <div class="usage-item">
+                <div class="usage-item-title">$5,000+ = Publishing Guarantee</div>
+                <div class="usage-item-desc">Media amplification to 55M+ readers. Your donation directly funds the story that reaches Congress and forces them to see the numbers.</div>
+            </div>
+            <div class="usage-item" style="margin-top: 15px;">
+                <div class="usage-item-title">$10,000 = Campaign Operations</div>
+                <div class="usage-item-desc">Communications, travel, coordination through Jan 30 shutdown deadline. This is the infrastructure that moves from signatures to town halls to Congressional action.</div>
+            </div>
+        </div>
+
+        <h3>⚙️ Direct Operating Expenses (to Stay in the Fight)</h3>
+        <ul>
+            <li><strong>Laptop, tools and phone:</strong> Essential for research, collaboration & content mgmt</li>
+            <li><strong>Internet, research + cloud services:</strong> Workspace, hosting, domain management</li>
+            <li><strong>AI tools:</strong> Claude, ChatGPT for rapid content creation and strategy</li>
+            <li><strong>Organizing coordinator support:</strong> Travel, materials, infrastructure</li>
+        </ul>
+
+        <h3>🚀 Campaign Amplification</h3>
+        <ul>
+            <li>Petition printing + distribution materials</li>
+            <li>Video production + podcast coordination</li>
+            <li>Congressional outreach + media tracking</li>
+        </ul>
+
+        <div class="goal-box">
+            <div class="goal-amount">$15K GOAL</div>
+            <div class="goal-text">Complete mission through Jan 31 shutdown deadline. $5K publication + $10K operations.</div>
+        </div>
+    </section>
+
+    <!-- DONATION METHODS -->
+    <section>
+        <h2>💳 Donate Now</h2>
+
+        <p style="text-align: center; margin-bottom: 35px; color: #c8e6c9; font-size: 1.05em;">
+            <strong>Choose your method. Every dollar gets us closer to 55M+ readers seeing the truth:</strong>
+        </p>
+
+        <!-- VENMO -->
+        <div class="donation-method">
+            <div class="method-title">💬 Venmo</div>
+            <div class="method-details">
+                <p><strong>@Will4PHIERS</strong></p>
+                <p style="font-size: 0.95em; color: #a5d6a7;">Or send to: info@phiers.org</p>
+
+                <div class="qr-wrapper">
+                    <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/Venmo.png" alt="Venmo QR">
                 </div>
+
+                <p style="font-size: 0.85em; color: #81c784;">
+                    Funds support nonpartisan civic engagement, worker‑centered organizing, and the movement of Americans who refuse to be ruled.
+                </p>
             </div>
+        </div>
 
-            <h3>📰 How Your Money Works</h3>
+        <!-- PAYPAL -->
+        <div class="donation-method">
+            <div class="method-title">📱 PayPal</div>
+            <div class="method-details">
+                <p><strong>info@phiers.org</strong></p>
 
-            <div class="usage-box">
-                <div class="usage-title">🎯 PATHOS PR CAMPAIGN - Primary Impact</div>
-                <div class="usage-item">
-                    <div class="usage-item-title">$5,000+ = Publishing Guarantee</div>
-                    <div class="usage-item-desc">Media amplification to 55M+ readers. Your donation directly funds the story that reaches Congress and forces them to see the numbers.</div>
+                <div class="qr-wrapper">
+                    <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PayPal.png" alt="PayPal QR">
                 </div>
-                <div class="usage-item" style="margin-top: 15px;">
-                    <div class="usage-item-title">$10,000 = Campaign Operations</div>
-                    <div class="usage-item-desc">Communications, travel, coordination through Jan 30 shutdown deadline. This is the infrastructure that moves from signatures to town halls to Congressional action.</div>
+
+                <p style="font-size: 0.85em; color: #81c784;">
+                    Funds support nonpartisan civic engagement, worker‑centered organizing, and the movement of Americans who refuse to be ruled.
+                </p>
+            </div>
+        </div>
+
+        <!-- ZELLE -->
+        <div class="donation-method">
+            <div class="method-title">📱 Zelle</div>
+            <div class="method-details">
+                <p><strong>301-919-0970</strong></p>
+
+                <div class="qr-wrapper">
+                    <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/Zelle.png" alt="Zelle QR">
                 </div>
+
+                <p style="font-size: 0.85em; color: #81c784;">
+                    Funds support nonpartisan civic engagement, worker‑centered organizing, and the movement of Americans who refuse to be ruled.
+                </p>
             </div>
+        </div>
 
-            <h3>⚙️ Direct Operating Expenses (to Stay in the Fight)</h3>
-            <ul>
-                <li><strong>Laptop, tools and phone :</strong> Current device dying—essential for research,collaboration & content mgmt </li>
-                <li><strong>Internet, research + cloud services:</strong> Content Workspace, hosting, domain management</li>
-                <li><strong>AI tools:</strong> Claude, ChatGPT for rapid content creation and strategy</li>
-                <li><strong>Organizing coordinator support:</strong> Travel, mktg, materials, organizing infrastructure</li>
-            </ul>
+        <h3 style="margin-top: 45px; text-align: center;">OR</h3>
 
-            <h3>🚀 Campaign Amplification</h3>
-            <ul>
-                <li>Petition printing + distribution materials (physical proof for town halls)</li>
-                <li>Video production + podcast coordination (reach multiple audiences)</li>
-                <li>Congressional outreach + media tracking (prove the pressure is real)</li>
-            </ul>
+        <div style="text-align: center; margin: 35px 0;">
+            <a href="https://www.gofundme.com/f/homeless-but-hopeful-affordable-healthcare-good-jobs-ubi" target="_blank" class="btn btn-secondary">💰 GoFundMe Campaign (Backup)</a>
+        </div>
+    </section>
 
-            <div class="goal-box">
-                <div class="goal-amount">$15K GOAL</div>
-                <div class="goal-text">Complete mission through Jan 31 shutdown deadline. $5K publication + $10K operations.</div>
-            </div>
-        </section>
+    <!-- USE OF FUNDS (NEW SECTION) -->
+    <section class="use-of-funds">
+        <h3>How Your Donation Supports Workers, Unions, and People Who Refuse to Be Ruled</h3>
 
-        <!-- DONATION METHODS -->
-        <section>
-            <h2>💳 Donate Now</h2>
+        <p style="margin-bottom: 20px;">
+            PHIERS uses every dollar to strengthen nonpartisan civic engagement — the kind that helps working people, union members, and everyday Americans push back against concentrated power. We don’t fund candidates or parties. We fund the tools and organizing that let people stand together and say: <strong>No kings. No unchecked authority. No decisions made without us.</strong>
+        </p>
 
-            <p style="text-align: center; margin-bottom: 35px; color: #c8e6c9; font-size: 1.05em;"><strong>Choose your method. Every dollar gets us closer to 55M+ readers seeing the truth:</strong></p>
+        <ul>
+            <li><strong>Constituent organizing:</strong> Helping people coordinate, speak up, and apply district‑level pressure.</li>
+            <li><strong>Worker‑centered civic education:</strong> Clear, accessible materials that explain how decisions get made — and how to influence them.</li>
+            <li><strong>Union‑aligned outreach:</strong> Partnering with labor voices who fight for dignity, fairness, and a seat at the table.</li>
+            <li><strong>Digital tools for collective action:</strong> Mobile‑friendly systems that help people contact their representatives and track accountability.</li>
+            <li><strong>Volunteer coordination:</strong> Training and infrastructure for people who want to help their communities push back against top‑down power.</li>
+            <li><strong>District‑level pressure campaigns:</strong> Nonpartisan efforts reminding elected officials they serve the people — not themselves.</li>
+        </ul>
 
-            <!-- VENMO -->
-            <div class="donation-method">
-                <div class="method-title">💬 Venmo</div>
-                <div class="method-details">
-                    <p><strong>@Will4PHIERS</strong></p>
-                    <p style="font-size: 0.95em; color: #a5d6a7;">Or send to: info@phiers.org</p>
-            
-                    <div class="qr-wrapper">
-                        <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/Venmo.png" alt="Venmo QR">
-                    </div>
-            
-                </div>
-            </div>
+        <p style="margin-top: 20px; color: #81c784;">
+            Every dollar strengthens the movement of Americans who refuse to be ruled — people who believe in representation, fairness, and shared power.
+        </p>
+    </section>
 
+    <!-- OTHER WAYS -->
+    <section>
+        <h2>✍️ Other Ways to Help</h2>
 
-            <!-- PAYPAL -->
-            <div class="donation-method">
-                <div class="method-title">📱 PayPal</div>
-                <div class="method-details">
-                    <p><strong>info@phiers.org</strong></p>
-            
-                    <div class="qr-wrapper">
-                        <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PayPal.png" alt="PayPal QR">
-                    </div>
-            
-                </div>
-            </div>
+        <p style="color: #c8e6c9; margin-bottom: 30px;">Can't donate right now? You can still trigger the cascade:</p>
 
+        <div class="button-group">
+            <a href="https://c.org/q9vrMCQZsY" target="_blank" class="btn btn-primary">✏️ Sign Petition</a>
+            <a href="https://forms.gle/3krYjz6JnvQkttJZ8" target="_blank" class="btn btn-primary">📋 Fill Survey</a>
+            <a href="https://discord.gg/narhDKJY" target="_blank" class="btn btn-primary">💬 Join Discord</a>
+            <a href="https://phiersale.github.io/Join_the_Team/" target="_blank" class="btn btn-secondary">🚀 Join the Team</a>
+        </div>
 
-            <!-- Zelle -->
-            <div class="donation-method">
-                <div class="method-title">📱 Zelle</div>
-                <div class="method-details">
-                    <p><strong>301-919-0970</strong></p>
-            
-                    <div class="qr-wrapper">
-                        <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/Zelle.png" alt="Zelle QR">
-                    </div>
-            
-                </div>
-            </div>
+        <div style="background: rgba(76, 175, 80, 0.15); border: 2px solid #4caf50; padding: 30px; margin: 40px 0; border-radius: 8px; text-align: center;">
+            <p style="color: #c8e6c9; font-size: 1.1em; line-height: 1.9; margin: 0;"><strong>Every dollar funds publishing our story to 55 million readers.</strong></p>
+            <p style="color: #81c784; margin-top: 20px; font-size: 0.95em;">Congress failed Dec 11. We're taking over Dec 31–Jan 30.</p>
+            <p style="color: #4caf50; margin-top: 15px; font-weight: bold;">Your support makes the impossible inevitable.</p>
+        </div>
+    </section>
 
+    <!-- FOOTER -->
+    <footer>
+        <p><strong>PHIERS Movement | Make America Better And Healthier (MABAH)</strong></p>
+        <p>Will Price | Chief Solutions Architect | 916-306-8967 | info@phiers.org</p>
+        <p style="margin-top: 20px;">
+            <a href="https://phiersale.github.io/PHIERS-Concept/">Main Site</a> |
+            <a href="https://phiersale.github.io/Join_the_Team/">Join the Team</a> |
+            <a href="https://discord.gg/narhDKJY">Discord Community</a>
+        </p>
+        <p style="margin-top: 15px;">© PHIERS.org — People's Health Insurance Endowment and Referral Service</p>
+    </footer>
 
-            <h3 style="margin-top: 45px; text-align: center;">OR</h3>
-
-            <div style="text-align: center; margin: 35px 0;">
-                <a href="https://www.gofundme.com/f/homeless-but-hopeful-affordable-healthcare-good-jobs-ubi" target="_blank" class="btn btn-secondary">💰 GoFundMe Campaign (Backup)</a>
-            </div>
-        </section>
-
-        <!-- OTHER WAYS -->
-        <section>
-            <h2>✍️ Other Ways to Help</h2>
-
-            <p style="color: #c8e6c9; margin-bottom: 30px;">Can't donate right now? You can still trigger the cascade:</p>
-
-            <div class="button-group">
-                <a href="https://c.org/q9vrMCQZsY" target="_blank" class="btn btn-primary">✏️ Sign Petition</a>
-                <a href="https://forms.gle/3krYjz6JnvQkttJZ8" target="_blank" class="btn btn-primary">📋 Fill Survey</a>
-                <a href="https://discord.gg/narhDKJY" target="_blank" class="btn btn-primary">💬 Join Discord</a>
-                <a href="https://phiersale.github.io/Join_the_Team/" target="_blank" class="btn btn-secondary">🚀 Join the Team</a>
-            </div>
-
-            <div style="background: rgba(76, 175, 80, 0.15); border: 2px solid #4caf50; padding: 30px; margin: 40px 0; border-radius: 8px; text-align: center;">
-                <p style="color: #c8e6c9; font-size: 1.1em; line-height: 1.9; margin: 0;"><strong>Every dollar funds publishing our story to 55 million readers.</strong></p>
-                <p style="color: #81c784; margin-top: 20px; font-size: 0.95em;">Congress failed Dec 11. We're taking over Dec 31–Jan 30.</p>
-                <p style="color: #4caf50; margin-top: 15px; font-weight: bold;">Your support makes the impossible inevitable.</p>
-            </div>
-        </section>
-
-        <!-- FOOTER -->
-        <footer>
-            <p><strong>PHIERS Movement | Make America Better And Healthier (MABAH)</strong></p>
-            <p>Will Price | Chief Solutions Architect | 916-306-8967 | info@phiers.org</p>
-            <p style="margin-top: 20px;">
-                <a href="https://phiersale.github.io/PHIERS-Concept/">Main Site</a> | 
-                <a href="https://phiersale.github.io/Join_the_Team/">Join the Team</a> |
-                <a href="https://discord.gg/narhDKJY">Discord Community</a>
-            </p>
-            <p style="margin-top: 15px;">© PHIERS.org — People's Health Insurance Endowment and Referral Service</p>
-        </footer>
-    </div>
+</div>
 </body>
 </html>
