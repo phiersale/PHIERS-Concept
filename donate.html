@@ -170,6 +170,41 @@
             .button-group { flex-direction: column; gap: 10px; }
             .btn { width: 100%; }
         }
+
+        /* Modal for enlarge-on-click */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .modal:target {
+            display: block;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            text-decoration: none;
+        }
     </style>
 </head>
 
@@ -200,11 +235,19 @@
         </div>
     </header>
 
-    <!-- IMAGE BREAK -->
+    <!-- IMAGE BREAK (CLICK TO ENLARGE) -->
     <div style="text-align: center; margin: 50px 0;">
-        <img src="We_Gotz_Teeth_for_No_Kings.jpg"
-             alt="No Kings protest crowd with PHIERS TEETH banner"
-             style="max-width: 50%; height: auto; border-radius: 10px; box-shadow: 0 4px 18px rgba(0,0,0,0.45);">
+        <a href="#imgModal">
+            <img src="We_Gotz_Teeth_for_No_Kings.jpg"
+                 alt="No Kings protest crowd with PHIERS TEETH banner"
+                 style="max-width: 50%; height: auto; border-radius: 10px; box-shadow: 0 4px 18px rgba(0,0,0,0.45); cursor: zoom-in;">
+        </a>
+    </div>
+
+    <!-- MODAL -->
+    <div id="imgModal" class="modal">
+        <a href="#" class="close">&times;</a>
+        <img class="modal-content" src="We_Gotz_Teeth_for_No_Kings.jpg" alt="">
     </div>
 
     <!-- SUMMARY SECTION -->
