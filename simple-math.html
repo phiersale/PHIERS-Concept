@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Receipts - PHIERS Movement</title>
+    <meta name="color-scheme" content="dark light">
+    <title>Simple Math - The Cascade to Universal Healthcare</title>
     <style>
         * {
             margin: 0;
@@ -15,473 +16,485 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
             color: #e0e0e0;
-            line-height: 1.8;
+            line-height: 1.6;
             min-height: 100vh;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
-        
-        header {
+
+        /* HEADER */
+        .header {
             text-align: center;
             padding: 40px 20px;
-            background: linear-gradient(135deg, rgba(15, 52, 96, 0.8), rgba(22, 33, 62, 0.8));
+            background: linear-gradient(135deg, rgba(15, 52, 96, 0.9), rgba(22, 33, 62, 0.9));
             border-radius: 10px;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             border: 2px solid rgba(76, 175, 80, 0.3);
         }
-        
-        .logo {
-            height: 150px;
-            width: auto;
-            margin: 20px auto;
-            display: block;
-        }
 
-        h1 {
+        .header h1 {
+            font-size: 2.5em;
             color: #4caf50;
-            font-size: 2.2em;
-            margin: 20px 0;
+            margin-bottom: 15px;
             text-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
         }
 
-        h2 {
-            color: #4caf50;
-            font-size: 1.8em;
-            margin: 40px 0 20px 0;
+        .header .subtitle {
+            font-size: 1.3em;
+            color: #81c784;
+            margin-bottom: 20px;
         }
 
-        .subtitle {
-            font-size: 1.2em;
-            color: #c8e6c9;
-            margin: 15px 0;
-            font-weight: 500;
-        }
-
-        p {
-            margin: 15px 0;
-            color: #c8e6c9;
-            font-size: 1.05em;
-        }
-
-        section {
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
-            padding: 40px;
+        /* NAVIGATION */
+        .nav-back {
+            text-align: center;
             margin-bottom: 30px;
+        }
+
+        .nav-back a {
+            background: linear-gradient(135deg, #4caf50, #45a049);
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .nav-back a:hover {
+            background: linear-gradient(135deg, #45a049, #3d8b40);
+            transform: translateY(-2px);
+        }
+
+        /* SECTION STYLING */
+        .section {
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
+            border-left: 4px solid #4caf50;
+            padding: 40px;
+            margin-bottom: 40px;
             border-radius: 8px;
-            border-left: 5px solid #4caf50;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
         }
 
-        .receipt-box {
-            background: rgba(76, 175, 80, 0.15);
-            border: 2px solid #4caf50;
-            padding: 30px;
-            margin: 30px 0;
-            border-radius: 8px;
-        }
-
-        .btn {
-            background: linear-gradient(135deg, #2196f3, #1976d2);
-            color: white;
-            padding: 16px 40px;
-            font-size: 1.1em;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 8px;
-            display: inline-block;
-            margin: 20px 10px;
-            box-shadow: 0 4px 15px rgba(33, 150, 243, 0.4);
-            transition: all 0.3s;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(33, 150, 243, 0.6);
-        }
-
-        .home-btn {
-            background: linear-gradient(135deg, #4caf50, #45a049);
-            color: white;
-            padding: 12px 30px;
-            font-size: 1em;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 8px;
-            display: inline-block;
-            margin: 30px auto;
-            text-align: center;
-        }
-
-        footer {
-            background: rgba(15, 23, 42, 0.9);
-            padding: 40px 20px;
-            margin-top: 60px;
-            border-top: 2px solid rgba(76, 175, 80, 0.3);
-            text-align: center;
-        }
-
-        footer h3 {
+        .section h2 {
+            font-size: 2em;
             color: #4caf50;
             margin-bottom: 20px;
         }
 
-        footer a {
+        .section h3 {
+            font-size: 1.5em;
             color: #81c784;
-            text-decoration: none;
-            margin: 0 15px;
-            transition: color 0.3s;
+            margin-bottom: 15px;
         }
 
-        footer a:hover {
+        /* IMAGE STYLING */
+        .math-image {
+            max-width: 100%;
+            width: 100%;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .image-caption {
+            text-align: center;
+            color: #81c784;
+            font-style: italic;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+
+        /* HIGHLIGHT BOXES */
+        .highlight-box {
+            background: rgba(76, 175, 80, 0.1);
+            border: 2px solid #4caf50;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+
+        .highlight-title {
             color: #4caf50;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 15px;
         }
 
-        ul {
-            margin: 20px 0 20px 40px;
-            color: #c8e6c9;
+        /* CASCADE VISUALIZATION */
+        .cascade-flow {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 40px 0;
+            flex-wrap: wrap;
         }
 
-        li {
-            margin: 10px 0;
+        .cascade-step {
+            text-align: center;
+            margin: 20px;
+            flex: 1;
+            min-width: 200px;
         }
 
-        strong {
+        .cascade-number {
+            font-size: 3em;
+            color: #4caf50;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .cascade-arrow {
+            font-size: 2em;
+            color: #81c784;
+            margin: 0 20px;
+        }
+
+        .cascade-label {
+            color: #a5d6a7;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        /* MATH BREAKDOWN */
+        .math-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .math-card {
+            background: rgba(15, 52, 96, 0.8);
+            border: 2px solid rgba(76, 175, 80, 0.4);
+            border-radius: 8px;
+            padding: 25px;
+            transition: transform 0.3s ease;
+        }
+
+        .math-card:hover {
+            transform: translateY(-5px);
+            border-color: #4caf50;
+        }
+
+        .math-card h4 {
+            color: #4caf50;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        /* TIMELINE */
+        .timeline {
+            background: rgba(76, 175, 80, 0.05);
+            border: 2px solid rgba(76, 175, 80, 0.3);
+            border-radius: 8px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .timeline h3 {
+            color: #4caf50;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .timeline-step {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(26, 26, 46, 0.5);
+            border-radius: 6px;
+        }
+
+        .timeline-month {
+            background: #4caf50;
             color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: bold;
+            min-width: 100px;
+            text-align: center;
+            margin-right: 20px;
         }
 
+        .timeline-event {
+            flex: 1;
+        }
+
+        /* BULLET LISTS */
+        .math-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .math-list li {
+            margin: 15px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .math-list li:before {
+            content: "→";
+            color: #4caf50;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* TIMESTAMP */
+        .timestamp {
+            text-align: center;
+            color: #81c784;
+            font-size: 0.9em;
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(76, 175, 80, 0.1);
+            border-radius: 8px;
+        }
+
+        /* MOBILE RESPONSIVENESS */
         @media (max-width: 768px) {
-            h1 { font-size: 1.8em; }
-            h2 { font-size: 1.4em; }
-            .logo { height: 100px; }
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .cascade-flow {
+                flex-direction: column;
+            }
+            
+            .cascade-arrow {
+                transform: rotate(90deg);
+                margin: 10px 0;
+            }
+            
+            .math-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline-step {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .timeline-month {
+                margin-bottom: 10px;
+                margin-right: 0;
+            }
+            
+            .container {
+                padding: 10px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <a href="index.html">
-                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Logo.png" 
-                     alt="PHIERS Logo" 
-                     class="logo">
-            </a>
-            <h1>Receipts</h1>
-            <p class="subtitle">The math. The mechanism. The proof. The inevitability.</p>
+        <!-- NAVIGATION -->
+        <div class="nav-back">
+            <a href="index.html">← Back to Movement</a>
+        </div>
+
+        <!-- HEADER -->
+        <header class="header">
+            <h1>Simple Math: The Cascade to Universal Healthcare</h1>
+            <div class="subtitle">One Conversion Funds 12. Then 148. Then Millions.</div>
+            <p>The cascade is exponential, inevitable, and already in motion.</p>
         </header>
 
-        <!-- NAVIGATION -->
-        <nav style="
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
-            border: 2px solid rgba(76, 175, 80, 0.3);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 40px;
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-        ">
-            <a href="index.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">ðŸ  Start Here</a>
+        <!-- THE CORE MATH -->
+        <section class="section">
+            <h2>The Cascade Mathematics</h2>
+            <img src="SIMPLE_MATH.png" alt="Simple Math - Exponential Cascade from 1 to Universal Coverage" class="math-image">
+            <div class="image-caption">The mathematical progression: 1 → 12 → 148 → Universal Coverage</div>
             
-            <a href="crisis.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">ðŸš¨ What's Broken</a>
-            
-            <a href="why-change-required.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">âš–ï¸ Why Change Required</a>
-            
-            <a href="5D_Solutions.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">ðŸ“‹ 5D Solutions</a>
-            
-            <a href="action.html" style="background: linear-gradient(135deg, #2196f3, #1976d2); color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s; box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(33, 150, 243, 0.5)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(33, 150, 243, 0.3)'">âœï¸ Petition</a>
-            
-            <a href="simple-math.html" style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.3), rgba(129, 199, 132, 0.3)); color: #4caf50; padding: 10px 20px; border: 2px solid #4caf50; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em;">ðŸ“Š Receipts</a>
-            
-            <a href="faq.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">â“ FAQ</a>
-        </nav>
-
-        <!-- SIMPLE MATH GRAPHIC -->
-        <div style="text-align: center; margin: 40px 0;">
-            <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/SIMPLE_MATH.png" 
-                 alt="PHIERS Simple Math - The CASCADE Explained"
-                 onclick="this.style.maxWidth = this.style.maxWidth === '50%' ? '100%' : '50%';"
-                 style="max-width: 50%; height: auto; border-radius: 8px; border: 2px solid rgba(76, 175, 80, 0.3); cursor: pointer; transition: max-width 0.3s;">
-            <p style="color: #81c784; font-size: 0.9em; font-style: italic; margin-top: 10px;">Click to enlarge â€¢ The Simple Math Behind Universal Coverage</p>
-        </div>
-
-        <section>
-            <p style="font-size: 1.15em; color: white;">Movements fail when they rely on hope. This one doesn't.</p>
-            
-            <p>Everything we're fighting for â€” universal healthcare, UBI, millions of jobs, democratic stability â€” is powered by math, not magic.</p>
-            
-            <p style="margin-top: 25px;">This page shows:</p>
-            <ul>
-                <li>Where the savings come from</li>
-                <li>How the cascade works</li>
-                <li>Why the timeline is real</li>
-                <li>Why 3.5% is enough</li>
-                <li>Why the system scales automatically</li>
-                <li>Why this is the only intelligent path forward</li>
-            </ul>
-            
-            <p style="color: #4caf50; font-weight: bold; margin-top: 25px; font-size: 1.1em;">These are the receipts.</p>
-        </section>
-
-        <section>
-            <h2>â­ Receipt #1: Telehealth Is 94% Cheaper</h2>
-            
-            <p>Telehealth isn't a "nice to have." It's the cheapest, fastest, most scalable form of care in the country.</p>
-            
-            <div class="receipt-box">
-                <p style="font-size: 1.1em;"><strong>Average cost of a telehealth visit:</strong> $40â€“$60</p>
-                <p style="font-size: 1.1em; margin-top: 10px;"><strong>Average cost of an insuranceâ€‘based visit:</strong> $600â€“$1,200+</p>
-                <p style="color: #4caf50; font-weight: bold; margin-top: 20px; font-size: 1.15em;">That's a 10x difference</p>
-            </div>
-            
-            <p>And that's before you even factor in:</p>
-            <ul>
-                <li>Denials</li>
-                <li>Administrative overhead</li>
-                <li>Billing departments</li>
-                <li>Middlemen</li>
-                <li>Profit extraction</li>
-            </ul>
-            
-            <p style="color: #4caf50; font-weight: bold; margin-top: 20px;">Telehealth is the first domino because it's the only part of the system that already works.</p>
-        </section>
-
-        <section>
-            <h2>â­ Receipt #2: Universal Healthcare Saves $2.73 Trillion</h2>
-            
-            <p>This number isn't hypothetical. It's the waste we're already paying for.</p>
-            
-            <p style="margin-top: 20px;"><strong>The $2.73T comes from:</strong></p>
-            <ul>
-                <li>Administrative overhead</li>
-                <li>Inflated drug prices</li>
-                <li>Billing complexity</li>
-                <li>Denials</li>
-                <li>Middlemen</li>
-                <li>Profit extraction</li>
-                <li>Inefficiency baked into the system</li>
-            </ul>
-            
-            <div class="receipt-box">
-                <p style="text-align: center; font-size: 1.15em; color: white; font-weight: bold;">
-                    We're not asking for new money. We're asking Congress to stop burning money.
-                </p>
-            </div>
-            
-            <p>Redirecting this waste is how we fund:</p>
-            <ul>
-                <li>Universal healthcare</li>
-                <li>Universal basic income</li>
-                <li>Millions of jobs</li>
-                <li>Democratic stability</li>
-            </ul>
-            
-            <p style="color: #4caf50; font-weight: bold; margin-top: 20px;">This is the heart of 5D problemâ€‘solving: use what exists to build what's next.</p>
-        </section>
-
-        <section>
-            <h2>â­ Receipt #3: The Cascade Is Real</h2>
-            
-            <p>Once telehealth is authorized, the system begins to scale automatically.</p>
-            
-            <div class="receipt-box">
-                <p style="text-align: center; font-family: monospace; font-size: 1.05em; margin: 20px 0; color: white;">
-                    1 â†’ 12 â†’ 148 â†’ 1,776 â†’ 21,312 â†’ 255,744 â†’ 3,068,928 â†’ 36,827,136 â†’ 442,000,000+
-                </p>
-            </div>
-            
-            <p><strong>This is not a metaphor.</strong> This is how systems grow when:</p>
-            <ul>
-                <li>The cost is low</li>
-                <li>The friction is low</li>
-                <li>The benefit is high</li>
-                <li>The access is universal</li>
-                <li>The incentives align</li>
-            </ul>
-            
-            <p style="color: #4caf50; font-weight: bold; margin-top: 20px;">This is why universal healthcare becomes possible in 8â€“13 months, not 10 years.</p>
-        </section>
-
-        <section>
-            <h2>â­ Receipt #4: UBI Isn't a Dream â€” It's a Redirection</h2>
-            
-            <p>Once healthcare stops draining families, employers, and government budgets, the savings become the fuel for:</p>
-            <ul>
-                <li>A national UBI</li>
-                <li>Economic stability</li>
-                <li>Entrepreneurship</li>
-                <li>Resilience</li>
-                <li>Dignity</li>
-            </ul>
-            
-            <p style="color: #4caf50; font-weight: bold; margin-top: 20px;">This isn't charity. It's returning the value we're already creating.</p>
-        </section>
-
-        <section>
-            <h2>â­ Receipt #5: Job Creation Is a Function of Stability</h2>
-            
-            <p>When people have:</p>
-            <ul>
-                <li>Healthcare</li>
-                <li>Income stability</li>
-                <li>Breathing room</li>
-            </ul>
-            
-            <p style="margin-top: 20px;">â€¦they can:</p>
-            <ul>
-                <li>Retrain</li>
-                <li>Relocate</li>
-                <li>Start businesses</li>
-                <li>Fill essential roles</li>
-                <li>Build new industries</li>
-            </ul>
-            
-            <div class="receipt-box">
-                <p style="text-align: center; font-size: 1.1em; color: white; font-weight: bold;">
-                    This is how we create millions of AIâ€‘resistant jobs.
-                </p>
-                <p style="text-align: center; margin-top: 15px; color: #c8e6c9;">
-                    Not through subsidies. Through stability.
-                </p>
+            <div class="cascade-flow">
+                <div class="cascade-step">
+                    <span class="cascade-number">1</span>
+                    <div class="cascade-label">First Conversion</div>
+                </div>
+                <div class="cascade-arrow">→</div>
+                <div class="cascade-step">
+                    <span class="cascade-number">12</span>
+                    <div class="cascade-label">Funded Next</div>
+                </div>
+                <div class="cascade-arrow">→</div>
+                <div class="cascade-step">
+                    <span class="cascade-number">148</span>
+                    <div class="cascade-label">Network Effect</div>
+                </div>
+                <div class="cascade-arrow">→</div>
+                <div class="cascade-step">
+                    <span class="cascade-number">234M</span>
+                    <div class="cascade-label">Universal Coverage</div>
+                </div>
             </div>
         </section>
 
-        <section>
-            <h2>â­ Receipt #6: Stability Protects Democracy</h2>
+        <!-- CORE MATH BREAKDOWN -->
+        <section class="section">
+            <h2>How the Numbers Work</h2>
+            <img src="CORE_MATH_for_234M.png" alt="Core Math for 234 Million Americans - Conversion Mathematics" class="math-image">
+            <div class="image-caption">The mathematical foundation: From one conversion to 234 million covered</div>
             
-            <p><strong>Authoritarianism thrives in:</strong></p>
-            <ul>
-                <li>Chaos</li>
-                <li>Fear</li>
-                <li>Scarcity</li>
-                <li>Instability</li>
-            </ul>
-            
-            <p style="margin-top: 20px;"><strong>It collapses when people are:</strong></p>
-            <ul>
-                <li>Healthy</li>
-                <li>Housed</li>
-                <li>Fed</li>
-                <li>Stable</li>
-                <li>Secure</li>
-            </ul>
-            
-            <p style="color: #4caf50; font-weight: bold; margin-top: 20px;">Economic stability is political stability. This is how we protect democracy â€” not with speeches, but with material security.</p>
-        </section>
-
-        <section>
-            <h2>â­ Receipt #7: 3.5% Is Enough</h2>
-            
-            <p>Harvard research shows that when 3.5% of a population organizes, systemic change becomes:</p>
-            <ul>
-                <li>Guaranteed</li>
-                <li>Peaceful</li>
-                <li>Nonâ€‘negotiable</li>
-                <li>Inevitable</li>
-            </ul>
-            
-            <div class="receipt-box">
-                <p style="text-align: center; font-size: 1.15em; color: white; font-weight: bold;">
-                    For the U.S., that's 11.6 million people.
-                </p>
-                <p style="text-align: center; margin-top: 15px; color: #c8e6c9;">
-                    Once we hit 3.5%, Congress loses the ability to ignore the people.
-                </p>
-            </div>
-            
-            <p style="color: #4caf50; font-weight: bold; margin-top: 20px;">This is the ignition point.</p>
-        </section>
-
-        <section>
-            <h2>â­ Receipt #8: The Timeline Is Real</h2>
-            
-            <p>Here's the arc:</p>
-            
-            <div class="receipt-box">
-                <h3 style="color: #81c784;">Step 1 â€” 3.5% (11.6M signatures)</h3>
-                <p>Forces Congress to authorize universal telehealth.</p>
+            <div class="math-grid">
+                <div class="math-card">
+                    <h4>Savings Per Person</h4>
+                    <ul class="math-list">
+                        <li>Traditional insurance: $8,500+/year</li>
+                        <li>PHIERS telehealth: $600/year</li>
+                        <li>Individual savings: $7,900+/year</li>
+                        <li>Family savings: $18,000-$72,000+/year</li>
+                    </ul>
+                </div>
                 
-                <h3 style="color: #81c784; margin-top: 25px;">Step 2 â€” Authorization â†’ Exponential Growth</h3>
-                <p>The cascade scales automatically.</p>
+                <div class="math-card">
+                    <h4>Network Funding Model</h4>
+                    <ul class="math-list">
+                        <li>Each conversion saves $7,900+</li>
+                        <li>Savings fund next 12 conversions at $600 each</li>
+                        <li>12 conversions create $94,800 in new savings</li>
+                        <li>Pattern repeats exponentially</li>
+                    </ul>
+                </div>
                 
-                <h3 style="color: #81c784; margin-top: 25px;">Step 3 â€” 100 Million Members by July 4</h3>
-                <p>Not because of hope. Because of math.</p>
+                <div class="math-card">
+                    <h4>Scale Mathematics</h4>
+                    <ul class="math-list">
+                        <li>Phase 1: 1 person saves $7,900</li>
+                        <li>Phase 2: 12 people save $94,800</li>
+                        <li>Phase 3: 148 people save $1.17M</li>
+                        <li>Phase 4: Network effects accelerate to universal coverage</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHY THIS WORKS -->
+        <section class="section">
+            <h2>Why This Mathematical Model Is Unstoppable</h2>
+            <div class="highlight-box">
+                <div class="highlight-title">Network Effect Physics</div>
+                <ul class="math-list">
+                    <li><strong>Exponential Growth:</strong> Each successful conversion enables multiple new conversions</li>
+                    <li><strong>Self-Funding:</strong> Savings from each person fund the next wave of conversions</li>
+                    <li><strong>Accelerating Returns:</strong> As network grows, per-person costs decrease further</li>
+                    <li><strong>Tipping Point:</strong> At critical mass, traditional insurance becomes economically obsolete</li>
+                </ul>
+            </div>
+            
+            <div class="math-grid">
+                <div class="math-card">
+                    <h4>Economic Inevitability</h4>
+                    <p>When people can get 80% of healthcare needs for $600 instead of $8,500, the choice is mathematically obvious. The only question is timing, not outcome.</p>
+                </div>
                 
-                <p style="color: #4caf50; font-weight: bold; margin-top: 25px; font-size: 1.1em; text-align: center;">
-                    Independence Day becomes the day America becomes independent from corporate healthcare.
+                <div class="math-card">
+                    <h4>Congressional Pressure</h4>
+                    <p>As millions convert to the $600 model, pressure on Congress to authorize CMS coverage becomes unstoppable. Representatives serve constituents or lose elections.</p>
+                </div>
+                
+                <div class="math-card">
+                    <h4>Market Transformation</h4>
+                    <p>Insurance companies cannot compete with 93% cost reduction. They either adapt to the new model or become obsolete through market forces.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TIMELINE TO UNIVERSAL COVERAGE -->
+        <section class="section">
+            <h2>8-13 Month Timeline to Universal Coverage</h2>
+            <div class="timeline">
+                <h3>The Cascade Timeline</h3>
+                
+                <div class="timeline-step">
+                    <div class="timeline-month">Month 1-2</div>
+                    <div class="timeline-event">
+                        <strong>Initial Conversions:</strong> First adopters switch to $600/year telehealth model. Savings fund next wave.
+                    </div>
+                </div>
+                
+                <div class="timeline-step">
+                    <div class="timeline-month">Month 3-4</div>
+                    <div class="timeline-event">
+                        <strong>Network Growth:</strong> 1→12→148 progression accelerates. Word spreads through savings testimonials.
+                    </div>
+                </div>
+                
+                <div class="timeline-step">
+                    <div class="timeline-month">Month 5-6</div>
+                    <div class="timeline-event">
+                        <strong>Congressional Pressure:</strong> Millions converting creates district-level pressure. Representatives respond to constituent demand.
+                    </div>
+                </div>
+                
+                <div class="timeline-step">
+                    <div class="timeline-month">Month 7-8</div>
+                    <div class="timeline-event">
+                        <strong>Policy Authorization:</strong> Congress authorizes CMS to cover $600 telehealth model. Implementation accelerates.
+                    </div>
+                </div>
+                
+                <div class="timeline-step">
+                    <div class="timeline-month">Month 9-13</div>
+                    <div class="timeline-event">
+                        <strong>Universal Coverage:</strong> Network effects reach all 234M Americans. Traditional insurance obsolete.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- THE GUARANTEE -->
+        <section class="section">
+            <h2>Why Success Is Mathematically Guaranteed</h2>
+            <div class="highlight-box">
+                <div class="highlight-title">Three Convergent Forces</div>
+                <ul class="math-list">
+                    <li><strong>Economic Force:</strong> $7,900+ annual savings per person creates unstoppable individual incentive</li>
+                    <li><strong>Network Force:</strong> Each conversion funds multiple new conversions, creating exponential growth</li>
+                    <li><strong>Political Force:</strong> District-level pressure makes congressional resistance economically expensive</li>
+                </ul>
+                
+                <p style="margin-top: 20px; text-align: center; font-size: 1.1em; color: #4caf50;">
+                    <strong>When all three forces converge, the outcome is mathematically certain.</strong>
                 </p>
             </div>
         </section>
 
-        <section>
-            <h2>â­ Receipt #9: Minimum Wasted Motion</h2>
+        <!-- CALL TO ACTION -->
+        <section class="section" style="text-align: center;">
+            <h2>Join the Cascade</h2>
+            <p style="margin: 20px 0; font-size: 1.1em;">Every signature accelerates the mathematical progression. Every conversion funds the next wave.</p>
             
-            <p>Every step:</p>
-            <ul>
-                <li>Uses existing infrastructure</li>
-                <li>Uses existing money</li>
-                <li>Uses existing authority</li>
-                <li>Uses existing demand</li>
-                <li>Uses existing technology</li>
-            </ul>
+            <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now" style="background: linear-gradient(135deg, #4caf50, #45a049); color: white; padding: 18px 36px; font-size: 1.2em; font-weight: bold; border: none; border-radius: 8px; text-decoration: none; display: inline-block; margin: 10px; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);">Add Your Voice to the Cascade</a>
             
-            <div class="receipt-box">
-                <p style="text-align: center; font-size: 1.15em; color: white; font-weight: bold;">
-                    We're not building a new system. We're unlocking the one we already have.
-                </p>
-                <p style="text-align: center; margin-top: 20px; color: #4caf50; font-size: 1.1em;">
-                    This is the essence of 5D problemâ€‘solving: Solve multiple problems at once with the smallest possible action.
-                </p>
+            <p style="margin-top: 20px; color: #81c784;">
+                Universal healthcare in 8-13 months isn't hope. It's mathematics.
+            </p>
+            
+            <div style="margin-top: 30px;">
+                <a href="solutions.html" style="color: #81c784; text-decoration: underline; margin: 0 15px;">See Full Strategy →</a>
+                <a href="index.html" style="color: #81c784; text-decoration: underline; margin: 0 15px;">← Back to Movement</a>
+                <a href="donate.html" style="color: #81c784; text-decoration: underline; margin: 0 15px;">Fund the Mathematics</a>
             </div>
         </section>
 
-        <section style="text-align: center; background: linear-gradient(135deg, rgba(33, 150, 243, 0.2), rgba(25, 118, 210, 0.2)); border-left: 5px solid #2196f3;">
-            <h2 style="color: #2196f3;">Ready to Join the Movement?</h2>
-            <p style="font-size: 1.1em; margin: 20px 0;">You've seen the receipts. You've seen the math. Now help trigger the cascade.</p>
-            <a href="action.html" class="btn">âœï¸ Sign the Petition</a>
-        </section>
+        <!-- CONTACT INFO -->
+        <footer style="text-align: center; padding: 40px 20px; color: #a5d6a7; border-top: 1px solid rgba(76, 175, 80, 0.3); margin-top: 40px;">
+            <p><strong>PHIERS Movement | Make America Better And Healthier (MABAH)</strong></p>
+            <p>Will Price | Chief Solutions Architect</p>
+            <p>Phone: (916) 306-8967 | Email: <a href="mailto:info@phiers.org" style="color: #81c784;">info@phiers.org</a></p>
+        </footer>
 
-        <!-- HOME BUTTON -->
-        <div style="text-align: center; margin: 40px 0;">
-            <a href="index.html" class="home-btn">â† Back to Start Here</a>
+        <!-- TIMESTAMP -->
+        <div class="timestamp">
+            <p>Updated February 10, 2026 — Cascade mathematics active and accelerating</p>
         </div>
     </div>
-
-        
-        <div class="nav-buttons">
-            <a href="solutions.html" class="btn btn-secondary">← Previous: 5D Solutions</a>
-            <a href="action.html" class="btn btn-secondary">Next: Sign Petition →</a>
-        </div>
-
-        <footer>
-        <h3>PHIERS Movement</h3>
-        <p style="color: #c8e6c9; margin-bottom: 30px;">Building a healthier, more stable, more democratic America.</p>
-        
-        <div style="margin: 30px 0;">
-            <p style="color: #4caf50; font-weight: bold; margin-bottom: 15px;">Navigation</p>
-            <a href="index.html">Start Here</a> | 
-            <a href="crisis.html">What's Broken</a> | 
-            <a href="why-change-required.html">Why Change Required</a> | 
-            <a href="5D_Solutions.html">5D Solutions</a> | 
-            <a href="5D_Solutions.html#what-we-demand">What We Demand</a> | 
-            <a href="action.html">Petition</a> | 
-            <a href="simple-math.html">Receipts</a> | 
-            <a href="faq.html">FAQ</a>
-        </div>
-        
-        <div style="margin: 30px 0;">
-            <p style="color: #4caf50; font-weight: bold; margin-bottom: 15px;">Organization</p>
-            <a href="about.html">About</a> | 
-            <a href="/cdn-cgi/l/email-protection#761f18101936061e1f13040558190411">Contact</a> | 
-            <a href="#">Privacy</a> | 
-            <a href="#">Accessibility</a>
-        </div>
-        
-        <p style="margin-top: 30px; color: #81c784;">
-            Â© PHIERS.org â€” People's Health Insurance Economic Recovery Solutions
-        </p>
-    </
+</body>
+</html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="dark light">
-    <title>5D Solutions - PHIERS</title>
+    <title>PHIERS Solutions - 5D Strategy That Works</title>
     <style>
         * {
             margin: 0;
@@ -20,813 +20,353 @@
             min-height: 100vh;
         }
 
-        .orientation-panel {
-            background: #0f172a;
-            color: #e5e7eb;
-            padding: 14px 18px;
-            border-bottom: 1px solid #1e293b;
-            font-size: 0.95rem;
-            position: sticky;
-            top: 0;
-            z-index: 999;
-        }
-        
-        .orientation-panel strong { color: #fff; }
-        .orientation-panel span { display: block; margin-top: 4px; color: #cbd5f5; }
-
         .container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
-        
-        header {
+
+        /* HEADER */
+        .header {
             text-align: center;
             padding: 40px 20px;
-            background: linear-gradient(135deg, rgba(15, 52, 96, 0.8), rgba(22, 33, 62, 0.8));
+            background: linear-gradient(135deg, rgba(15, 52, 96, 0.9), rgba(22, 33, 62, 0.9));
             border-radius: 10px;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             border: 2px solid rgba(76, 175, 80, 0.3);
         }
-        
-        .logo {
-            height: 120px;
-            width: auto;
-            margin: 0 auto 20px auto;
-            display: block;
-        }
 
-        h1 {
+        .header h1 {
+            font-size: 2.5em;
             color: #4caf50;
-            font-size: 2.2em;
             margin-bottom: 15px;
             text-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
         }
 
-        h2 {
-            color: #4caf50;
-            font-size: 1.6em;
-            margin: 40px 0 20px 0;
-        }
-
-        h3 {
-            color: #81c784;
+        .header .subtitle {
             font-size: 1.3em;
-            margin: 25px 0 15px 0;
+            color: #81c784;
+            margin-bottom: 20px;
         }
 
-        .subtitle {
-            font-size: 1.2em;
+        /* NAVIGATION */
+        .nav-back {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .nav-back a {
+            background: linear-gradient(135deg, #4caf50, #45a049);
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .nav-back a:hover {
+            background: linear-gradient(135deg, #45a049, #3d8b40);
+            transform: translateY(-2px);
+        }
+
+        /* SECTION STYLING */
+        .section {
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
+            border-left: 4px solid #4caf50;
+            padding: 40px;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .section h2 {
+            font-size: 2em;
+            color: #4caf50;
+            margin-bottom: 20px;
+        }
+
+        .section h3 {
+            font-size: 1.5em;
             color: #81c784;
             margin-bottom: 15px;
         }
 
-        p {
-            color: #c8e6c9;
-            margin: 15px 0;
-            line-height: 1.8;
+        /* IMAGE STYLING */
+        .strategy-image {
+            max-width: 100%;
+            width: 100%;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
+        .image-caption {
+            text-align: center;
+            color: #81c784;
+            font-style: italic;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+
+        /* HIGHLIGHT BOXES */
         .highlight-box {
             background: rgba(76, 175, 80, 0.1);
             border: 2px solid #4caf50;
+            border-radius: 8px;
             padding: 25px;
             margin: 25px 0;
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(76, 175, 80, 0.15);
         }
 
-        .warning-box {
-            background: rgba(255, 152, 0, 0.1);
-            border: 2px solid #ff9800;
-            padding: 25px;
-            margin: 25px 0;
-            border-radius: 8px;
+        .highlight-title {
+            color: #4caf50;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 15px;
         }
 
-        .warning-box h3 {
-            color: #ffb74d;
+        /* BULLET LISTS */
+        .solution-list {
+            list-style: none;
+            padding: 0;
         }
 
-        .dimension-grid {
+        .solution-list li {
+            margin: 15px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .solution-list li:before {
+            content: "→";
+            color: #4caf50;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* GRID LAYOUT */
+        .dimensions-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
             margin: 30px 0;
         }
 
         .dimension-card {
-            background: rgba(76, 175, 80, 0.1);
-            border: 2px solid #4caf50;
-            padding: 25px;
+            background: rgba(15, 52, 96, 0.8);
+            border: 2px solid rgba(76, 175, 80, 0.4);
             border-radius: 8px;
-            transition: all 0.3s;
+            padding: 25px;
+            transition: transform 0.3s ease;
         }
 
         .dimension-card:hover {
-            background: rgba(76, 175, 80, 0.15);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.3);
+            transform: translateY(-5px);
+            border-color: #4caf50;
         }
 
-        .dimension-icon {
-            font-size: 2.5em;
+        .dimension-card h4 {
+            color: #4caf50;
             margin-bottom: 15px;
-            display: block;
+            font-size: 1.3em;
         }
 
-        .dimension-card h3 {
-            color: #4caf50;
-            margin: 0 0 15px 0;
-        }
-
-        .dimension-card p {
-            font-size: 0.95em;
-            margin: 10px 0;
-        }
-
-        .dimension-card strong {
-            color: white;
-        }
-
-        .graphic-container {
+        /* TIMESTAMP */
+        .timestamp {
             text-align: center;
-            margin: 40px 0;
-        }
-
-        .graphic-container img {
-            max-width: 50%;
-            height: auto;
-            border-radius: 8px;
-            border: 2px solid rgba(76, 175, 80, 0.3);
-            cursor: pointer;
-            transition: max-width 0.3s, transform 0.3s;
-        }
-
-        .graphic-container img:hover {
-            transform: scale(1.02);
-        }
-
-        .graphic-caption {
             color: #81c784;
             font-size: 0.9em;
-            font-style: italic;
-            margin-top: 10px;
-        }
-
-        .timeline {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 40px 0;
-            padding: 30px;
-            background: rgba(76, 175, 80, 0.05);
-            border: 2px solid #4caf50;
-            border-radius: 8px;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .timeline-item {
-            flex: 1;
-            min-width: 150px;
-            text-align: center;
-            padding: 15px;
-        }
-
-        .timeline-icon {
-            font-size: 2em;
-            margin-bottom: 10px;
-        }
-
-        .timeline-date {
-            color: #4caf50;
-            font-weight: bold;
-            font-size: 1.1em;
-            margin-bottom: 5px;
-        }
-
-        .timeline-label {
-            color: #81c784;
-            font-size: 0.9em;
-        }
-
-        .timeline-arrow {
-            color: #4caf50;
-            font-size: 2em;
-            flex: 0;
-        }
-
-        .comparison-box {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin: 30px 0;
-        }
-
-        .comparison-card {
-            padding: 25px;
-            border-radius: 8px;
-        }
-
-        .comparison-fail {
-            background: rgba(244, 67, 54, 0.1);
-            border: 2px solid #f44336;
-        }
-
-        .comparison-fail h3 {
-            color: #ef5350;
-        }
-
-        .comparison-success {
-            background: rgba(76, 175, 80, 0.1);
-            border: 2px solid #4caf50;
-        }
-
-        .comparison-success h3 {
-            color: #4caf50;
-        }
-
-        .comparison-card ul {
-            margin-top: 15px;
-            padding-left: 20px;
-        }
-
-        .comparison-card li {
-            margin: 10px 0;
-            line-height: 1.6;
-        }
-
-        .btn {
-            background: linear-gradient(135deg, #4caf50, #2e7d32);
-            color: white;
-            padding: 14px 32px;
-            font-size: 1.1em;
-            font-weight: bold;
-            border: 2px solid #4caf50;
-            border-radius: 8px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
-        }
-
-        .btn:hover {
-            background: linear-gradient(135deg, #66bb6a, #388e3c);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
-        }
-
-        .btn-secondary {
-            background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(76, 175, 80, 0.1));
-            border: 2px solid #4caf50;
-        }
-
-        .btn-secondary:hover {
-            background: linear-gradient(135deg, rgba(76, 175, 80, 0.3), rgba(76, 175, 80, 0.2));
-        }
-
-        .button-group {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin: 30px 0;
-        }
-
-        .nav-buttons {
-            display: flex;
-            justify-content: space-between;
-            gap: 15px;
-            margin: 40px 0;
-            padding-top: 30px;
-            border-top: 2px solid rgba(76, 175, 80, 0.3);
-        }
-
-        .nav-buttons .btn {
-            flex: 1;
-            text-align: center;
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px 20px;
-            border-top: 2px solid rgba(76, 175, 80, 0.3);
-            color: #81c784;
             margin-top: 40px;
-            font-size: 0.9em;
+            padding: 20px;
+            background: rgba(76, 175, 80, 0.1);
+            border-radius: 8px;
         }
 
-        footer p {
-            margin: 10px 0;
-        }
-
-        footer a {
-            color: #81c784;
-            text-decoration: underline;
-        }
-
-        footer a:hover {
-            color: #4caf50;
-        }
-
+        /* MOBILE RESPONSIVENESS */
         @media (max-width: 768px) {
-            h1 { font-size: 1.8em; }
-            h2 { font-size: 1.4em; }
-            .logo { height: 100px; }
-            .comparison-box { grid-template-columns: 1fr; }
-            .timeline { flex-direction: column; }
-            .timeline-arrow { display: none; }
-            .dimension-grid { grid-template-columns: 1fr; }
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .dimensions-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 10px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="orientation-panel">
-        <strong>5D Solutions: No matter what your problem is, PHIERS solves it.</strong>
-        <span>
-            Healthcare crisis? Jobs lost to AI? Economy collapsing? Politics broken? Wars draining resources? 
-            PHIERS solves all 5 simultaneously â€” because they're all connected.
-        </span>
-    </div>
-
     <div class="container">
-        <header>
-            <a href="index.html">
-                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Logo.png" 
-                     alt="PHIERS Logo" 
-                     class="logo">
-            </a>
-            <h1>ðŸ“‹ What We Demand</h1>
-            <p class="subtitle">5 Legislative Demands Congress Must Pass</p>
-            <p style="color: #c8e6c9; font-size: 1.05em; margin-top: 20px;">
-                These are not requests. These are demands backed by 11.6 million organized Americans.
-            </p>
-        </header>
-
-<!-- NAVIGATION BUTTONS (Under Hero) -->
-        <nav style="
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
-            border: 2px solid rgba(76, 175, 80, 0.3);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 40px;
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-        ">
-            <a href="index.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">ðŸ  Start Here</a>
-            
-            <a href="crisis.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">ðŸš¨ What's Broken</a>
-            
-            <a href="why-change-required.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">âš–ï¸ Why Change Required</a>
-            
-            <a href="solutions.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">ðŸ“‹ What We Demand</a>
-            
-            <a href="action.html" style="background: linear-gradient(135deg, #2196f3, #1976d2); color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s; box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(33, 150, 243, 0.5)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(33, 150, 243, 0.3)'">âœï¸ Petition</a>
-            
-            <a href="simple-math.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">ðŸ“Š Receipts</a>
-            
-            <a href="faq.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">â“ FAQ</a>
-        </nav>
-
-
-        <!-- 11:11 BIPARTISAN SOLUTION VIDEO -->
-        <section style="background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9)); border-left: 5px solid #4caf50; padding: 40px; margin-bottom: 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);">
-            <h2 style="color: #4caf50; margin-bottom: 20px; text-align: center;">ðŸŽ¥ The Bipartisan Solution: Complete Framework (11:11)</h2>
-            <p style="text-align: center; color: #c8e6c9; margin-bottom: 25px;">The full 11-minute explanation. Why both parties need this. How it saves everyone. Why it cannot be stopped.</p>
-            
-            <div style="text-align: center; margin: 30px 0;">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/bEUyDVAYwpk" title="The Bipartisan Solution - Complete PHIERS Framework" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);"></iframe>
-            </div>
-            
-            <p style="text-align: center; color: #81c784; margin-top: 20px; font-size: 0.95em;">This is the complete picture. Every dimension. Every mechanism. Every outcome.</p>
-        </section>
-
-        <!-- 5 DEMANDS -->
-        <section style="background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9)); border-left: 5px solid #4caf50; padding: 40px; margin-bottom: 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);">
-            <h2 style="color: #4caf50; margin-bottom: 30px; text-align: center;">ðŸ“‹ The 5 Demands</h2>
-            
-            <div style="display: grid; gap: 25px;">
-                <a href="demand-telehealth.html" style="display: block; background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(76, 175, 80, 0.1)); border: 2px solid rgba(76, 175, 80, 0.4); padding: 25px; border-radius: 8px; text-decoration: none; color: inherit; transition: all 0.3s;" onmouseover="this.style.background='linear-gradient(135deg, rgba(76, 175, 80, 0.25), rgba(76, 175, 80, 0.2))'; this.style.transform='translateY(-3px)'" onmouseout="this.style.background='linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(76, 175, 80, 0.1))'; this.style.transform='translateY(0)'">
-                    <h3 style="color: #4caf50; margin-bottom: 15px; font-size: 1.3em;">ðŸ“± Demand #1: Authorize Telehealth</h3>
-                    <p style="color: #c8e6c9; font-size: 1.05em;">Congress must authorize $600/year telehealth as a covered benefit under the ACA. No infrastructure needed. Works immediately.</p>
-                    <p style="color: #4caf50; margin-top: 15px; font-weight: bold;">Click to see full details â†’</p>
-                </a>
-
-                <a href="demand-universal-coverage.html" style="display: block; background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(76, 175, 80, 0.1)); border: 2px solid rgba(76, 175, 80, 0.4); padding: 25px; border-radius: 8px; text-decoration: none; color: inherit; transition: all 0.3s;" onmouseover="this.style.background='linear-gradient(135deg, rgba(76, 175, 80, 0.25), rgba(76, 175, 80, 0.2))'; this.style.transform='translateY(-3px)'" onmouseout="this.style.background='linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(76, 175, 80, 0.1))'; this.style.transform='translateY(0)'">
-                    <h3 style="color: #4caf50; margin-bottom: 15px; font-size: 1.3em;">ðŸ¥ Demand #2: Universal Coverage in 8-13 Months</h3>
-                    <p style="color: #c8e6c9; font-size: 1.05em;">Guarantee coverage for all 234 million Americans who want it. The cascade math makes this inevitable.</p>
-                    <p style="color: #4caf50; margin-top: 15px; font-weight: bold;">Click to see full details â†’</p>
-                </a>
-
-                <a href="demand-ubi.html" style="display: block; background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(76, 175, 80, 0.1)); border: 2px solid rgba(76, 175, 80, 0.4); padding: 25px; border-radius: 8px; text-decoration: none; color: inherit; transition: all 0.3s;" onmouseover="this.style.background='linear-gradient(135deg, rgba(76, 175, 80, 0.25), rgba(76, 175, 80, 0.2))'; this.style.transform='translateY(-3px)'" onmouseout="this.style.background='linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(76, 175, 80, 0.1))'; this.style.transform='translateY(0)'">
-                    <h3 style="color: #4caf50; margin-bottom: 15px; font-size: 1.3em;">ðŸ’° Demand #3: UBI from Healthcare Savings</h3>
-                    <p style="color: #c8e6c9; font-size: 1.05em;">Use $2.73T in freed government savings to fund monthly payments. $650/month for every American or $1,300/month for every adult.</p>
-                    <p style="color: #4caf50; margin-top: 15px; font-weight: bold;">Click to see full details â†’</p>
-                </a>
-
-                <a href="demand-jobs.html" style="display: block; background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(76, 175, 80, 0.1)); border: 2px solid rgba(76, 175, 80, 0.4); padding: 25px; border-radius: 8px; text-decoration: none; color: inherit; transition: all 0.3s;" onmouseover="this.style.background='linear-gradient(135deg, rgba(76, 175, 80, 0.25), rgba(76, 175, 80, 0.2))'; this.style.transform='translateY(-3px)'" onmouseout="this.style.background='linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(76, 175, 80, 0.1))'; this.style.transform='translateY(0)'">
-                    <h3 style="color: #4caf50; margin-bottom: 15px; font-size: 1.3em;">ðŸ’¼ Demand #4: Create 8-14M AI-Resistant Jobs</h3>
-                    <p style="color: #c8e6c9; font-size: 1.05em;">Fund millions of jobs that require human connection, community knowledge, and trust relationships that AI cannot replicate.</p>
-                    <p style="color: #4caf50; margin-top: 15px; font-weight: bold;">Click to see full details â†’</p>
-                </a>
-
-                <a href="demand-guardrails.html" style="display: block; background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(76, 175, 80, 0.1)); border: 2px solid rgba(76, 175, 80, 0.4); padding: 25px; border-radius: 8px; text-decoration: none; color: inherit; transition: all 0.3s;" onmouseover="this.style.background='linear-gradient(135deg, rgba(76, 175, 80, 0.25), rgba(76, 175, 80, 0.2))'; this.style.transform='translateY(-3px)'" onmouseout="this.style.background='linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(76, 175, 80, 0.1))'; this.style.transform='translateY(0)'">
-                    <h3 style="color: #4caf50; margin-bottom: 15px; font-size: 1.3em;">ðŸ›¡ï¸ Demand #5: Guardrails on Authoritarianism</h3>
-                    <p style="color: #c8e6c9; font-size: 1.05em;">Use economic leverage to prevent executive overreach. Force Congressional accountability measures on any president â€” current or future.</p>
-                    <p style="color: #4caf50; margin-top: 15px; font-weight: bold;">Click to see full details â†’</p>
-                </a>
-            </div>
-        </section>
-
-        <!-- NEXT STEP -->
-        <section style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(129, 199, 132, 0.15)); border: 3px solid #4caf50; padding: 40px; margin: 40px 0; border-radius: 8px; text-align: center;">
-            <h2 style="color: #4caf50; margin-bottom: 20px;">Ready to Force Congressional Action?</h2>
-            <p style="font-size: 1.05em; color: #c8e6c9; margin-bottom: 25px;">
-                Sign the petition. We deliver these demands with 11.6 million signatures backing them.
-            </p>
-            <a href="action.html" style="background: linear-gradient(135deg, #4caf50, #45a049); color: white; padding: 16px 40px; font-size: 1.15em; font-weight: bold; border-radius: 8px; text-decoration: none; display: inline-block; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);">âœï¸ Sign the Petition â†’</a>
-        </section>
-
-        <section>
-            <div class="highlight-box">
-                <p style="font-size: 1.1em; color: white; font-weight: bold; margin-bottom: 15px;">
-                    When you control Healthcare + Jobs + Economy + Politics, you control EVERYTHING.
-                </p>
-                <p style="font-size: 1.05em;">
-                    Including forcing them to stop authoritarianism. Each dimension strengthens the others. 
-                    Remove one, the system adapts. That's what makes it unstoppable.
-                </p>
-            </div>
-
-            <p style="text-align: center; font-size: 1.2em; color: #4caf50; font-weight: bold; margin: 30px 0;">
-                50 Days to March 28 Rally
-            </p>
-            <p style="text-align: center; font-size: 1.1em; color: #81c784; margin-bottom: 40px;">
-                234 million Americans covered. $2.73T in leverage. Critical mass by spring.
-            </p>
-        </section>
-
-        <section>
-            <h2>ðŸ§© The 5D Framework: All Dimensions Interconnected</h2>
-            
-            <div class="graphic-container">
-                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_5D_Solutions.png" 
-                     alt="PHIERS 5D Solutions - Affordable Healthcare at Center" onclick="this.style.maxWidth = this.style.maxWidth === '50%' ? '100%' : '50%'">
-                <p class="graphic-caption">Fundamentals â€¢ Distribution â€¢ Digital â€¢ Demand â€¢ Direct Pay â†’ Affordable Healthcare</p>
-            </div>
-
-            <div class="graphic-container">
-                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Rubiks_Cube_-_SYMBOLS.png" 
-                     alt="PHIERS 5D Solutions - Interconnected Rubik's Cube" onclick="this.style.maxWidth = this.style.maxWidth === '50%' ? '100%' : '50%'">
-                <p class="graphic-caption">All 5 Dimensions Strengthening Each Other â€“ The Rubik's Cube Model</p>
-            </div>
-
-            <p style="font-size: 1.1em; text-align: center; margin: 30px 0; color: #c8e6c9;">
-                <strong>The Interconnection:</strong> Healthcare â†’ Jobs â†’ Economy â†’ Politics â†’ Peace
-            </p>
-        </section>
-
-        <section>
-            <h2>â±ï¸ The Timeline: 3.5% Forces Congress â†’ July 4th Independence</h2>
-            
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-icon">ðŸ”¥</div>
-                    <div class="timeline-date">TODAY</div>
-                    <div class="timeline-label">Sign</div>
-                </div>
-                
-                <div class="timeline-arrow">â†’</div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-icon">âš ï¸</div>
-                    <div class="timeline-date">3.5%</div>
-                    <div class="timeline-label">Force Action</div>
-                </div>
-                
-                <div class="timeline-arrow">â†’</div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-icon">ðŸŒ±</div>
-                    <div class="timeline-date">SPRING</div>
-                    <div class="timeline-label">Cascade</div>
-                </div>
-                
-                <div class="timeline-arrow">â†’</div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-icon">ðŸŽ†</div>
-                    <div class="timeline-date">JULY 4</div>
-                    <div class="timeline-label">Independence</div>
-                </div>
-                
-                <div class="timeline-arrow">â†’</div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-icon">ðŸ—³ï¸</div>
-                    <div class="timeline-date">NOV 2026</div>
-                    <div class="timeline-label">Victory</div>
-                </div>
-            </div>
-
-            <div style="background: rgba(76, 175, 80, 0.05); padding: 25px; border-radius: 8px; margin: 30px 0;">
-                <p style="margin-bottom: 15px;"><strong style="color: #4caf50;">ðŸ”¥ TODAY:</strong> Jan 31, 2026 â†’ LAUNCH (Petition goes live, cascade begins)</p>
-                
-                <p style="margin-bottom: 15px;"><strong style="color: #ff9800;">âš ï¸ 3.5% REACHED:</strong> 11.6M signatures = Recall threat real. This is all it takes to overthrow authoritarianism.</p>
-                
-                <p style="margin-bottom: 15px;"><strong style="color: #4caf50;">ðŸŒ± SPRING:</strong> March-April â†’ Telehealth live, healthcare cascade accelerates</p>
-                
-                <p style="margin-bottom: 15px;"><strong style="color: #4caf50;">ðŸ’ª APRIL 30:</strong> 90 DAYS â†’ 100M healthcare members (critical mass for system)</p>
-                
-                <p style="margin-bottom: 15px;"><strong style="color: #ff9800;">âš¡ MAY-JUNE:</strong> FORCE COMPLIANCE â†’ Stop authoritarianism or face recall</p>
-                
-                <p style="margin-bottom: 15px;"><strong style="color: #4caf50;">ðŸŽ† JULY 4:</strong> INDEPENDENCE DAY â†’ We Reclaim Our Independence From Corporate Control</p>
-                
-                <p><strong style="color: #4caf50;">ðŸ—³ï¸ NOV 2026:</strong> Primary Challenges / Recall Elections â†’ Replace those who refused</p>
-            </div>
-
-            <div class="highlight-box">
-                <p style="font-style: italic; font-size: 1.05em; color: #c8e6c9;">
-                    "Our founders declared independence from a king who refused to represent them. 
-                    250 years later, we declare independence from a Congress that refuses to represent us. 
-                    This is our second American Revolution. And this time, we win with MATH."
-                </p>
-            </div>
-        </section>
-
-        <section>
-            <h2>ðŸ’¡ The Five Dimensions Explained</h2>
-
-            <div class="dimension-grid">
-                <div class="dimension-card">
-                    <span class="dimension-icon">ðŸ’°</span>
-                    <h3>1. Healthcare: $600/year Universal Coverage</h3>
-                    <p>
-                        80% of healthcare needs work via telehealth. Switch 120M people from $8K traditional 
-                        insurance to $600 telehealth. Frees $888 billion annually in government spending.
-                    </p>
-                    <p style="margin-top: 15px; color: white; font-weight: bold;">
-                        Result: Universal coverage for 234M Americans. Everyone stays healthy. Economy stays productive.
-                    </p>
-                </div>
-
-                <div class="dimension-card">
-                    <span class="dimension-icon">ðŸ’¼</span>
-                    <h3>2. Jobs: 8-14 Million AI-Resistant Positions</h3>
-                    <p>
-                        Healthcare cascade savings fund millions of new positions: case managers, health coordinators, 
-                        community health workers, mental health counselors, pharmacists, skilled trades workers.
-                    </p>
-                    <p style="margin-top: 15px; color: white; font-weight: bold;">
-                        Why AI-resistant? These require human judgment, empathy, and relationship-building that AI cannot replicate.
-                    </p>
-                    <p style="margin-top: 10px; color: white; font-weight: bold;">
-                        Result: Full employment. Economic security. Meaningful work that matters.
-                    </p>
-                </div>
-
-                <div class="dimension-card">
-                    <span class="dimension-icon">ðŸ¤</span>
-                    <h3>3. Economy: $2.73 Trillion Annual Stimulus</h3>
-                    <p>
-                        Government saves $888B from healthcare switching. Private insurance competition saves another $800B+. 
-                        Uninsured market becomes viable. Academic R&D drives drug costs down another $1T+.
-                    </p>
-                    <p style="margin-top: 15px; color: #4caf50; font-weight: bold;">
-                        Total: $2.73 trillion freed annually.
-                    </p>
-                    <p style="margin-top: 10px; color: white; font-weight: bold;">
-                        Result: Monthly assistance checks to all members. Housing affordability. Cost of living becomes sustainable.
-                    </p>
-                </div>
-
-                <div class="dimension-card">
-                    <span class="dimension-icon">ðŸ—³ï¸</span>
-                    <h3>4. Politics: 100M+ Organized Constituents</h3>
-                    <p>
-                        3.5% of US population organized = guaranteed systemic change (Harvard research, Erica Chenoweth). 
-                        We're targeting 100M+ = 9x the threshold.
-                    </p>
-                    <p style="margin-top: 15px; color: #4caf50; font-weight: bold;">
-                        Congress cannot ignore this mathematical superiority.
-                    </p>
-                    <p style="margin-top: 10px; color: white; font-weight: bold;">
-                        Result: Democratic power restored. Government works for people, not corporations. 
-                        Destructive policies reversed.
-                    </p>
-                </div>
-
-                <div class="dimension-card">
-                    <span class="dimension-icon">â˜®ï¸</span>
-                    <h3>5. Peace: Forcing Them to Stop Authoritarianism</h3>
-                    <p>
-                        When you control Healthcare + Jobs + Economy + Politics, you control EVERYTHING. 
-                        Including forcing Congress to stop ICE raids, stop wars, stop tariffs, and reverse 
-                        authoritarian executive orders.
-                    </p>
-                    <p style="margin-top: 15px; color: #ff9800; font-weight: bold;">
-                        The Binary Choice: Do what We The People demand, or face recall.
-                    </p>
-                    <p style="margin-top: 10px; color: white; font-weight: bold;">
-                        Healthcare proves we don't need them. Then we force compliance on the rest.
-                    </p>
-                    <p style="margin-top: 10px; color: white; font-weight: bold;">
-                        Result: Congressional accountability restored. Government serves the people, not corporate 
-                        interests or authoritarian agendas.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>ðŸŽ¯ Guaranteed Benefits Across All 5 Dimensions</h2>
-            
-            <div class="graphic-container">
-                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/Guaranteed_Benefits.jpg" 
-                     alt="Guaranteed Benefits - All 5 Dimensions United" onclick="this.style.maxWidth = this.style.maxWidth === '50%' ? '100%' : '50%'">
-                <p class="graphic-caption">Every member receives benefits across all 5 dimensions simultaneously</p>
-            </div>
-
-            <div class="graphic-container">
-                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Tablet__Firewall.png" 
-                     alt="PHIERS Operating System - Firewall Against Extraction" onclick="this.style.maxWidth = this.style.maxWidth === '50%' ? '100%' : '50%'">
-                <p class="graphic-caption">PHIERS Operating System â€“ Firewall Against Corporate Extraction</p>
-            </div>
-        </section>
-
-        <section>
-            <h2>âœ… Why This Works: Interconnected Problem-Solving</h2>
-            
-            <div class="highlight-box">
-                <p style="font-size: 1.1em; color: white; font-weight: bold; margin-bottom: 15px;">
-                    All 5 dimensions work together.
-                </p>
-                <p style="margin-bottom: 10px;">
-                    â€¢ <strong>Block healthcare?</strong> Jobs and economy still create pressure
-                </p>
-                <p style="margin-bottom: 10px;">
-                    â€¢ <strong>Block jobs?</strong> Healthcare and politics still force compliance
-                </p>
-                <p style="margin-bottom: 10px;">
-                    â€¢ <strong>Block economy?</strong> Political organization still threatens primaries
-                </p>
-                <p style="margin-bottom: 10px;">
-                    â€¢ <strong>Block politics?</strong> Economic and healthcare leverage still builds
-                </p>
-                <p style="margin-top: 20px; font-size: 1.05em; color: #4caf50; font-weight: bold;">
-                    This is how we solve interconnected crises simultaneously.
-                </p>
-            </div>
-        </section>
-
-        <section>
-            <h2>ðŸ”¥ Why PHIERS Wins Where Strikes Fail</h2>
-
-            <div class="comparison-box">
-                <div class="comparison-card comparison-fail">
-                    <h3>âŒ Strikes & Shutdowns</h3>
-                    <ul>
-                        <li style="color: #ffcdd2;">Strikes hurt workers â†’ Lost paychecks</li>
-                        <li style="color: #ffcdd2;">Shutdowns hurt families â†’ Services stop</li>
-                        <li style="color: #ffcdd2;">Small businesses suffer â†’ Economy falters</li>
-                        <li style="color: #ffcdd2;">Supply chains break â†’ More damage</li>
-                        <li style="color: #ffcdd2; font-weight: bold; margin-top: 15px;">
-                            Who stays protected? Congress (still paid), CEOs (still wealthy), 
-                            The powerful (unaffected)
-                        </li>
-                    </ul>
-                    <p style="color: #ef5350; font-weight: bold; margin-top: 20px; font-size: 1.1em;">
-                        Shutdowns hurt US. Not THEM.
-                    </p>
-                </div>
-
-                <div class="comparison-card comparison-success">
-                    <h3>âœ… PHIERS Builds Power</h3>
-                    <ul>
-                        <li style="color: #c8e6c9;">We solve healthcare ourselves â†’ Proof of concept</li>
-                        <li style="color: #c8e6c9;">234M Americans covered â†’ Undeniable power base</li>
-                        <li style="color: #c8e6c9;">100M+ organized â†’ Recall power, primary challenges</li>
-                        <li style="color: #c8e6c9;">$2.73T leverage â†’ Cannot be ignored</li>
-                        <li style="color: #c8e6c9; font-weight: bold; margin-top: 15px;">
-                            THEN we force them: Stop ICE. Stop wars. Stop tariffs. 
-                            Do your jobs or get recalled.
-                        </li>
-                    </ul>
-                    <p style="color: #4caf50; font-weight: bold; margin-top: 20px; font-size: 1.1em;">
-                        This is how strikes WIN. Not by shutting down. By building the power to FORCE compliance.
-                    </p>
-                </div>
-            </div>
-
-            <p style="text-align: center; margin-top: 30px; font-size: 1.1em; color: #c8e6c9;">
-                Anger is justified â€” but power comes from <strong style="color: white;">construction</strong>, 
-                not collapse.
-            </p>
-        </section>
-
-        <section>
-            <h2>ðŸŽ¯ No Matter Your Entry Point, PHIERS Solves It</h2>
-
-            <div class="warning-box">
-                <h3>Your Problem Has a Solution â€” And It Solves 4 Others Too</h3>
-                <p style="margin-top: 15px; color: #c8e6c9;">
-                    <strong style="color: white;">Healthcare crisis?</strong> PHIERS delivers $600/year universal coverage 
-                    + funds jobs + stimulates economy + builds political power + forces peace.
-                </p>
-                <p style="margin-top: 10px; color: #c8e6c9;">
-                    <strong style="color: white;">Lost your job to AI?</strong> PHIERS creates 8-14M AI-resistant positions 
-                    + covers healthcare + provides monthly assistance + organizes politically + stops destructive policies.
-                </p>
-                <p style="margin-top: 10px; color: #c8e6c9;">
-                    <strong style="color: white;">Can't afford rent?</strong> PHIERS frees $2.73T annually 
-                    + provides monthly checks + covers healthcare + creates jobs + restores democratic power.
-                </p>
-                <p style="margin-top: 10px; color: #c8e6c9;">
-                    <strong style="color: white;">Frustrated with politics?</strong> PHIERS organizes 100M+ constituents 
-                    + forces primaries + delivers healthcare + creates jobs + builds economic security.
-                </p>
-                <p style="margin-top: 10px; color: #c8e6c9;">
-                    <strong style="color: white;">Want to end wars?</strong> PHIERS builds leverage over Congress 
-                    + proves we don't need them + forces accountability + covers healthcare + creates economic alternatives.
-                </p>
-            </div>
-
-            <p style="text-align: center; font-size: 1.2em; color: #4caf50; font-weight: bold; margin: 40px 0;">
-                This is the power of 5D thinking. Your problem + 4 other problems = 1 solution.
-            </p>
-        </section>
-
-        <section style="text-align: center; margin: 50px 0;">
-            <h2>Ready to Force Congress?</h2>
-            <p style="font-size: 1.1em; margin: 20px 0;">
-                Sign the petition. Build the leverage. Change happens when we organize across all 5 dimensions.
-            </p>
-            
-            <div class="button-group">
-                <a href="https://c.org/q9vrMCQZsY" target="_blank" class="btn">âœï¸ Sign Petition Now</a>
-                <a href="leverage.html" class="btn btn-secondary">See The Leverage Details â†’</a>
-                <a href="how-it-works.html" class="btn btn-secondary">How The Math Works â†’</a>
-            </div>
-        </section>
-
-        
-        <section>
-            <h2 style="text-align: center;">See How It Works - For Unions</h2>
-            <div class="video-container" style="margin: 30px 0;">
-                <iframe src="https://player.vimeo.com/video/1157760069" 
-                        width="640" height="360" 
-                        frameborder="0" 
-                        allow="autoplay; fullscreen; picture-in-picture" 
-                        allowfullscreen
-                        style="max-width: 100%; border-radius: 8px;"></iframe>
-                <p class="graphic-caption" style="margin-top: 15px;">Guaranteed Benefits Across All 5 Dimensions</p>
-            </div>
-        </section>
-
-        <div class="nav-buttons">
-            <a href="buying-power.html" class="btn btn-secondary">â† Back: Buying Power</a>
-            <a href="media.html" class="btn btn-secondary">Next: Media Library â†’</a>
+        <!-- NAVIGATION -->
+        <div class="nav-back">
+            <a href="index.html">← Back to Movement</a>
         </div>
 
-        <footer>
+        <!-- HEADER -->
+        <header class="header">
+            <h1>PHIERS 5D Solutions</h1>
+            <div class="subtitle">Multi-dimensional problems need multi-dimensional solutions</div>
+            <p>Healthcare. Jobs. Economy. Politics. Peace. One plan solves all of them simultaneously.</p>
+        </header>
+
+        <!-- HOW IT WORKS OVERVIEW -->
+        <section class="section">
+            <h2>How This Works</h2>
+            <img src="How_It_Works.png" alt="PHIERS Strategy Process Flow" class="strategy-image">
+            <div class="image-caption">The PHIERS process: From individual signatures to systemic change</div>
+            
+            <div class="highlight-box">
+                <div class="highlight-title">This Isn't a Hope. It's a Mechanism.</div>
+                <p>We engineered the rollout. We mapped the leverage. We built the trigger sequence. Now we activate.</p>
+            </div>
+        </section>
+
+        <!-- 5D SOLUTIONS FRAMEWORK -->
+        <section class="section">
+            <h2>The 5D Solutions Framework</h2>
+            <img src="PHIERS_5D_Solutions.png" alt="PHIERS 5D Solutions - Healthcare, Jobs, Economy, Politics, Peace" class="strategy-image">
+            <div class="image-caption">Five crises, one integrated solution system</div>
+            
+            <div class="dimensions-grid">
+                <div class="dimension-card">
+                    <h4>1st Dimension: Healthcare Crisis</h4>
+                    <p>22 million lost coverage. Premiums spiking. Congress let subsidies expire. But we have the $600/year telehealth solution that covers 80% of healthcare needs.</p>
+                </div>
+                
+                <div class="dimension-card">
+                    <h4>2nd Dimension: Jobs Crisis</h4>
+                    <p>AI automation threatening employment. Work requirements for benefits coming. We're creating millions of AI-resistant, human-centered positions in healthcare coordination.</p>
+                </div>
+                
+                <div class="dimension-card">
+                    <h4>3rd Dimension: Economic Crisis</h4>
+                    <p>$2.73 trillion annually wasted on healthcare extraction. We redirect this into productive community investment and job creation.</p>
+                </div>
+                
+                <div class="dimension-card">
+                    <h4>4th Dimension: Political Crisis</h4>
+                    <p>Congress serves donors over constituents. We build district-level pressure that makes serving donors expensive and serving citizens profitable.</p>
+                </div>
+                
+                <div class="dimension-card">
+                    <h4>5th Dimension: Peace Crisis</h4>
+                    <p>Social unrest from unmet basic needs. Universal healthcare removes the desperation that fuels conflict and creates stability through security.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- THE MATH THAT MAKES IT WORK -->
+        <section class="section">
+            <h2>The Math That Makes It Work</h2>
+            <img src="SIMPLE_MATH.png" alt="Simple Math - One Conversion Funds 12, Then 148, Then Millions" class="strategy-image">
+            <div class="image-caption">Exponential cascade mathematics: 1 → 12 → 148 → Universal Coverage</div>
+            
+            <div class="highlight-box">
+                <div class="highlight-title">One Conversion Funds 12. Then 148. Then Millions.</div>
+                <ul class="solution-list">
+                    <li>Each successful conversion funds the next 12 — exponential growth toward universal coverage</li>
+                    <li>The cascade is mathematical, inevitable, and already in motion</li>
+                    <li>Universal care in 8–13 months through network effects</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- COST COMPARISON -->
+        <section class="section">
+            <h2>80/20 Healthcare Model vs Insurance</h2>
+            <img src="8020_Healthcare_Model_PHIERS_v_Insurance_Cost.png" alt="PHIERS 80/20 Model vs Insurance Costs Comparison" class="strategy-image">
+            <div class="image-caption">Telehealth covers 80% of needs at 20% of insurance costs</div>
+            
+            <div class="highlight-box">
+                <div class="highlight-title">The Financial Reality</div>
+                <ul class="solution-list">
+                    <li><strong>Traditional insurance:</strong> $8,500+/year per person (includes corporate profits + overhead)</li>
+                    <li><strong>PHIERS telehealth:</strong> $600/year per person (direct service, minimal overhead)</li>
+                    <li><strong>Individual savings:</strong> $7,400-$23,400 annually</li>
+                    <li><strong>National savings:</strong> $2.73 trillion annually in documented savings</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- LEVERAGE STRATEGY -->
+        <section class="section">
+            <h2>Building Unstoppable Leverage</h2>
+            <div class="highlight-box">
+                <div class="highlight-title">3.5% = Guaranteed Change</div>
+                <p>Harvard research by Erica Chenoweth: Studied 323 political campaigns from 1900-2006. <strong>Finding:</strong> NO campaign where 3.5% of the population participated in sustained, organized action ever failed.</p>
+                
+                <ul class="solution-list">
+                    <li>3.5% of US population = 11.6 million Americans</li>
+                    <li>We're targeting 100M+ = 9x the threshold</li>
+                    <li>Implication: Mathematically unstoppable</li>
+                </ul>
+            </div>
+            
+            <div class="dimensions-grid">
+                <div class="dimension-card">
+                    <h4>District-Level Pressure</h4>
+                    <p>1,500 signatures = town hall. 10,000+ = national pressure. Representatives respond when their district shows organized demand.</p>
+                </div>
+                
+                <div class="dimension-card">
+                    <h4>Media Amplification</h4>
+                    <p>Your signature + your story = media amplification reaching 55M+ that forces national conversation.</p>
+                </div>
+                
+                <div class="dimension-card">
+                    <h4>Economic Leverage</h4>
+                    <p>100M+ organized = market dominance. We don't negotiate drug prices. We buy direct. No middlemen. No extraction.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- IMPLEMENTATION TIMELINE -->
+        <section class="section">
+            <h2>Implementation Sequence</h2>
+            <img src="PHIERS_SequenceRoadmap_v1.png" alt="PHIERS Implementation Roadmap and Timeline" class="strategy-image">
+            <div class="image-caption">Strategic rollout phases from signature collection to universal coverage</div>
+            
+            <div class="highlight-box">
+                <div class="highlight-title">The Roadmap to Victory</div>
+                <ul class="solution-list">
+                    <li><strong>Phase 1:</strong> Signature collection and district mapping (Current)</li>
+                    <li><strong>Phase 2:</strong> Congressional pressure and town hall activation</li>
+                    <li><strong>Phase 3:</strong> Media cascade and national visibility</li>
+                    <li><strong>Phase 4:</strong> Policy implementation and system deployment</li>
+                    <li><strong>Phase 5:</strong> Universal coverage achieved through network effects</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- CALL TO ACTION -->
+        <section class="section" style="text-align: center;">
+            <h2>Join the Solution</h2>
+            <p style="margin: 20px 0; font-size: 1.1em;">Every signature multiplies the movement. Every action strengthens the signal.</p>
+            
+            <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now" style="background: linear-gradient(135deg, #4caf50, #45a049); color: white; padding: 18px 36px; font-size: 1.2em; font-weight: bold; border: none; border-radius: 8px; text-decoration: none; display: inline-block; margin: 10px; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);">Add Your Voice to the Movement</a>
+            
+            <div style="margin-top: 30px;">
+                <a href="index.html" style="color: #81c784; text-decoration: underline; margin: 0 15px;">← Back to Movement</a>
+                <a href="faq.html" style="color: #81c784; text-decoration: underline; margin: 0 15px;">FAQ</a>
+                <a href="donate.html" style="color: #81c784; text-decoration: underline; margin: 0 15px;">Support the Movement</a>
+            </div>
+        </section>
+
+        <!-- CONTACT INFO -->
+        <footer style="text-align: center; padding: 40px 20px; color: #a5d6a7; border-top: 1px solid rgba(76, 175, 80, 0.3); margin-top: 40px;">
             <p><strong>PHIERS Movement | Make America Better And Healthier (MABAH)</strong></p>
             <p>Will Price | Chief Solutions Architect</p>
-            <p>Phone: 916-306-8967 | Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c7aea9a1a887b7afaea2b5b4e9a8b5a0">info@phiers.org</a></p>
-            
-            <p style="margin-top: 20px;">
-                <a href="https://c.org/q9vrMCQZsY" target="_blank">Sign Petition</a> | 
-                <a href="https://forms.gle/GekCB2xwHfFb4WLF6" target="_blank">Fill Survey</a> | 
-                <a href="Donate.html">Fund the Cascade</a> | 
-                <a href="https://discord.gg/narhDKJY" target="_blank">XXX_REMOVED_XXX
-            </p>
-            
-            <p style="margin-top: 15px;">
-                <a href="about.html">About Us</a> | 
-                <a href="index.html">Home</a> | 
-                <a href="faq.html">FAQ</a>
-            </p>
-            
-            <p style="margin-top: 20px;">
-                Â© PHIERS.org â€” People's Health Insurance Economic Recovery Solutions
-            </p>
-            <p style="font-size: 0.85em; color: #a5d6a7;">
-                Accessibility | Privacy Policy
-            </p>
-            <p style="margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(76, 175, 80, 0.2); color: #4caf50; font-size: 0.85em;">
-                <strong>File:</strong> solutions.html v1.0 | <strong>Created:</strong> 2026-02-05 @ 12:35 PM PST | <strong>Source:</strong> phiers.org "5D Power Over Congress" section
-            </p>
-            <p style="margin-top: 15px; font-size: 0.9em; font-weight: bold;">
-                If you see an error in the math or policy, tell us â€” we'll                If you see an error in the math or policy, tell us â€” we'll fix it.
-            </p>
+            <p>Phone: (916) 306-8967 | Email: <a href="mailto:info@phiers.org" style="color: #81c784;">info@phiers.org</a></p>
         </footer>
-    </div>
 
-    <!-- PHIERS Universal Enhancements Script -->
-    <script src="phiers-enhancements.js"></script>
+        <!-- TIMESTAMP -->
+        <div class="timestamp">
+            <p>Updated February 10, 2026 — Strategic roadmap active</p>
+        </div>
+    </div>
 </body>
 </html>
