@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="dark light">
-    <title>PHIERS Solutions - 5D Strategy That Works</title>
+    <title>How It Works - PHIERS</title>
     <style>
         * {
             margin: 0;
@@ -20,353 +20,605 @@
             min-height: 100vh;
         }
 
+        .orientation-panel {
+            background: #0f172a;
+            color: #e5e7eb;
+            padding: 14px 18px;
+            border-bottom: 1px solid #1e293b;
+            font-size: 0.95rem;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+        
+        .orientation-panel strong { color: #fff; }
+        .orientation-panel span { display: block; margin-top: 4px; color: #cbd5f5; }
+
         .container {
-            max-width: 1200px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 20px;
         }
-
-        /* HEADER */
-        .header {
+        
+        header {
             text-align: center;
             padding: 40px 20px;
-            background: linear-gradient(135deg, rgba(15, 52, 96, 0.9), rgba(22, 33, 62, 0.9));
+            background: linear-gradient(135deg, rgba(15, 52, 96, 0.8), rgba(22, 33, 62, 0.8));
             border-radius: 10px;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             border: 2px solid rgba(76, 175, 80, 0.3);
         }
+        
+        .logo {
+            height: 120px;
+            width: auto;
+            margin: 0 auto 20px auto;
+            display: block;
+        }
 
-        .header h1 {
-            font-size: 2.5em;
+        h1 {
             color: #4caf50;
+            font-size: 2.2em;
             margin-bottom: 15px;
             text-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
         }
 
-        .header .subtitle {
-            font-size: 1.3em;
-            color: #81c784;
-            margin-bottom: 20px;
-        }
-
-        /* NAVIGATION */
-        .nav-back {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .nav-back a {
-            background: linear-gradient(135deg, #4caf50, #45a049);
-            color: white;
-            padding: 12px 24px;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-
-        .nav-back a:hover {
-            background: linear-gradient(135deg, #45a049, #3d8b40);
-            transform: translateY(-2px);
-        }
-
-        /* SECTION STYLING */
-        .section {
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
-            border-left: 4px solid #4caf50;
-            padding: 40px;
-            margin-bottom: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-        }
-
-        .section h2 {
-            font-size: 2em;
+        h2 {
             color: #4caf50;
-            margin-bottom: 20px;
+            font-size: 1.6em;
+            margin: 40px 0 20px 0;
         }
 
-        .section h3 {
-            font-size: 1.5em;
+        h3 {
+            color: #81c784;
+            font-size: 1.3em;
+            margin: 25px 0 15px 0;
+        }
+
+        .subtitle {
+            font-size: 1.1em;
             color: #81c784;
             margin-bottom: 15px;
         }
 
-        /* IMAGE STYLING */
-        .strategy-image {
-            max-width: 100%;
-            width: 100%;
-            border-radius: 8px;
-            margin: 20px 0;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        p {
+            color: #c8e6c9;
+            margin: 15px 0;
+            line-height: 1.8;
         }
 
-        .image-caption {
-            text-align: center;
-            color: #81c784;
-            font-style: italic;
-            margin-top: 10px;
-            font-size: 0.9em;
-        }
-
-        /* HIGHLIGHT BOXES */
         .highlight-box {
             background: rgba(76, 175, 80, 0.1);
             border: 2px solid #4caf50;
-            border-radius: 8px;
             padding: 25px;
             margin: 25px 0;
+            border-radius: 8px;
         }
 
-        .highlight-title {
-            color: #4caf50;
-            font-size: 1.3em;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        /* BULLET LISTS */
-        .solution-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .solution-list li {
-            margin: 15px 0;
-            padding-left: 25px;
-            position: relative;
-        }
-
-        .solution-list li:before {
-            content: "→";
-            color: #4caf50;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-
-        /* GRID LAYOUT */
-        .dimensions-grid {
+        .comparison-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
             margin: 30px 0;
         }
 
-        .dimension-card {
-            background: rgba(15, 52, 96, 0.8);
-            border: 2px solid rgba(76, 175, 80, 0.4);
-            border-radius: 8px;
+        .comparison-card {
             padding: 25px;
-            transition: transform 0.3s ease;
+            border-radius: 8px;
         }
 
-        .dimension-card:hover {
-            transform: translateY(-5px);
-            border-color: #4caf50;
+        .comparison-bad {
+            background: rgba(244, 67, 54, 0.1);
+            border: 2px solid #f44336;
         }
 
-        .dimension-card h4 {
+        .comparison-bad h3 {
+            color: #ef5350;
+            margin-bottom: 15px;
+        }
+
+        .comparison-good {
+            background: rgba(76, 175, 80, 0.1);
+            border: 2px solid #4caf50;
+        }
+
+        .comparison-good h3 {
             color: #4caf50;
             margin-bottom: 15px;
-            font-size: 1.3em;
         }
 
-        /* TIMESTAMP */
-        .timestamp {
+        .comparison-card ul {
+            margin: 15px 0 0 20px;
+        }
+
+        .comparison-card li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        .graphic-container {
             text-align: center;
+            margin: 40px 0;
+        }
+
+        .graphic-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 2px solid rgba(76, 175, 80, 0.3);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .graphic-container img:hover {
+            transform: scale(1.02);
+        }
+
+        .graphic-caption {
             color: #81c784;
             font-size: 0.9em;
-            margin-top: 40px;
-            padding: 20px;
+            font-style: italic;
+            margin-top: 10px;
+        }
+
+        .step-box {
             background: rgba(76, 175, 80, 0.1);
+            border-left: 5px solid #4caf50;
+            padding: 25px;
+            margin: 20px 0;
             border-radius: 8px;
         }
 
-        /* MOBILE RESPONSIVENESS */
+        .step-number {
+            display: inline-block;
+            background: #4caf50;
+            color: white;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-right: 15px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-box {
+            background: rgba(76, 175, 80, 0.1);
+            border: 2px solid #4caf50;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2em;
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        .stat-label {
+            color: #a5d6a7;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #4caf50, #2e7d32);
+            color: white;
+            padding: 14px 32px;
+            font-size: 1.1em;
+            font-weight: bold;
+            border: 2px solid #4caf50;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #66bb6a, #388e3c);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(76, 175, 80, 0.1));
+            border: 2px solid #4caf50;
+        }
+
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.3), rgba(76, 175, 80, 0.2));
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin: 40px 0;
+            padding-top: 30px;
+            border-top: 2px solid rgba(76, 175, 80, 0.3);
+        }
+
+        .nav-buttons .btn {
+            flex: 1;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 2px solid rgba(76, 175, 80, 0.3);
+            color: #81c784;
+            margin-top: 40px;
+            font-size: 0.9em;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        footer a {
+            color: #81c784;
+            text-decoration: underline;
+        }
+
+        footer a:hover {
+            color: #4caf50;
+        }
+
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2em;
-            }
-            
-            .dimensions-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .container {
-                padding: 10px;
-            }
+            h1 { font-size: 1.8em; }
+            h2 { font-size: 1.4em; }
+            .logo { height: 100px; }
+            .comparison-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- NAVIGATION -->
-        <div class="nav-back">
-            <a href="index.html">← Back to Movement</a>
-        </div>
+    <div class="orientation-panel">
+        <strong>How It Works: We're not asking for charityâ€”we're redirecting waste.</strong>
+        <span>
+            The first 120 million are ignition. The remaining 114 million join at zero cost. 
+            Total: 234 million Americans covered.
+        </span>
+    </div>
 
-        <!-- HEADER -->
-        <header class="header">
-            <h1>PHIERS 5D Solutions</h1>
-            <div class="subtitle">Multi-dimensional problems need multi-dimensional solutions</div>
-            <p>Healthcare. Jobs. Economy. Politics. Peace. One plan solves all of them simultaneously.</p>
+    <div class="container">
+        <header>
+            <a href="index.html">
+                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Logo.png" 
+                     alt="PHIERS Logo" 
+                     class="logo">
+            </a>
+            <h1>âš™ï¸ How It Works: The Exponential Mechanism</h1>
+            <p class="subtitle">We're not asking for charityâ€”we're redirecting waste.</p>
+            <p style="color: #c8e6c9; margin-top: 15px;">
+                The first 120 million are ignition. The remaining 114 million join at zero cost. 
+                Total: 234 million Americans covered.
+            </p>
         </header>
 
-        <!-- HOW IT WORKS OVERVIEW -->
-        <section class="section">
-            <h2>How This Works</h2>
-            <img src="How_It_Works.png" alt="PHIERS Strategy Process Flow" class="strategy-image">
-            <div class="image-caption">The PHIERS process: From individual signatures to systemic change</div>
-            
-            <div class="highlight-box">
-                <div class="highlight-title">This Isn't a Hope. It's a Mechanism.</div>
-                <p>We engineered the rollout. We mapped the leverage. We built the trigger sequence. Now we activate.</p>
+        <section>
+            <div class="graphic-container">
+                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/How_It_Works.png" 
+                     alt="How It Works - The Exponential Cascade">
+                <p class="graphic-caption">The Mechanism: One Conversion Triggers Exponential Growth</p>
             </div>
         </section>
 
-        <!-- 5D SOLUTIONS FRAMEWORK -->
-        <section class="section">
-            <h2>The 5D Solutions Framework</h2>
-            <img src="PHIERS_5D_Solutions.png" alt="PHIERS 5D Solutions - Healthcare, Jobs, Economy, Politics, Peace" class="strategy-image">
-            <div class="image-caption">Five crises, one integrated solution system</div>
-            
-            <div class="dimensions-grid">
-                <div class="dimension-card">
-                    <h4>1st Dimension: Healthcare Crisis</h4>
-                    <p>22 million lost coverage. Premiums spiking. Congress let subsidies expire. But we have the $600/year telehealth solution that covers 80% of healthcare needs.</p>
-                </div>
-                
-                <div class="dimension-card">
-                    <h4>2nd Dimension: Jobs Crisis</h4>
-                    <p>AI automation threatening employment. Work requirements for benefits coming. We're creating millions of AI-resistant, human-centered positions in healthcare coordination.</p>
-                </div>
-                
-                <div class="dimension-card">
-                    <h4>3rd Dimension: Economic Crisis</h4>
-                    <p>$2.73 trillion annually wasted on healthcare extraction. We redirect this into productive community investment and job creation.</p>
-                </div>
-                
-                <div class="dimension-card">
-                    <h4>4th Dimension: Political Crisis</h4>
-                    <p>Congress serves donors over constituents. We build district-level pressure that makes serving donors expensive and serving citizens profitable.</p>
-                </div>
-                
-                <div class="dimension-card">
-                    <h4>5th Dimension: Peace Crisis</h4>
-                    <p>Social unrest from unmet basic needs. Universal healthcare removes the desperation that fuels conflict and creates stability through security.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- THE MATH THAT MAKES IT WORK -->
-        <section class="section">
-            <h2>The Math That Makes It Work</h2>
-            <img src="SIMPLE_MATH.png" alt="Simple Math - One Conversion Funds 12, Then 148, Then Millions" class="strategy-image">
-            <div class="image-caption">Exponential cascade mathematics: 1 → 12 → 148 → Universal Coverage</div>
+        <section>
+            <h2>ðŸ’¡ Member Control: You Choose Your Provider</h2>
             
             <div class="highlight-box">
-                <div class="highlight-title">One Conversion Funds 12. Then 148. Then Millions.</div>
-                <ul class="solution-list">
-                    <li>Each successful conversion funds the next 12 — exponential growth toward universal coverage</li>
-                    <li>The cascade is mathematical, inevitable, and already in motion</li>
-                    <li>Universal care in 8–13 months through network effects</li>
+                <p style="font-size: 1.1em; color: white; font-weight: bold; margin-bottom: 15px;">
+                    You decide which telehealth platform you use. PHIERS pays the bill.
+                </p>
+                <p style="margin-bottom: 10px;">
+                    No partnerships. No contracts. No middlemen. <strong style="color: white;">Members are in charge.</strong>
+                </p>
+            </div>
+
+            <div class="highlight-box">
+                <h3 style="color: #4caf50; margin-top: 0;">This Creates Market Dominance:</h3>
+                <ul style="margin-top: 15px; padding-left: 20px;">
+                    <li style="color: #c8e6c9; margin: 10px 0;">
+                        <strong style="color: white;">175M members</strong> = unprecedented buying power
+                    </li>
+                    <li style="color: #c8e6c9; margin: 10px 0;">
+                        <strong style="color: white;">Providers compete</strong> for access to our membership
+                    </li>
+                    <li style="color: #c8e6c9; margin: 10px 0;">
+                        <strong style="color: white;">Competition</strong> = innovation + better service + lower costs
+                    </li>
+                    <li style="color: #c8e6c9; margin: 10px 0;">
+                        <strong style="color: white;">Members can switch</strong> anytime (providers stay sharp)
+                    </li>
+                    <li style="color: #c8e6c9; margin: 10px 0;">
+                        <strong style="color: white;">Market dominance</strong> funds RX savings + everything else
+                    </li>
                 </ul>
             </div>
         </section>
 
-        <!-- COST COMPARISON -->
-        <section class="section">
-            <h2>80/20 Healthcare Model vs Insurance</h2>
-            <img src="8020_Healthcare_Model_PHIERS_v_Insurance_Cost.png" alt="PHIERS 80/20 Model vs Insurance Costs Comparison" class="strategy-image">
-            <div class="image-caption">Telehealth covers 80% of needs at 20% of insurance costs</div>
+        <section>
+            <h2>ðŸ“Š Current Reality</h2>
             
             <div class="highlight-box">
-                <div class="highlight-title">The Financial Reality</div>
-                <ul class="solution-list">
-                    <li><strong>Traditional insurance:</strong> $8,500+/year per person (includes corporate profits + overhead)</li>
-                    <li><strong>PHIERS telehealth:</strong> $600/year per person (direct service, minimal overhead)</li>
-                    <li><strong>Individual savings:</strong> $7,400-$23,400 annually</li>
-                    <li><strong>National savings:</strong> $2.73 trillion annually in documented savings</li>
-                </ul>
+                <p>
+                    <strong style="color: white;">CMS pays $8,000/year per beneficiary</strong> for traditional insurance.
+                </p>
+                <p style="margin-top: 15px;">
+                    <strong style="color: #4caf50;">80% don't need hospitalization.</strong> They'd be fine with 
+                    telehealth at $600/year.
+                </p>
+                <p style="margin-top: 15px; font-size: 1.2em; color: white; font-weight: bold;">
+                    Difference: $7,400 freed per person.
+                </p>
             </div>
         </section>
 
-        <!-- LEVERAGE STRATEGY -->
-        <section class="section">
-            <h2>Building Unstoppable Leverage</h2>
+        <section>
+            <h2>ðŸŽ¯ The First Switch</h2>
+            
+            <div class="step-box">
+                <span class="step-number">1</span>
+                <strong style="color: #4caf50; font-size: 1.1em;">Congress allows telehealth in ACA.</strong>
+                <p style="margin: 15px 0 0 55px;">
+                    First individual switches from $8K to $600. <strong style="color: white;">$7,400 freed.</strong> 
+                    Enough to PAY 12+ other individuals to switch.
+                </p>
+            </div>
+
+            <p style="text-align: center; font-size: 1.1em; color: #4caf50; font-weight: bold; margin: 30px 0;">
+                This is the ignition switch. One signature â†’ exponential leverage.
+            </p>
+        </section>
+
+        <section>
+            <h2>ðŸ”„ The Cascade Explained</h2>
+            <p style="text-align: center; font-size: 1.05em; margin-bottom: 30px;">
+                This isn't theory â€” it's math.
+            </p>
+
+            <div class="step-box">
+                <h3 style="color: #4caf50; margin-top: 0;">Step 1: One Conversion Funds 12</h3>
+                <p style="margin-top: 15px;">
+                    <strong style="color: white;">Day 1:</strong> One person switches from $8,000 insurance to $600 telehealth. 
+                    $7,400 freed.
+                </p>
+                <p style="margin-top: 10px; font-size: 1.1em; color: #4caf50; font-weight: bold;">
+                    That $7,400 funds 12 other people's healthcare completely.
+                </p>
+            </div>
+
+            <div class="step-box">
+                <h3 style="color: #4caf50; margin-top: 0;">Step 2: Those 12 Fund 148</h3>
+                <p style="margin-top: 15px;">
+                    Each of those 12 people frees another $7,400. Combined: $88,800 freed. 
+                    That funds 148 more people.
+                </p>
+            </div>
+
+            <div class="step-box">
+                <h3 style="color: #4caf50; margin-top: 0;">Step 3: 148 Unlock $2.73 Trillion</h3>
+                <p style="margin-top: 15px;">
+                    The cascade continues exponentially until 120 million people switch. 
+                </p>
+                <p style="margin-top: 15px; font-size: 1.2em; color: #4caf50; font-weight: bold;">
+                    Total freed: $2.73 TRILLION in government healthcare savings.
+                </p>
+                <p style="margin-top: 10px;">
+                    That funds universal coverage for 234M Americans + monthly assistance + jobs + case management.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>ðŸ’° The Numbers That Make It Work</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-number">$7,400</div>
+                    <div class="stat-label">Savings per person/year</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">120M</div>
+                    <div class="stat-label">People switching</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">$888B</div>
+                    <div class="stat-label">Government savings (CMS alone)</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">$2.73T</div>
+                    <div class="stat-label">Total annual savings (all sources)</div>
+                </div>
+            </div>
+
             <div class="highlight-box">
-                <div class="highlight-title">3.5% = Guaranteed Change</div>
-                <p>Harvard research by Erica Chenoweth: Studied 323 political campaigns from 1900-2006. <strong>Finding:</strong> NO campaign where 3.5% of the population participated in sustained, organized action ever failed.</p>
-                
-                <ul class="solution-list">
-                    <li>3.5% of US population = 11.6 million Americans</li>
-                    <li>We're targeting 100M+ = 9x the threshold</li>
-                    <li>Implication: Mathematically unstoppable</li>
+                <h3 style="color: #4caf50; margin-top: 0;">Where the $2.73T Comes From:</h3>
+                <ul style="margin-top: 15px; padding-left: 20px;">
+                    <li style="color: #c8e6c9; margin: 10px 0;">
+                        <strong style="color: white;">$888B:</strong> CMS members switching to telehealth
+                    </li>
+                    <li style="color: #c8e6c9; margin: 10px 0;">
+                        <strong style="color: white;">+$800B:</strong> Private sector + ACA competition
+                    </li>
+                    <li style="color: #c8e6c9; margin: 10px 0;">
+                        <strong style="color: white;">+$1T:</strong> Drug costs reduced through cooperative buying
+                    </li>
                 </ul>
-            </div>
-            
-            <div class="dimensions-grid">
-                <div class="dimension-card">
-                    <h4>District-Level Pressure</h4>
-                    <p>1,500 signatures = town hall. 10,000+ = national pressure. Representatives respond when their district shows organized demand.</p>
-                </div>
-                
-                <div class="dimension-card">
-                    <h4>Media Amplification</h4>
-                    <p>Your signature + your story = media amplification reaching 55M+ that forces national conversation.</p>
-                </div>
-                
-                <div class="dimension-card">
-                    <h4>Economic Leverage</h4>
-                    <p>100M+ organized = market dominance. We don't negotiate drug prices. We buy direct. No middlemen. No extraction.</p>
-                </div>
+                <p style="margin-top: 20px; color: #c8e6c9; font-style: italic;">
+                    This is all verifiable public data. CMS spending, private insurance costs, and drug pricing 
+                    are public record.
+                </p>
             </div>
         </section>
 
-        <!-- IMPLEMENTATION TIMELINE -->
-        <section class="section">
-            <h2>Implementation Sequence</h2>
-            <img src="PHIERS_SequenceRoadmap_v1.png" alt="PHIERS Implementation Roadmap and Timeline" class="strategy-image">
-            <div class="image-caption">Strategic rollout phases from signature collection to universal coverage</div>
+        <section>
+            <h2>ðŸ“ˆ The Exponential Growth Pattern</h2>
             
             <div class="highlight-box">
-                <div class="highlight-title">The Roadmap to Victory</div>
-                <ul class="solution-list">
-                    <li><strong>Phase 1:</strong> Signature collection and district mapping (Current)</li>
-                    <li><strong>Phase 2:</strong> Congressional pressure and town hall activation</li>
-                    <li><strong>Phase 3:</strong> Media cascade and national visibility</li>
-                    <li><strong>Phase 4:</strong> Policy implementation and system deployment</li>
-                    <li><strong>Phase 5:</strong> Universal coverage achieved through network effects</li>
+                <p style="font-weight: bold; color: white; margin-bottom: 15px;">The mathematical progression:</p>
+                <ul style="padding-left: 20px;">
+                    <li style="color: #c8e6c9; margin: 8px 0;">Month 1: 1 person (1 conversion)</li>
+                    <li style="color: #c8e6c9; margin: 8px 0;">Month 2: 12 people (12 conversions)</li>
+                    <li style="color: #c8e6c9; margin: 8px 0;">Month 3: 148 people (exponential growth)</li>
+                    <li style="color: #c8e6c9; margin: 8px 0;">Month 4: 1,825 people</li>
+                    <li style="color: #c8e6c9; margin: 8px 0;">Month 5: 22,508 people</li>
+                    <li style="color: #c8e6c9; margin: 8px 0;">Month 6: 302,000 people</li>
+                    <li style="color: #c8e6c9; margin: 8px 0;">Month 7: 3.7 million people</li>
+                    <li style="color: #c8e6c9; margin: 8px 0;">Month 8: 46 million people</li>
+                    <li style="color: #4caf50; margin: 8px 0; font-weight: bold; font-size: 1.1em;">
+                        Month 9: 120 million people (critical mass reached)
+                    </li>
                 </ul>
             </div>
+
+            <p style="text-align: center; font-size: 1.1em; margin: 30px 0; color: white; font-weight: bold;">
+                At Month 9 (critical mass): Congress cannot ignore 120M+ people organized around a single demand. 
+                The system is forced to implement.
+            </p>
         </section>
 
-        <!-- CALL TO ACTION -->
-        <section class="section" style="text-align: center;">
-            <h2>Join the Solution</h2>
-            <p style="margin: 20px 0; font-size: 1.1em;">Every signature multiplies the movement. Every action strengthens the signal.</p>
+        <section>
+            <h2>ðŸŽ¯ Why $600 Telehealth Beats $10K Insurance</h2>
             
-            <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now" style="background: linear-gradient(135deg, #4caf50, #45a049); color: white; padding: 18px 36px; font-size: 1.2em; font-weight: bold; border: none; border-radius: 8px; text-decoration: none; display: inline-block; margin: 10px; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);">Add Your Voice to the Movement</a>
+            <div class="graphic-container">
+                <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/8020_Healthcare_Model_PHIERS_v_Insurance_Cost.png" 
+                     alt="The 80-20 Healthcare Model">
+                <p class="graphic-caption">
+                    The 80-20 Model: Telehealth for Routine Care, Insurance for Catastrophe
+                </p>
+            </div>
+
+            <div class="comparison-grid">
+                <div class="comparison-card comparison-bad">
+                    <h3>âŒ Status Quo Insurance ($10K)</h3>
+                    <ul>
+                        <li style="color: #ffcdd2;">Delays care (prior authorization)</li>
+                        <li style="color: #ffcdd2;">Denies coverage (claim rejections)</li>
+                        <li style="color: #ffcdd2;">Limited network access</li>
+                        <li style="color: #ffcdd2;">High out-of-pocket costs</li>
+                        <li style="color: #ffcdd2;">Administrative overhead</li>
+                        <li style="color: #ffcdd2;">Corporate profit extraction</li>
+                    </ul>
+                </div>
+
+                <div class="comparison-card comparison-good">
+                    <h3>âœ… PHIERS Telehealth ($600)</h3>
+                    <ul>
+                        <li style="color: #c8e6c9;">Instant access (no wait times)</li>
+                        <li style="color: #c8e6c9;">Zero denials (direct care)</li>
+                        <li style="color: #c8e6c9;">Anywhere, anytime coverage</li>
+                        <li style="color: #c8e6c9;">Minimal out-of-pocket costs</li>
+                        <li style="color: #c8e6c9;">Minimal administrative overhead</li>
+                        <li style="color: #c8e6c9;">Cooperative structure (no profit extraction)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <p style="text-align: center; font-size: 1.1em; margin: 30px 0; color: #4caf50; font-weight: bold;">
+                If Congress authorizes telehealth through the ACA, one conversion funds 12 more. 
+                Those 12 fund 148. Exponential. Unstoppable. Universal healthcare in 90 days to critical mass.
+            </p>
+        </section>
+
+        <section>
+            <h2>ðŸŽ¯ The Endpoint</h2>
             
-            <div style="margin-top: 30px;">
-                <a href="index.html" style="color: #81c784; text-decoration: underline; margin: 0 15px;">← Back to Movement</a>
-                <a href="faq.html" style="color: #81c784; text-decoration: underline; margin: 0 15px;">FAQ</a>
-                <a href="donate.html" style="color: #81c784; text-decoration: underline; margin: 0 15px;">Support the Movement</a>
+            <div class="highlight-box">
+                <p style="font-size: 1.1em; margin-bottom: 15px;">
+                    <strong style="color: white;">120 million eventually switch.</strong>
+                </p>
+                <p style="margin-bottom: 15px;">
+                    $2.73 TRILLION in freed government healthcare savings.
+                </p>
+                <p style="margin-bottom: 15px;">
+                    Funds universal coverage for 234M + monthly assistance + jobs + case management.
+                </p>
+                <p style="font-size: 1.2em; color: #4caf50; font-weight: bold; margin-top: 20px;">
+                    Self-sustaining. Exponential compounding.
+                </p>
             </div>
         </section>
 
-        <!-- CONTACT INFO -->
-        <footer style="text-align: center; padding: 40px 20px; color: #a5d6a7; border-top: 1px solid rgba(76, 175, 80, 0.3); margin-top: 40px;">
+        <section>
+            <h2>âœ… Why This Is Inevitable</h2>
+            
+            <div class="highlight-box">
+                <p style="font-size: 1.05em; margin-bottom: 20px;">
+                    This isn't about hope or belief. This is pure mathematics.
+                </p>
+                <p>
+                    Once the cascade starts, it cannot be stopped by policy, regulation, or corporate lobbying.
+                </p>
+                <p style="margin-top: 15px; font-size: 1.1em; color: #4caf50; font-weight: bold;">
+                    Every person who converts strengthens the system for the next 12 conversions.
+                </p>
+            </div>
+        </section>
+
+        <section style="text-align: center; margin: 50px 0;">
+            <h2>Ready to See the Leverage?</h2>
+            <p style="font-size: 1.1em; margin: 20px 0;">
+                Now you understand the mechanism. Here's how we force Congress to approve it.
+            </p>
+            
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin: 30px 0;">
+                <a href="leverage.html" class="btn">âš¡ See The Leverage</a>
+                <a href="simple-math.html" class="btn btn-secondary">ðŸ“Š See The Math</a>
+                <a href="https://c.org/q9vrMCQZsY" target="_blank" class="btn btn-secondary">âœï¸ Sign Petition</a>
+            </div>
+        </section>
+
+        <div class="nav-buttons">
+            <a href="simple-math.html" class="btn btn-secondary">â† Back: Simple Math</a>
+            <a href="leverage.html" class="btn btn-secondary">Next: The Leverage â†’</a>
+        </div>
+
+        <footer>
             <p><strong>PHIERS Movement | Make America Better And Healthier (MABAH)</strong></p>
             <p>Will Price | Chief Solutions Architect</p>
-            <p>Phone: (916) 306-8967 | Email: <a href="mailto:info@phiers.org" style="color: #81c784;">info@phiers.org</a></p>
+            <p>Phone: 916-306-8967 | Email: info@phiers.org</p>
+            
+            <p style="margin-top: 20px;">
+                <a href="https://c.org/q9vrMCQZsY" target="_blank">Sign Petition</a> | 
+                <a href="https://forms.gle/GekCB2xwHfFb4WLF6" target="_blank">Fill Survey</a> | 
+                <a href="Donate.html">Fund the Cascade</a> | 
+                <a href="https://discord.gg/narhDKJY" target="_blank">Join Discord</a>
+            </p>
+            
+            <p style="margin-top: 15px;">
+                <a href="about.html">About Us</a> | 
+                <a href="index.html">Home</a> | 
+                <a href="faq.html">FAQ</a>
+            </p>
+            
+            <p style="margin-top: 20px;">
+                Â© PHIERS.org â€” People's Health Insurance Economic Recovery Solutions
+            </p>
+            <p style="font-size: 0.85em; color: #a5d6a7;">
+                Accessibility | Privacy Policy
+            </p>
+            <p style="margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(76, 175, 80, 0.2); color: #4caf50; font-size: 0.85em;">
+                <strong>File:</strong> how-it-works.html v1.0 | <strong>Created:</strong> 2026-02-05 @ 12:55 PM PST | <strong>Source:</strong> phiers.org "How It Works" section
+            </p>
+            <p style="margin-top: 15px; font-size: 0.9em; font-weight: bold;">
+                If you see an error in the math or policy, tell us â€” we'll fix it.
+            </p>
         </footer>
-
-        <!-- TIMESTAMP -->
-        <div class="timestamp">
-            <p>Updated February 10, 2026 — Strategic roadmap active</p>
-        </div>
     </div>
+<script src="phiers-enhancements.js"></script>
 </body>
 </html>
