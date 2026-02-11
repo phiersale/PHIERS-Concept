@@ -3,498 +3,343 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="dark light">
-    <title>Simple Math - The Cascade to Universal Healthcare</title>
+    <title>Simple Math — The Cascade That Funds Itself</title>
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            color: #e0e0e0;
+            margin: 0;
+            font-family: system-ui, sans-serif;
+            background: #0a0a0a;
+            color: #e8e8e8;
             line-height: 1.6;
-            min-height: 100vh;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+        a { color: #81c784; }
 
-        /* HEADER */
-        .header {
+        /* HERO */
+        .hero {
             text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(135deg, rgba(15, 52, 96, 0.9), rgba(22, 33, 62, 0.9));
-            border-radius: 10px;
-            margin-bottom: 40px;
-            border: 2px solid rgba(76, 175, 80, 0.3);
+            padding: 60px 20px 40px;
+            background: #111;
+            border-bottom: 1px solid #222;
         }
 
-        .header h1 {
-            font-size: 2.5em;
-            color: #4caf50;
-            margin-bottom: 15px;
-            text-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
-        }
-
-        .header .subtitle {
-            font-size: 1.3em;
-            color: #81c784;
-            margin-bottom: 20px;
-        }
-
-        /* NAVIGATION */
-        .nav-back {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .nav-back a {
-            background: linear-gradient(135deg, #4caf50, #45a049);
-            color: white;
-            padding: 12px 24px;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-
-        .nav-back a:hover {
-            background: linear-gradient(135deg, #45a049, #3d8b40);
-            transform: translateY(-2px);
-        }
-
-        /* SECTION STYLING */
-        .section {
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
-            border-left: 4px solid #4caf50;
-            padding: 40px;
-            margin-bottom: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-        }
-
-        .section h2 {
-            font-size: 2em;
-            color: #4caf50;
-            margin-bottom: 20px;
-        }
-
-        .section h3 {
-            font-size: 1.5em;
-            color: #81c784;
-            margin-bottom: 15px;
-        }
-
-        /* IMAGE STYLING */
-        .math-image {
-            max-width: 100%;
-            width: 100%;
-            border-radius: 8px;
-            margin: 20px 0;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .image-caption {
-            text-align: center;
-            color: #81c784;
-            font-style: italic;
-            margin-top: 10px;
-            font-size: 0.9em;
-        }
-
-        /* HIGHLIGHT BOXES */
-        .highlight-box {
-            background: rgba(76, 175, 80, 0.1);
-            border: 2px solid #4caf50;
-            border-radius: 8px;
-            padding: 25px;
-            margin: 25px 0;
-        }
-
-        .highlight-title {
-            color: #4caf50;
-            font-size: 1.3em;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        /* CASCADE VISUALIZATION */
-        .cascade-flow {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            margin: 40px 0;
-            flex-wrap: wrap;
-        }
-
-        .cascade-step {
-            text-align: center;
-            margin: 20px;
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .cascade-number {
-            font-size: 3em;
-            color: #4caf50;
-            font-weight: bold;
-            display: block;
+        .hero h1 {
+            font-size: 2.6rem;
             margin-bottom: 10px;
-        }
-
-        .cascade-arrow {
-            font-size: 2em;
             color: #81c784;
-            margin: 0 20px;
         }
 
-        .cascade-label {
+        .hero-sub {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
             color: #a5d6a7;
-            font-weight: bold;
-            margin-top: 10px;
         }
 
-        /* MATH BREAKDOWN */
-        .math-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin: 30px 0;
+        .identity {
+            font-size: 1rem;
+            margin-bottom: 30px;
+            color: #ccc;
+        }
+
+        /* NAV */
+        nav {
+            background: #0f0f0f;
+            border-bottom: 1px solid #222;
+            padding: 12px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav a {
+            color: #e8e8e8;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        nav a.active {
+            color: #81c784;
+            font-weight: 700;
+        }
+
+        /* CONTENT */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            color: #81c784;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .anchor-img {
+            width: 50%;
+            max-width: 420px;
+            display: block;
+            margin: 30px auto;
+            border-radius: 8px;
+            cursor: pointer;
         }
 
         .math-card {
-            background: rgba(15, 52, 96, 0.8);
-            border: 2px solid rgba(76, 175, 80, 0.4);
+            background: #111;
+            padding: 20px;
             border-radius: 8px;
-            padding: 25px;
-            transition: transform 0.3s ease;
-        }
-
-        .math-card:hover {
-            transform: translateY(-5px);
-            border-color: #4caf50;
-        }
-
-        .math-card h4 {
-            color: #4caf50;
-            margin-bottom: 15px;
-            font-size: 1.3em;
-        }
-
-        /* TIMELINE */
-        .timeline {
-            background: rgba(76, 175, 80, 0.05);
-            border: 2px solid rgba(76, 175, 80, 0.3);
-            border-radius: 8px;
-            padding: 30px;
-            margin: 30px 0;
-        }
-
-        .timeline h3 {
-            color: #4caf50;
-            text-align: center;
+            border: 1px solid #222;
             margin-bottom: 20px;
         }
 
         .timeline-step {
-            display: flex;
-            align-items: center;
-            margin: 20px 0;
-            padding: 15px;
-            background: rgba(26, 26, 46, 0.5);
-            border-radius: 6px;
+            background: #111;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #222;
+            margin-bottom: 20px;
         }
 
         .timeline-month {
-            background: #4caf50;
+            font-weight: bold;
+            color: #81c784;
+            margin-bottom: 8px;
+        }
+
+        /* CTA */
+        .cta-button {
+            background: linear-gradient(135deg, #4caf50, #45a049);
             color: white;
-            padding: 8px 16px;
-            border-radius: 4px;
+            padding: 18px 36px;
+            font-size: 1.2em;
             font-weight: bold;
-            min-width: 100px;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        footer {
             text-align: center;
-            margin-right: 20px;
+            padding: 40px 20px;
+            color: #a5d6a7;
+            border-top: 1px solid rgba(76, 175, 80, 0.3);
+            margin-top: 40px;
         }
 
-        .timeline-event {
-            flex: 1;
-        }
-
-        /* BULLET LISTS */
-        .math-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .math-list li {
-            margin: 15px 0;
-            padding-left: 25px;
-            position: relative;
-        }
-
-        .math-list li:before {
-            content: "→";
-            color: #4caf50;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-
-        /* TIMESTAMP */
         .timestamp {
             text-align: center;
-            color: #81c784;
-            font-size: 0.9em;
-            margin-top: 40px;
-            padding: 20px;
-            background: rgba(76, 175, 80, 0.1);
-            border-radius: 8px;
-        }
-
-        /* MOBILE RESPONSIVENESS */
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2em;
-            }
-            
-            .cascade-flow {
-                flex-direction: column;
-            }
-            
-            .cascade-arrow {
-                transform: rotate(90deg);
-                margin: 10px 0;
-            }
-            
-            .math-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .timeline-step {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .timeline-month {
-                margin-bottom: 10px;
-                margin-right: 0;
-            }
-            
-            .container {
-                padding: 10px;
-            }
+            margin-top: 20px;
+            color: #777;
+            font-size: 0.9rem;
         }
     </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const current = window.location.pathname.split("/").pop();
+            document.querySelectorAll("nav a").forEach(a => {
+                if (a.getAttribute("href") === current) {
+                    a.classList.add("active");
+                }
+            });
+        });
+    </script>
 </head>
+
 <body>
-    <div class="container">
-        <!-- NAVIGATION -->
-        <div class="nav-back">
-            <a href="index.html">← Back to Movement</a>
-        </div>
 
-        <!-- HEADER -->
-        <header class="header">
-            <h1>Simple Math: The Cascade to Universal Healthcare</h1>
-            <div class="subtitle">One Conversion Funds 12. Then 148. Then Millions.</div>
-            <p>The cascade is exponential, inevitable, and already in motion.</p>
-        </header>
+<!-- HERO -->
+<div class="hero">
+    <h1>Simple Math</h1>
+    <div class="hero-sub">The Cascade That Funds Itself</div>
+    <div class="identity">PHIERS Movement • Make America Better And Healthier (MABAH)</div>
+</div>
 
-        <!-- THE CORE MATH -->
-        <section class="section">
-            <h2>The Cascade Mathematics</h2>
-            <img src="SIMPLE_MATH.png" alt="Simple Math - Exponential Cascade from 1 to Universal Coverage" class="math-image">
-            <div class="image-caption">The mathematical progression: 1 → 12 → 148 → Universal Coverage</div>
-            
-            <div class="cascade-flow">
-                <div class="cascade-step">
-                    <span class="cascade-number">1</span>
-                    <div class="cascade-label">First Conversion</div>
-                </div>
-                <div class="cascade-arrow">→</div>
-                <div class="cascade-step">
-                    <span class="cascade-number">12</span>
-                    <div class="cascade-label">Funded Next</div>
-                </div>
-                <div class="cascade-arrow">→</div>
-                <div class="cascade-step">
-                    <span class="cascade-number">148</span>
-                    <div class="cascade-label">Network Effect</div>
-                </div>
-                <div class="cascade-arrow">→</div>
-                <div class="cascade-step">
-                    <span class="cascade-number">234M</span>
-                    <div class="cascade-label">Universal Coverage</div>
-                </div>
-            </div>
-        </section>
+<!-- NAV -->
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="simple-math.html" class="active">Simple Math</a></li>
+        <li><a href="simple-math-fast-read.html">Fast Read</a></li>
+        <li><a href="5d-solutions.html">5D Solutions</a></li>
+        <li><a href="crisis-plan.html">Crisis Plan</a></li>
+        <li><a href="quick-start.html">Quick Start</a></li>
+        <li><a href="donate.html">Donate</a></li>
+    </ul>
+</nav>
 
-        <!-- CORE MATH BREAKDOWN -->
-        <section class="section">
-            <h2>How the Numbers Work</h2>
-            <img src="CORE_MATH_for_234M.png" alt="Core Math for 234 Million Americans - Conversion Mathematics" class="math-image">
-            <div class="image-caption">The mathematical foundation: From one conversion to 234 million covered</div>
-            
-            <div class="math-grid">
-                <div class="math-card">
-                    <h4>Savings Per Person</h4>
-                    <ul class="math-list">
-                        <li>Traditional insurance: $8,500+/year</li>
-                        <li>PHIERS telehealth: $600/year</li>
-                        <li>Individual savings: $7,900+/year</li>
-                        <li>Family savings: $18,000-$72,000+/year</li>
-                    </ul>
-                </div>
-                
-                <div class="math-card">
-                    <h4>Network Funding Model</h4>
-                    <ul class="math-list">
-                        <li>Each conversion saves $7,900+</li>
-                        <li>Savings fund next 12 conversions at $600 each</li>
-                        <li>12 conversions create $94,800 in new savings</li>
-                        <li>Pattern repeats exponentially</li>
-                    </ul>
-                </div>
-                
-                <div class="math-card">
-                    <h4>Scale Mathematics</h4>
-                    <ul class="math-list">
-                        <li>Phase 1: 1 person saves $7,900</li>
-                        <li>Phase 2: 12 people save $94,800</li>
-                        <li>Phase 3: 148 people save $1.17M</li>
-                        <li>Phase 4: Network effects accelerate to universal coverage</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+<div class="container">
 
-        <!-- WHY THIS WORKS -->
-        <section class="section">
-            <h2>Why This Mathematical Model Is Unstoppable</h2>
-            <div class="highlight-box">
-                <div class="highlight-title">Network Effect Physics</div>
-                <ul class="math-list">
-                    <li><strong>Exponential Growth:</strong> Each successful conversion enables multiple new conversions</li>
-                    <li><strong>Self-Funding:</strong> Savings from each person fund the next wave of conversions</li>
-                    <li><strong>Accelerating Returns:</strong> As network grows, per-person costs decrease further</li>
-                    <li><strong>Tipping Point:</strong> At critical mass, traditional insurance becomes economically obsolete</li>
-                </ul>
-            </div>
-            
-            <div class="math-grid">
-                <div class="math-card">
-                    <h4>Economic Inevitability</h4>
-                    <p>When people can get 80% of healthcare needs for $600 instead of $8,500, the choice is mathematically obvious. The only question is timing, not outcome.</p>
-                </div>
-                
-                <div class="math-card">
-                    <h4>Congressional Pressure</h4>
-                    <p>As millions convert to the $600 model, pressure on Congress to authorize CMS coverage becomes unstoppable. Representatives serve constituents or lose elections.</p>
-                </div>
-                
-                <div class="math-card">
-                    <h4>Market Transformation</h4>
-                    <p>Insurance companies cannot compete with 93% cost reduction. They either adapt to the new model or become obsolete through market forces.</p>
-                </div>
-            </div>
-        </section>
+    <!-- ANCHOR IMAGE -->
+    <img src="SIMPLE_MATH_Pyramid_Universal_Coverage.png"
+         alt="Telehealth Pyramid — Universal Coverage Cascade"
+         class="anchor-img"
+         onclick="this.style.width='90%';">
 
-        <!-- TIMELINE TO UNIVERSAL COVERAGE -->
-        <section class="section">
-            <h2>8-13 Month Timeline to Universal Coverage</h2>
-            <div class="timeline">
-                <h3>The Cascade Timeline</h3>
-                
-                <div class="timeline-step">
-                    <div class="timeline-month">Month 1-2</div>
-                    <div class="timeline-event">
-                        <strong>Initial Conversions:</strong> First adopters switch to $600/year telehealth model. Savings fund next wave.
-                    </div>
-                </div>
-                
-                <div class="timeline-step">
-                    <div class="timeline-month">Month 3-4</div>
-                    <div class="timeline-event">
-                        <strong>Network Growth:</strong> 1→12→148 progression accelerates. Word spreads through savings testimonials.
-                    </div>
-                </div>
-                
-                <div class="timeline-step">
-                    <div class="timeline-month">Month 5-6</div>
-                    <div class="timeline-event">
-                        <strong>Congressional Pressure:</strong> Millions converting creates district-level pressure. Representatives respond to constituent demand.
-                    </div>
-                </div>
-                
-                <div class="timeline-step">
-                    <div class="timeline-month">Month 7-8</div>
-                    <div class="timeline-event">
-                        <strong>Policy Authorization:</strong> Congress authorizes CMS to cover $600 telehealth model. Implementation accelerates.
-                    </div>
-                </div>
-                
-                <div class="timeline-step">
-                    <div class="timeline-month">Month 9-13</div>
-                    <div class="timeline-event">
-                        <strong>Universal Coverage:</strong> Network effects reach all 234M Americans. Traditional insurance obsolete.
-                    </div>
-                </div>
-            </div>
-        </section>
+    <p style="text-align:center; color:#a5d6a7; margin-top:10px;">
+        The telehealth model is the foundation — and the spark — of the entire cascade.
+    </p>
 
-        <!-- THE GUARANTEE -->
-        <section class="section">
-            <h2>Why Success Is Mathematically Guaranteed</h2>
-            <div class="highlight-box">
-                <div class="highlight-title">Three Convergent Forces</div>
-                <ul class="math-list">
-                    <li><strong>Economic Force:</strong> $7,900+ annual savings per person creates unstoppable individual incentive</li>
-                    <li><strong>Network Force:</strong> Each conversion funds multiple new conversions, creating exponential growth</li>
-                    <li><strong>Political Force:</strong> District-level pressure makes congressional resistance economically expensive</li>
-                </ul>
-                
-                <p style="margin-top: 20px; text-align: center; font-size: 1.1em; color: #4caf50;">
-                    <strong>When all three forces converge, the outcome is mathematically certain.</strong>
-                </p>
-            </div>
-        </section>
+    <!-- CORE SECTION -->
+    <h2>The Cascade Mathematics</h2>
 
-        <!-- CALL TO ACTION -->
-        <section class="section" style="text-align: center;">
-            <h2>Join the Cascade</h2>
-            <p style="margin: 20px 0; font-size: 1.1em;">Every signature accelerates the mathematical progression. Every conversion funds the next wave.</p>
-            
-            <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now" style="background: linear-gradient(135deg, #4caf50, #45a049); color: white; padding: 18px 36px; font-size: 1.2em; font-weight: bold; border: none; border-radius: 8px; text-decoration: none; display: inline-block; margin: 10px; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);">Add Your Voice to the Cascade</a>
-            
-            <p style="margin-top: 20px; color: #81c784;">
-                Universal healthcare in 8-13 months isn't hope. It's mathematics.
-            </p>
-            
-            <div style="margin-top: 30px;">
-                <a href="solutions.html" style="color: #81c784; text-decoration: underline; margin: 0 15px;">See Full Strategy →</a>
-                <a href="index.html" style="color: #81c784; text-decoration: underline; margin: 0 15px;">← Back to Movement</a>
-                <a href="donate.html" style="color: #81c784; text-decoration: underline; margin: 0 15px;">Fund the Mathematics</a>
-            </div>
-        </section>
+    <p>
+        The entire movement rests on one simple truth: <strong>the savings from each person switching to $600/year telehealth
+        can fund the next wave of conversions.</strong> This creates a self‑accelerating cascade:
+    </p>
 
-        <!-- CONTACT INFO -->
-        <footer style="text-align: center; padding: 40px 20px; color: #a5d6a7; border-top: 1px solid rgba(76, 175, 80, 0.3); margin-top: 40px;">
-            <p><strong>PHIERS Movement | Make America Better And Healthier (MABAH)</strong></p>
-            <p>Will Price | Chief Solutions Architect</p>
-            <p>Phone: (916) 306-8967 | Email: <a href="mailto:info@phiers.org" style="color: #81c784;">info@phiers.org</a></p>
-        </footer>
-
-        <!-- TIMESTAMP -->
-        <div class="timestamp">
-            <p>Updated February 10, 2026 — Cascade mathematics active and accelerating</p>
-        </div>
+    <div class="math-card">
+        <strong>1 → 12 → 148 → 234,000,000</strong><br>
+        One conversion funds twelve. Twelve fund 148. The pattern repeats until every American is covered.
     </div>
+
+    <!-- BREAKDOWN -->
+    <h2>How the Numbers Work</h2>
+
+    <div class="math-card">
+        <h3>Savings Per Person</h3>
+        <ul>
+            <li>Traditional insurance: $8,500+/year</li>
+            <li>PHIERS telehealth: $600/year</li>
+            <li>Individual savings: $7,900+/year</li>
+            <li>Family savings: $18,000–$72,000+/year</li>
+        </ul>
+    </div>
+
+    <div class="math-card">
+        <h3>Network Funding Model</h3>
+        <ul>
+            <li>Each conversion saves $7,900+</li>
+            <li>Savings fund the next 12 conversions</li>
+            <li>12 conversions create $94,800 in new savings</li>
+            <li>The pattern repeats exponentially</li>
+        </ul>
+    </div>
+
+    <div class="math-card">
+        <h3>Scale Mathematics</h3>
+        <ul>
+            <li>Phase 1: 1 person saves $7,900</li>
+            <li>Phase 2: 12 people save $94,800</li>
+            <li>Phase 3: 148 people save $1.17M</li>
+            <li>Phase 4: Network effects accelerate to universal coverage</li>
+        </ul>
+    </div>
+
+    <!-- WHY IT WORKS -->
+    <h2>Why This Model Is Unstoppable</h2>
+
+    <div class="math-card">
+        <h3>Network Effect Physics</h3>
+        <ul>
+            <li>Each conversion enables multiple new conversions</li>
+            <li>Savings from each wave fund the next wave</li>
+            <li>As the network grows, per‑person costs drop further</li>
+            <li>At critical mass, traditional insurance becomes economically obsolete</li>
+        </ul>
+    </div>
+
+    <div class="math-card">
+        <h3>Economic Inevitability</h3>
+        <p>
+            When people can get 80% of healthcare needs for $600 instead of $8,500, the choice becomes mathematically obvious.
+            The only question is timing — not outcome.
+        </p>
+    </div>
+
+    <div class="math-card">
+        <h3>Congressional Pressure</h3>
+        <p>
+            As millions convert, district‑level pressure becomes overwhelming. Representatives serve constituents or lose elections.
+        </p>
+    </div>
+
+    <!-- TIMELINE -->
+    <h2>8–13 Month Timeline to Universal Coverage</h2>
+
+    <div class="timeline-step">
+        <div class="timeline-month">Month 1–2</div>
+        Initial conversions. Savings fund the next wave.
+    </div>
+
+    <div class="timeline-step">
+        <div class="timeline-month">Month 3–4</div>
+        Network growth accelerates. Word spreads through savings testimonials.
+    </div>
+
+    <div class="timeline-step">
+        <div class="timeline-month">Month 5–6</div>
+        Congressional pressure intensifies as millions convert.
+    </div>
+
+    <div class="timeline-step">
+        <div class="timeline-month">Month 7–8</div>
+        Congress authorizes CMS to cover the $600 telehealth model.
+    </div>
+
+    <div class="timeline-step">
+        <div class="timeline-month">Month 9–13</div>
+        Universal coverage achieved through network effects.
+    </div>
+
+    <!-- GUARANTEE -->
+    <h2>Why Success Is Guaranteed</h2>
+
+    <div class="math-card">
+        <h3>Three Convergent Forces</h3>
+        <ul>
+            <li><strong>Economic:</strong> $7,900+ annual savings per person</li>
+            <li><strong>Network:</strong> Each conversion funds multiple new conversions</li>
+            <li><strong>Political:</strong> District‑level pressure forces congressional action</li>
+        </ul>
+    </div>
+
+    <!-- CTA -->
+    <h2 style="text-align:center;">Join the Cascade</h2>
+
+    <p style="text-align:center; font-size:1.1rem;">
+        Every signature accelerates the mathematical progression. Every conversion funds the next wave.
+    </p>
+
+    <div style="text-align:center;">
+        <a class="cta-button"
+           href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now">
+           Add Your Voice to the Cascade
+        </a>
+    </div>
+
+    <p style="text-align:center; color:#81c784;">
+        Universal healthcare in 8–13 months isn’t hope. It’s mathematics.
+    </p>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <p><strong>PHIERS Movement | Make America Better And Healthier (MABAH)</strong></p>
+    <p>Will Price | Chief Solutions Architect</p>
+    <p>Phone: (916) 306‑8967 | Email: info@phiers.org</p>
+</footer>
+
+<div class="timestamp">
+    Updated February 11, 2026 — Cascade mathematics active and accelerating
+</div>
+
 </body>
 </html>
