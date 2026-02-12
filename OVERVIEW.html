@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>PHIERS — Make America Better and Healthier</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="PHIERS is the People's Health Insurance Endowment & Referral Service — forcing real healthcare reform through organized district-level pressure. 3.5% by March 28. 100M by July 4th." />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(135deg, #0a0e1a 0%, #0f1419 25%, #1a1f2e 50%, #0f3460 100%);
+      color: #e5e7eb;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+    
+    header {
+      text-align: center;
+      padding: 3rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      background: rgba(15, 52, 96, 0.4);
+      border: 1px solid rgba(76, 175, 80, 0.3);
+      font-size: 0.75rem;
+      color: #81c784;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #4caf50;
+      box-shadow: 0 0 10px rgba(76, 175, 80, 0.6);
+    }
+    
+    .logo {
+      max-width: 140px;
+      height: auto;
+      margin: 0 auto 1.5rem;
+      display: block;
+    }
+    
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-size: 0.75rem;
+      color: #81c784;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      line-height: 1.2;
+      color: #4caf50;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 30px rgba(76, 175, 80, 0.3);
+      font-weight: 700;
+    }
+    
+    .subtitle {
+      font-size: 1.1rem;
+      color: #c8e6c9;
+      margin-bottom: 2rem;
+      line-height: 1.5;
+    }
+    
+    .hero-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      margin: 2rem 0;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    }
+    
+    .cta-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 2rem 0;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      font-weight: 700;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, #4caf50, #45a049);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(76, 175, 80, 0.4);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 30px rgba(76, 175, 80, 0.6);
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      color: #4caf50;
+      border: 2px solid #4caf50;
+    }
+    
+    .btn-secondary:hover {
+      background: rgba(76, 175, 80, 0.1);
+      border-color: #66bb6a;
+    }
+    
+    .disclaimer {
+      font-size: 0.85rem;
+      color: #9ca3af;
+      text-align: center;
+      margin-top: 1rem;
+    }
+    
+    section {
+      background: linear-gradient(135deg, rgba(26, 26, 46, 0.6), rgba(15, 52, 96, 0.4));
+      border-left: 4px solid #4caf50;
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin: 3rem 0;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+    
+    h2 {
+      color: #4caf50;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid rgba(76, 175, 80, 0.3);
+      padding-bottom: 0.75rem;
+    }
+    
+    h3 {
+      color: #81c784;
+      font-size: 1.3rem;
+      margin: 1.5rem 0 1rem;
+    }
+    
+    p {
+      color: #c8e6c9;
+      margin: 1rem 0;
+      line-height: 1.7;
+    }
+    
+    ul {
+      margin: 1.5rem 0;
+      padding-left: 1.5rem;
+    }
+    
+    li {
+      color: #c8e6c9;
+      margin: 0.75rem 0;
+      line-height: 1.6;
+    }
+    
+    strong {
+      color: #4caf50;
+      font-weight: 700;
+    }
+    
+    .highlight-box {
+      background: rgba(76, 175, 80, 0.1);
+      border: 2px solid #4caf50;
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 2rem 0;
+      box-shadow: 0 0 30px rgba(76, 175, 80, 0.15);
+    }
+    
+    .stat {
+      text-align: center;
+      margin: 1.5rem 0;
+    }
+    
+    .stat-number {
+      font-size: 2.5rem;
+      color: #4caf50;
+      font-weight: 700;
+      display: block;
+      text-shadow: 0 0 20px rgba(76, 175, 80, 0.4);
+    }
+    
+    .stat-label {
+      color: #81c784;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+    }
+    
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      margin: 2rem 0;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    }
+    
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 3rem 1.5rem 2rem;
+      margin-top: 4rem;
+      border-top: 1px solid rgba(76, 175, 80, 0.2);
+      color: #9ca3af;
+      font-size: 0.9rem;
+    }
+    
+    footer a {
+      color: #81c784;
+      text-decoration: none;
+      border-bottom: 1px dotted #81c784;
+    }
+    
+    footer a:hover {
+      color: #4caf50;
+      border-bottom-color: #4caf50;
+    }
+    
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+      margin: 2rem 0;
+    }
+    
+    .nav-links a {
+      color: #81c784;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+      white-space: nowrap;
+    }
+    
+    .nav-links a:hover {
+      color: #4caf50;
+    }
+    
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .cta-group {
+        flex-direction: column;
+      }
+      
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+      
+      section {
+        padding: 1.5rem;
+      }
+      
+      .nav-links {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+      
+      .nav-links a {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <header>
+    <div class="badge">
+      <span class="badge-dot"></span>
+      Updated for the 2026 healthcare fight
+    </div>
+
+    <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Logo.png" 
+         alt="PHIERS Logo" 
+         class="logo">
+
+    <div class="eyebrow">PHIERS — People's Health Insurance Endowment & Referral Service</div>
+    <h1>Make America Better and Healthier</h1>
+
+    <p class="subtitle">
+      Congress refuses to fix healthcare.<br>
+      We're forcing them — or replacing them.
+    </p>
+
+    <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/Power_Concedes_Nothing_TEETH.png"
+         alt="Power Concedes Nothing Without a Demand That Has Teeth — We Are The TEETH"
+         class="hero-image">
+
+    <div class="cta-group">
+      <a class="btn btn-primary" href="action.html">Sign the PHIERS Petition</a>
+      <a class="btn btn-secondary" href="how-it-works.html">How It Works</a>
+    </div>
+
+    <p class="disclaimer">
+      This is not a company. Not a product. Not a donation funnel. It's a coordination signal.
+    </p>
+  </header>
+
+  <section id="why-this-works">
+    <h2>Why this can actually work</h2>
+    
+    <div class="highlight-box">
+      <div class="stat">
+        <span class="stat-number">3.5%</span>
+        <span class="stat-label">March 28, 2026 — No Kings Rally</span>
+      </div>
+      <p style="text-align: center;">
+        Harvard researcher Erica Chenoweth proved that when 3.5% of people actively engage, 
+        systems change. That's <strong>11.6 million signatures</strong> to force Congressional action.
+      </p>
+    </div>
+
+    <div class="highlight-box">
+      <div class="stat">
+        <span class="stat-number">100 Million</span>
+        <span class="stat-label">July 4, 2026 — Independence Day</span>
+      </div>
+      <p style="text-align: center;">
+        Economic independence from corporate control. When 100 million Americans coordinate 
+        around healthcare reform, Congress has no choice but to act.
+      </p>
+    </div>
+
+    <ul>
+      <li><strong>District-level pressure:</strong> Members of Congress don't fear "the nation." They fear their own district.</li>
+      <li><strong>Replacement threat:</strong> When enough voters in a district coordinate around a single demand, incumbents move — or lose.</li>
+      <li><strong>Existing law:</strong> We're not waiting for a miracle bill. We're using authority that already exists.</li>
+      <li><strong>The math works:</strong> $600 per person per year via telehealth covers 80% of healthcare needs for 234 million Americans.</li>
+    </ul>
+  </section>
+
+  <section id="the-math">
+    <h2>The simple math Congress doesn't want you to see</h2>
+    
+    <p>
+      We spend over <strong>$10,000 per person per year</strong> on "healthcare" in the U.S. 
+      Most of it never reaches actual care. It disappears into admin, billing games, and 
+      insurance overhead — while people skip treatment, drown in debt, or die waiting.
+    </p>
+
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/2j-dF3hgdeE" 
+              title="1:11 PHIERS Explainer — The Math Congress Fears"
+              frameborder="0" 
+              allowfullscreen></iframe>
+    </div>
+
+    <p style="text-align: center;">
+      <strong>1 minute 11 seconds.</strong> This is why they're terrified.
+    </p>
+
+    <div class="highlight-box" style="text-align: center;">
+      <h3 style="margin-top: 0;">The Telehealth Cascade</h3>
+      <p>
+        <strong>Telehealth + existing ACA authority = $600 per person per year</strong><br>
+        That's enough to cover primary care, mental health, and chronic care management for 
+        roughly 80% of Americans — without new taxes and without killing private insurance.
+      </p>
+      <p>
+        <strong>One conversion funds 12 more. Those 12 fund 148. Exponential. Unstoppable.</strong>
+      </p>
+    </div>
+
+    <p>
+      The problem isn't that we don't have the money. The problem is that Congress refuses 
+      to re-aim it. PHIERS is the plan to force that re-aiming — or replace the people blocking it.
+    </p>
+  </section>
+
+  <section id="what-signing-does">
+    <h2>What signing the PHIERS petition actually does</h2>
+    
+    <p>
+      Your signature is not a "like." It's a <strong>coordination signal</strong> that lets us 
+      map where pressure already exists — district by district — and where we need to grow.
+    </p>
+
+    <ul>
+      <li><strong>Step 1:</strong> You sign with your district information.</li>
+      <li><strong>Step 2:</strong> Your district is added to the PHIERS pressure map.</li>
+      <li><strong>Step 3:</strong> When enough people in your district sign, we trigger local escalation: 
+          coordinated calls, media pressure, and candidate commitments.</li>
+      <li><strong>Step 4:</strong> If your member of Congress refuses to move, we help recruit and support 
+          a replacement who will.</li>
+    </ul>
+
+    <div class="highlight-box">
+      <h3 style="margin-top: 0;">Our Timeline</h3>
+      <p>
+        <strong>March 28, 2026:</strong> We bring 11.6 million signatures to the No Kings Rally as leverage<br>
+        <strong>July 4, 2026:</strong> Independence Day becomes the day we declare economic independence with 100 million members
+      </p>
+      <p>
+        3.5% forces the vote. 100M makes it permanent. That's the strategy.
+      </p>
+    </div>
+
+    <div class="cta-group">
+      <a class="btn btn-primary" href="action.html">Add Your Name to the PHIERS Map</a>
+    </div>
+  </section>
+
+  <section id="next-steps">
+    <h2>Explore the Complete Plan</h2>
+    
+    <p>
+      We've mapped the legal authority, the telehealth math, and the district-level strategy into 
+      a concrete plan. If you're the kind of person who needs to see the receipts before you move, 
+      that's exactly who we built this for.
+    </p>
+
+    <div class="nav-links">
+      <a href="quickstart.html">Quick Start</a>
+      <a href="crisis.html">The Crisis</a>
+      <a href="how-it-works.html">How It Works</a>
+      <a href="leverage.html">The Leverage</a>
+      <a href="solutions.html">5D Solutions</a>
+      <a href="simple-math.html">The Math</a>
+      <a href="buying-power.html">Buying Power</a>
+      <a href="faq.html">FAQ</a>
+      <a href="resources.html">Resources</a>
+      <a href="media.html">Media</a>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>PHIERS — Make America Better and Healthier</strong></p>
+    <p>
+      A public-interest pressure movement. Not a company. Not a product. Not a PAC.
+    </p>
+    
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="quickstart.html">Quick Start</a>
+      <a href="crisis.html">The Crisis</a>
+      <a href="how-it-works.html">How It Works</a>
+      <a href="leverage.html">The Leverage</a>
+      <a href="solutions.html">Solutions</a>
+      <a href="buying-power.html">Buying Power</a>
+      <a href="action.html">Petition</a>
+      <a href="simple-math.html">The Math</a>
+      <a href="faq.html">FAQ</a>
+      <a href="resources.html">Resources</a>
+      <a href="media.html">Media</a>
+      <a href="about.html">About</a>
+    </div>
+    
+    <p style="margin-top: 2rem; font-size: 0.85rem;">
+      Contact: <a href="mailto:info@phiers.org">info@phiers.org</a> | 
+      <a href="tel:+19163068967">916-306-8967</a>
+    </p>
+    
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #9ca3af;">
+      Last updated: February 7, 2026
+    </p>
+  </footer>
+</div>
+
+</body>
+
+</html>
