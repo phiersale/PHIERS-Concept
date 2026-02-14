@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="dark light">
-    <title>Fuel the PHIERS of Positive Change</title>
+    <title>Donate - Fuel the PHIERS Movement</title>
 
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -15,17 +15,51 @@
             color: #e0e0e0;
             line-height: 1.8;
             min-height: 100vh;
-            padding-bottom: 80px;
         }
 
         .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+
+        /* NAVIGATION - Section 5 Constitutional Order */
+        nav {
+            background: rgba(26, 26, 46, 0.8);
+            border: 1px solid rgba(76, 175, 80, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        nav a {
+            color: #81c784;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        nav a:hover {
+            background: rgba(76, 175, 80, 0.2);
+            color: #4caf50;
+        }
+
+        nav a.active {
+            background: rgba(76, 175, 80, 0.3);
+            color: #4caf50;
+            font-weight: bold;
+        }
 
         header {
             text-align: center;
             padding: 50px 20px;
             background: linear-gradient(135deg, rgba(15, 52, 96, 0.85), rgba(22, 33, 62, 0.85));
             border-radius: 12px;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
             border: 2px solid rgba(76, 175, 80, 0.35);
         }
 
@@ -50,6 +84,41 @@
             font-weight: 600;
         }
 
+        /* CONSTITUTIONAL VIDEO BLOCK - Section 4 */
+        .video-section {
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.1), rgba(25, 118, 210, 0.1));
+            border: 2px solid #2196f3;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .video-section h2 {
+            color: #2196f3;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            margin: 20px 0;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
         .urgency-banner {
             background: linear-gradient(135deg, rgba(244, 67, 54, 0.22), rgba(229, 57, 53, 0.22));
             border-left: 6px solid #ef5350;
@@ -65,14 +134,14 @@
             background: linear-gradient(135deg, rgba(26, 26, 46, 0.92), rgba(22, 33, 62, 0.92));
             border-left: 4px solid #4caf50;
             padding: 50px;
-            margin-bottom: 65px;
+            margin-bottom: 40px;
             border-radius: 10px;
             box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
         }
 
         h2 {
             color: #4caf50;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             font-size: 1.9em;
             border-bottom: 2px solid #4caf50;
             padding-bottom: 15px;
@@ -80,9 +149,56 @@
 
         h3 {
             color: #81c784;
-            margin-top: 40px;
+            margin-top: 30px;
             margin-bottom: 18px;
             font-size: 1.3em;
+        }
+
+        .impact-math {
+            background: rgba(76, 175, 80, 0.15);
+            border: 2px solid #4caf50;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .impact-math h3 {
+            margin-top: 0;
+            color: #4caf50;
+        }
+
+        .tier-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .tier-card {
+            background: rgba(76, 175, 80, 0.12);
+            border: 2px solid #4caf50;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .tier-card:hover {
+            transform: translateY(-5px);
+            border-color: #66bb6a;
+        }
+
+        .tier-amount {
+            font-size: 2.5em;
+            color: #4caf50;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .tier-impact {
+            color: #c8e6c9;
+            font-size: 1.05em;
         }
 
         .donation-method {
@@ -150,18 +266,116 @@
             transform: translateY(-3px);
         }
 
-        footer {
-            text-align: center;
-            padding: 35px 20px;
-            border-top: 2px solid rgba(76, 175, 80, 0.35);
-            color: #81c784;
-            margin-top: 50px;
-            font-size: 0.95em;
-            line-height: 1.85;
+
+        /* Resources Dropdown */
+        .dropdown {
+            position: relative;
+            display: inline-block;
         }
 
-        footer a { color: #4caf50; text-decoration: none; }
-        footer a:hover { text-decoration: underline; }
+        .dropbtn {
+            background: transparent;
+            color: #81c784;
+            padding: 8px 12px;
+            font-size: 0.9em;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .dropbtn:hover {
+            background: rgba(76, 175, 80, 0.2);
+            color: #4caf50;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: rgba(26, 26, 46, 0.98);
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+            z-index: 1000;
+            border-radius: 8px;
+            border: 1px solid rgba(76, 175, 80, 0.3);
+            margin-top: 5px;
+        }
+
+        .dropdown-content a {
+            color: #81c784;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            border-radius: 0;
+        }
+
+        .dropdown-content a:first-child {
+            border-radius: 8px 8px 0 0;
+        }
+
+        .dropdown-content a:last-child {
+            border-radius: 0 0 8px 8px;
+        }
+
+        .dropdown-content a:hover {
+            background: rgba(76, 175, 80, 0.2);
+            color: #4caf50;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background: rgba(76, 175, 80, 0.2);
+            color: #4caf50;
+        }
+
+        /* FOOTER - Section 7 Constitutional Compliance */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 2px solid rgba(76, 175, 80, 0.3);
+            background: rgba(26, 26, 46, 0.6);
+            border-radius: 8px;
+        }
+
+        footer h3 {
+            color: #4caf50;
+            margin-bottom: 15px;
+        }
+
+        footer a {
+            color: #81c784;
+            text-decoration: none;
+            border-bottom: 1px dotted #81c784;
+        }
+
+        footer a:hover {
+            color: #4caf50;
+            border-bottom-color: #4caf50;
+        }
+
+        .footer-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .constitutional-disclaimer {
+            background: rgba(76, 175, 80, 0.1);
+            border: 1px solid rgba(76, 175, 80, 0.3);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            font-size: 0.9em;
+            color: #a5d6a7;
+        }
 
         @media (max-width: 768px) {
             h1 { font-size: 1.8em; }
@@ -169,41 +383,9 @@
             section { padding: 35px; margin-bottom: 45px; }
             .button-group { flex-direction: column; gap: 10px; }
             .btn { width: 100%; }
-        }
-
-        /* Modal for enlarge-on-click */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            padding-top: 60px;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.9);
-        }
-
-        .modal-content {
-            margin: auto;
-            display: block;
-            max-width: 90%;
-            max-height: 90%;
-        }
-
-        .modal:target {
-            display: block;
-        }
-
-        .close {
-            position: absolute;
-            top: 20px;
-            right: 35px;
-            color: #fff;
-            font-size: 40px;
-            font-weight: bold;
-            text-decoration: none;
+            nav { flex-direction: column; }
+            nav a { text-align: center; }
+            .tier-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -211,23 +393,46 @@
 <body>
 <div class="container">
 
+    <!-- NAVIGATION - Section 5 Constitutional Order -->
+            <nav>
+            <a href="Quickstart.html">START HERE</a>
+            <a href="OVERVIEW.html">OVERVIEW</a>
+            <a href="Crisis.html">Crisis</a>
+            <a href="Simple-Math-Fast-Read.html">Simple Math</a>
+            <a href="5D_Solutions.html">5D Solutions</a>
+            <a href="action.html">TAKE ACTION</a>
+            <a href="Donate.html">Donate</a>
+            
+            <div class="dropdown">
+                <button class="dropbtn">Resources ▼</button>
+                <div class="dropdown-content">
+                    <a href="FAQ.html">FAQ</a>
+                    <a href="About.html">About PHIERS</a>
+                    <a href="Leverage.html">Leverage</a>
+                    <a href="Media.html">Media Library</a>
+                    <a href="Unions-Strategy.html">Unions Strategy</a>
+                    <a href="Why-Change-Required.html">Why Change Required</a>
+                </div>
+            </div>
+        </nav>
+
     <!-- HERO -->
     <header>
         <img src="PHIERS_Logo.png" 
              alt="PHIERS Logo" 
              class="logo">
 
-        <h1>Fuel the PHIERS of Positive Change</h1>
+        <h1>Fuel the PHIERS Movement</h1>
 
         <p class="subtitle">
             Your support powers the five solutions America needs: Healthcare, Jobs, Economic Relief, Democracy, and Peace.
         </p>
 
         <div class="urgency-banner">
-            <p><strong>CRITICAL WINDOW: Build Leverage Before the March 28 No Kings Protest</strong></p>
+            <p><strong>CRITICAL WINDOW: Build Leverage Before March 28 No Kings Rally</strong></p>
             <p>
-                Every dollar strengthens the organized, district‑level pressure that gives the March 28 No Kings protest 
-                real TEETH — transforming it from a symbolic gathering into a force Congress cannot ignore.
+                Every dollar strengthens the organized, district-level pressure that gives the March 28 No Kings rally 
+                real TEETH — transforming it from symbolic gathering into a force Congress cannot ignore.
             </p>
             <p style="margin-top: 15px; color: #ff7043;">
                 <strong>Your support helps millions stand together with power, not just presence.</strong>
@@ -235,137 +440,196 @@
         </div>
     </header>
 
-    <!-- IMAGE BREAK (CLICK TO ENLARGE) -->
-    <div style="text-align: center; margin: 50px 0;">
-        <a href="#imgModal">
-            <img src="We_Gotz_Teeth_for_No_Kings.jpg"
-                 alt="No Kings protest crowd with PHIERS TEETH banner"
-                 style="max-width: 50%; height: auto; border-radius: 10px; box-shadow: 0 4px 18px rgba(0,0,0,0.45); cursor: zoom-in;">
-        </a>
+    <!-- CONSTITUTIONAL VIDEO BLOCK - Section 4 Mandatory -->
+    <div class="video-section">
+        <h2>PHIERStorm: The Movement to Fix Healthcare</h2>
+        
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/bEUyDVAYwpk" 
+                    title="PHIERStorm: The Movement to Fix Healthcare"
+                    frameborder="0" 
+                    allowfullscreen></iframe>
+        </div>
+        
+        <p style="text-align: center; color: #64b5f6; font-weight: bold; margin-top: 15px;">The movement your donation fuels. The change we're building together.</p>
     </div>
 
-    <!-- MODAL -->
-    <div id="imgModal" class="modal">
-        <a href="#" class="close">&times;</a>
-        <img class="modal-content" src="We_Gotz_Teeth_for_No_Kings.jpg" alt="">
-    </div>
+    <main>
+        <!-- IMPACT MATH SECTION -->
+        <section>
+            <h2>Your Donation's Exponential Impact</h2>
 
-    <!-- SUMMARY SECTION -->
-    <section class="use-of-funds">
-        <h3>Where Your Donation Goes</h3>
+            <div class="impact-math">
+                <h3>The Cascade Your Support Activates:</h3>
+                <p style="font-size: 1.2em; margin: 20px 0; color: white;">
+                    <strong>Your $15</strong> → Reaches 55M readers → Builds 3.5% threshold (11.6M) → Forces telehealth authorization → 
+                    Triggers cascade → Saves $2.73T → Covers 234M Americans
+                </p>
+                <p style="color: #c8e6c9; margin-top: 20px;">
+                    This isn't a donation. It's an investment in mathematical leverage.
+                </p>
+            </div>
 
-        <p style="margin-bottom: 20px; color: #c8e6c9;">
-            PHIERS is a not‑for‑profit, entirely self‑funded movement. Every dollar comes from members investing 
-            in their own power — not from corporations, parties, or political donors.
-        </p>
+            <h3>Suggested Contribution Levels:</h3>
 
-        <p style="margin-bottom: 20px;">
-            Your support builds real leverage before the March 28 No Kings protest — giving the resistance the 
-            TEETH it needs to win the changes people are protesting for. Every dollar strengthens nonpartisan 
-            civic engagement across the 5D Solutions: Healthcare, Jobs, Economic Relief, Democracy, and Peace.
-        </p>
+            <div class="tier-grid">
+                <div class="tier-card">
+                    <div class="tier-amount">$15</div>
+                    <div class="tier-impact">Helps reach 1 congressional district with organized pressure</div>
+                </div>
 
-        <p style="margin-bottom: 25px; color: #a5d6a7; font-size: 1.05em;">
-            A small investment here creates outsized pressure — this is one of the highest‑impact dollars you can spend on change.
-        </p>
+                <div class="tier-card">
+                    <div class="tier-amount">$50</div>
+                    <div class="tier-impact">Funds coordination for 1 town hall forcing representatives to respond</div>
+                </div>
 
-        <ul>
-            <li><strong>District‑level organizing:</strong> Turning frustration into coordinated pressure Congress cannot ignore.</li>
-            <li><strong>Publishing & outreach:</strong> Getting the 5D Solutions in front of millions of Americans.</li>
-            <li><strong>Tools for collective action:</strong> Helping people contact their representatives and track accountability.</li>
-            <li><strong>Operations:</strong> Basic infrastructure, research, communications, and volunteer coordination.</li>
-        </ul>
+                <div class="tier-card">
+                    <div class="tier-amount">$150</div>
+                    <div class="tier-impact">Supports 1 district organizer building sustained pressure</div>
+                </div>
 
-        <p style="margin-top: 25px; color: #81c784; font-size: 1.05em;">
-            This is how we turn presence into power — and protests into outcomes.
-        </p>
-    </section>
-
-    <!-- DONATION METHODS -->
-    <section>
-        <h2>Donate Now</h2>
-
-        <p style="text-align: center; margin-bottom: 40px; color: #c8e6c9; font-size: 1.1em;">
-            Every dollar builds leverage before March 28.
-        </p>
-
-        <!-- VENMO -->
-        <div class="donation-method">
-            <div class="method-title">Venmo</div>
-            <div class="method-details">
-                <p><strong>@Will4PHIERS</strong></p>
-                <p style="font-size: 0.95em; color: #a5d6a7;">Or send to: info@phiers.org</p>
-
-                <div class="qr-wrapper">
-                    <img src="Venmo.png" alt="Venmo QR">
+                <div class="tier-card">
+                    <div class="tier-amount">$500+</div>
+                    <div class="tier-impact">Powers multi-district campaigns with media amplification</div>
                 </div>
             </div>
-        </div>
 
-        <!-- PAYPAL -->
-        <div class="donation-method">
-            <div class="method-title">PayPal</div>
-            <div class="method-details">
-                <p><strong>info@phiers.org</strong></p>
+            <p style="text-align: center; margin-top: 30px; color: #81c784; font-size: 1.1em;">
+                <strong>Every amount matters.</strong> Even $5 contributes to the collective power that forces change.
+            </p>
+        </section>
 
-                <div class="qr-wrapper">
-                    <img src="PayPal.png" alt="PayPal QR">
+        <!-- WHERE FUNDS GO -->
+        <section class="use-of-funds">
+            <h2>Where Your Donation Goes</h2>
+
+            <p style="margin-bottom: 20px; color: #c8e6c9;">
+                PHIERS is a not-for-profit, entirely self-funded movement. Every dollar comes from members investing 
+                in their own power — not from corporations, parties, or political donors.
+            </p>
+
+            <p style="margin-bottom: 20px;">
+                Your support builds real leverage before the March 28 No Kings rally — giving the resistance the 
+                TEETH it needs to win the changes people are rallying for. Every dollar strengthens nonpartisan 
+                civic engagement across the 5D Solutions: Healthcare, Jobs, Economic Relief, Democracy, and Peace.
+            </p>
+
+            <h3>Specific Use of Funds:</h3>
+
+            <ul style="margin-left: 30px; color: #c8e6c9;">
+                <li style="margin: 15px 0;"><strong>District-level organizing:</strong> Turning frustration into coordinated pressure Congress cannot ignore.</li>
+                <li style="margin: 15px 0;"><strong>Publishing & outreach:</strong> Getting the 5D Solutions in front of millions of Americans through media partners.</li>
+                <li style="margin: 15px 0;"><strong>Tools for collective action:</strong> Helping people contact their representatives and track accountability.</li>
+                <li style="margin: 15px 0;"><strong>Operations:</strong> Basic infrastructure, research, communications, and volunteer coordination.</li>
+            </ul>
+
+            <p style="margin-top: 25px; color: #4caf50; font-size: 1.1em; font-weight: bold;">
+                This is how we turn presence into power — and rallies into outcomes.
+            </p>
+        </section>
+
+        <!-- DONATION METHODS -->
+        <section>
+            <h2>Donate Now</h2>
+
+            <p style="text-align: center; margin-bottom: 40px; color: #c8e6c9; font-size: 1.1em;">
+                Every dollar builds leverage before March 28.
+            </p>
+
+            <!-- VENMO -->
+            <div class="donation-method">
+                <div class="method-title">Venmo</div>
+                <div class="method-details">
+                    <p><strong>@Will4PHIERS</strong></p>
+                    <p style="font-size: 0.95em; color: #a5d6a7;">Or send to: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c3aaada5ac83b3abaaa6b1b0edacb1a4">[email&#160;protected]</a></p>
+
+                    <div class="qr-wrapper">
+                        <img src="Venmo.png" alt="Venmo QR Code">
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- ZELLE -->
-        <div class="donation-method">
-            <div class="method-title">Zelle</div>
-            <div class="method-details">
-                <p><strong>301-919-0970</strong></p>
+            <!-- PAYPAL -->
+            <div class="donation-method">
+                <div class="method-title">PayPal</div>
+                <div class="method-details">
+                    <p><strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="fe97909891be8e96979b8c8dd0918c99">[email&#160;protected]</a></strong></p>
 
-                <div class="qr-wrapper">
-                    <img src="Zelle.png" alt="Zelle QR">
+                    <div class="qr-wrapper">
+                        <img src="PayPal.png" alt="PayPal QR Code">
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <h3 style="margin-top: 50px; text-align: center;">OR</h3>
+            <!-- ZELLE -->
+            <div class="donation-method">
+                <div class="method-title">Zelle</div>
+                <div class="method-details">
+                    <p><strong>(916) 306-8967</strong></p>
 
-        <div style="text-align: center; margin: 40px 0;">
-            <a href="https://www.gofundme.com/f/homeless-but-hopeful-affordable-healthcare-good-jobs-ubi" 
-               target="_blank" 
-               class="btn btn-secondary">
-               GoFundMe Campaign (Backup)
-            </a>
-        </div>
-    </section>
+                    <div class="qr-wrapper">
+                        <img src="Zelle.png" alt="Zelle QR Code">
+                    </div>
+                </div>
+            </div>
 
-    <!-- OTHER WAYS -->
-    <section>
-        <h2>Other Ways to Help</h2>
+            <h3 style="margin-top: 50px; text-align: center;">OR</h3>
 
-        <p style="color: #c8e6c9; margin-bottom: 35px;">
-            Can't donate right now? You can still build leverage before March 28:
-        </p>
+            <div style="text-align: center; margin: 40px 0;">
+                <a href="https://www.gofundme.com/f/homeless-but-hopeful-affordable-healthcare-good-jobs-ubi" 
+                   target="_blank" 
+                   class="btn btn-secondary">
+                   GoFundMe Campaign
+                </a>
+            </div>
+        </section>
 
-        <div class="button-group">
-            <a href="https://c.org/zVszsScgKr" target="_blank" class="btn btn-primary">Sign Petition</a>
-            <a href="https://forms.gle/3krYjz6JnvQkttJZ8" target="_blank" class="btn btn-primary">Fill Survey</a>
-            <a href="https://phiersale.github.io/Join_the_Team/" target="_blank" class="btn btn-secondary">Join the Team</a>
-        </div>
-    </section>
+        <!-- OTHER WAYS -->
+        <section>
+            <h2>Can't Donate? Other Ways to Build Leverage</h2>
 
-    <!-- FOOTER -->
+            <p style="color: #c8e6c9; margin-bottom: 35px;">
+                Can't contribute financially right now? You can still build leverage before March 28:
+            </p>
+
+            <div class="button-group">
+                <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now" target="_blank" class="btn btn-primary">Sign Petition</a>
+                <a href="https://forms.gle/GekCB2xwHfFb4WLF6" target="_blank" class="btn btn-primary">Fill Survey</a>
+                <a href="action.html" class="btn btn-secondary">See All Actions</a>
+            </div>
+
+            <p style="text-align: center; margin-top: 30px; color: #81c784;">
+                Every signature, every survey response, every share builds the 3.5% threshold that forces change.
+            </p>
+        </section>
+    </main>
+
+    <!-- FOOTER - Section 7 Constitutional Compliance -->
     <footer>
-        <p><strong>PHIERS Movement | Make America Better And Healthier (MABAH)</strong></p>
-        <p>Will Price | Chief Solutions Architect | 916-306-8967 | info@phiers.org</p>
-        <p style="margin-top: 20px;">
-            <a href="https://phiersale.github.io/PHIERS-Concept/">Main Site</a> |
-            <a href="https://phiersale.github.io/Join_the_Team/">Join the Team</a> |
-            <a href="https://discord.gg/narhDKJY">Discord Community</a>
+        <h3>PHIERS Movement | MABAH</h3>
+        <p><strong>Make America Better And Healthier</strong></p>
+        
+        <p style="margin: 15px 0;">
+            Will Price | Chief Solutions Architect<br>
+            Phone: <a href="tel:+19163068967">(916) 306-8967</a> | 
+            Email: <a href="/cdn-cgi/l/email-protection#8ce5e2eae3ccfce4e5e9feffa2e3feeb"><span class="__cf_email__" data-cfemail="9ef7f0f8f1deeef6f7fbecedb0f1ecf9">[email&#160;protected]</span></a>
         </p>
-        <p style="margin-top: 15px;">
-            © PHIERS.org — People's Health Insurance Endowment and Referral Service
-        </p>
-    </footer>
-
-</div>
-</body>
-</html>
+        
+        <div class="footer-nav">
+            <a href="index.html">Home</a>
+            <a href="Quickstart.html">Quick Start</a>
+            <a href="OVERVIEW.html">OVERVIEW</a>
+            <a href="Crisis.html">Crisis</a>
+            <a href="Simple-Math-Fast-Read.html">Simple Math</a>
+            <a href="5D_Solutions.html">5D Solutions</a>
+            <a href="action.html">Action</a>
+            <a href="Leverage.html">Leverage</a>
+            <a href="FAQ.html">FAQ</a>
+            <a href="Resources.html">Resources</a>
+            <a href="Media.html">Media</a>
+            <a href="About.html">About</a>
+            <a href="Donate.html">Donate</a>
+        </div>
+        
+        <div class="constitutional-disclaimer">
+ 
