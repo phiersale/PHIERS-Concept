@@ -619,6 +619,43 @@
     margin-right: auto;
   }
 }
+
+/* AGGRESSIVE IMAGE OVERRIDE - FINAL FIX */
+@media (max-width: 768px) {
+  /* Force ALL images to be mobile-friendly - override inline styles */
+  img {
+    max-width: 85% !important;
+    width: auto !important;
+    height: auto !important;
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-bottom: 1.5rem !important;
+  }
+  
+  /* Logo exceptions - keep reasonable */
+  img[alt*="Logo"], 
+  img[src*="Logo"],
+  img[alt*="PHIERS"] {
+    max-width: min(300px, 85%) !important;
+  }
+  
+  /* Small icons stay small */
+  img[width="50"],
+  img[width="100"],
+  img[height="50"],
+  img[height="100"] {
+    max-width: 100px !important;
+  }
+}
+
+/* Desktop - respect but limit inline styles */
+@media (min-width: 769px) {
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}
     </style>
         display: block;
       }
