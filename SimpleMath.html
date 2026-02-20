@@ -844,6 +844,7 @@ document.addEventListener('click', function(event) {
 </script>
 -e 
 
+
 <!-- Image Modal -->
 <div id="imageModal" class="image-modal">
   <span class="close-modal" onclick="closeImageModal()">&times;</span>
@@ -852,35 +853,57 @@ document.addEventListener('click', function(event) {
 
 <script>
 function closeImageModal() {
-  document.getElementById('imageModal').style.display = 'none';
+  const modal = document.getElementById('imageModal');
+  if (modal) modal.classList.remove('active');
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-  const images = document.querySelectorAll('img:not(.mobile-menu-toggle img)');
+// Wait for DOM to be fully loaded
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initImageModal);
+} else {
+  initImageModal();
+}
+
+function initImageModal() {
   const modal = document.getElementById('imageModal');
   const modalImg = document.getElementById('modalImage');
   
+  if (!modal || !modalImg) return;
+  
+  // Add click handlers to all images except menu icons
+  const images = document.querySelectorAll('img:not(.mobile-menu-toggle):not(.mobile-menu-toggle *)');
+  
   images.forEach(function(img) {
-    img.style.cursor = 'pointer';
-    img.addEventListener('click', function() {
-      modal.classList.add('active');
-      modalImg.src = this.src;
-      modalImg.alt = this.alt || '';
-    });
+    if (img.parentElement && img.parentElement.tagName !== 'BUTTON') {
+      img.style.cursor = 'pointer';
+      img.addEventListener('click', function() {
+        modal.classList.add('active');
+        modalImg.src = this.src;
+        modalImg.alt = this.alt || '';
+      });
+    }
   });
   
+  // Close on X click
+  const closeBtn = modal.querySelector('.close-modal');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeImageModal);
+  }
+  
+  // Close on outside click
   modal.addEventListener('click', function(e) {
-    if (e.target === modal || e.target.classList.contains('close-modal')) {
-      modal.classList.remove('active');
+    if (e.target === modal) {
+      closeImageModal();
     }
   });
   
+  // Close on ESC key
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      modal.classList.remove('active');
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+      closeImageModal();
     }
   });
-});
+}
 </script>
 </body>
 </html>

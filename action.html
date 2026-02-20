@@ -364,6 +364,124 @@
             margin-bottom: 16px !important;
         }
 
+
+/* MOBILE IMAGE SIZE FIX - Images load smaller, click to enlarge */
+@media (max-width: 768px) {
+  /* Make ALL images load smaller on mobile by default */
+  img:not(.mobile-menu-toggle *) {
+    max-width: 85% !important;
+    width: 85% !important;
+    height: auto !important;
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-bottom: 1.5rem !important;
+  }
+  
+  /* Logo in hero can stay larger */
+  header img[alt*="PHIERS Logo"],
+  header img[src*="Logo"] {
+    max-width: 300px !important;
+    width: auto !important;
+  }
+  
+  /* Ensure modal images are full-size */
+  .modal-content {
+    max-width: 95% !important;
+    width: auto !important;
+  }
+}
+
+/* Desktop - keep images reasonable */
+@media (min-width: 769px) {
+  img:not(.mobile-menu-toggle *) {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* MOBILE UX IMPROVEMENTS - Feb 19, 2026 */
+
+/* Image Modal Styles */
+.image-modal {
+  display: none;
+  position: fixed;
+  z-index: 20000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.95);
+  align-items: center;
+  justify-content: center;
+}
+
+.image-modal.active {
+  display: flex;
+}
+
+.modal-content {
+  max-width: 90%;
+  max-height: 85vh;
+  display: block;
+  margin: auto;
+}
+
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 20001;
+}
+
+.close-modal:hover {
+  color: #4caf50;
+}
+
+/* Mobile Spacing Reduction */
+@media (max-width: 768px) {
+  section {
+    margin-bottom: 60px !important;
+  }
+  
+  h2 {
+    margin-top: 40px !important;
+    margin-bottom: 25px !important;
+  }
+  
+  /* Full-width CTA buttons */
+  .cta-button,
+  .btn-primary,
+  a[style*="display: inline-block"][style*="background: white"],
+  a[style*="display: inline-block"][style*="background: #2196f3"],
+  a[href*="change.org"][style*="font-size: 1."] {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: block !important;
+  }
+}
+
+/* Responsive Images */
+img {
+  max-width: 100%;
+  height: auto;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  img {
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
     </style>
 </head>
 <body>
@@ -382,7 +500,6 @@
                 <button class="dropbtn">Resources ▼</button>
                 <div class="dropdown-content">
                     <a href="FAQ.html">FAQ</a>
-        <a href="real-stories.html">Real Stories</a>
                     <a href="About.html">About PHIERS</a>
                     <a href="Our-Origins.html">Our Origins</a>
 
@@ -599,7 +716,7 @@
                 
                 <div style="background: rgba(76, 175, 80, 0.1); padding: 2rem; border-radius: 8px;">
                     <h3 style="color: #4caf50; margin-bottom: 1rem;">For Media</h3>
-                    <a href="mailto:info@phiers.org" style="display: inline-block; background: white; color: #2e7d32; padding: 1rem 2rem; border-radius: 6px; text-decoration: none; font-weight: bold; margin-top: 1rem;">Contact Us →</a>
+                    <a href="/cdn-cgi/l/email-protection#f79e999198b7879f9e928584d9988590" style="display: inline-block; background: white; color: #2e7d32; padding: 1rem 2rem; border-radius: 6px; text-decoration: none; font-weight: bold; margin-top: 1rem;">Contact Us →</a>
                 </div>
             </div>
         </section>
@@ -624,7 +741,7 @@
             <p style="margin: 15px 0;">
                 Will Price | Chief Solutions Architect<br>
                 Phone: <a href="tel:+19163068967">(916) 306-8967</a> | 
-                Email: <a href="mailto:info@phiers.org">info@phiers.org</a>
+                Email: <a href="/cdn-cgi/l/email-protection#9bf2f5fdf4dbebf3f2fee9e8b5f4e9fc"><span class="__cf_email__" data-cfemail="177e79717857677f7e72656439786570">[email&#160;protected]</span></a>
             </p>
             
             <div class="footer-nav">
@@ -637,7 +754,6 @@
                 <a href="action.html">Action</a>
                 <a href="Leverage.html">Leverage</a>
                 <a href="FAQ.html">FAQ</a>
-        <a href="real-stories.html">Real Stories</a>
                 <a href="Resources.html">Resources</a>
                 <a href="Media.html">Media</a>
                 <a href="About.html">About</a>
@@ -653,7 +769,67 @@
             
             <!-- VERSION STAMP -->
             <p style="margin-top: 2rem; text-align: center; font-size: 0.75rem; color: #666;">
-                PHIERS Movement | Version: 2026-02-15-PHASE4 | Last Updated: Feb 15, 2026 10:45pm PST
-            </p>
-            
-            <p style="margin-top: 20px; font-size: 0.85rem; c
+                PHIERS Movem
+
+<!-- Image Modal -->
+<div id="imageModal" class="image-modal">
+  <span class="close-modal" onclick="closeImageModal()">&times;</span>
+  <img class="modal-content" id="modalImage" alt="">
+</div>
+
+<script>
+function closeImageModal() {
+  const modal = document.getElementById('imageModal');
+  if (modal) modal.classList.remove('active');
+}
+
+// Wait for DOM to be fully loaded
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initImageModal);
+} else {
+  initImageModal();
+}
+
+function initImageModal() {
+  const modal = document.getElementById('imageModal');
+  const modalImg = document.getElementById('modalImage');
+  
+  if (!modal || !modalImg) return;
+  
+  // Add click handlers to all images except menu icons
+  const images = document.querySelectorAll('img:not(.mobile-menu-toggle):not(.mobile-menu-toggle *)');
+  
+  images.forEach(function(img) {
+    if (img.parentElement && img.parentElement.tagName !== 'BUTTON') {
+      img.style.cursor = 'pointer';
+      img.addEventListener('click', function() {
+        modal.classList.add('active');
+        modalImg.src = this.src;
+        modalImg.alt = this.alt || '';
+      });
+    }
+  });
+  
+  // Close on X click
+  const closeBtn = modal.querySelector('.close-modal');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeImageModal);
+  }
+  
+  // Close on outside click
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) {
+      closeImageModal();
+    }
+  });
+  
+  // Close on ESC key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+      closeImageModal();
+    }
+  });
+}
+</script>
+</body>
+</html>
