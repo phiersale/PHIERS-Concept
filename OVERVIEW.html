@@ -627,7 +627,55 @@ img {
     height: auto !important;
   }
 }
-    </style>
+    
+/* =====================================================
+   MOBILE TYPOGRAPHY - BEST PRACTICES
+   Fluid type scale using clamp() for all screen sizes
+   ===================================================== */
+html {
+  /* Base font size scales from 14px (mobile) to 16px (desktop) */
+  font-size: clamp(14px, 3.5vw, 16px);
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  h1 {
+    font-size: clamp(1.5rem, 6vw, 2.2rem) !important;
+    line-height: 1.2 !important;
+  }
+
+  h2 {
+    font-size: clamp(1.25rem, 5vw, 1.75rem) !important;
+    line-height: 1.3 !important;
+  }
+
+  h3 {
+    font-size: clamp(1.1rem, 4vw, 1.4rem) !important;
+    line-height: 1.4 !important;
+  }
+
+  p, li {
+    font-size: 1rem !important;
+    line-height: 1.65 !important;
+  }
+
+  /* Prevent overflow from large inline font sizes */
+  [style*="font-size: 2."], [style*="font-size: 3."],
+  [style*="font-size: 4."], [style*="font-size: 5."] {
+    font-size: clamp(1.2rem, 5vw, 2rem) !important;
+  }
+
+  /* Container padding for comfortable reading */
+  .container, main, article, section {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
+</style>
 </head>
 <body>
 
@@ -639,114 +687,46 @@ img {
 
 <div class="container">
     <!-- NAVIGATION - Section 5 Constitutional Order -->
-<style>
-#nav-toggle { display: none; }
-.nav-toggle-label {
-  display: none;
-  position: fixed;
-  top: 14px; right: 14px;
-  background: rgba(76,175,80,0.95);
-  color: white;
-  padding: 10px 16px;
-  border-radius: 6px;
-  font-size: 1.4em;
-  cursor: pointer;
-  z-index: 10001;
-}
-nav {
-  background: rgba(26,26,46,0.85);
-  border: 1px solid rgba(76,175,80,0.3);
-  border-radius: 8px;
-  padding: 12px;
-  margin-bottom: 40px;
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-nav a { color: #81c784; text-decoration: none; padding: 8px 12px; border-radius: 4px; transition: 0.3s; }
-nav a:hover { background: rgba(76,175,80,0.2); }
-.nav-close-label { display: none; }
-.dropdown { position: relative; }
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background: rgba(10,14,26,0.98);
-  min-width: 220px;
-  border: 1px solid rgba(76,175,80,0.3);
-  border-radius: 8px;
-  margin-top: 6px;
-  z-index: 1000;
-}
-.dropdown-content a { display: block; padding: 10px 14px; }
-.dropdown:hover .dropdown-content { display: block; }
-@media (max-width: 768px) {
-  .nav-toggle-label { display: block; }
-  #nav-toggle:checked ~ .nav-toggle-label { display: none; }
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(10,14,26,0.98);
-    flex-direction: column;
-    align-items: center;
-    padding-top: 70px;
-    display: none;
-    overflow-y: auto;
-    z-index: 10000;
-    margin-bottom: 0;
-    border-radius: 0;
-    border: none;
-  }
-  #nav-toggle:checked ~ nav { display: flex; }
-  nav a { width: 100%; text-align: center; padding: 14px; border-bottom: 1px solid rgba(76,175,80,0.2); font-size: 1.15em; }
-  .dropdown-content { display: block !important; position: static; border: none; background: transparent; min-width: unset; margin-top: 0; }
-  .dropdown > a { font-weight: bold; color: #4caf50 !important; padding-top: 20px; }
-  .dropdown-content a { color: #a5d6a7 !important; padding: 11px 14px; }
-  .nav-close-label {
-    display: block;
-    position: fixed;
-    top: 14px; right: 14px;
-    background: rgba(76,175,80,0.95);
-    color: white;
-    padding: 10px 16px;
-    border-radius: 6px;
-    font-size: 1.4em;
-    cursor: pointer;
-    z-index: 10002;
-  }
-}
-</style>
-<input type="checkbox" id="nav-toggle">
-<label for="nav-toggle" class="nav-toggle-label">&#9776; Menu</label>
-<nav>
-  <label for="nav-toggle" class="nav-close-label">&#x2715; Close</label>
-  <a href="index.html">Home</a>
-  <a href="Quickstart.html">Quick Start</a>
-  <a href="action.html">Take Action</a>
-  <a href="Donate.html">Donate</a>
-  <div class="dropdown">
-    <a href="#">Strategy</a>
-    <div class="dropdown-content">
-      <a href="OVERVIEW.html">Overview</a>
-      <a href="Crisis.html">Crisis</a>
-      <a href="SimpleMath.html">Simple Math</a>
-      <a href="5D_Solutions.html">5D Solutions</a>
-      <a href="Leverage.html">Leverage</a>
-      <a href="Why-Change-Required.html">Why Change Required</a>
-      <a href="Unions-Strategy.html">Union Strategy</a>
+        <nav>
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+      <span class="menu-icon">☰</span>
+      <span class="close-icon" style="display: none;">✕</span>
+    </button>
+    
+    <!-- Navigation Links -->
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      
+      <div class="dropdown">
+        <button class="dropbtn" onclick="toggleDropdown(event)">Strategy ▼</button>
+        <div class="dropdown-content">
+          <a href="OVERVIEW.html">Overview</a>
+          <a href="Crisis.html">Crisis</a>
+          <a href="SimpleMath.html">Simple Math</a>
+          <a href="5D_Solutions.html">5D Solutions</a>
+          <a href="Leverage.html">Leverage</a>
+          <a href="Why-Change-Required.html">Why Change Required</a>
+          <a href="Unions-Strategy.html">Union Strategy</a>
+        </div>
+      </div>
+      
+      <a href="Quickstart.html">Quick Start</a>
+      <a href="action.html">Take Action</a>
+      <a href="Donate.html">Donate</a>
+      
+      <div class="dropdown">
+        <button class="dropbtn" onclick="toggleDropdown(event)">Resources ▼</button>
+        <div class="dropdown-content">
+          <a href="Media.html">Media</a>
+          <a href="real-stories.html">Real Stories</a>
+          <a href="FAQ.html">FAQ</a>
+          <a href="About.html">About</a>
+          <a href="Our-Origins.html">Origins</a>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="dropdown">
-    <a href="#">Resources</a>
-    <div class="dropdown-content">
-      <a href="Media.html">Media</a>
-      <a href="real-stories.html">Real Stories</a>
-      <a href="FAQ.html">FAQ</a>
-      <a href="About.html">About</a>
-      <a href="Our-Origins.html">Origins</a>
-    </div>
-  </div>
-</nav>
+  </nav>
 
     <!-- HERO SECTION - Section 8 Constitutional Requirements -->
     <header>
@@ -972,7 +952,7 @@ nav a:hover { background: rgba(76,175,80,0.2); }
         <p style="margin: 15px 0;">
             Will Price | Chief Solutions Architect<br>
             Phone: <a href="tel:+19163068967">(916) 306-8967</a> | 
-            Email: <a href="/cdn-cgi/l/email-protection#b9d0d7dfd6f9c9d1d0dccbca97d6cbde"><span class="__cf_email__" data-cfemail="046d6a626b44746c6d6176772a6b7663">[email&#160;protected]</span></a>
+            Email: <a href="mailto:info@phiers.org">info@phiers.org</a>
         </p>
         
         <div class="footer-nav">
@@ -1066,5 +1046,54 @@ function initImageModal() {
   </a>
 </div>
 
+
+<!-- Mobile Menu JavaScript -->
+<script>
+function toggleMobileMenu() {
+  const navLinks = document.querySelector('.nav-links');
+  const menuIcon = document.querySelector('.menu-icon');
+  const closeIcon = document.querySelector('.close-icon');
+  
+  navLinks.classList.toggle('active');
+  
+  if (navLinks.classList.contains('active')) {
+    menuIcon.style.display = 'none';
+    closeIcon.style.display = 'inline';
+  } else {
+    menuIcon.style.display = 'inline';
+    closeIcon.style.display = 'none';
+  }
+}
+
+function toggleDropdown(event) {
+  event.stopPropagation();
+  const dropdown = event.target.nextElementSibling;
+  dropdown.classList.toggle('show');
+}
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', function(event) {
+  const nav = document.querySelector('nav');
+  const navLinks = document.querySelector('.nav-links');
+  const menuIcon = document.querySelector('.menu-icon');
+  const closeIcon = document.querySelector('.close-icon');
+  
+  if (!nav.contains(event.target) && navLinks.classList.contains('active')) {
+    navLinks.classList.remove('active');
+    menuIcon.style.display = 'inline';
+    closeIcon.style.display = 'none';
+  }
+});
+
+// Close dropdowns when clicking outside
+document.addEventListener('click', function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    const dropdowns = document.getElementsByClassName('dropdown-content');
+    for (let i = 0; i < dropdowns.length; i++) {
+      dropdowns[i].classList.remove('show');
+    }
+  }
+});
+</script>
 </body>
 </html>

@@ -257,117 +257,97 @@ img {
     height: auto !important;
   }
 }
-    </style>
-</head>
-<body>
-<style>
-#nav-toggle { display: none; }
-.nav-toggle-label {
-  display: none;
-  position: fixed;
-  top: 14px; right: 14px;
-  background: rgba(76,175,80,0.95);
-  color: white;
-  padding: 10px 16px;
-  border-radius: 6px;
-  font-size: 1.4em;
-  cursor: pointer;
-  z-index: 10001;
+    
+/* =====================================================
+   MOBILE TYPOGRAPHY - BEST PRACTICES
+   Fluid type scale using clamp() for all screen sizes
+   ===================================================== */
+html {
+  /* Base font size scales from 14px (mobile) to 16px (desktop) */
+  font-size: clamp(14px, 3.5vw, 16px);
 }
-nav {
-  background: rgba(26,26,46,0.85);
-  border: 1px solid rgba(76,175,80,0.3);
-  border-radius: 8px;
-  padding: 12px;
-  margin-bottom: 40px;
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-nav a { color: #81c784; text-decoration: none; padding: 8px 12px; border-radius: 4px; transition: 0.3s; }
-nav a:hover { background: rgba(76,175,80,0.2); }
-.nav-close-label { display: none; }
-.dropdown { position: relative; }
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background: rgba(10,14,26,0.98);
-  min-width: 220px;
-  border: 1px solid rgba(76,175,80,0.3);
-  border-radius: 8px;
-  margin-top: 6px;
-  z-index: 1000;
-}
-.dropdown-content a { display: block; padding: 10px 14px; }
-.dropdown:hover .dropdown-content { display: block; }
+
 @media (max-width: 768px) {
-  .nav-toggle-label { display: block; }
-  #nav-toggle:checked ~ .nav-toggle-label { display: none; }
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(10,14,26,0.98);
-    flex-direction: column;
-    align-items: center;
-    padding-top: 70px;
-    display: none;
-    overflow-y: auto;
-    z-index: 10000;
-    margin-bottom: 0;
-    border-radius: 0;
-    border: none;
+  body {
+    font-size: 15px;
+    line-height: 1.65;
   }
-  #nav-toggle:checked ~ nav { display: flex; }
-  nav a { width: 100%; text-align: center; padding: 14px; border-bottom: 1px solid rgba(76,175,80,0.2); font-size: 1.15em; }
-  .dropdown-content { display: block !important; position: static; border: none; background: transparent; min-width: unset; margin-top: 0; }
-  .dropdown > a { font-weight: bold; color: #4caf50 !important; padding-top: 20px; }
-  .dropdown-content a { color: #a5d6a7 !important; padding: 11px 14px; }
-  .nav-close-label {
-    display: block;
-    position: fixed;
-    top: 14px; right: 14px;
-    background: rgba(76,175,80,0.95);
-    color: white;
-    padding: 10px 16px;
-    border-radius: 6px;
-    font-size: 1.4em;
-    cursor: pointer;
-    z-index: 10002;
+
+  h1 {
+    font-size: clamp(1.5rem, 6vw, 2.2rem) !important;
+    line-height: 1.2 !important;
+  }
+
+  h2 {
+    font-size: clamp(1.25rem, 5vw, 1.75rem) !important;
+    line-height: 1.3 !important;
+  }
+
+  h3 {
+    font-size: clamp(1.1rem, 4vw, 1.4rem) !important;
+    line-height: 1.4 !important;
+  }
+
+  p, li {
+    font-size: 1rem !important;
+    line-height: 1.65 !important;
+  }
+
+  /* Prevent overflow from large inline font sizes */
+  [style*="font-size: 2."], [style*="font-size: 3."],
+  [style*="font-size: 4."], [style*="font-size: 5."] {
+    font-size: clamp(1.2rem, 5vw, 2rem) !important;
+  }
+
+  /* Container padding for comfortable reading */
+  .container, main, article, section {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
   }
 }
 </style>
-<input type="checkbox" id="nav-toggle">
-<label for="nav-toggle" class="nav-toggle-label">&#9776; Menu</label>
-<nav>
-  <label for="nav-toggle" class="nav-close-label">&#x2715; Close</label>
-  <a href="index.html">Home</a>
-  <a href="Quickstart.html">Quick Start</a>
-  <a href="action.html">Take Action</a>
-  <a href="Donate.html">Donate</a>
-  <div class="dropdown">
-    <a href="#">Strategy</a>
-    <div class="dropdown-content">
-      <a href="OVERVIEW.html">Overview</a>
-      <a href="Crisis.html">Crisis</a>
-      <a href="SimpleMath.html">Simple Math</a>
-      <a href="5D_Solutions.html">5D Solutions</a>
-      <a href="Leverage.html">Leverage</a>
-      <a href="Why-Change-Required.html">Why Change Required</a>
-      <a href="Unions-Strategy.html">Union Strategy</a>
+</head>
+<body>
+    <nav>
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+      <span class="menu-icon">☰</span>
+      <span class="close-icon" style="display: none;">✕</span>
+    </button>
+    
+    <!-- Navigation Links -->
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      
+      <div class="dropdown">
+        <button class="dropbtn" onclick="toggleDropdown(event)">Strategy ▼</button>
+        <div class="dropdown-content">
+          <a href="OVERVIEW.html">Overview</a>
+          <a href="Crisis.html">Crisis</a>
+          <a href="SimpleMath.html">Simple Math</a>
+          <a href="5D_Solutions.html">5D Solutions</a>
+          <a href="Leverage.html">Leverage</a>
+          <a href="Why-Change-Required.html">Why Change Required</a>
+          <a href="Unions-Strategy.html">Union Strategy</a>
+        </div>
+      </div>
+      
+      <a href="Quickstart.html">Quick Start</a>
+      <a href="action.html">Take Action</a>
+      <a href="Donate.html">Donate</a>
+      
+      <div class="dropdown">
+        <button class="dropbtn" onclick="toggleDropdown(event)">Resources ▼</button>
+        <div class="dropdown-content">
+          <a href="Media.html">Media</a>
+          <a href="real-stories.html">Real Stories</a>
+          <a href="FAQ.html">FAQ</a>
+          <a href="About.html">About</a>
+          <a href="Our-Origins.html">Origins</a>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="dropdown">
-    <a href="#">Resources</a>
-    <div class="dropdown-content">
-      <a href="Media.html">Media</a>
-      <a href="real-stories.html">Real Stories</a>
-      <a href="FAQ.html">FAQ</a>
-      <a href="About.html">About</a>
-      <a href="Our-Origins.html">Origins</a>
-    </div>
-  </div>
-</nav>
+  </nav>
 
 <!-- ============================================== -->
 <!-- UNIQUE VERIFICATION MARKER -->
@@ -376,7 +356,7 @@ nav a:hover { background: rgba(76,175,80,0.2); }
 <!-- ============================================== -->
     <div class="container">
         <header>
-            <h1>ðŸ’” Real Stories</h1>
+            <h1>Real Stories</h1>
             <p style="color: #c8e6c9; font-size: 1.1em; margin-top: 15px;">
                 These are the voices Congress ignores. These are the people we're fighting for.
             </p>
@@ -394,61 +374,61 @@ nav a:hover { background: rgba(76,175,80,0.2); }
             justify-content: center;
             align-items: center;
         ">
-            <a href="index.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">ðŸ  Start Here</a>
+            <a href="index.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">Start Here</a>
             
-            <a href="crisis.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">ðŸš¨ What's Broken</a>
+            <a href="crisis.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">What's Broken</a>
             
-            <a href="why-change-required.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">âš–ï¸ Why Change Required</a>
+            <a href="why-change-required.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">Why Change Required</a>
             
-            <a href="solutions.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">ðŸ“‹ What We Demand</a>
+            <a href="solutions.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">What We Demand</a>
             
-            <a href="action.html" style="background: linear-gradient(135deg, #2196f3, #1976d2); color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s; box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(33, 150, 243, 0.5)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(33, 150, 243, 0.3)'">âœï¸ Petition</a>
+            <a href="action.html" style="background: linear-gradient(135deg, #2196f3, #1976d2); color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s; box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(33, 150, 243, 0.5)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(33, 150, 243, 0.3)'">Petition</a>
             
-            <a href="simple-math.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">ðŸ“Š Receipts</a>
+            <a href="simple-math.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">Receipts</a>
             
-            <a href="faq.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">â“ FAQ</a>
+            <a href="faq.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">FAQ</a>
         </nav>
 
 
         <div class="story-card">
             <h3>"I had insurance. I still couldn't afford care."</h3>
-            <p class="story-meta">Maria, 42 â€” Phoenix, AZ</p>
+            <p class="story-meta">Maria, 42 — Phoenix, AZ</p>
             <p>"I was paying $780 a month for insurance through my job. When my daughter needed an MRI, the insurer denied it twice. The hospital told me it would be $3,400 out of pocket. I ended up driving her to urgent care three times because it was all I could afford. We weren't uninsured. We were just unprotected."</p>
         </div>
 
         <div class="story-card">
-            <h3>"Telehealth saved my life â€” literally."</h3>
-            <p class="story-meta">James, 57 â€” Columbus, OH</p>
+            <h3>"Telehealth saved my life — literally."</h3>
+            <p class="story-meta">James, 57 — Columbus, OH</p>
             <p>"I had chest pain at 2 AM. I didn't want to go to the ER because of the cost. I opened my telehealth app and a doctor told me to get to the hospital immediately. It turned out to be a mild heart attack. If I had waited, I might not be here. That call cost me $35. The ambulance cost me $1,900."</p>
         </div>
 
         <div class="story-card">
             <h3>"Insurance denied my cancer scan. Telehealth didn't."</h3>
-            <p class="story-meta">Aisha, 33 â€” Atlanta, GA</p>
+            <p class="story-meta">Aisha, 33 — Atlanta, GA</p>
             <p>"My oncologist ordered a follow-up scan. Insurance denied it as 'not medically necessary.' A telehealth doctor reviewed my case and approved it in 12 minutes. The scan found early recurrence. Insurance almost killed me. Telehealth saved me."</p>
         </div>
 
         <div class="story-card">
             <h3>"I lost my job. I lost my insurance. I didn't lose my doctor."</h3>
-            <p class="story-meta">Tom, 51 â€” Milwaukee, WI</p>
+            <p class="story-meta">Tom, 51 — Milwaukee, WI</p>
             <p>"When the factory downsized, I lost my insurance overnight. My telehealth provider kept me on for $49 a month. I still had access to my doctor, my prescriptions, and mental health support. If I had relied on insurance, I'd have been cut off."</p>
         </div>
 
         <div class="story-card">
             <h3>"My son's asthma was getting worse. Telehealth finally listened."</h3>
-            <p class="story-meta">Rosa, 29 â€” San Antonio, TX</p>
+            <p class="story-meta">Rosa, 29 — San Antonio, TX</p>
             <p>"For two years, insurance kept denying the inhaler my son needed. A telehealth doctor reviewed his history and approved it immediately. No hoops. No appeals. No waiting. Just care."</p>
         </div>
 
         <div class="story-card">
             <h3>"Insurance said no. Telehealth said yes. My job depends on it."</h3>
-            <p class="story-meta">Derek, 38 â€” Sacramento, CA</p>
-            <p>"I drive for a living. When I needed a medical clearance after an injury, insurance told me it would take 3â€“6 weeks. Telehealth cleared me in 24 hours. That difference meant I kept my job."</p>
+            <p class="story-meta">Derek, 38 — Sacramento, CA</p>
+            <p>"I drive for a living. When I needed a medical clearance after an injury, insurance told me it would take 3–6 weeks. Telehealth cleared me in 24 hours. That difference meant I kept my job."</p>
         </div>
 
         <div class="story-card">
             <h3>"Telehealth is the only reason I can afford therapy."</h3>
-            <p class="story-meta">Lena, 24 â€” Brooklyn, NY</p>
+            <p class="story-meta">Lena, 24 — Brooklyn, NY</p>
             <p>"My insurance plan only covers therapy after a $2,000 deductible. Telehealth gives me weekly sessions for $40. Without it, I'd be on my own."</p>
         </div>
 
@@ -458,11 +438,11 @@ nav a:hover { background: rgba(76,175,80,0.2); }
                 Congress has the power to authorize $600 telehealth through the ACA.<br>
                 They refuse. We're forcing them to act.
             </p>
-            <a href="../action.html" class="btn" style="font-size: 1.15em; padding: 16px 40px;">âœï¸ Sign the Petition Now</a>
+            <a href="../action.html" class="btn" style="font-size: 1.15em; padding: 16px 40px;"> Sign the Petition Now</a>
         </div>
 
         <div style="text-align: center; margin: 40px 0;">
-            <a href="../crisis.html" style="color: #4caf50; font-size: 1.05em; font-weight: bold; text-decoration: underline;">â† Back to What's Broken</a>
+            <a href="../crisis.html" style="color: #4caf50; font-size: 1.05em; font-weight: bold; text-decoration: underline;"> Back to What's Broken</a>
         </div>
 
         <footer>
@@ -471,14 +451,14 @@ nav a:hover { background: rgba(76,175,80,0.2); }
             </p>
             
             <p style="margin: 15px 0;">
-                <strong>Contact:</strong> Will Price | <a href="/cdn-cgi/l/email-protection#254c4b434a65554d4c4057560b4a5742"><span class="__cf_email__" data-cfemail="c1a8afa7ae81b1a9a8a4b3b2efaeb3a6">[email&#160;protected]</span></a> | 916-306-8967
+                <strong>Contact:</strong> Will Price | <a href="mailto:info@phiers.org">info@phiers.org</a> | 916-306-8967
             </p>
             
             <p style="margin-top: 20px;">
-                Â© PHIERS.org â€” People's Health Insurance Economic Recovery Solutions
+                © PHIERS.org — People's Health Insurance Economic Recovery Solutions
             </p>
             <p style="margin-top: 15px; font-size: 0.9em; font-weight: bold;">
-                If you see an error in the math or policy, tell us â€” we'l
+                If you see an error in the math or policy, tell us — we'l
 
 <!-- Image Modal -->
 <div id="imageModal" class="image-modal">
@@ -549,5 +529,54 @@ function initImageModal() {
   </a>
 </div>
 
+
+<!-- Mobile Menu JavaScript -->
+<script>
+function toggleMobileMenu() {
+  const navLinks = document.querySelector('.nav-links');
+  const menuIcon = document.querySelector('.menu-icon');
+  const closeIcon = document.querySelector('.close-icon');
+  
+  navLinks.classList.toggle('active');
+  
+  if (navLinks.classList.contains('active')) {
+    menuIcon.style.display = 'none';
+    closeIcon.style.display = 'inline';
+  } else {
+    menuIcon.style.display = 'inline';
+    closeIcon.style.display = 'none';
+  }
+}
+
+function toggleDropdown(event) {
+  event.stopPropagation();
+  const dropdown = event.target.nextElementSibling;
+  dropdown.classList.toggle('show');
+}
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', function(event) {
+  const nav = document.querySelector('nav');
+  const navLinks = document.querySelector('.nav-links');
+  const menuIcon = document.querySelector('.menu-icon');
+  const closeIcon = document.querySelector('.close-icon');
+  
+  if (!nav.contains(event.target) && navLinks.classList.contains('active')) {
+    navLinks.classList.remove('active');
+    menuIcon.style.display = 'inline';
+    closeIcon.style.display = 'none';
+  }
+});
+
+// Close dropdowns when clicking outside
+document.addEventListener('click', function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    const dropdowns = document.getElementsByClassName('dropdown-content');
+    for (let i = 0; i < dropdowns.length; i++) {
+      dropdowns[i].classList.remove('show');
+    }
+  }
+});
+</script>
 </body>
 </html>
