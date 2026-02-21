@@ -1435,7 +1435,7 @@ html {
     
     <!-- VERSION STAMP -->
     <p style="margin-top: 2rem; text-align: center;; font-size: 0.85em; color: #666;">
-      Version: 2026-02-21 at 3:45 PM PT</p>
+      Version: 2026-02-21 at 4:00 PM PT</p>
   </footer>
 
 </div>
@@ -1609,12 +1609,32 @@ document.addEventListener('click', function(event) {
 <script>
 // Show modal after 3 seconds, once per session
 (function() {
-  if (!sessionStorage.getItem('phiers_modal_shown')) {
-    setTimeout(function() {
-      const m = document.getElementById('welcomeModal');
-      if (m) { m.style.display = 'flex'; }
-      sessionStorage.setItem('phiers_modal_shown', '1');
-    }, 17000);
+  function initModal() {
+    const m = document.getElementById('welcomeModal');
+    if (!m) return;
+
+    // Close on backdrop click
+    m.addEventListener('click', function(e) {
+      if (e.target === this) closeWelcomeModal();
+    });
+
+    // Fire after 17 seconds, once per session
+    if (!sessionStorage.getItem('phiers_modal_shown')) {
+      setTimeout(function() {
+        const m2 = document.getElementById('welcomeModal');
+        if (m2) {
+          m2.style.display = 'flex';
+          sessionStorage.setItem('phiers_modal_shown', '1');
+        }
+      }, 17000);
+    }
+  }
+
+  // Run after DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initModal);
+  } else {
+    initModal();
   }
 })();
 
@@ -1622,11 +1642,6 @@ function closeWelcomeModal() {
   const m = document.getElementById('welcomeModal');
   if (m) m.style.display = 'none';
 }
-
-// Close on backdrop click
-document.getElementById('welcomeModal').addEventListener('click', function(e) {
-  if (e.target === this) closeWelcomeModal();
-});
 </script>
 
 <!-- Image Modal -->
