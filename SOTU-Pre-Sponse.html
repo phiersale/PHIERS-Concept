@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PHIERS Pre-Sponse: What He'll Say Tuesday — And What He Won't</title>
+  <meta name="description" content="PHIERS has had the solution for 5 years. Tuesday night Trump will talk about healthcare costs. Here's the math he won't mention — and what Congress must do instead." />
+  <meta property="og:title" content="We Knew What He Was Going to Say. We Built the Solution 5 Years Ago." />
+  <meta property="og:description" content="PHIERS Pre-Sponse: Before the SOTU, the math Trump won't mention. $600 telehealth. 234M covered. March 28 deadline." />
+  <meta property="og:image" content="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Logo.png" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --gold: #f5c842;
+      --gold-dim: rgba(245,200,66,0.12);
+      --gold-border: rgba(245,200,66,0.35);
+      --green: #4caf50;
+      --green-light: #81c784;
+      --green-dim: rgba(76,175,80,0.12);
+      --green-border: rgba(76,175,80,0.3);
+      --red: #ef5350;
+      --red-dim: rgba(239,83,80,0.1);
+      --red-border: rgba(239,83,80,0.4);
+      --white: #f5f0e8;
+      --bg-deep: #060810;
+      --bg-mid: #0c1220;
+      --text: #d4cfc4;
+      --text-bright: #f5f0e8;
+      --muted: #6b6560;
+    }
+
+    html { font-size: clamp(15px, 2.5vw, 17px); scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Source Serif 4', Georgia, serif;
+      background: var(--bg-deep);
+      color: var(--text);
+      line-height: 1.7;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Subtle noise texture overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: rgba(6,8,16,0.92);
+      border: 1px solid var(--gold-border);
+      border-radius: 8px;
+      padding: 14px;
+      margin-bottom: 2.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      backdrop-filter: blur(12px);
+    }
+
+    .mobile-menu-toggle {
+      display: none;
+      background: var(--gold-dim);
+      border: 2px solid var(--gold);
+      color: var(--gold);
+      font-size: 1.6em;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      position: fixed;
+      right: 16px; top: 16px;
+      z-index: 10000;
+      line-height: 1;
+    }
+
+    .nav-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; width: 100%; }
+
+    nav a {
+      color: #a89060;
+      text-decoration: none;
+      padding: 7px 11px;
+      border-radius: 4px;
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.85em;
+      transition: all 0.2s;
+    }
+    nav a:hover { color: var(--gold); background: var(--gold-dim); }
+
+    .dropdown { position: relative; display: inline-block; }
+    .dropbtn {
+      background: transparent; color: #a89060;
+      padding: 7px 11px; font-size: 0.85em;
+      border: none; cursor: pointer; border-radius: 4px;
+      transition: all 0.2s;
+      font-family: 'Source Serif 4', serif;
+    }
+    .dropbtn:hover { color: var(--gold); background: var(--gold-dim); }
+    .dropdown-content {
+      display: none; position: absolute;
+      background: rgba(6,8,16,0.98);
+      min-width: 200px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+      border: 1px solid var(--gold-border);
+      border-radius: 6px; z-index: 1000; top: 100%; left: 0;
+    }
+    .dropdown-content.show { display: block; }
+    .dropdown-content a {
+      display: block; padding: 9px 14px; font-size: 0.85em;
+      border-bottom: 1px solid rgba(245,200,66,0.1);
+    }
+    .dropdown-content a:last-child { border-bottom: none; }
+
+    @media (max-width: 768px) {
+      nav { position: relative; padding: 10px; }
+      .mobile-menu-toggle { display: block; }
+      .nav-links {
+        display: none; flex-direction: column; width: 100%;
+        background: rgba(6,8,16,0.98);
+        position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+        padding: 70px 20px 40px; z-index: 9999; overflow-y: auto;
+      }
+      .nav-links.active { display: flex; }
+      .nav-links a, .dropdown .dropbtn { width: 100%; text-align: center; padding: 14px; font-size: 1.1em; border-bottom: 1px solid var(--gold-border); }
+      .dropdown { width: 100%; }
+      .dropdown-content { position: static; box-shadow: none; border: none; background: rgba(245,200,66,0.05); width: 100%; }
+      .dropdown-content.show { display: block; }
+      .dropdown-content a { text-align: center; padding: 11px; font-size: 1em; }
+    }
+
+    /* ── COUNTDOWN BANNER ── */
+    .countdown-banner {
+      background: linear-gradient(135deg, var(--gold-dim), rgba(6,8,16,0.8));
+      border: 1px solid var(--gold-border);
+      border-radius: 8px;
+      padding: 0.9rem 1.5rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+
+    .countdown-item {
+      font-family: 'Playfair Display', serif;
+      text-align: center;
+    }
+    .countdown-item .num {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--gold);
+      display: block;
+      line-height: 1;
+    }
+    .countdown-item .unit {
+      font-size: 0.65rem;
+      color: var(--muted);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    .countdown-sep {
+      font-size: 1.8rem;
+      color: var(--gold-border);
+      font-family: 'Playfair Display', serif;
+      margin-top: -0.4rem;
+    }
+    .countdown-label {
+      font-size: 0.8rem;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-family: 'Source Serif 4', serif;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      text-align: center;
+      padding: 3.5rem 1rem 3rem;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 10%; right: 10%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-border), transparent);
+    }
+
+    .eyebrow {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      opacity: 0.9;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 6vw, 3.6rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-deck {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: var(--text);
+      max-width: 640px;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .hero-deck strong { color: var(--white); font-weight: 600; }
+
+    .dateline {
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── PREDICTION CARDS ── */
+    .prediction-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      margin: 2.5rem 0;
+      border: 1px solid var(--gold-border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .pred-col {
+      padding: 2rem;
+    }
+
+    .pred-col.what-he-says {
+      background: rgba(239,83,80,0.06);
+      border-right: 1px solid var(--gold-border);
+    }
+
+    .pred-col.what-phiers-says {
+      background: var(--green-dim);
+    }
+
+    .pred-col-header {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid;
+    }
+
+    .what-he-says .pred-col-header { color: var(--red); border-color: var(--red-border); }
+    .what-phiers-says .pred-col-header { color: var(--green); border-color: var(--green-border); }
+
+    .pred-item {
+      margin-bottom: 1.4rem;
+      padding-bottom: 1.4rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .pred-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+
+    .pred-item .topic {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+      opacity: 0.6;
+    }
+
+    .what-he-says .pred-item .topic { color: var(--red); }
+    .what-phiers-says .pred-item .topic { color: var(--green); }
+
+    .pred-item p {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .what-he-says .pred-item p { color: #ffcdd2; }
+    .what-phiers-says .pred-item p { color: #c8e6c9; }
+
+    @media (max-width: 640px) {
+      .prediction-grid { grid-template-columns: 1fr; }
+      .pred-col.what-he-says { border-right: none; border-bottom: 1px solid var(--gold-border); }
+    }
+
+    /* ── PULL QUOTE ── */
+    .pull-quote {
+      border-left: 3px solid var(--gold);
+      padding: 1.2rem 2rem;
+      margin: 2.5rem 0;
+      background: var(--gold-dim);
+      border-radius: 0 8px 8px 0;
+    }
+
+    .pull-quote p {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.1rem, 3vw, 1.45rem);
+      font-style: italic;
+      color: var(--white);
+      line-height: 1.5;
+      margin: 0 0 0.6rem;
+    }
+
+    .pull-quote .attr {
+      font-size: 0.78rem;
+      color: var(--gold);
+      font-family: 'Source Serif 4', serif;
+      font-style: normal;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(245,200,66,0.1);
+    }
+    .section:last-of-type { border-bottom: none; }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.3rem, 4vw, 1.9rem);
+      color: var(--white);
+      margin-bottom: 1.2rem;
+      line-height: 1.25;
+    }
+
+    h2.gold { color: var(--gold); }
+    h2.green { color: var(--green); }
+
+    h3 {
+      font-family: 'Source Serif 4', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--green-light);
+      margin: 1.8rem 0 0.6rem;
+      letter-spacing: 0.02em;
+    }
+
+    p { margin: 0.9rem 0; }
+    p strong { color: var(--white); }
+
+    /* ── MATH SHOWCASE ── */
+    .math-showcase {
+      background: linear-gradient(135deg, rgba(76,175,80,0.08), rgba(6,8,16,0.6));
+      border: 1px solid var(--green-border);
+      border-radius: 10px;
+      padding: 2.5rem;
+      margin: 2rem 0;
+      text-align: center;
+    }
+
+    .math-showcase .fraction {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin: 1.2rem 0;
+    }
+
+    .math-num {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 7vw, 4rem);
+      font-weight: 900;
+      line-height: 1;
+    }
+    .math-num.bad { color: var(--red); }
+    .math-num.good { color: var(--green); }
+
+    .math-arrow {
+      font-size: 2rem;
+      color: var(--gold);
+      opacity: 0.7;
+    }
+
+    .math-label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-family: 'Source Serif 4', serif;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 0.3rem;
+    }
+
+    .math-showcase p {
+      max-width: 560px;
+      margin: 1rem auto 0;
+      font-size: 0.95rem;
+      color: #a8c4a8;
+    }
+
+    /* ── TIMELINE ── */
+    .timeline {
+      position: relative;
+      margin: 2rem 0;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0.5rem; top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--gold), var(--green));
+    }
+
+    .tl-item {
+      position: relative;
+      margin-bottom: 1.8rem;
+      padding-left: 1rem;
+    }
+
+    .tl-item::before {
+      content: '';
+      position: absolute;
+      left: -1.55rem;
+      top: 0.4rem;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 2px solid var(--bg-deep);
+    }
+
+    .tl-item.active::before { background: var(--green); box-shadow: 0 0 10px rgba(76,175,80,0.5); }
+
+    .tl-date {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.2rem;
+      font-family: 'Source Serif 4', serif;
+    }
+
+    .tl-item.active .tl-date { color: var(--green); }
+
+    .tl-item h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+    }
+
+    .tl-item p {
+      font-size: 0.88rem;
+      color: var(--text);
+      margin: 0;
+    }
+
+    /* ── CTA BLOCK ── */
+    .cta-block {
+      background: linear-gradient(135deg, rgba(76,175,80,0.1), rgba(6,8,16,0.7));
+      border: 1px solid var(--green-border);
+      border-radius: 12px;
+      padding: 2.5rem;
+      text-align: center;
+      margin: 2.5rem 0;
+    }
+
+    .cta-block h2 {
+      font-size: 1.6rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .cta-block p {
+      color: var(--green-light);
+      margin-bottom: 1.8rem;
+      font-size: 1rem;
+    }
+
+    .btn-row { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: 2px solid;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--bg-deep);
+      border-color: var(--gold);
+      font-weight: 700;
+    }
+    .btn-gold:hover { background: #f7d96a; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(245,200,66,0.3); }
+
+    .btn-green {
+      background: var(--green-dim);
+      color: var(--green);
+      border-color: var(--green-border);
+    }
+    .btn-green:hover { background: rgba(76,175,80,0.2); transform: translateY(-2px); }
+
+    .btn-outline {
+      background: transparent;
+      color: #a89060;
+      border-color: var(--gold-border);
+    }
+    .btn-outline:hover { color: var(--gold); border-color: var(--gold); }
+
+    /* ── FIVE YEAR PROOF ── */
+    .proof-box {
+      background: linear-gradient(135deg, rgba(245,200,66,0.06), rgba(6,8,16,0.5));
+      border: 1px solid var(--gold-border);
+      border-radius: 10px;
+      padding: 2rem;
+      margin: 2rem 0;
+    }
+
+    .proof-box h3 { color: var(--gold); margin-top: 0; font-size: 1.1rem; }
+    .proof-box p { font-size: 0.92rem; color: var(--text); }
+    .proof-box strong { color: var(--white); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--gold-border);
+      padding: 2.5rem 0;
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    footer h3 {
+      font-family: 'Playfair Display', serif;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    footer p { color: var(--muted); font-size: 0.85rem; margin: 0.3rem 0; }
+    footer a { color: #a89060; text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--gold); }
+
+    .footer-nav {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: 0.4rem; margin-top: 2.5rem; padding-top: 2rem;
+      border-top: 1px solid rgba(245,200,66,0.15);
+    }
+
+    .footer-nav a {
+      font-size: 0.8rem; padding: 4px 10px; border-radius: 4px;
+    }
+    .footer-nav a:hover { background: var(--gold-dim); }
+
+    .disclaimer {
+      margin-top: 1.5rem;
+      padding: 1rem 1.5rem;
+      border: 1px solid var(--gold-border);
+      border-radius: 8px;
+      background: var(--gold-dim);
+    }
+
+    .disclaimer p { color: var(--white); font-weight: 700; font-size: 1rem; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- NAV -->
+  <nav>
+    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+      <span class="menu-icon">☰</span>
+      <span class="close-icon" style="display:none;">✕</span>
+    </button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <div class="dropdown">
+        <button class="dropbtn strategy-dropbtn" onclick="toggleDropdown(event)">⚡ Strategy ▼</button>
+        <div class="dropdown-content strategy-dropdown-content">
+          <a href="OVERVIEW.html">Overview</a>
+          <a href="Crisis.html">Crisis</a>
+          <a href="SimpleMath.html">Simple Math</a>
+          <a href="5D_Solutions.html">5D Solutions</a>
+          <a href="Leverage.html">Leverage</a>
+          <a href="Why-Change-Required.html">Why Change Required</a>
+          <a href="Unions-Strategy.html">Union Strategy</a>
+        </div>
+      </div>
+      <a href="Quickstart.html">Quick Start</a>
+      <a href="action.html">Take Action</a>
+      <a href="Donate.html">Donate</a>
+      <div class="dropdown">
+        <button class="dropbtn" onclick="toggleDropdown(event)">Resources ▼</button>
+        <div class="dropdown-content">
+          <a href="Media.html">Media</a>
+          <a href="real-stories.html">Real Stories</a>
+          <a href="FAQ.html">FAQ</a>
+          <a href="About.html">About</a>
+          <a href="Our-Origins.html">Origins</a>
+          <a href="Veterans.html" style="color:#ef5350; font-weight:700;">Veterans 🎖</a>
+        </div>
+      </div>
+      <a href="SOTU-Pre-Sponse.html" style="color:var(--gold); font-weight:700;">Pre-Sponse 📺</a>
+    </div>
+  </nav>
+
+  <!-- COUNTDOWN -->
+  <div class="countdown-banner">
+    <div class="countdown-label">SOTU Address</div>
+    <div class="countdown-item">
+      <span class="num" id="cd-days">3</span>
+      <span class="unit">Days</span>
+    </div>
+    <span class="countdown-sep">:</span>
+    <div class="countdown-item">
+      <span class="num" id="cd-hours">--</span>
+      <span class="unit">Hours</span>
+    </div>
+    <span class="countdown-sep">:</span>
+    <div class="countdown-item">
+      <span class="num" id="cd-mins">--</span>
+      <span class="unit">Minutes</span>
+    </div>
+    <div class="countdown-label">Feb 24 · 9PM EST</div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="eyebrow">PHIERS Pre-Sponse · February 2026</div>
+    <h1>We Knew What He Was Going to Say.<br><em>We've Had the Solution for Over a Decade.</em></h1>
+    <p class="dateline">Published: Saturday, February 21, 2026 &nbsp;·&nbsp; 3 days before the SOTU</p>
+    <p class="hero-deck">
+      Tuesday night, the President will talk about healthcare costs, drug prices, and affordability. 
+      He'll tout TrumpRx and HSAs for the wealthy. He may revisit the Great Healthcare Plan — 
+      the one that already came and went without delivering. He'll say help is coming.<br><br>
+      <strong>Here's the math he won't mention — and what Congress must actually do.</strong>
+    </p>
+    <div class="btn-row">
+      <a href="#predictions" class="btn btn-gold">See Our Predictions →</a>
+      <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now" target="_blank" class="btn btn-green">Sign the Petition</a>
+    </div>
+  </div>
+
+  <!-- FIVE YEAR PROOF -->
+  <div class="section">
+    <div class="proof-box">
+      <h3>📅 A Decade of Pre-Sponses — Before the Crisis Was a Crisis</h3>
+      <p>
+        PHIERS has been building and documenting solutions to this exact crisis for over a decade — 
+        not in reaction to any administration, but because the math always pointed here. The 5 Dimensions 
+        of PHIERS were developed step by step, solving each layer of the crisis as it emerged. 
+        <strong>That's not ideology. That's a track record.</strong>
+      </p>
+      <p>
+        In 2009, PHIERS launched a veterans program in Maryland — the longest-running program of its kind 
+        in the nation. In 2014, we piloted coordinated care combining health IT, transportation, and 
+        decision support. Every year since, we've published a Pre-Sponse showing what Congress should do 
+        before they said they'd do it.
+      </p>
+      <p>
+        Pathos Communications — a leading PR firm with A-list clients — secured editorial window 
+        commitments at Forbes, USA Today, and International Business Times 
+        <strong>before they even received our story.</strong> That doesn't happen. Until it did.
+        <strong>The solution predates the emergency. That's why.</strong>
+      </p>
+    </div>
+  </div>
+
+  <!-- PREDICTIONS -->
+  <div class="section" id="predictions">
+    <h2 class="gold">What He'll Say Tuesday — And the Math He Won't Show</h2>
+    <p>We're publishing this Saturday. Before the speech. So you can hold the record.</p>
+
+    <div class="prediction-grid">
+      <div class="pred-col what-he-says">
+        <div class="pred-col-header">What He'll Say Tuesday</div>
+
+        <div class="pred-item">
+          <div class="topic">Drug Prices</div>
+          <p>TrumpRx will lower prescription drug costs. MFN drug pricing. HSAs will give Americans control over their healthcare dollars. The Great Healthcare Plan will deliver.</p>
+        </div>
+        <div class="pred-item">
+          <div class="topic">Affordability</div>
+          <p>Premiums were too high under Biden. We're lowering costs and restoring competition.</p>
+        </div>
+        <div class="pred-item">
+          <div class="topic">Coverage</div>
+          <p>We're protecting people with pre-existing conditions and expanding access to care.</p>
+        </div>
+        <div class="pred-item">
+          <div class="topic">Veterans</div>
+          <p>We honor those who served. We're reforming the VA to make it more efficient.</p>
+        </div>
+        <div class="pred-item">
+          <div class="topic">Economy</div>
+          <p>America is booming. Jobs are up. Inflation is down. The big beautiful bill delivers.</p>
+        </div>
+      </div>
+
+      <div class="pred-col what-phiers-says">
+        <div class="pred-col-header">The Math He Won't Mention</div>
+
+        <div class="pred-item">
+          <div class="topic">Drug Prices</div>
+          <p>TrumpRx is a website. PHIERS is a cooperative — 100M people with collective buying power. MFN drug pricing works when backed by real market leverage. Will Price worked with Al Wilson on cooperative purchasing the same year MFN was floated. Mark Cuban's Cost Plus proved the model. PHIERS gives that leverage to everyone, not just the wealthy with HSAs. The Great Healthcare Plan already came. It was a dud.</p>
+        </div>
+        <div class="pred-item">
+          <div class="topic">Affordability</div>
+          <p>ACA premiums are up 114% in 2026 vs 2025. Enhanced tax credits expired. 4.8M people losing coverage. $600/yr telehealth vs $10,000+/yr insurance. That's the actual math.</p>
+        </div>
+        <div class="pred-item">
+          <div class="topic">Coverage</div>
+          <p>The Big Beautiful Bill cut $1 trillion from health insurance over a decade. 22 million lost coverage. Congress has authority right now to authorize $600 telehealth on the ACA exchange.</p>
+        </div>
+        <div class="pred-item">
+          <div class="topic">Veterans</div>
+          <p>30,000 VA staff fired. Disability ratings tied to medication this week. The largest military buildup since Iraq underway while the VA is being dismantled. More than 20M veterans get zero from the VA.</p>
+        </div>
+        <div class="pred-item">
+          <div class="topic">Economy</div>
+          <p>More people experiencing homelessness than ever recorded. Job growth lower under Trump than Biden's final year. Healthcare costs are the #1 driver of personal bankruptcy. PHIERS saves $2.73T annually.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- THE REAL SOLUTION -->
+  <div class="section">
+    <h2>The Solution That Predates the Crisis</h2>
+    <p>
+      PHIERS isn't a response to Trump. It isn't a response to DOGE. It isn't a response to 
+      the VA disability rule this week or the Iran buildup this weekend. 
+      <strong>All of those things happened on schedule.</strong> The math pointed here years ago.
+    </p>
+    <p>
+      While Congress debated and insurance companies consolidated and drug prices climbed, PHIERS was 
+      solving each dimension of the crisis as it emerged — five solutions to five systemic failures, 
+      built over time, tested in the field, documented in the record:
+    </p>
+
+    <div class="proof-box" style="margin:1.5rem 0;">
+      <h3>5D Solutions — Each One Predating the Emergency It Addresses</h3>
+      <p><strong style="color:var(--green);">Universal Coverage</strong> — $600/yr telehealth on the ACA exchange covers 80% of what Americans actually need. Not someday. Congress has the authority today.</p>
+      <p><strong style="color:var(--green);">Drug Pricing</strong> — PHIERS cooperative purchasing with 100M members creates real MFN leverage. Will Price worked with Al Wilson on this exact model the same year MFN drug pricing was being floated in Washington. Mark Cuban proved it at Cost Plus. PHIERS scales it for everyone.</p>
+      <p><strong style="color:var(--green);">Jobs &amp; Small Business</strong> — Every PHIERS node is a local small business with social impact. The coverage cascade creates employment in every district simultaneously. Universal care doesn't destroy jobs — it creates them at the community level.</p>
+      <p><strong style="color:var(--green);">Veterans</strong> — PHIERS has honored the national commitment to veterans since 2009, when the Maryland Veterans Administration and Patriot Medical Transport Systems launched what became the longest-running veterans coordinated care program of its kind in the nation. We didn't start caring about veterans this week.</p>
+      <p><strong style="color:var(--green);">Telehealth Infrastructure</strong> — The coordination of care, health IT, decision support, and transportation logistics that PHIERS pioneered for veterans in 2014 is the exact infrastructure that makes $600 universal coverage viable at national scale.</p>
+    </div>
+
+    <div class="math-showcase">
+      <p style="color: var(--gold); font-family:'Source Serif 4',serif; font-size:0.75rem; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:0.5rem;">The Cascade That Makes It Unstoppable</p>
+      <div class="fraction">
+        <div>
+          <div class="math-num bad">$10,000</div>
+          <div class="math-label">Insurance / year</div>
+        </div>
+        <div class="math-arrow">→</div>
+        <div>
+          <div class="math-num good">$600</div>
+          <div class="math-label">Telehealth / year</div>
+        </div>
+        <div class="math-arrow">→</div>
+        <div>
+          <div class="math-num good" style="font-size:clamp(1.8rem,5vw,3rem);">Funds 12</div>
+          <div class="math-label">More people</div>
+        </div>
+      </div>
+      <p>One conversion frees $7,400+ in savings. That funds 12 more. Those 12 fund 148. Those 148 fund 1,825. The cascade becomes mathematically unstoppable — which is exactly why Congress hasn't authorized it.</p>
+    </div>
+
+    <div class="pull-quote">
+      <p>"This isn't ideology. This isn't hope. This is arithmetic. And arithmetic doesn't care who's in the White House."</p>
+      <span class="attr">— Will Price, Chief Solutions Architect, PHIERS</span>
+    </div>
+  </div>
+
+  <!-- WHAT COMES NEXT -->
+  <div class="section">
+    <h2 class="green">What Happens After Tuesday Night</h2>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date">Saturday, Feb 21 — Today</div>
+        <h4>Pre-Sponse Published</h4>
+        <p>This page goes live. Predictions on record before the speech. Sign the petition, fill the survey.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Tuesday, Feb 24 — 9PM EST</div>
+        <h4>SOTU Address</h4>
+        <p>Trump speaks to Congress. Watch for TrumpRx, HSAs for the wealthy, the ghost of the Great Healthcare Plan — and compare it to everything our predictions anticipated.</p>
+      </div>
+      <div class="tl-item active">
+        <div class="tl-date">Wednesday, Feb 25 — Morning</div>
+        <h4>PHIERS Post-Sponse Goes Live</h4>
+        <p>Full response page: what he said vs. what the math shows. Catches peak post-SOTU search traffic. Share immediately.</p>
+      </div>
+      <div class="tl-item active">
+        <div class="tl-date">Coming Soon</div>
+        <h4>Media Coverage — Forbes · USA Today · International Business Times</h4>
+        <p>Pathos Communications secured editorial window commitments at all three publications <em>before receiving our story.</em> The funding goal unlocks publication. When it drops, be ready to share immediately.</p>
+      </div>
+      <div class="tl-item active">
+        <div class="tl-date">March 28, 2026 — 35 Days</div>
+        <h4>The Forcing Function</h4>
+        <p>3.5% threshold. District-level pressure. Congress authorizes $600 telehealth — or faces replacement. This is the line.</p>
+      </div>
+      <div class="tl-item active">
+        <div class="tl-date">July 4, 2026</div>
+        <h4>100 Million Unified</h4>
+        <p>Independence Day from corporate control of American healthcare. Universal coverage cascade begins.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <h2 class="green">Don't Wait for Wednesday. Act Now.</h2>
+    <p>
+      The speech hasn't happened yet. The math already exists. March 28 is 35 days away.<br>
+      Sign the petition. Fill the survey. Your story is evidence Congress has to see.
+    </p>
+    <div class="btn-row">
+      <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now" target="_blank" class="btn btn-gold">
+        ✍ Sign the Petition
+      </a>
+      <a href="https://forms.gle/GekCB2xwHfFb4WLF6" target="_blank" class="btn btn-green">
+        📋 Fill the Survey
+      </a>
+      <a href="Donate.html" class="btn btn-outline">
+        Fund the Media Campaign
+      </a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <h3>PHIERS Movement | Make America Better And Healthier</h3>
+    <p style="margin:15px 0;">
+      Will Price | Chief Solutions Architect<br>
+      <a href="tel:+19163068967">(916) 306-8967</a> &nbsp;·&nbsp;
+      <a href="/cdn-cgi/l/email-protection#70191e161f300018191502035e1f0217"><span class="__cf_email__" data-cfemail="e48d8a828ba4948c8d819697ca8b9683">[email&#160;protected]</span></a>
+    </p>
+
+    <div class="footer-nav">
+      <a href="index.html">Home</a>
+      <a href="Quickstart.html">Quick Start</a>
+      <a href="OVERVIEW.html">Overview</a>
+      <a href="Crisis.html">Crisis</a>
+      <a href="SimpleMath.html">Simple Math</a>
+      <a href="5D_Solutions.html">5D Solutions</a>
+      <a href="action.html">Take Action</a>
+      <a href="Leverage.html">Leverage</a>
+      <a href="FAQ.html">FAQ</a>
+      <a href="Resources.html">Resources</a>
+      <a href="Media.html">Media</a>
+      <a href="About.html">About</a>
+      <a href="Veterans.html">Veterans 🎖</a>
+      <a href="Donate.html">Donate</a>
+    </div>
+
+    <div class="disclaimer" style="margin-top:1.5rem;">
+      <p>PHIERS is a public-interest movement — not a company, not a product.<br>The only thing missing is you.</p>
+    </div>
+
+    <p style="margin-top:1.2rem; font-size:0.75rem; color:#333;">
+      Last updated: 2026-02-21 at 9:32 AM PT
+    </p>
+  </footer>
+
+</div>
+
+<!-- COUNTDOWN SCRIPT -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+function updateCountdown() {
+  const sotu = new Date('2026-02-24T21:00:00-05:00');
+  const now = new Date();
+  const diff = sotu - now;
+  if (diff <= 0) {
+    document.querySelector('.countdown-banner').innerHTML = '<div class="countdown-label" style="color:var(--green); font-size:1rem;">🔴 SOTU is happening now — watch live</div>';
+    return;
+  }
+  const days = Math.floor(diff / (1000*60*60*24));
+  const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+  const mins = Math.floor((diff % (1000*60*60)) / (1000*60));
+  document.getElementById('cd-days').textContent = days;
+  document.getElementById('cd-hours').textContent = String(hours).padStart(2,'0');
+  document.getElementById('cd-mins').textContent = String(mins).padStart(2,'0');
+}
+updateCountdown();
+setInterval(updateCountdown, 30000);
+
+function toggleMobileMenu() {
+  const navLinks = document.querySelector('.nav-links');
+  const menuIcon = document.querySelector('.menu-icon');
+  const closeIcon = document.querySelector('.close-icon');
+  if (navLinks.classList.contains('active')) {
+    navLinks.classList.remove('active');
+    menuIcon.style.display = 'inline';
+    closeIcon.style.display = 'none';
+  } else {
+    navLinks.classList.add('active');
+    menuIcon.style.display = 'none';
+    closeIcon.style.display = 'block';
+  }
+}
+
+function toggleDropdown(event) {
+  const dropdown = event.target.nextElementSibling;
+  const isOpen = dropdown.classList.contains('show');
+  document.querySelectorAll('.dropdown-content').forEach(d => d.classList.remove('show'));
+  if (!isOpen) dropdown.classList.add('show');
+}
+
+document.addEventListener('click', function(e) {
+  const nav = document.querySelector('nav');
+  const navLinks = document.querySelector('.nav-links');
+  const menuIcon = document.querySelector('.menu-icon');
+  const closeIcon = document.querySelector('.close-icon');
+  if (!e.target.matches('.dropbtn')) {
+    document.querySelectorAll('.dropdown-content').forEach(d => d.classList.remove('show'));
+  }
+  if (nav &
