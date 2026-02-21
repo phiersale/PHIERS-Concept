@@ -519,7 +519,114 @@ img {
 <!-- ============================================== -->
     <div class="container">
         <!-- NAVIGATION - Section 5 Constitutional Order -->
-  {% include nav.html %}
+<style>
+#nav-toggle { display: none; }
+.nav-toggle-label {
+  display: none;
+  position: fixed;
+  top: 14px; right: 14px;
+  background: rgba(76,175,80,0.95);
+  color: white;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 1.4em;
+  cursor: pointer;
+  z-index: 10001;
+}
+nav {
+  background: rgba(26,26,46,0.85);
+  border: 1px solid rgba(76,175,80,0.3);
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+nav a { color: #81c784; text-decoration: none; padding: 8px 12px; border-radius: 4px; transition: 0.3s; }
+nav a:hover { background: rgba(76,175,80,0.2); }
+.nav-close-label { display: none; }
+.dropdown { position: relative; }
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: rgba(10,14,26,0.98);
+  min-width: 220px;
+  border: 1px solid rgba(76,175,80,0.3);
+  border-radius: 8px;
+  margin-top: 6px;
+  z-index: 1000;
+}
+.dropdown-content a { display: block; padding: 10px 14px; }
+.dropdown:hover .dropdown-content { display: block; }
+@media (max-width: 768px) {
+  .nav-toggle-label { display: block; }
+  #nav-toggle:checked ~ .nav-toggle-label { display: none; }
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(10,14,26,0.98);
+    flex-direction: column;
+    align-items: center;
+    padding-top: 70px;
+    display: none;
+    overflow-y: auto;
+    z-index: 10000;
+    margin-bottom: 0;
+    border-radius: 0;
+    border: none;
+  }
+  #nav-toggle:checked ~ nav { display: flex; }
+  nav a { width: 100%; text-align: center; padding: 14px; border-bottom: 1px solid rgba(76,175,80,0.2); font-size: 1.15em; }
+  .dropdown-content { display: block !important; position: static; border: none; background: transparent; min-width: unset; margin-top: 0; }
+  .dropdown > a { font-weight: bold; color: #4caf50 !important; padding-top: 20px; }
+  .dropdown-content a { color: #a5d6a7 !important; padding: 11px 14px; }
+  .nav-close-label {
+    display: block;
+    position: fixed;
+    top: 14px; right: 14px;
+    background: rgba(76,175,80,0.95);
+    color: white;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 1.4em;
+    cursor: pointer;
+    z-index: 10002;
+  }
+}
+</style>
+<input type="checkbox" id="nav-toggle">
+<label for="nav-toggle" class="nav-toggle-label">&#9776; Menu</label>
+<nav>
+  <label for="nav-toggle" class="nav-close-label">&#x2715; Close</label>
+  <a href="index.html">Home</a>
+  <a href="Quickstart.html">Quick Start</a>
+  <a href="action.html">Take Action</a>
+  <a href="Donate.html">Donate</a>
+  <div class="dropdown">
+    <a href="#">Strategy</a>
+    <div class="dropdown-content">
+      <a href="OVERVIEW.html">Overview</a>
+      <a href="Crisis.html">Crisis</a>
+      <a href="SimpleMath.html">Simple Math</a>
+      <a href="5D_Solutions.html">5D Solutions</a>
+      <a href="Leverage.html">Leverage</a>
+      <a href="Why-Change-Required.html">Why Change Required</a>
+      <a href="Unions-Strategy.html">Union Strategy</a>
+    </div>
+  </div>
+  <div class="dropdown">
+    <a href="#">Resources</a>
+    <div class="dropdown-content">
+      <a href="Media.html">Media</a>
+      <a href="real-stories.html">Real Stories</a>
+      <a href="FAQ.html">FAQ</a>
+      <a href="About.html">About</a>
+      <a href="Our-Origins.html">Origins</a>
+    </div>
+  </div>
+</nav>
 
         <header>
             <a href="index.html">
