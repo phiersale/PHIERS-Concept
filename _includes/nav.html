@@ -1,90 +1,93 @@
-
 <style>
-/* =========================
-   PHIERS CENTRALIZED NAV
-   Pure CSS Mobile Toggle
-   Desktop Dropdown Preserved
-========================= */
 
-/* Hide checkbox */
+/* ========== NAV SYSTEM ========== */
+
 #nav-toggle {
   display: none;
 }
 
-/* Base nav container */
-nav {
-  position: relative;
-  z-index: 10000;
-}
-
-/* Desktop layout */
-.nav-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  align-items: center;
-}
-
-/* Links */
-.nav-links a {
-  color: #81c784;
-  text-decoration: none;
-  padding: 8px 10px;
-  display: inline-block;
-}
-
-/* Dropdown container (desktop only) */
-.nav-dropdown {
-  position: relative;
-}
-
-.nav-dropdown-content {
+/* Hamburger Button */
+.nav-toggle-label {
   display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: rgba(10,14,26,0.98);
-  min-width: 220px;
-  padding: 10px 0;
-  border: 1px solid rgba(76,175,80,0.3);
-}
-
-.nav-dropdown-content a {
-  display: block;
-  padding: 8px 15px;
-}
-
-/* Desktop hover dropdown */
-@media (min-width: 769px) {
-  .nav-dropdown:hover .nav-dropdown-content {
-    display: block;
-  }
-}
-
-/* Mobile toggle button */
-.nav-label {
-  display: none;
-  cursor: pointer;
-  background: rgba(76,175,80,0.9);
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  background: rgba(76,175,80,0.95);
   color: white;
-  padding: 8px 16px;
+  padding: 10px 16px;
   border-radius: 6px;
   font-size: 1.4em;
-  position: fixed;
-  top: 12px;
-  right: 12px;
+  cursor: pointer;
   z-index: 10001;
 }
 
-/* Mobile layout */
+/* Close button inside menu */
+.nav-close-label {
+  display: none;
+  margin-bottom: 20px;
+  font-size: 1.4em;
+  cursor: pointer;
+  color: #4caf50;
+}
+
+/* Desktop nav */
+nav {
+  background: rgba(26,26,46,0.85);
+  border: 1px solid rgba(76,175,80,0.3);
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: #81c784;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  background: rgba(76,175,80,0.2);
+}
+
+/* Dropdown desktop only */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: rgba(10,14,26,0.98);
+  min-width: 220px;
+  border: 1px solid rgba(76,175,80,0.3);
+  border-radius: 8px;
+  margin-top: 6px;
+  z-index: 1000;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 14px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* ===== MOBILE ===== */
 @media (max-width: 768px) {
 
-  .nav-label {
+  .nav-toggle-label {
     display: block;
   }
 
-  .nav-links {
-    display: none;
+  nav {
     position: fixed;
     top: 0;
     left: 0;
@@ -93,74 +96,107 @@ nav {
     background: rgba(10,14,26,0.98);
     flex-direction: column;
     align-items: center;
-    padding: 60px 20px 20px;
+    padding-top: 70px;
+    display: none;
     overflow-y: auto;
+    z-index: 10000;
+    margin-bottom: 0;
+    border-radius: 0;
+    border: none;
   }
 
-  #nav-toggle:checked ~ nav .nav-links {
+  #nav-toggle:checked ~ nav {
     display: flex;
   }
 
-  .nav-links a {
+  nav a {
     width: 100%;
     text-align: center;
     padding: 14px;
-    font-size: 1.15em;
     border-bottom: 1px solid rgba(76,175,80,0.2);
+    font-size: 1.15em;
   }
 
   /* Flatten dropdowns on mobile */
-  .nav-dropdown-content {
+  .dropdown-content {
     display: block !important;
     position: static;
     border: none;
-    padding: 0;
+    background: transparent;
+    min-width: unset;
+    margin-top: 0;
   }
 
-  .nav-dropdown > a {
+  .dropdown > a {
     font-weight: bold;
-    margin-top: 10px;
+    color: #4caf50 !important;
+    padding-top: 20px;
+    font-size: 1em !important;
+    letter-spacing: 0.05em;
   }
+
+  .dropdown-content a {
+    font-size: 1.05em;
+    color: #a5d6a7 !important;
+    padding: 11px 14px;
+  }
+
+  .nav-close-label {
+    display: block;
+    position: fixed;
+    top: 14px;
+    right: 14px;
+    background: rgba(76,175,80,0.95);
+    color: white;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 1.4em;
+    z-index: 10002;
+  }
+
+  #nav-toggle:checked ~ .nav-toggle-label {
+    display: none;
+  }
+
 }
+
 </style>
 
 <input type="checkbox" id="nav-toggle">
 
+<label for="nav-toggle" class="nav-toggle-label">&#9776; Menu</label>
+
 <nav>
-  <label for="nav-toggle" class="nav-label">☰ Menu</label>
 
-  <div class="nav-links">
+  <label for="nav-toggle" class="nav-close-label">&#x2715; Close</label>
 
-    <label for="nav-toggle" class="nav-label" style="position:static;margin-bottom:15px;">✕ Close</label>
+  <a href="index.html">Home</a>
+  <a href="Quickstart.html">Quick Start</a>
+  <a href="action.html">Take Action</a>
+  <a href="Donate.html">Donate</a>
 
-    <a href="index.html">Home</a>
-
-    <div class="nav-dropdown">
-      <a href="#">Strategy ▾</a>
-      <div class="nav-dropdown-content">
-        <a href="OVERVIEW.html">Overview</a>
-        <a href="Crisis.html">Crisis</a>
-        <a href="SimpleMath.html">Simple Math</a>
-        <a href="5D_Solutions.html">5D Solutions</a>
-        <a href="Leverage.html">Leverage</a>
-        <a href="Why-Change-Required.html">Why Change Required</a>
-        <a href="Unions-Strategy.html">Union Strategy</a>
-        <a href="Quickstart.html">Quick Start</a>
-        <a href="action.html">Take Action</a>
-        <a href="Donate.html">Donate</a>
-      </div>
+  <div class="dropdown">
+    <a href="#">Strategy</a>
+    <div class="dropdown-content">
+      <a href="OVERVIEW.html">Overview</a>
+      <a href="Crisis.html">Crisis</a>
+      <a href="SimpleMath.html">Simple Math</a>
+      <a href="5D_Solutions.html">5D Solutions</a>
+      <a href="Leverage.html">Leverage</a>
+      <a href="Why-Change-Required.html">Why Change Required</a>
+      <a href="Unions-Strategy.html">Union Strategy</a>
     </div>
-
-    <div class="nav-dropdown">
-      <a href="#">Resources ▾</a>
-      <div class="nav-dropdown-content">
-        <a href="Media.html">Media</a>
-        <a href="real-stories.html">Real Stories</a>
-        <a href="FAQ.html">FAQ</a>
-        <a href="About.html">About</a>
-        <a href="Our-Origins.html">Origins</a>
-      </div>
-    </div>
-
   </div>
+
+  <div class="dropdown">
+    <a href="#">Resources</a>
+    <div class="dropdown-content">
+      <a href="Media.html">Media</a>
+      <a href="real-stories.html">Real Stories</a>
+      <a href="FAQ.html">FAQ</a>
+      <a href="About.html">About</a>
+      <a href="Our-Origins.html">Origins</a>
+    </div>
+  </div>
+
 </nav>
