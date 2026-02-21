@@ -106,8 +106,8 @@
       background: transparent;
       color: var(--green-light);
       padding: 8px 12px;
-      font-size: 0.9em;
-      font-weight: 500;
+      font-size: 1.0em;
+      font-weight: 600;
       border: none;
       cursor: pointer;
       border-radius: 4px;
@@ -1127,7 +1127,8 @@
       Email: <a href="/cdn-cgi/l/email-protection#afc6c1c9c0efdfc7c6cadddc81c0ddc8"><span class="__cf_email__" data-cfemail="c3aaada5ac83b3abaaa6b1b0edacb1a4">[email&#160;protected]</span></a>
     </p>
 
-    <div class="footer-nav">
+    <div style="margin-top:3rem;"></div>
+        <div class="footer-nav">
       <a href="index.html">Home</a>
       <a href="Quickstart.html">Quick Start</a>
       <a href="OVERVIEW.html">Overview</a>
@@ -1173,10 +1174,23 @@ function toggleMobileMenu() {
 }
 
 function toggleDropdown(event) {
-  const dropdown = event.target.nextElementSibling;
+  event.stopPropagation();
+  let btn = event.target;
+  while (btn && !btn.classList.contains('dropbtn')) {
+    btn = btn.parentElement;
+  }
+  if (!btn) return;
+  const dropdown = btn.nextElementSibling;
+  if (!dropdown) return;
   const isOpen = dropdown.classList.contains('show');
-  document.querySelectorAll('.dropdown-content').forEach(d => d.classList.remove('show'));
-  if (!isOpen) { dropdown.classList.add('show'); }
+  const allDropdowns = document.getElementsByClassName('dropdown-content');
+  for (let i = 0; i < allDropdowns.length; i++) {
+    allDropdowns[i].classList.remove('show');
+  }
+  if (!isOpen) {
+    dropdown.classList.add('show');
+  }
+}
 }
 
 document.addEventListener('click', function(event) {
@@ -1185,8 +1199,8 @@ document.addEventListener('click', function(event) {
   const menuIcon = document.querySelector('.menu-icon');
   const closeIcon = document.querySelector('.close-icon');
 
-  if (!event.target.matches('.dropbtn')) {
-    document.querySelectorAll('.dropdown-content').forEach(d => d.classList.remove('show'));
-  }
+  let _t = event.target; let _inBtn = false;
+  while (_t) { if (_t.classList && _t.classList.contains('dropbtn')) { _inBtn = true; break; } _t = _t.parentElement; }
+  if (!_inBtn) { document.querySelectorAll('.dropdown-content').forEach(d => d.classList.remove('show')); }
 
   if (nav && !n

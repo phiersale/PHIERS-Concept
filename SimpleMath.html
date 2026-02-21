@@ -266,17 +266,12 @@ footer a {
             background: transparent;
             color: #81c784;
             padding: 8px 12px;
-            font-size: 0.9em;
-            font-weight: 500;
+            font-size: 1.0em;
+            font-weight: 600;
             border: none;
             cursor: pointer;
             border-radius: 4px;
             transition: all 0.3s ease;
-        }
-
-        .dropdown:hover .dropbtn {
-            background: rgba(76, 175, 80, 0.2);
-            color: #4caf50;
         }
 
         .dropdown-content {
@@ -302,10 +297,7 @@ footer a {
             background: rgba(76, 175, 80, 0.2);
             color: #4caf50;
         }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
+    /* Dropdowns click-only — hover removed */
 
         @media (max-width: 768px) {
             .video-section, .video-container {
@@ -610,10 +602,11 @@ html {
     padding-right: 16px !important;
   }
 }
-</style>
-        display: block;
+
+    display: block;
       }
     }
+</style>
 </head>
 <body>
 
@@ -722,6 +715,23 @@ html {
   </div>
   
   <p style="text-align: center; color: #64b5f6; font-weight: bold; margin-top: 15px;">1 minute 11 seconds. That's all it takes to understand why they're scared.</p>
+</div>
+
+<div class="video-section" style="margin-top: 60px;">
+  <h2>Part 2: The Cascade Mechanism (3:33)</h2>
+  <p style="text-align:center; color:#e0e0e0; margin-bottom:18px;">
+    One conversion funds twelve. Twelve fund 148. 148 fund 1,825.<br>
+    This video shows exactly why Congress can't stop it once it starts.
+  </p>
+  
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/jMU6LKEBzbs" 
+            title="CASCADE MECHANISM: Why Congress Can't Ignore PHIERS (3:33)"
+            frameborder="0" 
+            allowfullscreen></iframe>
+  </div>
+  
+  <p style="text-align: center; color: #64b5f6; font-weight: bold; margin-top: 15px;">The exponential cascade that makes universal coverage inevitable.</p>
 </div>
 
 <section class="section">
@@ -901,7 +911,7 @@ html {
   
   <!-- VERSION STAMP -->
   <p style="margin-top: 2rem; text-align: center; font-size: 0.75rem; color: #666;">
-    PHIERS Movement | Version: 2026-02-21 at 2:40 AM PT</p>
+    PHIERS Movement | Version: 2026-02-21 14:33 PT</p>
   
   <p style="margin-top: 20px; font-size: 0.85rem; color: #666;">
  
@@ -924,28 +934,47 @@ function toggleMobileMenu() {
 }
 
 function toggleDropdown(event) {
-  const dropdown = event.target.nextElementSibling;
+  event.stopPropagation();
+  // Walk up from click target to find the .dropbtn
+  let btn = event.target;
+  while (btn && !btn.classList.contains('dropbtn')) {
+    btn = btn.parentElement;
+  }
+  if (!btn) return;
+  const dropdown = btn.nextElementSibling;
+  if (!dropdown) return;
   const isOpen = dropdown.classList.contains('show');
   // Close all dropdowns first
   const allDropdowns = document.getElementsByClassName('dropdown-content');
   for (let i = 0; i < allDropdowns.length; i++) {
     allDropdowns[i].classList.remove('show');
   }
-  // If it was closed, open it; if it was open, leave it closed
+  // Toggle: if was closed, open it
   if (!isOpen) {
     dropdown.classList.add('show');
   }
 }
 
-// Close mobile menu and dropdowns when clicking outside
+// Close dropdowns and mobile menu when clicking outside
 document.addEventListener('click', function(event) {
   const nav = document.querySelector('nav');
   const navLinks = document.querySelector('.nav-links');
   const menuIcon = document.querySelector('.menu-icon');
   const closeIcon = document.querySelector('.close-icon');
 
-  // Close dropdowns if click is outside a dropbtn
-  if (!event.target.matches('.dropbtn')) {
+  // Walk up from click target to see if it's inside a .dropbtn
+  let target = event.target;
+  let insideDropbtn = false;
+  while (target) {
+    if (target.classList && target.classList.contains('dropbtn')) {
+      insideDropbtn = true;
+      break;
+    }
+    target = target.parentElement;
+  }
+
+  // Only close dropdowns if click was genuinely outside any dropbtn
+  if (!insideDropbtn) {
     const dropdowns = document.getElementsByClassName('dropdown-content');
     for (let i = 0; i < dropdowns.length; i++) {
       dropdowns[i].classList.remove('show');
@@ -953,10 +982,10 @@ document.addEventListener('click', function(event) {
   }
 
   // Close mobile menu if click is outside nav
-  if (!nav.contains(event.target) && navLinks.classList.contains('active')) {
+  if (nav && navLinks && !nav.contains(event.target) && navLinks.classList.contains('active')) {
     navLinks.classList.remove('active');
-    menuIcon.style.display = 'inline';
-    closeIcon.style.display = 'none';
+    if (menuIcon) menuIcon.style.display = 'inline';
+    if (closeIcon) closeIcon.style.display = 'none';
   }
 });
 
@@ -1033,4 +1062,13 @@ function initImageModal() {
 }
 </script>
 <div style="display: flex; justify-content: space-between; margin: 60px 0 40px 0; padding: 30px 0; border-top: 2px solid rgba(76, 175, 80, 0.3);">
-  <a href="Crisis.html" style="color: #4c
+  <a href="Crisis.html" style="color: #4caf50; text-decoration: none; font-size: 1.1em;">
+    ← Previous: Crisis
+  </a>
+  <a href="5D_Solutions.html" style="color: #4caf50; text-decoration: none; font-size: 1.1em;">
+    Next: 5D Solutions →
+  </a>
+</div>
+
+</body>
+</html>

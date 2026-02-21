@@ -68,8 +68,8 @@
             background: transparent;
             color: #81c784;
             padding: 8px 12px;
-            font-size: 0.9em;
-            font-weight: 500;
+            font-size: 1.0em;
+            font-weight: 600;
             border: none;
             cursor: pointer;
             border-radius: 4px;
@@ -114,15 +114,7 @@
             background: rgba(76, 175, 80, 0.2);
             color: #4caf50;
         }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .dropdown:hover .dropbtn {
-            background: rgba(76, 175, 80, 0.2);
-            color: #4caf50;
-        }
+    /* Dropdowns click-only — hover removed */
         
         header {
             text-align: center;
@@ -582,7 +574,7 @@ html {
         
         <!-- WHY THIS PAGE EXISTS -->
         <section>
-            <h2>We Are "Intelligent Glue" — Not Another Healthcare Startup</h2>
+            <h2>⚡ We Are "Intelligent Glue" — Not Another Healthcare Startup</h2>
             
             <p>PHIERS isn't here to compete with ZORTT, Mark Cuban's Cost Plus Drugs, or anyone else building healthcare solutions.</p>
             
@@ -606,7 +598,7 @@ html {
         
         <!-- 16 YEARS JOURNEY -->
         <section>
-            <h2>16 Years of Pioneering (2009-2025)</h2>
+            <h2>🔍 16 Years of Pioneering (2009-2025)</h2>
             
             <h3>The Beginning</h3>
             <p>PHIERS emerged from a real crisis: healthcare workers without access to healthcare. Al Wilson and Bill Wiggins founded SureSafe Pharma (2007), pioneering pharmaceutical distribution WITHOUT markups or middlemen. This wasn't theoretical — it proved cost reduction works at scale.</p>
@@ -644,7 +636,7 @@ html {
         
         <!-- HONORING PARTNERS -->
         <section>
-            <h2>How We Honor Our Partners</h2>
+            <h2>🤝 How We Honor Our Partners</h2>
             
             <h3>ZORTT (Healthcare Innovation Leaders)</h3>
             <p>ZORTT pioneered cooperative healthcare delivery. We don't compete — we amplify their reach by funneling members to their platform through our cooperative structure.</p>
@@ -661,7 +653,7 @@ html {
         
         <!-- WHY NOW -->
         <section>
-            <h2>Why Now (February 2025)</h2>
+            <h2>🔥 Why Now (February 2025)</h2>
             
             <p><strong>Everything is aligned:</strong></p>
             
@@ -683,7 +675,7 @@ html {
         
         <!-- 3.5% POWER -->
         <section>
-            <h2>The Power of 3.5%: Democratic Leverage</h2>
+            <h2>💪 The Power of 3.5%: Democratic Leverage</h2>
             
             <p>Harvard researcher Erica Chenoweth analyzed 323 social movements and found one undeniable truth:</p>
             
@@ -700,7 +692,7 @@ html {
         
         <!-- MOVEMENT NOT STARTUP -->
         <section>
-            <h2>Movement, Not Startup</h2>
+            <h2>⚔️ Movement, Not Startup</h2>
             
             <p>PHIERS isn't a company trying to make a profit. It's a movement building democratic power to force systemic change.</p>
             
@@ -855,28 +847,47 @@ function toggleMobileMenu() {
 }
 
 function toggleDropdown(event) {
-  const dropdown = event.target.nextElementSibling;
+  event.stopPropagation();
+  // Walk up from click target to find the .dropbtn
+  let btn = event.target;
+  while (btn && !btn.classList.contains('dropbtn')) {
+    btn = btn.parentElement;
+  }
+  if (!btn) return;
+  const dropdown = btn.nextElementSibling;
+  if (!dropdown) return;
   const isOpen = dropdown.classList.contains('show');
   // Close all dropdowns first
   const allDropdowns = document.getElementsByClassName('dropdown-content');
   for (let i = 0; i < allDropdowns.length; i++) {
     allDropdowns[i].classList.remove('show');
   }
-  // If it was closed, open it; if it was open, leave it closed
+  // Toggle: if was closed, open it
   if (!isOpen) {
     dropdown.classList.add('show');
   }
 }
 
-// Close mobile menu and dropdowns when clicking outside
+// Close dropdowns and mobile menu when clicking outside
 document.addEventListener('click', function(event) {
   const nav = document.querySelector('nav');
   const navLinks = document.querySelector('.nav-links');
   const menuIcon = document.querySelector('.menu-icon');
   const closeIcon = document.querySelector('.close-icon');
 
-  // Close dropdowns if click is outside a dropbtn
-  if (!event.target.matches('.dropbtn')) {
+  // Walk up from click target to see if it's inside a .dropbtn
+  let target = event.target;
+  let insideDropbtn = false;
+  while (target) {
+    if (target.classList && target.classList.contains('dropbtn')) {
+      insideDropbtn = true;
+      break;
+    }
+    target = target.parentElement;
+  }
+
+  // Only close dropdowns if click was genuinely outside any dropbtn
+  if (!insideDropbtn) {
     const dropdowns = document.getElementsByClassName('dropdown-content');
     for (let i = 0; i < dropdowns.length; i++) {
       dropdowns[i].classList.remove('show');
@@ -884,10 +895,10 @@ document.addEventListener('click', function(event) {
   }
 
   // Close mobile menu if click is outside nav
-  if (!nav.contains(event.target) && navLinks.classList.contains('active')) {
+  if (nav && navLinks && !nav.contains(event.target) && navLinks.classList.contains('active')) {
     navLinks.classList.remove('active');
-    menuIcon.style.display = 'inline';
-    closeIcon.style.display = 'none';
+    if (menuIcon) menuIcon.style.display = 'inline';
+    if (closeIcon) closeIcon.style.display = 'none';
   }
 });
 document.addEventListener('click', function(event) {

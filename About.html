@@ -215,8 +215,8 @@
             background: transparent;
             color: #81c784;
             padding: 8px 12px;
-            font-size: 0.9em;
-            font-weight: 500;
+            font-size: 1.0em;
+            font-weight: 600;
             border: none;
             cursor: pointer;
             border-radius: 4px;
@@ -261,15 +261,7 @@
             background: rgba(76, 175, 80, 0.2);
             color: #4caf50;
         }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .dropdown:hover .dropbtn {
-            background: rgba(76, 175, 80, 0.2);
-            color: #4caf50;
-        }
+    /* Dropdowns click-only — hover removed */
 
         /* FOOTER - Section 7 Constitutional Compliance */
         footer {
@@ -981,14 +973,22 @@ function toggleMobileMenu() {
 }
 
 function toggleDropdown(event) {
-  const dropdown = event.target.nextElementSibling;
+  event.stopPropagation();
+  // Walk up from click target to find the button, then get its sibling dropdown
+  let btn = event.target;
+  while (btn && !btn.classList.contains('dropbtn')) {
+    btn = btn.parentElement;
+  }
+  if (!btn) return;
+  const dropdown = btn.nextElementSibling;
+  if (!dropdown) return;
   const isOpen = dropdown.classList.contains('show');
   // Close all dropdowns first
   const allDropdowns = document.getElementsByClassName('dropdown-content');
   for (let i = 0; i < allDropdowns.length; i++) {
     allDropdowns[i].classList.remove('show');
   }
-  // If it was closed, open it; if it was open, leave it closed
+  // If it was closed, open it; if open, leave closed (toggle)
   if (!isOpen) {
     dropdown.classList.add('show');
   }
@@ -1001,12 +1001,13 @@ document.addEventListener('click', function(event) {
   const menuIcon = document.querySelector('.menu-icon');
   const closeIcon = document.querySelector('.close-icon');
 
-  // Close dropdowns if click is outside a dropbtn
-  if (!event.target.matches('.dropbtn')) {
+  // Walk up from click target to check if inside a .dropbtn
+  let _t = event.target;
+  let _inBtn = false;
+  while (_t) { if (_t.classList && _t.classList.contains('dropbtn')) { _inBtn = true; break; } _t = _t.parentElement; }
+  if (!_inBtn) {
     const dropdowns = document.getElementsByClassName('dropdown-content');
-    for (let i = 0; i < dropdowns.length; i++) {
-      dropdowns[i].classList.remove('show');
-    }
+    for (let i = 0; i < dropdowns.length; i++) { dropdowns[i].classList.remove('show'); }
   }
 
   // Close mobile menu if click is outside nav

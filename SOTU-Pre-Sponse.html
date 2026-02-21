@@ -888,7 +888,8 @@
       <a href="/cdn-cgi/l/email-protection#70191e161f300018191502035e1f0217"><span class="__cf_email__" data-cfemail="e48d8a828ba4948c8d819697ca8b9683">[email&#160;protected]</span></a>
     </p>
 
-    <div class="footer-nav">
+    <div style="margin-top:3rem;"></div>
+        <div class="footer-nav">
       <a href="index.html">Home</a>
       <a href="Quickstart.html">Quick Start</a>
       <a href="OVERVIEW.html">Overview</a>
@@ -952,10 +953,22 @@ function toggleMobileMenu() {
 }
 
 function toggleDropdown(event) {
-  const dropdown = event.target.nextElementSibling;
+  event.stopPropagation();
+  let btn = event.target;
+  while (btn && !btn.classList.contains('dropbtn')) {
+    btn = btn.parentElement;
+  }
+  if (!btn) return;
+  const dropdown = btn.nextElementSibling;
+  if (!dropdown) return;
   const isOpen = dropdown.classList.contains('show');
-  document.querySelectorAll('.dropdown-content').forEach(d => d.classList.remove('show'));
-  if (!isOpen) dropdown.classList.add('show');
+  const allDropdowns = document.getElementsByClassName('dropdown-content');
+  for (let i = 0; i < allDropdowns.length; i++) {
+    allDropdowns[i].classList.remove('show');
+  }
+  if (!isOpen) {
+    dropdown.classList.add('show');
+  }
 }
 
 document.addEventListener('click', function(e) {
@@ -963,7 +976,7 @@ document.addEventListener('click', function(e) {
   const navLinks = document.querySelector('.nav-links');
   const menuIcon = document.querySelector('.menu-icon');
   const closeIcon = document.querySelector('.close-icon');
-  if (!e.target.matches('.dropbtn')) {
-    document.querySelectorAll('.dropdown-content').forEach(d => d.classList.remove('show'));
-  }
+  let _t = e.target; let _inBtn = false;
+  while (_t) { if (_t.classList && _t.classList.contains('dropbtn')) { _inBtn = true; break; } _t = _t.parentElement; }
+  if (!_inBtn) { document.querySelectorAll('.dropdown-content').forEach(d => d.classList.remove('show')); }
   if (nav &
