@@ -1,0 +1,166 @@
+
+<style>
+/* =========================
+   PHIERS CENTRALIZED NAV
+   Pure CSS Mobile Toggle
+   Desktop Dropdown Preserved
+========================= */
+
+/* Hide checkbox */
+#nav-toggle {
+  display: none;
+}
+
+/* Base nav container */
+nav {
+  position: relative;
+  z-index: 10000;
+}
+
+/* Desktop layout */
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Links */
+.nav-links a {
+  color: #81c784;
+  text-decoration: none;
+  padding: 8px 10px;
+  display: inline-block;
+}
+
+/* Dropdown container (desktop only) */
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(10,14,26,0.98);
+  min-width: 220px;
+  padding: 10px 0;
+  border: 1px solid rgba(76,175,80,0.3);
+}
+
+.nav-dropdown-content a {
+  display: block;
+  padding: 8px 15px;
+}
+
+/* Desktop hover dropdown */
+@media (min-width: 769px) {
+  .nav-dropdown:hover .nav-dropdown-content {
+    display: block;
+  }
+}
+
+/* Mobile toggle button */
+.nav-label {
+  display: none;
+  cursor: pointer;
+  background: rgba(76,175,80,0.9);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 1.4em;
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 10001;
+}
+
+/* Mobile layout */
+@media (max-width: 768px) {
+
+  .nav-label {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(10,14,26,0.98);
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 20px 20px;
+    overflow-y: auto;
+  }
+
+  #nav-toggle:checked ~ nav .nav-links {
+    display: flex;
+  }
+
+  .nav-links a {
+    width: 100%;
+    text-align: center;
+    padding: 14px;
+    font-size: 1.15em;
+    border-bottom: 1px solid rgba(76,175,80,0.2);
+  }
+
+  /* Flatten dropdowns on mobile */
+  .nav-dropdown-content {
+    display: block !important;
+    position: static;
+    border: none;
+    padding: 0;
+  }
+
+  .nav-dropdown > a {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+}
+</style>
+
+<input type="checkbox" id="nav-toggle">
+
+<nav>
+  <label for="nav-toggle" class="nav-label">☰ Menu</label>
+
+  <div class="nav-links">
+
+    <label for="nav-toggle" class="nav-label" style="position:static;margin-bottom:15px;">✕ Close</label>
+
+    <a href="index.html">Home</a>
+
+    <div class="nav-dropdown">
+      <a href="#">Strategy ▾</a>
+      <div class="nav-dropdown-content">
+        <a href="OVERVIEW.html">Overview</a>
+        <a href="Crisis.html">Crisis</a>
+        <a href="SimpleMath.html">Simple Math</a>
+        <a href="5D_Solutions.html">5D Solutions</a>
+        <a href="Leverage.html">Leverage</a>
+        <a href="Why-Change-Required.html">Why Change Required</a>
+        <a href="Unions-Strategy.html">Union Strategy</a>
+        <a href="Quickstart.html">Quick Start</a>
+        <a href="action.html">Take Action</a>
+        <a href="Donate.html">Donate</a>
+      </div>
+    </div>
+
+    <div class="nav-dropdown">
+      <a href="#">Resources ▾</a>
+      <div class="nav-dropdown-content">
+        <a href="Media.html">Media</a>
+        <a href="real-stories.html">Real Stories</a>
+        <a href="FAQ.html">FAQ</a>
+        <a href="About.html">About</a>
+        <a href="Our-Origins.html">Origins</a>
+      </div>
+    </div>
+
+  </div>
+</nav>
