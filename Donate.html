@@ -871,7 +871,7 @@ img {
         
         <div class="footer-nav">
             <a href="index.html">Home</a>
-            <a href="Quickstart.html">Quick Start</a>
+            <a href="Quickstart.html">How It Works</a>
             <a href="OVERVIEW.html">OVERVIEW</a>
             <a href="Crisis.html">Crisis</a>
             <a href="SimpleMath.html">Simple Math</a>
@@ -959,38 +959,6 @@ function initImageModal() {
 
 <script>
 function toggleMobileMenu() {
-  const navLinks = document.querySelector('.nav-links');
-  const menuIcon = document.querySelector('.menu-icon');
-  const closeIcon = document.querySelector('.close-icon');
-  navLinks.classList.toggle('active');
-  if (navLinks.classList.contains('active')) {
-    menuIcon.style.display = 'none';
-    closeIcon.style.display = 'inline';
-  } else {
-    menuIcon.style.display = 'inline';
-    closeIcon.style.display = 'none';
-  }
-}
-
-function toggleDropdown(event) {
-  event.stopPropagation();
-  let btn = event.target;
-  while (btn && !btn.classList.contains('dropbtn')) {
-    btn = btn.parentElement;
-  }
-  if (!btn) return;
-  const dropdown = btn.nextElementSibling;
-  if (!dropdown) return;
-  document.querySelectorAll('.dropdown-content').forEach(d => {
-    if (d !== dropdown) d.classList.remove('show');
-  });
-  dropdown.classList.toggle('show');
-}
-
-document.addEventListener('click', function(event) {
-  if (!event.target.matches('.dropbtn') && !event.target.closest('.dropbtn')) {
-    document.querySelectorAll('.dropdown-content').forEach(d => d.classList.remove('show'));
-  }
   if (nav && navLinks && !nav.contains(event.target) && navLinks.classList.contains('active')) {
     navLinks.classList.remove('active');
     const menuIcon = document.querySelector('.menu-icon');
