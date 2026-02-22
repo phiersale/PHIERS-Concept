@@ -224,7 +224,15 @@
             background: rgba(76, 175, 80, 0.2);
             color: #4caf50;
         }
-    /* Dropdowns click-only — hover removed */
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background: rgba(76, 175, 80, 0.2);
+            color: #4caf50;
+        }
 
         /* FOOTER - Section 7 Constitutional Compliance */
         footer {
@@ -756,7 +764,7 @@ img {
                 Email: <a href="mailto:info@phiers.org">info@phiers.org</a>
             </p>
             
-            <div class="footer-nav" style="margin-top:3rem;">
+            <div class="footer-nav">
                 <a href="index.html">Home</a>
                 <a href="Quickstart.html">Quick Start</a>
                 <a href="OVERVIEW.html">OVERVIEW</a>
@@ -789,55 +797,58 @@ img {
 </div>
 
 <script>
-function toggleMobileMenu() {
-  const navLinks = document.querySelector('.nav-links');
-  const menuIcon = document.querySelector('.menu-icon');
-  const closeIcon = document.querySelector('.close-icon');
-  navLinks.classList.toggle('active');
-  if (navLinks.classList.contains('active')) {
-    menuIcon.style.display = 'none';
-    closeIcon.style.display = 'inline';
-  } else {
-    menuIcon.style.display = 'inline';
-    closeIcon.style.display = 'none';
-  }
+function closeImageModal() {
+  const modal = document.getElementById('imageModal');
+  if (modal) modal.classList.remove('active');
 }
 
-function toggleDropdown(event) {
-  event.stopPropagation();
-  // Walk up DOM to find .dropbtn in case tap hit child element
-  let btn = event.target;
-  while (btn && !btn.classList.contains('dropbtn')) {
-    btn = btn.parentElement;
-  }
-  if (!btn) return;
-  const dropdown = btn.nextElementSibling;
-  if (!dropdown) return;
-  // Close all other open dropdowns
-  document.querySelectorAll('.dropdown-content').forEach(d => {
-    if (d !== dropdown) d.classList.remove('show');
+// Wait for DOM to be fully loaded
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initImageModal);
+} else {
+  initImageModal();
+}
+
+function initImageModal() {
+  const modal = document.getElementById('imageModal');
+  const modalImg = document.getElementById('modalImage');
+  
+  if (!modal || !modalImg) return;
+  
+  // Add click handlers to all images except menu icons
+  const images = document.querySelectorAll('img:not(.mobile-menu-toggle):not(.mobile-menu-toggle *)');
+  
+  images.forEach(function(img) {
+    if (img.parentElement && img.parentElement.tagName !== 'BUTTON') {
+      img.style.cursor = 'pointer';
+      img.addEventListener('click', function() {
+        modal.classList.add('active');
+        modalImg.src = this.src;
+        modalImg.alt = this.alt || '';
+      });
+    }
   });
-  dropdown.classList.toggle('show');
+  
+  // Close on X click
+  const closeBtn = modal.querySelector('.close-modal');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeImageModal);
+  }
+  
+  // Close on outside click
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) {
+      closeImageModal();
+    }
+  });
+  
+  // Close on ESC key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+      closeImageModal();
+    }
+  });
 }
-
-// Close dropdowns when clicking outside
-document.addEventListener('click', function(event) {
-  if (!event.target.matches('.dropbtn') && !event.target.closest('.dropbtn')) {
-    document.querySelectorAll('.dropdown-content').forEach(d => d.classList.remove('show'));
-  }
-  // Close mobile menu when clicking outside
-  const nav = document.querySelector('nav');
-  const navLinks = document.querySelector('.nav-links');
-  if (nav && navLinks && !nav.contains(event.target) && navLinks.classList.contains('active')) {
-    navLinks.classList.remove('active');
-    const menuIcon = document.querySelector('.menu-icon');
-    const closeIcon = document.querySelector('.close-icon');
-    if (menuIcon) menuIcon.style.display = 'inline';
-    if (closeIcon) closeIcon.style.display = 'none';
-  }
-});
-
-
 </script>
 
 <!-- Mobile Menu JavaScript -->
@@ -860,7 +871,16 @@ function toggleMobileMenu() {
 
 function toggleDropdown(event) {
   event.stopPropagation();
-  const dropdown = event.target.nextElementSibling;
+  let btn = event.target;
+  while (btn && !btn.classList.contains('dropbtn')) {
+    btn = btn.parentElement;
+  }
+  if (!btn) return;
+  const dropdown = btn.nextElementSibling;
+  if (!dropdown) return;
+  document.querySelectorAll('.dropdown-content').forEach(d => {
+    if (d !== dropdown) d.classList.remove('show');
+  });
   dropdown.classList.toggle('show');
 }
 
@@ -885,41 +905,6 @@ document.addEventListener('click', function(event) {
     }
   }
 });
-</script>
-<script>
-function closeImageModal() {
-  const modal = document.getElementById('imageModal');
-  if (modal) modal.classList.remove('active');
-}
-
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initImageModal);
-} else {
-  initImageModal();
-}
-
-function initImageModal() {
-  const modal = document.getElementById('imageModal');
-  const modalImg = document.getElementById('modalImage');
-  if (!modal || !modalImg) return;
-  const images = document.querySelectorAll('img:not(.mobile-menu-toggle):not(.mobile-menu-toggle *)');
-  images.forEach(function(img) {
-    if (img.parentElement && img.parentElement.tagName !== 'BUTTON') {
-      img.style.cursor = 'pointer';
-      img.addEventListener('click', function() {
-        modal.classList.add('active');
-        modalImg.src = this.src;
-        modalImg.alt = this.alt || '';
-      });
-    }
-  });
-  const closeBtn = modal.querySelector('.close-modal');
-  if (closeBtn) closeBtn.addEventListener('click', closeImageModal);
-  modal.addEventListener('click', function(e) { if (e.target === modal) closeImageModal(); });
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && modal.classList.contains('active')) closeImageModal();
-  });
-}
 </script>
 </body>
 </html>

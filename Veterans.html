@@ -1236,7 +1236,7 @@
 
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 function toggleMobileMenu() {
   const navLinks = document.querySelector('.nav-links');
   const menuIcon = document.querySelector('.menu-icon');
@@ -1272,11 +1272,18 @@ function toggleDropdown(event) {
 }
 }
 
-document.addEventListener('click', function(event) {
+
+  // Close mobile menu on outside click
   const nav = document.querySelector('nav');
   const navLinks = document.querySelector('.nav-links');
-  const menuIcon = document.querySelector('.menu-icon');
-  const closeIcon = document.querySelector('.close-icon');
-
-  let _t = event.target; let _inBtn = false;
-  while (
+  if (nav && navLinks && !nav.contains(event.target) && navLinks.classList.contains('active')) {
+    navLinks.classList.remove('active');
+    const menuIcon = document.querySelector('.menu-icon');
+    const closeIcon = document.querySelector('.close-icon');
+    if (menuIcon) menuIcon.style.display = 'inline';
+    if (closeIcon) closeIcon.style.display = 'none';
+  }
+});
+</script>
+</body>
+</html>

@@ -243,7 +243,15 @@
             background: rgba(76, 175, 80, 0.2);
             color: #4caf50;
         }
-    /* Dropdowns click-only — hover removed */
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background: rgba(76, 175, 80, 0.2);
+            color: #4caf50;
+        }
 
         /* FOOTER - Section 7 Constitutional Compliance */
         footer {
@@ -810,7 +818,7 @@ img {
                 Email: <a href="mailto:info@phiers.org">info@phiers.org</a>
             </p>
             
-            <div class="footer-nav" style="margin-top:3rem;">
+            <div class="footer-nav">
                 <a href="index.html">Home</a>
                 <a href="Quickstart.html">Quick Start</a>
                 <a href="OVERVIEW.html">OVERVIEW</a>
@@ -921,7 +929,6 @@ function toggleMobileMenu() {
 
 function toggleDropdown(event) {
   event.stopPropagation();
-  // Walk up DOM to find .dropbtn in case tap hit child element
   let btn = event.target;
   while (btn && !btn.classList.contains('dropbtn')) {
     btn = btn.parentElement;
@@ -929,19 +936,16 @@ function toggleDropdown(event) {
   if (!btn) return;
   const dropdown = btn.nextElementSibling;
   if (!dropdown) return;
-  // Close all other open dropdowns
   document.querySelectorAll('.dropdown-content').forEach(d => {
     if (d !== dropdown) d.classList.remove('show');
   });
   dropdown.classList.toggle('show');
 }
 
-// Close dropdowns when clicking outside
 document.addEventListener('click', function(event) {
   if (!event.target.matches('.dropbtn') && !event.target.closest('.dropbtn')) {
     document.querySelectorAll('.dropdown-content').forEach(d => d.classList.remove('show'));
   }
-  // Close mobile menu when clicking outside
   const nav = document.querySelector('nav');
   const navLinks = document.querySelector('.nav-links');
   if (nav && navLinks && !nav.contains(event.target) && navLinks.classList.contains('active')) {
