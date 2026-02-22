@@ -792,6 +792,7 @@ img {
                     <h3 style="color: #4caf50; margin-top: 0;">The Timeline to Universal Coverage:</h3>
                     <ul style="margin-top: 15px; padding-left: 20px;">
                         <li style="color: #c8e6c9; margin: 10px 0;"><strong style="color: white;">NOW:</strong> Build petition pressure (targeting 3.5% = 11.6M signatures)</li>
+                <li style="color: #c8e6c9; margin: 10px 0;"><strong style="color: white;">July 4, 2026 — Real Independence Day:</strong> 100M+ members = Independence from corporate control of healthcare</li>
                         <li style="color: #c8e6c9; margin: 10px 0;"><strong style="color: white;">March 28, 2026:</strong> THE BIG DAY — We control the narrative and give teeth to the demands of the people</li>
                         <li style="color: #c8e6c9; margin: 10px 0;"><strong style="color: white;">Spring 2026:</strong> 3.5% threshold reached → Cascade begins</li>
                         <li style="color: #c8e6c9; margin: 10px 0;"><strong style="color: white;">July 4, 2026 — Real Independence Day:</strong> 100M+ members = Independence Day from corporate control</li>
@@ -915,8 +916,43 @@ function initImageModal() {
   </a>
 </div>
 
+
 <script>
 function toggleMobileMenu() {
+  const navLinks = document.querySelector('.nav-links');
+  const menuIcon = document.querySelector('.menu-icon');
+  const closeIcon = document.querySelector('.close-icon');
+  navLinks.classList.toggle('active');
+  if (navLinks.classList.contains('active')) {
+    menuIcon.style.display = 'none';
+    closeIcon.style.display = 'inline';
+  } else {
+    menuIcon.style.display = 'inline';
+    closeIcon.style.display = 'none';
+  }
+}
+
+function toggleDropdown(event) {
+  event.stopPropagation();
+  let btn = event.target;
+  while (btn && !btn.classList.contains('dropbtn')) {
+    btn = btn.parentElement;
+  }
+  if (!btn) return;
+  const dropdown = btn.nextElementSibling;
+  if (!dropdown) return;
+  document.querySelectorAll('.dropdown-content').forEach(d => {
+    if (d !== dropdown) d.classList.remove('show');
+  });
+  dropdown.classList.toggle('show');
+}
+
+document.addEventListener('click', function(event) {
+  if (!event.target.matches('.dropbtn') && !event.target.closest('.dropbtn')) {
+    document.querySelectorAll('.dropdown-content').forEach(d => d.classList.remove('show'));
+  }
+  const nav = document.querySelector('nav');
+  const navLinks = document.querySelector('.nav-links');
   if (nav && navLinks && !nav.contains(event.target) && navLinks.classList.contains('active')) {
     navLinks.classList.remove('active');
     const menuIcon = document.querySelector('.menu-icon');

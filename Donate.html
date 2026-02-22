@@ -11,6 +11,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="color-scheme" content="dark light">
     <title>Donate - Fuel the PHIERS Movement</title>
+    <meta name="description" content="PHIERS Movement: 3.5% by March 28, 100M by July 4. Force Congress to authorize $600 telehealth. Universal coverage for 234M of the 99%.">
 
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -952,13 +953,43 @@ function initImageModal() {
   <a href="action.html" style="color: #4caf50; text-decoration: none; font-size: 1.1em;">
     ← Previous: Take Action
   </a>
-  <a href="Media.html" style="color: #4caf50; text-decoration: none; font-size: 1.1em;">
-    Next: Media →
-  </a>
-</div>
-
+  <a href="Media.html" style="color: #4caf50; text-decoration: none; fo
 <script>
 function toggleMobileMenu() {
+  const navLinks = document.querySelector('.nav-links');
+  const menuIcon = document.querySelector('.menu-icon');
+  const closeIcon = document.querySelector('.close-icon');
+  navLinks.classList.toggle('active');
+  if (navLinks.classList.contains('active')) {
+    menuIcon.style.display = 'none';
+    closeIcon.style.display = 'inline';
+  } else {
+    menuIcon.style.display = 'inline';
+    closeIcon.style.display = 'none';
+  }
+}
+
+function toggleDropdown(event) {
+  event.stopPropagation();
+  let btn = event.target;
+  while (btn && !btn.classList.contains('dropbtn')) {
+    btn = btn.parentElement;
+  }
+  if (!btn) return;
+  const dropdown = btn.nextElementSibling;
+  if (!dropdown) return;
+  document.querySelectorAll('.dropdown-content').forEach(d => {
+    if (d !== dropdown) d.classList.remove('show');
+  });
+  dropdown.classList.toggle('show');
+}
+
+document.addEventListener('click', function(event) {
+  if (!event.target.matches('.dropbtn') && !event.target.closest('.dropbtn')) {
+    document.querySelectorAll('.dropdown-content').forEach(d => d.classList.remove('show'));
+  }
+  const nav = document.querySelector('nav');
+  const navLinks = document.querySelector('.nav-links');
   if (nav && navLinks && !nav.contains(event.target) && navLinks.classList.contains('active')) {
     navLinks.classList.remove('active');
     const menuIcon = document.querySelector('.menu-icon');

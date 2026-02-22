@@ -219,8 +219,43 @@
   <p style="margin-top:1rem; font-size:0.85rem;">A public-interest pressure movement. Not a company. Not a product. Not a PAC.</p>
 </footer>
 
+
 <script>
 function toggleMobileMenu() {
+  const navLinks = document.querySelector('.nav-links');
+  const menuIcon = document.querySelector('.menu-icon');
+  const closeIcon = document.querySelector('.close-icon');
+  navLinks.classList.toggle('active');
+  if (navLinks.classList.contains('active')) {
+    menuIcon.style.display = 'none';
+    closeIcon.style.display = 'inline';
+  } else {
+    menuIcon.style.display = 'inline';
+    closeIcon.style.display = 'none';
+  }
+}
+
+function toggleDropdown(event) {
+  event.stopPropagation();
+  let btn = event.target;
+  while (btn && !btn.classList.contains('dropbtn')) {
+    btn = btn.parentElement;
+  }
+  if (!btn) return;
+  const dropdown = btn.nextElementSibling;
+  if (!dropdown) return;
+  document.querySelectorAll('.dropdown-content').forEach(d => {
+    if (d !== dropdown) d.classList.remove('show');
+  });
+  dropdown.classList.toggle('show');
+}
+
+document.addEventListener('click', function(event) {
+  if (!event.target.matches('.dropbtn') && !event.target.closest('.dropbtn')) {
+    document.querySelectorAll('.dropdown-content').forEach(d => d.classList.remove('show'));
+  }
+  const nav = document.querySelector('nav');
+  const navLinks = document.querySelector('.nav-links');
   if (nav && navLinks && !nav.contains(event.target) && navLinks.classList.contains('active')) {
     navLinks.classList.remove('active');
     const menuIcon = document.querySelector('.menu-icon');

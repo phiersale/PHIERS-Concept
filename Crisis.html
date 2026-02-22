@@ -1110,7 +1110,16 @@
         </main>
 
         <!-- FOOTER - Section 7 Constitutional Compliance -->
-        <footer>
+        <div style="display: flex; justify-content: space-between; margin: 60px 0 40px 0; padding: 30px 0; border-top: 2px solid rgba(76, 175, 80, 0.3);">
+  <a href="OVERVIEW.html" style="color: #4caf50; text-decoration: none; font-size: 1.1em;">
+    ← Previous: Overview
+  </a>
+  <a href="SimpleMath.html" style="color: #4caf50; text-decoration: none; font-size: 1.1em;">
+    Next: Simple Math →
+  </a>
+</div>
+
+<footer>
             <h3>PHIERS Movement | MABAH</h3>
             <p><strong>Make America Better And Healthier</strong></p>
   <p style="font-size: 1.05em; color: #c8e6c9; font-weight: 500; margin: 1rem 0;">PHIERS is a citizen coalition using collective leverage to force Congress to fix healthcare &mdash; or replace them.</p>
@@ -1148,9 +1157,103 @@
             <!-- VERSION STAMP -->
             <p style="margin-top: 2rem; text-align: center; font-size: 0.75rem; color: #666;">
                 PHIERS Movement | Version: 2026-02-20 22:43:50
-<!-- Mobile Menu JavaScript -->
+
+<div id="imageModal" class="image-modal">
+  <span class="close-modal" onclick="closeImageModal()">&times;</span>
+  <img loading="lazy" class="modal-content" id="modalImage" alt="" loading="lazy">
+</div>
+
+<script>
+function closeImageModal() {
+  const modal = document.getElementById('imageModal');
+  if (modal) modal.classList.remove('active');
+}
+
+// Wait for DOM to be fully loaded
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initImageModal);
+} else {
+  initImageModal();
+}
+
+function initImageModal() {
+  const modal = document.getElementById('imageModal');
+  const modalImg = document.getElementById('modalImage');
+  
+  if (!modal || !modalImg) return;
+  
+  // Add click handlers to all images except menu icons
+  const images = document.querySelectorAll('img:not(.mobile-menu-toggle):not(.mobile-menu-toggle *)');
+  
+  images.forEach(function(img) {
+    if (img.parentElement && img.parentElement.tagName !== 'BUTTON') {
+      img.style.cursor = 'pointer';
+      img.addEventListener('click', function() {
+        modal.classList.add('active');
+        modalImg.src = this.src;
+        modalImg.alt = this.alt || '';
+      });
+    }
+  });
+  
+  // Close on X click
+  const closeBtn = modal.querySelector('.close-modal');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeImageModal);
+  }
+  
+  // Close on outside click
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) {
+      closeImageModal();
+    }
+  });
+  
+  // Close on ESC key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+      closeImageModal();
+    }
+  });
+}
+</script>
+
 <script>
 function toggleMobileMenu() {
+  const navLinks = document.querySelector('.nav-links');
+  const menuIcon = document.querySelector('.menu-icon');
+  const closeIcon = document.querySelector('.close-icon');
+  navLinks.classList.toggle('active');
+  if (navLinks.classList.contains('active')) {
+    menuIcon.style.display = 'none';
+    closeIcon.style.display = 'inline';
+  } else {
+    menuIcon.style.display = 'inline';
+    closeIcon.style.display = 'none';
+  }
+}
+
+function toggleDropdown(event) {
+  event.stopPropagation();
+  let btn = event.target;
+  while (btn && !btn.classList.contains('dropbtn')) {
+    btn = btn.parentElement;
+  }
+  if (!btn) return;
+  const dropdown = btn.nextElementSibling;
+  if (!dropdown) return;
+  document.querySelectorAll('.dropdown-content').forEach(d => {
+    if (d !== dropdown) d.classList.remove('show');
+  });
+  dropdown.classList.toggle('show');
+}
+
+document.addEventListener('click', function(event) {
+  if (!event.target.matches('.dropbtn') && !event.target.closest('.dropbtn')) {
+    document.querySelectorAll('.dropdown-content').forEach(d => d.classList.remove('show'));
+  }
+  const nav = document.querySelector('nav');
+  const navLinks = document.querySelector('.nav-links');
   if (nav && navLinks && !nav.contains(event.target) && navLinks.classList.contains('active')) {
     navLinks.classList.remove('active');
     const menuIcon = document.querySelector('.menu-icon');
