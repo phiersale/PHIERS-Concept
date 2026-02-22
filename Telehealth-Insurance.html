@@ -3,207 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telehealth vs Insurance - PHIERS</title>
+    <title>Telehealth vs. Insurance — PHIERS</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            color: #e0e0e0;
-            line-height: 1.6;
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        header {
-            text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(135deg, rgba(15, 52, 96, 0.8), rgba(22, 33, 62, 0.8));
-            border-radius: 10px;
-            margin-bottom: 30px;
-            border: 2px solid rgba(76, 175, 80, 0.3);
-        }
-        
-        .logo {
-            max-width: 130px;
-            margin: 0 auto 15px auto;
-            display: block;
-        }
-        
-        h1 {
-            font-size: 2.2em;
-            margin-bottom: 10px;
-            color: #4caf50;
-            text-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
-        }
-        
-        .tagline {
-            font-size: 1em;
-            color: #81c784;
-            margin-bottom: 20px;
-        }
-
-        h2 {
-            color: #4caf50;
-            margin-top: 30px;
-            margin-bottom: 20px;
-            font-size: 1.8em;
-            border-bottom: 2px solid #4caf50;
-            padding-bottom: 10px;
-        }
-
-        h3 {
-            color: #81c784;
-            margin-top: 20px;
-            margin-bottom: 10px;
-            font-size: 1.2em;
-        }
-
-        p {
-            margin-bottom: 15px;
-            color: #c8e6c9;
-        }
-
-        ul {
-            margin-left: 20px;
-            margin-top: 10px;
-            margin-bottom: 15px;
-        }
-
-        li {
-            margin: 10px 0;
-            color: #c8e6c9;
-        }
-
-        .graphic-container {
-            text-align: center;
-            margin: 40px 0;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 8px;
-        }
-
-        .graphic-container img {
-            max-width: 60%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);
-            margin: 0 auto;
-            display: block;
-        }
-
-        .graphic-container p {
-            margin: 12px 0 0 0;
-            font-size: 0.9em;
-            color: #a3d9a5;
-            line-height: 1.4;
-        }
-
-        strong {
-            color: #4caf50;
-        }
-
-        .nav-buttons {
-            display: flex;
-            justify-content: space-between;
-            gap: 15px;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 2px solid rgba(76, 175, 80, 0.3);
-        }
-
-        .btn {
-            padding: 12px 25px;
-            font-size: 0.95em;
-            font-weight: bold;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #4caf50, #45a049);
-            color: white;
-            flex: 1;
-            text-align: center;
-        }
-
-        .btn-primary:hover {
-            background: linear-gradient(135deg, #45a049, #3d8b40);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
-        }
-
-        .btn-secondary {
-            background: linear-gradient(135deg, #2196f3, #1976d2);
-            color: white;
-            flex: 1;
-            text-align: center;
-        }
-
-        .btn-secondary:hover {
-            background: linear-gradient(135deg, #1976d2, #1565c0);
-            transform: translateY(-2px);
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px 20px;
-            border-top: 2px solid rgba(76, 175, 80, 0.3);
-            color: #81c784;
-            margin-top: 40px;
-            font-size: 0.9em;
-            line-height: 1.8;
-        }
-
-        footer p {
-            margin: 10px 0;
-        }
-
-        a {
-            color: #81c784;
-            text-decoration: underline;
-        }
-
-        a:hover {
-            color: #4caf50;
-        }
-
-        .checkmark {
-            color: #4caf50;
-        }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 1.6em; }
-            h2 { font-size: 1.4em; }
-            .graphic-container img { max-width: 80%; }
-            .container { padding: 15px; }
-            header { padding: 25px 15px; }
-        }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0a0a1a; color: #e0e0e0; line-height: 1.6; }
+      nav { background: rgba(10,10,26,0.95); padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(76,175,80,0.3); }
+      .nav-brand { font-size: 1.4em; font-weight: 700; color: #4caf50; text-decoration: none; }
+      .nav-links { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+      .nav-links a { color: #81c784; text-decoration: none; padding: 6px 10px; border-radius: 4px; font-size: 0.95em; transition: all 0.3s; }
+      .nav-links a:hover { background: rgba(76,175,80,0.2); color: #4caf50; }
+      .dropdown { position: relative; }
+      .dropbtn { background: transparent; color: #81c784; padding: 8px 12px; font-size: 1.05em; font-weight: 600; border: none; cursor: pointer; border-radius: 4px; transition: all 0.3s; font-family: inherit; }
+      .dropbtn:hover { background: rgba(76,175,80,0.2); color: #4caf50; }
+      .dropdown-content { display: none; position: absolute; background: rgba(26,26,46,0.98); min-width: 200px; box-shadow: 0 8px 16px rgba(0,0,0,0.4); z-index: 1000; border-radius: 4px; }
+      .dropdown-content.show { display: block; }
+      .dropdown-content a { display: block; padding: 10px 16px; color: #81c784; font-size: 0.9em; }
+      .dropdown-content a:hover { background: rgba(76,175,80,0.15); }
+      .hamburger { display: none; background: none; border: none; color: #4caf50; font-size: 1.5em; cursor: pointer; padding: 4px 8px; }
+      @media (max-width: 768px) {
+        .hamburger { display: block; }
+        .nav-links { display: none; flex-direction: column; width: 100%; position: absolute; top: 100%; left: 0; background: rgba(10,10,26,0.98); padding: 16px; border-bottom: 1px solid rgba(76,175,80,0.3); }
+        .nav-links.active { display: flex; }
+        .dropdown-content { position: static; box-shadow: none; background: rgba(15,15,30,0.9); margin-left: 12px; }
+      }
+      main { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+      footer { background: rgba(10,10,26,0.9); border-top: 1px solid rgba(76,175,80,0.3); padding: 30px 20px; text-align: center; color: #81c784; font-size: 0.9em; margin-top: 60px; }
+      footer a { color: #4caf50; }
     </style>
 </head>
-
 <body>
+
+<nav>
+  <a href="index.html" class="nav-brand">PHIERS</a>
+  <button class="hamburger" onclick="toggleMobileMenu()">
+    <span class="menu-icon">☰</span>
+    <span class="close-icon" style="display:none;">✕</span>
+  </button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      
+      <div class="dropdown">
+        <button class="dropbtn strategy-dropbtn" onclick="toggleDropdown(event)">⚡ Strategy ▼</button>
+        <div class="dropdown-content">
+          <a href="OVERVIEW.html">Overview</a>
+          <a href="Crisis.html">Crisis</a>
+          <a href="SimpleMath.html">Simple Math</a>
+          <a href="5D_Solutions.html">5D Solutions</a>
+          <a href="Leverage.html">Leverage</a>
+          <a href="Why-Change-Required.html">Why Change Required</a>
+          <a href="Unions-Strategy.html">Union Strategy</a>
+        </div>
+      </div>
+      
+      <a href="Quickstart.html" title="Understand the movement in 60 seconds">How It Works</a>
+      <a href="action.html" title="Sign, organize, or join the pressure system">Take Action</a>
+      <a href="SOTU-Pre-Sponse.html" style="color:#f5c842; font-weight:700;">SOTU Response 📺</a>
+      <a href="Veterans.html" style="color:#ef5350; font-weight:700;">Veterans 🎖</a>
+      <a href="Donate.html">Donate</a>
+      
+      <div class="dropdown">
+        <button class="dropbtn" onclick="toggleDropdown(event)">Resources ▼</button>
+        <div class="dropdown-content">
+          <a href="Veterans.html" style="color:#ef5350; font-weight:700;">Veterans 🎖</a>
+          <a href="real-stories.html">Real Stories</a>
+          <a href="Media.html">Media</a>
+          <a href="FAQ.html">FAQ</a>
+          <a href="About.html">About</a>
+          <a href="Our-Origins.html">Origins</a>
+        </div>
+      </div>
+    </div>
+</nav>
+
+
     <div class="container">
         <header>
             <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Logo.png" 
                  alt="PHIERS Logo" 
                  class="logo">
             <h1>Telehealth vs Insurance</h1>
+<div style="text-align:center; margin:30px 0;">
+  <img src="Telehealth_Benefits.jpg" alt="Telehealth Benefits - Under $50/month: 24/7 doctors, fast prescriptions, no waiting rooms, nationwide access, mental health support, covers whole family, zero surprise bills, easy unlimited visits" style="max-width:50%; width:100%; height:auto; border-radius:10px; box-shadow:0 4px 15px rgba(0,0,0,0.3); cursor:pointer;" onclick="window.open(this.src,'_blank')">
+</div>
             <p class="tagline">The System Rigged. The Solution Simple.</p>
         </header>
 
@@ -327,5 +208,37 @@
             <p style="margin-top: 15px;">© PHIERS.org - People's Health Insurance Exchange and Referral Service</p>
         </footer>
     </div>
+
+
+<footer>
+  <p><strong>PHIERS — Make America Better and Healthier</strong></p>
+  <p style="font-size:1.05em; color:#c8e6c9; font-weight:500; margin:1rem 0;">
+    PHIERS is a citizen-powered movement using the strength of numbers to force Congress to do its job — fix healthcare, protect jobs, prevent trade and hot wars, and defend the safety net. Either they serve the people, or we replace them. Period.
+  </p>
+  <p>Contact: <a href="mailto:info@phiers.org">info@phiers.org</a> | <a href="tel:+19163068967">916-306-8967</a></p>
+  <p style="margin-top:1rem; font-size:0.85rem;">A public-interest pressure movement. Not a company. Not a product. Not a PAC.</p>
+</footer>
+
+<script>
+function toggleMobileMenu() {
+  const navLinks = document.querySelector('.nav-links');
+  navLinks.classList.toggle('active');
+}
+function toggleDropdown(event) {
+  event.stopPropagation();
+  let btn = event.target;
+  while (btn && !btn.classList.contains('dropbtn')) { btn = btn.parentElement; }
+  if (!btn) return;
+  const dropdown = btn.nextElementSibling;
+  if (!dropdown) return;
+  document.querySelectorAll('.dropdown-content').forEach(d => { if (d !== dropdown) d.classList.remove('show'); });
+  dropdown.classList.toggle('show');
+}
+document.addEventListener('click', function(event) {
+  if (!event.target.matches('.dropbtn') && !event.target.closest('.dropbtn')) {
+    document.querySelectorAll('.dropdown-content').forEach(d => d.classList.remove('show'));
+  }
+});
+</script>
 </body>
 </html>

@@ -677,6 +677,7 @@
           <a href="Leverage.html">Leverage</a>
           <a href="Why-Change-Required.html">Why Change Required</a>
           <a href="Unions-Strategy.html">Union Strategy</a>
+          <a href="Telehealth-Insurance.html" style="color:#f5c842;">Telehealth vs Insurance ⚡</a>
         </div>
       </div>
       <a href="Quickstart.html" title="Understand the movement in 60 seconds">How It Works</a>
@@ -851,7 +852,7 @@
         <p style="margin-bottom:1rem;">Share your healthcare story. Your numbers become the data Congress sees. Takes 3 minutes.</p>
         <a href="https://forms.gle/GekCB2xwHfFb4WLF6" 
            target="_blank" class="btn" style="padding:10px 24px; font-size:0.95rem;">
-           Fill Survey →
+          📋 Fill Survey →
         </a>
       </div>
       <div class="answer-box" style="text-align:left;">
@@ -901,7 +902,7 @@
         <p>DOGE cutting VA workforce to 2019 levels — before the PACT Act expanded care for toxic exposure veterans. Those positions existed for a reason.</p>
       </div>
       <div class="betrayal-box">
-        <span class="icon"></span>
+        <span class="icon">🏥</span>
         <h4>Nursing Homes Closing</h4>
         <p>VA long-term care facilities being reduced. Elderly and severely disabled veterans losing residential support they cannot replace privately.</p>
       </div>
@@ -911,12 +912,12 @@
         <p>Psychiatrist and mental health counselor positions eliminated. The VA already had a "severe shortage" — now it's getting worse.</p>
       </div>
       <div class="betrayal-box">
-        <span class="icon"></span>
+        <span class="icon">🏠</span>
         <h4>Homelessness Criminalized</h4>
         <p>Veterans experiencing homelessness face criminalization while the support systems that prevent and address veteran homelessness are being defunded.</p>
       </div>
       <div class="betrayal-box">
-        <span class="icon"></span>
+        <span class="icon">📋</span>
         <h4>Contracts Canceled</h4>
         <p>800+ VA service contracts cut — including some directly tied to disability rating assessments and patient safety systems.</p>
       </div>
@@ -1157,17 +1158,17 @@
 
     <div class="betrayal-grid" style="margin-top: 1.5rem;">
       <div class="betrayal-box" style="background: rgba(76,175,80,0.07); border-color: var(--green-border);">
-        <span class="icon"></span>
+        <span class="icon">📜</span>
         <h4 style="color: var(--green);">Constitutional Authority</h4>
         <p style="color: #c8e6c9;">Congress holds the power to declare and fund — or defund — wars. PHIERS organizes citizens to force Congress to actually use that power.</p>
       </div>
       <div class="betrayal-box" style="background: rgba(76,175,80,0.07); border-color: var(--green-border);">
-        <span class="icon"></span>
+        <span class="icon">🎯</span>
         <h4 style="color: var(--green);">District-Level Leverage</h4>
         <p style="color: #c8e6c9;">Every Member of Congress faces re-election. 3.5% organized in their district is more pressure than any PAC check. That's the math they fear.</p>
       </div>
       <div class="betrayal-box" style="background: rgba(76,175,80,0.07); border-color: var(--green-border);">
-        <span class="icon"></span>
+        <span class="icon">🤝</span>
         <h4 style="color: var(--green);">Non-Partisan by Design</h4>
         <p style="color: #c8e6c9;">Veterans are not one party. The demand for healthcare and peace crosses every district. PHIERS works because the math works for everyone.</p>
       </div>
@@ -1222,7 +1223,7 @@
       <a href="About.html">About</a>
       <a href="Donate.html">Donate</a>
       <a href="SOTU-Pre-Sponse.html" style="color:#f5c842; font-weight:700;">Pre-Sponse 📺</a>
-      <a href="Veterans.html">Veterans 🎖</a>
+      <a href="Veterans.html">Veterans</a>
     </div>
 
     <div class="constitutional-disclaimer" style="margin-top:1.5rem;">
@@ -1236,19 +1237,18 @@
 
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 function toggleMobileMenu() {
   const navLinks = document.querySelector('.nav-links');
   const menuIcon = document.querySelector('.menu-icon');
   const closeIcon = document.querySelector('.close-icon');
+  navLinks.classList.toggle('active');
   if (navLinks.classList.contains('active')) {
-    navLinks.classList.remove('active');
+    menuIcon.style.display = 'none';
+    closeIcon.style.display = 'inline';
+  } else {
     menuIcon.style.display = 'inline';
     closeIcon.style.display = 'none';
-  } else {
-    navLinks.classList.add('active');
-    menuIcon.style.display = 'none';
-    closeIcon.style.display = 'block';
   }
 }
 
@@ -1261,24 +1261,21 @@ function toggleDropdown(event) {
   if (!btn) return;
   const dropdown = btn.nextElementSibling;
   if (!dropdown) return;
-  const isOpen = dropdown.classList.contains('show');
-  const allDropdowns = document.getElementsByClassName('dropdown-content');
-  for (let i = 0; i < allDropdowns.length; i++) {
-    allDropdowns[i].classList.remove('show');
-  }
-  if (!isOpen) {
-    dropdown.classList.add('show');
-  }
-}
+  document.querySelectorAll('.dropdown-content').forEach(d => {
+    if (d !== dropdown) d.classList.remove('show');
+  });
+  dropdown.classList.toggle('show');
 }
 
-
-  // Close mobile menu on outside click
-  const nav = document.querySelector('nav');
-  const navLinks = document.querySelector('.nav-links');
+document.addEventListener('click', function(event) {
+  if (!event.target.matches('.dropbtn') && !event.target.closest('.dropbtn')) {
+    document.querySelectorAll('.dropdown-content').forEach(d => d.classList.remove('show'));
+  }
   if (nav && navLinks && !nav.contains(event.target) && navLinks.classList.contains('active')) {
     navLinks.classList.remove('active');
-  if (menuIcon) menuIcon.style.display = 'inline';
+    const menuIcon = document.querySelector('.menu-icon');
+    const closeIcon = document.querySelector('.close-icon');
+    if (menuIcon) menuIcon.style.display = 'inline';
     if (closeIcon) closeIcon.style.display = 'none';
   }
 });
