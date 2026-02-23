@@ -1035,6 +1035,7 @@ function initImageModal() {
 }
 </script>
 
+
 <script>
 function toggleMobileMenu() {
   const navLinks = document.querySelector('.nav-links');
@@ -1050,22 +1051,16 @@ function toggleMobileMenu() {
     if (closeIcon) closeIcon.style.display = 'none';
   }
 }
-
 function toggleDropdown(event) {
   event.stopPropagation();
   let btn = event.target;
-  while (btn && !btn.classList.contains('dropbtn')) {
-    btn = btn.parentElement;
-  }
+  while (btn && !btn.classList.contains('dropbtn')) { btn = btn.parentElement; }
   if (!btn) return;
   const dropdown = btn.nextElementSibling;
   if (!dropdown) return;
-  document.querySelectorAll('.dropdown-content').forEach(d => {
-    if (d !== dropdown) d.classList.remove('show');
-  });
+  document.querySelectorAll('.dropdown-content').forEach(d => { if (d !== dropdown) d.classList.remove('show'); });
   dropdown.classList.toggle('show');
 }
-
 document.addEventListener('DOMContentLoaded', function() {
   document.addEventListener('click', function(event) {
     if (!event.target.matches('.dropbtn') && !event.target.closest('.dropbtn')) {

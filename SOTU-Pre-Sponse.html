@@ -647,15 +647,19 @@
 
   <!-- NAV -->
   <nav>
+    <!-- Mobile Menu Toggle -->
     <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">
       <span class="menu-icon">☰</span>
-      <span class="close-icon" style="display:none;">✕</span>
+      <span class="close-icon" style="display: none;">✕</span>
     </button>
-    <div class="nav-links">
+    
+    <!-- Navigation Links -->
+        <div class="nav-links">
       <a href="index.html">Home</a>
+      
       <div class="dropdown">
         <button class="dropbtn strategy-dropbtn" onclick="toggleDropdown(event)">⚡ Strategy ▼</button>
-        <div class="dropdown-content strategy-dropdown-content">
+        <div class="dropdown-content">
           <a href="OVERVIEW.html">Overview</a>
           <a href="Crisis.html">Crisis</a>
           <a href="SimpleMath.html">Simple Math</a>
@@ -666,11 +670,13 @@
           <a href="Telehealth-Insurance.html" style="color:#f5c842;">Telehealth vs Insurance ⚡</a>
         </div>
       </div>
+      
       <a href="Quickstart.html" title="Understand the movement in 60 seconds">How It Works</a>
       <a href="action.html" title="Sign, organize, or join the pressure system">Take Action</a>
-      <a href="SOTU-Pre-Sponse.html" style="color:var(--gold); font-weight:700;">SOTU Response 📺</a>
+      <a href="SOTU-Pre-Sponse.html" style="color:#f5c842; font-weight:700;">SOTU Response 📺</a>
       <a href="Veterans.html" style="color:#ef5350; font-weight:700;">Veterans 🎖</a>
       <a href="Donate.html">Donate</a>
+      
       <div class="dropdown">
         <button class="dropbtn" onclick="toggleDropdown(event)">Resources ▼</button>
         <div class="dropdown-content">
@@ -995,6 +1001,7 @@
 <!-- COUNTDOWN SCRIPT -->
 
 
+
 <script>
 function toggleMobileMenu() {
   const navLinks = document.querySelector('.nav-links');
@@ -1010,22 +1017,16 @@ function toggleMobileMenu() {
     if (closeIcon) closeIcon.style.display = 'none';
   }
 }
-
 function toggleDropdown(event) {
   event.stopPropagation();
   let btn = event.target;
-  while (btn && !btn.classList.contains('dropbtn')) {
-    btn = btn.parentElement;
-  }
+  while (btn && !btn.classList.contains('dropbtn')) { btn = btn.parentElement; }
   if (!btn) return;
   const dropdown = btn.nextElementSibling;
   if (!dropdown) return;
-  document.querySelectorAll('.dropdown-content').forEach(d => {
-    if (d !== dropdown) d.classList.remove('show');
-  });
+  document.querySelectorAll('.dropdown-content').forEach(d => { if (d !== dropdown) d.classList.remove('show'); });
   dropdown.classList.toggle('show');
 }
-
 document.addEventListener('DOMContentLoaded', function() {
   document.addEventListener('click', function(event) {
     if (!event.target.matches('.dropbtn') && !event.target.closest('.dropbtn')) {

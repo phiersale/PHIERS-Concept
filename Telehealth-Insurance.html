@@ -66,12 +66,14 @@
 <body>
 
 <nav>
-  <a href="index.html" class="nav-brand">PHIERS</a>
-  <button class="hamburger" onclick="toggleMobileMenu()">
-    <span class="menu-icon">☰</span>
-    <span class="close-icon" style="display:none;">✕</span>
-  </button>
-    <div class="nav-links">
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+      <span class="menu-icon">☰</span>
+      <span class="close-icon" style="display: none;">✕</span>
+    </button>
+    
+    <!-- Navigation Links -->
+        <div class="nav-links">
       <a href="index.html">Home</a>
       
       <div class="dropdown">
@@ -84,6 +86,7 @@
           <a href="Leverage.html">Leverage</a>
           <a href="Why-Change-Required.html">Why Change Required</a>
           <a href="Unions-Strategy.html">Union Strategy</a>
+          <a href="Telehealth-Insurance.html" style="color:#f5c842;">Telehealth vs Insurance ⚡</a>
         </div>
       </div>
       
@@ -105,7 +108,7 @@
         </div>
       </div>
     </div>
-</nav>
+  </nav>
 
 
     <div class="container">
@@ -253,6 +256,7 @@
 
 
 
+
 <script>
 function toggleMobileMenu() {
   const navLinks = document.querySelector('.nav-links');
@@ -268,22 +272,16 @@ function toggleMobileMenu() {
     if (closeIcon) closeIcon.style.display = 'none';
   }
 }
-
 function toggleDropdown(event) {
   event.stopPropagation();
   let btn = event.target;
-  while (btn && !btn.classList.contains('dropbtn')) {
-    btn = btn.parentElement;
-  }
+  while (btn && !btn.classList.contains('dropbtn')) { btn = btn.parentElement; }
   if (!btn) return;
   const dropdown = btn.nextElementSibling;
   if (!dropdown) return;
-  document.querySelectorAll('.dropdown-content').forEach(d => {
-    if (d !== dropdown) d.classList.remove('show');
-  });
+  document.querySelectorAll('.dropdown-content').forEach(d => { if (d !== dropdown) d.classList.remove('show'); });
   dropdown.classList.toggle('show');
 }
-
 document.addEventListener('DOMContentLoaded', function() {
   document.addEventListener('click', function(event) {
     if (!event.target.matches('.dropbtn') && !event.target.closest('.dropbtn')) {
