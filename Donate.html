@@ -828,7 +828,7 @@ img {
                 <div class="method-title">Venmo</div>
                 <div class="method-details">
                     <p><strong>@Will4PHIERS</strong></p>
-                    <p style="font-size: 0.95em; color: #a5d6a7;">Or send to: <a href="/cdn-cgi/l/email-protection#9bf2f5fdf4dbebf3f2fee9e8b5f4e9fc"><span class="__cf_email__" data-cfemail="a5cccbc3cae5d5cdccc0d7d68bcad7c2">[email&#160;protected]</span></a></p>
+                    <p style="font-size: 0.95em; color: #a5d6a7;">Or send to: <a href="mailto:info@phiers.org">info@phiers.org</a></p>
 
                     <div class="qr-wrapper">
                         <img loading="lazy" src="Venmo.png" alt="Venmo QR Code" loading="lazy">
@@ -840,7 +840,7 @@ img {
             <div class="donation-method">
                 <div class="method-title">PayPal</div>
                 <div class="method-details">
-                    <p><strong><a href="/cdn-cgi/l/email-protection#bad3d4dcd5facad2d3dfc8c994d5c8dd"><span class="__cf_email__" data-cfemail="6d04030b022d1d0504081f1e43021f0a">[email&#160;protected]</span></a></strong></p>
+                    <p><strong><a href="mailto:info@phiers.org">info@phiers.org</a></strong></p>
 
                     <div class="qr-wrapper">
                         <img loading="lazy" src="PayPal.png" alt="PayPal QR Code" loading="lazy">
@@ -899,7 +899,7 @@ img {
         <p style="margin: 15px 0;">
             Will Price | Chief Solutions Architect<br>
             Phone: <a href="tel:+19163068967">(916) 306-8967</a> | 
-            Email: <a href="/cdn-cgi/l/email-protection#1e777078715e6e76777b6c6d30716c79"><span class="__cf_email__" data-cfemail="c2abaca4ad82b2aaaba7b0b1ecadb0a5">[email&#160;protected]</span></a>
+            Email: <a href="mailto:info@phiers.org">info@phiers.org</a>
         </p>
         
         <div class="footer-nav">
@@ -927,7 +927,7 @@ img {
   <img loading="lazy" class="modal-content" id="modalImage" alt="" loading="lazy">
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 function closeImageModal() {
   const modal = document.getElementById('imageModal');
   if (modal) modal.classList.remove('active');
@@ -988,6 +988,7 @@ function initImageModal() {
   <a href="Media.html" style="color: #4caf50; text-decoration: none; fo
 
 
+
 <script>
 function toggleMobileMenu() {
   const navLinks = document.querySelector('.nav-links');
@@ -1018,4 +1019,17 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!event.target.matches('.dropbtn') && !event.target.closest('.dropbtn')) {
       document.querySelectorAll('.dropdown-content').forEach(d => d.classList.remove('show'));
     }
-    const nav = document.querySele
+    const nav = document.querySelector('nav');
+    const navLinks = document.querySelector('.nav-links');
+    if (nav && navLinks && !nav.contains(event.target) && navLinks.classList.contains('active')) {
+      navLinks.classList.remove('active');
+      const menuIcon = document.querySelector('.menu-icon');
+      const closeIcon = document.querySelector('.close-icon');
+      if (menuIcon) menuIcon.style.display = 'inline';
+      if (closeIcon) closeIcon.style.display = 'none';
+    }
+  });
+});
+</script>
+</body>
+</html>
