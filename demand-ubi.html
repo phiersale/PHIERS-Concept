@@ -1,75 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demand: UBI from Healthcare Savings - PHIERS</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #e0e0e0; line-height: 1.6; min-height: 100vh; padding: 20px; }
-        .container { max-width: 900px; margin: 0 auto; }
-        header { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, rgba(15, 52, 96, 0.8), rgba(22, 33, 62, 0.8)); border-radius: 10px; margin-bottom: 30px; border: 2px solid rgba(76, 175, 80, 0.3); }
-        h1 { color: #4caf50; font-size: 2em; margin-bottom: 15px; text-shadow: 0 0 20px rgba(76, 175, 80, 0.3); }
-        section { background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9)); border-left: 5px solid #4caf50; padding: 40px; margin-bottom: 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); }
-        .highlight-box { background: rgba(76, 175, 80, 0.15); border: 2px solid #4caf50; padding: 25px; margin: 25px 0; border-radius: 8px; }
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Demand: UBI from Healthcare Savings - PHIERS</title>
+ <style>
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: 'Segoe UI', sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #e0e0e0; line-height: 1.6; min-height: 100vh; padding: 20px; }
+ .container { max-width: 900px; margin: 0 auto; }
+ header { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, rgba(15, 52, 96, 0.8), rgba(22, 33, 62, 0.8)); border-radius: 10px; margin-bottom: 30px; border: 2px solid rgba(76, 175, 80, 0.3); }
+ h1 { color: #4caf50; font-size: 2em; margin-bottom: 15px; text-shadow: 0 0 20px rgba(76, 175, 80, 0.3); }
+ section { background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9)); border-left: 5px solid #4caf50; padding: 40px; margin-bottom: 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); }
+ .highlight-box { background: rgba(76, 175, 80, 0.15); border: 2px solid #4caf50; padding: 25px; margin: 25px 0; border-radius: 8px; }
+ 
+    /* === NAV STYLES === */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #1a1a2e;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid #4caf50;
+    }
+    .nav-links { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; }
+    .nav-links a { color: #e0e0e0; text-decoration: none; padding: 0.4rem 0.7rem; border-radius: 4px; font-size: 0.9rem; }
+    .nav-links a:hover { background: #4caf50; color: #fff; }
+    .mobile-menu-toggle { display: none; background: none; border: none; color: #e0e0e0; font-size: 1.5rem; cursor: pointer; }
+    .dropdown { position: relative; }
+    .dropbtn { background: none; border: none; color: #e0e0e0; cursor: pointer; padding: 0.4rem 0.7rem; font-size: 0.9rem; border-radius: 4px; }
+    .dropbtn:hover { background: #4caf50; color: #fff; }
+    .dropdown-content { display: none; position: absolute; top: 100%; right: 0; background: #1a1a2e; border: 1px solid #4caf50; border-radius: 4px; min-width: 220px; z-index: 1001; }
+    .dropdown-content a { display: block; padding: 0.4rem 1rem; color: #e0e0e0; text-decoration: none; font-size: 0.88rem; }
+    .dropdown-content a:hover { background: #4caf50; color: #fff; }
+    .dropdown-group-label { padding: 0.5rem 1rem 0.2rem; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: #81c784; border-top: 1px solid rgba(76,175,80,0.25); margin-top: 0.2rem; }
+    .dropdown-group-label:first-child { border-top: none; margin-top: 0; }
+    .dropdown-content.show { display: block; }
+    .close-icon { display: none; }
+    @media (max-width: 768px) {
+      .mobile-menu-toggle { display: block; }
+      .nav-links { display: none; flex-direction: column; width: 100%; }
+      .nav-links.active { display: flex; }
+      .dropdown-content { position: static; border: none; }
+    }
+    /* === END NAV STYLES === */
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>💰 Demand #3: UBI from Healthcare Savings</h1>
-            <p style="color: #c8e6c9; margin-top: 15px;">Use freed government savings to fund monthly payments to all Americans</p>
-        </header>
-        <!-- NAVIGATION BUTTONS (Under Hero) -->
-        <nav style="
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
-            border: 2px solid rgba(76, 175, 80, 0.3);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 40px;
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-        ">
-            <a href="index.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">🏠 Start Here</a>
-            
-            <a href="crisis.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">🚨 What's Broken</a>
-            
-            <a href="why-change-required.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">⚖️ Why Change Required</a>
-            
-            <a href="solutions.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">📋 What We Demand</a>
-            
-            <a href="action.html" style="background: linear-gradient(135deg, #2196f3, #1976d2); color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s; box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(33, 150, 243, 0.5)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(33, 150, 243, 0.3)'">✏️ Petition</a>
-            
-            <a href="simple-math.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">📊 Receipts</a>
-            
-            <a href="faq.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">❓ FAQ</a>
-        </nav>
-
-
-        <section>
-            <h2 style="color: #4caf50; margin-bottom: 20px;">What We Demand</h2>
-            <p style="font-size: 1.05em; margin-bottom: 20px;">Universal Basic Income funded by the $2.73 trillion in government healthcare savings generated by PHIERS.</p>
-            
-            <div class="highlight-box">
-                <h3 style="color: #4caf50; margin-bottom: 15px;">The Math</h3>
-                <p><strong style="color: white;">Current government healthcare spending:</strong> $2.73 trillion annually</p>
-                <p style="margin-top: 10px;"><strong style="color: white;">PHIERS telehealth cost:</strong> $140 billion annually (234M × $600)</p>
-                <p style="margin-top: 10px;"><strong style="color: white;">Freed savings:</strong> $2.59 trillion</p>
-                <p style="margin-top: 20px; color: #4caf50; font-weight: bold; font-size: 1.1em;">That's $650/month for every American or $1,300/month for every adult</p>
-            </div>
-
-            <h2 style="color: #4caf50; margin: 40px 0 20px 0;">Why This Works</h2>
-            <p>The money already exists. We're just redirecting it from insurance companies to American families.</p>
-
-            <p style="margin-top: 20px;">No new taxes. No deficit spending. Just efficiency.</p>
-
-            <div style="text-align: center; margin: 40px 0;">
-                <a href="../solutions.html" style="color: #4caf50; font-size: 1.05em; font-weight: bold; text-decoration: underline;">← Back to All Demands</a>
-            </div>
-        </section>
+<nav>
+    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+      <span class="menu-icon">&#9776;</span>
+      <span class="close-icon" style="display: none;">&#x2715;</span>
+    </button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="OVERVIEW.html">Why This Works</a>
+      <a href="SimpleMath.html">The Math</a>
+      <a href="Quickstart.html">How It Works</a>
+      <a href="action.html" style="color:#f5c842; font-weight:700;">Take Action</a>
+      <a href="Donate.html">Donate</a>
+      <div class="dropdown">
+        <button class="dropbtn" onclick="toggleDropdown(event)">More &#x25BC;</button>
+        <div class="dropdown-content">
+          <div class="dropdown-group-label">Why It Matters</div>
+          <a href="Crisis.html">The Crisis</a>
+          <a href="Why-Change-Required.html">Why Change Required</a>
+          <a href="Telehealth-Insurance.html">Telehealth vs Insurance</a>
+          <div class="dropdown-group-label">Strategy &amp; Model</div>
+          <a href="5D_Solutions.html">5D Solutions</a>
+          <a href="Leverage.html">Leverage</a>
+          <a href="Unions-Strategy.html">Union Strategy</a>
+          <div class="dropdown-group-label">Stories &amp; Proof</div>
+          <a href="real-stories.html">Real Stories</a>
+          <a href="Veterans.html">Veterans</a>
+          <a href="SOTU-Pre-Sponse.html">SOTU Response</a>
+          <a href="Media.html">Media</a>
+          <div class="dropdown-group-label">Support &amp; Info</div>
+          <a href="FAQ.html">FAQ</a>
+          <a href="About.html">About</a>
+          <a href="Our-Origins.html">Origins</a>
+          <div class="dropdown-group-label">Deep Movement</div>
+          <a href="UNSTOPPABLE.html">UNSTOPPABLE</a>
+        </div>
+      </div>
     </div>
+  </nav>
+
+ <div class="container">
+ <header>
+ <h1> Demand #3: UBI from Healthcare Savings</h1>
+ <p style="color: #c8e6c9; margin-top: 15px;">Use freed government savings to fund monthly payments to all Americans</p>
+ </header>
+ <!-- NAVIGATION BUTTONS (Under Hero) -->
+ <nav style="
+ background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
+ border: 2px solid rgba(76, 175, 80, 0.3);
+ border-radius: 8px;
+ padding: 20px;
+ margin-bottom: 40px;
+ display: flex;
+ gap: 12px;
+ flex-wrap: wrap;
+ justify-content: center;
+ align-items: center;
+ ">
+ <a href="index.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'"> Start Here</a>
+ 
+ <a href="crisis.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'"> What's Broken</a>
+ 
+ <a href="why-change-required.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">&#x20;Why Change Required</a>
+ 
+ <a href="solutions.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'"> What We Demand</a>
+ 
+ <a href="action.html" style="background: linear-gradient(135deg, #2196f3, #1976d2); color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s; box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(33, 150, 243, 0.5)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(33, 150, 243, 0.3)'">&#x20;Petition</a>
+ 
+ <a href="simple-math.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'"> Receipts</a>
+ 
+ <a href="faq.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">&#x20;FAQ</a>
+ </nav>
+
+
+ <section>
+ <h2 style="color: #4caf50; margin-bottom: 20px;">What We Demand</h2>
+ <p style="font-size: 1.05em; margin-bottom: 20px;">Universal Basic Income funded by the $2.73 trillion in government healthcare savings generated by PHIERS.</p>
+ 
+ <div class="highlight-box">
+ <h3 style="color: #4caf50; margin-bottom: 15px;">The Math</h3>
+ <p><strong style="color: white;">Current government healthcare spending:</strong> $2.73 trillion annually</p>
+ <p style="margin-top: 10px;"><strong style="color: white;">PHIERS telehealth cost:</strong> $140 billion annually (234M &#xD7;&#x20;&#x24;600)</p>
+ <p style="margin-top: 10px;"><strong style="color: white;">Freed savings:</strong> $2.59 trillion</p>
+ <p style="margin-top: 20px; color: #4caf50; font-weight: bold; font-size: 1.1em;">That's $650/month for every American or $1,300/month for every adult</p>
+ </div>
+
+ <h2 style="color: #4caf50; margin: 40px 0 20px 0;">Why This Works</h2>
+ <p>The money already exists. We're just redirecting it from insurance companies to American families.</p>
+
+ <p style="margin-top: 20px;">No new taxes. No deficit spending. Just efficiency.</p>
+
+ <div style="text-align: center; margin: 40px 0;">
+ <a href="../solutions.html" style="color: #4caf50; font-size: 1.05em; font-weight: bold; text-decoration: underline;">&#x2190;&#x20;Back to All Demands</a>
+ </div>
+ </section>
+ </div>
+<script>
+function toggleMobileMenu() {
+  const navLinks = document.querySelector('.nav-links');
+  const menuIcon = document.querySelector('.menu-icon');
+  const closeIcon = document.querySelector('.close-icon');
+  if (!navLinks) return;
+  navLinks.classList.toggle('active');
+  if (navLinks.classList.contains('active')) {
+    if (menuIcon) menuIcon.style.display = 'none';
+    if (closeIcon) closeIcon.style.display = 'inline';
+  } else {
+    if (menuIcon) menuIcon.style.display = 'inline';
+    if (closeIcon) closeIcon.style.display = 'none';
+  }
+}
+function toggleDropdown(event) {
+  event.stopPropagation();
+  let btn = event.target;
+  while (btn && !btn.classList.contains('dropbtn')) { btn = btn.parentElement; }
+  if (!btn) return;
+  const dropdown = btn.nextElementSibling;
+  if (!dropdown) return;
+  document.querySelectorAll('.dropdown-content').forEach(d => { if (d !== dropdown) d.classList.remove('show'); });
+  dropdown.classList.toggle('show');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('click', function(event) {
+    if (!event.target.matches('.dropbtn') && !event.target.closest('.dropbtn')) {
+      document.querySelectorAll('.dropdown-content').forEach(d => d.classList.remove('show'));
+    }
+    const nav = document.querySelector('nav');
+    const navLinks = document.querySelector('.nav-links');
+    if (nav && navLinks && !nav.contains(event.target) && navLinks.classList.contains('active')) {
+      navLinks.classList.remove('active');
+      const menuIcon = document.querySelector('.menu-icon');
+      const closeIcon = document.querySelector('.close-icon');
+      if (menuIcon) menuIcon.style.display = 'inline';
+      if (closeIcon) closeIcon.style.display = 'none';
+    }
+  });
+});
+</script>
+<div style="text-align:center; padding: 1rem 0 0.5rem; border-top: 1px solid rgba(76,175,80,0.15); margin-top: 1rem;">
+  <a href="UNBREAKABLE.html" style="color:#555; font-size:0.78rem; text-decoration:none; letter-spacing:0.04em;">UNBREAKABLE</a>
+</div>
 </body>
 </html>
