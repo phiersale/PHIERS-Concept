@@ -8,7 +8,7 @@
  <meta property="og:description" content="16 years of pioneering. Not competing, but amplifying. The intelligent glue connecting solutions into universal healthcare.">
  <meta property="og:type" content="website">
  <meta property="og:image" content="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Logo.png">
- <title>Our Origins: The Full Story of PHIERS</title>
+ <title>Origins - PHIERS</title>
  <style>
  * { margin: 0; padding: 0; box-sizing: border-box; }
  
@@ -816,13 +816,38 @@ function toggleDropdown(event) {
   if (!btn) return;
   const dropdown = btn.nextElementSibling;
   if (!dropdown) return;
-  document.querySelectorAll('.dropdown-content').forEach(d => { if (d !== dropdown) d.classList.remove('show'); });
-  dropdown.classList.toggle('show');
+  const isOpen = dropdown.classList.contains('show');
+  document.querySelectorAll('.dropdown-content').forEach(d => d.classList.remove('show'));
+  document.querySelectorAll('.dropbtn').forEach(b => b.setAttribute('aria-expanded', 'false'));
+  if (!isOpen) { dropdown.classList.add('show'); btn.setAttribute('aria-expanded', 'true'); }
 }
 document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.dropbtn').forEach(btn => {
+    btn.setAttribute('aria-haspopup', 'true');
+    btn.setAttribute('aria-expanded', 'false');
+  });
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    if (link.getAttribute('href') === currentPage) {
+      link.style.background = 'rgba(76,175,80,0.25)';
+      link.style.color = '#fff';
+    }
+  });
+  document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', function() {
+      if (!this.getAttribute('href').startsWith('#')) {
+        sessionStorage.setItem('scrollToTop', '1');
+      }
+    });
+  });
+  if (sessionStorage.getItem('scrollToTop') === '1') {
+    sessionStorage.removeItem('scrollToTop');
+    window.scrollTo(0, 0);
+  }
   document.addEventListener('click', function(event) {
     if (!event.target.matches('.dropbtn') && !event.target.closest('.dropbtn')) {
       document.querySelectorAll('.dropdown-content').forEach(d => d.classList.remove('show'));
+      document.querySelectorAll('.dropbtn').forEach(b => b.setAttribute('aria-expanded', 'false'));
     }
     const nav = document.querySelector('nav');
     const navLinks = document.querySelector('.nav-links');

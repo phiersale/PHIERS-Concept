@@ -9,7 +9,7 @@
  <meta property="og:image" content="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Logo.png">
  <meta property="og:type" content="website">
  <meta name="twitter:card" content="summary_large_image">
-<title>The Simple Math - PHIERS</title>
+<title>The Math - PHIERS</title>
 <style>
 * {
  box-sizing: border-box;
@@ -989,6 +989,73 @@ function initImageModal() {
  </a>
 </div>
 
+<script>
+function toggleMobileMenu() {
+  const navLinks = document.querySelector('.nav-links');
+  const menuIcon = document.querySelector('.menu-icon');
+  const closeIcon = document.querySelector('.close-icon');
+  if (!navLinks) return;
+  navLinks.classList.toggle('active');
+  if (navLinks.classList.contains('active')) {
+    if (menuIcon) menuIcon.style.display = 'none';
+    if (closeIcon) closeIcon.style.display = 'inline';
+  } else {
+    if (menuIcon) menuIcon.style.display = 'inline';
+    if (closeIcon) closeIcon.style.display = 'none';
+  }
+}
+function toggleDropdown(event) {
+  event.stopPropagation();
+  let btn = event.target;
+  while (btn && !btn.classList.contains('dropbtn')) { btn = btn.parentElement; }
+  if (!btn) return;
+  const dropdown = btn.nextElementSibling;
+  if (!dropdown) return;
+  const isOpen = dropdown.classList.contains('show');
+  document.querySelectorAll('.dropdown-content').forEach(d => d.classList.remove('show'));
+  document.querySelectorAll('.dropbtn').forEach(b => b.setAttribute('aria-expanded', 'false'));
+  if (!isOpen) { dropdown.classList.add('show'); btn.setAttribute('aria-expanded', 'true'); }
+}
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.dropbtn').forEach(btn => {
+    btn.setAttribute('aria-haspopup', 'true');
+    btn.setAttribute('aria-expanded', 'false');
+  });
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    if (link.getAttribute('href') === currentPage) {
+      link.style.background = 'rgba(76,175,80,0.25)';
+      link.style.color = '#fff';
+    }
+  });
+  document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', function() {
+      if (!this.getAttribute('href').startsWith('#')) {
+        sessionStorage.setItem('scrollToTop', '1');
+      }
+    });
+  });
+  if (sessionStorage.getItem('scrollToTop') === '1') {
+    sessionStorage.removeItem('scrollToTop');
+    window.scrollTo(0, 0);
+  }
+  document.addEventListener('click', function(event) {
+    if (!event.target.matches('.dropbtn') && !event.target.closest('.dropbtn')) {
+      document.querySelectorAll('.dropdown-content').forEach(d => d.classList.remove('show'));
+      document.querySelectorAll('.dropbtn').forEach(b => b.setAttribute('aria-expanded', 'false'));
+    }
+    const nav = document.querySelector('nav');
+    const navLinks = document.querySelector('.nav-links');
+    if (nav && navLinks && !nav.contains(event.target) && navLinks.classList.contains('active')) {
+      navLinks.classList.remove('active');
+      const menuIcon = document.querySelector('.menu-icon');
+      const closeIcon = document.querySelector('.close-icon');
+      if (menuIcon) menuIcon.style.display = 'inline';
+      if (closeIcon) closeIcon.style.display = 'none';
+    }
+  });
+});
+</script>
 <div style="margin: 3rem auto; max-width: 680px; padding: 1.5rem 2rem; border-left: 3px solid #4caf50; background: rgba(76,175,80,0.06);">
   <p style="margin:0 0 0.5rem; font-size:0.85rem; text-transform:uppercase; letter-spacing:0.07em; color:#81c784;">When the math reaches critical mass</p>
   <p style="margin:0 0 1rem; color:#e0e0e0;">You now see how leverage works. When participation reaches critical mass, the dynamic shifts from explanation to accountability.</p>
