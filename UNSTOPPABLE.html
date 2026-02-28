@@ -1,585 +1,962 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>UNSTOPPABLE: The Movement We Build Together • PHIERS</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: #fafafa;
-            color: #222;
-            line-height: 1.6;
-        }
-        header {
-            background: #0f0f0f;
-            color: white;
-            padding: 60px 25px;
-            text-align: center;
-        }
-        header h1 {
-            font-size: 36px;
-            margin-bottom: 12px;
-            font-weight: 700;
-        }
-        header p {
-            font-size: 18px;
-            opacity: 0.9;
-        }
-        section {
-            max-width: 900px;
-            padding: 55px 25px;
-            margin: auto;
-        }
-        section.dark {
-            background: #141414;
-            color: #e4e4e4;
-        }
-        section.hero {
-            background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
-            color: white;
-            text-align: center;
-            padding: 70px 25px;
-        }
-        h2 {
-            font-size: 28px;
-            margin-bottom: 25px;
-            font-weight: 700;
-        }
-        h3 {
-            font-size: 22px;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-        p {
-            font-size: 17px;
-            margin-bottom: 18px;
-        }
-        ul {
-            padding-left: 24px;
-        }
-        li {
-            font-size: 17px;
-            margin-bottom: 12px;
-        }
-        .subtitle {
-            font-size: 20px;
-            opacity: 0.9;
-            margin-top: 15px;
-        }
-        .actions {
-            margin-top: 35px;
-            font-size: 18px;
-        }
-        .actions a {
-            color: #4a90e2;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        .actions a:hover {
-            text-decoration: underline;
-        }
-        .back-link {
-            margin-top: 40px;
-            font-size: 17px;
-        }
-        .back-link a {
-            color: #4a90e2;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        .back-link a:hover {
-            text-decoration: underline;
-        }
-        /* Thumbnail images */
-        .thumb {
-            width: 100%;
-            max-width: 280px;
-            border-radius: 6px;
-            cursor: pointer;
-            box-shadow: 0 0 6px rgba(0,0,0,0.25);
-            transition: transform 0.2s ease;
-        }
-        .thumb:hover {
-            transform: scale(1.03);
-        }
-        .image-block {
-            text-align: center;
-            margin: 35px 0 45px 0;
-        }
-        .image-caption {
-            margin-top: 10px;
-            font-size: 15px;
-            color: #555;
-        }
-        section.dark .image-caption {
-            color: #aaa;
-        }
-        /* Modal (Lightbox) */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            padding-top: 60px;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.92);
-        }
-        .modal-content {
-            margin: auto;
-            display: block;
-            max-width: 92%;
-            max-height: 82%;
-        }
-        .modal-close {
-            position: absolute;
-            top: 22px;
-            right: 35px;
-            color: #fff;
-            font-size: 34px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        .oath {
-            background: #000000;
-            color: #ffffff;
-            padding: 80px 30px;
-            text-align: center;
-        }
-        .oath p {
-            font-size: 21px;
-            margin-bottom: 24px;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .oath strong {
-            letter-spacing: 1px;
-        }
-        footer {
-            background: #0f0f0f;
-            color: #ccc;
-            text-align: center;
-            padding: 35px 15px;
-            font-size: 14px;
-            margin-top: 80px;
-        }
-    </style>
-    <script>
-        function openModal(src) {
-            document.getElementById("modal").style.display = "block";
-            document.getElementById("modal-img").src = src;
-        }
-        function closeModal() {
-            document.getElementById("modal").style.display = "none";
-        }
-    </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UNSTOPPABLE: The Movement We Build Together • PHIERS</title>
+<style>
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #fafafa;
+    color: #1a1a1a;
+    line-height: 1.7;
+}
+header {
+    background: #0a0a0a;
+    color: white;
+    padding: 70px 25px 60px;
+    text-align: center;
+}
+header h1 {
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+}
+header .tagline {
+    font-size: 19px;
+    opacity: 0.7;
+    max-width: 640px;
+    margin: 0 auto 22px;
+    font-style: italic;
+}
+header .thesis {
+    font-size: 21px;
+    font-weight: 700;
+    color: #4caf50;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+section {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 60px 25px;
+}
+section.dark {
+    background: #111;
+    color: #e2e2e2;
+    max-width: 100%;
+    padding: 60px calc((100% - 860px) / 2 + 25px);
+}
+section.dark * { max-width: 810px; margin-left: auto; margin-right: auto; }
+.beat-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 10px;
+}
+section.dark .beat-label { color: #555; }
+h2 {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 22px;
+    line-height: 1.3;
+}
+h3 {
+    font-size: 19px;
+    font-weight: 700;
+    margin: 28px 0 12px;
+    letter-spacing: 0.2px;
+}
+p {
+    font-size: 17px;
+    margin-bottom: 16px;
+    line-height: 1.75;
+}
+p.lead {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.65;
+    margin-bottom: 22px;
+}
+p.thesis-line {
+    font-size: 19px;
+    font-weight: 700;
+    color: #4caf50;
+    line-height: 1.6;
+    margin: 24px 0;
+}
+ul { padding-left: 22px; margin-bottom: 18px; }
+li { font-size: 17px; margin-bottom: 10px; line-height: 1.65; }
+.highlight {
+    background: rgba(76,175,80,0.1);
+    border-left: 4px solid #4caf50;
+    padding: 20px 24px;
+    border-radius: 0 8px 8px 0;
+    margin: 28px 0;
+}
+.highlight p { margin-bottom: 0; }
+.gold-box {
+    background: rgba(245,200,66,0.07);
+    border-left: 4px solid #f5c842;
+    padding: 20px 24px;
+    border-radius: 0 8px 8px 0;
+    margin: 28px 0;
+}
+.gold-box p { margin-bottom: 10px; }
+.gold-box p:last-child { margin-bottom: 0; }
+.fact-row {
+    background: rgba(0,0,0,0.03);
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 10px 0;
+    font-size: 17px;
+    line-height: 1.6;
+}
+section.dark .fact-row {
+    background: rgba(255,255,255,0.03);
+    border-color: rgba(255,255,255,0.08);
+}
+.quote-pull {
+    text-align: center;
+    padding: 30px 20px;
+    margin: 36px 0;
+    border-top: 1px solid rgba(76,175,80,0.3);
+    border-bottom: 1px solid rgba(76,175,80,0.3);
+}
+.quote-pull p {
+    font-size: 20px;
+    font-weight: 700;
+    font-style: italic;
+    color: #4caf50;
+    line-height: 1.55;
+    margin-bottom: 10px;
+}
+.quote-pull .attr { font-size: 13px; color: #777; font-style: normal; }
+.gold-pull {
+    text-align: center;
+    padding: 30px 20px;
+    margin: 36px 0;
+    border-top: 1px solid rgba(245,200,66,0.3);
+    border-bottom: 1px solid rgba(245,200,66,0.3);
+}
+.gold-pull p {
+    font-size: 20px;
+    font-weight: 700;
+    font-style: italic;
+    color: #f5c842;
+    line-height: 1.55;
+    margin-bottom: 10px;
+}
+.gold-pull .attr { font-size: 13px; color: #777; font-style: normal; }
+.threshold-block {
+    background: rgba(76,175,80,0.06);
+    border: 1px solid rgba(76,175,80,0.2);
+    border-radius: 10px;
+    padding: 28px 28px;
+    margin: 20px 0;
+}
+.threshold-block h3 {
+    color: #4caf50;
+    margin-top: 0;
+    font-size: 20px;
+}
+.threshold-block p { margin-bottom: 10px; }
+.threshold-block p:last-child { margin-bottom: 0; }
+.tier-block {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin: 16px 0;
+}
+section:not(.dark) .tier-block {
+    background: rgba(0,0,0,0.02);
+    border-color: rgba(0,0,0,0.08);
+}
+.tier-block h3 { margin-top: 0; color: #4caf50; font-size: 17px; }
+.tier-block ul { margin-bottom: 0; }
+.oath-block {
+    background: #000;
+    color: #fff;
+    text-align: center;
+    padding: 60px 30px;
+    margin: 0;
+}
+.oath-block p {
+    font-size: 19px;
+    max-width: 680px;
+    margin: 0 auto 20px;
+    line-height: 1.7;
+}
+.oath-block .oath-line {
+    font-size: 22px;
+    font-weight: 800;
+    color: #4caf50;
+    margin: 24px auto;
+    max-width: 680px;
+}
+.img-thumb {
+    max-width: 260px;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: block;
+    margin: 0 auto;
+}
+.img-thumb:hover { transform: scale(1.03); }
+.img-block { text-align: center; margin: 28px 0 36px; }
+.img-caption { font-size: 13px; color: #888; margin-top: 8px; font-style: italic; }
+.cta-inline {
+    display: inline-block;
+    background: #4caf50;
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin: 6px 6px 6px 0;
+}
+.cta-inline:hover { background: #43a047; }
+.cta-inline.secondary {
+    background: transparent;
+    border: 2px solid #4caf50;
+    color: #4caf50;
+}
+.cta-inline.secondary:hover { background: rgba(76,175,80,0.1); }
+.modal {
+    display: none; position: fixed; z-index: 9999;
+    padding-top: 60px; left: 0; top: 0;
+    width: 100%; height: 100%; overflow: auto;
+    background-color: rgba(0,0,0,0.93);
+}
+.modal-content { margin: auto; display: block; max-width: 92%; max-height: 82%; }
+.modal-close {
+    position: absolute; top: 22px; right: 35px;
+    color: #fff; font-size: 34px; font-weight: bold; cursor: pointer;
+}
+footer {
+    background: #0a0a0a; color: #aaa;
+    text-align: center; padding: 32px 16px;
+    font-size: 13px;
+}
+nav {
+    background: #0a0a0a; padding: 0.75rem 1.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    position: sticky; top: 0; z-index: 1000;
+    border-bottom: 1px solid #1e1e1e;
+}
+.nav-links { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.nav-links a {
+    color: #e0e0e0; text-decoration: none;
+    font-size: 0.9rem; padding: 0.25rem 0.4rem;
+    border-radius: 4px; transition: color 0.2s;
+}
+.nav-links a:hover { color: #4caf50; }
+.dropdown { position: relative; display: inline-block; }
+.dropbtn {
+    background: none; border: none; color: #e0e0e0;
+    font-size: 0.9rem; cursor: pointer; padding: 0.25rem 0.4rem;
+}
+.dropbtn:hover { color: #4caf50; }
+.dropdown-content {
+    display: none; position: absolute; background: #1a1a1a;
+    min-width: 200px; border: 1px solid #333; border-radius: 6px;
+    z-index: 9999; top: 100%; left: 0;
+}
+.dropdown-content.show { display: block; }
+.dropdown-content a {
+    display: block; padding: 0.6rem 1rem;
+    color: #e0e0e0; font-size: 0.85rem;
+}
+.dropdown-content a:hover { background: #2a2a2a; color: #4caf50; }
+.mobile-menu-toggle {
+    display: none; background: none; border: 1px solid #444;
+    color: #e0e0e0; font-size: 1.4rem; cursor: pointer;
+    padding: 0.3rem 0.7rem; border-radius: 4px;
+}
+@media (max-width: 768px) {
+    .mobile-menu-toggle { display: block; }
+    .nav-links { display: none; flex-direction: column; width: 100%; padding: 1rem 0; gap: 0.5rem; }
+    .nav-links.active { display: flex; }
+    .dropdown-content { position: static; border: none; background: #222; }
+    header h1 { font-size: 30px; }
+    header .thesis { font-size: 17px; }
+    h2 { font-size: 22px; }
+    p.lead { font-size: 18px; }
+    .oath-block p { font-size: 17px; }
+    .oath-block .oath-line { font-size: 19px; }
+}
+</style>
 </head>
 <body>
 
-<!-- LIGHTBOX MODAL -->
 <div id="modal" class="modal" onclick="closeModal()">
     <span class="modal-close" onclick="closeModal()">&times;</span>
     <img class="modal-content" id="modal-img">
 </div>
 
-<!-- PHIERS LOGO (clickable, links to homepage) -->
-<div style="text-align:center; padding: 40px 0 10px 0;">
+<nav>
+    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+      <span class="menu-icon">☰</span>
+      <span class="close-icon" style="display: none;">✕</span>
+    </button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <div class="dropdown">
+        <button class="dropbtn strategy-dropbtn" onclick="toggleDropdown(event)">⚡ Strategy ▼</button>
+        <div class="dropdown-content">
+          <a href="Telehealth-Insurance.html" style="color:#f5c842;">Telehealth vs Insurance ⚡</a>
+          <a href="OVERVIEW.html">Overview</a>
+          <a href="Crisis.html">Crisis</a>
+          <a href="SimpleMath.html">Simple Math</a>
+          <a href="5D_Solutions.html">5D Solutions</a>
+          <a href="Leverage.html">Leverage</a>
+          <a href="Why-Change-Required.html">Why Change Required</a>
+          <a href="Unions-Strategy.html">Union Strategy</a>
+        </div>
+      </div>
+      <a href="Quickstart.html">How It Works</a>
+      <a href="action.html">Take Action</a>
+      <a href="SOTU-Pre-Sponse.html" style="color:#f5c842; font-weight:700;">SOTU Response 📺</a>
+      <a href="Veterans.html" style="color:#ef5350; font-weight:700;">Veterans 🎖</a>
+      <a href="Donate.html">Donate</a>
+      <div class="dropdown">
+        <button class="dropbtn" onclick="toggleDropdown(event)">Resources ▼</button>
+        <div class="dropdown-content">
+          <a href="Veterans.html" style="color:#ef5350; font-weight:700;">Veterans 🎖</a>
+          <a href="real-stories.html">Real Stories</a>
+          <a href="Media.html">Media</a>
+          <a href="FAQ.html">FAQ</a>
+          <a href="About.html">About</a>
+          <a href="Our-Origins.html">Origins</a>
+        </div>
+      </div>
+    </div>
+</nav>
+
+<div style="text-align:center; padding: 22px 0 8px; background:#0a0a0a;">
     <a href="index.html">
-        <img src="PHIERS_Logo.png" alt="PHIERS logo" style="max-width:240px; width:80%; height:auto;">
+        <img src="PHIERS_Logo.png" alt="PHIERS logo" style="max-width:190px; width:70%; height:auto;">
     </a>
 </div>
 
 <header>
-    <h1>UNSTOPPABLE: The Movement We Build Together</h1>
-    <p>The signatures. The cascade. The future we choose on purpose.</p>
+    <h1>UNSTOPPABLE</h1>
+    <p class="tagline">UNBREAKABLE was the proof. UNSTOPPABLE is the plan.</p>
+    <p class="thesis">
+        One person built it.<br>
+        Millions of us make it unstoppable.
+    </p>
 </header>
 
-<section>
-    <h2>Why this page exists</h2>
-    <p>
-        UNBREAKABLE is the record of how PHIERS was built under pressure. UNSTOPPABLE is the record of what happens next — when people move together.
-    </p>
-    <p>
-        This page is not about one man's endurance. It's about our shared decision to turn integrity into impact, math into momentum, and clarity into change.
-    </p>
-    <p>
-        This is a quiet but unshakeable record — not a publicity piece, not a complaint, but the documented truth behind PHIERS and the journey that created it.
-    </p>
-    <p>
-        PHIERS was not built in comfort. It was built under pressure, in adversity, through resistance — and with a level of integrity that institutions did not expect from the person who built it.
-    </p>
-</section>
 
+<!-- ═══════════════════════════════
+     1. THE MOVEMENT
+     ═══════════════════════════════ -->
 <section class="dark">
-    <h2>The Validation They Gave Before They Knew the Full Story</h2>
-    <p>
-        A Fortune 500 PR firm reviewed PHIERS. Their assessment:
-    </p>
-    <p>"If we're talking to you right now, there is an available editorial window."</p>
-    <p>"If you weren't legit, we wouldn't risk putting our name behind yours."</p>
-    <p>"Major outlets are interested — Forbes, USA Today, International Business Times."</p>
-    <p>
-        Nothing about PHIERS changed after that review. The math didn't change. The architecture didn't change. The national impact didn't change.
-    </p>
-    <p>
-        What changed was their understanding of the founder — and the establishment's discomfort with a Black American innovator outperforming long‑standing institutions.
-    </p>
-</section>
+    <span class="beat-label">1 — The Movement</span>
+    <h2>This Is Not About One Man. It Never Was.</h2>
 
-<section>
-    <h2>The Founder's Story They Didn't Expect</h2>
-    <div class="image-block">
-        <img src="Me_n_%20Dad_at_CHURCH.png" class="thumb" alt="Supportive partnership photo" onclick="openModal(this.src)">
-        <div class="image-caption">A moment of strength, support, and brotherhood.</div>
+    <p class="lead">
+        UNSTOPPABLE is the moment when integrity becomes momentum —
+        when clarity becomes power — when a national solution
+        becomes a national movement.
+    </p>
+
+    <p>
+        UNBREAKABLE documented how PHIERS was built under pressure.
+        UNSTOPPABLE documents what happens next —
+        when people move together with purpose, math, and
+        undeniable democratic force.
+    </p>
+
+    <p>We are not drifting. We are choosing.</p>
+    <p>We are choosing to turn:</p>
+    <ul>
+        <li>Signatures into leverage</li>
+        <li>Math into momentum</li>
+        <li>Clarity into change</li>
+        <li>One solution into a national standard</li>
+    </ul>
+
+    <div class="quote-pull">
+        <p>"PHIERS is no longer just a model.<br>
+        It is a blueprint for how millions of people<br>
+        can move together — peacefully, measurably,<br>
+        and with undeniable democratic force."</p>
+        <span class="attr">— Will Price, PHIERS Founders</span>
     </div>
-    <p>
-        PHIERS was built by someone who refused to surrender integrity — even when it cost stability, safety, and everything the establishment assumed he depended on.
-    </p>
-    <p>• Rejected hush money tied to a hold‑harmless affidavit.</p>
-    <p>• Became homeless rather than compromise truth.</p>
-    <p>• Protected an elder impacted by exploitation.</p>
-    <p>• Refused to legitimize those who stole property.</p>
-    <p>• Endured identity theft, credit damage, and defamation.</p>
-    <p>• Survived systemic retaliation and institutional resistance.</p>
-    <p>• Built PHIERS from a car — and refused to stop.</p>
 </section>
 
+
+<!-- ═══════════════════════════════
+     2. THE MATH
+     ═══════════════════════════════ -->
+<section>
+    <span class="beat-label">2 — The Math</span>
+    <h2>Power Is Measurable. Here Are the Numbers.</h2>
+
+    <p class="lead">
+        Harvard researcher Erica Chenoweth studied 323 political campaigns
+        across 106 years. Her finding:
+    </p>
+
+    <div class="gold-box">
+        <p style="font-size:19px; font-weight:700;">
+            No sustained, nonviolent campaign where 3.5% of the population
+            participated ever failed.
+        </p>
+        <p>That is 11.6 million people. We are building toward 100 million.</p>
+    </div>
+
+    <p>
+        This is not protest math. This is leverage math.
+        When 11.6 million organized people move in the same direction,
+        Congress has two choices:
+    </p>
+
+    <div class="fact-row">✅ Align with the clear will of their constituents</div>
+    <div class="fact-row">📢 Or explain publicly — on the record — why they refused</div>
+
+    <p style="margin-top:20px;">
+        That accountability is the weapon.
+        That accountability is the point.
+    </p>
+
+    <h3>The Cascade</h3>
+    <div class="fact-row">💡 One conversion from a $10,000 insurance plan to a $600 telehealth plan frees enough savings to fund <strong>12 more people.</strong></div>
+    <div class="fact-row">📈 Those 12 fund <strong>148.</strong> Those 148 fund <strong>1,825.</strong></div>
+    <div class="fact-row">🎯 At 3.5% — the cascade becomes self-sustaining. Telehealth becomes free. Relief checks follow. Jobs follow.</div>
+    <div class="fact-row">🏛️ At that scale, we demand Congress make Telehealth available through ACA exchanges — saving taxpayers <strong>trillions already collected and allocated.</strong></div>
+
+    <p class="thesis-line">
+        This is not ideology. This is arithmetic.
+        And arithmetic does not care who is in office.
+    </p>
+</section>
+
+
+<!-- ═══════════════════════════════
+     3. THE MOMENT
+     ═══════════════════════════════ -->
 <section class="dark">
-    <h2>The Hidden History: A Decade of Resistance</h2>
-    <div class="image-block">
-        <img src="TAP-n-POP.png" class="thumb" alt="Partnership photo" onclick="openModal(this.src)">
-        <div class="image-caption">A partnership rooted in courage, clarity, and service.</div>
+    <span class="beat-label">3 — The Moment</span>
+    <h2>Two Thresholds. Two Acts. One Story.</h2>
+
+    <p class="lead">
+        This is not a campaign with a single deadline.
+        It is a movement with two acts — and the second act
+        changes the country permanently.
+    </p>
+
+    <div class="threshold-block">
+        <h3>Act 1 — 3.5% Before March 28, 2026</h3>
+        <p>
+            March 28 is the No Kings Rally.
+            If we reach 3.5% before that date, the rally becomes a reckoning —
+            not just a demonstration, but documented, measurable, organized proof
+            that the people are ahead of their government.
+        </p>
+        <p>
+            PHIERS is the organized power behind No Kings.
+            The rally is the visible proof of the math.
+            Together, they are the leverage mechanism.
+        </p>
+        <p>
+            Every member of Congress will face a choice on March 29:
+            align with their constituents, or explain publicly why they refused.
+        </p>
     </div>
-    <p>
-        The establishment did not resist PHIERS because it was flawed — but because it was effective. Because it threatens waste, profit extraction, inefficiency, and the stereotypes that keep certain people and communities out of power.
-    </p>
-    <div class="image-block">
-        <img src="Me_and_Ant.png" class="thumb" alt="Partnership photo" onclick="openModal(this.src)">
-        <div class="image-caption">Partners committed to lowering costs and eliminating middlemen.</div>
+
+    <div class="threshold-block" style="margin-top:24px;">
+        <h3>Act 2 — 100 Million Before July 4, 2026</h3>
+        <p>
+            July 4, 2026 is the 250th anniversary of America's founding documents.
+        </p>
+        <p>
+            One hundred million signatures is not rebellion.
+            It is patriotism — peaceful, organized, undeniable.
+        </p>
+        <p>
+            On that day, we are not tearing anything down.
+            We are not waiting for a speech or a ceremony.
+            We are practicing the very thing the founders wrote down:
+            a people who can assemble, be heard, and correct course
+            when their government drifts away from them.
+        </p>
+        <p style="font-weight:700;">
+            On the 250th anniversary, we are not tearing anything down.
+            We are finishing what was started.
+        </p>
     </div>
-    <p>
-        When you build a model that undercuts the corporate supply chain, challenges conventional power, and empowers communities at scale — resistance is inevitable.
-    </p>
-    <p>
-        Yet PHIERS exists because the founder refused to break.
-    </p>
-    <p>
-        It was not built with institutional protection.<br>
-        It was not built with corporate backing.<br>
-        It was not built with political shelter.
-    </p>
-    <p>
-        It was built because it needed to exist.
-    </p>
-    <p>
-        And it was built by a Foundational Black American man who refused to shrink when powerful systems expected him to.
-    </p>
+
+    <div class="img-block" style="margin-top:36px;">
+        <img src="PHIERS_SequenceRoadmap_v1.png"
+             class="img-thumb"
+             alt="PHIERS Sequence Roadmap — the path to 100 million"
+             onclick="openModal(this.src)">
+        <p class="img-caption">The roadmap. The sequence. The inevitability.</p>
+    </div>
 </section>
 
+
+<!-- ═══════════════════════════════
+     4. THE MISSION
+     ═══════════════════════════════ -->
 <section>
-    <h2>What PHIERS Disrupts</h2>
+    <span class="beat-label">4 — The Mission</span>
+    <h2>What We Are Demanding. Specifically.</h2>
+
+    <p class="lead">
+        The signatures are not symbolic.
+        They are proof — proof that people across the country want
+        a system that finally works the way it was always supposed to.
+    </p>
+
+    <p>We are demanding:</p>
+    <ul>
+        <li>Affordable telehealth added to the ACA Exchange</li>
+        <li>Access extended to CMS, VA, Tri-Care, and Indian Health Service beneficiaries</li>
+        <li>Monthly cost-of-living relief when the cascade reaches critical mass</li>
+        <li>Job creation and small business support funded by redirected healthcare savings</li>
+        <li>A system that respects people's time, money, and lives</li>
+    </ul>
+
+    <div class="highlight">
+        <p>
+            <strong>We are not asking for special treatment.</strong><br>
+            We are asking Congress to adopt a solution that already works —
+            or stand before their constituents and explain, on the record, why they won't.
+        </p>
+    </div>
+
     <p>
-        PHIERS lowers costs.<br>
-        It removes unnecessary middlemen.<br>
+        And to the EGOT holders, the most decorated artists and storytellers in the world —
+        the same challenge we issued at BAFTA applies here:
+    </p>
+
+    <div class="gold-box">
+        <p style="font-size:18px; font-weight:700;">
+            "Show us a solution that comes close to the positive global impact of PHIERS —
+            built by Black dads, sons, and brothers, working together
+            to solve problems no one else could solve."
+        </p>
+        <p>
+            Not unlike Morpheus in The Matrix, we are offering the world a new truth:
+            that when Black men live up to our potential,
+            we are inferior to no one.
+            Even under siege. Even without support.
+            Even when the institutions meant to protect us look the other way.
+        </p>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════
+     5. THE PROOF
+     ═══════════════════════════════ -->
+<section class="dark">
+    <span class="beat-label">5 — The Proof</span>
+    <h2>The Validation That Came Before the Silence</h2>
+
+    <p>
+        Before anyone knew the founder's story,
+        a Fortune 500 PR firm reviewed PHIERS
+        and staked their reputation on it.
+        A second firm — UK-based, traded on the London Stock Exchange —
+        independently confirmed the same findings.
+    </p>
+
+    <div class="gold-box">
+        <p>"If we're talking to you right now, there is an available editorial window."</p>
+        <p>"If you weren't legit, we wouldn't risk putting our name behind yours."</p>
+        <p>"Major outlets are interested — Forbes, USA Today, International Business Times."</p>
+    </div>
+
+    <p>
+        Nothing changed about PHIERS after hours of interviews and both reviews.
+        The math didn't change. The architecture didn't change.
+        The national impact didn't change.
+    </p>
+    <p>
+        What changed was their understanding of who built it —
+        and the establishment's discomfort with a solution that outperforms
+        anything they could offer.
+    </p>
+
+    <div class="quote-pull">
+        <p>"Different institution.<br>
+        Same pattern. Same silence.<br>
+        Same discomfort with Black excellence<br>
+        that disrupts the status quo."</p>
+        <span class="attr">— Will Price, PHIERS Founders</span>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════
+     6. THE RESISTANCE
+     ═══════════════════════════════ -->
+<section>
+    <span class="beat-label">6 — The Resistance</span>
+    <h2>What It Cost to Build This. The Receipts.</h2>
+
+    <p class="lead">
+        PHIERS was not built in comfort.
+        Every threat was an opportunity to stop.
+        Every choice point had the same answer: keep building.
+    </p>
+
+    <p style="font-size:15px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#888; margin-bottom:8px;">Financial &amp; Legal</p>
+    <ul>
+        <li>Rejected hush money tied to a hold-harmless affidavit</li>
+        <li>Refused to legitimize those who stole property</li>
+        <li>Endured identity theft, credit damage, and financial ruin</li>
+        <li>Survived blacklisting and blocked opportunities</li>
+    </ul>
+
+    <p style="font-size:15px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#888; margin-bottom:8px; margin-top:24px;">Physical &amp; Personal</p>
+    <ul>
+        <li>Survived threats, assault, and being poisoned</li>
+        <li>Became homeless rather than compromise the truth</li>
+        <li>Survived smear campaigns and forced relocation</li>
+        <li>Protected an elder impacted by exploitation</li>
+    </ul>
+
+    <p style="font-size:15px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#888; margin-bottom:8px; margin-top:24px;">The Response</p>
+    <ul>
+        <li>Built PHIERS from the front seat of a car — and refused to stop</li>
+    </ul>
+
+    <div class="highlight">
+        <p>
+            <strong>This is not a story of victimhood. It is a record of endurance.</strong><br>
+            PHIERS stands as measurable proof of capacity under pressure —
+            not symbolic capacity. Operational capacity.<br><br>
+            And it proves, beyond any reasonable doubt,
+            that we are inferior to no one.
+        </p>
+    </div>
+
+    <div class="img-block">
+        <img src="Power_Concedes_Nothing_TEETH.png"
+             class="img-thumb"
+             style="max-width:280px;"
+             alt="Power concedes nothing without a demand"
+             onclick="openModal(this.src)">
+        <p class="img-caption">"Power concedes nothing without a demand." — Frederick Douglass</p>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════
+     7. THE DISRUPTION
+     ═══════════════════════════════ -->
+<section>
+    <span class="beat-label">7 — The Disruption</span>
+    <h2>What PHIERS Threatens — And Why Resistance Was Inevitable</h2>
+
+    <p class="lead">
+        PHIERS lowers costs. It removes unnecessary middlemen.
         It simplifies systems that have grown complicated on purpose.
     </p>
+
+    <p>What it disrupts:</p>
+    <ul>
+        <li>Hospital networks that profit from complexity</li>
+        <li>Insurance companies built on friction and denial</li>
+        <li>Corporate middle structures that extract value without creating it</li>
+        <li>Gatekeepers who benefit from people staying confused and dependent</li>
+    </ul>
+
+    <div class="highlight">
+        <p>
+            <strong>When control is threatened, pressure follows.</strong><br>
+            That is not emotion. That is how power behaves.<br><br>
+            The resistance PHIERS faced was not personal.
+            It was structural. And structural resistance is the surest sign
+            that a solution is working exactly as designed.
+        </p>
+    </div>
+
     <p>
-        When something reduces waste and returns power to families, the systems that profit from confusion rarely celebrate.
-    </p>
-    <p>
-        Hospital networks.<br>
-        Insurance companies.<br>
-        Gatekeepers.<br>
-        Corporate middle structures built to extract value without creating it.
-    </p>
-    <p>
-        When control is threatened, pressure follows.
-    </p>
-    <p>
-        That is not emotion. That is how power behaves.
+        The same institutions that resisted PHIERS
+        are the ones Congress has failed to reform for decades.
+        PHIERS doesn't ask them to reform.
+        It renders their resistance irrelevant.
     </p>
 </section>
 
+
+<!-- ═══════════════════════════════
+     8. THE INVITATION
+     ═══════════════════════════════ -->
 <section class="dark">
-    <h2>The Pressure</h2>
-    <p>
-        The resistance was not theoretical. It was practical.
+    <span class="beat-label">8 — The Invitation</span>
+    <h2>Your Role. Right Now. At the Level That Fits Your Life.</h2>
+
+    <p class="lead">
+        You don't have to do everything.<br>
+        You just have to do something.
     </p>
-    <ul>
-        <li>Legal pressure designed to silence.</li>
-        <li>Financial instability rather than compromise integrity.</li>
-        <li>Smear attempts and character attacks.</li>
-        <li>Identity theft and credit damage.</li>
-        <li>Blacklisting and blocked opportunities.</li>
-        <li>Forced relocation.</li>
-    </ul>
-    <p>
-        PHIERS was built from the front seat of a car.
-    </p>
-    <p>
-        Not for symbolism. For necessity.
-    </p>
-    <p>
-        Integrity was not for sale. Silence was not accepted. And shrinking was never an option.
-    </p>
+
+    <p>Every name is a signal. Every signal is data. Every data point is leverage.</p>
+
+    <div class="tier-block">
+        <h3>Supporters — 1 to 3 hours per week</h3>
+        <ul>
+            <li>Sign the petition</li>
+            <li>Complete the survey</li>
+            <li>Share PHIERS with people you trust</li>
+            <li>Support the work financially if you're able</li>
+        </ul>
+    </div>
+
+    <div class="tier-block">
+        <h3>Volunteers — 3 to 10 hours per week</h3>
+        <ul>
+            <li>Lead signature drives in your community</li>
+            <li>Help manage online channels and social sharing</li>
+            <li>Recruit others who are ready to move</li>
+        </ul>
+    </div>
+
+    <div class="tier-block">
+        <h3>Organizers — 10 or more hours per week</h3>
+        <ul>
+            <li>Coordinate district-level efforts</li>
+            <li>Train volunteers and build local teams</li>
+            <li>Be the face decision-makers see when they look at this movement</li>
+        </ul>
+    </div>
+
+    <div style="text-align:center; margin-top:36px;">
+        <a href="action.html" class="cta-inline">Sign the Petition</a>
+        <a href="Donate.html" class="cta-inline secondary">Support the Work</a>
+    </div>
 </section>
 
+
+<!-- ═══════════════════════════════
+     8. THE CO-OP
+     ═══════════════════════════════ -->
 <section>
-    <h2>What That Means</h2>
-    <p>
-        This is not a story of victimhood.
+    <span class="beat-label">9 — Built to Be Handed Off</span>
+    <h2>This Was Never Meant to Be Held by One Person</h2>
+
+    <p class="lead">
+        PHIERS was designed from the beginning
+        to be handed to a democratically-led co-op —
+        built with organizations committed to defending democracy
+        and expanding access.
     </p>
+
     <p>
-        It is a record of endurance.
+        Groups like the Working Families Party, Indivisible,
+        MoveOn.org, Leaders We Deserve, and other grassroots networks
+        are the natural stewards of what PHIERS becomes at scale.
     </p>
+
     <p>
-        When underestimated, we built.<br>
-        When isolated, we continued.<br>
-        When unsupported, we structured.
+        The founder's role is not to be the face of this forever.
+        The role is to research, architect, and build the framework —
+        then help bring in the right people to lead it.
     </p>
-    <p>
-        PHIERS stands as measurable proof of capacity under pressure.
-    </p>
-    <p>
-        Not rhetorical capacity. Operational capacity.
-    </p>
-    <p>
-        Not symbolic value. Real value.
-    </p>
+
+    <div class="highlight">
+        <p>
+            <strong>Your role is not to follow a leader.</strong><br>
+            Your role is to become one.<br><br>
+            The movement's leadership belongs to the many, not the one.
+        </p>
+    </div>
+
+    <div class="img-block">
+        <img src="PHIERS_Cascade_Leverage_Visual_v1.png"
+             class="img-thumb"
+             style="max-width:280px;"
+             alt="PHIERS cascade and leverage visual"
+             onclick="openModal(this.src)">
+        <p class="img-caption">The cascade. The leverage. The handoff.</p>
+    </div>
 </section>
 
-<section class="dark">
-    <h2>Why This Story Creates Leverage</h2>
-    <p>
-        This page does not accuse individuals. It documents patterns — patterns that reveal integrity, resilience, and truth. Patterns that funders and institutions cannot ignore.
-    </p>
-    <p>
-        People follow leaders who sacrifice. People trust those who pay a price for what they believe in. This story gives PHIERS something the establishment cannot imitate:
-    </p>
-    <p>Authenticity. Credibility. Moral authority. The architecture of integrity.</p>
-</section>
 
-<section>
-    <h2>The simple math of power</h2>
-    <p>
-        Power in a democracy is not supposed to be mysterious. It's supposed to be measurable.
+<!-- ═══════════════════════════════
+     9. THE DECLARATION — FOUNDING MEMBERS
+     ═══════════════════════════════ -->
+<div class="oath-block">
+    <p style="font-size:13px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:#555; margin-bottom:30px;">
+        Founding Members
     </p>
-    <p>When enough of us move in the same direction, three things happen:</p>
-    <ul>
-        <li>Systems adjust.</li>
-        <li>Leaders listen.</li>
-        <li>Policy follows.</li>
-    </ul>
-    <p>
-        PHIERS gives us a way to show that movement in real time — not as a protest, but as proof.
-    </p>
-</section>
 
-<section class="dark">
-    <h2>The first threshold: 3.5% before March 28</h2>
-    <p>
-        If we reach 3.5% of the country before March 28, the No Kings Rally becomes more than a moment — it becomes a reckoning.
-    </p>
-    <p>
-        At that scale, every member of Congress will have a choice to make: align with the clear will of their constituents, or explain publicly why they refused.
-    </p>
-    <p>
-        This isn't about force. It's about accountability — the most American principle there is.
-    </p>
-    <p>
-        We are choosing organized democracy over drift toward anything resembling authoritarian rule.
-    </p>
-</section>
+    <p>This solution was built without permission.</p>
+    <p>If it moves forward nationally — let it begin with us.</p>
 
-<section>
-    <h2>The second threshold: 100 million before July 4</h2>
-    <p>
-        If we reach 100 million people before July 4, we do more than win a policy change.
-    </p>
-    <p>
-        We honor the 250th anniversary of America's founding documents by living up to them.
-    </p>
-    <p>
-        On that day, we won't be waiting for a speech or a ceremony. We'll be practicing the very thing the founders wrote down:
-    </p>
-    <ul>
-        <li>a people who can assemble,</li>
-        <li>a people who can be heard,</li>
-        <li>a people who can correct course when their government drifts away from them.</li>
-    </ul>
-    <p>
-        One hundred million signatures is not rebellion. It is patriotism — peaceful, organized, undeniable.
-    </p>
-    <p>
-        It is a modern declaration that government of, by, and for the people is not a slogan. It is a standard.
-    </p>
-    <p>
-        On the 250th anniversary, we're not tearing anything down. We're finishing what was started.
-    </p>
-</section>
-
-<section class="dark">
-    <h2>What we're asking for</h2>
-    <p>
-        The signatures are not a protest. They are proof.
-    </p>
-    <p>Proof that people across the country want:</p>
-    <ul>
-        <li>affordable telehealth added to the ACA Exchange,</li>
-        <li>access extended to CMS, VA, Tri‑Care, and Indian Health Service beneficiaries,</li>
-        <li>a system that respects their time, their money, and their lives.</li>
-    </ul>
-    <p>
-        We are not asking for special treatment. We are asking for a system that finally works the way it was always supposed to.
-    </p>
-</section>
-
-<section>
-    <h2>My role and the co‑op we're building</h2>
-    <p>
-        My job is not to be the face of this forever. My job is to research, strategize, plan, architect, and build the PHIERS framework — then help bring in the right people and organizations to lead it at scale.
-    </p>
-    <p>
-        PHIERS was never meant to be held by one person. It was designed to be handed to a democratically‑led co‑op built with organizations committed to defending democracy and expanding access — groups like the Working Families Party, Indivisible, MoveOn.org, Leaders We Deserve, and other resistance‑focused grassroots networks.
-    </p>
-    <p>
-        I'll keep doing what I do best: solving problems, refining the architecture, and staying ahead of what our people will need next.
-    </p>
-    <p>
-        The movement's leadership belongs to the many, not the one.
-    </p>
-</section>
-
-<section class="dark">
-    <h2>The spiritual dimension</h2>
-    <p>
-        This work has never felt like a career move. It has felt like a calling.
-    </p>
-    <p>
-        Not in a way that excludes anyone — but in the simple, human sense that some work is bigger than any one person, and some ideas arrive before the world is ready for them.
-    </p>
-    <p>
-        PHIERS was built under pressure, but not by accident. The same force that kept one person from breaking is the force that now invites millions of us to move together.
-    </p>
-    <p>
-        You don't have to share my beliefs to feel it. You just have to know, in your own life, what it feels like when something is clearly right — and clearly overdue.
-    </p>
-</section>
-
-<section>
-    <h2>How you plug in</h2>
-    <p>
-        You don't have to do everything. You just have to do something — at the level that fits your life.
-    </p>
-    <h3>Supporters (1–3 hours/week)</h3>
-    <ul>
-        <li>Sign the petition.</li>
-        <li>Complete the survey.</li>
-        <li>Share PHIERS with people you trust.</li>
-        <li>Support the work financially if you're able.</li>
-    </ul>
-    <h3>Volunteers (3–10 hours/week)</h3>
-    <ul>
-        <li>Lead signature drives.</li>
-        <li>Help manage online channels.</li>
-        <li>Recruit others in your community.</li>
-    </ul>
-    <h3>Organizers (10+ hours/week)</h3>
-    <ul>
-        <li>Coordinate district‑level efforts.</li>
-        <li>Train volunteers.</li>
-        <li>Be the face decision‑makers see when they look at this movement.</li>
-    </ul>
-    <p>
-        Every name, every hour, every share is a signal. Every signal is data. Every data point is leverage.
-    </p>
-    <p class="actions">
-        <a href="/petition.html">Add your name</a> · 
-        <a href="/survey.html">Complete the survey</a> · 
-        <a href="/donate.html">Support the work</a> · 
-        <a href="/Join_the_Team/">See the full "Join the Movement" breakdown</a>
-    </p>
-</section>
-
-<section class="oath">
-    <p><strong>Founding Members</strong></p>
-    <p>
-        This solution was built without permission.
-    </p>
-    <p>
-        If it moves forward nationally, let it begin with us.
-    </p>
-    <p>
+    <p class="oath-line">
         Let it be funded by us.<br>
         Let it be founded by us.<br>
         Let it be stewarded by us.
     </p>
-    <p>
-        Founding membership begins with participation — not wealth.
-    </p>
-    <p>
-        Even one dollar is a declaration.
-    </p>
+
+    <p>Founding membership begins with participation — not wealth.</p>
+    <p>Even one dollar is a declaration.</p>
+
     <p>
         We stand behind what we build.<br>
         We do not wait to be validated.<br>
-        We initiate.<br>
-        We steward.<br>
-        We deliver.
+        We initiate. We steward. We deliver.
     </p>
-    <p>
-        This is not charity. It is ownership.
-    </p>
-    <p>
-        Even when we stand alone, we do not stand idle.
-    </p>
-    <p><strong>We build. And the world benefits.</strong></p>
-</section>
 
-<section class="dark">
-    <h2>The Record Cannot Be Erased</h2>
-    <p>
-        This page permanently establishes:
-    </p>
-    <p>
-        • The legitimacy of the PHIERS model<br>
-        • The founder's integrity under pressure<br>
-        • The systemic resistance he survived<br>
-        • The validation from experts<br>
-        • The inevitability of PHIERS' success<br>
-        • The strength of a Black‑led national solution
-    </p>
-    <p>
-        PHIERS is not a pitch. PHIERS is the future — built by someone unbreakable.
-    </p>
-</section>
+    <p>This is not charity. It is ownership.</p>
+    <p>Even when we stand alone, we do not stand idle.</p>
 
+    <p class="oath-line">We build. And the world benefits.</p>
+
+    <p style="margin-top:40px; font-size:16px; color:#aaa;">
+        This work has never felt like a career move. It has felt like a calling —<br>
+        in the simple human sense that some work is bigger than any one person,<br>
+        and some ideas arrive before the world is ready for them.<br><br>
+        You don't have to share the founder's beliefs to feel it.<br>
+        You just have to know what it feels like when something is clearly right —<br>
+        and clearly overdue.
+    </p>
+</div>
+
+
+<!-- ═══════════════════════════════
+     10. THE SPIRITUAL DIMENSION
+     ═══════════════════════════════ -->
 <section>
-    <h2>Why we are, together, unstoppable</h2>
+    <span class="beat-label">10 — The Calling</span>
+    <h2>Why This Feels Bigger Than Any One Person</h2>
+
+    <p class="lead">
+        This work has never felt like a career move.
+        It has felt like a calling.
+    </p>
+
     <p>
-        UNBREAKABLE proved that integrity can survive pressure. UNSTOPPABLE proves that integrity, multiplied by millions, can reshape what's possible.
+        Not in a way that excludes anyone —
+        but in the simple human sense that some work is bigger than any one person,
+        and some ideas arrive before the world is ready for them.
     </p>
+
     <p>
-        We are not waiting for permission. We are not asking for a savior. We are building, together, the future we wish someone had built for us.
+        PHIERS was built under pressure, but not by accident.
+        The same force that kept one person from breaking
+        is the force that now invites millions of us to move together.
     </p>
+
+    <div class="highlight">
+        <p>
+            You don't have to share the founder's beliefs to feel it.<br>
+            You just have to know what it feels like
+            when something is clearly right — and clearly overdue.
+        </p>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════
+     11. THE CLOSE
+     ═══════════════════════════════ -->
+<section class="dark">
+    <span class="beat-label">The Declaration</span>
+    <h2>Why We Are, Together, Unstoppable</h2>
+
     <p>
-        PHIERS is the blueprint. The movement is the engine. And when enough of us move together, we are — in the most grounded, measurable sense of the word — <strong>unstoppable</strong>.
+        UNBREAKABLE proved that integrity can survive pressure.
+        UNSTOPPABLE proves that integrity, multiplied by millions,
+        can reshape what is possible.
     </p>
-    <p class="back-link">
-        Want the full origin story? Read <a href="/Unbreakable.html">UNBREAKABLE</a>.
-    </p>
+    <p>We are not waiting for permission.</p>
+    <p>We are not asking for a savior.</p>
+    <p>We are building, together, the future we wish someone had built for us.</p>
+
+    <div class="quote-pull">
+        <p>"PHIERS is the blueprint.<br>
+        The movement is the engine.<br>
+        And when enough of us move together,<br>
+        we are unstoppable."</p>
+        <span class="attr">— Will Price, PHIERS Founders</span>
+    </div>
+
+    <div style="text-align:center; padding: 40px 20px 20px; border-top: 1px solid rgba(76,175,80,0.2); margin-top:40px;">
+        <p style="font-size:22px; font-weight:800; line-height:1.55; max-width:680px; margin:0 auto 20px; color:#e2e2e2;">
+            The founders wrote it down 250 years ago.
+        </p>
+        <p style="font-size:22px; font-weight:800; line-height:1.55; color:#4caf50; max-width:680px; margin:0 auto 30px;">
+            We are living it now —<br>
+            organized, peaceful,<br>
+            mathematically unstoppable.
+        </p>
+        <p style="font-size:18px; color:#aaa; max-width:600px; margin:0 auto;">
+            This is what democracy looks like<br>
+            when the people who built it decide to use it.
+        </p>
+    </div>
+
+    <div style="text-align:center; margin-top:60px; padding-top:40px; border-top: 1px solid rgba(76,175,80,0.2);">
+        <p style="font-size:28px; font-weight:800; color:#fff; letter-spacing:-0.5px; margin-bottom:8px;">
+            UNBREAKABLE was the proof.
+        </p>
+        <p style="font-size:28px; font-weight:800; color:#fff; letter-spacing:-0.5px; margin-bottom:8px;">
+            UNSTOPPABLE is the plan.
+        </p>
+        <p style="font-size:32px; font-weight:800; color:#4caf50; letter-spacing:-0.5px; margin-bottom:40px;">
+            Now we move.
+        </p>
+        <a href="action.html" class="cta-inline" style="font-size:18px; padding:16px 36px;">
+            Sign the Petition →
+        </a>
+    </div>
+
+    <div style="text-align:center; margin-top:44px; padding-top:30px; border-top: 1px solid rgba(255,255,255,0.06);">
+        <p style="font-size:16px; color:#888; margin-bottom:16px;">
+            Want the full origin story?
+        </p>
+        <a href="UNBREAKABLE.html" style="color:#4caf50; font-weight:700; font-size:18px; text-decoration:none;">
+            Read UNBREAKABLE: The Solution They Couldn't Stop →
+        </a>
+    </div>
 </section>
 
 <footer>
     © PHIERS.org Since 2014 - Original Concept - All Rights Reserved<br>
-    Prior art documented. PHIERS™, PHIERSale™, PHIERSWorks™, VHIERSMovement™, HIVEEL™, MABAH™ are protected marks established 2014-2025.
+    Prior art documented. PHIERS™, PHIERSale™, PHIERSWorks™ are protected marks established 2014-2025. | Occupy Health Rooms
 </footer>
 
+<script>
+function openModal(src) {
+    document.getElementById('modal').style.display = 'block';
+    document.getElementById('modal-img').src = src;
+}
+function closeModal() {
+    document.getElementById('modal').style.display = 'none';
+}
+function toggleMobileMenu() {
+    document.querySelector('.nav-links').classList.toggle('active');
+}
+function toggleDropdown(el) {
+    el.nextElementSibling.classList.toggle('show');
+}
+window.onclick = function(e) {
+    if (!e.target.matches('.dropbtn')) {
+        document.querySelectorAll('.dropdown-content').forEach(d => d.classList.remove('show'));
+    }
+}
+</script>
 </body>
 </html>
