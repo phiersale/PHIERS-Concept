@@ -263,11 +263,186 @@
     if (e.key === 'Escape') closeModal();
   });
 
+  /* ── IMAGE OPTIMIZATION ─────────────────────────────────── */
+  /*
+   * For any content image that doesn't already have explicit sizing:
+   * - Cap at 45% width on desktop, 90% on mobile
+   * - Add "click to enlarge" cursor + tooltip
+   * - Excludes nav logo, payment icons, tiny icons
+   */
+  var imgCSS = [
+    'img.ph-content-img {',
+    '  max-width: 45%;',
+    '  height: auto;',
+    '  display: block;',
+    '  margin: 0 auto;',
+    '  cursor: zoom-in;',
+    '  border-radius: 8px;',
+    '  transition: transform 0.2s, box-shadow 0.2s;',
+    '}',
+    'img.ph-content-img:hover {',
+    '  transform: scale(1.02);',
+    '  box-shadow: 0 8px 30px rgba(0,0,0,0.35);',
+    '}',
+    '.ph-img-wrap {',
+    '  text-align: center;',
+    '  margin: 24px 0;',
+    '  position: relative;',
+    '  display: block;',
+    '}',
+    '.ph-enlarge-hint {',
+    '  display: block;',
+    '  font-size: 11px;',
+    '  color: #888;',
+    '  margin-top: 5px;',
+    '  letter-spacing: 0.05em;',
+    '}',
+    /* Lightbox */
+    '#ph-lightbox {',
+    '  display: none;',
+    '  position: fixed;',
+    '  inset: 0;',
+    '  z-index: 11000;',
+    '  background: rgba(0,0,0,0.93);',
+    '  cursor: zoom-out;',
+    '  align-items: center;',
+    '  justify-content: center;',
+    '}',
+    '#ph-lightbox.open { display: flex; }',
+    '#ph-lightbox img {',
+    '  max-width: 92vw;',
+    '  max-height: 88vh;',
+    '  border-radius: 6px;',
+    '  box-shadow: 0 0 60px rgba(0,0,0,0.8);',
+    '  cursor: default;',
+    '}',
+    '#ph-lightbox-close {',
+    '  position: fixed;',
+    '  top: 18px; right: 24px;',
+    '  color: #fff;',
+    '  font-size: 2rem;',
+    '  background: none;',
+    '  border: none;',
+    '  cursor: pointer;',
+    '  z-index: 11001;',
+    '  line-height: 1;',
+    '  opacity: 0.7;',
+    '}',
+    '#ph-lightbox-close:hover { opacity: 1; }',
+    '@media (max-width: 600px) {',
+    '  img.ph-content-img { max-width: 90%; }',
+    '}'
+  ].join('');
+
+  /* Excluded images — logo, payment buttons, tiny icons */
+  var EXCLUDE_SRCS = ['PHIERS_Logo', 'PayPal', 'Venmo', 'Zelle', 'favicon'];
+  var EXCLUDE_MAX_PX = 80; // skip images already constrained to <= 80px
+
+  function isExcluded(img) {
+    var src = img.getAttribute('src') || '';
+    if (EXCLUDE_SRCS.some(function(e){ return src.indexOf(e) !== -1; })) return true;
+    // Skip if already tiny via inline style
+    var style = img.getAttribute('style') || '';
+    var m = style.match(/max-width\s*:\s*(\d+)px/);
+    if (m && parseInt(m[1]) <= EXCLUDE_MAX_PX) return true;
+    // Skip nav images
+    if (img.closest('nav') || img.closest('footer')) return true;
+    return false;
+  }
+
+  function buildLightbox() {
+    var lb = document.createElement('div');
+    lb.id = 'ph-lightbox';
+    lb.setAttribute('role', 'dialog');
+    lb.setAttribute('aria-modal', 'true');
+    lb.setAttribute('aria-label', 'Image enlarged');
+
+    var closeBtn = document.createElement('button');
+    closeBtn.id = 'ph-lightbox-close';
+    closeBtn.textContent = '✕';
+    closeBtn.setAttribute('aria-label', 'Close');
+    closeBtn.addEventListener('click', function(e){
+      e.stopPropagation();
+      closeLightbox();
+    });
+
+    var lbImg = document.createElement('img');
+    lbImg.id = 'ph-lightbox-img';
+    lbImg.alt = 'Enlarged image';
+    lbImg.addEventListener('click', function(e){ e.stopPropagation(); });
+
+    lb.appendChild(closeBtn);
+    lb.appendChild(lbImg);
+    lb.addEventListener('click', closeLightbox);
+    document.body.appendChild(lb);
+
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape') closeLightbox();
+    });
+  }
+
+  function openLightbox(src, alt) {
+    var lb = document.getElementById('ph-lightbox');
+    var lbImg = document.getElementById('ph-lightbox-img');
+    if (!lb || !lbImg) return;
+    lbImg.src = src;
+    lbImg.alt = alt || '';
+    lb.classList.add('open');
+  }
+
+  function closeLightbox() {
+    var lb = document.getElementById('ph-lightbox');
+    if (lb) lb.classList.remove('open');
+  }
+
+  window.phiersOpenLightbox = openLightbox;
+
+  function optimizeImages() {
+    var imgs = document.querySelectorAll('img');
+    imgs.forEach(function(img) {
+      if (isExcluded(img)) return;
+      if (img.classList.contains('ph-content-img')) return; // already done
+
+      img.classList.add('ph-content-img');
+
+      // If already has max-width:50% inline, let that win over our 45%
+      var style = img.getAttribute('style') || '';
+      if (style.indexOf('max-width') !== -1 && style.indexOf('50%') !== -1) {
+        // Already sized — just add the cursor and lightbox
+      }
+
+      // Replace or add onclick to open lightbox
+      var src = img.getAttribute('src');
+      var alt = img.getAttribute('alt') || '';
+      img.removeAttribute('onclick');
+      img.addEventListener('click', function(){
+        openLightbox(src, alt);
+      });
+
+      // Add hint label if not already inside a caption block
+      var parent = img.parentElement;
+      if (parent && !parent.querySelector('.ph-enlarge-hint')) {
+        var hint = document.createElement('span');
+        hint.className = 'ph-enlarge-hint';
+        hint.textContent = '⊕ click to enlarge';
+        parent.appendChild(hint);
+      }
+    });
+  }
+
   /* ── INIT ────────────────────────────────────────────────── */
   function init() {
     injectCSS();
+
+    // Inject image CSS separately
+    var imgStyle = document.createElement('style');
+    imgStyle.textContent = imgCSS;
+    document.head.appendChild(imgStyle);
+
+    buildLightbox();
     buildBar();
     buildModal();
+    optimizeImages();
 
     // Modal fires once per session, on first page visited only
     if (!sessionStorage.getItem(MODAL_KEY)) {
