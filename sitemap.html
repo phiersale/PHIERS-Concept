@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="PHIERS Site Map — complete directory of all pages in the PHIERS movement website." />
+  <title>Site Map — PHIERS Movement</title>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(135deg, #0a0e1a 0%, #0f1419 25%, #1a1f2e 50%, #0f3460 100%);
+      color: #e5e7eb;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .container { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
+
+    /* === NAV STYLES === */
+    nav { position: sticky; top: 0; z-index: 1000; background: #1a1a2e; padding: 0.75rem 1.5rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid #4caf50; }
+    .nav-links { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; }
+    .nav-links a { color: #e0e0e0; text-decoration: none; padding: 0.4rem 0.7rem; border-radius: 4px; font-size: 0.9rem; }
+    .nav-links a:hover { background: #4caf50; color: #fff; }
+    .mobile-menu-toggle { display: none; background: none; border: none; color: #e0e0e0; font-size: 1.5rem; cursor: pointer; }
+    .dropdown { position: relative; }
+    .dropbtn { background: none; border: none; color: #e0e0e0; cursor: pointer; padding: 0.4rem 0.7rem; font-size: 0.9rem; border-radius: 4px; }
+    .dropbtn:hover { background: #4caf50; color: #fff; }
+    .dropdown-content { display: none; position: absolute; top: 100%; right: 0; background: #1a1a2e; border: 1px solid #4caf50; border-radius: 4px; min-width: 220px; z-index: 1001; }
+    .dropdown-content a { display: block; padding: 0.4rem 1rem; color: #e0e0e0; text-decoration: none; font-size: 0.88rem; }
+    .dropdown-content a:hover { background: #4caf50; color: #fff; }
+    .dropdown-group-label { padding: 0.5rem 1rem 0.2rem; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: #81c784; border-top: 1px solid rgba(76,175,80,0.25); margin-top: 0.2rem; }
+    .dropdown-group-label:first-child { border-top: none; margin-top: 0; }
+    .dropdown-content.show { display: block; }
+    .close-icon { display: none; }
+    @media (max-width: 768px) { .mobile-menu-toggle { display: block; } .nav-links { display: none; flex-direction: column; width: 100%; } .nav-links.active { display: flex; } .dropdown-content { position: static; border: none; } }
+    /* === END NAV STYLES === */
+
+    header {
+      text-align: center;
+      padding: 3rem 1.5rem 2rem;
+    }
+    h1 { font-size: 2.2rem; color: #4caf50; margin-bottom: 0.75rem; font-weight: 700; }
+    .subtitle { color: #c8e6c9; font-size: 1.05rem; margin-bottom: 2rem; }
+
+    .sitemap-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .sitemap-group {
+      background: linear-gradient(135deg, rgba(26,26,46,0.6), rgba(15,52,96,0.4));
+      border-left: 4px solid #4caf50;
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+
+    .sitemap-group h2 {
+      color: #81c784;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(76,175,80,0.25);
+    }
+
+    .sitemap-group ul { list-style: none; padding: 0; }
+    .sitemap-group ul li { margin-bottom: 0.5rem; }
+    .sitemap-group ul li a {
+      color: #e0e0e0;
+      text-decoration: none;
+      font-size: 0.97rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.5rem;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+    .sitemap-group ul li a:hover {
+      background: rgba(76,175,80,0.15);
+      color: #4caf50;
+    }
+    .sitemap-group ul li .desc {
+      display: block;
+      font-size: 0.8rem;
+      color: #6b7280;
+      padding-left: 1.3rem;
+      margin-top: -0.25rem;
+      margin-bottom: 0.25rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1.5rem 2rem;
+      margin-top: 4rem;
+      border-top: 1px solid rgba(76,175,80,0.3);
+      color: #9ca3af;
+    }
+    .footer-nav-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1rem; margin: 1.5rem 0; }
+    .footer-nav-links a { color: #81c784; text-decoration: none; font-size: 0.9rem; }
+    .footer-nav-links a:hover { color: #4caf50; text-decoration: underline; }
+  </style>
+</head>
+
+<body>
+<div class="container">
+
+  <!-- NAVIGATION -->
+  <nav>
+    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+      <span class="menu-icon">&#9776;</span>
+      <span class="close-icon" style="display:none;">&#x2715;</span>
+    </button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="OVERVIEW.html">Why This Works</a>
+      <a href="SimpleMath.html">The Math</a>
+      <a href="Quickstart.html">How It Works</a>
+      <a href="action.html" style="color:#f5c842; font-weight:700;">Take Action</a>
+      <a href="Donate.html">Donate</a>
+      <div class="dropdown">
+        <button class="dropbtn" onclick="toggleDropdown(event)">More &#x25BC;</button>
+        <div class="dropdown-content">
+          <div class="dropdown-group-label">Why It Matters</div>
+          <a href="Crisis.html">The Crisis</a>
+          <a href="Why-Change-Required.html">Why Change Required</a>
+          <a href="Telehealth-Insurance.html">Telehealth vs Insurance</a>
+          <div class="dropdown-group-label">Strategy &amp; Model</div>
+          <a href="5D_Solutions.html">5D Solutions</a>
+          <a href="Leverage.html">Leverage</a>
+          <a href="Unions-Strategy.html">Union Strategy</a>
+          <div class="dropdown-group-label">Stories &amp; Proof</div>
+          <a href="real-stories.html">Real Stories</a>
+          <a href="Veterans.html">Veterans &#127894;</a>
+          <a href="SOTU-Pre-Sponse.html">SOTU Response</a>
+          <a href="Media.html">Media</a>
+          <div class="dropdown-group-label">Support &amp; Info</div>
+          <a href="FAQ.html">FAQ</a>
+          <a href="About.html">About</a>
+          <a href="Our-Origins.html">Origins</a>
+          <div class="dropdown-group-label">Deep Movement</div>
+          <a href="UNSTOPPABLE.html">UNSTOPPABLE</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <h1>&#128249; Site Map</h1>
+    <p class="subtitle">Every page in the PHIERS movement — find what you need fast.</p>
+  </header>
+
+  <div class="sitemap-grid">
+
+    <!-- START HERE -->
+    <div class="sitemap-group">
+      <h2>Start Here</h2>
+      <ul>
+        <li>
+          <a href="index.html">&#127968; Home</a>
+          <span class="desc">The movement in 90 seconds — crisis, math, and how to join.</span>
+        </li>
+        <li>
+          <a href="Quickstart.html">&#9889; Quick Start</a>
+          <span class="desc">60-second understanding of how PHIERS works.</span>
+        </li>
+        <li>
+          <a href="OVERVIEW.html">&#9989; Why This Works</a>
+          <span class="desc">The complete case for why PHIERS is viable and inevitable.</span>
+        </li>
+        <li>
+          <a href="action.html" style="color:#f5c842;">&#9998; Take Action</a>
+          <span class="desc">Sign, share, organize, and join district pressure teams.</span>
+        </li>
+        <li>
+          <a href="Donate.html">&#128154; Donate</a>
+          <span class="desc">Fund the campaign that reaches 55M+ readers.</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- THE CRISIS -->
+    <div class="sitemap-group">
+      <h2>Why It Matters</h2>
+      <ul>
+        <li>
+          <a href="Crisis.html">&#128680; The Crisis</a>
+          <span class="desc">22M lost coverage. What Congress did and didn't do.</span>
+        </li>
+        <li>
+          <a href="Why-Change-Required.html">&#9888;&#65039; Why Change Is Required</a>
+          <span class="desc">The systemic reasons the current system cannot be patched.</span>
+        </li>
+        <li>
+          <a href="Telehealth-Insurance.html">&#9878; Telehealth vs Insurance</a>
+          <span class="desc">The 80/20 model — what $600/year actually covers and what it doesn't.</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- THE MATH -->
+    <div class="sitemap-group">
+      <h2>The Math</h2>
+      <ul>
+        <li>
+          <a href="SimpleMath.html">&#128202; Simple Math</a>
+          <span class="desc">The cascade: $600 telehealth → $2.73T savings → universal coverage.</span>
+        </li>
+        <li>
+          <a href="5D_Solutions.html">&#127922; 5D Solutions</a>
+          <span class="desc">Healthcare, Jobs, Economy, Political Power, and Peace — all connected.</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- STRATEGY -->
+    <div class="sitemap-group">
+      <h2>Strategy &amp; Model</h2>
+      <ul>
+        <li>
+          <a href="Leverage.html">&#9889; Leverage</a>
+          <span class="desc">$1.95B per congressional district. 400:1 advantage over lobbyists.</span>
+        </li>
+        <li>
+          <a href="Unions-Strategy.html">&#128101; Union Strategy</a>
+          <span class="desc">Why 16M union workers — and 50M union voters — are the decisive force.</span>
+        </li>
+        <li>
+          <a href="UNSTOPPABLE.html">&#128293; UNSTOPPABLE</a>
+          <span class="desc">The deep movement playbook — district-by-district forcing mechanism.</span>
+        </li>
+        <li>
+          <a href="UNBREAKABLE.html">&#128737; UNBREAKABLE</a>
+          <span class="desc">Why the cooperative model cannot be captured or defunded.</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- STORIES & PROOF -->
+    <div class="sitemap-group">
+      <h2>Stories &amp; Proof</h2>
+      <ul>
+        <li>
+          <a href="real-stories.html">&#128483;&#65039; Real Stories</a>
+          <span class="desc">Americans sharing what the healthcare crisis costs them directly.</span>
+        </li>
+        <li>
+          <a href="Veterans.html">&#127894; Veterans</a>
+          <span class="desc">The VA crisis, the Iran war, and what PHIERS delivers for every veteran.</span>
+        </li>
+        <li>
+          <a href="SOTU-Pre-Sponse.html">&#128250; SOTU Response</a>
+          <span class="desc">PHIERS response to the State of the Union address.</span>
+        </li>
+        <li>
+          <a href="Media.html">&#128240; Media</a>
+          <span class="desc">Press coverage, video library, and Pathos Communications validation.</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- SUPPORT & INFO -->
+    <div class="sitemap-group">
+      <h2>Support &amp; Info</h2>
+      <ul>
+        <li>
+          <a href="FAQ.html">&#10067; FAQ</a>
+          <span class="desc">Common questions answered directly — no spin, no jargon.</span>
+        </li>
+        <li>
+          <a href="Resources.html">&#128218; Resources</a>
+          <span class="desc">Research, data, and tools for organizers and media.</span>
+        </li>
+        <li>
+          <a href="About.html">&#128100; About</a>
+          <span class="desc">Who built PHIERS and why. Pathos Communications validation on record.</span>
+        </li>
+        <li>
+          <a href="Our-Origins.html">&#128336; Origins</a>
+          <span class="desc">15 years of development — how PHIERS got here.</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- DEMAND PAGES -->
+    <div class="sitemap-group">
+      <h2>Demand Pages</h2>
+      <ul>
+        <li>
+          <a href="demand-telehealth.html">&#127968; Demand: Telehealth</a>
+          <span class="desc">The core demand — authorize $600 telehealth on ACA exchange.</span>
+        </li>
+        <li>
+          <a href="demand-jobs.html">&#128188; Demand: Jobs</a>
+          <span class="desc">8–14M AI-resistant positions funded by healthcare savings.</span>
+        </li>
+        <li>
+          <a href="demand-ubi.html">&#128176; Demand: UBI</a>
+          <span class="desc">Monthly economic security funded by redirecting waste.</span>
+        </li>
+        <li>
+          <a href="demand-universal-coverage.html">&#9877; Demand: Universal Coverage</a>
+          <span class="desc">The endpoint — every American covered, no exceptions.</span>
+        </li>
+        <li>
+          <a href="demand-guardrails.html">&#9878; Demand: Guardrails</a>
+          <span class="desc">Democratic guardrails against authoritarian capture.</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- EXTERNAL ACTIONS -->
+    <div class="sitemap-group">
+      <h2>Take Action</h2>
+      <ul>
+        <li>
+          <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now" target="_blank" rel="noopener">&#9998; Sign the Petition</a>
+          <span class="desc">Change.org petition — add your name to the 3.5% threshold.</span>
+        </li>
+        <li>
+          <a href="https://forms.gle/GekCB2xwHfFb4WLF6" target="_blank" rel="noopener">&#128202; Fill the Survey</a>
+          <span class="desc">Share your story. Your data becomes Congressional evidence.</span>
+        </li>
+        <li>
+          <a href="https://discord.gg/narhDKJY" target="_blank" rel="noopener">&#128172; Join Discord</a>
+          <span class="desc">Coordinate with district organizers nationwide.</span>
+        </li>
+        <li>
+          <a href="Donate.html">&#128154; Donate</a>
+          <span class="desc">Fund the media campaign that reaches 55M+ readers.</span>
+        </li>
+      </ul>
+    </div>
+
+  </div><!-- /sitemap-grid -->
+
+</div><!-- /container -->
+
+<footer>
+  <p><strong>PHIERS — Make America Better and Healthier</strong></p>
+  <div class="footer-nav-links">
+    <a href="index.html">Home</a>
+    <a href="Quickstart.html">Quick Start</a>
+    <a href="OVERVIEW.html">Overview</a>
+    <a href="Crisis.html">Crisis</a>
+    <a href="SimpleMath.html">Simple Math</a>
+    <a href="5D_Solutions.html">5D Solutions</a>
+    <a href="action.html">Take Action</a>
+    <a href="Leverage.html">Leverage</a>
+    <a href="Veterans.html">Veterans</a>
+    <a href="FAQ.html">FAQ</a>
+    <a href="Resources.html">Resources</a>
+    <a href="Media.html">Media</a>
+    <a href="About.html">About</a>
+    <a href="Donate.html">Donate</a>
+    <a href="sitemap.html">Site Map</a>
+  </div>
+  <p style="margin-top: 1.5rem; font-size: 0.85rem; color: #6b7280;">
+    PHIERS is a public-interest movement — not a company, not a product.<br>
+    The only thing missing is you.
+  </p>
+  <p style="margin-top: 1rem; font-size: 0.8rem; color: #4b5563;">Last updated: 2026-03-01</p>
+</footer>
+
+<script>
+function toggleMobileMenu() {
+  const navLinks = document.querySelector('.nav-links');
+  const menuIcon = document.querySelector('.menu-icon');
+  const closeIcon = document.querySelector('.close-icon');
+  if (!navLinks) return;
+  navLinks.classList.toggle('active');
+  if (navLinks.classList.contains('active')) {
+    if (menuIcon) menuIcon.style.display = 'none';
+    if (closeIcon) closeIcon.style.display = 'inline';
+  } else {
+    if (menuIcon) menuIcon.style.display = 'inline';
+    if (closeIcon) closeIcon.style.display = 'none';
+  }
+}
+function toggleDropdown(event) {
+  event.stopPropagation();
+  let btn = event.target;
+  while (btn && !btn.classList.contains('dropbtn')) { btn = btn.parentElement; }
+  if (!btn) return;
+  const dropdown = btn.nextElementSibling;
+  if (!dropdown) return;
+  const isOpen = dropdown.classList.contains('show');
+  document.querySelectorAll('.dropdown-content').forEach(d => d.classList.remove('show'));
+  document.querySelectorAll('.dropbtn').forEach(b => b.setAttribute('aria-expanded', 'false'));
+  if (!isOpen) { dropdown.classList.add('show'); btn.setAttribute('aria-expanded', 'true'); }
+}
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.dropbtn').forEach(btn => {
+    btn.setAttribute('aria-haspopup', 'true');
+    btn.setAttribute('aria-expanded', 'false');
+  });
+  document.addEventListener('click', function(event) {
+    if (!event.target.matches('.dropbtn') && !event.target.closest('.dropbtn')) {
+      document.querySelectorAll('.dropdown-content').forEach(d => d.classList.remove('show'));
+      document.querySelectorAll('.dropbtn').forEach(b => b.setAttribute('aria-expanded', 'false'));
+    }
+    const nav = document.querySelector('nav');
+    const navLinks = document.querySelector('.nav-links');
+    if (nav && navLinks && !nav.contains(event.target) && navLinks.classList.contains('active')) {
+      navLinks.classList.remove('active');
+      const menuIcon = document.querySelector('.menu-icon');
+      const closeIcon = document.querySelector('.close-icon');
+      if (menuIcon) menuIcon.style.display = 'inline';
+      if (closeIcon) closeIcon.style.display = 'none';
+    }
+  });
+});
+</script>
+
+<!-- ============================================================ -->
+<!-- PHIERS STICKY BAR + FORCED-CHOICE MODAL                     -->
+<!-- Paste before </body> on every page                          -->
+<!-- Modal: sessionStorage dismissed, returns on next visit      -->
+<!-- Sticky bar: always visible, closeable                       -->
+<!-- ============================================================ -->
+
+<style>
+/* ---- STICKY BOTTOM BAR ---- */
+#phiers-sticky-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9000;
+  background: linear-gradient(90deg, #0d2137 0%, #1a3a2a 100%);
+  border-top: 2px solid #4caf50;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.5);
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+}
+#phiers-sticky-bar.hidden {
+  transform: translateY(110%);
+}
+#phiers-sticky-bar .bar-text {
+  color: #c8e6c9;
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+#phiers-sticky-bar .bar-text strong {
+  color: #4caf50;
+}
+#phiers-sticky-bar .bar-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.bar-btn {
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.bar-btn-primary {
+  background: #4caf50;
+  color: #000;
+}
+.bar-btn-primary:hover {
+  background: #66bb6a;
+  transform: translateY(-1px);
+}
+.bar-btn-secondary {
+  background: transparent;
+  color: #81c784;
+  border: 1px solid #4caf50;
+}
+.bar-btn-secondary:hover {
+  background: rgba(76,175,80,0.15);
+}
+.bar-close {
+  background: none;
+  border: none;
+  color: #555;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  flex-shrink: 0;
+  transition: color 0.2s;
+  line-height: 1;
+}
+.bar-close:hover { color: #888; }
+
+/* ---- MODAL OVERLAY ---- */
+#phiers-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(0,0,0,0.82);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+#phiers-modal-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ---- MODAL BOX ---- */
+#phiers-modal {
+  background: linear-gradient(145deg, #0f2339 0%, #162a1e 100%);
+  border: 2px solid rgba(76,175,80,0.5);
+  border-radius: 16px;
+  max-width: 580px;
+  width: 100%;
+  padding: 2.5rem 2rem 2rem;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.7), 0 0 40px rgba(76,175,80,0.08);
+  transform: translateY(20px);
+  transition: transform 0.35s ease;
+}
+#phiers-modal-overlay.active #phiers-modal {
+  transform: translateY(0);
+}
+.modal-close-x {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  background: none;
+  border: none;
+  color: #4a6a4a;
+  font-size: 1.5rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.2s;
+  padding: 4px;
+}
+.modal-close-x:hover { color: #81c784; }
+
+.modal-eyebrow {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #4caf50;
+  margin-bottom: 0.6rem;
+}
+.modal-headline {
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.25;
+  margin-bottom: 0.6rem;
+}
+.modal-sub {
+  font-size: 0.92rem;
+  color: #81c784;
+  margin-bottom: 1.8rem;
+  line-height: 1.5;
+}
+
+/* ---- CHOICE GRID ---- */
+.modal-choices {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 1.2rem;
+}
+.modal-choice {
+  display: block;
+  text-decoration: none;
+  background: rgba(255,255,255,0.03);
+  border: 1.5px solid rgba(76,175,80,0.25);
+  border-radius: 10px;
+  padding: 1rem 0.9rem;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.modal-choice:hover {
+  background: rgba(76,175,80,0.1);
+  border-color: #4caf50;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(76,175,80,0.15);
+}
+.choice-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.4rem;
+  display: block;
+}
+.choice-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #ffffff;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+.choice-desc {
+  font-size: 0.75rem;
+  color: #6a9a6a;
+  line-height: 1.35;
+}
+
+/* PRIMARY CHOICE - sign petition */
+.modal-choice.primary {
+  border-color: #4caf50;
+  background: rgba(76,175,80,0.08);
+  grid-column: span 2;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 1.2rem;
+}
+.modal-choice.primary:hover {
+  background: rgba(76,175,80,0.18);
+}
+.modal-choice.primary .choice-icon {
+  font-size: 2rem;
+  margin: 0;
+  flex-shrink: 0;
+}
+.modal-choice.primary .choice-label {
+  font-size: 1rem;
+  color: #4caf50;
+}
+.modal-choice.primary .choice-desc {
+  color: #a5d6a7;
+}
+
+.modal-dismiss {
+  text-align: center;
+  font-size: 0.78rem;
+  color: #3a5a3a;
+  cursor: pointer;
+  transition: color 0.2s;
+  user-select: none;
+  margin-top: 0.5rem;
+}
+.modal-dismiss:hover { color: #6a9a6a; }
+
+/* ---- MOBILE ---- */
+@media (max-width: 540px) {
+  #phiers-sticky-bar .bar-text { display: none; }
+  .modal-choices { grid-template-columns: 1fr; }
+  .modal-choice.primary { grid-column: span 1; }
+  #phiers-modal { padding: 2rem 1.2rem 1.5rem; }
+  .modal-headline { font-size: 1.25rem; }
+}
+</style>
+
+<!-- STICKY BAR -->
+<div id="phiers-sticky-bar">
+  <div class="bar-text">
+    <strong>11.6M needed.</strong> Every signature matters.
+  </div>
+  <div class="bar-actions">
+    <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now"
+       target="_blank" rel="noopener" class="bar-btn bar-btn-primary">
+      ✍️ Sign the Petition
+    </a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeWd9p2O5sxzWpBGWgsOHhNccbHFLJCivBqNbk1YZSbzniXIA/viewform"
+       target="_blank" rel="noopener" class="bar-btn bar-btn-secondary">
+      📋 Survey
+    </a>
+    <button class="bar-close" onclick="dismissStickyBar()" aria-label="Close">✕</button>
+  </div>
+</div>
+
+<!-- MODAL OVERLAY -->
+<div id="phiers-modal-overlay">
+  <div id="phiers-modal" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+
+    <button class="modal-close-x" onclick="dismissModal()" aria-label="Close">✕</button>
+
+    <div class="modal-eyebrow">You're here. Make it count.</div>
+    <h2 class="modal-headline" id="modal-headline">
+      234 million Americans need this to work.<br>What will you do?
+    </h2>
+    <p class="modal-sub">
+      Takes 30 seconds to sign. Takes one share to double our reach.
+      Choose your next move.
+    </p>
+
+    <div class="modal-choices">
+
+      <!-- PRIMARY: Sign Petition -->
+      <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now"
+         target="_blank" rel="noopener"
+         class="modal-choice primary"
+         onclick="dismissModal()">
+        <span class="choice-icon">✍️</span>
+        <div>
+          <span class="choice-label">Sign the Petition — 30 seconds</span>
+          <span class="choice-desc">Add your name to the 3.5% that forces Congress to act. The most important thing you can do right now.</span>
+        </div>
+      </a>
+
+      <!-- Fill the Survey -->
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSeWd9p2O5sxzWpBGWgsOHhNccbHFLJCivBqNbk1YZSbzniXIA/viewform"
+         target="_blank" rel="noopener"
+         class="modal-choice"
+         onclick="dismissModal()">
+        <span class="choice-icon">📋</span>
+        <span class="choice-label">Fill the Survey</span>
+        <span class="choice-desc">Tell us your healthcare story. Your voice shapes the movement.</span>
+      </a>
+
+      <!-- Spread the Word -->
+      <a href="action.html"
+         class="modal-choice"
+         onclick="dismissModal()">
+        <span class="choice-icon">📣</span>
+        <span class="choice-label">Spread the Word</span>
+        <span class="choice-desc">Share with your union, your family, your community. One share reaches people we can't.</span>
+      </a>
+
+      <!-- Dig Deeper -->
+      <a href="FAQ.html"
+         class="modal-choice"
+         onclick="dismissModal()">
+        <span class="choice-icon">🔍</span>
+        <span class="choice-label">Dig Deeper</span>
+        <span class="choice-desc">Still have questions? Read the full FAQ — every skeptical question answered honestly.</span>
+      </a>
+
+    </div>
+
+    <div class="modal-dismiss" onclick="dismissModal()">
+      Not now — I'll come back to this
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function() {
+  // ---- MODAL LOGIC ----
+  // Shows once per session. Returns on next visit (sessionStorage, not localStorage).
+  var MODAL_KEY = 'phiers_modal_dismissed';
+  var BAR_KEY   = 'phiers_bar_dismissed';
+
+  function showModal() {
+    var overlay = document.getElementById('phiers-modal-overlay');
+    if (!overlay) return;
+    // Small delay so page content loads first
+    setTimeout(function() {
+      overlay.classList.add('active');
+    }, 2800);
+  }
+
+  function dismissModal() {
+    var overlay = document.getElementById('phiers-modal-overlay');
+    if (overlay) overlay.classList.remove('active');
+    sessionStorage.setItem(MODAL_KEY, '1');
+  }
+
+  function dismissStickyBar() {
+    var bar = document.getElementById('phiers-sticky-bar');
+    if (bar) bar.classList.add('hidden');
+    sessionStorage.setItem(BAR_KEY, '1');
+  }
+
+  // Expose to inline onclick handlers
+  window.dismissModal    = dismissModal;
+  window.dismissStickyBar = dismissStickyBar;
+
+  // Close modal on overlay click (outside the box)
+  var overlay = document.getElementById('phiers-modal-overlay');
+  if (overlay) {
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) dismissModal();
+    });
+  }
+
+  // Close on ESC
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') dismissModal();
+  });
+
+  // Init on DOM ready
+  function init() {
+    // Modal: show if not dismissed this session
+    if (!sessionStorage.getItem(MODAL_KEY)) {
+      showModal();
+    }
+    // Sticky bar: restore hidden state if dismissed this session
+    if (sessionStorage.getItem(BAR_KEY)) {
+      var bar = document.getElementById('phiers-sticky-bar');
+      if (bar) bar.classList.add('hidden');
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+<!-- ============================================================ -->
+<!-- END PHIERS CTA SNIPPET                                       -->
+<!-- ============================================================ -->
+
+</body>
+</html>
