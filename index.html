@@ -855,6 +855,10 @@
  </p>
  
  <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 30px;">
+ <button onclick="openVideoModal()" 
+ style="display: inline-block; background: #ffffff; color: #0a0e1a; padding: 15px 35px; border: none; border-radius: 8px; font-weight: 800; font-size: 1.15em; box-shadow: 0 4px 15px rgba(255,255,255,0.25); cursor: pointer; transition: all 0.3s; letter-spacing: 0.03em;">
+ ▶ START HERE — 71 Seconds
+ </button>
  <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now" 
  style="display: inline-block; background: #4caf50; color: white; padding: 15px 35px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 1.1em; box-shadow: 0 4px 6px rgba(0,0,0,0.3); transition: all 0.3s;">
  SIGN THE PETITION →
@@ -1450,20 +1454,32 @@ document.addEventListener('click', function(event) {
   });
 });
 
-// Handle escape key
+// Unified ESC handler — nav, dropdowns, image modal, video modal
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') {
+    // Close video modal
+    const videoModal = document.getElementById('videoModal');
+    if (videoModal && videoModal.style.display === 'flex') {
+      closeVideoModal();
+      return;
+    }
+    // Close image modal
+    const imageModal = document.getElementById('imageModal');
+    if (imageModal && imageModal.classList.contains('active')) {
+      closeImageModal();
+      return;
+    }
+    // Close mobile nav
     const navLinks = document.querySelector('.nav-links');
     const menuIcon = document.querySelector('.menu-icon');
     const closeIcon = document.querySelector('.close-icon');
-    
     if (navLinks && navLinks.classList.contains('active')) {
       navLinks.classList.remove('active');
       if (menuIcon) menuIcon.style.display = 'inline';
       if (closeIcon) closeIcon.style.display = 'none';
       document.body.style.overflow = '';
     }
-    
+    // Close dropdowns
     document.querySelectorAll('.dropdown-content').forEach(d => {
       d.classList.remove('show');
     });
@@ -1551,12 +1567,6 @@ function initImageModal() {
       closeImageModal();
     }
   });
-  
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && modal.classList.contains('active')) {
-      closeImageModal();
-    }
-  });
 }
 </script>
 
@@ -1565,6 +1575,61 @@ function initImageModal() {
  <span class="close-modal" onclick="closeImageModal()">&times;</span>
  <img loading="lazy" class="modal-content" id="modalImage" alt="">
 </div>
+
+<!-- Video Modal -->
+<div id="videoModal" style="display:none; position:fixed; z-index:30000; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.92); align-items:center; justify-content:center; flex-direction:column;">
+  <div style="position:relative; width:90%; max-width:760px;">
+    <button onclick="closeVideoModal()" style="position:absolute; top:-44px; right:0; background:none; border:none; color:#fff; font-size:2.2rem; cursor:pointer; line-height:1;">✕</button>
+    <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:8px; box-shadow:0 8px 40px rgba(0,0,0,0.6);">
+      <iframe id="videoModalFrame"
+        src=""
+        data-src="https://www.youtube.com/embed/2j-dF3hgdeE?autoplay=1&rel=0"
+        title="PHIERS — The Math Congress Doesn't Want You to See (1:11)"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        style="position:absolute; top:0; left:0; width:100%; height:100%;">
+      </iframe>
+    </div>
+    <p style="text-align:center; color:#81c784; margin-top:14px; font-size:1rem; font-weight:600;">1 minute 11 seconds. This is why they're terrified.</p>
+    <div style="text-align:center; margin-top:12px;">
+      <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now" target="_blank"
+        style="display:inline-block; background:#4caf50; color:#fff; padding:12px 30px; border-radius:6px; font-weight:700; text-decoration:none; font-size:1rem; margin-right:10px;">
+        Sign the Petition →
+      </a>
+      <button onclick="closeVideoModal()" style="display:inline-block; background:transparent; color:#81c784; border:2px solid #4caf50; padding:12px 24px; border-radius:6px; font-weight:600; cursor:pointer; font-size:1rem;">
+        Close
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+function openVideoModal() {
+  const modal = document.getElementById('videoModal');
+  const frame = document.getElementById('videoModalFrame');
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+  // Load src only on open to prevent autoplay before user clicks
+  if (!frame.src || frame.src === window.location.href) {
+    frame.src = frame.getAttribute('data-src');
+  }
+}
+
+function closeVideoModal() {
+  const modal = document.getElementById('videoModal');
+  const frame = document.getElementById('videoModalFrame');
+  modal.style.display = 'none';
+  document.body.style.overflow = '';
+  // Stop video by clearing src
+  frame.src = '';
+}
+
+// Close on backdrop click
+document.getElementById('videoModal').addEventListener('click', function(e) {
+  if (e.target === this) closeVideoModal();
+});
+</script>
 
 <div style="text-align:center; padding: 10px; font-size: 0.8rem; color: #666;">PHIERS Movement — Organized. Mathematical. Unstoppable.</div>
 </body>
