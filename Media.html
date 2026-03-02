@@ -806,6 +806,12 @@ function initImageModal() {
  }
  });
  
+ // Close on ESC key
+ document.addEventListener('keydown', function(e) {
+ if (e.key === 'Escape' && modal.classList.contains('active')) {
+ closeImageModal();
+ }
+ });
 }
 </script>
 <div style="display: flex; justify-content: space-between; margin: 60px 0 40px 0; padding: 30px 0; border-top: 2px solid rgba(76, 175, 80, 0.3);">
@@ -1011,6 +1017,12 @@ function initImageModal() {
   
   modal.addEventListener('click', function(e) {
     if (e.target === modal) {
+      closeImageModal();
+    }
+  });
+  
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
       closeImageModal();
     }
   });
