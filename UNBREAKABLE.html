@@ -375,6 +375,16 @@ nav {
     </p>
 </header>
 
+<!-- ANCHOR IMAGE: WILL PRICE — THE MAN BEHIND THE MISSION -->
+<div style="text-align:center; background:#0a0a0a; padding:40px 20px 30px;">
+  <img src="NEW_EDITION.png"
+       alt="Will Price — building PHIERS from the front seat of a car, still smiling, still building"
+       style="max-width:320px; width:85%; border-radius:14px; box-shadow:0 12px 50px rgba(0,0,0,0.7); display:block; margin:0 auto;">
+  <p style="margin-top:1.2rem; font-size:1rem; font-style:italic; color:#aaa; line-height:1.6; max-width:480px; margin-left:auto; margin-right:auto;">
+    Built from here.<br>
+    <strong style="color:#f5c842;">Still building.</strong>
+  </p>
+</div>
 
 <!-- ═══════════════════════════════
      1. THE PATTERN
@@ -392,6 +402,12 @@ nav {
     <p>We are celebrated when our brilliance is convenient.</p>
     <p>We are ignored when our dignity requires protection.</p>
     <p>We are resisted when our solutions threaten the status quo.</p>
+    <p>We are often hated, vilified, and punished for things we never did —
+        and we rarely receive credit for what we have done.</p>
+    <p>
+        As proof: the current administration is actively erasing our history.
+        My goal is to make it indelible — but I cannot do it alone.
+    </p>
 
     <div class="gold-box">
         <p><strong>This is not grievance. This is a record.</strong></p>
@@ -423,11 +439,17 @@ nav {
     <p><strong>We build.</strong></p>
 
     <p>
-        We build systems that stabilize nations.
+        We solve the problems every society depends on —
+        healthcare people can actually access, jobs that pay enough to live,
+        UBI that keeps families afloat, union leverage that restores worker power,
+        and an inclusive, moral economy that leaves no one disposable.
+        We design a smaller, smarter government that uses shared services,
+        reduces waste, and delivers real stability.
         We build culture that moves the world.
         We build solutions that institutions could not create —
         and often tried to stop.
     </p>
+    <p><strong>We are the future. We are the way forward.</strong></p>
     <p>PHIERS is one of those solutions.</p>
 
     <div class="img-block">
@@ -527,9 +549,9 @@ nav {
         <img src="Me_n_%20Dad_at_CHURCH.png"
              class="thumb"
              style="max-width:140px !important; width:auto !important; height:auto !important;"
-             alt="Father and son — the foundation of PHIERS"
+             alt="Dad and son — the foundation of PHIERS"
              onclick="openModal(this.src)">
-        <p class="image-caption">The foundation. Father and son.</p>
+        <p class="image-caption">The foundation. Dad and Son.</p>
     </div>
 
     <h3>What It Was Built Without</h3>
@@ -568,7 +590,7 @@ nav {
         <li>Survived threats, assault, and being poisoned</li>
         <li>Became homeless rather than compromise the truth</li>
         <li>Survived smear campaigns and forced relocation</li>
-        <li>Protected an elder impacted by exploitation</li>
+        <li>Punished for being a whistleblower</li>
     </ul>
 
     <p style="font-size:15px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#888; margin-bottom:8px; margin-top:20px;">The Response</p>
@@ -605,8 +627,8 @@ nav {
         The national impact didn't change.
     </p>
     <p>
-        What changed was their understanding of who built it —
-        and what it was built to disrupt.
+        We know what changed in the room. We don't know what was in their hearts.
+        We document the sequence. We let the record speak.
     </p>
 
     <div class="image-block">
@@ -937,72 +959,38 @@ nav {
 
 <footer>
     © PHIERS.org Since 2014 - Original Concept - All Rights Reserved<br>
-    Prior art documented. PHIERS™, PHIERSale™, PHIERSWorks™ are protected marks established 2014-2025. | Occupy Health Rooms
+    Prior art documented. PHIERS™, PHIERSale™, PHIERSWorks™ are protected marks established 2014-2025. | Occupy Health Rooms<br>
+    <span style="font-size:11px; color:#555;">Last updated: March 1, 2026 — UNBREAKABLE v4</span>
 </footer>
 
 <script>
-function toggleMobileMenu() {
-  const navLinks = document.querySelector('.nav-links');
-  const menuIcon = document.querySelector('.menu-icon');
-  const closeIcon = document.querySelector('.close-icon');
-  if (!navLinks) return;
-  navLinks.classList.toggle('active');
-  if (navLinks.classList.contains('active')) {
-    if (menuIcon) menuIcon.style.display = 'none';
-    if (closeIcon) closeIcon.style.display = 'inline';
-  } else {
-    if (menuIcon) menuIcon.style.display = 'inline';
-    if (closeIcon) closeIcon.style.display = 'none';
-  }
-}
-function toggleDropdown(event) {
-  event.stopPropagation();
-  let btn = event.target;
-  while (btn && !btn.classList.contains('dropbtn')) { btn = btn.parentElement; }
-  if (!btn) return;
-  const dropdown = btn.nextElementSibling;
-  if (!dropdown) return;
-  const isOpen = dropdown.classList.contains('show');
-  document.querySelectorAll('.dropdown-content').forEach(d => d.classList.remove('show'));
-  document.querySelectorAll('.dropbtn').forEach(b => b.setAttribute('aria-expanded', 'false'));
-  if (!isOpen) { dropdown.classList.add('show'); btn.setAttribute('aria-expanded', 'true'); }
-}
 document.addEventListener('DOMContentLoaded', function() {
+  const mobileToggle = document.querySelector('.mobile-menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  if (mobileToggle && navLinks) {
+    mobileToggle.addEventListener('click', function() {
+      navLinks.classList.toggle('active');
+    });
+  }
   document.querySelectorAll('.dropbtn').forEach(btn => {
-    btn.setAttribute('aria-haspopup', 'true');
-    btn.setAttribute('aria-expanded', 'false');
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      const content = this.nextElementSibling;
+      document.querySelectorAll('.dropdown-content').forEach(d => {
+        if (d !== content) d.classList.remove('show');
+      });
+      content.classList.toggle('show');
+    });
+  });
+  document.addEventListener('click', function() {
+    document.querySelectorAll('.dropdown-content').forEach(d => d.classList.remove('show'));
   });
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-links a').forEach(link => {
     if (link.getAttribute('href') === currentPage) {
       link.style.background = 'rgba(76,175,80,0.25)';
       link.style.color = '#fff';
-    }
-  });
-  document.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener('click', function() {
-      if (!this.getAttribute('href').startsWith('#')) {
-        sessionStorage.setItem('scrollToTop', '1');
-      }
-    });
-  });
-  if (sessionStorage.getItem('scrollToTop') === '1') {
-    sessionStorage.removeItem('scrollToTop');
-    window.scrollTo(0, 0);
-  }
-  document.addEventListener('click', function(event) {
-    if (!event.target.matches('.dropbtn') && !event.target.closest('.dropbtn')) {
-      document.querySelectorAll('.dropdown-content').forEach(d => d.classList.remove('show'));
-      document.querySelectorAll('.dropbtn').forEach(b => b.setAttribute('aria-expanded', 'false'));
-    }
-    const nav = document.querySelector('nav');
-    const navLinks = document.querySelector('.nav-links');
-    if (nav && navLinks && !nav.contains(event.target) && navLinks.classList.contains('active')) {
-      navLinks.classList.remove('active');
-      const menuIcon = document.querySelector('.menu-icon');
-      const closeIcon = document.querySelector('.close-icon');
-      if (menuIcon) menuIcon.style.display = 'inline';
-      if (closeIcon) closeIcon.style.display = 'none';
     }
   });
 });
