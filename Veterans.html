@@ -37,22 +37,21 @@
     html { font-size: clamp(14px, 3.5vw, 16px); }
 
     body {
-      font-family: 'Georgia', 'Times New Roman', serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.7;
+      line-height: 1.5;
       min-height: 100vh;
     }
 
-    .container { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
+    .container { max-width: 900px; margin: 0 auto; padding: 1rem; }
 
-    /* ── NAV ── */
     nav {
-      background: rgba(26, 26, 46, 0.92);
+      background: rgba(26, 26, 46, 0.8);
       border: 1px solid var(--green-border);
       border-radius: 8px;
       padding: 15px;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
       position: sticky;
       top: 0;
       z-index: 999;
@@ -60,7 +59,6 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 10px;
-      backdrop-filter: blur(8px);
     }
 
     .mobile-menu-toggle {
@@ -80,6 +78,8 @@
       line-height: 1;
     }
 
+    .mobile-menu-toggle:hover { background: rgba(76, 175, 80, 0.4); }
+
     .nav-links {
       display: flex;
       flex-wrap: wrap;
@@ -88,55 +88,39 @@
       width: 100%;
     }
 
-    nav a {
-      color: var(--green-light);
-      text-decoration: none;
-      padding: 8px 12px;
-      border-radius: 4px;
-      font-family: 'Segoe UI', sans-serif;
-      font-size: 0.9em;
-      font-weight: 500;
-      transition: all 0.2s;
+    @media (max-width: 768px) {
+      nav { position: relative; padding: 10px; min-height: 50px; margin-bottom: 15px; }
+      .mobile-menu-toggle { display: block; position: fixed; right: 15px; top: 15px; z-index: 10000; }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: rgba(10, 14, 26, 0.98);
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        padding: 80px 20px 40px 20px;
+        border-radius: 0; border: none; box-shadow: none;
+        z-index: 9999;
+        overflow-y: auto;
+      }
+      .nav-links.active { display: flex !important; }
+      .nav-links a { width: 100%; text-align: center; padding: 15px; font-size: 1.2em; border-bottom: 1px solid rgba(76, 175, 80, 0.2); color: #81c784; text-decoration: none; }
+      .dropdown { width: 100%; position: relative; }
+      .dropbtn { width: 100%; text-align: center; padding: 15px; font-size: 1.2em; background: transparent; border: none; color: #81c784; border-bottom: 1px solid rgba(76, 175, 80, 0.2); cursor: pointer; }
+      .dropdown-content { display: none; position: relative; width: 100%; background: rgba(76, 175, 80, 0.1); border: none; box-shadow: none; margin-top: 0; padding: 0; }
+      .dropdown-content.show { display: block !important; }
+      .dropdown-content a { width: 100%; text-align: center; padding: 12px 15px; font-size: 1.1em; border-bottom: 1px solid rgba(76, 175, 80, 0.15); color: #81c784; }
+      .close-icon { display: none; }
+      .dropdown:hover .dropdown-content { display: none; }
     }
 
-    nav a:hover { background: var(--green-dim); color: var(--green); }
+    nav a { color: #81c784; text-decoration: none; padding: 8px 12px; border-radius: 4px; font-size: 0.9em; font-weight: 500; transition: all 0.3s ease; white-space: nowrap; }
+    nav a:hover { background: rgba(76, 175, 80, 0.2); color: #4caf50; }
 
     .dropdown { position: relative; display: inline-block; }
-    .dropbtn {
-      background: transparent;
-      color: var(--green-light);
-      padding: 8px 12px;
-      font-size: 1.0em;
-      font-weight: 600;
-      border: none;
-      cursor: pointer;
-      border-radius: 4px;
-      transition: all 0.2s;
-      font-family: 'Segoe UI', sans-serif;
-    }
-    .dropbtn:hover { background: var(--green-dim); color: var(--green); }
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background: rgba(10, 14, 26, 0.98);
-      min-width: 200px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-      border: 1px solid var(--green-border);
-      border-radius: 6px;
-      z-index: 1000;
-      top: 100%;
-      left: 0;
-    }
-    .dropdown-content.show { display: block; }
-    .dropdown-content a {
-      display: block;
-      padding: 10px 16px;
-      font-size: 0.9em;
-      border-bottom: 1px solid var(--green-border);
-    }
-    .dropdown-content a:last-child { border-bottom: none; }
+    .dropbtn { background: transparent; color: #81c784; padding: 8px 12px; font-size: 0.9em; font-weight: 500; border: none; cursor: pointer; border-radius: 4px; transition: all 0.3s ease; font-family: inherit; }
+    .dropbtn:hover { background: rgba(76, 175, 80, 0.2); color: #4caf50; }
 
-    /* Desktop Dropdown CSS */
     .dropdown-content {
       display: none;
       position: absolute;
@@ -145,1164 +129,343 @@
       box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
       z-index: 1000;
       border-radius: 8px;
-      border: 1px solid rgba(76, 175, 80, 0.3);
+      border: 1px solid var(--green-border);
       margin-top: 5px;
       top: 100%;
       left: 0;
     }
-    .dropdown-content.show {
-      display: block;
-    }
-    .dropdown {
-      position: relative;
-    }
-    .dropdown-content a {
-      color: #81c784;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-    }
+
+    .dropdown-content a { color: #81c784; padding: 12px 16px; text-decoration: none; display: block; border-radius: 0; white-space: normal; }
     .dropdown-content a:first-child { border-radius: 8px 8px 0 0; }
-    .dropdown-content a:last-child  { border-radius: 0 0 8px 8px; }
-    .dropdown-content a:hover {
-      background: rgba(76, 175, 80, 0.2);
-      color: #4caf50;
-    }
+    .dropdown-content a:last-child { border-radius: 0 0 8px 8px; }
+    .dropdown-content a:hover { background: rgba(76, 175, 80, 0.2); color: #4caf50; }
+    .dropdown:hover .dropdown-content { display: block; }
+    .dropdown:hover .dropbtn { background: rgba(76, 175, 80, 0.2); color: #4caf50; }
 
-    @media (max-width: 768px) {
-      nav { position: relative; padding: 10px; min-height: 50px; }
-      .mobile-menu-toggle { display: block; }
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background: rgba(10, 14, 26, 0.98);
-        position: fixed;
-        top: 0; left: 0; right: 0; bottom: 0;
-        padding: 80px 20px 40px;
-        z-index: 9999;
-        overflow-y: auto;
-      }
-      .nav-links.active { display: flex; }
-      .nav-links a, .dropdown .dropbtn {
-        width: 100%;
-        text-align: center;
-        padding: 15px;
-        font-size: 1.2em;
-        border-bottom: 1px solid var(--green-border);
-      }
-      .dropdown { width: 100%; }
-      .dropdown-content {
-        position: static;
-        box-shadow: none;
-        border: none;
-        background: rgba(76,175,80,0.08);
-        width: 100%;
-      }
-      .dropdown-content a {
-        text-align: center !important;
-        display: block;
-        padding: 12px 15px;
-        font-size: 1.1em;
-      }
-      .dropdown-content.show { display: block; }
+    .dropdown-group-label {
+      padding: 0.5rem 1rem 0.2rem;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #81c784;
+      border-top: 1px solid rgba(76,175,80,0.25);
+      margin-top: 0.2rem;
     }
+    .dropdown-group-label:first-child { border-top: none; margin-top: 0; }
 
-    /* ── HERO ── */
     .hero {
       text-align: center;
-      padding: 3rem 1.5rem 2.5rem;
+      padding: 2.5rem 1.5rem;
       background: linear-gradient(135deg, rgba(239,83,80,0.08), rgba(10,14,26,0.95), rgba(76,175,80,0.06));
       border: 2px solid var(--red-border);
       border-radius: 12px;
-      margin-bottom: 2.5rem;
-      position: relative;
-      overflow: hidden;
+      margin-bottom: 1.5rem;
     }
 
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--red), var(--gold), var(--green));
-    }
-
-    .hero-flag {
-      font-family: 'Segoe UI', sans-serif;
-      font-size: 0.85em;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1.2rem;
-      opacity: 0.9;
-    }
-
-    .hero h1 {
-      font-size: clamp(1.8rem, 5vw, 2.8rem);
-      color: var(--text-bright);
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 1.2rem;
-    }
-
+    .hero-flag { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+    .hero h1 { font-size: 2rem; color: var(--text-bright); font-weight: 700; line-height: 1.2; margin-bottom: 1rem; }
     .hero h1 span { color: var(--red); }
+    .hero-sub { font-size: 1rem; color: var(--green-light); max-width: 680px; margin: 0 auto 1.2rem; line-height: 1.5; }
 
-    .hero-sub {
-      font-size: clamp(1rem, 2.5vw, 1.25rem);
-      color: var(--green-light);
-      max-width: 680px;
-      margin: 0 auto 1.8rem;
-      line-height: 1.6;
-    }
+    .hero-stats { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .stat-pill { background: rgba(10,14,26,0.7); border: 1px solid var(--red-border); border-radius: 6px; padding: 0.6rem 1rem; text-align: center; }
+    .stat-pill .num { font-size: 1.5rem; font-weight: 800; color: var(--red); display: block; line-height: 1; }
+    .stat-pill .label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; }
 
-    .hero-stats {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-      margin-bottom: 2rem;
-    }
-
-    .stat-pill {
-      background: rgba(10,14,26,0.7);
-      border: 1px solid var(--red-border);
-      border-radius: 8px;
-      padding: 0.8rem 1.4rem;
-      text-align: center;
-    }
-
-    .stat-pill .num {
-      font-family: 'Segoe UI', sans-serif;
-      font-size: 1.7rem;
-      font-weight: 800;
-      color: var(--red);
-      display: block;
-      line-height: 1;
-    }
-
-    .stat-pill .label {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      font-family: 'Segoe UI', sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    /* ── SECTIONS ── */
-    section {
-      background: linear-gradient(135deg, rgba(26,26,46,0.9), rgba(22,33,62,0.9));
-      padding: 2.5rem;
-      margin-bottom: 2rem;
-      border-radius: 10px;
-      border-left: 5px solid var(--green);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-    }
-
+    section { background: rgba(26, 26, 46, 0.4); border-left: 5px solid var(--green); border-radius: 8px; padding: 2rem; margin-bottom: 1.5rem; }
     section.red-section { border-left-color: var(--red); }
     section.gold-section { border-left-color: var(--gold); }
 
-    h2 {
-      font-family: 'Segoe UI', sans-serif;
-      font-size: clamp(1.3rem, 3.5vw, 1.8rem);
-      color: var(--green);
-      margin-bottom: 1.2rem;
-      line-height: 1.3;
-    }
-
+    h2 { font-size: 1.6rem; color: var(--green); margin-bottom: 1rem; }
     h2.red { color: var(--red); }
     h2.gold { color: var(--gold); }
-    h2.white { color: var(--text-bright); }
+    h3 { font-size: 1.2rem; color: var(--green-light); margin: 1rem 0 0.5rem; }
+    p { color: #c8e6c9; margin: 0.75rem 0; line-height: 1.5; font-size: 0.95rem; }
 
-    h3 {
-      font-family: 'Segoe UI', sans-serif;
-      font-size: 1.15rem;
-      color: var(--green-light);
-      margin: 1.5rem 0 0.6rem;
-    }
+    .betrayal-grid, .answer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin: 1rem 0; }
+    .betrayal-box, .answer-box { background: var(--red-dim); border: 1px solid var(--red-border); border-radius: 6px; padding: 1rem; }
+    .answer-box { background: rgba(76,175,80,0.07); border-color: var(--green-border); }
+    .betrayal-box h4, .answer-box h4 { font-size: 0.9rem; font-weight: 700; color: var(--red); margin-bottom: 0.3rem; text-transform: uppercase; }
+    .answer-box h4 { color: var(--green); }
+    .betrayal-box p, .answer-box p { font-size: 0.85rem; margin: 0; }
 
-    p { color: #c8e6c9; margin: 0.9rem 0; line-height: 1.8; }
-    p.white { color: var(--text-bright); }
-    p.muted { color: var(--text-muted); font-size: 0.9em; }
-
-    strong { color: var(--text-bright); }
-
-    /* ── BETRAYAL BOXES ── */
-    .betrayal-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.2rem;
-      margin: 1.5rem 0;
-    }
-
-    .betrayal-box {
-      background: var(--red-dim);
-      border: 1px solid var(--red-border);
-      border-radius: 8px;
-      padding: 1.2rem 1.4rem;
-    }
-
-    .betrayal-box .icon {
-      font-size: 1.6rem;
-      margin-bottom: 0.5rem;
-      display: block;
-    }
-
-    .betrayal-box h4 {
-      font-family: 'Segoe UI', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--red);
-      margin-bottom: 0.4rem;
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
-    }
-
-    .betrayal-box p {
-      font-size: 0.9rem;
-      color: #ffcdd2;
-      margin: 0;
-      line-height: 1.5;
-    }
-
-    /* ── PHIERS ANSWER BOXES ── */
-    .answer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.2rem;
-      margin: 1.5rem 0;
-    }
-
-    .answer-box {
-      background: rgba(76,175,80,0.07);
-      border: 1px solid var(--green-border);
-      border-radius: 8px;
-      padding: 1.2rem 1.4rem;
-    }
-
-    .answer-box h4 {
-      font-family: 'Segoe UI', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--green);
-      margin-bottom: 0.4rem;
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
-    }
-
-    .answer-box p {
-      font-size: 0.9rem;
-      color: #c8e6c9;
-      margin: 0;
-      line-height: 1.5;
-    }
-
-    /* ── QUOTE BLOCK ── */
-    .quote-block {
-      background: var(--gold-dim);
-      border-left: 4px solid var(--gold);
-      border-radius: 0 8px 8px 0;
-      padding: 1.4rem 1.8rem;
-      margin: 1.8rem 0;
-    }
-
-    .quote-block p {
-      font-size: 1.05rem;
-      font-style: italic;
-      color: #fff9c4;
-      margin: 0 0 0.5rem;
-      line-height: 1.7;
-    }
-
-    .quote-block .attribution {
-      font-family: 'Segoe UI', sans-serif;
-      font-size: 0.85rem;
-      color: var(--gold);
-      font-style: normal;
-      font-weight: 600;
-    }
-
-    /* ── CONTRAST BOX ── */
-    .contrast-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1.5rem 0;
-      font-family: 'Segoe UI', sans-serif;
-      font-size: 0.95rem;
-    }
-
-    .contrast-table th {
-      padding: 0.8rem 1rem;
-      text-align: left;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      font-size: 0.8rem;
-    }
-
+    .contrast-table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    .contrast-table th { padding: 0.6rem 0.8rem; text-align: left; font-weight: 700; text-transform: uppercase; font-size: 0.7rem; }
     .contrast-table th.bad { background: var(--red-dim); color: var(--red); border: 1px solid var(--red-border); }
     .contrast-table th.good { background: rgba(76,175,80,0.1); color: var(--green); border: 1px solid var(--green-border); }
+    .contrast-table td { padding: 0.6rem 0.8rem; border: 1px solid rgba(255,255,255,0.06); line-height: 1.4; font-size: 0.85rem; }
 
-    .contrast-table td {
-      padding: 0.75rem 1rem;
-      vertical-align: top;
-      border: 1px solid rgba(255,255,255,0.06);
-      line-height: 1.5;
-    }
-
-    .contrast-table td.bad { color: #ffcdd2; background: rgba(239,83,80,0.04); }
-    .contrast-table td.good { color: #c8e6c9; background: rgba(76,175,80,0.04); }
-
-    /* ── WAR ALERT ── */
     .war-alert {
       background: linear-gradient(135deg, rgba(239,83,80,0.12), rgba(255,193,7,0.08));
       border: 2px solid var(--red-border);
-      border-radius: 10px;
-      padding: 2rem;
-      margin: 2rem 0;
+      border-radius: 8px;
+      padding: 1.2rem;
+      margin: 1.5rem 0;
       text-align: center;
       position: relative;
     }
+    .war-alert::before { content: '⚠ BREAKING'; position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--red); color: white; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; padding: 2px 12px; border-radius: 20px; }
 
-    .war-alert::before {
-      content: '⚠ BREAKING';
-      position: absolute;
-      top: -12px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--red);
-      color: white;
-      font-family: 'Segoe UI', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 800;
-      letter-spacing: 0.15em;
-      padding: 3px 14px;
-      border-radius: 20px;
+    .founder-box { background: var(--gold-dim); border: 2px solid var(--gold-border); border-radius: 8px; padding: 1.5rem; margin: 1rem 0; }
+
+    .math-box { background: rgba(76,175,80,0.08); border: 2px solid var(--green-border); border-radius: 8px; padding: 1.2rem; margin: 1rem 0; text-align: center; }
+    .math-box .big-number { font-size: 2.2rem; font-weight: 900; color: var(--green); display: block; line-height: 1; }
+
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 6px; margin: 1rem 0; }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+    .btn { display: inline-block; background: linear-gradient(135deg, var(--green), #2e7d32); color: white; padding: 10px 24px; font-size: 0.9rem; font-weight: 600; border: 2px solid var(--green); border-radius: 6px; text-decoration: none; transition: all 0.2s; margin: 0.2rem; }
+    .btn-red { background: linear-gradient(135deg, var(--red), #b71c1c); border-color: var(--red); }
+    .btn-outline { background: transparent; color: var(--green); }
+
+    .cta-block { background: linear-gradient(135deg, rgba(76,175,80,0.12), rgba(15,52,96,0.6)); border: 2px solid var(--green); border-radius: 8px; padding: 2rem; text-align: center; margin: 1.5rem 0; }
+
+    footer { background: rgba(10,14,26,0.8); border-top: 2px solid var(--green-border); padding: 2rem; margin-top: 2rem; text-align: center; border-radius: 8px; }
+    .footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin: 1.5rem 0; }
+    .footer-nav a { color: var(--green-light); text-decoration: none; font-size: 0.8rem; padding: 4px 8px; }
+
+    .constitutional-disclaimer { background: rgba(76, 175, 80, 0.1); border: 1px solid var(--green-border); border-radius: 8px; padding: 1rem; margin: 1rem 0; }
+
+    .image-modal { display: none; position: fixed; z-index: 20000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.95); align-items: center; justify-content: center; }
+    .image-modal.active { display: flex; }
+    .modal-content { max-width: 90%; max-height: 85vh; }
+    .close-modal { position: absolute; top: 20px; right: 35px; color: #fff; font-size: 40px; cursor: pointer; }
+
+    @media (min-width: 769px) {
+      img:not(.mobile-menu-toggle *) { max-width: 50% !important; height: auto !important; display: block; margin-left: auto; margin-right: auto; }
+      header img[alt*="PHIERS Logo"], img[alt*="Logo"] { max-width: 80% !important; }
     }
 
-    .war-alert h3 {
-      color: var(--red);
-      font-size: 1.3rem;
-      margin: 0 0 0.8rem;
-    }
-
-    .war-alert p {
-      color: #ffcdd2;
-      margin: 0;
-      font-size: 1rem;
-    }
-
-    /* ── WILL'S STORY ── */
-    .founder-box {
-      background: var(--gold-dim);
-      border: 2px solid var(--gold-border);
-      border-radius: 10px;
-      padding: 2rem;
-      margin: 1.5rem 0;
-    }
-
-    .founder-box h3 {
-      color: var(--gold);
-      margin-top: 0;
-      font-size: 1.2rem;
-    }
-
-    .founder-box p { color: #fff9c4; }
-    .founder-box strong { color: #ffffff; }
-
-    /* ── MATH HIGHLIGHT ── */
-    .math-box {
-      background: rgba(76,175,80,0.08);
-      border: 2px solid var(--green-border);
-      border-radius: 10px;
-      padding: 2rem;
-      margin: 1.5rem 0;
-      text-align: center;
-    }
-
-    .math-box .big-number {
-      font-family: 'Segoe UI', sans-serif;
-      font-size: clamp(2.2rem, 6vw, 3.5rem);
-      font-weight: 900;
-      color: var(--green);
-      display: block;
-      line-height: 1;
-      margin-bottom: 0.3rem;
-    }
-
-    .math-box .big-label {
-      font-family: 'Segoe UI', sans-serif;
-      font-size: 1.05rem;
-      color: var(--green-light);
-      margin-bottom: 1rem;
-    }
-
-    .math-box p {
-      font-size: 0.95rem;
-      max-width: 580px;
-      margin: 0 auto;
-      color: #c8e6c9;
-    }
-
-    /* ── CTA ── */
-    .cta-block {
-      background: linear-gradient(135deg, rgba(76,175,80,0.12), rgba(15,52,96,0.6));
-      border: 2px solid var(--green);
-      border-radius: 12px;
-      padding: 2.5rem;
-      text-align: center;
-      margin: 2.5rem 0;
-    }
-
-    .cta-block h2 { color: var(--text-bright); font-size: 1.7rem; margin-bottom: 0.8rem; }
-    .cta-block p { color: var(--green-light); margin-bottom: 1.5rem; font-size: 1.05rem; }
-
-    .btn {
-      display: inline-block;
-      background: linear-gradient(135deg, var(--green), #2e7d32);
-      color: white;
-      padding: 14px 36px;
-      font-family: 'Segoe UI', sans-serif;
-      font-size: 1.05rem;
-      font-weight: 700;
-      border: 2px solid var(--green);
-      border-radius: 8px;
-      text-decoration: none;
-      transition: all 0.2s;
-      cursor: pointer;
-      box-shadow: 0 4px 15px rgba(76,175,80,0.3);
-      margin: 0.4rem;
-    }
-
-    .btn:hover {
-      background: linear-gradient(135deg, #66bb6a, #388e3c);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(76,175,80,0.4);
-    }
-
-    .btn-red {
-      background: linear-gradient(135deg, var(--red), #b71c1c);
-      border-color: var(--red);
-      box-shadow: 0 4px 15px rgba(239,83,80,0.3);
-    }
-
-    .btn-red:hover {
-      background: linear-gradient(135deg, #ef9a9a, #c62828);
-      box-shadow: 0 6px 20px rgba(239,83,80,0.4);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--green);
-      border-color: var(--green);
-      box-shadow: none;
-    }
-
-    .btn-outline:hover {
-      background: var(--green-dim);
-    }
-
-    /* ── VIDEO ── */
-    .video-section {
-      background: linear-gradient(135deg, rgba(33,150,243,0.08), rgba(25,118,210,0.08));
-      border: 2px solid rgba(33,150,243,0.4);
-      border-radius: 12px;
-      padding: 2rem;
-      margin: 2rem 0;
-    }
-
-    .video-section h2 {
-      color: var(--blue);
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-
-    .video-container {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
-      border-radius: 8px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
-    }
-
-    .video-container iframe {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      background: rgba(10,14,26,0.8);
-      border-top: 2px solid var(--green-border);
-      padding: 2.5rem;
-      margin-top: 3rem;
-      text-align: center;
-      border-radius: 10px;
-    }
-
-    footer h3 { color: var(--green); margin-bottom: 0.5rem; font-family: 'Segoe UI', sans-serif; }
-    footer p { color: var(--text-muted); margin: 0.3rem 0; font-size: 0.9rem; }
-    footer a { color: var(--green-light); text-decoration: none; }
-    footer a:hover { color: var(--green); }
-
-    .footer-nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.5rem;
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--green-border);
-    }
-
-    .footer-nav a {
-      color: var(--green-light);
-      text-decoration: none;
-      font-family: 'Segoe UI', sans-serif;
-      font-size: 0.85rem;
-      padding: 4px 10px;
-      border-radius: 4px;
-      transition: all 0.2s;
-    }
-
-    .footer-nav a:hover { background: var(--green-dim); color: var(--green); }
-
-    .constitutional-disclaimer {
-      margin-top: 1.5rem;
-      padding: 1rem;
-      border: 1px solid var(--green-border);
-      border-radius: 8px;
-      background: rgba(76,175,80,0.04);
-    }
-
-    /* ── MOBILE TYPOGRAPHY ── */
     @media (max-width: 768px) {
-      section { padding: 1.5rem; }
-      .hero { padding: 2rem 1rem 1.5rem; }
-      .hero-stats { gap: 0.8rem; }
-      .betrayal-grid, .answer-grid { grid-template-columns: 1fr; }
-      .contrast-table { font-size: 0.85rem; }
-      .contrast-table th, .contrast-table td { padding: 0.6rem 0.7rem; }
+      img { max-width: 85% !important; width: auto !important; height: auto !important; display: block !important; margin-left: auto !important; margin-right: auto !important; margin-bottom: 1.2rem !important; }
+      img[alt*="Logo"] { max-width: min(300px, 85%) !important; }
     }
+
+    section { margin-bottom: 40px !important; }
+    h2 { margin-top: 30px !important; margin-bottom: 20px !important; }
+    .video-container { margin-top: 20px !important; margin-bottom: 20px !important; }
   </style>
 </head>
 <body>
 <div class="container">
 
-  <!-- NAV -->
   <nav>
-    <!-- Mobile Menu Toggle -->
     <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">
       <span class="menu-icon">☰</span>
       <span class="close-icon" style="display: none;">✕</span>
     </button>
-    
-    <!-- Navigation Links -->
-        <div class="nav-links">
+    <div class="nav-links">
       <a href="index.html">Home</a>
-      
+      <a href="OVERVIEW.html">Why This Works</a>
+      <a href="SimpleMath.html">The Math</a>
+      <a href="Quickstart.html">How It Works</a>
+      <a href="action.html" style="color:#f5c842; font-weight:700;">Take Action</a>
+      <a href="Donate.html">Donate</a>
       <div class="dropdown">
-        <button class="dropbtn strategy-dropbtn" onclick="toggleDropdown(event)">⚡ Strategy ▼</button>
+        <button class="dropbtn" onclick="toggleDropdown(event)">More ▼</button>
         <div class="dropdown-content">
-          <a href="Telehealth-Insurance.html" style="color:#f5c842;">Telehealth vs Insurance ⚡</a>
-          <a href="OVERVIEW.html">Overview</a>
-          <a href="Crisis.html">Crisis</a>
-          <a href="SimpleMath.html">Simple Math</a>
+          <div class="dropdown-group-label">Why It Matters</div>
+          <a href="Crisis.html">The Crisis</a>
+          <a href="Why-Change-Required.html">Why Change Required</a>
+          <a href="Telehealth-Insurance.html">Telehealth vs Insurance</a>
+          <div class="dropdown-group-label">Strategy &amp; Model</div>
           <a href="5D_Solutions.html">5D Solutions</a>
           <a href="Leverage.html">Leverage</a>
-          <a href="Why-Change-Required.html">Why Change Required</a>
           <a href="Unions-Strategy.html">Union Strategy</a>
-        </div>
-      </div>
-      
-      <a href="Quickstart.html" title="Understand the movement in 60 seconds">How It Works</a>
-      <a href="action.html" title="Sign, organize, or join the pressure system">Take Action</a>
-      <a href="SOTU-Pre-Sponse.html" style="color:#f5c842; font-weight:700;">SOTU Response 📺</a>
-      <a href="Veterans.html" style="color:#ef5350; font-weight:700;">Veterans 🎖</a>
-      <a href="Donate.html">Donate</a>
-      
-      <div class="dropdown">
-        <button class="dropbtn" onclick="toggleDropdown(event)">Resources ▼</button>
-        <div class="dropdown-content">
-          <a href="Veterans.html" style="color:#ef5350; font-weight:700;">Veterans 🎖</a>
+          <div class="dropdown-group-label">Stories &amp; Proof</div>
           <a href="real-stories.html">Real Stories</a>
+          <a href="Veterans.html" style="color:#ef5350;">Veterans</a>
+          <a href="SOTU-Pre-Sponse.html">SOTU Response</a>
           <a href="Media.html">Media</a>
+          <div class="dropdown-group-label">Support &amp; Info</div>
           <a href="FAQ.html">FAQ</a>
           <a href="About.html">About</a>
           <a href="Our-Origins.html">Origins</a>
+          <div class="dropdown-group-label">Deep Movement</div>
+          <a href="UNSTOPPABLE.html">UNSTOPPABLE</a>
         </div>
       </div>
     </div>
   </nav>
 
   <!-- NY POST ANCHOR -->
-  <section style="max-width:800px; margin:2rem auto 0; padding:0 1rem;">
-    <img src="Veterans_Deserve_Better_NOW.png"
-         alt="New York Post: Veterans Deserve More, Better, Faster... NOW! — Trump and Hegseth"
-         style="width:50%; max-width:420px; border-radius:10px; box-shadow:0 8px 30px rgba(0,0,0,0.5); display:block; margin:0 auto;">
-    <div style="margin-top:0.8rem; padding:1rem 1.2rem; background:rgba(239,83,80,0.07); border-left:4px solid #ef5350; border-radius:0 8px 8px 0;">
-      <p style="font-size:0.75rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:#ef5350; margin-bottom:0.3rem;">New York Post — Opinion</p>
-      <p style="font-size:1.05rem; font-weight:700; color:#ffffff; line-height:1.4; margin-bottom:0.5rem;">"Veterans Deserve More, Better, Faster... NOW!"</p>
-      <p style="font-size:0.88rem; color:#c8e6c9; line-height:1.65; margin:0;">The promise was made. The handshake was photographed. Now 30,000 VA staff are being cut — at the exact moment millions of new veterans become eligible for care. PHIERS is the solution they won't build. So we're building it ourselves.</p>
+  <div style="margin-bottom: 1.5rem;">
+    <img src="Veterans_Deserve_Better_NOW.png" alt="New York Post: Veterans Deserve More, Better, Faster... NOW!" style="max-width: 60%;">
+    <div style="margin-top:0.5rem; padding:0.8rem 1rem; background:rgba(239,83,80,0.07); border-left:4px solid #ef5350;">
+      <p style="font-size:0.7rem; font-weight:700; color:#ef5350; margin-bottom:0.2rem;">New York Post — Opinion</p>
+      <p style="font-size:0.95rem; font-weight:700; color:#ffffff;">"Veterans Deserve More, Better, Faster... NOW!"</p>
     </div>
-  </section>
+  </div>
 
   <!-- HERO -->
   <div class="hero">
     <div class="hero-flag">For Every Veteran Who Served — Then Got Left Behind</div>
     <h1>They Sent You to War.<br><span>Now They're Cutting Your Benefits.</span></h1>
-    <p class="hero-sub">
-      The VA is being gutted. A new war is forming on the horizon. And more than 20 million veterans 
-      get <em>nothing</em> from the system you were promised. PHIERS is the fix Congress won't build — 
-      so we're building it ourselves.
-    </p>
-
+    <p class="hero-sub">The VA is being gutted. A new war is forming. More than 20 million veterans get nothing from the system you were promised.</p>
     <div class="hero-stats">
-      <div class="stat-pill">
-        <span class="num">20M+</span>
-        <span class="label">Veterans Total</span>
-      </div>
-      <div class="stat-pill">
-        <span class="num">&lt;9M</span>
-        <span class="label">VA Actually Serves</span>
-      </div>
-      <div class="stat-pill">
-        <span class="num">&lt;10%</span>
-        <span class="label">With Full Coverage</span>
-      </div>
-      <div class="stat-pill">
-        <span class="num">30,000</span>
-        <span class="label">VA Staff Being Cut</span>
-      </div>
+      <div class="stat-pill"><span class="num">20M+</span><span class="label">Veterans</span></div>
+      <div class="stat-pill"><span class="num">&lt;9M</span><span class="label">VA Serves</span></div>
+      <div class="stat-pill"><span class="num">30K</span><span class="label">Staff Cut</span></div>
     </div>
-
-    <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now" class="btn btn-red">
-      Sign the Petition — For Every Veteran
-    </a>
-    <a href="#phiers-answer" class="btn btn-outline">See the Solution →</a>
+    <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now" class="btn btn-red">Sign the Petition</a>
+    <a href="#phiers-answer" class="btn btn-outline">See the Solution</a>
   </div>
 
-  <!-- HE AIN'T HEAVY ANCHOR -->
-  <section style="max-width:600px; margin:2rem auto 0; padding:0 1rem; text-align:center;">
-    <img src="He_aint_heavy.webp"
-         alt="He Ain't Heavy — A Black man reaching down to lift someone up. That is PHIERS."
-         style="width:50%; max-width:300px; border-radius:12px; box-shadow:0 12px 40px rgba(0,0,0,0.5); display:block; margin:0 auto;">
-    <p style="margin-top:1rem; font-size:1rem; font-style:italic; color:#e0e0e0; line-height:1.6;">
-      Built by people who were never supposed to make it —<br>
-      reaching back for everyone else.<br>
-      <strong style="color:#4caf50;">That is PHIERS.</strong>
-    </p>
-  </section>
+  <!-- HE AIN'T HEAVY -->
+  <div style="text-align:center; margin-bottom:1.5rem;">
+    <img src="He_aint_heavy.webp" alt="He Ain't Heavy — A Black man reaching down to lift someone up." style="max-width: 40%;">
+    <p style="font-size:0.9rem; font-style:italic;">Built by people who were never supposed to make it — reaching back for everyone else.<br><strong style="color:#4caf50;">That is PHIERS.</strong></p>
+  </div>
 
-  <!-- ANCHOR: TASK & PURPOSE NEWS BLOCK -->
-  <section style="max-width:800px; margin:2.5rem auto; padding:0;">
-
-    <!-- News anchor image -->
-    <a href="https://taskandpurpose.com/opinion/va-direct-care-system-veterans/" target="_blank"
-       style="display:block; text-decoration:none;">
-      <img src="Task_Purpose_VA_Veterans.png"
-           alt="Task & Purpose: Without swift action, the VA will continue eliminating choice for millions of veterans"
-           style="width:100%; border-radius:10px; box-shadow:0 8px 30px rgba(0,0,0,0.5); display:block;">
+  <!-- TASK & PURPOSE -->
+  <section style="padding:1rem;">
+    <a href="https://taskandpurpose.com/opinion/va-direct-care-system-veterans/" target="_blank">
+      <img src="Task_Purpose_VA_Veterans.png" alt="Task &amp; Purpose" style="max-width: 100%;">
     </a>
-
-    <div style="margin-top:1rem; padding:1.2rem 1.4rem; background:rgba(239,83,80,0.07); border-left:4px solid #ef5350; border-radius:0 8px 8px 0;">
-      <p style="font-family:'Segoe UI',sans-serif; font-size:0.78rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:#ef5350; margin-bottom:0.4rem;">
-        Task &amp; Purpose — Veterans News
-      </p>
-      <p style="font-size:1.1rem; font-weight:700; color:#ffffff; line-height:1.4; margin-bottom:0.6rem;">
-        "Without swift action, the VA will continue 'eliminating choice for millions of veterans'"
-      </p>
-      <p style="font-size:0.9rem; color:#e0e0e0; line-height:1.7; margin-bottom:0.8rem;">
-        A bipartisan warning from Senators Tester and Moran confirmed what veterans already know:
-        the VA is planning to cut 10,000 front-line staff in 2025 and another 10,000 in 2026 —
-        at the exact moment millions of new veterans become eligible for care under the PACT Act.
-        Front-line clinicians. The people who actually see patients. Gone.
-      </p>
-      <a href="https://taskandpurpose.com/opinion/va-direct-care-system-veterans/" target="_blank"
-         style="font-family:'Segoe UI',sans-serif; font-size:0.88rem; font-weight:700; color:#ef5350; text-decoration:none; border-bottom:1px solid rgba(239,83,80,0.4);">
-        Read the full story at Task &amp; Purpose →
-      </a>
+    <div style="margin-top:0.5rem; padding:0.8rem 1rem; background:rgba(239,83,80,0.07); border-left:4px solid #ef5350;">
+      <p style="font-size:0.7rem; font-weight:700; color:#ef5350;">Task &amp; Purpose</p>
+      <p style="font-size:0.95rem; font-weight:700; color:#ffffff;">"Without swift action, the VA will continue eliminating choice for millions of veterans"</p>
     </div>
   </section>
 
-  <!-- VA CRISIS DETAIL CONTENT -->
-  <section style="max-width:800px; margin:0 auto 2.5rem;">
-
-    <h2 style="color:#ef5350; margin-bottom:1.2rem;">The Crisis Hits Rural Veterans Hardest</h2>
-    <p style="line-height:1.8; color:#e0e0e0; margin-bottom:1rem;">
-      Rural veterans already face fewer clinics, longer drives, fewer specialists, and fewer 
-      mental-health providers. When the VA cuts staff, rural communities lose access first — 
-      and recover last.
-    </p>
-    <p style="line-height:1.8; color:#e0e0e0; margin-bottom:1rem;">
-      PHIERS changes that. The $600 telehealth model stabilizes rural hospitals and urban clinics 
-      by increasing patient volume, reducing uncompensated care, restoring predictable revenue, 
-      preventing closures, and keeping local providers employed. This creates a surplus that gets 
-      reinvested into the safety net — including veterans' care.
-    </p>
-    <p style="font-weight:700; color:#4caf50; font-size:1.05rem; margin-bottom:1.5rem;">
-      PHIERS fills the gaps the VA is creating.
-    </p>
-
-    <h2 style="color:#ef5350; margin-bottom:1.2rem;">Urban Veterans Are Being Squeezed Too</h2>
-    <p style="line-height:1.8; color:#e0e0e0; margin-bottom:1rem;">
-      Urban clinics are overwhelmed — rising caseloads, shrinking staff, longer wait times, 
-      fewer mental-health appointments. When the VA cuts 20,000 staff, these clinics absorb 
-      the overflow and collapse under the weight.
-    </p>
-    <p style="line-height:1.8; color:#e0e0e0; margin-bottom:1.5rem;">
-      PHIERS relieves that pressure by shifting routine care to telehealth, freeing up in-person 
-      capacity, reducing wait times, stabilizing clinic finances, and expanding access for 
-      veterans who need hands-on care.
-    </p>
-
-    <div style="padding:1.4rem 1.6rem; background:rgba(76,175,80,0.08); border:1px solid rgba(76,175,80,0.3); border-radius:8px; margin-bottom:1.5rem;">
-      <p style="font-weight:700; color:#ffffff; font-size:1.05rem; margin-bottom:0.8rem;">With PHIERS:</p>
-      <ul style="list-style:none; padding:0; color:#e0e0e0; line-height:2;">
-        <li>✅ Veterans get fast, affordable care</li>
-        <li>✅ Rural hospitals stay open</li>
-        <li>✅ Urban clinics stay stable</li>
-        <li>✅ The safety net expands</li>
-        <li>✅ The country keeps its word</li>
-      </ul>
-      <p style="font-weight:700; color:#4caf50; margin-top:1rem;">
-        Veterans shouldn't have to fight a second war at home just to get an appointment.<br>
-        PHIERS is how we fix that — together.
-      </p>
-    </div>
-
+  <!-- VA CRISIS -->
+  <section>
+    <h2 class="red">The Crisis Hits Rural &amp; Urban Veterans</h2>
+    <p>Rural veterans face fewer clinics, longer drives. The VA already had a severe shortage — now it's getting worse. Urban clinics are overwhelmed. When the VA cuts 30,000 staff, everyone loses access. Front-line clinicians. The people who actually see patients. Gone.</p>
+    <p>PHIERS changes that. The $600 telehealth model stabilizes rural hospitals and urban clinics by increasing patient volume, reducing uncompensated care, restoring predictable revenue, preventing closures, and keeping local providers employed. This creates a surplus that gets reinvested into the safety net — including veterans' care.</p>
+    <p><strong style="color:#4caf50;">PHIERS fills the gaps the VA is creating.</strong></p>
   </section>
 
   <!-- VETERANS VIDEO -->
-  <div class="video-section">
-    <h2 style="color:#ef5350; text-align:center; margin-bottom:0.5rem;">Veterans First: The 3.5% That Changes Everything</h2>
-    <p style="text-align:center; color:#ffcdd2; margin-bottom:1.2rem; font-family:'Segoe UI',sans-serif;">
-      Harvard research. 323 campaigns. Zero failures. This is why veterans are the decisive force.
-    </p>
+  <div style="margin:1.5rem 0;">
     <div class="video-container">
-      <iframe src="https://www.youtube.com/embed/C0TauiaOX38"
-              title="Veterans First — PHIERS 3.5% Movement"
-              frameborder="0"
-              allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/C0TauiaOX38" title="Veterans First — PHIERS" frameborder="0" allowfullscreen></iframe>
     </div>
-    <p style="text-align:center; color:#64b5f6; font-weight:bold; margin-top:1rem; font-family:'Segoe UI',sans-serif;">
-      Watch. Then sign. Then share with every veteran you know.
-    </p>
   </div>
 
-  <!-- PETITION + SURVEY CTA -->
-  <section style="border-left-color: var(--gold); text-align:center;">
-    <h2 class="gold" style="margin-bottom:0.5rem;">Three Actions. Thirty-Five Days. One Outcome.</h2>
-    <p style="max-width:600px; margin:0 auto 2rem; font-size:1.05rem;">
-      March 28 is the forcing function. Every veteran who signs, surveys, and shares multiplies 
-      the district-level pressure Congress cannot ignore.
-    </p>
-
-    <div class="betrayal-grid" style="max-width:700px; margin:0 auto 2rem;">
-      <div class="answer-box" style="text-align:left;">
-        <h4 style="font-size:1rem; margin-bottom:0.6rem;">① Sign the Petition</h4>
-        <p style="margin-bottom:1rem;">Tell Congress: authorize $600 telehealth on the ACA exchange — or face replacement. Takes 2 minutes.</p>
-        <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now" 
-           target="_blank" class="btn btn-red" style="padding:10px 24px; font-size:0.95rem;">
-          ✍ Sign Now →
-        </a>
-      </div>
-      <div class="answer-box" style="text-align:left;">
-        <h4 style="font-size:1rem; margin-bottom:0.6rem;">② Fill the Survey</h4>
-        <p style="margin-bottom:1rem;">Share your healthcare story. Your numbers become the data Congress sees. Takes 3 minutes.</p>
-        <a href="https://forms.gle/GekCB2xwHfFb4WLF6" 
-           target="_blank" class="btn" style="padding:10px 24px; font-size:0.95rem;">
-          Fill Survey →
-        </a>
-      </div>
-      <div class="answer-box" style="text-align:left;">
-        <h4 style="font-size:1rem; margin-bottom:0.6rem;">③ Share With Veterans</h4>
-        <p style="margin-bottom:1rem;">Send this page to every veteran you know. Their signature multiplies yours. Exponential. Unstoppable.</p>
-        <a href="action.html" class="btn btn-outline" style="padding:10px 24px; font-size:0.95rem;">
-          🔗 Get Share Tools →
-        </a>
-      </div>
+  <!-- THREE ACTIONS -->
+  <section style="border-left-color: var(--gold);">
+    <h2 class="gold">Three Actions. One Outcome.</h2>
+    <div class="betrayal-grid" style="grid-template-columns: repeat(3,1fr);">
+      <div class="answer-box"><h4>① Sign</h4><a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now" class="btn btn-red" style="padding:6px 12px; font-size:0.8rem;">Sign →</a></div>
+      <div class="answer-box"><h4>② Survey</h4><a href="https://forms.gle/GekCB2xwHfFb4WLF6" class="btn" style="padding:6px 12px; font-size:0.8rem;">Fill →</a></div>
+      <div class="answer-box"><h4>③ Share</h4><a href="action.html" class="btn btn-outline" style="padding:6px 12px; font-size:0.8rem;">Tools →</a></div>
     </div>
   </section>
 
   <!-- WAR ALERT -->
   <div class="war-alert">
-    <h3>The Largest U.S. Military Buildup Since Iraq — Happening Right Now</h3>
-    <p>
-      Two carrier strike groups. Hundreds of fighter jets. Strikes on Iran potentially days away. 
-      The administration is preparing to create a new generation of veterans — 
-      <strong>while simultaneously dismantling the system that's supposed to care for them.</strong>
-    </p>
+    <h3>Largest U.S. Military Buildup Since Iraq</h3>
+    <p>Creating new veterans while dismantling the system meant to care for them.</p>
   </div>
 
-  <!-- THE BETRAYAL -->
+  <!-- BETRAYAL -->
   <section class="red-section">
     <h2 class="red">The Betrayal — By the Numbers</h2>
-    <p>
-      This week alone, the VA tried to quietly slip a rule into the Federal Register — 
-      effective immediately, no public notice — that would have <strong>cut disability benefits for veterans 
-      who take medication.</strong> A veteran with 100% PTSD rating could have dropped to 30% 
-      simply because their medication was working.
-    </p>
-    <p>
-      They backed off after 10,000+ comments in 60 hours and a national outcry. 
-      <strong>But the rule is still on the books.</strong> They can reinstate it any time. 
-      This is the pattern: cut quietly, retreat when caught, try again later.
-    </p>
-
+    <p>This week alone, the VA tried to quietly slip a rule into the Federal Register — effective immediately, no public notice — that would have <strong>cut disability benefits for veterans who take medication.</strong> A veteran with 100% PTSD rating could have dropped to 30% simply because their medication was working.</p>
+    <p>They backed off after 10,000+ comments in 60 hours and a national outcry. <strong>But the rule is still on the books.</strong> They can reinstate it any time.</p>
     <div class="betrayal-grid">
-      <div class="betrayal-box">
-        <span class="icon">⚕</span>
-        <h4>Medication Trap</h4>
-        <p>New VA rule: if your medication works, your disability rating drops. Veterans incentivized to stop taking treatment to protect benefits.</p>
-      </div>
-      <div class="betrayal-box">
-        <span class="icon">👥</span>
-        <h4>30,000 Staff Fired</h4>
-        <p>DOGE cutting VA workforce to 2019 levels — before the PACT Act expanded care for toxic exposure veterans. Those positions existed for a reason.</p>
-      </div>
-      <div class="betrayal-box">
-        <span class="icon">→</span>
-        <h4>Nursing Homes Closing</h4>
-        <p>VA long-term care facilities being reduced. Elderly and severely disabled veterans losing residential support they cannot replace privately.</p>
-      </div>
-      <div class="betrayal-box">
-        <span class="icon">🧠</span>
-        <h4>Mental Health Gutted</h4>
-        <p>Psychiatrist and mental health counselor positions eliminated. The VA already had a "severe shortage" — now it's getting worse.</p>
-      </div>
-      <div class="betrayal-box">
-        <span class="icon">→</span>
-        <h4>Homelessness Criminalized</h4>
-        <p>Veterans experiencing homelessness face criminalization while the support systems that prevent and address veteran homelessness are being defunded.</p>
-      </div>
-      <div class="betrayal-box">
-        <span class="icon">→</span>
-        <h4>Contracts Canceled</h4>
-        <p>800+ VA service contracts cut — including some directly tied to disability rating assessments and patient safety systems.</p>
-      </div>
-    </div>
-
-    <div class="quote-block">
-      <p>"No one let our clients in the door. No one confirmed schedules. No one helped."</p>
-      <span class="attribution">— Terri Wollenberg, 32-year VA employee, fired in DOGE cuts</span>
+      <div class="betrayal-box"><h4>Medication Trap</h4><p>If meds work, rating drops. Incentive to stop treatment.</p></div>
+      <div class="betrayal-box"><h4>30,000 Staff Fired</h4><p>Cutting to pre-PACT Act levels.</p></div>
+      <div class="betrayal-box"><h4>Nursing Homes Closing</h4><p>Elderly veterans losing residential support.</p></div>
+      <div class="betrayal-box"><h4>Mental Health Gutted</h4><p>Psychiatrist positions eliminated.</p></div>
     </div>
   </section>
 
   <!-- THE MATH THEY HIDE -->
   <section class="red-section">
     <h2 class="red">The Math They Don't Want Veterans to Know</h2>
-    <p>
-      The VA talks about serving veterans. Here is what the numbers actually say:
-    </p>
-
     <table class="contrast-table">
-      <tr>
-        <th class="bad">What They Say</th>
-        <th class="good">What the Numbers Show</th>
-      </tr>
-      <tr>
-        <td class="bad">"The VA serves veterans"</td>
-        <td class="good">The VA serves fewer than 9 million of 20+ million veterans. More than half get nothing.</td>
-      </tr>
-      <tr>
-        <td class="bad">"Full coverage for disabled veterans"</td>
-        <td class="good">Fewer than 10% of veterans have 100% VA coverage. The rest navigate partial coverage, co-pays, and gaps.</td>
-      </tr>
-      <tr>
-        <td class="bad">"We're making the VA more efficient"</td>
-        <td class="good">Cutting 30,000 staff to pre-PACT Act levels — before toxic exposure coverage expanded to millions more veterans.</td>
-      </tr>
-      <tr>
-        <td class="bad">"No cuts to veteran benefits"</td>
-        <td class="good">The medication rule would have reduced ratings for the 6+ million veterans currently receiving disability compensation who take medication.</td>
-      </tr>
-      <tr>
-        <td class="bad">"We honor those who served"</td>
-        <td class="good">The largest military buildup since Iraq is underway. New veterans will be created by a system already dismantling their future care.</td>
-      </tr>
+      <tr><th class="bad">What They Say</th><th class="good">What the Numbers Show</th></tr>
+      <tr><td class="bad">"The VA serves veterans"</td><td class="good">The VA serves fewer than 9 million of 20+ million veterans.</td></tr>
+      <tr><td class="bad">"Full coverage for disabled veterans"</td><td class="good">Fewer than 10% of veterans have 100% VA coverage.</td></tr>
+      <tr><td class="bad">"We're making the VA more efficient"</td><td class="good">Cutting 30,000 staff to pre-PACT Act levels.</td></tr>
+      <tr><td class="bad">"No cuts to veteran benefits"</td><td class="good">The medication rule would have reduced ratings for millions.</td></tr>
     </table>
   </section>
 
   <!-- WILL'S STORY -->
   <section class="gold-section">
     <h2 class="gold">Why the Founder of PHIERS Quit the VA</h2>
-
     <div class="founder-box">
       <h3>Will Price | Chief Solutions Architect, PHIERS</h3>
-      <p>
-        <strong>20+ years inside the VA system.</strong> Senior Analyst, Electronic Health Record 
-        Modernization. Registration, Eligibility, and Enrollment systems. VistA. The actual machinery 
-        that determines whether veterans get care — or get lost in the system.
-      </p>
-      <p>
-        One of five civilians in the VA's first enterprise-wide reengineering initiative. 
-        Worked directly with the Office of the CIO. Saw how the system actually worked — 
-        and who it actually served.
-      </p>
-      <p>
-        <strong>He quit to build the alternative.</strong>
-      </p>
-      <p>
-        "The VA was designed to serve a fraction of veterans. Even at its best, it leaves 
-        more than half behind. I didn't leave because the VA was being cut — I left because 
-        the architecture was never built to serve all veterans in the first place. 
-        PHIERS is the architecture that does."
-      </p>
-      <p style="margin-top:1rem;">
-        — Will Price, Chief Solutions Architect, PHIERS Movement
-      </p>
+      <p><strong>20+ years inside the VA system.</strong> Senior Analyst, Electronic Health Record Modernization. Registration, Eligibility, and Enrollment systems. VistA. The actual machinery that determines whether veterans get care — or get lost in the system.</p>
+      <p>One of five civilians in the VA's first enterprise-wide reengineering initiative. Worked directly with the Office of the CIO. Saw how the system actually worked — and who it actually served.</p>
+      <p><strong>He quit to build the alternative.</strong></p>
+      <p style="font-style:italic;">"The VA was designed to serve a fraction of veterans. Even at its best, it leaves more than half behind. I didn't leave because the VA was being cut — I left because the architecture was never built to serve all veterans in the first place. PHIERS is the architecture that does."</p>
+      <p>— Will Price, Chief Solutions Architect, PHIERS Movement</p>
     </div>
-
-    <p>
-      This isn't an outsider's diagnosis. This is the person who spent two decades inside the system 
-      that processes your eligibility, manages your records, and determines your access to care — 
-      telling you exactly what he saw, and what he built instead.
-    </p>
   </section>
 
   <!-- PHIERS ANSWER -->
   <section id="phiers-answer">
     <h2>What PHIERS Delivers — For Every Veteran</h2>
-    <p>
-      PHIERS doesn't fix the VA. <strong>PHIERS makes the VA's failures irrelevant.</strong> 
-      Universal $600/year telehealth coverage that doesn't depend on your discharge status, 
-      your disability rating, your state, your income, or which party controls Congress.
-    </p>
-
     <div class="answer-grid">
-      <div class="answer-box">
-        <h4>Every Veteran. Not Just 9 Million.</h4>
-        <p>PHIERS covers all 234 million Americans including every veteran — regardless of VA eligibility, discharge status, or disability rating.</p>
-      </div>
-      <div class="answer-box">
-        <h4>No Medication Trap</h4>
-        <p>PHIERS coverage isn't tied to a disability rating. Taking your medication doesn't reduce your coverage. Your health doesn't penalize you.</p>
-      </div>
-      <div class="answer-box">
-        <h4>Mental Health Included</h4>
-        <p>$600/year telehealth covers mental health access. PTSD, depression, anxiety — without the VA waitlist, without the stigma, without the paperwork.</p>
-      </div>
-      <div class="answer-box">
-        <h4>Not Dependent on VA Staffing</h4>
-        <p>PHIERS operates through a cooperative telehealth model. 30,000 VA layoffs don't touch it. Budget cuts don't touch it. It's yours.</p>
-      </div>
-      <div class="answer-box">
-        <h4>Economic Security = Peace</h4>
-        <p>Veterans shouldn't face homelessness because they lost benefits. Economic stability reduces the conditions that create endless war economies.</p>
-      </div>
-      <div class="answer-box">
-        <h4>The 5th Dimension: Peace</h4>
-        <p>PHIERS explicitly links health, jobs, and economic security to peace. Healthy, secure people don't need war to survive. That's not ideology — it's math.</p>
-      </div>
+      <div class="answer-box"><h4>Every Veteran</h4><p>Covers all 234M Americans including every veteran — regardless of VA eligibility.</p></div>
+      <div class="answer-box"><h4>No Medication Trap</h4><p>Coverage not tied to disability rating. Your health doesn't penalize you.</p></div>
+      <div class="answer-box"><h4>Mental Health</h4><p>$600/year covers telehealth for PTSD, depression — without the VA waitlist.</p></div>
+      <div class="answer-box"><h4>Not Dependent on VA</h4><p>30,000 VA layoffs don't touch it. Budget cuts don't touch it. It's yours.</p></div>
     </div>
   </section>
 
   <!-- THE MATH -->
   <section>
     <h2>The Math That Changes Everything</h2>
-
     <div class="math-box">
       <span class="big-number">$600/yr</span>
-      <div class="big-label">covers what veterans actually need 80% of the time</div>
-      <p>
-        vs. $10,000+/year for traditional insurance that still leaves gaps, co-pays, 
-        network restrictions, and prior authorizations. One conversion frees enough 
-        savings to cover 12–19 more people. Those 12 fund 148. The cascade becomes unstoppable.
-      </p>
+      <p>covers 80% of what veterans need vs. $10,000+/year for traditional insurance. One conversion funds 12–19 more. Those 12 fund 148. The cascade becomes unstoppable.</p>
     </div>
-
-    <p>
-      The VA spends enormous sums per patient on an architecture built for the 1940s. 
-      PHIERS uses the same mathematical efficiency that powers modern telehealth — 
-      the 80% of healthcare that doesn't require hospitalization — and routes the savings 
-      into universal coverage.
-    </p>
-    <p>
-      <strong>$2.73 trillion in annual savings. Universal coverage in 8–13 months.</strong> 
-      That's not a slogan. That's arithmetic. 
-      <a href="SimpleMath.html" style="color: var(--green-light);">See the math →</a>
-    </p>
+    <p><strong>$2.73 trillion in annual savings. Universal coverage in 8–13 months.</strong> <a href="SimpleMath.html" style="color: var(--green-light);">See the math →</a></p>
   </section>
 
-  <!-- VIDEO -->
-  <div class="video-section">
-    <h2>The Math Congress Doesn't Want You to See</h2>
-    <div class="video-container">
-      <iframe src="https://www.youtube.com/embed/2j-dF3hgdeE"
-              title="PHIERS — The Math Congress Fears"
-              frameborder="0"
-              allowfullscreen></iframe>
-    </div>
-    <p style="text-align:center; color:#64b5f6; font-weight:bold; margin-top:1rem; font-family:'Segoe UI',sans-serif;">
-      1 minute 11 seconds. This is why they're terrified.
-    </p>
-  </div>
-
-  <!-- THE PEACE DIMENSION -->
+  <!-- PEACE DIMENSION -->
   <section class="gold-section">
     <h2 class="gold">The Dimension They Never Discuss: Peace</h2>
-    <p>
-      Right now, the United States has the largest military buildup in the Middle East 
-      since the 2003 Iraq invasion. Two carrier strike groups. Hundreds of fighter jets. 
-      Strikes potentially days away. A new generation of Americans is about to be sent into combat.
-    </p>
-    <p>
-      <strong>Those Americans will come home to a VA that is being dismantled in real time.</strong>
-    </p>
-    <p>
-      PHIERS was built with peace as one of its five core dimensions — not as idealism, 
-      but as systems thinking. Nations that provide genuine economic security, real healthcare, 
-      and stable employment don't need endless war economies to function. 
-      The 5D framework closes this loop deliberately.
-    </p>
-
-    <div class="quote-block">
-      <p>
-        "Power concedes nothing without a demand. Never has. Never will."
-      </p>
-      <span class="attribution">— Frederick Douglass</span>
-    </div>
-
-    <p>
-      Veterans earned the right to make that demand. PHIERS gives them the organized, 
-      mathematical, district-level force to make it unavoidable. Not protest. 
-      <strong>Pressure.</strong>
-    </p>
-  </section>
-
-  <!-- CONGRESS WAR POWERS -->
-  <section class="red-section">
-    <h2 class="red">Congress Has the Power to End These Wars. We Have the Power to Force Them To.</h2>
-    <p>
-      Article I, Section 8 of the Constitution is unambiguous: <strong>Congress declares war.</strong> 
-      Not the President. Not the Pentagon. Not a billionaire's advisory body. Congress.
-    </p>
-    <p>
-      Right now, the largest U.S. military buildup since the 2003 Iraq invasion is underway — 
-      and Congress is barely debating it. A new generation of Americans is being positioned 
-      for a "weeks-long" campaign in Iran with no clear objective, no exit strategy, 
-      and no honest accounting of what comes home to a VA being gutted in real time.
-    </p>
-    <p>
-      <strong>Nobody wants these wars except the elites who profit from them.</strong> 
-      Not veterans. Not military families. Not the 99% who pay in blood, treasure, 
-      and broken bodies that come home to a system being dismantled while they're still overseas.
-    </p>
-
-    <div class="quote-block">
-      <p>
-        "In the councils of government, we must guard against the acquisition of unwarranted influence by the military-industrial complex. The potential for the disastrous rise of misplaced power exists and will persist."
-      </p>
-      <span class="attribution">— President Dwight D. Eisenhower, Farewell Address, 1961</span>
-    </div>
-
-    <h3 style="color: var(--gold); font-size: 1.2rem; margin-top: 1.8rem;">The Power Vacuum Is Real — And It's Ours to Fill</h3>
-    <p>
-      There is a massive, growing space in American politics occupied by no one: 
-      leaders who don't take corporate healthcare money, don't take defense contractor money, 
-      and who actually represent what the people want. That space is not left or right. 
-      It's the 99%.
-    </p>
-    <p>
-      PHIERS gives that space an agenda. Concrete. Mathematical. Constitutional. 
-      A movement that can tell every Member of Congress: 
-      <strong>authorize $600 telehealth, protect veterans who served, stop the wars we don't want — 
-      or face replacement by someone who will.</strong>
-    </p>
-    <p>
-      This is what "leaders we deserve" looks like — not a party, not a personality, 
-      but an organized citizenry with a specific demand, a deadline, and the district-level 
-      leverage to make it unavoidable.
-    </p>
-
-    <div class="betrayal-grid" style="margin-top: 1.5rem;">
-      <div class="betrayal-box" style="background: rgba(76,175,80,0.07); border-color: var(--green-border);">
-        <span class="icon">→</span>
-        <h4 style="color: var(--green);">Constitutional Authority</h4>
-        <p style="color: #c8e6c9;">Congress holds the power to declare and fund — or defund — wars. PHIERS organizes citizens to force Congress to actually use that power.</p>
-      </div>
-      <div class="betrayal-box" style="background: rgba(76,175,80,0.07); border-color: var(--green-border);">
-        <span class="icon">→</span>
-        <h4 style="color: var(--green);">District-Level Leverage</h4>
-        <p style="color: #c8e6c9;">Every Member of Congress faces re-election. 3.5% organized in their district is more pressure than any PAC check. That's the math they fear.</p>
-      </div>
-      <div class="betrayal-box" style="background: rgba(76,175,80,0.07); border-color: var(--green-border);">
-        <span class="icon">→</span>
-        <h4 style="color: var(--green);">Non-Partisan by Design</h4>
-        <p style="color: #c8e6c9;">Veterans are not one party. The demand for healthcare and peace crosses every district. PHIERS works because the math works for everyone.</p>
-      </div>
-      <div class="betrayal-box" style="background: rgba(76,175,80,0.07); border-color: var(--green-border);">
-        <span class="icon">📅</span>
-        <h4 style="color: var(--green);">March 28 Is the Forcing Function</h4>
-        <p style="color: #c8e6c9;">Synchronized, district-level, coordinated pressure. Not a rally that gets forgotten. A deadline that makes congressional inaction politically impossible.</p>
-      </div>
-    </div>
+    <p>Right now, the United States has the largest military buildup in the Middle East since the 2003 Iraq invasion. Two carrier strike groups. Hundreds of fighter jets. A new generation of Americans is about to be sent into combat.</p>
+    <p><strong>Those Americans will come home to a VA that is being dismantled in real time.</strong></p>
+    <p>PHIERS was built with peace as one of its five core dimensions — not as idealism, but as systems thinking. Nations that provide genuine economic security, real healthcare, and stable employment don't need endless war economies to function.</p>
   </section>
 
   <!-- CTA -->
   <div class="cta-block">
     <h2>You Served. You're Owed This.</h2>
-    <p>
-      3.5% organized = guaranteed change. Harvard research. 323 campaigns. Zero failures.<br>
-      March 28, 2026 is the line. 35 days. This is how we make them act.
-    </p>
-    <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now" class="btn btn-red">
-      Sign the PHIERS Petition
-    </a>
-    <a href="action.html" class="btn">
-      Get Organized →
-    </a>
-    <a href="SimpleMath.html" class="btn btn-outline">
-      See the Math →
-    </a>
+    <p>3.5% organized = guaranteed change. March 28 is the line.</p>
+    <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now" class="btn btn-red">Sign the Petition</a>
+    <a href="action.html" class="btn">Get Organized</a>
+    <a href="SimpleMath.html" class="btn btn-outline">See the Math</a>
   </div>
 
   <!-- FOOTER -->
   <footer>
-    <h3>PHIERS Movement | Make America Better And Healthier</h3>
+    <h3 style="color:var(--green);">PHIERS Movement | Make America Better And Healthier</h3>
     <p style="margin: 15px 0;">
       Will Price | Chief Solutions Architect<br>
-      Phone: <a href="tel:+19163068967">(916) 306-8967</a> |
+      Phone: <a href="tel:+19163068967">(916) 306-8967</a> | 
       Email: <a href="mailto:info@phiers.org">info@phiers.org</a>
     </p>
-
-    <div style="margin-top:3rem;"></div>
-        <div class="footer-nav">
+    <div class="footer-nav">
       <a href="index.html">Home</a>
-      <a href="Quickstart.html">How It Works</a>
+      <a href="Quickstart.html">Quick Start</a>
       <a href="OVERVIEW.html">Overview</a>
       <a href="Crisis.html">Crisis</a>
-      <a href="SimpleMath.html">Simple Math</a>
-      <a href="5D_Solutions.html">5D Solutions</a>
+      <a href="SimpleMath.html">Math</a>
       <a href="action.html">Take Action</a>
-      <a href="Leverage.html">Leverage</a>
-      <a href="FAQ.html">FAQ</a>
-      <a href="Resources.html">Resources</a>
-      <a href="Media.html">Media</a>
-      <a href="About.html">About</a>
-      <a href="Donate.html">Donate</a>
-      <a href="SOTU-Pre-Sponse.html" style="color:#f5c842; font-weight:700;">Pre-Sponse 📺</a>
       <a href="Veterans.html">Veterans</a>
+      <a href="Donate.html">Donate</a>
     </div>
-
-    <div class="constitutional-disclaimer" style="margin-top:1.5rem;">
-      <p style="color:#ffffff; font-weight:700; font-size:1.05rem; letter-spacing:0.01em;">PHIERS is a public-interest movement — not a company, not a product.<br>The only thing missing is you.</p>
+    <div class="constitutional-disclaimer">
+      <p>PHIERS is a public-interest movement — not a company, not a product. The only thing missing is you.</p>
     </div>
-
-    <p style="margin-top:1.2rem; font-size:0.8rem; color:#555;">
-      Last updated: 2026-02-21 at 3:15 PM PT
-    </p>
+    <p style="margin-top: 1.2rem; font-size: 0.8rem; color: #555;">Last updated: 2026-03-01</p>
   </footer>
 
 </div>
 
-
-
-
+<!-- Image Modal -->
+<div id="imageModal" class="image-modal">
+  <span class="close-modal" onclick="closeImageModal()">&times;</span>
+  <img class="modal-content" id="modalImage" alt="">
+</div>
 
 <script>
 function toggleMobileMenu() {
@@ -1314,11 +477,14 @@ function toggleMobileMenu() {
   if (navLinks.classList.contains('active')) {
     if (menuIcon) menuIcon.style.display = 'none';
     if (closeIcon) closeIcon.style.display = 'inline';
+    document.body.style.overflow = 'hidden';
   } else {
     if (menuIcon) menuIcon.style.display = 'inline';
     if (closeIcon) closeIcon.style.display = 'none';
+    document.body.style.overflow = '';
   }
 }
+
 function toggleDropdown(event) {
   event.stopPropagation();
   let btn = event.target;
@@ -1326,25 +492,108 @@ function toggleDropdown(event) {
   if (!btn) return;
   const dropdown = btn.nextElementSibling;
   if (!dropdown) return;
-  document.querySelectorAll('.dropdown-content').forEach(d => { if (d !== dropdown) d.classList.remove('show'); });
-  dropdown.classList.toggle('show');
+  const isMobile = window.innerWidth <= 768;
+  if (isMobile) {
+    dropdown.classList.toggle('show');
+    document.querySelectorAll('.dropdown-content').forEach(d => { if (d !== dropdown) d.classList.remove('show'); });
+  } else {
+    dropdown.classList.toggle('show');
+  }
 }
-document.addEventListener('DOMContentLoaded', function() {
-  document.addEventListener('click', function(event) {
-    if (!event.target.matches('.dropbtn') && !event.target.closest('.dropbtn')) {
-      document.querySelectorAll('.dropdown-content').forEach(d => d.classList.remove('show'));
-    }
-    const nav = document.querySelector('nav');
+
+document.addEventListener('click', function(event) {
+  const nav = document.querySelector('nav');
+  const navLinks = document.querySelector('.nav-links');
+  const menuIcon = document.querySelector('.menu-icon');
+  const closeIcon = document.querySelector('.close-icon');
+  const toggle = document.querySelector('.mobile-menu-toggle');
+  if (event.target.closest('.dropbtn') || event.target.closest('.dropdown-content')) { return; }
+  if (navLinks && navLinks.classList.contains('active') && !nav.contains(event.target) && !toggle.contains(event.target)) {
+    navLinks.classList.remove('active');
+    if (menuIcon) menuIcon.style.display = 'inline';
+    if (closeIcon) closeIcon.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+});
+
+document.addEventListener('click', function(event) {
+  if (event.target.closest('.dropbtn')) { return; }
+  if (event.target.closest('.dropdown-content')) { return; }
+  document.querySelectorAll('.dropdown-content').forEach(d => { d.classList.remove('show'); });
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
     const navLinks = document.querySelector('.nav-links');
-    if (nav && navLinks && !nav.contains(event.target) && navLinks.classList.contains('active')) {
+    const menuIcon = document.querySelector('.menu-icon');
+    const closeIcon = document.querySelector('.close-icon');
+    if (navLinks && navLinks.classList.contains('active')) {
       navLinks.classList.remove('active');
-      const menuIcon = document.querySelector('.menu-icon');
-      const closeIcon = document.querySelector('.close-icon');
       if (menuIcon) menuIcon.style.display = 'inline';
       if (closeIcon) closeIcon.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+    document.querySelectorAll('.dropdown-content').forEach(d => { d.classList.remove('show'); });
+  }
+});
+
+window.addEventListener('resize', function() {
+  if (window.innerWidth > 768) {
+    const navLinks = document.querySelector('.nav-links');
+    const menuIcon = document.querySelector('.menu-icon');
+    const closeIcon = document.querySelector('.close-icon');
+    if (navLinks && navLinks.classList.contains('active')) {
+      navLinks.classList.remove('active');
+      if (menuIcon) menuIcon.style.display = 'inline';
+      if (closeIcon) closeIcon.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+    document.querySelectorAll('.dropdown-content').forEach(d => { d.classList.remove('show'); });
+  }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    if (link.getAttribute('href') === currentPage) {
+      link.style.background = 'rgba(76,175,80,0.25)';
+      link.style.color = '#fff';
     }
   });
 });
+
+function closeImageModal() {
+  const modal = document.getElementById('imageModal');
+  if (modal) modal.classList.remove('active');
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initImageModal);
+} else {
+  initImageModal();
+}
+
+function initImageModal() {
+  const modal = document.getElementById('imageModal');
+  const modalImg = document.getElementById('modalImage');
+  if (!modal || !modalImg) return;
+  const images = document.querySelectorAll('img:not(.mobile-menu-toggle):not(.mobile-menu-toggle *)');
+  images.forEach(function(img) {
+    if (img.parentElement && img.parentElement.tagName !== 'BUTTON') {
+      img.style.cursor = 'pointer';
+      img.addEventListener('click', function() {
+        modal.classList.add('active');
+        modalImg.src = this.src;
+        modalImg.alt = this.alt || '';
+      });
+    }
+  });
+  const closeBtn = modal.querySelector('.close-modal');
+  if (closeBtn) { closeBtn.addEventListener('click', closeImageModal); }
+  modal.addEventListener('click', function(e) { if (e.target === modal) { closeImageModal(); } });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && modal.classList.contains('active')) { closeImageModal(); } });
+}
 </script>
+
 </body>
 </html>
