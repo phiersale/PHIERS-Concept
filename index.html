@@ -1354,7 +1354,7 @@
 
 </div>
 
-<!-- Mobile Menu JavaScript - FIXED -->
+<!-- Mobile Menu JavaScript - FIXED DROPDOWN -->
 <script>
 function toggleMobileMenu() {
   const navLinks = document.querySelector('.nav-links');
@@ -1377,7 +1377,7 @@ function toggleMobileMenu() {
 }
 
 function toggleDropdown(event) {
-  event.stopPropagation();
+  event.stopPropagation(); // Stop event from bubbling up
   
   // Find the button that was clicked
   let btn = event.target;
@@ -1391,13 +1391,21 @@ function toggleDropdown(event) {
   const dropdown = btn.nextElementSibling;
   if (!dropdown) return;
   
-  // Toggle this dropdown
-  dropdown.classList.toggle('show');
+  // Check if we're on mobile
+  const isMobile = window.innerWidth <= 768;
   
-  // Close other dropdowns
-  document.querySelectorAll('.dropdown-content').forEach(d => {
-    if (d !== dropdown) d.classList.remove('show');
-  });
+  if (isMobile) {
+    // On mobile: toggle with .show class
+    dropdown.classList.toggle('show');
+    
+    // Close other dropdowns
+    document.querySelectorAll('.dropdown-content').forEach(d => {
+      if (d !== dropdown) d.classList.remove('show');
+    });
+  } else {
+    // On desktop: let hover handle it, but we can still toggle for touch
+    dropdown.classList.toggle('show');
+  }
 }
 
 // Close mobile menu when clicking outside
@@ -1407,6 +1415,11 @@ document.addEventListener('click', function(event) {
   const menuIcon = document.querySelector('.menu-icon');
   const closeIcon = document.querySelector('.close-icon');
   const toggle = document.querySelector('.mobile-menu-toggle');
+  
+  // Don't close if clicking on dropdown button or content
+  if (event.target.closest('.dropbtn') || event.target.closest('.dropdown-content')) {
+    return;
+  }
   
   // Close mobile menu if clicking outside nav and menu is open
   if (navLinks && navLinks.classList.contains('active') && 
@@ -1419,13 +1432,22 @@ document.addEventListener('click', function(event) {
   }
 });
 
-// Close dropdowns when clicking outside
+// Close dropdowns when clicking outside (desktop)
 document.addEventListener('click', function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    document.querySelectorAll('.dropdown-content').forEach(d => {
-      d.classList.remove('show');
-    });
+  // Don't close if clicking on dropdown button
+  if (event.target.closest('.dropbtn')) {
+    return;
   }
+  
+  // Don't close if clicking inside dropdown content
+  if (event.target.closest('.dropdown-content')) {
+    return;
+  }
+  
+  // Close all dropdowns
+  document.querySelectorAll('.dropdown-content').forEach(d => {
+    d.classList.remove('show');
+  });
 });
 
 // Handle escape key
@@ -1448,6 +1470,27 @@ document.addEventListener('keydown', function(e) {
   }
 });
 
+// Handle window resize - reset mobile menu state
+window.addEventListener('resize', function() {
+  if (window.innerWidth > 768) {
+    const navLinks = document.querySelector('.nav-links');
+    const menuIcon = document.querySelector('.menu-icon');
+    const closeIcon = document.querySelector('.close-icon');
+    
+    if (navLinks && navLinks.classList.contains('active')) {
+      navLinks.classList.remove('active');
+      if (menuIcon) menuIcon.style.display = 'inline';
+      if (closeIcon) closeIcon.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+    
+    // Close all dropdowns
+    document.querySelectorAll('.dropdown-content').forEach(d => {
+      d.classList.remove('show');
+    });
+  }
+});
+
 // Initialize active state for current page
 document.addEventListener('DOMContentLoaded', function() {
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
@@ -1457,6 +1500,12 @@ document.addEventListener('DOMContentLoaded', function() {
       link.style.background = 'rgba(76,175,80,0.25)';
       link.style.color = '#fff';
     }
+  });
+  
+  // Set aria attributes for accessibility
+  document.querySelectorAll('.dropbtn').forEach(btn => {
+    btn.setAttribute('aria-haspopup', 'true');
+    btn.setAttribute('aria-expanded', 'false');
   });
 });
 
