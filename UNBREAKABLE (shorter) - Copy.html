@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UNBREAKABLE: The Solution They Couldn't Stop • PHIERS</title>
+<style>
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #fafafa;
+    color: #1a1a1a;
+    line-height: 1.7;
+}
+header {
+    background: #0a0a0a;
+    color: white;
+    padding: 70px 25px 60px;
+    text-align: center;
+}
+header h1 {
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+}
+header .tagline {
+    font-size: 19px;
+    opacity: 0.7;
+    max-width: 640px;
+    margin: 0 auto 22px;
+    font-style: italic;
+}
+header .thesis {
+    font-size: 22px;
+    font-weight: 700;
+    color: #f5c842;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+section {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 60px 25px;
+}
+section.dark {
+    background: #111;
+    color: #e2e2e2;
+    max-width: 100%;
+    padding: 60px calc((100% - 860px) / 2 + 25px);
+}
+section.dark * { max-width: 810px; margin-left: auto; margin-right: auto; }
+.beat-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 10px;
+}
+section.dark .beat-label { color: #555; }
+h2 {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 22px;
+    line-height: 1.3;
+}
+h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 32px 0 14px;
+}
+p {
+    font-size: 17px;
+    margin-bottom: 16px;
+    line-height: 1.75;
+}
+p.lead {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.65;
+    margin-bottom: 22px;
+}
+p.thesis-line {
+    font-size: 19px;
+    font-weight: 700;
+    color: #f5c842;
+    line-height: 1.6;
+    margin: 24px 0;
+}
+p.bridge {
+    font-size: 16px;
+    font-style: italic;
+    color: #888;
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+}
+section:not(.dark) p.bridge {
+    color: #888;
+    border-top-color: rgba(0,0,0,0.08);
+}
+ul { padding-left: 22px; margin-bottom: 18px; }
+li { font-size: 17px; margin-bottom: 10px; line-height: 1.65; }
+
+/* Callout boxes */
+.highlight {
+    background: rgba(76,175,80,0.1);
+    border-left: 4px solid #4caf50;
+    padding: 20px 24px;
+    border-radius: 0 8px 8px 0;
+    margin: 28px 0;
+}
+.highlight p { margin-bottom: 0; }
+.gold-box {
+    background: rgba(245,200,66,0.07);
+    border-left: 4px solid #f5c842;
+    padding: 20px 24px;
+    border-radius: 0 8px 8px 0;
+    margin: 28px 0;
+}
+.gold-box p { margin-bottom: 10px; }
+.gold-box p:last-child { margin-bottom: 0; }
+.fact-row {
+    background: rgba(0,0,0,0.03);
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 10px 0;
+    font-size: 17px;
+    line-height: 1.6;
+}
+section.dark .fact-row {
+    background: rgba(255,255,255,0.03);
+    border-color: rgba(255,255,255,0.08);
+}
+.quote-pull {
+    text-align: center;
+    padding: 30px 20px;
+    margin: 36px 0;
+    border-top: 1px solid rgba(245,200,66,0.3);
+    border-bottom: 1px solid rgba(245,200,66,0.3);
+}
+.quote-pull p {
+    font-size: 20px;
+    font-weight: 700;
+    font-style: italic;
+    color: #f5c842;
+    line-height: 1.55;
+    margin-bottom: 10px;
+}
+.quote-pull .attr {
+    font-size: 13px;
+    color: #777;
+    font-style: normal;
+}
+.green-pull {
+    text-align: center;
+    padding: 30px 20px;
+    margin: 36px 0;
+    border-top: 1px solid rgba(76,175,80,0.3);
+    border-bottom: 1px solid rgba(76,175,80,0.3);
+}
+.green-pull p {
+    font-size: 20px;
+    font-weight: 700;
+    font-style: italic;
+    color: #4caf50;
+    line-height: 1.55;
+    margin-bottom: 10px;
+}
+.green-pull .attr { font-size: 13px; color: #777; font-style: normal; }
+
+/* Images */
+.img-thumb {
+    max-width: 260px;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: block;
+    margin: 0 auto;
+}
+.img-thumb:hover { transform: scale(1.03); box-shadow: 0 8px 30px rgba(0,0,0,0.4); }
+.thumb {
+    width: auto !important;
+    max-width: 140px !important;
+    height: auto !important;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+    display: block;
+    margin: 0 auto;
+}
+.thumb:hover { transform: scale(1.04); }
+.img-block { text-align: center; margin: 28px 0 36px; }
+.img-caption { font-size: 13px; color: #888; margin-top: 8px; font-style: italic; }
+.image-block { text-align: center; margin: 28px auto 36px; max-width: 160px; }
+.image-caption { margin-top: 8px; font-size: 13px; color: #888; font-style: italic; }
+
+/* CTA */
+.cta-block {
+    text-align: center;
+    padding: 36px 24px;
+    background: rgba(76,175,80,0.08);
+    border: 1px solid rgba(76,175,80,0.25);
+    border-radius: 12px;
+    margin: 44px 0 10px;
+}
+.cta-block p { font-size: 18px; margin-bottom: 10px; }
+.cta-btn {
+    display: inline-block;
+    background: #4caf50;
+    color: #fff;
+    font-weight: 700;
+    font-size: 17px;
+    padding: 14px 32px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 10px;
+}
+.cta-btn:hover { background: #43a047; }
+
+/* Modal */
+.modal {
+    display: none; position: fixed; z-index: 9999;
+    padding-top: 60px; left: 0; top: 0;
+    width: 100%; height: 100%; overflow: auto;
+    background-color: rgba(0,0,0,0.93);
+}
+.modal-content { margin: auto; display: block; max-width: 92%; max-height: 82%; }
+.modal-close {
+    position: absolute; top: 22px; right: 35px;
+    color: #fff; font-size: 34px; font-weight: bold; cursor: pointer;
+}
+footer {
+    background: #0a0a0a; color: #aaa;
+    text-align: center; padding: 32px 16px;
+    font-size: 13px; margin-top: 0;
+}
+
+/* Nav */
+nav {
+    background: #0a0a0a; padding: 0.75rem 1.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    position: sticky; top: 0; z-index: 1000;
+    border-bottom: 1px solid #1e1e1e;
+}
+.nav-links { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.nav-links a {
+    color: #e0e0e0; text-decoration: none;
+    font-size: 0.9rem; padding: 0.25rem 0.4rem;
+    border-radius: 4px; transition: color 0.2s;
+}
+.nav-links a:hover { color: #4caf50; }
+.dropdown { position: relative; display: inline-block; }
+.dropbtn {
+    background: none; border: none; color: #e0e0e0;
+    font-size: 0.9rem; cursor: pointer; padding: 0.25rem 0.4rem;
+}
+.dropbtn:hover { color: #4caf50; }
+.dropdown-content {
+    display: none; position: absolute; background: #1a1a1a;
+    min-width: 200px; border: 1px solid #333; border-radius: 6px;
+    z-index: 9999; top: 100%; left: 0;
+}
+.dropdown-content.show { display: block; }
+.dropdown-content a {
+    display: block; padding: 0.6rem 1rem;
+    color: #e0e0e0; font-size: 0.85rem;
+}
+.dropdown-content a:hover { background: #2a2a2a; color: #4caf50; }
+.mobile-menu-toggle {
+    display: none; background: none; border: 1px solid #444;
+    color: #e0e0e0; font-size: 1.4rem; cursor: pointer;
+    padding: 0.3rem 0.7rem; border-radius: 4px;
+}
+@media (max-width: 768px) {
+    .mobile-menu-toggle { display: block; }
+    .nav-links { display: none; flex-direction: column; width: 100%; padding: 1rem 0; gap: 0.5rem; }
+    .nav-links.active { display: flex; }
+    .dropdown-content { position: static; border: none; background: #222; }
+    header h1 { font-size: 30px; }
+    header .thesis { font-size: 18px; }
+    h2 { font-size: 22px; }
+    p.lead { font-size: 18px; }
+}
+
+    /* === NAV STYLES === */
+    nav { position: sticky; top: 0; z-index: 1000; background: #1a1a2e; padding: 0.75rem 1.5rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid #4caf50; }
+    .nav-links { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; }
+    .nav-links a { color: #e0e0e0; text-decoration: none; padding: 0.4rem 0.7rem; border-radius: 4px; font-size: 0.9rem; }
+    .nav-links a:hover { background: #4caf50; color: #fff; }
+    .mobile-menu-toggle { display: none; background: none; border: none; color: #e0e0e0; font-size: 1.5rem; cursor: pointer; }
+    .dropdown { position: relative; }
+    .dropbtn { background: none; border: none; color: #e0e0e0; cursor: pointer; padding: 0.4rem 0.7rem; font-size: 0.9rem; border-radius: 4px; }
+    .dropbtn:hover { background: #4caf50; color: #fff; }
+    .dropdown-content { display: none; position: absolute; top: 100%; right: 0; background: #1a1a2e; border: 1px solid #4caf50; border-radius: 4px; min-width: 220px; z-index: 1001; }
+    .dropdown-content a { display: block; padding: 0.4rem 1rem; color: #e0e0e0; text-decoration: none; font-size: 0.88rem; }
+    .dropdown-content a:hover { background: #4caf50; color: #fff; }
+    .dropdown-group-label { padding: 0.5rem 1rem 0.2rem; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: #81c784; border-top: 1px solid rgba(76,175,80,0.25); margin-top: 0.2rem; }
+    .dropdown-group-label:first-child { border-top: none; margin-top: 0; }
+    .dropdown-content.show { display: block; }
+    .close-icon { display: none; }
+    @media (max-width: 768px) { .mobile-menu-toggle { display: block; } .nav-links { display: none; flex-direction: column; width: 100%; } .nav-links.active { display: flex; } .dropdown-content { position: static; border: none; } }
+    /* === END NAV STYLES === */
+    </style>
+</head>
+<body>
+
+<!-- MODAL -->
+<div id="modal" class="modal" onclick="closeModal()">
+    <span class="modal-close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modal-img">
+</div>
+
+<nav>
+    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+      <span class="menu-icon">&#9776;</span>
+      <span class="close-icon" style="display: none;">&#x2715;</span>
+    </button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="OVERVIEW.html">Why This Works</a>
+      <a href="SimpleMath.html">The Math</a>
+      <a href="Quickstart.html">How It Works</a>
+      <a href="action.html" style="color:#f5c842; font-weight:700;">Take Action</a>
+      <a href="Donate.html">Donate</a>
+      <div class="dropdown">
+        <button class="dropbtn" onclick="toggleDropdown(event)">More &#x25BC;</button>
+        <div class="dropdown-content">
+          <div class="dropdown-group-label">Why It Matters</div>
+          <a href="Crisis.html">The Crisis</a>
+          <a href="Why-Change-Required.html">Why Change Required</a>
+          <a href="Telehealth-Insurance.html">Telehealth vs Insurance</a>
+          <div class="dropdown-group-label">Strategy &amp; Model</div>
+          <a href="5D_Solutions.html">5D Solutions</a>
+          <a href="Leverage.html">Leverage</a>
+          <a href="Unions-Strategy.html">Union Strategy</a>
+          <div class="dropdown-group-label">Stories &amp; Proof</div>
+          <a href="real-stories.html">Real Stories</a>
+          <a href="Veterans.html">Veterans</a>
+          <a href="SOTU-Pre-Sponse.html">SOTU Response</a>
+          <a href="Media.html">Media</a>
+          <div class="dropdown-group-label">Support &amp; Info</div>
+          <a href="FAQ.html">FAQ</a>
+          <a href="About.html">About</a>
+          <a href="Our-Origins.html">Origins</a>
+          <div class="dropdown-group-label">Deep Movement</div>
+          <a href="UNSTOPPABLE.html">UNSTOPPABLE</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+<!-- LOGO -->
+<div style="text-align:center; padding: 22px 0 8px; background:#0a0a0a;">
+    <a href="index.html">
+        <img src="PHIERS_Logo.png" alt="PHIERS logo" style="max-width:190px; width:70%; height:auto;">
+    </a>
+</div>
+
+<header>
+    <h1>UNBREAKABLE</h1>
+    <p class="tagline">When they dismissed us, we built anyway.</p>
+    <p class="thesis">
+        "We don't build to prove our worth.<br>
+        We build because our worth is already proven —<br>
+        and the world benefits when we refuse to shrink."
+    </p>
+</header>
+
+
+<!-- ═══════════════════════════════
+     VIDEO ANCHOR
+     ═══════════════════════════════ -->
+<section style="background:#0a0a0a; padding: 0 25px 50px; text-align:center;">
+    <div style="max-width:720px; margin:0 auto;">
+        <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:10px; box-shadow:0 8px 40px rgba(0,0,0,0.6);">
+            <iframe
+                src="https://www.youtube.com/embed/UD8svoGU7ZU"
+                title="PHIERS — Built Under Pressure"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                style="position:absolute; top:0; left:0; width:100%; height:100%;">
+            </iframe>
+        </div>
+        <div class="quote-pull" style="margin-top:36px; border-color:rgba(245,200,66,0.4);">
+            <p style="color:#f5c842;">"If you weren't legit,<br>we wouldn't risk putting our name behind yours."</p>
+            <span class="attr">— Pathos Communications, on PHIERS</span>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════
+     1. THE PATTERN + THE RESPONSE
+     ═══════════════════════════════ -->
+<section class="dark">
+    <span class="beat-label">1 — The Pattern &amp; The Response</span>
+    <h2>We See It. We Name It. We Build Anyway.</h2>
+
+    <p class="lead">
+        Black men are disrespected globally —
+        not because we lack talent, discipline, or contribution,
+        but because our excellence disrupts institutions built to underestimate us.
+    </p>
+
+    <p>We are celebrated when our brilliance is convenient.</p>
+    <p>We are ignored when our dignity requires protection.</p>
+    <p>We are resisted when our solutions threaten the status quo.</p>
+
+    <div class="gold-box">
+        <p><strong>This is not grievance. This is a record.</strong></p>
+        <p>And the record shows something remarkable:<br>
+        every time the pattern tried to stop us, we built something instead.</p>
+    </div>
+
+    <p>We don't retaliate. We don't shrink. We don't break.</p>
+    <p><strong>We build systems that stabilize nations.<br>
+    We build culture that moves the world.<br>
+    We build solutions that institutions could not create —<br>
+    and often tried to stop.</strong></p>
+
+    <p>
+        Respect that is demanded rarely lasts.<br>
+        Respect that is earned through contribution becomes permanent.
+    </p>
+
+    <div class="highlight">
+        <p>
+            <strong>Structural excellence forces institutions to confront
+            their own biases — without us ever raising our voices.</strong><br><br>
+            That is the moral high ground.<br>
+            That is the leverage.<br>
+            That is PHIERS.
+        </p>
+    </div>
+
+    <div class="img-block" style="margin-top:36px;">
+        <img src="fba_men_bonding.webp"
+             class="img-thumb"
+             style="max-width:220px;"
+             alt="FBA men — brotherhood, strength, purpose"
+             onclick="openModal(this.src)">
+        <p class="img-caption">Brotherhood. Strength. Purpose. Built under pressure.</p>
+    </div>
+
+    <div class="quote-pull" style="margin-top:40px;">
+        <p>"If we're talking to you right now,<br>there is an available editorial window."</p>
+        <span class="attr">— Pathos Communications, on PHIERS</span>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════
+     2. THE PROOF
+     ═══════════════════════════════ -->
+<section>
+    <span class="beat-label">2 — The Proof</span>
+    <h2>PHIERS: Built Without Permission. Built for Everyone.</h2>
+
+    <p class="lead">
+        A citizen-powered healthcare solution —
+        mathematically sound, nationally scalable, globally relevant.
+        Built by Black men. For everyone.
+    </p>
+
+    <div class="fact-row">💡 One conversion from a $10,000 insurance plan to a $600 telehealth plan frees savings to fund <strong>12 more people.</strong></div>
+    <div class="fact-row">📈 Those 12 fund <strong>148.</strong> Those 148 fund <strong>1,825.</strong></div>
+    <div class="fact-row">🎯 At <strong>3.5% of the country</strong> — 11.6 million people — the cascade is self-sustaining. Telehealth becomes free. Monthly relief checks follow. Jobs follow.</div>
+    <div class="fact-row">🏛️ At that threshold, Congress must act: <strong>pass laws making Telehealth available through ACA exchanges</strong> — or explain publicly why they won't adopt a solution that saves taxpayers <strong>trillions already collected.</strong></div>
+    <div class="fact-row">🌍 The impact reaches the US, the UK, and countries around the world. This is a global model.</div>
+
+    <p style="margin-top:24px;"><strong>This is not ideology. This is arithmetic.</strong></p>
+
+    <div class="image-block">
+        <img src="Me_n_%20Dad_at_CHURCH.png"
+             class="thumb"
+             style="max-width:140px !important; width:auto !important; height:auto !important;"
+             alt="Father and son — the foundation of PHIERS"
+             onclick="openModal(this.src)">
+        <p class="image-caption">The foundation. Father and son.</p>
+    </div>
+
+    <h3>What It Was Built Without</h3>
+    <ul>
+        <li>Without institutional protection</li>
+        <li>Without corporate backing</li>
+        <li>Without political shelter</li>
+        <li>Under pressure designed to break us</li>
+    </ul>
+
+    <h3>What It Cost — The Receipts</h3>
+
+    <div style="float:right; margin: 0 0 20px 28px; text-align:center; max-width:160px;">
+        <img src="The-Psychology-Behind-Hard-work.webp"
+             class="img-thumb"
+             style="max-width:155px;"
+             alt="The boulder — persistence under pressure"
+             onclick="openModal(this.src)">
+        <p class="img-caption" style="font-size:12px;">Every choice point: keep pushing.</p>
+    </div>
+
+    <ul>
+        <li>Rejected hush money tied to a hold-harmless affidavit</li>
+        <li>Endured identity theft, credit damage, and financial ruin</li>
+        <li>Survived threats, assault, and blacklisting</li>
+        <li>Became homeless rather than compromise the truth</li>
+        <li>Built PHIERS from the front seat of a car — and refused to stop</li>
+    </ul>
+
+    <div style="clear:both;"></div>
+
+    <div class="gold-box">
+        <p><strong>Every threat was an opportunity to quit.</strong><br>
+        Every time, the answer was the same: keep building.<br>
+        Not despite the pressure — through it.<br><br>
+        That is the architecture of a movement.</p>
+    </div>
+
+    <div class="image-block">
+        <img src="TAP-n-POP.png"
+             class="thumb"
+             style="max-width:140px !important; width:auto !important; height:auto !important;"
+             alt="A decade of partnership"
+             onclick="openModal(this.src)">
+        <p class="image-caption">A decade of building. Together.</p>
+    </div>
+
+    <p class="bridge">
+        That endurance is not a tragedy. It is the proof of concept.<br>
+        If PHIERS could be built under those conditions — it can survive anything.
+    </p>
+</section>
+
+
+<!-- ═══════════════════════════════
+     3. THE MIRROR + THE CALL
+     ═══════════════════════════════ -->
+<section class="dark">
+    <span class="beat-label">3 — The Mirror &amp; The Call</span>
+    <h2>BAFTA 2026. Same Pattern. Different Stage.</h2>
+
+    <p class="lead">
+        The BAFTA incident is not the story. It is the mirror.
+    </p>
+
+    <div class="img-block">
+        <img src="Michael_B_jordan_and_Delroy_Lindo_DIGNIFIED.jfif"
+             class="img-thumb"
+             style="max-width:240px;"
+             alt="Michael B. Jordan and Delroy Lindo at BAFTA 2026"
+             onclick="openModal(this.src)">
+        <p class="img-caption">Michael B. Jordan and Delroy Lindo —
+        dignity under conditions no man should have to endure.</p>
+    </div>
+
+    <p>
+        A global stage blessed two Black men with visibility —
+        then failed to protect their dignity.
+        The N-word was shouted at them. More than once.
+        BAFTA had a tape delay. The BBC had editors.
+    </p>
+
+    <div class="gold-box">
+        <p><strong>What was removed from the broadcast?</strong><br>
+        A joke about "corrupt leaders." A filmmaker saying "Free Palestine."<br><br>
+        <strong>What was not removed?</strong><br>
+        The racial slur directed at two Black men on a global stage.</p>
+    </div>
+
+    <p>
+        Delroy Lindo said afterward he wished
+        "someone from BAFTA had spoken to us."
+        No one did.
+    </p>
+
+    <div class="img-block">
+        <img src="BAFTA_MichaelBJordan_DelroyLindo_and_NO_Apology.png"
+             class="img-thumb"
+             style="max-width:240px;"
+             alt="HuffPost: BAFTA hasn't reached out after N-word incident"
+             onclick="openModal(this.src)">
+        <p class="img-caption">HuffPost, February 2026: "BAFTA hasn't reached out after N-word incident."</p>
+    </div>
+
+    <p>
+        That same week, after hours of collaborative conversations and a formal review,
+        a UK-based PR firm — traded on the London Stock Exchange —
+        declared an impasse and ended communication.
+    </p>
+    <p>
+        Nothing changed about PHIERS between the first conversation and the last.<br>
+        The math didn't change. The architecture didn't change. The national impact didn't change.
+    </p>
+    <p>
+        The reader can connect those dots.
+    </p>
+
+    <div class="quote-pull">
+        <p>"Different institution.<br>
+        Same pattern. Same silence.<br>
+        Same discomfort with Black excellence<br>
+        that disrupts the status quo."</p>
+        <span class="attr">— Will Price, PHIERS</span>
+    </div>
+
+    <p>Our response is not retaliation. Our response is solutions that make silence indefensible.</p>
+
+    <div class="img-block">
+        <img src="yin_yang__black_heart_light_mind.png"
+             class="img-thumb"
+             style="max-width:200px;"
+             alt="Heart and mind in balance"
+             onclick="openModal(this.src)">
+        <p class="img-caption">Heart and mind. The balance that built PHIERS.</p>
+    </div>
+
+    <h3>To Michael B. Jordan and Delroy Lindo</h3>
+
+    <p>
+        You stood on that stage and did what you had to do.
+        The world watched. Then no one came to find you.
+    </p>
+    <p>
+        That silence is the same silence PHIERS has lived inside for a decade.
+    </p>
+    <p>
+        We are not asking for validation.
+        We have the math, the architecture, and the movement.
+    </p>
+    <p>
+        We are asking you to see what Black men built
+        when every institution either went silent or pushed back —
+        and to decide if it's worth standing behind.
+    </p>
+
+    <div class="gold-box">
+        <p style="font-size:18px; font-weight:700;">
+            Not unlike Morpheus in The Matrix, we are offering the world a new truth —
+            that Black men, when we live up to our potential, are inferior to no one.
+            Even under siege. Even without support.
+            Even when the institutions meant to protect us look the other way.
+        </p>
+    </div>
+
+    <div class="img-block">
+        <img src="i_am_a_man.jpg"
+             class="img-thumb"
+             style="max-width:240px;"
+             alt="I AM A MAN — Memphis, 1968"
+             onclick="openModal(this.src)">
+        <p class="img-caption">"I AM A MAN" — Memphis, 1968.
+        They marched for dignity then. We build it now.</p>
+    </div>
+
+    <p class="lead" style="margin-top:36px;">
+        To every Foundational Black American man who has been dismissed,
+        sabotaged, blacklisted, or written off:
+    </p>
+    <p><strong>See what we built anyway.</strong></p>
+
+    <p class="thesis-line">
+        We persist — because when the world finally understands
+        who we are and what we have to offer,
+        it will be a better place.
+    </p>
+
+    <ul>
+        <li>To stand in dignity</li>
+        <li>To recognize the pattern</li>
+        <li>To build solutions that uplift everyone</li>
+        <li>To refuse to shrink</li>
+        <li>To refuse to break</li>
+    </ul>
+
+    <p style="font-size:19px; font-weight:700; text-align:center; margin:36px 0 8px;">
+        If not this, what?<br>
+        If not now, when?<br>
+        If not us, who?
+    </p>
+    <p style="font-size:17px; text-align:center; color:#f5c842; font-weight:700; margin-bottom:36px;">
+        There is no other alternative.
+    </p>
+
+    <div class="quote-pull" style="margin-bottom:44px;">
+        <p>"Major outlets are interested —<br>Forbes, USA Today, International Business Times."</p>
+        <span class="attr">— Pathos Communications, on PHIERS</span>
+    </div>
+
+    <div class="cta-block">
+        <p><strong>The record is set. The foundation is laid.</strong></p>
+        <p style="color:#aaa; font-size:16px;">
+            Now see what happens when an unbreakable foundation
+            becomes an unstoppable movement.
+        </p>
+        <a href="UNSTOPPABLE.html" class="cta-btn">
+            Read UNSTOPPABLE: The Movement We Build Together →
+        </a>
+    </div>
+</section>
+<footer>
+    © PHIERS.org Since 2014 - Original Concept - All Rights Reserved<br>
+    Prior art documented. PHIERS™, PHIERSale™, PHIERSWorks™ are protected marks established 2014-2025. | Occupy Health Rooms
+</footer>
+
+<script>
+function toggleMobileMenu() {
+  const navLinks = document.querySelector('.nav-links');
+  const menuIcon = document.querySelector('.menu-icon');
+  const closeIcon = document.querySelector('.close-icon');
+  if (!navLinks) return;
+  navLinks.classList.toggle('active');
+  if (navLinks.classList.contains('active')) {
+    if (menuIcon) menuIcon.style.display = 'none';
+    if (closeIcon) closeIcon.style.display = 'inline';
+  } else {
+    if (menuIcon) menuIcon.style.display = 'inline';
+    if (closeIcon) closeIcon.style.display = 'none';
+  }
+}
+function toggleDropdown(event) {
+  event.stopPropagation();
+  let btn = event.target;
+  while (btn && !btn.classList.contains('dropbtn')) { btn = btn.parentElement; }
+  if (!btn) return;
+  const dropdown = btn.nextElementSibling;
+  if (!dropdown) return;
+  const isOpen = dropdown.classList.contains('show');
+  document.querySelectorAll('.dropdown-content').forEach(d => d.classList.remove('show'));
+  document.querySelectorAll('.dropbtn').forEach(b => b.setAttribute('aria-expanded', 'false'));
+  if (!isOpen) { dropdown.classList.add('show'); btn.setAttribute('aria-expanded', 'true'); }
+}
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.dropbtn').forEach(btn => {
+    btn.setAttribute('aria-haspopup', 'true');
+    btn.setAttribute('aria-expanded', 'false');
+  });
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    if (link.getAttribute('href') === currentPage) {
+      link.style.background = 'rgba(76,175,80,0.25)';
+      link.style.color = '#fff';
+    }
+  });
+  document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', function() {
+      if (!this.getAttribute('href').startsWith('#')) {
+        sessionStorage.setItem('scrollToTop', '1');
+      }
+    });
+  });
+  if (sessionStorage.getItem('scrollToTop') === '1') {
+    sessionStorage.removeItem('scrollToTop');
+    window.scrollTo(0, 0);
+  }
+  document.addEventListener('click', function(event) {
+    if (!event.target.matches('.dropbtn') && !event.target.closest('.dropbtn')) {
+      document.querySelectorAll('.dropdown-content').forEach(d => d.classList.remove('show'));
+      document.querySelectorAll('.dropbtn').forEach(b => b.setAttribute('aria-expanded', 'false'));
+    }
+    const nav = document.querySelector('nav');
+    const navLinks = document.querySelector('.nav-links');
+    if (nav && navLinks && !nav.contains(event.target) && navLinks.classList.contains('active')) {
+      navLinks.classList.remove('active');
+      const menuIcon = document.querySelector('.menu-icon');
+      const closeIcon = document.querySelector('.close-icon');
+      if (menuIcon) menuIcon.style.display = 'inline';
+      if (closeIcon) closeIcon.style.display = 'none';
+    }
+  });
+});
+</script>
+
+</body>
+</html>
