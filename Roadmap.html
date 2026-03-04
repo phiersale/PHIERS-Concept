@@ -5,53 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Roadmap - PHIERS</title>
     <style>
-        /* Mobile menu toggle */
-        .mobile-menu-toggle {
-            display: none;
-            background: transparent;
-            border: 1px solid #4caf50;
-            color: #4caf50;
-            font-size: 1.8em;
-            padding: 5px 15px;
-            border-radius: 4px;
-            cursor: pointer;
-            margin: 10px 0;
-            width: 100%;
-            text-align: center;
-        }
-        
-        @media (max-width: 768px) {
-            .mobile-menu-toggle {
-                display: block;
-            }
-            
-            .global-nav {
-                flex-direction: column;
-                align-items: stretch;
-                padding: 10px;
-            }
-            
-            .nav-links-container {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-            }
-            
-            .nav-links-container.active {
-                display: flex;
-            }
-            
-            .global-nav a, .dropdown {
-                width: 100%;
-                text-align: center;
-            }
-            
-            .dropdown-content {
-                position: static;
-                width: 100%;
-            }
-        }
-        
         /* CORE PHIERS LOOK AND FEEL */
         * {
             margin: 0;
@@ -80,15 +33,39 @@
             border-radius: 8px;
             padding: 12px 20px;
             margin-bottom: 30px;
+            position: sticky;
+            top: 10px;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Mobile menu toggle */
+        .mobile-menu-toggle {
+            display: none;
+            background: transparent;
+            border: 1px solid #4caf50;
+            color: #4caf50;
+            font-size: 1.8em;
+            padding: 5px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0;
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .mobile-menu-toggle:hover {
+            background: rgba(76, 175, 80, 0.2);
+        }
+
+        .nav-links-container {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             justify-content: center;
             gap: 5px;
-            position: sticky;
-            top: 10px;
-            z-index: 1000;
-            backdrop-filter: blur(5px);
+            width: 100%;
         }
 
         .nav-item {
@@ -171,6 +148,43 @@
         .dropdown:hover .dropbtn {
             background: rgba(76, 175, 80, 0.2);
             color: #4caf50;
+        }
+
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .global-nav {
+                padding: 10px;
+            }
+            
+            .nav-links-container {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                margin-top: 15px;
+            }
+            
+            .nav-links-container.active {
+                display: flex;
+            }
+            
+            .nav-item, .dropdown {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .dropdown-content {
+                position: static;
+                width: 100%;
+                margin-top: 5px;
+            }
+            
+            .dropbtn {
+                width: 100%;
+            }
         }
 
         /* Hero Section - Unified */
@@ -420,10 +434,10 @@
         <nav class="global-nav">
             <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</div>
             <div class="nav-links-container" id="navLinks">
-                <a href="Crisis.html" class="nav-item active">Crisis</a>
+                <a href="Crisis.html" class="nav-item">Crisis</a>
                 <a href="5D_Solutions.html" class="nav-item">5D Solutions</a>
                 <a href="SimpleMath.html" class="nav-item">Simple Math</a>
-                <a href="Roadmap.html" class="nav-item">Roadmap</a>
+                <a href="Roadmap.html" class="nav-item active">Roadmap</a>
                 <a href="Leverage.html" class="nav-item">Leverage</a>
                 <a href="Action.html" class="nav-item">Action</a>
                 <a href="Donate.html" class="nav-item">Donate</a>
@@ -638,7 +652,10 @@
             
             <p class="green-emphasis" style="font-size: 1.4em; margin-top: 30px;">This is where PHIERS begins.</p>
             
-            <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now" class="btn btn-blue" style="margin-top: 30px;">Sign the Petition</a>
+            <div style="margin-top: 30px;">
+                <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now-short-version" class="btn btn-blue">Sign the Petition</a>
+                <a href="https://docs.google.com/forms/d/1FooxVUvgh9id7Un9OUjm8CKWK7tkCMgCfzWveEyczxY/edit" class="btn btn-blue" style="margin-left: 15px;">Take the Survey</a>
+            </div>
         </div>
 
         <!-- FOOTER -->
@@ -665,13 +682,13 @@
             <p class="copyright">PHIERS Movement | Version: 2026-03-03</p>
         </footer>
     </div>
-    
+
     <script>
     function toggleMobileMenu() {
         var navLinks = document.getElementById('navLinks');
         navLinks.classList.toggle('active');
     }
-    
+
     // Close mobile menu when a link is clicked
     document.addEventListener('DOMContentLoaded', function() {
         var navItems = document.querySelectorAll('.nav-links-container a');
@@ -685,6 +702,5 @@
         });
     });
     </script>
-
 </body>
 </html>
