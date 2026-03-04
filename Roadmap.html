@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roadmap - PHIERS</title>
+    <style>
+        /* Mobile menu toggle */
+        .mobile-menu-toggle {
+            display: none;
+            background: transparent;
+            border: 1px solid #4caf50;
+            color: #4caf50;
+            font-size: 1.8em;
+            padding: 5px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+            width: 100%;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .global-nav {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 10px;
+            }
+            
+            .nav-links-container {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .nav-links-container.active {
+                display: flex;
+            }
+            
+            .global-nav a, .dropdown {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .dropdown-content {
+                position: static;
+                width: 100%;
+            }
+        }
+        
+        /* CORE PHIERS LOOK AND FEEL */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #e0e0e0;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* GLOBAL NAVIGATION */
+        .global-nav {
+            background: rgba(26, 26, 46, 0.95);
+            border: 1px solid rgba(76, 175, 80, 0.3);
+            border-radius: 8px;
+            padding: 12px 20px;
+            margin-bottom: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            position: sticky;
+            top: 10px;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .nav-item {
+            color: #81c784;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .nav-item:hover {
+            background: rgba(76, 175, 80, 0.2);
+            color: #4caf50;
+        }
+
+        .nav-item.active {
+            background: rgba(76, 175, 80, 0.3);
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            background: transparent;
+            color: #81c784;
+            padding: 8px 12px;
+            font-size: 0.9em;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .dropbtn:hover {
+            background: rgba(76, 175, 80, 0.2);
+            color: #4caf50;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(26, 26, 46, 0.98);
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+            z-index: 1001;
+            border-radius: 8px;
+            border: 1px solid rgba(76, 175, 80, 0.3);
+            padding: 8px 0;
+        }
+
+        .dropdown-content a {
+            color: #81c784;
+            padding: 10px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.9em;
+            transition: all 0.3s;
+        }
+
+        .dropdown-content a:hover {
+            background: rgba(76, 175, 80, 0.2);
+            color: #4caf50;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background: rgba(76, 175, 80, 0.2);
+            color: #4caf50;
+        }
+
+        /* Hero Section - Unified */
+        .hero {
+            text-align: center;
+            padding: 50px 20px 40px 20px;
+            background: linear-gradient(135deg, rgba(15, 52, 96, 0.9), rgba(22, 33, 62, 0.9));
+            border-radius: 12px;
+            margin-bottom: 40px;
+            border: 2px solid rgba(76, 175, 80, 0.3);
+        }
+
+        .hero-logo {
+            max-width: 180px;
+            margin-bottom: 20px;
+        }
+
+        .mabah-tagline {
+            font-size: 1.2em;
+            color: #81c784;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            color: #4caf50;
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
+        }
+
+        .hero .subhead {
+            font-size: 1.3em;
+            color: #c8e6c9;
+            font-style: italic;
+        }
+
+        /* Headers */
+        h1 {
+            color: #4caf50;
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
+            text-align: center;
+        }
+
+        h2 {
+            color: #4caf50;
+            font-size: 2em;
+            margin: 50px 0 25px 0;
+            border-bottom: 2px solid rgba(76, 175, 80, 0.3);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #81c784;
+            font-size: 1.5em;
+            margin: 40px 0 20px 0;
+        }
+
+        h4 {
+            color: #4caf50;
+            font-size: 1.3em;
+            margin: 30px 0 15px 0;
+            font-style: italic;
+        }
+
+        p {
+            color: #c8e6c9;
+            margin: 20px 0;
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+
+        /* Phase boxes */
+        .phase {
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
+            padding: 40px;
+            margin-bottom: 40px;
+            border-radius: 12px;
+            border-left: 8px solid #4caf50;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .phase-header {
+            margin-bottom: 30px;
+        }
+
+        .phase-header h3 {
+            color: #4caf50;
+            font-size: 1.8em;
+            margin: 0 0 10px 0;
+        }
+
+        .phase-header h4 {
+            color: #81c784;
+            font-size: 1.3em;
+            margin: 0;
+            font-style: italic;
+        }
+
+        /* Impact grid */
+        .grid-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .grid-item {
+            background: rgba(76, 175, 80, 0.1);
+            padding: 15px 20px;
+            border-radius: 8px;
+            border-left: 3px solid #4caf50;
+        }
+
+        .grid-item p {
+            margin: 0;
+        }
+
+        .green-emphasis {
+            color: #4caf50;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        /* First step section */
+        .first-step {
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.1), rgba(25, 118, 210, 0.1));
+            border: 2px solid #2196f3;
+            border-left: 8px solid #2196f3;
+            padding: 40px;
+            margin: 50px 0;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .first-step h3 {
+            color: #2196f3;
+            font-size: 1.8em;
+        }
+
+        .action-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        .action-item {
+            background: rgba(33, 150, 243, 0.2);
+            border: 1px solid #2196f3;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 40px;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        /* Button */
+        .btn {
+            background: linear-gradient(135deg, #4caf50, #2e7d32);
+            color: white;
+            padding: 16px 40px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            display: inline-block;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.6);
+        }
+
+        .btn-blue {
+            background: linear-gradient(135deg, #2196f3, #1976d2);
+            box-shadow: 0 4px 15px rgba(33, 150, 243, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 80px;
+            border-top: 2px solid rgba(76, 175, 80, 0.3);
+            background: rgba(26, 26, 46, 0.6);
+            border-radius: 8px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin: 20px 0;
+            font-size: 0.9em;
+        }
+
+        .footer-links a {
+            color: #81c784;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #4caf50;
+            text-decoration: underline;
+        }
+
+        .footer-links span {
+            color: #4caf50;
+        }
+
+        .copyright {
+            color: #666;
+            font-size: 0.8em;
+            margin-top: 20px;
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2em; }
+            .hero .subhead { font-size: 1.1em; }
+            .hero-logo { max-width: 140px; }
+            h1 { font-size: 2.4em; }
+            h2 { font-size: 1.8em; }
+            h3 { font-size: 1.4em; }
+            .global-nav { flex-direction: column; align-items: stretch; }
+            .nav-item { text-align: center; }
+            .dropdown { width: 100%; }
+            .dropdown-content { position: static; width: 100%; }
+            .phase { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- GLOBAL NAVIGATION -->
+        <nav class="global-nav">
+            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</div>
+            <div class="nav-links-container" id="navLinks">
+                <a href="Crisis.html" class="nav-item active">Crisis</a>
+                <a href="5D_Solutions.html" class="nav-item">5D Solutions</a>
+                <a href="SimpleMath.html" class="nav-item">Simple Math</a>
+                <a href="Roadmap.html" class="nav-item">Roadmap</a>
+                <a href="Leverage.html" class="nav-item">Leverage</a>
+                <a href="Action.html" class="nav-item">Action</a>
+                <a href="Donate.html" class="nav-item">Donate</a>
+                <div class="dropdown">
+                    <button class="dropbtn">More ▼</button>
+                    <div class="dropdown-content">
+                        <a href="FAQ.html">FAQ</a>
+                        <a href="Origins.html">Origins</a>
+                        <a href="Media.html">Media</a>
+                        <a href="About.html">About</a>
+                        <a href="Quickstart.html">Quickstart</a>
+                        <a href="Veterans.html">Veterans</a>
+                        <a href="SOTU-Response.html">SOTU Response</a>
+                        <a href="Union-Strategy.html">Union Strategy</a>
+                        <a href="Telehealth-vs-Insurance.html">Telehealth vs Insurance</a>
+                        <a href="Real-Stories.html">Real Stories</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- HERO - Unified Identity Block -->
+        <div class="hero">
+            <img src="PHIERS_Logo.png" alt="PHIERS Logo" class="hero-logo">
+            <div class="mabah-tagline">Make America Better And Healthier</div>
+            <h1>ROADMAP</h1>
+            <div class="subhead">Where We're Going — And How We Get There</div>
+        </div>
+
+        <!-- INTRODUCTION -->
+        <div class="phase" style="border-left-color: #81c784;">
+            <p>People don't just need a fix.</p>
+            <p>They need direction.</p>
+            
+            <p style="margin-top: 30px;">A country under sustained pressure needs a path that works in sequence and leads somewhere better than where we are now.</p>
+            
+            <p class="green-emphasis" style="font-size: 1.4em;">PHIERS is built for that.</p>
+            
+            <p style="font-size: 1.3em; margin-top: 30px;">This is the roadmap.</p>
+        </div>
+
+        <!-- PHASE ONE -->
+        <div class="phase">
+            <div class="phase-header">
+                <h3>PHASE ONE — Stabilize the Base</h3>
+                <h4>Routine Healthcare Becomes Predictable</h4>
+            </div>
+            
+            <p class="green-emphasis">Everything starts here.</p>
+            
+            <p>Healthcare is one of the largest routine expenses for:</p>
+            
+            <div class="grid-list">
+                <div class="grid-item"><p>workers</p></div>
+                <div class="grid-item"><p>households</p></div>
+                <div class="grid-item"><p>employers</p></div>
+                <div class="grid-item"><p>public budgets</p></div>
+            </div>
+            
+            <p>When routine care is unstable, every other system absorbs the shock.</p>
+            
+            <p>Stabilizing this cost:</p>
+            
+            <div class="grid-list">
+                <div class="grid-item"><p>lowers pressure on households</p></div>
+                <div class="grid-item"><p>reduces overhead for employers</p></div>
+                <div class="grid-item"><p>frees unions to focus on wages</p></div>
+                <div class="grid-item"><p>reduces long‑term public strain</p></div>
+                <div class="grid-item"><p>increases mobility and opportunity</p></div>
+            </div>
+            
+            <p class="green-emphasis">This is the foundation.</p>
+            
+            <p>Stabilize routine care.<br>
+            Lower the cost.<br>
+            Make it predictable.</p>
+            
+            <p>When the base stabilizes, the rest of the system can move.</p>
+        </div>
+
+        <!-- PHASE TWO -->
+        <div class="phase">
+            <div class="phase-header">
+                <h3>PHASE TWO — Strengthen the Economic Core</h3>
+                <h4>Work, Wages, and Stability Improve Together</h4>
+            </div>
+            
+            <p>When healthcare stops absorbing wage gains, contracts change.</p>
+            <p>When workers aren't tied to jobs for coverage, mobility increases.</p>
+            <p>When employers can plan with confidence, hiring expands.</p>
+            <p>When households regain breathing room, communities stabilize.</p>
+            
+            <p>This phase strengthens:</p>
+            
+            <div class="grid-list">
+                <div class="grid-item"><p>wages</p></div>
+                <div class="grid-item"><p>job mobility</p></div>
+                <div class="grid-item"><p>local economies</p></div>
+                <div class="grid-item"><p>public services</p></div>
+                <div class="grid-item"><p>long‑term resilience</p></div>
+            </div>
+            
+            <p>Stability in one area reinforces stability in others.</p>
+            
+            <p class="green-emphasis">This is where pressure begins to ease.</p>
+        </div>
+
+        <!-- PHASE THREE -->
+        <div class="phase">
+            <div class="phase-header">
+                <h3>PHASE THREE — Reinvest the Savings</h3>
+                <h4>Cost Reduction Creates Room for Renewal</h4>
+            </div>
+            
+            <p>When routine healthcare costs fall at scale, fiscal room appears.</p>
+            
+            <p>Not through new debt.<br>
+            Not through new taxes.<br>
+            Through reduced waste and improved outcomes.</p>
+            
+            <p>Room created by:</p>
+            
+            <div class="grid-list">
+                <div class="grid-item"><p>lower routine spending</p></div>
+                <div class="grid-item"><p>earlier access to care</p></div>
+                <div class="grid-item"><p>reduced medical debt</p></div>
+                <div class="grid-item"><p>fewer emergency interventions</p></div>
+                <div class="grid-item"><p>stronger household stability</p></div>
+                <div class="grid-item"><p>lower long‑term strain</p></div>
+            </div>
+            
+            <p>That room supports reinvestment into:</p>
+            
+            <div class="grid-list">
+                <div class="grid-item"><p>workforce development</p></div>
+                <div class="grid-item"><p>housing stability</p></div>
+                <div class="grid-item"><p>food security</p></div>
+                <div class="grid-item"><p>community resilience</p></div>
+                <div class="grid-item"><p>economic mobility</p></div>
+            </div>
+            
+            <p>PHIERS, as a Public Benefit Corporation, is structured to compete for transparent, performance‑based partnerships aligned with these priorities.</p>
+            
+            <p class="green-emphasis">Savings do not vanish.<br>They reinforce stability.</p>
+        </div>
+
+        <!-- PHASE FOUR -->
+        <div class="phase">
+            <div class="phase-header">
+                <h3>PHASE FOUR — National Renewal</h3>
+                <h4>A More Stable Country</h4>
+            </div>
+            
+            <p>When the base stabilizes, economic pressure decreases, and reinvestment strengthens communities, systems begin to realign.</p>
+            
+            <p>A more stable phase emerges:</p>
+            
+            <div class="grid-list">
+                <div class="grid-item"><p>lower structural pressure</p></div>
+                <div class="grid-item"><p>stronger institutional trust</p></div>
+                <div class="grid-item"><p>healthier communities</p></div>
+                <div class="grid-item"><p>more predictable costs</p></div>
+                <div class="grid-item"><p>more resilient systems</p></div>
+            </div>
+            
+            <p>This is not ideology.</p>
+            <p class="green-emphasis">It is coordination at scale.</p>
+            
+            <p>A country that can coordinate can stabilize.</p>
+            <p>A country that stabilizes can grow.</p>
+        </div>
+
+        <!-- WHY THIS MATTERS NOW -->
+        <div class="phase" style="border-left-color: #ff9800;">
+            <h3 style="color: #ff9800; font-size: 1.8em;">WHY THIS MATTERS NOW</h3>
+            <h4 style="color: #ffb74d;">A Moment That Requires Direction</h4>
+            
+            <p>Costs are rising.<br>
+            Trust is falling.<br>
+            Institutions are strained.<br>
+            Communities feel pressure.</p>
+            
+            <p>Moments like this either deepen instability<br>
+            or create realignment.</p>
+            
+            <p class="green-emphasis">Realignment requires clarity.</p>
+            
+            <p>Document what you want.<br>
+            Stabilize the base.<br>
+            Strengthen the core.<br>
+            Reinvest the savings.<br>
+            Renew the system.</p>
+            
+            <p style="font-size: 1.3em; margin-top: 30px;">This is the path.</p>
+        </div>
+
+        <!-- THE FIRST STEP -->
+        <div class="first-step">
+            <h3>THE FIRST STEP</h3>
+            <h4 style="color: #81c784; font-size: 1.3em;">Documented Public Direction</h4>
+            
+            <p>Everything begins with clear, measurable alignment.</p>
+            
+            <div class="action-items">
+                <span class="action-item">Sign the petition</span>
+                <span class="action-item">Complete the survey</span>
+                <span class="action-item">Share the model</span>
+                <span class="action-item">Build alignment at scale</span>
+            </div>
+            
+            <p>When people coordinate clearly, systems respond.</p>
+            
+            <p class="green-emphasis" style="font-size: 1.4em; margin-top: 30px;">This is where PHIERS begins.</p>
+            
+            <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now" class="btn btn-blue" style="margin-top: 30px;">Sign the Petition</a>
+        </div>
+
+        <!-- FOOTER -->
+        <footer>
+            <h3>PHIERS Movement | MABAH</h3>
+            <p><strong>Make America Better And Healthier</strong></p>
+            <p style="margin: 20px 0;">PHIERS is a citizen coalition using collective leverage to force Congress to fix healthcare — or replace them.</p>
+            
+            <div class="footer-links">
+                <a href="UNSTOPPABLE.html">UNSTOPPABLE</a>
+                <span>|</span>
+                <a href="mailto:info@phiers.org">Contact</a>
+                <span>|</span>
+                <a href="Legal.html">Legal</a>
+                <span>|</span>
+                <span>© PHIERS</span>
+            </div>
+            
+            <div style="color: #a5d6a7; font-size: 0.9em; margin-top: 30px;">
+                PHIERS is a public-interest movement — not a company, not a product.<br>
+                The only thing missing is you.
+            </div>
+            
+            <p class="copyright">PHIERS Movement | Version: 2026-03-03</p>
+        </footer>
+    </div>
+    
+    <script>
+    function toggleMobileMenu() {
+        var navLinks = document.getElementById('navLinks');
+        navLinks.classList.toggle('active');
+    }
+    
+    // Close mobile menu when a link is clicked
+    document.addEventListener('DOMContentLoaded', function() {
+        var navItems = document.querySelectorAll('.nav-links-container a');
+        navItems.forEach(function(item) {
+            item.addEventListener('click', function() {
+                var navLinks = document.getElementById('navLinks');
+                if (window.innerWidth <= 768) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+    });
+    </script>
+
+</body>
+</html>
