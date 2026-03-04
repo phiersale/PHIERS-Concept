@@ -56,14 +56,60 @@ section:not(.dark) .tier-block { background:rgba(0,0,0,0.02); border-color:rgba(
 .img-block { text-align:center; margin:28px 0 36px; }
 .img-caption { font-size:13px; color:#888; margin-top:8px; font-style:italic; }
 .oath-line { font-size:22px; font-weight:800; color:#4caf50; text-align:center; line-height:1.5; margin:20px 0; }
-.modal { display:none; position:fixed; z-index:9999; padding-top:60px; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.93); }
-.modal-content { margin:auto; display:block; max-width:92%; max-height:82%; }
-.modal-close { position:absolute; top:22px; right:35px; color:#fff; font-size:34px; font-weight:bold; cursor:pointer; }
-footer { background:#0a0a0a; color:#aaa; text-align:center; padding:32px 16px; font-size:13px; }
+
+/* Image Modal - FIXED for mobile */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.95);
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.modal-content {
+    max-width: 90%;
+    width: auto;
+    height: auto;
+    display: block;
+    margin: 60px auto;
+    object-fit: contain;
+}
+
+.modal-close {
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10001;
+    background: rgba(0,0,0,0.5);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    transition: all 0.3s;
+}
+
+.modal-close:hover {
+    color: #4caf50;
+    background: rgba(0,0,0,0.8);
+}
+
 .graphic-container { text-align:center; margin:36px auto; }
 .graphic-container img { max-width:50%; height:auto; border-radius:8px; border:2px solid rgba(76,175,80,0.3); cursor:pointer; display:block; margin:0 auto; transition:transform 0.3s; }
 .graphic-container img:hover { transform:scale(1.02); }
 .graphic-container p { margin-top:10px; color:#81c784; font-size:0.9rem; font-style:italic; }
+
 nav { background:#0a0a0a; padding:0.75rem 1.5rem; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:1000; border-bottom:1px solid #1e1e1e; }
 .nav-links { display:flex; align-items:center; gap:1rem; flex-wrap:wrap; }
 .nav-links a { color:#e0e0e0; text-decoration:none; font-size:0.9rem; padding:0.25rem 0.4rem; border-radius:4px; transition:color 0.2s; }
@@ -76,7 +122,9 @@ nav { background:#0a0a0a; padding:0.75rem 1.5rem; display:flex; align-items:cent
 .dropdown-content a { display:block; padding:0.6rem 1rem; color:#e0e0e0; font-size:0.85rem; }
 .dropdown-content a:hover { background:#2a2a2a; color:#4caf50; }
 .mobile-menu-toggle { display:none; background:none; border:1px solid #444; color:#e0e0e0; font-size:1.4rem; cursor:pointer; padding:0.3rem 0.7rem; border-radius:4px; }
-@media (max-width:768px) {
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
     .mobile-menu-toggle { display:block; }
     .nav-links { display:none; flex-direction:column; width:100%; padding:1rem 0; gap:0.5rem; }
     .nav-links.active { display:flex; }
@@ -85,6 +133,18 @@ nav { background:#0a0a0a; padding:0.75rem 1.5rem; display:flex; align-items:cent
     header .thesis { font-size:17px; }
     h2 { font-size:22px; }
     p.lead { font-size:18px; }
+    .modal-close {
+        top: 10px;
+        right: 10px;
+        font-size: 35px;
+        width: 45px;
+        height: 45px;
+    }
+    .modal-content {
+        max-width: 95%;
+        margin: 50px auto;
+    }
+    .graphic-container img { max-width:85%; }
 }
 
     /* === NAV STYLES === */
@@ -121,6 +181,7 @@ nav { background:#0a0a0a; padding:0.75rem 1.5rem; display:flex; align-items:cent
 </head>
 <body>
 
+<!-- Image Modal - FIXED -->
 <div id="modal" class="modal" onclick="closeModal()">
     <span class="modal-close" onclick="closeModal()">&times;</span>
     <img class="modal-content" id="modal-img">
@@ -236,7 +297,7 @@ nav { background:#0a0a0a; padding:0.75rem 1.5rem; display:flex; align-items:cent
     <div class="graphic-container">
         <img src="The_3_5__Threshold_jpg.png"
              alt="The 3.5% Threshold — 16.6 million people, historically unstoppable"
-             loading="lazy" onclick="window.open(this.src,'_blank')">
+             loading="lazy" onclick="openModal(this.src)">
         <p>The 3.5% threshold: 16.6 million organized people. No nonviolent campaign at this scale has ever failed.</p>
     </div>
 
@@ -257,7 +318,7 @@ nav { background:#0a0a0a; padding:0.75rem 1.5rem; display:flex; align-items:cent
     <div class="graphic-container">
         <img src="CASCADE_Ladder.png"
              alt="The Cascade Effect — one conversion compounds into national scale: 1 → 12 → 148 → 1,825 → 22,000 → 100,000,000"
-             loading="lazy" onclick="window.open(this.src,'_blank')">
+             loading="lazy" onclick="openModal(this.src)">
         <p>One household shifts from $10,000 insurance to $600 telehealth — and the cascade begins.</p>
     </div>
 
@@ -340,7 +401,7 @@ nav { background:#0a0a0a; padding:0.75rem 1.5rem; display:flex; align-items:cent
     <div class="graphic-container">
         <img src="District_Accountability_Dashboard.png"
              alt="District Accountability Dashboard — every district has a measurable threshold"
-             loading="lazy" onclick="window.open(this.src,'_blank')">
+             loading="lazy" onclick="openModal(this.src)">
         <p>Every district has a measurable threshold. Gray = 1,500+ verified signatures. Gold = endorsed.</p>
     </div>
 
@@ -349,7 +410,7 @@ nav { background:#0a0a0a; padding:0.75rem 1.5rem; display:flex; align-items:cent
     <div class="graphic-container">
         <img src="National_Dashboard.png"
              alt="National Participation Dashboard — district-level momentum scaling to national coverage"
-             loading="lazy" onclick="window.open(this.src,'_blank')">
+             loading="lazy" onclick="openModal(this.src)">
         <p>National Participation Dashboard — from Not Yet Active to At Threshold, district by district.</p>
     </div>
         <p>Every candidate seeking PHIERS endorsement must:</p>
@@ -552,288 +613,4 @@ nav { background:#0a0a0a; padding:0.75rem 1.5rem; display:flex; align-items:cent
     <p>What it disrupts:</p>
     <ul>
         <li>Hospital networks that profit from complexity</li>
-        <li>Insurance companies built on friction and denial</li>
-        <li>Corporate middle structures that extract value without creating it</li>
-        <li>Gatekeepers who benefit from confusion and dependency</li>
-    </ul>
-
-    <div class="highlight">
-        <p>
-            <strong>When control is threatened, pressure follows.</strong><br>
-            That is not emotion. That is how power behaves.<br><br>
-            The resistance PHIERS faced was not personal. It was structural.<br>
-            Structural resistance is the surest sign
-            that a solution is working exactly as designed.<br><br>
-            PHIERS doesn't ask these systems to reform.
-            <strong>It renders their resistance irrelevant.</strong>
-        </p>
-    </div>
-</section>
-
-
-<!-- 8 — THE INVITATION -->
-<section>
-    <span class="beat-label">8 — The Invitation</span>
-    <h2>Your Role. Right Now. At the Level That Fits Your Life.</h2>
-
-    <p class="lead">
-        You don't have to do everything.<br>
-        You just have to do something.
-    </p>
-
-    <p>Every name is a signal. Every signal is data. Every data point is leverage.</p>
-    <p>Sign → Verify → Share → Recruit one person. That's the rhythm.</p>
-
-    <div class="tier-block">
-        <h3>Supporters — 1 to 3 hours per week</h3>
-        <ul>
-            <li>Sign the petition and complete the survey</li>
-            <li>Share PHIERS with people you trust</li>
-            <li>Support the work financially if you're able</li>
-        </ul>
-    </div>
-
-    <div class="tier-block">
-        <h3>Volunteers — 3 to 10 hours per week</h3>
-        <ul>
-            <li>Lead signature drives in your community</li>
-            <li>Help manage online channels and social sharing</li>
-            <li>Recruit others who are ready to move</li>
-        </ul>
-    </div>
-
-    <div class="tier-block">
-        <h3>Organizers — 10 or more hours per week</h3>
-        <ul>
-            <li>Coordinate district-level efforts toward 1,500 verified signatures</li>
-            <li>Train volunteers and build local teams</li>
-            <li>Be the face decision-makers see when they look at this movement</li>
-        </ul>
-    </div>
-
-    <p style="margin-top:20px; font-size:17px; color:#555;">
-        A ladder anyone can climb. Every rung matters.
-    </p>
-
-    <div class="cta-mini">
-        <a href="action.html" class="cta-inline">Sign the Petition →</a>
-        <a href="Donate.html" class="cta-inline secondary">Support the Work</a>
-    </div>
-</section>
-
-
-<!-- 9 — THE CALLING + HANDOFF -->
-<section class="dark">
-    <span class="beat-label">9 — The Calling</span>
-    <h2>Why This Feels Bigger Than Any One Person — And Why It Was Always Meant to Be Yours</h2>
-
-    <p class="lead">
-        This work has never felt like a career move.
-        It has felt like a calling.
-    </p>
-
-    <p>
-        Not in a way that excludes anyone —
-        but in the simple human sense that some work is bigger than any one person,
-        and some ideas arrive before the world is ready for them.
-    </p>
-
-    <p>
-        PHIERS was built under pressure, but not by accident.
-        The same force that kept Black men from breaking
-        is the force that now invites millions of us to move together.
-    </p>
-
-    <div class="highlight">
-        <p>
-            You don't have to share the founders' beliefs to feel it.<br>
-            You just have to know what it feels like
-            when something is clearly right — and clearly overdue.
-        </p>
-    </div>
-
-    <p>This solution was built without permission.<br>
-    If it moves forward nationally — let it begin with us.</p>
-
-    <p class="oath-line">
-        Let it be funded by us.<br>
-        Let it be founded by us.<br>
-        Let it be stewarded by us.
-    </p>
-
-    <p>
-        PHIERS was designed from the beginning to be handed to a democratically-led co-op —
-        built with organizations committed to defending democracy and expanding access.
-        Groups like the Working Families Party, Indivisible, MoveOn.org,
-        Leaders We Deserve, and other grassroots networks
-        are the natural stewards of what PHIERS becomes at scale.
-    </p>
-
-    <p>
-        The founders' role is not to be the face of this forever.
-        The role is to research, architect, and build the framework —
-        then help bring in the right people to lead it.
-    </p>
-
-    <div class="highlight">
-        <p>
-            <strong>Your role is not to follow a leader.</strong><br>
-            Your role is to become one.<br><br>
-            Founding membership begins with participation — not wealth.
-            Even one dollar is a declaration.<br><br>
-            We stand behind what we build.
-            We do not wait to be validated.
-            We initiate. We steward. We deliver.<br><br>
-            This is not charity. It is ownership.<br>
-            <strong>We build. And the world benefits.</strong>
-        </p>
-    </div>
-
-    <div class="img-block">
-        <img src="PHIERS_Cascade_Leverage_Visual_v1.png"
-             class="img-thumb"
-             style="max-width:280px;"
-             alt="PHIERS cascade and leverage"
-             onclick="openModal(this.src)">
-        <p class="img-caption">The cascade. The leverage. The handoff.</p>
-    </div>
-</section>
-
-
-<!-- 10 — THE DECLARATION -->
-<section>
-    <span class="beat-label">10 — The Declaration</span>
-    <h2>Why We Are, Together, Unstoppable</h2>
-
-    <p class="lead">
-        UNBREAKABLE proved that integrity can survive pressure.<br>
-        UNSTOPPABLE proves that integrity, multiplied by millions,
-        can reshape what is possible.
-    </p>
-
-    <p>We are not waiting for permission.</p>
-    <p>We are not asking for a savior.</p>
-    <p>We are building, together, the future we wish someone had built for us.</p>
-
-    <div class="quote-pull">
-        <p>"PHIERS is the blueprint.<br>
-        The movement is the engine.<br>
-        And when enough of us move together,<br>
-        we are unstoppable."</p>
-        <span class="attr">— Will Price, PHIERS Founders</span>
-    </div>
-
-    <p style="font-size:19px; text-align:center; color:#555; margin:32px 0;">
-        The founders wrote it down 250 years ago.<br>
-        We are living it now — organized, peaceful, mathematically unstoppable.<br><br>
-        This is what democracy looks like<br>
-        when the people who built it decide to use it.
-    </p>
-
-    <!-- CLIMAX VISUAL -->
-    <div class="graphic-container">
-        <img src="100Mil_Americans_jpg.png"
-             alt="100 Million Americans — a measurable national participation milestone by July 4, 2026"
-             loading="lazy" onclick="window.open(this.src,'_blank')">
-        <p>100 million Americans. July 4, 2026. The 250th anniversary. This is the destination.</p>
-    </div>
-
-    <!-- CINEMATIC FINAL FRAME -->
-    <div style="text-align:center; padding:60px 20px; border-top:2px solid rgba(76,175,80,0.2); margin-top:40px;">
-        <p style="font-size:30px; font-weight:800; color:#1a1a1a; letter-spacing:-0.5px; margin-bottom:4px; line-height:1.3;">
-            UNBREAKABLE was the proof.
-        </p>
-        <p style="font-size:30px; font-weight:800; color:#1a1a1a; letter-spacing:-0.5px; margin-bottom:4px; line-height:1.3;">
-            UNSTOPPABLE is the plan.
-        </p>
-        <p style="font-size:38px; font-weight:800; color:#4caf50; letter-spacing:-1px; margin:16px 0 40px; line-height:1.2;">
-            Now we move.
-        </p>
-        <a href="action.html" class="cta-inline" style="font-size:19px; padding:18px 44px;">
-            Sign the Petition →
-        </a>
-    </div>
-
-    <div style="text-align:center; margin-top:50px; padding-top:30px; border-top:1px solid rgba(0,0,0,0.07);">
-        <p style="font-size:15px; color:#888; margin-bottom:14px;">Want the full origin story?</p>
-        <a href="UNBREAKABLE.html" style="color:#4caf50; font-weight:700; font-size:17px; text-decoration:none;">
-            Read UNBREAKABLE: The Solution They Couldn't Stop →
-        </a>
-    </div>
-</section>
-
-<footer>
-    © PHIERS.org Since 2014 - Original Concept - All Rights Reserved<br>
-    Prior art documented. PHIERS™, PHIERSale™, PHIERSWorks™ are protected marks established 2014-2025. | Occupy Health Rooms
-</footer>
-
-<script>
-function toggleMobileMenu() {
-  const navLinks = document.querySelector('.nav-links');
-  const menuIcon = document.querySelector('.menu-icon');
-  const closeIcon = document.querySelector('.close-icon');
-  if (!navLinks) return;
-  navLinks.classList.toggle('active');
-  if (navLinks.classList.contains('active')) {
-    if (menuIcon) menuIcon.style.display = 'none';
-    if (closeIcon) closeIcon.style.display = 'inline';
-  } else {
-    if (menuIcon) menuIcon.style.display = 'inline';
-    if (closeIcon) closeIcon.style.display = 'none';
-  }
-}
-function toggleDropdown(event) {
-  event.stopPropagation();
-  let btn = event.target;
-  while (btn && !btn.classList.contains('dropbtn')) { btn = btn.parentElement; }
-  if (!btn) return;
-  const dropdown = btn.nextElementSibling;
-  if (!dropdown) return;
-  const isOpen = dropdown.classList.contains('show');
-  document.querySelectorAll('.dropdown-content').forEach(d => d.classList.remove('show'));
-  document.querySelectorAll('.dropbtn').forEach(b => b.setAttribute('aria-expanded', 'false'));
-  if (!isOpen) { dropdown.classList.add('show'); btn.setAttribute('aria-expanded', 'true'); }
-}
-document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.dropbtn').forEach(btn => {
-    btn.setAttribute('aria-haspopup', 'true');
-    btn.setAttribute('aria-expanded', 'false');
-  });
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    if (link.getAttribute('href') === currentPage) {
-      link.style.background = 'rgba(76,175,80,0.25)';
-      link.style.color = '#fff';
-    }
-  });
-  document.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener('click', function() {
-      if (!this.getAttribute('href').startsWith('#')) {
-        sessionStorage.setItem('scrollToTop', '1');
-      }
-    });
-  });
-  if (sessionStorage.getItem('scrollToTop') === '1') {
-    sessionStorage.removeItem('scrollToTop');
-    window.scrollTo(0, 0);
-  }
-  document.addEventListener('click', function(event) {
-    if (!event.target.matches('.dropbtn') && !event.target.closest('.dropbtn')) {
-      document.querySelectorAll('.dropdown-content').forEach(d => d.classList.remove('show'));
-      document.querySelectorAll('.dropbtn').forEach(b => b.setAttribute('aria-expanded', 'false'));
-    }
-    const nav = document.querySelector('nav');
-    const navLinks = document.querySelector('.nav-links');
-    if (nav && navLinks && !nav.contains(event.target) && navLinks.classList.contains('active')) {
-      navLinks.classList.remove('active');
-      const menuIcon = document.querySelector('.menu-icon');
-      const closeIcon = document.querySelector('.close-icon');
-      if (menuIcon) menuIcon.style.display = 'inline';
-      if (closeIcon) closeIcon.style.display = 'none';
-    }
-  });
-});
-</script>
-</body>
-</html>
-<script src="phiers-cta.js"></script>
+        <li>Insurance companies built on friction and
