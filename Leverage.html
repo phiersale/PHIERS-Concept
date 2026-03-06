@@ -5,55 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leverage - PHIERS</title>
     <style>
-
-        /* Mobile menu toggle */
-        .mobile-menu-toggle {
-            display: none;
-            background: transparent;
-            border: 1px solid #4caf50;
-            color: #4caf50;
-            font-size: 1.8em;
-            padding: 5px 15px;
-            border-radius: 4px;
-            cursor: pointer;
-            margin: 10px 0;
-            width: 100%;
-            text-align: center;
-        }
-        
-        @media (max-width: 768px) {
-            .mobile-menu-toggle {
-                display: block;
-            }
-            
-            .global-nav {
-                flex-direction: column;
-                align-items: stretch;
-                padding: 10px;
-            }
-            
-            .nav-links-container {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-            }
-            
-            .nav-links-container.active {
-                display: flex;
-            }
-            
-            .global-nav a, .dropdown {
-                width: 100%;
-                text-align: center;
-            }
-            
-            .dropdown-content {
-                position: static;
-                width: 100%;
-            }
-        }
-        
-        /* CORE PHIERS LOOK AND FEEL */
         * {
             margin: 0;
             padding: 0;
@@ -74,22 +25,44 @@
             margin: 0 auto;
         }
 
-        /* GLOBAL NAVIGATION */
         .global-nav {
             background: rgba(26, 26, 46, 0.95);
             border: 1px solid rgba(76, 175, 80, 0.3);
             border-radius: 8px;
             padding: 12px 20px;
             margin-bottom: 30px;
+            position: sticky;
+            top: 10px;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: transparent;
+            border: 1px solid #4caf50;
+            color: #4caf50;
+            font-size: 1.8em;
+            padding: 5px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0;
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .mobile-menu-toggle:hover {
+            background: rgba(76, 175, 80, 0.2);
+        }
+
+        .nav-links-container {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             justify-content: center;
             gap: 5px;
-            position: sticky;
-            top: 10px;
-            z-index: 1000;
-            backdrop-filter: blur(5px);
+            width: 100%;
         }
 
         .nav-item {
@@ -174,7 +147,37 @@
             color: #4caf50;
         }
 
-        /* Hero Section - Unified */
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+            .global-nav {
+                padding: 10px;
+            }
+            .nav-links-container {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                margin-top: 15px;
+            }
+            .nav-links-container.active {
+                display: flex;
+            }
+            .nav-item, .dropdown {
+                width: 100%;
+                text-align: center;
+            }
+            .dropdown-content {
+                position: static;
+                width: 100%;
+                margin-top: 5px;
+            }
+            .dropbtn {
+                width: 100%;
+            }
+        }
+
+        /* HERO - Unified */
         .hero {
             text-align: center;
             padding: 50px 20px 40px 20px;
@@ -185,17 +188,24 @@
         }
 
         .hero-logo {
-            max-width: 180px;
-            margin-bottom: 20px;
+            max-width: 140px;
+            margin-bottom: 15px;
+        }
+
+        .mabah-full {
+            font-size: 1.1em;
+            color: #81c784;
+            font-weight: 600;
+            margin-bottom: 5px;
+            letter-spacing: 0.5px;
         }
 
         .mabah-tagline {
             font-size: 1.2em;
-            color: #81c784;
-            font-weight: 600;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            color: #4caf50;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-style: italic;
         }
 
         .hero h1 {
@@ -211,7 +221,52 @@
             font-style: italic;
         }
 
-        /* Headers */
+        .phiers-media-block {
+            width: 100%;
+            max-width: 600px;
+            margin: 40px auto;
+        }
+
+        .phiers-media-block img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 6px;
+            border: 2px solid rgba(76, 175, 80, 0.3);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .phiers-media-block img:hover {
+            transform: scale(1.02);
+        }
+
+        .phiers-video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .phiers-video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        @media (max-width: 768px) {
+            .phiers-media-block {
+                max-width: 100%;
+                margin: 30px auto;
+            }
+        }
+
         h1 {
             color: #4caf50;
             font-size: 3em;
@@ -235,7 +290,6 @@
             font-size: 1.1em;
         }
 
-        /* Section styling */
         .section {
             background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
             padding: 40px;
@@ -267,7 +321,6 @@
             font-size: 1.2em;
         }
 
-        /* Impact grid */
         .impact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -286,7 +339,6 @@
             margin: 0;
         }
 
-        /* Button */
         .btn {
             background: linear-gradient(135deg, #4caf50, #2e7d32);
             color: white;
@@ -305,8 +357,16 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(76, 175, 80, 0.6);
         }
+        .btn-warning {
+            background: linear-gradient(135deg, #f5c842, #e0a800);
+            border-color: #f5c842;
+            color: #000;
+        }
+        .btn-warning:hover {
+            background: linear-gradient(135deg, #f5c842, #d4a500);
+            color: #000;
+        }
 
-        /* Footer */
         footer {
             text-align: center;
             padding: 40px 20px;
@@ -346,33 +406,77 @@
             margin-top: 20px;
         }
 
-        /* Mobile responsive */
+        /* Image Modal */
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.95);
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            width: auto; height: auto;
+            display: block;
+            margin: 80px auto;
+            object-fit: contain;
+            pointer-events: auto;
+        }
+
+        .close-modal {
+            position: fixed;
+            top: 20px; right: 25px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10001;
+            background: rgba(0,0,0,0.6);
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            transition: all 0.3s;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .close-modal:hover,
+        .close-modal:focus {
+            color: #4caf50;
+            background: rgba(0,0,0,0.9);
+            border-color: #4caf50;
+            outline: none;
+        }
+
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2em; }
             .hero .subhead { font-size: 1.1em; }
-            .hero-logo { max-width: 140px; }
+            .hero-logo { max-width: 120px; }
             h1 { font-size: 2.4em; }
             h2 { font-size: 1.8em; }
-            .global-nav { flex-direction: column; align-items: stretch; }
-            .nav-item { text-align: center; }
-            .dropdown { width: 100%; }
-            .dropdown-content { position: static; width: 100%; }
             .section { padding: 25px; }
+            .close-modal { top: 15px; right: 15px; font-size: 35px; width: 45px; height: 45px; }
+            .modal-content { max-width: 95%; margin: 60px auto; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- GLOBAL NAVIGATION -->
-       <!-- GLOBAL NAVIGATION -->
         <nav class="global-nav">
             <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</div>
             <div class="nav-links-container" id="navLinks">
-                <a href="Crisis.html" class="nav-item active">Crisis</a>
+                <a href="index.html" class="nav-item">Home</a>
+                <a href="Crisis.html" class="nav-item">Crisis</a>
                 <a href="5D_Solutions.html" class="nav-item">5D Solutions</a>
                 <a href="SimpleMath.html" class="nav-item">Simple Math</a>
                 <a href="Roadmap.html" class="nav-item">Roadmap</a>
-                <a href="Leverage.html" class="nav-item">Leverage</a>
+                <a href="Leverage.html" class="nav-item active">Leverage</a>
                 <a href="Action.html" class="nav-item">Action</a>
                 <a href="Donate.html" class="nav-item">Donate</a>
                 <div class="dropdown">
@@ -393,90 +497,76 @@
             </div>
         </nav>
 
-        <!-- HERO - Unified Identity Block -->
+        <!-- HERO - Unified -->
         <div class="hero">
             <img src="PHIERS_Logo.png" alt="PHIERS Logo" class="hero-logo">
-            <div class="mabah-tagline">Make America Better And Healthier</div>
-            <h1>LEVERAGE</h1>
+            <div class="mabah-full">MABAH — Make America Better And Healthier</div>
+            <div class="mabah-tagline">Sounds Like MAGA, But A Lot Bettah</div>
+            <h1>The Leverage: How 1,500 Signatures Force Congress to Act</h1>
             <div class="subhead">How People Move Systems</div>
         </div>
 
-        <!-- INTRODUCTION -->
-        <div class="section" style="border-left-color: #81c784;">
+        <!-- Leverage at a Glance summary -->
+        <div class="section" style="margin-bottom: 40px; background: rgba(76, 175, 80, 0.1); border-left: 8px solid #4caf50;">
+            <h2 style="margin-top: 0;">⚡ Leverage at a Glance</h2>
+            <p style="font-size: 1.2em; color: #c8e6c9;"><strong>Leverage = documented alignment that institutions must respond to.</strong> When enough people document the same priority, it becomes political gravity — and Congress has no choice but to act.</p>
+        </div>
+
+        <!-- Leverage graphic -->
+        <div class="phiers-media-block">
+            <img src="LEVERAGE_Pwr_of_the_People.png" alt="230 to 1 constituent leverage over lobbyists">
+        </div>
+
+        <div class="section" style="border-left-color: #81c784;" id="step-1">
             <p>Most people think change starts with pressure.</p>
             <p class="green-emphasis">It doesn't.</p>
-            
             <p>It starts with documented alignment.</p>
-            
             <p>Institutions don't respond to noise.</p>
             <p>They respond to clear, measurable direction from the people they serve.</p>
-            
             <p>Leverage is not force.</p>
             <p class="green-emphasis">Leverage is structure.</p>
-            
             <p style="margin-top: 30px;">This is how it works.</p>
         </div>
 
-        <!-- SECTION 1 -->
-        <div class="section">
+        <div class="section" id="step-2">
             <div class="section-number">1.</div>
             <h2>Documented Public Direction</h2>
-            
             <p>Systems move when enough people say the same thing in a way that can be measured.</p>
-            
-            <p>Not vague sentiment.<br>
-            Not social media.<br>
-            Not outrage.</p>
-            
+            <p>Not vague sentiment.<br>Not social media.<br>Not outrage.</p>
             <p class="green-emphasis">Documentation.</p>
-            
-            <p>People sign.<br>
-            People complete the survey.<br>
-            People specify priorities.</p>
-            
+            <p>People sign.<br>People complete the survey.<br>People specify priorities.</p>
             <p>When direction is documented at scale, it becomes something institutions must respond to.</p>
         </div>
 
-        <!-- SECTION 2 -->
-        <div class="section">
+        <div class="section" id="step-3">
             <div class="section-number">2.</div>
             <h2>Alignment Becomes Gravity</h2>
-            
             <p>When thousands — then millions — document the same priorities, alignment becomes visible.</p>
-            
             <p>Visible alignment becomes political gravity.</p>
-            
             <p>Gravity moves systems even when individuals cannot.</p>
-            
             <p>This is not ideology.</p>
             <p class="green-emphasis">It is representation.</p>
         </div>
 
-        <!-- SECTION 3 -->
-        <div class="section">
+        <div class="phiers-media-block">
+            <img src="District_Accountability_Dashboard.png" alt="District accountability dashboard showing documented alignment">
+        </div>
+
+        <div class="section" id="step-4">
             <div class="section-number">3.</div>
             <h2>Representation Creates Obligation</h2>
-            
             <p>Elected officials are not free agents.</p>
-            
             <p>Their authority depends on staying aligned with constituent direction.</p>
-            
             <p>When alignment shifts, obligation shifts.</p>
-            
             <p>When obligation shifts, policy space opens.</p>
-            
             <p class="green-emphasis">This is leverage.</p>
         </div>
 
-        <!-- SECTION 4 -->
-        <div class="section">
+        <div class="section" id="step-5">
             <div class="section-number">4.</div>
             <h2>Leverage Opens the First Door</h2>
-            
             <p>Healthcare comes first because stabilizing routine cost unlocks everything else.</p>
-            
             <p>When routine cost stabilizes:</p>
-            
             <div class="impact-grid">
                 <div class="impact-item"><p>workers gain mobility</p></div>
                 <div class="impact-item"><p>employers reduce overhead</p></div>
@@ -484,127 +574,117 @@
                 <div class="impact-item"><p>households regain breathing room</p></div>
                 <div class="impact-item"><p>public budgets face less strain</p></div>
             </div>
-            
             <p>Stabilization is not symbolic.</p>
             <p class="green-emphasis">It is structural.</p>
         </div>
 
-        <!-- SECTION 5 -->
-        <div class="section">
+        <div class="section" id="step-6">
             <div class="section-number">5.</div>
             <h2>Structural Change Creates Momentum</h2>
-            
             <p>When the base stabilizes, pressure drops across the system.</p>
-            
             <p>Lower pressure increases:</p>
-            
             <div class="impact-grid">
                 <div class="impact-item"><p>trust</p></div>
                 <div class="impact-item"><p>coordination</p></div>
                 <div class="impact-item"><p>predictability</p></div>
                 <div class="impact-item"><p>economic resilience</p></div>
             </div>
-            
             <p>Momentum is not created by force.</p>
             <p class="green-emphasis">It is created by alignment.</p>
         </div>
 
-        <!-- SECTION 6 -->
-        <div class="section">
+        <div class="section" id="step-7">
             <div class="section-number">6.</div>
             <h2>Momentum Enables Expansion</h2>
-            
             <p>Once routine cost falls, fiscal room appears.</p>
-            
-            <p>Not from new taxes.<br>
-            Not from new debt.<br>
-            From reduced waste and improved outcomes.</p>
-            
+            <p>Not from new taxes.<br>Not from new debt.<br>From reduced waste and improved outcomes.</p>
             <p>That room supports:</p>
-            
             <div class="impact-grid">
                 <div class="impact-item"><p>job expansion</p></div>
                 <div class="impact-item"><p>income stability</p></div>
                 <div class="impact-item"><p>community resilience</p></div>
                 <div class="impact-item"><p>long‑term renewal</p></div>
             </div>
-            
             <p class="green-emphasis">Leverage → stabilization → expansion.</p>
         </div>
 
-        <!-- SECTION 7 -->
-        <div class="section">
+        <div class="section" id="step-8">
             <div class="section-number">7.</div>
             <h2>Expansion Reinforces Stability</h2>
-            
             <p>As outcomes improve, confidence increases.</p>
-            
             <p>Confidence strengthens coordination.</p>
             <p>Coordination strengthens resilience.</p>
             <p>Resilience strengthens the system.</p>
-            
             <p>This is how systems stabilize — not through crisis, but through alignment.</p>
         </div>
 
-        <!-- WHY LEVERAGE MATTERS NOW -->
         <div class="section" style="border-left-color: #ff9800;">
             <h2 style="color: #ff9800;">Why Leverage Matters Now</h2>
-            
             <p>People feel the pressure.</p>
             <p>Institutions feel the strain.</p>
             <p>Trust is low.</p>
             <p>Costs are high.</p>
-            
             <p>Moments like this either fracture systems</p>
             <p class="green-emphasis">or realign them.</p>
-            
             <p>Realignment requires clarity.</p>
             <p>Clarity requires documentation.</p>
             <p>Documentation creates leverage.</p>
-            
             <div class="highlight-box">
                 <p class="green-emphasis" style="font-size: 1.5em;">This is where PHIERS begins.</p>
             </div>
         </div>
 
-        <!-- CALL TO ACTION -->
+        <!-- CTA Section with links to SimpleMath, 5D, Action -->
+        <div style="text-align: center; margin: 60px 0; padding: 40px 30px; background: rgba(76,175,80,0.07); border: 1px solid rgba(76,175,80,0.25); border-radius: 12px;">
+            <h2 style="margin-top: 0;">Ready to Go Deeper?</h2>
+            <p style="font-size: 1.1em; margin-bottom: 30px;">See the math, the solution, or take action.</p>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
+                <a href="SimpleMath.html" class="btn">📊 The Math</a>
+                <a href="5D_Solutions.html" class="btn">🧩 The Solution</a>
+                <a href="Action.html" class="btn btn-warning">✊ Take Action</a>
+            </div>
+        </div>
+
+        <!-- Build the Leverage CTA -->
         <div style="text-align: center; margin: 60px 0;">
             <h2>Build the Leverage</h2>
             <p style="font-size: 1.2em;">Document your direction. Add your voice to the alignment.</p>
-            <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now" class="btn">Sign the Petition</a>
+            <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now-short-version" class="btn">Sign the Petition</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdETA-oNIeOAzEsG4GsYiiws1YBpLunx8ioVJkZac5hzSxaZw/viewform?usp=header" class="btn" style="margin-left: 15px; background: transparent;">Take the Survey</a>
         </div>
 
-        <!-- FOOTER -->
         <footer>
             <h3>PHIERS Movement | MABAH</h3>
             <p><strong>Make America Better And Healthier</strong></p>
             <p style="margin: 20px 0;">PHIERS is a citizen coalition using collective leverage to force Congress to fix healthcare — or replace them.</p>
-            
             <div class="footer-links">
                 <a href="UNSTOPPABLE.html">UNSTOPPABLE</a>
                 <span>|</span>
                 <a href="mailto:info@phiers.org">Contact</a>
                 <span>|</span>
-                <a href="Legal.html">Legal</a>
-                <span>|</span>
                 <span>© PHIERS</span>
             </div>
-            
             <div style="color: #a5d6a7; font-size: 0.9em; margin-top: 30px;">
                 PHIERS is a public-interest movement — not a company, not a product.<br>
                 The only thing missing is you.
             </div>
-            
-            <p class="copyright">PHIERS Movement | Version: 2026-03-03</p>
+                            <p style="color:#81c784; font-size:0.9em; margin-top:20px; font-style:italic;">PHIERS is a peaceful, democratic, confrontational accountability movement built to stabilize the country.</p>
+            <p class="copyright">PHIERS Movement | Version: 2026-03-06</p>
         </footer>
     </div>
+    
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal" onclick="closeModal(event)">
+        <span class="close-modal" onclick="closeModal(event)">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+    
     <script>
     function toggleMobileMenu() {
         var navLinks = document.getElementById('navLinks');
         navLinks.classList.toggle('active');
     }
-    
-    // Close mobile menu when a link is clicked
+
     document.addEventListener('DOMContentLoaded', function() {
         var navItems = document.querySelectorAll('.nav-links-container a');
         navItems.forEach(function(item) {
@@ -616,7 +696,53 @@
             });
         });
     });
-    </script>
 
+    function openModal(src) {
+        var modal = document.getElementById('imageModal');
+        var modalImg = document.getElementById('modalImage');
+        modal.style.display = 'block';
+        modalImg.src = src;
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(event) {
+        var modal = document.getElementById('imageModal');
+        if (event.target === modal || event.target.classList.contains('close-modal')) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var modalImg = document.getElementById('modalImage');
+        if (modalImg) {
+            modalImg.addEventListener('click', function(event) {
+                event.stopPropagation();
+            });
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var images = document.querySelectorAll('img');
+        images.forEach(function(img) {
+            if (img.src && !img.src.includes('PHIERS_Logo')) {
+                img.style.cursor = 'pointer';
+                img.addEventListener('click', function() {
+                    openModal(this.src);
+                });
+            }
+        });
+    });
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            var modal = document.getElementById('imageModal');
+            if (modal.style.display === 'block') {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+    });
+    </script>
 </body>
 </html>

@@ -5,55 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Math - PHIERS</title>
     <style>
-     
-        /* Mobile menu toggle */
-        .mobile-menu-toggle {
-            display: none;
-            background: transparent;
-            border: 1px solid #4caf50;
-            color: #4caf50;
-            font-size: 1.8em;
-            padding: 5px 15px;
-            border-radius: 4px;
-            cursor: pointer;
-            margin: 10px 0;
-            width: 100%;
-            text-align: center;
-        }
-        
-        @media (max-width: 768px) {
-            .mobile-menu-toggle {
-                display: block;
-            }
-            
-            .global-nav {
-                flex-direction: column;
-                align-items: stretch;
-                padding: 10px;
-            }
-            
-            .nav-links-container {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-            }
-            
-            .nav-links-container.active {
-                display: flex;
-            }
-            
-            .global-nav a, .dropdown {
-                width: 100%;
-                text-align: center;
-            }
-            
-            .dropdown-content {
-                position: static;
-                width: 100%;
-            }
-        }
-        
-        /* CORE PHIERS LOOK AND FEEL */
         * {
             margin: 0;
             padding: 0;
@@ -74,22 +25,44 @@
             margin: 0 auto;
         }
 
-        /* GLOBAL NAVIGATION */
         .global-nav {
             background: rgba(26, 26, 46, 0.95);
             border: 1px solid rgba(76, 175, 80, 0.3);
             border-radius: 8px;
             padding: 12px 20px;
             margin-bottom: 30px;
+            position: sticky;
+            top: 10px;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: transparent;
+            border: 1px solid #4caf50;
+            color: #4caf50;
+            font-size: 1.8em;
+            padding: 5px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0;
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .mobile-menu-toggle:hover {
+            background: rgba(76, 175, 80, 0.2);
+        }
+
+        .nav-links-container {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             justify-content: center;
             gap: 5px;
-            position: sticky;
-            top: 10px;
-            z-index: 1000;
-            backdrop-filter: blur(5px);
+            width: 100%;
         }
 
         .nav-item {
@@ -174,7 +147,36 @@
             color: #4caf50;
         }
 
-        /* Hero Section - Unified */
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+            .global-nav {
+                padding: 10px;
+            }
+            .nav-links-container {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                margin-top: 15px;
+            }
+            .nav-links-container.active {
+                display: flex;
+            }
+            .nav-item, .dropdown {
+                width: 100%;
+                text-align: center;
+            }
+            .dropdown-content {
+                position: static;
+                width: 100%;
+                margin-top: 5px;
+            }
+            .dropbtn {
+                width: 100%;
+            }
+        }
+
         .hero {
             text-align: center;
             padding: 50px 20px 40px 20px;
@@ -185,17 +187,24 @@
         }
 
         .hero-logo {
-            max-width: 180px;
-            margin-bottom: 20px;
+            max-width: 140px;
+            margin-bottom: 15px;
+        }
+
+        .mabah-full {
+            font-size: 1.1em;
+            color: #81c784;
+            font-weight: 600;
+            margin-bottom: 5px;
+            letter-spacing: 0.5px;
         }
 
         .mabah-tagline {
             font-size: 1.2em;
-            color: #81c784;
-            font-weight: 600;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            color: #4caf50;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-style: italic;
         }
 
         .hero h1 {
@@ -211,7 +220,46 @@
             font-style: italic;
         }
 
-        /* Headers */
+        .phiers-media-block {
+            width: 100%;
+            max-width: 600px;
+            margin: 40px auto;
+        }
+
+        .phiers-media-block img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 6px;
+            border: 2px solid rgba(76, 175, 80, 0.3);
+        }
+
+        .phiers-video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .phiers-video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        @media (max-width: 768px) {
+            .phiers-media-block {
+                max-width: 100%;
+                margin: 30px auto;
+            }
+        }
+
         h1 {
             color: #4caf50;
             font-size: 3em;
@@ -235,7 +283,6 @@
             font-size: 1.1em;
         }
 
-        /* Section styling */
         .section {
             background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
             padding: 40px;
@@ -245,7 +292,6 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
         }
 
-        /* Number cards */
         .number-card {
             background: rgba(76, 175, 80, 0.15);
             border: 2px solid #4caf50;
@@ -318,7 +364,6 @@
             font-weight: bold;
         }
 
-        /* Impact grid */
         .impact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -337,7 +382,6 @@
             margin: 0;
         }
 
-        /* Button */
         .btn {
             background: linear-gradient(135deg, #4caf50, #2e7d32);
             color: white;
@@ -357,7 +401,17 @@
             box-shadow: 0 6px 20px rgba(76, 175, 80, 0.6);
         }
 
-        /* Footer */
+        .btn-warning {
+            background: linear-gradient(135deg, #f5c842, #e0a800);
+            border-color: #f5c842;
+            color: #000;
+        }
+
+        .btn-warning:hover {
+            background: linear-gradient(135deg, #f5c842, #d4a500);
+            color: #000;
+        }
+
         footer {
             text-align: center;
             padding: 40px 20px;
@@ -397,32 +451,27 @@
             margin-top: 20px;
         }
 
-        /* Mobile responsive */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2em; }
             .hero .subhead { font-size: 1.1em; }
-            .hero-logo { max-width: 140px; }
+            .hero-logo { max-width: 120px; }
             h1 { font-size: 2.4em; }
             h2 { font-size: 1.5em; }
             .big-number { font-size: 2.5em; }
             .math-equation { font-size: 1.5em; }
-            .global-nav { flex-direction: column; align-items: stretch; }
-            .nav-item { text-align: center; }
-            .dropdown { width: 100%; }
-            .dropdown-content { position: static; width: 100%; }
             .section { padding: 25px; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- GLOBAL NAVIGATION -->
         <nav class="global-nav">
             <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</div>
             <div class="nav-links-container" id="navLinks">
-                <a href="Crisis.html" class="nav-item active">Crisis</a>
+                <a href="index.html" class="nav-item">Home</a>
+                <a href="Crisis.html" class="nav-item">Crisis</a>
                 <a href="5D_Solutions.html" class="nav-item">5D Solutions</a>
-                <a href="SimpleMath.html" class="nav-item">Simple Math</a>
+                <a href="SimpleMath.html" class="nav-item active">Simple Math</a>
                 <a href="Roadmap.html" class="nav-item">Roadmap</a>
                 <a href="Leverage.html" class="nav-item">Leverage</a>
                 <a href="Action.html" class="nav-item">Action</a>
@@ -445,117 +494,104 @@
             </div>
         </nav>
 
-        <!-- HERO - Unified Identity Block -->
         <div class="hero">
             <img src="PHIERS_Logo.png" alt="PHIERS Logo" class="hero-logo">
-            <div class="mabah-tagline">Make America Better And Healthier</div>
+            <div class="mabah-full">MABAH — Make America Better And Healthier</div>
+            <div class="mabah-tagline">Sounds Like MAGA, But A Lot Bettah</div>
             <h1>SIMPLE MATH</h1>
             <div class="subhead">The Numbers Behind Stabilization</div>
         </div>
 
-        <!-- SECTION 1: Current Cost -->
+        <div class="phiers-media-block">
+            <div class="phiers-video-wrapper">
+                <iframe 
+                    src="https://www.youtube.com/embed/jMU6LKEBzbs" 
+                    title="The Simple Math: $600 vs $10,000 and the Cascade"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
         <div class="section">
             <h2>1. Current Cost</h2>
-            
             <div class="number-card">
                 <div class="big-number">$10,000</div>
                 <div class="number-caption">Average annual health insurance cost per person</div>
             </div>
-            
             <p>This includes premiums, deductibles, co‑pays, and employer contributions. In many cases, total costs exceed this amount.</p>
-            
             <p><strong>For many people, this is the largest expense outside housing.</strong></p>
         </div>
 
-        <!-- SECTION 2: Telehealth Cost -->
         <div class="section">
             <h2>2. Telehealth Cost</h2>
-            
             <div class="number-card">
                 <div class="big-number">$600</div>
                 <div class="number-caption">Comprehensive telehealth coverage per person per year</div>
             </div>
-            
             <p>Telehealth handles routine care, prescriptions, preventive care, and basic diagnostics. In‑person services remain available for acute and specialized needs.</p>
         </div>
 
-        <!-- SECTION 3: The Difference -->
+        <div class="phiers-media-block">
+            <div class="phiers-video-wrapper">
+                <iframe 
+                    src="https://www.youtube.com/embed/bEUyDVAYwpk" 
+                    title="How PHIERS Aligns with Trump and Ami Bera's Cost Goals"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
         <div class="section">
             <h2>3. The Difference</h2>
-            
             <div class="math-equation">
                 $10,000 – $600 = $9,400
             </div>
-            
             <p class="green-emphasis">in annual savings per person</p>
-            
             <p>This is a <strong>94% reduction</strong> in routine healthcare cost.</p>
-            
             <p>The arithmetic is direct.</p>
         </div>
 
-        <!-- SECTION 4: The Expansion Model -->
         <div class="section">
             <h2>4. The Expansion Model</h2>
-            
             <p>One person switching to $600 telehealth frees $9,400.</p>
-            
             <div class="number-card">
                 <div class="big-number">$9,400</div>
                 <div class="number-caption">funds coverage for approximately <strong>12 additional people</strong></div>
             </div>
-            
             <p class="green-emphasis">One conversion funds twelve more.</p>
-            
             <p>Cost reduction funds expansion.</p>
         </div>
 
-        <!-- SECTION 5: System Impact -->
+        <div class="phiers-media-block">
+            <img src="Cascade_Math.png" alt="Cascade math: 1 conversion funds 12 to 19 more">
+        </div>
+
         <div class="section">
             <h2>5. System Impact</h2>
-            
             <p>Reduced healthcare cost:</p>
-            
             <div class="impact-grid">
-                <div class="impact-item">
-                    <p>✓ Increases worker mobility</p>
-                </div>
-                <div class="impact-item">
-                    <p>✓ Lowers small business overhead</p>
-                </div>
-                <div class="impact-item">
-                    <p>✓ Strengthens union bargaining power</p>
-                </div>
-                <div class="impact-item">
-                    <p>✓ Reduces public emergency spending</p>
-                </div>
-                <div class="impact-item">
-                    <p>✓ Stabilizes individual budgets</p>
-                </div>
+                <div class="impact-item"><p>✓ Increases worker mobility</p></div>
+                <div class="impact-item"><p>✓ Lowers small business overhead</p></div>
+                <div class="impact-item"><p>✓ Strengthens union bargaining power</p></div>
+                <div class="impact-item"><p>✓ Reduces public emergency spending</p></div>
+                <div class="impact-item"><p>✓ Stabilizes individual budgets</p></div>
             </div>
-            
             <p class="green-emphasis">This savings funds the other four dimensions.</p>
         </div>
 
-        <!-- SECTION 6: The Conclusion -->
         <div class="section">
             <h2>6. The Conclusion</h2>
-            
             <p>This model does not require new taxes.</p>
             <p class="green-emphasis">It relies on cost reduction.</p>
-            
             <p>It does not depend on ideology.</p>
             <p class="green-emphasis">It depends on arithmetic.</p>
-            
             <p>The numbers are simple.</p>
             <p>Stability scales when costs fall.</p>
         </div>
 
-        <!-- ⭐ FINAL VERDICT -->
         <div class="star-verdict">
             <h3>⭐ FINAL VERDICT</h3>
             <p style="font-size: 1.3em; color: white; margin: 20px 0;">This is now:</p>
-            
             <div class="verdict-tags">
                 <span class="tag">visually authoritative</span>
                 <span class="tag">linguistically disciplined</span>
@@ -568,55 +604,100 @@
             </div>
         </div>
 
-        <!-- CALL TO ACTION -->
         <div style="text-align: center; margin: 60px 0;">
             <h2>The Math is Simple. The Choice is Clear.</h2>
             <p style="font-size: 1.2em;">Join the 3.5% and make Congress do the math.</p>
-            <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now" class="btn">Sign the Petition</a>
+            <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now-short-version" class="btn">Sign the Petition</a>
         </div>
 
-        <!-- FOOTER -->
         <footer>
             <h3>PHIERS Movement | MABAH</h3>
             <p><strong>Make America Better And Healthier</strong></p>
             <p style="margin: 20px 0;">PHIERS is a citizen coalition using collective leverage to force Congress to fix healthcare — or replace them.</p>
-            
             <div class="footer-links">
                 <a href="UNSTOPPABLE.html">UNSTOPPABLE</a>
                 <span>|</span>
                 <a href="mailto:info@phiers.org">Contact</a>
                 <span>|</span>
-                <a href="Legal.html">Legal</a>
-                <span>|</span>
                 <span>© PHIERS</span>
             </div>
-            
             <div style="color: #a5d6a7; font-size: 0.9em; margin-top: 30px;">
                 PHIERS is a public-interest movement — not a company, not a product.<br>
                 The only thing missing is you.
             </div>
-            
+                            <p style="color:#81c784; font-size:0.9em; margin-top:20px; font-style:italic;">PHIERS is a peaceful, democratic, confrontational accountability movement built to stabilize the country.</p>
             <p class="copyright">PHIERS Movement | Version: 2026-03-03</p>
         </footer>
     </div>
-        <script>
-        function toggleMobileMenu() {
-            var navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
-        }
-        
-        // Close mobile menu when a link is clicked
-        document.addEventListener('DOMContentLoaded', function() {
-            var navItems = document.querySelectorAll('.nav-links-container a');
-            navItems.forEach(function(item) {
-                item.addEventListener('click', function() {
-                    var navLinks = document.getElementById('navLinks');
-                    if (window.innerWidth <= 768) {
-                        navLinks.classList.remove('active');
-                    }
-                });
+
+    <script>
+    function toggleMobileMenu() {
+        var navLinks = document.getElementById('navLinks');
+        navLinks.classList.toggle('active');
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var navItems = document.querySelectorAll('.nav-links-container a');
+        navItems.forEach(function(item) {
+            item.addEventListener('click', function() {
+                var navLinks = document.getElementById('navLinks');
+                if (window.innerWidth <= 768) {
+                    navLinks.classList.remove('active');
+                }
             });
         });
-        </script>
+    });
+
+    // Image Modal functions
+    function openModal(src) {
+        var modal = document.getElementById('imageModal');
+        var modalImg = document.getElementById('modalImage');
+        modal.style.display = 'block';
+        modalImg.src = src;
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(event) {
+        var modal = document.getElementById('imageModal');
+        if (event.target === modal || event.target.classList.contains('close-modal')) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    }
+
+    // Prevent modal from closing when clicking the image
+    document.addEventListener('DOMContentLoaded', function() {
+        var modalImg = document.getElementById('modalImage');
+        if (modalImg) {
+            modalImg.addEventListener('click', function(event) {
+                event.stopPropagation();
+            });
+        }
+    });
+
+    // Add click handlers to all images
+    document.addEventListener('DOMContentLoaded', function() {
+        var images = document.querySelectorAll('img');
+        images.forEach(function(img) {
+            if (img.src && !img.src.includes('PHIERS_Logo')) {
+                img.style.cursor = 'pointer';
+                img.addEventListener('click', function() {
+                    openModal(this.src);
+                });
+            }
+        });
+    });
+
+    // Close on ESC key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            var modal = document.getElementById('imageModal');
+            if (modal.style.display === 'block') {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+    });
+    </script>
 </body>
 </html>

@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Origins - PHIERS</title>
     <style>
-        /* CORE PHIERS LOOK AND FEEL */
         * {
             margin: 0;
             padding: 0;
@@ -26,7 +25,6 @@
             margin: 0 auto;
         }
 
-        /* GLOBAL NAVIGATION */
         .global-nav {
             background: rgba(26, 26, 46, 0.95);
             border: 1px solid rgba(76, 175, 80, 0.3);
@@ -39,7 +37,6 @@
             backdrop-filter: blur(5px);
         }
 
-        /* Mobile menu toggle */
         .mobile-menu-toggle {
             display: none;
             background: transparent;
@@ -150,44 +147,36 @@
             color: #4caf50;
         }
 
-        /* Mobile styles */
         @media (max-width: 768px) {
             .mobile-menu-toggle {
                 display: block;
             }
-            
             .global-nav {
                 padding: 10px;
             }
-            
             .nav-links-container {
                 display: none;
                 flex-direction: column;
                 width: 100%;
                 margin-top: 15px;
             }
-            
             .nav-links-container.active {
                 display: flex;
             }
-            
             .nav-item, .dropdown {
                 width: 100%;
                 text-align: center;
             }
-            
             .dropdown-content {
                 position: static;
                 width: 100%;
                 margin-top: 5px;
             }
-            
             .dropbtn {
                 width: 100%;
             }
         }
 
-        /* Hero Section - Unified */
         .hero {
             text-align: center;
             padding: 50px 20px 40px 20px;
@@ -198,17 +187,24 @@
         }
 
         .hero-logo {
-            max-width: 180px;
-            margin-bottom: 20px;
+            max-width: 140px;
+            margin-bottom: 15px;
+        }
+
+        .mabah-full {
+            font-size: 1.1em;
+            color: #81c784;
+            font-weight: 600;
+            margin-bottom: 5px;
+            letter-spacing: 0.5px;
         }
 
         .mabah-tagline {
             font-size: 1.2em;
-            color: #81c784;
-            font-weight: 600;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            color: #4caf50;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-style: italic;
         }
 
         .hero h1 {
@@ -224,7 +220,52 @@
             font-style: italic;
         }
 
-        /* Headers */
+        .phiers-media-block {
+            width: 100%;
+            max-width: 600px;
+            margin: 40px auto;
+        }
+
+        .phiers-media-block img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 6px;
+            border: 2px solid rgba(76, 175, 80, 0.3);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .phiers-media-block img:hover {
+            transform: scale(1.02);
+        }
+
+        .phiers-video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .phiers-video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        @media (max-width: 768px) {
+            .phiers-media-block {
+                max-width: 100%;
+                margin: 30px auto;
+            }
+        }
+
         h1 {
             color: #4caf50;
             font-size: 3em;
@@ -254,7 +295,6 @@
             font-size: 1.1em;
         }
 
-        /* Section styling */
         .section {
             background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
             padding: 40px;
@@ -288,7 +328,6 @@
             font-size: 1.2em;
         }
 
-        /* Lists */
         ul {
             margin: 20px 0 20px 30px;
         }
@@ -299,7 +338,6 @@
             font-size: 1.1em;
         }
 
-        /* Button */
         .btn {
             background: linear-gradient(135deg, #4caf50, #2e7d32);
             color: white;
@@ -318,6 +356,15 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(76, 175, 80, 0.6);
         }
+        .btn-warning {
+            background: linear-gradient(135deg, #f5c842, #e0a800);
+            border-color: #f5c842;
+            color: #000;
+        }
+        .btn-warning:hover {
+            background: linear-gradient(135deg, #f5c842, #d4a500);
+            color: #000;
+        }
 
         .btn-secondary {
             background: transparent;
@@ -331,7 +378,6 @@
             color: #81c784;
         }
 
-        /* Footer */
         footer {
             text-align: center;
             padding: 40px 20px;
@@ -371,25 +417,77 @@
             margin-top: 20px;
         }
 
-        /* Mobile responsive */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2em; }
             .hero .subhead { font-size: 1.1em; }
-            .hero-logo { max-width: 140px; }
+            .hero-logo { max-width: 120px; }
             h1 { font-size: 2.2em; }
             h2 { font-size: 1.6em; }
             h3 { font-size: 1.2em; }
             .section { padding: 25px; }
             ul { margin-left: 20px; }
         }
+
+        /* Image Modal */
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.95);
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            width: auto; height: auto;
+            display: block;
+            margin: 80px auto;
+            object-fit: contain;
+            pointer-events: auto;
+        }
+
+        .close-modal {
+            position: fixed;
+            top: 20px; right: 25px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10001;
+            background: rgba(0,0,0,0.6);
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            transition: all 0.3s;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .close-modal:hover,
+        .close-modal:focus {
+            color: #4caf50;
+            background: rgba(0,0,0,0.9);
+            border-color: #4caf50;
+            outline: none;
+        }
+
+        @media (max-width: 768px) {
+            .close-modal { top: 15px; right: 15px; font-size: 35px; width: 45px; height: 45px; }
+            .modal-content { max-width: 95%; margin: 60px auto; }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- GLOBAL NAVIGATION -->
         <nav class="global-nav">
             <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</div>
             <div class="nav-links-container" id="navLinks">
+                <a href="index.html" class="nav-item">Home</a>
                 <a href="Crisis.html" class="nav-item">Crisis</a>
                 <a href="5D_Solutions.html" class="nav-item">5D Solutions</a>
                 <a href="SimpleMath.html" class="nav-item">Simple Math</a>
@@ -415,72 +513,47 @@
             </div>
         </nav>
 
-        <!-- HERO - Unified Identity Block -->
         <div class="hero">
             <img src="PHIERS_Logo.png" alt="PHIERS Logo" class="hero-logo">
-            <div class="mabah-tagline">Make America Better And Healthier</div>
-            <h1>OUR ORIGINS</h1>
+            <div class="mabah-full">MABAH — Make America Better And Healthier</div>
+            <div class="mabah-tagline">Sounds Like MAGA, But A Lot Bettah</div>
+            <h1>Our Origins: 20 Years. One Framework. Real Proof.</h1>
             <div class="subhead">How PHIERS Began — And Why It Exists</div>
         </div>
 
-        <!-- INTRODUCTION -->
         <div class="section" style="border-left-color: #81c784;">
             <p>PHIERS did not begin as an organization.</p>
             <p class="green-emphasis">It began as a pattern.</p>
-            
             <p>Across the country, people were feeling the same pressure: rising costs, unstable work, unpredictable healthcare, and institutions struggling to keep pace with the speed of change. Every issue was debated separately, but the effects were connected. The pressure was connected. The outcomes were connected.</p>
-            
             <p>What wasn't connected was the response.</p>
-            
             <p>PHIERS emerged from the recognition that the country didn't just need new ideas — it needed coordination. Not ideology. Not protest. Not another campaign. A structure that could document what people want, stabilize the base, and realign systems that had drifted out of sync with everyday life.</p>
         </div>
 
-        <!-- STRUCTURAL INSIGHT -->
         <div class="section">
-            <h2>A Structural Insight, Not a Political One</h2>
-            
+            <h2 id="insight">A Structural Insight, Not a Political One</h2>
             <p>The founding insight was simple:</p>
-            
             <div class="highlight-box">
                 <p style="font-size: 1.3em;">When routine healthcare cost becomes predictable, pressure drops across the entire system.</p>
             </div>
-            
-            <p>Workers gain mobility.<br>
-            Employers can plan.<br>
-            Unions can focus on wages.<br>
-            Households regain breathing room.<br>
-            Public budgets face less strain.</p>
-            
+            <p>Workers gain mobility.<br>Employers can plan.<br>Unions can focus on wages.<br>Households regain breathing room.<br>Public budgets face less strain.</p>
             <p>Stabilization at the base strengthens everything above it.</p>
-            
-            <p>This wasn't a partisan idea.<br>
-            It wasn't a theory.<br>
-            <span class="green-emphasis">It was math — and it was visible everywhere.</span></p>
+            <p>This wasn't a partisan idea.<br>It wasn't a theory.<br><span class="green-emphasis">It was math — and it was visible everywhere.</span></p>
         </div>
 
-        <!-- LIVED REALITY -->
         <div class="section">
-            <h2>A Model Built From Lived Reality</h2>
-            
+            <h2 id="model">A Model Built From Lived Reality</h2>
             <p>PHIERS was shaped by people who had seen the system from multiple angles: workers, caregivers, small‑business owners, organizers, and people navigating healthcare from the inside and outside. Different backgrounds, different experiences, same conclusion:</p>
-            
             <div class="insight-box">
                 <p style="font-size: 1.2em;">The country wasn't failing because people were divided.<br>It was failing because the response was fragmented.</p>
             </div>
-            
             <p class="green-emphasis">PHIERS was built to solve that.</p>
         </div>
 
-        <!-- FROM INSIGHT TO STRUCTURE -->
         <div class="section">
-            <h2>From Insight to Structure</h2>
-            
+            <h2 id="structure">From Insight to Structure</h2>
             <p>The early work focused on one question:</p>
-            
             <p style="font-size: 1.3em; color: white; font-style: italic; margin: 30px 0;">"What would it take to stabilize the base at scale?"</p>
-            
             <p>The answer was a model that:</p>
-            
             <ul>
                 <li>documents public direction</li>
                 <li>stabilizes routine healthcare cost</li>
@@ -488,67 +561,69 @@
                 <li>reinvests the savings</li>
                 <li>renews the system</li>
             </ul>
-            
-            <p>Not through pressure.<br>
-            Not through outrage.<br>
-            <span class="green-emphasis">Through alignment.</span></p>
+            <p>Not through pressure.<br>Not through outrage.<br><span class="green-emphasis">Through alignment.</span></p>
         </div>
 
-        <!-- WHY PHIERS EXISTS -->
         <div class="section">
-            <h2>Why PHIERS Exists</h2>
-            
+            <h2 id="why">Why PHIERS Exists</h2>
             <p>PHIERS exists because people deserve a system that responds to them — not the other way around. A system that treats clarity as a starting point, not an afterthought. A system that recognizes that stability is not ideological; it is structural.</p>
-            
-            <p>PHIERS is not a moment.<br>
-            It is not a campaign.<br>
-            It is not built around a personality.</p>
-            
+            <p>PHIERS is not a moment.<br>It is not a campaign.<br>It is not built around a personality.</p>
             <div class="highlight-box">
                 <p style="font-size: 1.3em;">It is a public‑benefit structure designed for continuity — a model that outlasts news cycles, election cycles, and personalities.</p>
             </div>
+            <div class="highlight-box" style="margin-top:20px; border-left-color:#2196f3; background:rgba(33,150,243,0.07);">
+                <p style="font-size:1.1em; color:#c8e6c9;">This 20-year framework was built to answer one question:</p>
+                <p style="font-size:1.25em; font-weight:bold; color:#4caf50; margin:12px 0;">"What kind of system could Americans use to address many interconnected problems at once?"</p>
+                <p>Not another policy. Not another promise. A coordination system — one that lets people identify problems clearly, organize around workable solutions, deploy those solutions through existing institutions, and maintain them through ongoing participation and accountability.</p>
+                <p style="font-weight:bold; color:#c8e6c9;">In other words: a system that allows the country to coordinate intelligently, instead of lurching from crisis to crisis.</p>
+                <p style="color:#4caf50; font-weight:bold;">That is what PHIERS was built to be.</p>
+            </div>
         </div>
 
-        <!-- CALL TO ACTION -->
         <div style="text-align: center; margin: 60px 0;">
-            <h2>Be Part of What Comes Next</h2>
+            <h2 id="next">Be Part of What Comes Next</h2>
             <p style="font-size: 1.2em;">The pattern is clear. The structure is built. The moment is now.</p>
-            <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now" class="btn">Sign the Petition</a>
-            <a href="Roadmap.html" class="btn btn-secondary" style="margin-left: 15px;">See the Roadmap</a>
+            <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now-short-version" class="btn">Sign the Petition</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdETA-oNIeOAzEsG4GsYiiws1YBpLunx8ioVJkZac5hzSxaZw/viewform?usp=header" class="btn btn-secondary" style="margin-left: 15px;">Take the Survey</a>
+            <div style="margin-top:20px; display:flex; gap:15px; justify-content:center; flex-wrap:wrap;">
+                <a href="SimpleMath.html" class="btn">📊 See the Math</a>
+                <a href="5D_Solutions.html" class="btn">🔧 The Solution</a>
+                <a href="Donate.html" class="btn" style="background:transparent;">Support the Movement</a>
+            </div>
         </div>
 
-        <!-- FOOTER -->
         <footer>
             <h3>PHIERS Movement | MABAH</h3>
             <p><strong>Make America Better And Healthier</strong></p>
             <p style="margin: 20px 0;">PHIERS is a citizen coalition using collective leverage to force Congress to fix healthcare — or replace them.</p>
-            
             <div class="footer-links">
                 <a href="UNSTOPPABLE.html">UNSTOPPABLE</a>
                 <span>|</span>
                 <a href="mailto:info@phiers.org">Contact</a>
                 <span>|</span>
-                <a href="Legal.html">Legal</a>
-                <span>|</span>
                 <span>© PHIERS</span>
             </div>
-            
             <div style="color: #a5d6a7; font-size: 0.9em; margin-top: 30px;">
                 PHIERS is a public-interest movement — not a company, not a product.<br>
                 The only thing missing is you.
             </div>
-            
-            <p class="copyright">PHIERS Movement | Version: 2026-03-03</p>
+                            <p style="color:#81c784; font-size:0.9em; margin-top:20px; font-style:italic;">PHIERS is a peaceful, democratic, confrontational accountability movement built to stabilize the country.</p>
+            <p class="copyright">PHIERS Movement | Version: 2026-03-05</p>
         </footer>
     </div>
-
+    
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal" onclick="closeModal(event)">
+        <span class="close-modal" onclick="closeModal(event)">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+    
     <script>
     function toggleMobileMenu() {
         var navLinks = document.getElementById('navLinks');
         navLinks.classList.toggle('active');
     }
 
-    // Close mobile menu when a link is clicked
     document.addEventListener('DOMContentLoaded', function() {
         var navItems = document.querySelectorAll('.nav-links-container a');
         navItems.forEach(function(item) {
@@ -559,6 +634,53 @@
                 }
             });
         });
+    });
+
+    function openModal(src) {
+        var modal = document.getElementById('imageModal');
+        var modalImg = document.getElementById('modalImage');
+        modal.style.display = 'block';
+        modalImg.src = src;
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(event) {
+        var modal = document.getElementById('imageModal');
+        if (event.target === modal || event.target.classList.contains('close-modal')) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var modalImg = document.getElementById('modalImage');
+        if (modalImg) {
+            modalImg.addEventListener('click', function(event) {
+                event.stopPropagation();
+            });
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var images = document.querySelectorAll('img');
+        images.forEach(function(img) {
+            if (img.src && !img.src.includes('PHIERS_Logo')) {
+                img.style.cursor = 'pointer';
+                img.addEventListener('click', function() {
+                    openModal(this.src);
+                });
+            }
+        });
+    });
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            var modal = document.getElementById('imageModal');
+            if (modal.style.display === 'block') {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
     });
     </script>
 </body>

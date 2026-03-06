@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5D Solutions - PHIERS</title>
+    <title>Action - PHIERS</title>
     <style>
         * {
             margin: 0;
@@ -232,6 +232,12 @@
             display: block;
             border-radius: 6px;
             border: 2px solid rgba(76, 175, 80, 0.3);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .phiers-media-block img:hover {
+            transform: scale(1.02);
         }
 
         .phiers-video-wrapper {
@@ -260,31 +266,33 @@
             }
         }
 
+        h1 {
+            color: #4caf50;
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
+            text-align: center;
+        }
+
         h2 {
             color: #4caf50;
-            font-size: 1.8em;
-            margin: 0 0 25px 0;
+            font-size: 2em;
+            margin: 50px 0 25px 0;
             border-bottom: 2px solid rgba(76, 175, 80, 0.3);
             padding-bottom: 10px;
         }
 
-        h3 {
-            color: #81c784;
-            font-size: 1.3em;
-            margin: 30px 0 20px 0;
-        }
-
         p {
             color: #c8e6c9;
-            margin: 15px 0;
+            margin: 20px 0;
             line-height: 1.8;
             font-size: 1.1em;
         }
 
-        .section-box {
+        .section {
             background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
             padding: 40px;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             border-radius: 12px;
             border-left: 8px solid #4caf50;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
@@ -292,52 +300,18 @@
 
         .section-number {
             color: #4caf50;
-            font-size: 1.4em;
+            font-size: 1.2em;
             font-weight: bold;
-            display: inline;
-            margin-right: 8px;
-        }
-
-        .section-box h2 {
-            display: inline;
-            font-size: 1.8em;
-            margin: 0;
-            border-bottom: none;
-        }
-
-        .section-title-line {
-            border-bottom: 2px solid rgba(76, 175, 80, 0.3);
-            padding-bottom: 10px;
-            margin-bottom: 25px;
-        }
-
-        .section-box p {
-            margin: 15px 0;
-        }
-
-        .section-box p:last-child {
-            margin-bottom: 0;
-        }
-
-        .section-box .green-emphasis {
-            margin: 20px 0 10px 0;
-        }
-
-        .insight-box {
-            background: rgba(33, 150, 243, 0.1);
-            border: 2px solid #2196f3;
-            border-left: 5px solid #2196f3;
-            padding: 30px;
-            margin: 30px 0;
-            border-radius: 8px;
+            margin-bottom: 10px;
         }
 
         .highlight-box {
             background: rgba(76, 175, 80, 0.15);
             border: 2px solid #4caf50;
+            border-radius: 12px;
             padding: 30px;
-            margin: 25px 0 15px 0;
-            border-radius: 8px;
+            margin: 30px 0;
+            text-align: center;
         }
 
         .green-emphasis {
@@ -346,14 +320,22 @@
             font-size: 1.2em;
         }
 
-        ul {
-            margin: 15px 0 15px 30px;
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
         }
 
-        li {
-            color: #c8e6c9;
-            margin-bottom: 10px;
-            font-size: 1.1em;
+        .impact-item {
+            background: rgba(76, 175, 80, 0.1);
+            padding: 15px 20px;
+            border-radius: 8px;
+            border-left: 3px solid #4caf50;
+        }
+
+        .impact-item p {
+            margin: 0;
         }
 
         .btn {
@@ -374,16 +356,19 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(76, 175, 80, 0.6);
         }
-
         .btn-warning {
             background: linear-gradient(135deg, #f5c842, #e0a800);
             border-color: #f5c842;
             color: #000;
         }
-
         .btn-warning:hover {
             background: linear-gradient(135deg, #f5c842, #d4a500);
             color: #000;
+        }
+
+        .btn-blue {
+            background: linear-gradient(135deg, #2196f3, #1976d2);
+            box-shadow: 0 4px 15px rgba(33, 150, 243, 0.4);
         }
 
         footer {
@@ -429,11 +414,62 @@
             .hero h1 { font-size: 2.2em; }
             .hero .subhead { font-size: 1.1em; }
             .hero-logo { max-width: 120px; }
-            h2 { font-size: 1.5em; }
-            .section-box { padding: 25px; }
-            .section-number { font-size: 1.2em; }
-            .section-box h2 { font-size: 1.5em; }
-            ul { margin-left: 20px; }
+            h1 { font-size: 2.4em; }
+            h2 { font-size: 1.8em; }
+            .section { padding: 25px; }
+        }
+
+        /* Image Modal */
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.95);
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            width: auto; height: auto;
+            display: block;
+            margin: 80px auto;
+            object-fit: contain;
+            pointer-events: auto;
+        }
+
+        .close-modal {
+            position: fixed;
+            top: 20px; right: 25px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10001;
+            background: rgba(0,0,0,0.6);
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            transition: all 0.3s;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .close-modal:hover,
+        .close-modal:focus {
+            color: #4caf50;
+            background: rgba(0,0,0,0.9);
+            border-color: #4caf50;
+            outline: none;
+        }
+
+        @media (max-width: 768px) {
+            .close-modal { top: 15px; right: 15px; font-size: 35px; width: 45px; height: 45px; }
+            .modal-content { max-width: 95%; margin: 60px auto; }
         }
     </style>
 </head>
@@ -444,11 +480,11 @@
             <div class="nav-links-container" id="navLinks">
                 <a href="index.html" class="nav-item">Home</a>
                 <a href="Crisis.html" class="nav-item">Crisis</a>
-                <a href="5D_Solutions.html" class="nav-item active">5D Solutions</a>
+                <a href="5D_Solutions.html" class="nav-item">5D Solutions</a>
                 <a href="SimpleMath.html" class="nav-item">Simple Math</a>
                 <a href="Roadmap.html" class="nav-item">Roadmap</a>
                 <a href="Leverage.html" class="nav-item">Leverage</a>
-                <a href="Action.html" class="nav-item">Action</a>
+                <a href="Action.html" class="nav-item active">Action</a>
                 <a href="Donate.html" class="nav-item">Donate</a>
                 <div class="dropdown">
                     <button class="dropbtn">More ▼</button>
@@ -472,216 +508,177 @@
             <img src="PHIERS_Logo.png" alt="PHIERS Logo" class="hero-logo">
             <div class="mabah-full">MABAH — Make America Better And Healthier</div>
             <div class="mabah-tagline">Sounds Like MAGA, But A Lot Bettah</div>
-            <h1>The 5D Solutions Framework</h1>
-            <div class="subhead">Five interconnected upgrades that solve five crises at once — healthcare, jobs, economy, politics, and peace.</div>
+            <h1>Take Action: Document Your Direction</h1>
+            <div class="subhead">What You Do — And Why It Matters</div>
         </div>
 
-        <!-- RUBIK'S CUBE VISUAL -->
-        <div class="phiers-media-block" style="max-width:500px; margin: 36px auto; text-align:center;">
-            <img src="5D_Solutions_Rubiks Cube.png" alt="5D Solutions Rubik's Cube — five interconnected dimensions" style="width:100%; border-radius:8px; border:2px solid rgba(76,175,80,0.3); cursor:pointer;">
-            <p style="color:#81c784; font-size:0.9em; margin-top:10px; font-style:italic;">The 5D model works like a Rubik's Cube — each move reinforces the others.</p>
+        <div class="section" style="border-left-color: #81c784;">
+            <p>Systems don't move because people are loud.</p>
+            <p class="green-emphasis">They move because people are aligned.</p>
+            <p>Action inside PHIERS is not about pressure, protest, or partisanship.</p>
+            <p>It is about documented public direction — the one thing institutions cannot ignore.</p>
+            <p style="margin-top: 30px;">This is how you participate.</p>
         </div>
 
-        <!-- COORDINATION SYSTEM FRAME -->
-        <div class="section-box" style="margin-bottom:30px; border-left-color: #2196f3; background: rgba(33,150,243,0.07);">
-            <p style="font-size:1.15em; color:#e0e0e0;">What Americans need is not another single policy or program.</p>
-            <p style="font-size:1.25em; font-weight:bold; color:#4caf50; margin:16px 0;">What's needed is a coordination system.</p>
-            <p>A framework that allows people to organize around practical solutions, document what they want clearly, and deploy those solutions across multiple areas at the same time.</p>
-            <p>PHIERS is built to do exactly that — across five dimensions simultaneously, because that is how the problems actually work.</p>
-        </div>
-
-        <!-- 5D AT A GLANCE -->
-        <div class="section-box" style="margin-bottom:30px;">
-            <h2 style="margin-top:0;">5D at a Glance</h2>
-            <div style="display:grid; gap:12px;">
-                <div style="display:flex; gap:16px; align-items:center; padding:14px; background:rgba(76,175,80,0.07); border-radius:8px; border:1px solid rgba(76,175,80,0.2);">
-                    <span style="font-size:1.5em;">🏥</span>
-                    <p style="margin:0;"><a href="#dimension-1" style="color:#4caf50; font-weight:bold;">Healthcare:</a> Stabilize routine care and reduce costs from $10,000 to $600.</p>
-                </div>
-                <div style="display:flex; gap:16px; align-items:center; padding:14px; background:rgba(76,175,80,0.07); border-radius:8px; border:1px solid rgba(76,175,80,0.2);">
-                    <span style="font-size:1.5em;">💼</span>
-                    <p style="margin:0;"><a href="#dimension-2" style="color:#4caf50; font-weight:bold;">Jobs:</a> Expand AI-resistant work and labor mobility.</p>
-                </div>
-                <div style="display:flex; gap:16px; align-items:center; padding:14px; background:rgba(76,175,80,0.07); border-radius:8px; border:1px solid rgba(76,175,80,0.2);">
-                    <span style="font-size:1.5em;">📈</span>
-                    <p style="margin:0;"><a href="#dimension-3" style="color:#4caf50; font-weight:bold;">Economy:</a> Fund income security from savings, not taxes.</p>
-                </div>
-                <div style="display:flex; gap:16px; align-items:center; padding:14px; background:rgba(76,175,80,0.07); border-radius:8px; border:1px solid rgba(76,175,80,0.2);">
-                    <span style="font-size:1.5em;">⚡</span>
-                    <p style="margin:0;"><a href="#dimension-4" style="color:#4caf50; font-weight:bold;">Politics:</a> Strengthen labor leverage and congressional accountability.</p>
-                </div>
-                <div style="display:flex; gap:16px; align-items:center; padding:14px; background:rgba(76,175,80,0.07); border-radius:8px; border:1px solid rgba(76,175,80,0.2);">
-                    <span style="font-size:1.5em;">🕊️</span>
-                    <p style="margin:0;"><a href="#dimension-5" style="color:#4caf50; font-weight:bold;">Peace:</a> Establish guardrails that protect the public and reduce systemic strain.</p>
-                </div>
+        <div class="section">
+            <div class="section-number">1.</div>
+            <h2 id="step-1">Sign the Petition</h2>
+            <p class="green-emphasis">Document your position.</p>
+            <p>A signature is not symbolic.</p>
+            <p>It is measurable alignment.</p>
+            <p>When enough people document the same priority, it becomes political gravity — something elected officials must respond to.</p>
+            <p>This is the first step in creating leverage.</p>
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now-short-version" class="btn">Sign the Petition</a>
             </div>
-        </div>
-
-        <div class="section-box">
-            <div class="section-title-line">
-                <span class="section-number">1.</span>
-                <h2>The Logical Next Step</h2>
-            </div>
-            <p>The crisis is structural.</p>
-            <p>The response must be structural.</p>
-            <p>Solving problems one at a time will not stabilize the country.</p>
-            <p class="green-emphasis">We solve them together.</p>
-            <p>This requires coordinated action across five dimensions at the same time.</p>
-            <p>Not because it is ambitious.</p>
-            <p class="green-emphasis">Because it is necessary.</p>
         </div>
 
         <div class="phiers-media-block">
-            <img src="5D_Solutions_Rubiks_Cube.png" alt="5D Solutions Rubik's Cube showing five dimensions working together">
+            <img src="paypal_venmo_zelle.png" alt="Payment methods: PayPal, Venmo, Zelle">
         </div>
 
-        <div class="section-box">
-            <div class="section-title-line">
-                <span class="section-number">2.</span>
-                <h2>Why Five Dimensions</h2>
+        <div class="section">
+            <div class="section-number">2.</div>
+            <h2 id="step-2">Complete the Survey</h2>
+            <p class="green-emphasis">Specify what you want stabilized first.</p>
+            <p>The survey creates clarity:</p>
+            <div class="impact-grid">
+                <div class="impact-item"><p>what people want</p></div>
+                <div class="impact-item"><p>what order they want it in</p></div>
+                <div class="impact-item"><p>what outcomes matter most</p></div>
+                <div class="impact-item"><p>where alignment is strongest</p></div>
             </div>
-            <p>Healthcare affects work.</p>
-            <p>Work affects housing.</p>
-            <p>Housing affects food security.</p>
-            <p>Economic stability affects national stability.</p>
-            <p>National stability affects domestic capacity.</p>
-            <p style="margin-top: 25px;">These systems reinforce each other.</p>
-            <p>Stability in one strengthens the others.</p>
-            <p>Instability in one weakens the others.</p>
-            <p style="margin-top: 25px;">Coordinated response multiplies impact.</p>
-            <p class="green-emphasis">Fragmented response cancels it.</p>
+            <p>Clarity becomes structure.</p>
+            <p>Structure becomes leverage.</p>
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdETA-oNIeOAzEsG4GsYiiws1YBpLunx8ioVJkZac5hzSxaZw/viewform?usp=header" class="btn">Take the Survey</a>
+            </div>
         </div>
 
-        <div class="section-box">
-            <div class="section-title-line">
-                <span class="section-number">3.</span>
-                <h2>Simultaneous, Not Sequential</h2>
+        <div class="section">
+            <div class="section-number">3.</div>
+            <h2 id="step-3">Share the Model</h2>
+            <p class="green-emphasis">People move systems when they move together.</p>
+            <p>Sharing the model:</p>
+            <div class="impact-grid">
+                <div class="impact-item"><p>increases alignment</p></div>
+                <div class="impact-item"><p>strengthens clarity</p></div>
+                <div class="impact-item"><p>accelerates stabilization</p></div>
+                <div class="impact-item"><p>expands leverage</p></div>
             </div>
-            <p>Traditional policy works in sequence.</p>
-            <p>Pass one bill.<br>Debate the next.<br>Fund one program.<br>Delay the next.</p>
-            <p style="margin-top: 25px;">But overlapping problems require simultaneous action.</p>
-            <p>Stabilize healthcare.<br>Expand AI-resistant jobs.<br>Create income security from savings.<br>Reinforce labor leverage.<br>Establish guardrails that protect public interest.</p>
-            <p style="margin-top: 25px;">Each dimension strengthens the others.</p>
-            <p class="green-emphasis">This is coordinated execution.</p>
+            <p>This is not about virality.</p>
+            <p class="green-emphasis">It is about coordination.</p>
         </div>
 
-        <div class="section-box">
-            <div class="section-title-line">
-                <span class="section-number">4.</span>
-                <h2>The Operating Principle</h2>
-            </div>
-            <p>5D is not ideology.</p>
-            <p class="green-emphasis">It is sequencing across systems.</p>
-            <p>Healthcare provides immediate stabilization.</p>
-            <p>Stability unlocks labor mobility.</p>
-            <p>Labor mobility strengthens wages.</p>
-            <p>Wage strength supports housing security.</p>
-            <p>Housing security reduces public strain.</p>
-            <p>Reduced strain increases national capacity.</p>
-            <p style="margin-top: 25px;">Every dimension reinforces the next.</p>
-            <p class="green-emphasis">Solve the base. Then scale together.</p>
+        <div class="section">
+            <div class="section-number">4.</div>
+            <h2 id="step-4">Build Alignment at Scale</h2>
+            <p>When thousands — then millions — document the same priorities, alignment becomes visible.</p>
+            <p>Visible alignment becomes obligation.</p>
+            <p>Obligation opens policy space.</p>
+            <p class="green-emphasis">This is how systems shift without crisis.</p>
         </div>
 
-        <div class="section-box">
-            <div class="section-title-line">
-                <span class="section-number">5.</span>
-                <h2>Why This Is Achievable</h2>
+        <div class="section">
+            <div class="section-number">5.</div>
+            <h2 id="step-5">Stabilize the Base</h2>
+            <p class="green-emphasis">Healthcare comes first because stabilizing routine cost unlocks everything else.</p>
+            <p>When routine care becomes predictable:</p>
+            <div class="impact-grid">
+                <div class="impact-item"><p>workers gain mobility</p></div>
+                <div class="impact-item"><p>employers reduce overhead</p></div>
+                <div class="impact-item"><p>unions focus on wages</p></div>
+                <div class="impact-item"><p>households regain breathing room</p></div>
+                <div class="impact-item"><p>public budgets face less strain</p></div>
             </div>
-            <p>This model does not rely on new taxes.</p>
-            <p class="green-emphasis">It relies on cost reduction.</p>
-            <p>It does not depend on ideology.</p>
-            <p class="green-emphasis">It depends on arithmetic.</p>
-            <p>Telehealth reduces annual healthcare costs from $10,000 to $600.</p>
-            <p>Savings fund expansion.</p>
-            <p>Expansion stabilizes households.</p>
-            <p>Stabilization strengthens the economy.</p>
-            <p>Strength strengthens leverage.</p>
-            <p class="green-emphasis">This is execution through math.</p>
+            <p>Stabilization is the foundation for everything that follows.</p>
         </div>
 
-        <div class="section-box">
-            <div class="section-title-line">
-                <span class="section-number">6.</span>
-                <h2>The Five Dimensions</h2>
+        <div class="section">
+            <div class="section-number">6.</div>
+            <h2 id="step-6">Strengthen the Core</h2>
+            <p>When pressure drops in one area, stability increases in others.</p>
+            <p>This phase reinforces:</p>
+            <div class="impact-grid">
+                <div class="impact-item"><p>wages</p></div>
+                <div class="impact-item"><p>job mobility</p></div>
+                <div class="impact-item"><p>local economies</p></div>
+                <div class="impact-item"><p>public services</p></div>
+                <div class="impact-item"><p>long‑term resilience</p></div>
             </div>
-            <p>Each dimension is practical.</p>
-            <p>Each dimension reinforces the others.</p>
-            <p>Each dimension is measurable.</p>
-            <p>Each dimension is achievable.</p>
-            <p style="margin-top: 25px; font-size: 1.2em; color: white;">The five dimensions are:</p>
+            <p class="green-emphasis">Stability compounds.</p>
+        </div>
+
+        <div class="section">
+            <div class="section-number">7.</div>
+            <h2 id="step-7">Reinvest the Savings</h2>
+            <p>Lower routine cost creates fiscal room.</p>
+            <p>Not from new taxes.<br>Not from new debt.<br>From reduced waste and improved outcomes.</p>
+            <p>That room supports:</p>
+            <div class="impact-grid">
+                <div class="impact-item"><p>job expansion</p></div>
+                <div class="impact-item"><p>income stability</p></div>
+                <div class="impact-item"><p>community resilience</p></div>
+                <div class="impact-item"><p>long‑term renewal</p></div>
+            </div>
+            <p>Savings don't disappear.</p>
+            <p class="green-emphasis">They reinforce stability.</p>
+        </div>
+
+        <div class="section">
+            <div class="section-number">8.</div>
+            <h2 id="step-8">Renew the System</h2>
+            <p>When the base stabilizes and reinvestment strengthens communities, systems begin to realign.</p>
+            <p>A more stable phase emerges:</p>
+            <div class="impact-grid">
+                <div class="impact-item"><p>lower structural pressure</p></div>
+                <div class="impact-item"><p>stronger institutional trust</p></div>
+                <div class="impact-item"><p>healthier communities</p></div>
+                <div class="impact-item"><p>more predictable costs</p></div>
+                <div class="impact-item"><p>more resilient systems</p></div>
+            </div>
+            <p>This is not ideology.</p>
+            <p class="green-emphasis">It is coordination at scale.</p>
+        </div>
+
+        <div class="section" style="border-left-color: #ff9800;">
+            <h2 style="color: #ff9800;">Why Your Action Matters</h2>
+            <p>People feel the pressure.</p>
+            <p>Institutions feel the strain.</p>
+            <p>Trust is low.</p>
+            <p>Costs are high.</p>
+            <p>Moments like this either fracture systems</p>
+            <p class="green-emphasis">or realign them.</p>
+            <p>Realignment requires clarity.</p>
+            <p>Clarity requires documentation.</p>
+            <p>Documentation creates leverage.</p>
+            <p>Your action is the beginning of stabilization.</p>
             <div class="highlight-box">
-                <p style="font-size: 1.1em;" id="dimension-1">Healthcare stabilization</p>
-                <p style="font-size: 1.1em;" id="dimension-2">AI-resistant job expansion</p>
-                <p style="font-size: 1.1em;" id="dimension-3">Income security funded by savings</p>
-                <p style="font-size: 1.1em;" id="dimension-4">Labor leverage through cost removal</p>
-                <p style="font-size: 1.1em;" id="dimension-5">Institutional guardrails that protect the public</p>
-            </div>
-            <p>None function alone.</p>
-            <p class="green-emphasis">Together, they stabilize the system.</p>
-        </div>
-
-        <div class="section-box">
-            <div class="section-title-line">
-                <span class="section-number">7.</span>
-                <h2>What This Changes</h2>
-            </div>
-            <p>When healthcare stabilizes, workers gain flexibility.</p>
-            <p>When workers gain flexibility, contracts strengthen.</p>
-            <p>When contracts strengthen, wages rise.</p>
-            <p>When wages rise, housing becomes sustainable.</p>
-            <p>When housing stabilizes, public strain decreases.</p>
-            <p>When public strain decreases, institutional focus improves.</p>
-            <p style="margin-top: 25px;">This is coordinated reinforcement.</p>
-            <p class="green-emphasis">This is how systems realign.</p>
-        </div>
-
-        <div class="section-box">
-            <div class="section-title-line">
-                <span class="section-number">8.</span>
-                <h2>From Competence to Leverage</h2>
-            </div>
-            <p>Crisis showed the capacity gap.</p>
-            <p>5D demonstrates coordinated execution.</p>
-            <p style="margin-top: 25px;">When voters implement practical solutions at scale, leverage shifts.</p>
-            <p>Institutions respond to stability.</p>
-            <p>Stability creates alignment.</p>
-            <p>Alignment produces accountability.</p>
-            <div class="insight-box" style="margin-top: 30px;">
-                <p style="font-size: 1.2em; color: #81c784;">Transition Line to SimpleMath</p>
-                <p>The next question is funding.</p>
-                <p>The numbers are simple.</p>
-                <p class="green-emphasis">This is where the math begins.</p>
+                <p class="green-emphasis" style="font-size: 1.5em;">This is where PHIERS begins.</p>
             </div>
         </div>
 
-        <div style="text-align: center; margin: 60px 0;">
-            <h2>Ready for the Math?</h2>
-            <p style="font-size: 1.2em;">The numbers are simple. The savings are real.</p>
-            <a href="SimpleMath.html" class="btn">See the Simple Math →</a>
+        <!-- At a Glance -->
+        <div class="section-box" style="margin-bottom:30px;">
+            <h2 style="margin-top:0;">Action at a Glance</h2>
+            <div style="display:grid; gap:12px;">
+                <div style="padding:12px 16px; background:rgba(76,175,80,0.07); border-radius:8px; border:1px solid rgba(76,175,80,0.2);">
+                    <p style="margin:0;"><strong style="color:#4caf50;">Steps 1–2:</strong> Sign the petition and take the survey. Document your direction on the record.</p>
+                </div>
+                <div style="padding:12px 16px; background:rgba(76,175,80,0.07); border-radius:8px; border:1px solid rgba(76,175,80,0.2);">
+                    <p style="margin:0;"><strong style="color:#4caf50;">Steps 3–5:</strong> Share the model, build alignment, stabilize the base. Grow the coalition.</p>
+                </div>
+                <div style="padding:12px 16px; background:rgba(76,175,80,0.07); border-radius:8px; border:1px solid rgba(76,175,80,0.2);">
+                    <p style="margin:0;"><strong style="color:#4caf50;">Steps 6–8:</strong> Strengthen the core, reinvest the savings, renew the system. This is what 3.5% looks like.</p>
+                </div>
+            </div>
         </div>
 
-        <!-- ACTION CTA -->
-        <section style="text-align:center; margin:50px 0; padding:40px 30px; background:rgba(244,67,54,0.07); border:2px solid rgba(244,67,54,0.3); border-radius:12px;">
-            <h2 style="margin-top:0; color:#f44336;">Ready to Act?</h2>
-            <p style="font-size:1.2em;">Be specific about what We the People want. Congress answers to the people who elect it.</p>
-            <div style="margin:30px 0; display:flex; gap:20px; justify-content:center; flex-wrap:wrap;">
-                <a href="Action.html" class="btn btn-warning">✊ Take Action</a>
-                <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now-short-version" class="btn">Sign the Petition</a>
-            </div>
-        </section>
-
-        <div class="phiers-media-block" style="max-width:640px; margin: 36px auto;">
-            <p style="text-align:center; color:#4caf50; font-weight:600; margin-bottom:12px; font-size:1.05em;">The Cascade: How 1 Becomes 234 Million (3:33)</p>
-            <div class="phiers-video-wrapper">
-                <iframe
-                    src="https://www.youtube.com/embed/jMU6LKEBzbs"
-                    title="CASCADE MECHANISM: Why Congress Can't Ignore PHIERS (3:33)"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
-            </div>
-            <p style="text-align:center; color:#81c784; font-size:0.9em; margin-top:10px; font-style:italic;">The exponential cascade that makes universal coverage inevitable.</p>
+        <div style="text-align: center; margin: 50px 0;">
+            <h2>Document Your Direction</h2>
+            <p style="font-size: 1.2em;">Add your voice to the alignment.</p>
+            <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now-short-version" class="btn">Sign the PHIERS Petition</a>
+            <a href="Donate.html" class="btn btn-warning" style="margin-left:15px;">Support the Movement</a>
         </div>
 
         <footer>
@@ -700,10 +697,16 @@
                 The only thing missing is you.
             </div>
                             <p style="color:#81c784; font-size:0.9em; margin-top:20px; font-style:italic;">PHIERS is a peaceful, democratic, confrontational accountability movement built to stabilize the country.</p>
-            <p class="copyright">PHIERS Movement | Version: 2026-03-03</p>
+            <p class="copyright">PHIERS Movement | Version: 2026-03-05</p>
         </footer>
     </div>
-
+    
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal" onclick="closeModal(event)">
+        <span class="close-modal" onclick="closeModal(event)">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+    
     <script>
     function toggleMobileMenu() {
         var navLinks = document.getElementById('navLinks');
@@ -722,7 +725,6 @@
         });
     });
 
-    // Image Modal functions
     function openModal(src) {
         var modal = document.getElementById('imageModal');
         var modalImg = document.getElementById('modalImage');
@@ -739,7 +741,6 @@
         }
     }
 
-    // Prevent modal from closing when clicking the image
     document.addEventListener('DOMContentLoaded', function() {
         var modalImg = document.getElementById('modalImage');
         if (modalImg) {
@@ -749,7 +750,6 @@
         }
     });
 
-    // Add click handlers to all images
     document.addEventListener('DOMContentLoaded', function() {
         var images = document.querySelectorAll('img');
         images.forEach(function(img) {
@@ -762,7 +762,6 @@
         });
     });
 
-    // Close on ESC key
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
             var modal = document.getElementById('imageModal');
