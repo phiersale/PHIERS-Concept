@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Healthcare Crisis - PHIERS: 22M Lost Coverage, Congress Failed</title>
-    <meta name="description" content="PHIERS: The math Congress fears. $600 telehealth replaces $10,000 insurance. One conversion funds 12 more. 3.5% = guaranteed change. Force Congress to act — or replace them.">
+    <meta name="description" content="22 million Americans lost coverage. Premiums doubled. Congress rejected both solutions. Here's why it happened — and how regular people fix it.">
+    <meta property="og:title" content="The Healthcare Crisis We Can't Ignore — PHIERS">
+    <meta property="og:description" content="22 million lost coverage. Premiums doubled. Congress failed. Here's the pattern, the problem, and the solution.">
+    <meta property="og:image" content="https://phiersale.github.io/PHIERS-Concept/PHIERS_Logo.png">
+    <meta property="og:url" content="https://phiersale.github.io/PHIERS-Concept/Crisis.html">
+    <meta property="og:type" content="website">
     <link rel="canonical" href="https://phiersale.github.io/PHIERS-Concept/Crisis.html" />
     <style>
         * {
@@ -40,7 +45,7 @@
         }
 
         .mobile-menu-toggle {
-            display: none;
+            display: block;
             background: transparent;
             border: 1px solid #4caf50;
             color: #4caf50;
@@ -59,13 +64,14 @@
         }
 
         .nav-links-container {
-            display: flex;
+            display: none;
             flex-wrap: wrap;
             align-items: center;
             justify-content: center;
             gap: 5px;
             width: 100%;
         }
+        .nav-links-container.active { display: flex; }
 
         .nav-item {
             color: #81c784;
@@ -150,33 +156,10 @@
         }
 
         @media (max-width: 768px) {
-            .mobile-menu-toggle {
-                display: block;
-            }
-            .global-nav {
-                padding: 10px;
-            }
-            .nav-links-container {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                margin-top: 15px;
-            }
-            .nav-links-container.active {
-                display: flex;
-            }
-            .nav-item, .dropdown {
-                width: 100%;
-                text-align: center;
-            }
-            .dropdown-content {
-                position: static;
-                width: 100%;
-                margin-top: 5px;
-            }
-            .dropbtn {
-                width: 100%;
-            }
+            .global-nav { padding: 10px; }
+            .nav-item, .dropdown { width: 100%; text-align: center; }
+            .dropdown-content { position: static; width: 100%; margin-top: 5px; }
+            .dropbtn { width: 100%; }
         }
 
         .hero {
@@ -194,7 +177,7 @@
         }
 
         .mabah-full {
-            font-size: 1.1em;
+            font-size: 1.0em;
             color: #81c784;
             font-weight: 600;
             margin-bottom: 5px;
@@ -211,15 +194,17 @@
 
         .hero h1 {
             color: #f44336;
-            font-size: 2.8em;
+            font-size: clamp(1.4rem, 5vw, 2.8rem);
+            line-height: 1.2;
             margin-bottom: 15px;
             text-shadow: 0 0 20px rgba(244, 67, 54, 0.3);
         }
 
         .hero .subhead {
-            font-size: 1.3em;
+            font-size: 1.55em;
             color: #c8e6c9;
-            font-style: italic;
+            font-style: normal;
+            font-weight: 600;
         }
 
         .phiers-media-block {
@@ -510,11 +495,11 @@
             <div class="nav-links-container" id="navLinks">
                 <a href="index.html" class="nav-item">Home</a>
                 <a href="Crisis.html" class="nav-item active">Crisis</a>
-                <a href="5D_Solutions.html" class="nav-item">5D Solutions</a>
                 <a href="SimpleMath.html" class="nav-item">Simple Math</a>
-                <a href="Roadmap.html" class="nav-item">Roadmap</a>
+                <a href="5D_Solutions.html" class="nav-item">5D Solutions</a>
                 <a href="Leverage.html" class="nav-item">Leverage</a>
                 <a href="Action.html" class="nav-item">Action</a>
+                <a href="Roadmap.html" class="nav-item">Roadmap</a>
                 <a href="Donate.html" class="nav-item">Donate</a>
                 <div class="dropdown">
                     <button class="dropbtn">More ▼</button>
@@ -529,6 +514,7 @@
                         <a href="Union-Strategy.html">Union Strategy</a>
                         <a href="Telehealth-vs-Insurance.html">Telehealth vs Insurance</a>
                         <a href="Real-Stories.html">Real Stories</a>
+                        <a href="UNSTOPPABLE.html">UNSTOPPABLE</a>
                     </div>
                 </div>
             </div>
@@ -536,217 +522,246 @@
 
         <div class="hero">
             <img src="PHIERS_Logo.png" alt="PHIERS Logo" class="hero-logo">
-            <div class="mabah-full">MABAH — Make America Better And Healthier</div>
-            <div class="mabah-tagline">Sounds Like MAGA, But A Lot Bettah</div>
-            <h1>The Healthcare Crisis We Can No Longer Ignore</h1>
+            <div class="mabah-full">MABAH — Making America Better And Healthier</div>
+            <h1>The Healthcare Crisis <span style="color:#4caf50; white-space:nowrap;">We Can't Ignore</span></h1>
             <div class="subhead">22 million lost coverage. Premiums doubled. Congress rejected both solutions.</div>
         </div>
 
-        <div class="phiers-media-block">
-            <div class="phiers-video-wrapper">
-                <iframe 
-                    src="https://www.youtube.com/embed/jMU6LKEBzbs" 
-                    title="The Simple Math of PHIERS"
-                    allowfullscreen>
-                </iframe>
-            </div>
-        </div>
-
-        <div class="phiers-media-block" style="max-width:640px; margin: 36px auto;">
-            <p style="text-align:center; color:#f5c842; font-weight:600; margin-bottom:12px; font-size:1.05em;">The Moment: Why Congress Created This Crisis (2:22)</p>
+        <!-- Intro Video — moved directly under hero -->
+        <div class="phiers-media-block" style="max-width:640px; margin: 0 auto 50px;">
+            <p style="text-align:center; color:#f5c842; font-weight:600; margin-bottom:10px; font-size:1.05em;">🎥 Watch: The Moment — Why Congress Created This Crisis (2:22)</p>
+            <p style="text-align:center; color:#81c784; font-size:0.92em; margin: 0 0 12px; font-style:italic;">See the human cost of doing nothing.</p>
             <div class="phiers-video-wrapper">
                 <iframe
-                    src="https://www.youtube.com/embed/eE-TxvI0d4Q"
-                    title="The Moment - Why Congress Created This Crisis (2:22)"
+                    src="https://www.youtube.com/embed/jMU6LKEBzbs"
+                    title="The Moment: Why Congress Created This Crisis"
                     frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    loading="lazy"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen>
                 </iframe>
             </div>
-            <p style="text-align:center; color:#81c784; font-size:0.9em; margin-top:10px; font-style:italic;">The human cost of congressional inaction.</p>
         </div>
 
+        <!-- The Pattern -->
         <section>
             <h2>The Pattern</h2>
             <div class="pattern-box">
-                <p style="font-size: 1.2em; margin-bottom: 20px;">Several problems are hitting at the same time.</p>
-                <ul style="columns: 2; column-gap: 40px;">
-                    <li>Healthcare costs rise.</li>
-                    <li>Wages lag.</li>
-                    <li>Housing costs increase.</li>
-                    <li>Food becomes more expensive.</li>
-                    <li>Stable jobs are harder to find.</li>
-                    <li>Military commitments increase economic strain.</li>
+                <p style="font-size:1.15em; font-style:italic; margin-bottom:20px;">You don't need a study to know things are bad. Just look around.</p>
+                <ul>
+                    <li>Healthcare keeps getting more expensive.</li>
+                    <li>Wages struggle to keep up.</li>
+                    <li>Housing costs rise.</li>
+                    <li>Groceries cost more.</li>
+                    <li>Jobs feel less secure.</li>
+                    <li>Energy prices jump. Supply chains tighten. Prices go up everywhere.</li>
                 </ul>
-                <p>When conflicts escalate, it affects life at home.</p>
-                <p>Energy markets react.</p>
-                <p>Supply chains tighten or are disrupted.</p>
-                <p>Prices rise.</p>
-                <p class="red-emphasis" style="margin: 30px 0;">The people absorb the impact.</p>
-                <p>Each issue gets debated on its own.</p>
-                <p class="green-emphasis">But they don't exist on their own.</p>
-                <p class="green-emphasis">They connect.</p>
+                <p>Each issue gets debated separately. But in real life, families feel them all at the same time.</p>
                 <div class="connected-grid">
-                    <div class="connected-item"><p>When healthcare gets more expensive, people cut back.</p></div>
-                    <div class="connected-item"><p>When jobs feel unstable, housing falls behind.</p></div>
-                    <div class="connected-item"><p>When costs rise everywhere, pressure builds everywhere.</p></div>
+                    <div class="connected-item"><p>When healthcare costs rise, people cut spending.</p></div>
+                    <div class="connected-item"><p>When jobs feel unstable, housing becomes risky.</p></div>
+                    <div class="connected-item"><p>When everything gets more expensive, pressure builds everywhere.</p></div>
                 </div>
-                <p class="red-emphasis">Solving one piece at a time will not fix it.</p>
+                <p class="red-emphasis" style="text-align:center; margin-top:20px;">Regular people absorb the shock.</p>
             </div>
         </section>
 
+        <!-- The Structural Problem -->
+        <section>
+            <h2>Why the System Keeps Failing</h2>
+            <div class="insight-box">
+                <p>Here's how government usually works: they try to fix things one at a time. A healthcare bill here, a jobs bill there. But the problems don't hit one at a time — they hit all at once.</p>
+                <ul>
+                    <li>Medical debt weakens households.</li>
+                    <li>Job instability weakens communities.</li>
+                    <li>Weaker communities shrink tax revenue.</li>
+                    <li>Shrinking revenue strains public services.</li>
+                </ul>
+                <p style="font-style:italic;">Move one piece of the puzzle — the others shift.</p>
+                <p class="red-emphasis">You can't fix a connected problem with disconnected solutions.</p>
+            </div>
+        </section>
+
+        <!-- What Fragmented Solutions Cost -->
+        <section>
+            <h2>What This Costs Regular People</h2>
+            <div class="pattern-box">
+                <p class="green-emphasis">When healthcare stays unstable:</p>
+                <ul>
+                    <li>Workers stay trapped in jobs just to keep coverage.</li>
+                    <li>Small businesses hesitate to hire.</li>
+                    <li>Unions spend bargaining power defending benefits instead of raising wages.</li>
+                    <li>Families delay care until problems get worse.</li>
+                </ul>
+                <p style="color:#c8e6c9; margin: 20px 0 8px; font-style:italic;">And when work gets shaky, everything else starts slipping too.</p>
+                <p class="green-emphasis">When work becomes unstable:</p>
+                <ul>
+                    <li>Housing insecurity rises.</li>
+                    <li>Local economies weaken.</li>
+                    <li>Public services get stretched thin.</li>
+                </ul>
+                <p class="red-emphasis" style="text-align:center; margin-top:20px;">The pressure stacks up.</p>
+            </div>
+        </section>
+
+        <!-- The Real Gap -->
+        <section>
+            <h2>The Real Gap</h2>
+            <div class="insight-box">
+                <p>The issue isn't intelligence.</p>
+                <p class="green-emphasis" style="font-size:1.5em;">It's coordination.</p>
+                <p>Problems move faster than policy. When institutions drag their feet and pressure keeps building, something breaks. And when people act alone, they pay more and have less power.</p>
+                <p>Millions of Americans already know healthcare is broken. But knowing doesn't move Congress. Organized pressure does.</p>
+            </div>
+        </section>
+
+        <!-- Image -->
         <div class="phiers-media-block">
             <img src="US_Millions_Face_Soaring_Health_Costs_as_Subsidies_Expire.png" alt="22 million Americans lost coverage when subsidies expired">
         </div>
 
+        <!-- The Decision Point — moved up -->
         <section>
-            <h2>The Structural Problem</h2>
-            <div class="insight-box">
-                <p>Government usually tackles problems separately.</p>
-                <ul>
-                    <li>There's a healthcare bill.</li>
-                    <li>A jobs bill.</li>
-                    <li>A housing plan.</li>
-                    <li>A foreign policy debate.</li>
-                </ul>
-                <p class="green-emphasis">But the problems reinforce each other.</p>
-                <p>Medical debt limits mobility.</p>
-                <p>Job instability weakens communities.</p>
-                <p>Lower earnings reduce tax revenue.</p>
-                <p>Reduced revenue strains public services.</p>
-                <p style="font-style: italic; margin: 25px 0;">It works like a puzzle — move one piece, the others shift.</p>
-                <p class="red-emphasis">You can't untangle something this connected by pulling one thread.</p>
+            <h2>The Decision Point</h2>
+            <div class="solution-box" style="text-align:center;">
+                <p style="font-size:1.3em;">This is not about left or right.</p>
+                <p class="green-emphasis" style="font-size:1.5em;">It's about whether connected problems get solved in a connected way.</p>
+                <p>Waiting for the system to fix itself is a gamble. Organizing around a clear solution shifts the balance.</p>
+                <p class="red-emphasis" style="font-size:1.5em; margin:25px 0;">That's where PHIERS begins.</p>
             </div>
         </section>
 
-        <section>
-            <h2>What Fragmented Solutions Cost</h2>
-            <div class="pattern-box">
-                <p class="green-emphasis">When healthcare stays unstable:</p>
-                <ul>
-                    <li>Workers stay in jobs just to keep coverage.</li>
-                    <li>Small businesses hesitate to hire.</li>
-                    <li>Unions spend bargaining power on benefits instead of pay.</li>
-                    <li>People delay care.</li>
-                </ul>
-                <p class="green-emphasis" style="margin-top: 30px;">When work becomes unstable:</p>
-                <ul>
-                    <li>Housing insecurity rises.</li>
-                    <li>Local economies weaken.</li>
-                    <li>Public services feel the strain.</li>
-                </ul>
-                <p class="red-emphasis" style="text-align: center; margin-top: 30px;">These pressures stack.</p>
+        <!-- Credibility Block — moved up -->
+        <section style="margin: 50px 0 20px;">
+            <h2 style="text-align:center;">Who Has Looked Closely — and Stayed</h2>
+            <p style="text-align:center; color:#c8e6c9; margin-bottom:20px;">These are the people and institutions that examined the PHIERS framework and engaged.</p>
+
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:14px; margin-bottom:30px;">
+                <div style="background:rgba(76,175,80,0.08); border:1px solid rgba(76,175,80,0.3); border-radius:8px; padding:16px;">
+                    <div style="color:#f5c842; font-size:1.1em; margin-bottom:6px;">📄 Congressman Chris Van Hollen</div>
+                    <div style="color:#81c784; font-size:0.88em;">Letter of Support on file</div>
+                </div>
+                <div style="background:rgba(76,175,80,0.08); border:1px solid rgba(76,175,80,0.3); border-radius:8px; padding:16px;">
+                    <div style="color:#f5c842; font-size:1.1em; margin-bottom:6px;">🏛 Maryland Health Care Commission</div>
+                    <div style="color:#81c784; font-size:0.88em;">Formally engaged with the model</div>
+                </div>
+                <div style="background:rgba(76,175,80,0.08); border:1px solid rgba(76,175,80,0.3); border-radius:8px; padding:16px;">
+                    <div style="color:#f5c842; font-size:1.1em; margin-bottom:6px;">⛪ Maryland Interfaith Coalition</div>
+                    <div style="color:#81c784; font-size:0.88em;">Support letters on file</div>
+                </div>
+                <div style="background:rgba(76,175,80,0.08); border:1px solid rgba(76,175,80,0.3); border-radius:8px; padding:16px;">
+                    <div style="color:#f5c842; font-size:1.1em; margin-bottom:6px;">💊 Mark Cuban's Cost Plus Drugs</div>
+                    <div style="color:#81c784; font-size:0.88em;">Independent validation of the pharma model</div>
+                </div>
+                <div style="background:rgba(76,175,80,0.08); border:1px solid rgba(76,175,80,0.3); border-radius:8px; padding:16px;">
+                    <div style="color:#f5c842; font-size:1.1em; margin-bottom:6px;">🏥 ZORTT Elite Medical</div>
+                    <div style="color:#81c784; font-size:0.88em;">Cooperative delivery model independently proven</div>
+                </div>
+                <div style="background:rgba(76,175,80,0.08); border:1px solid rgba(76,175,80,0.3); border-radius:8px; padding:16px;">
+                    <div style="color:#f5c842; font-size:1.1em; margin-bottom:6px;">🎓 Harvard (Chenoweth)</div>
+                    <div style="color:#81c784; font-size:0.88em;">3.5% threshold academically validated</div>
+                </div>
+            </div>
+
+            <div class="phiers-media-block" style="max-width:640px; margin: 10px auto 40px;">
+                <p style="text-align:center; color:#c8e6c9; font-size:0.95em; margin-bottom:10px; font-style:italic;">A national media firm looked at this and put their reputation behind it. Here's why.</p>
+                <p style="text-align:center; color:#f5c842; font-weight:600; margin-bottom:12px; font-size:1.05em;">Why organizers say PHIERS is the missing piece (7:11)</p>
+                <div class="phiers-video-wrapper">
+                    <iframe
+                        src="https://www.youtube.com/embed/UD8svoGU7ZU"
+                        title="Why organizers say PHIERS is the missing piece"
+                        frameborder="0"
+                        loading="lazy"
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
             </div>
         </section>
 
-        <section>
-            <h2>The Gap in How We Respond</h2>
-            <div class="insight-box">
-                <p>The issue isn't intelligence.</p>
-                <p class="green-emphasis" style="font-size: 1.5em;">It's coordination.</p>
-                <p>Problems are moving faster than the way policy usually works.</p>
-                <p>When institutions move slowly and pressure keeps building, something eventually gives.</p>
-                <p>When people act alone instead of together, they pay more and lose bargaining power.</p>
-                <p>The question is whether change comes by design — or by breakdown.</p>
-            </div>
-        </section>
-
-        <div class="phiers-media-block">
-            <img src="Cascade_Math.png" alt="Cascade math: 1 to 234 million coverage path">
-        </div>
-
-        <section>
-            <h2>Clarity Before Leverage</h2>
-            <div class="solution-box">
-                <p>Realignment doesn't start with anger.</p>
-                <p class="green-emphasis" style="font-size: 1.5em;">It starts with clarity.</p>
-                <p>Sign the petition.</p>
-                <p>Fill out the survey.</p>
-                <p style="font-weight: bold;">Be specific about what We the People want.</p>
-                <p>Congress answers to the people who elect it.</p>
-                <p>Authority in a representative system is not automatic.</p>
-                <p>It depends on alignment with documented constituent direction.</p>
-                <p>No one stays in office without public confidence.</p>
-                <p>When alignment breaks down, public confidence shifts.</p>
-            </div>
-        </section>
-
+        <!-- Why Healthcare Comes First -->
         <section>
             <h2>Why Healthcare Comes First</h2>
             <div class="insight-box">
-                <p>Health insurance is one of the largest routine expenses companies face.</p>
-                <p>It is also one of the largest routine expenses individuals face.</p>
+                <p>Healthcare is one of the biggest routine costs for workers, families, employers, and public budgets alike.</p>
                 <p class="green-emphasis">When that cost becomes predictable:</p>
                 <ul>
-                    <li>Workers have more flexibility.</li>
+                    <li>Workers gain freedom.</li>
                     <li>Employers can plan.</li>
-                    <li>Unions can focus on wages.</li>
-                    <li>Households stabilize.</li>
+                    <li>Unions can negotiate wages instead of defending benefits.</li>
+                    <li>Families regain stability.</li>
                 </ul>
-                <p>Start with the base.</p>
-                <p>Stabilize routine care.</p>
+                <p>Start with the base. Stabilize routine care.</p>
                 <p class="green-emphasis">Then build from there.</p>
             </div>
         </section>
 
+        <!-- Cascade image -->
+        <div class="phiers-media-block">
+            <img src="Cascade_Math.png" alt="Cascade math: 1 to 234 million coverage path">
+        </div>
+
+        <!-- Why This Matters Now -->
         <section>
             <h2>Why This Matters Now</h2>
             <div class="pattern-box">
-                <p>People across the country are feeling the pressure.</p>
-                <p>Economic strain affects political stability.</p>
-                <p>Political instability affects trust.</p>
-                <p>When trust drops, coordination weakens.</p>
-                <p>When people organize and stabilize healthcare together, everyone benefits.</p>
-                <p>Stability restores confidence.</p>
-                <p>Confidence restores capacity.</p>
+                <p>Across the country, people feel the pressure.</p>
+                <p>Economic strain weakens political stability. Political instability weakens trust. Low trust makes it harder to solve anything.</p>
+                <p>But when people organize around a clear solution, things change.</p>
+                <p>Stability builds confidence.</p>
+                <p class="green-emphasis">Confidence builds capacity.</p>
             </div>
         </section>
 
-        <div class="phiers-media-block" style="max-width:640px; margin: 36px auto;">
-            <p style="text-align:center; color:#f5c842; font-weight:600; margin-bottom:12px; font-size:1.05em;">Pathos Communications: Why They Put Their Reputation Behind PHIERS (7:11)</p>
-            <div class="phiers-video-wrapper">
-                <iframe
-                    src="https://www.youtube.com/embed/UD8svoGU7ZU"
-                    title="Pathos Communications: Why They Put Their Reputation Behind PHIERS (7:11)"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
-            </div>
-            <p style="text-align:center; color:#81c784; font-size:0.9em; margin-top:10px; font-style:italic;">Third-party credibility. A Fortune 500 PR firm explains why they backed this movement.</p>
-        </div>
-
+        <!-- Clarity Before Leverage — rewritten -->
         <section>
-            <h2>The Decision Point</h2>
-            <div class="solution-box" style="text-align: center;">
-                <p style="font-size: 1.3em;">This is not about left or right.</p>
-                <p class="green-emphasis" style="font-size: 1.5em;">It's about whether connected problems get solved in a connected way.</p>
-                <p>Waiting for systems to adjust on their own is a risk.</p>
-                <p>Demonstrating workable solutions shifts the balance.</p>
-                <p class="red-emphasis" style="font-size: 1.5em; margin: 35px 0;">That's where PHIERS begins.</p>
-                <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now-short-version" class="btn">Sign the Petition</a>
+            <h2>How Regular People Change This</h2>
+            <div class="solution-box">
+                <p>Congress works for us. That's the deal.</p>
+                <p>When they stop listening, we stop trusting. And when trust breaks, people show up at the polls.</p>
+                <p>Real leverage starts with clarity — not anger. When millions of people put the same demand on the public record, Congress has two choices: act, or get replaced.</p>
+                <p class="green-emphasis" style="font-size:1.3em;">That's what PHIERS makes possible.</p>
             </div>
         </section>
 
-        <section style="text-align: center; margin: 60px 0; padding: 40px 30px; background: rgba(76,175,80,0.07); border: 1px solid rgba(76,175,80,0.25); border-radius: 12px;">
-            <h2 style="margin-top: 0;">Start Where You Are</h2>
-            <p style="font-size: 1.1em; margin-bottom: 30px;">Pick the page that fits your question right now.</p>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; max-width: 700px; margin: 0 auto;">
-                <a href="SimpleMath.html" class="btn" style="font-size:1em; padding:14px 20px;">&#128202; The Math</a>
-                <a href="5D_Solutions.html" class="btn" style="font-size:1em; padding:14px 20px;">&#128295; The Solution</a>
-                <a href="Crisis.html" class="btn" style="font-size:1em; padding:14px 20px;">&#128680; The Crisis</a>
-                <a href="Leverage.html" class="btn" style="font-size:1em; padding:14px 20px;">&#9889; The Leverage</a>
-                <a href="UNBREAKABLE.html" class="btn" style="font-size:1em; padding:14px 20px;">&#128170; UNBREAKABLE</a>
-                <a href="Action.html" class="btn btn-warning" style="font-size:1em; padding:14px 20px;">&#9994; Take Action</a>
-            </div>
-        </section>
-
-        <section style="text-align: center; margin: 60px 0;">
-            <h2>Be Specific About What We the People Want</h2>
-            <p style="font-size: 1.2em;">Fill out the survey. Make your voice count.</p>
+        <!-- Final CTA -->
+        <section style="text-align:center; margin: 60px 0; padding: 40px 30px; background: rgba(244,67,54,0.07); border: 2px solid rgba(244,67,54,0.3); border-radius: 12px;">
+            <h2 style="margin-top:0; color:#f44336;">Step 1: Document Your Direction</h2>
+            <p style="font-size:1.15em;">Your name and district on a public record. Not a like. Not a share. Real leverage.</p>
             <div style="margin: 30px 0;">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdETA-oNIeOAzEsG4GsYiiws1YBpLunx8ioVJkZac5hzSxaZw/viewform?usp=header" class="btn" style="margin-right: 15px;">Take the Survey</a>
-                <a href="5D_Solutions.html" class="btn" style="background: transparent;">See the Solution</a>
+                <a href="Action.html" class="btn btn-warning" style="font-size:1.3em; padding:20px 50px; display:inline-block;">✊ Document Your Direction</a>
+                <div style="margin-top:20px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+                    <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now-short-version" class="btn" style="font-size:1em; padding:12px 28px;">✍ Sign the Petition</a>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdETA-oNIeOAzEsG4GsYiiws1YBpLunx8ioVJkZac5hzSxaZw/viewform?usp=header" class="btn" style="font-size:1em; padding:12px 28px;">📋 Take the Survey</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Start Where You Are — card grid -->
+        <section style="text-align:center; margin: 60px 0; padding: 40px 30px; background: rgba(76,175,80,0.07); border: 1px solid rgba(76,175,80,0.25); border-radius: 12px;">
+            <h2 style="margin-top:0;">Start Where You Are</h2>
+            <p style="font-size:1.1em; margin-bottom:30px;">Pick the page that fits your question right now.</p>
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:14px; max-width:700px; margin:0 auto;">
+                <a href="SimpleMath.html" style="display:block; background:linear-gradient(135deg,#4caf50,#2e7d32); border-radius:8px; padding:16px 18px; text-decoration:none; color:white;">
+                    <div style="font-size:1.1em; font-weight:bold; margin-bottom:4px;">📊 The Math</div>
+                    <div style="font-size:0.85em; opacity:0.88;">$600 replaces $10,000 — here's exactly how</div>
+                </a>
+                <a href="5D_Solutions.html" style="display:block; background:linear-gradient(135deg,#4caf50,#2e7d32); border-radius:8px; padding:16px 18px; text-decoration:none; color:white;">
+                    <div style="font-size:1.1em; font-weight:bold; margin-bottom:4px;">🔧 The Solution</div>
+                    <div style="font-size:0.85em; opacity:0.88;">Five connected problems, one connected answer</div>
+                </a>
+                <a href="Leverage.html" style="display:block; background:linear-gradient(135deg,#4caf50,#2e7d32); border-radius:8px; padding:16px 18px; text-decoration:none; color:white;">
+                    <div style="font-size:1.1em; font-weight:bold; margin-bottom:4px;">⚡ The Leverage</div>
+                    <div style="font-size:0.85em; opacity:0.88;">How signatures turn into political power</div>
+                </a>
+                <a href="UNSTOPPABLE.html" style="display:block; background:linear-gradient(135deg,#4caf50,#2e7d32); border-radius:8px; padding:16px 18px; text-decoration:none; color:white;">
+                    <div style="font-size:1.1em; font-weight:bold; margin-bottom:4px;">💪 UNSTOPPABLE</div>
+                    <div style="font-size:0.85em; opacity:0.88;">Why this movement can't be blocked or bought out</div>
+                </a>
+                <a href="Action.html" style="display:block; background:linear-gradient(135deg,#f5c842,#e0a800); border-radius:8px; padding:16px 18px; text-decoration:none; color:#000;">
+                    <div style="font-size:1.1em; font-weight:bold; margin-bottom:4px;">✊ Take Action</div>
+                    <div style="font-size:0.85em; opacity:0.75;">Add your name to the public record</div>
+                </a>
             </div>
         </section>
 
@@ -765,9 +780,9 @@
                 PHIERS is a public-interest movement — not a company, not a product.<br>
                 The only thing missing is you.
             </div>
-                            <p style="color:#81c784; font-size:0.9em; margin-top:20px; font-style:italic;">PHIERS is a peaceful, democratic, confrontational accountability movement built to stabilize the country.</p>
-            <p class="copyright">PHIERS Movement | Version: 2026-03-05</p>
-        </footer>
+            <p class="copyright">PHIERS Movement | Version: 2026-03-06</p>
+        <p style="font-size:0.75em; color:#999; margin-top:10px;">Built: 2026-03-06</p>
+</footer>
     </div>
 
     <!-- Image Modal -->
@@ -782,19 +797,6 @@
         navLinks.classList.toggle('active');
     }
 
-    document.addEventListener('DOMContentLoaded', function() {
-        var navItems = document.querySelectorAll('.nav-links-container a');
-        navItems.forEach(function(item) {
-            item.addEventListener('click', function() {
-                var navLinks = document.getElementById('navLinks');
-                if (window.innerWidth <= 768) {
-                    navLinks.classList.remove('active');
-                }
-            });
-        });
-    });
-
-    // Image Modal functions
     function openModal(src) {
         var modal = document.getElementById('imageModal');
         var modalImg = document.getElementById('modalImage');
@@ -811,30 +813,20 @@
         }
     }
 
-    // Prevent modal from closing when clicking the image
     document.addEventListener('DOMContentLoaded', function() {
         var modalImg = document.getElementById('modalImage');
         if (modalImg) {
-            modalImg.addEventListener('click', function(event) {
-                event.stopPropagation();
-            });
+            modalImg.addEventListener('click', function(e) { e.stopPropagation(); });
         }
-    });
-
-    // Add click handlers to all images
-    document.addEventListener('DOMContentLoaded', function() {
         var images = document.querySelectorAll('img');
         images.forEach(function(img) {
             if (img.src && !img.src.includes('PHIERS_Logo')) {
                 img.style.cursor = 'pointer';
-                img.addEventListener('click', function() {
-                    openModal(this.src);
-                });
+                img.addEventListener('click', function() { openModal(this.src); });
             }
         });
     });
 
-    // Close on ESC key
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
             var modal = document.getElementById('imageModal');
