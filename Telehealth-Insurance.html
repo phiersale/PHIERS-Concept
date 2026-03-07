@@ -1,490 +1,483 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Telehealth vs Insurance - PHIERS</title>
- <style>
- * {
- margin: 0;
- padding: 0;
- box-sizing: border-box;
- }
- 
- body {
- font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
- background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
- color: #e0e0e0;
- line-height: 1.6;
- min-height: 100vh;
- }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telehealth vs Insurance — PHIERS</title>
+    <meta name="description" content="$600 telehealth replaces $10,000 insurance. 80% of Americans never use hospitalization — they're paying for protection they don't need. PHIERS fixes that.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #e0e0e0;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { max-width: 900px; margin: 0 auto; }
+        .global-nav {
+            background: rgba(26, 26, 46, 0.95);
+            border: 1px solid rgba(76, 175, 80, 0.3);
+            border-radius: 8px;
+            padding: 12px 20px;
+            margin-bottom: 30px;
+            position: sticky;
+            top: 10px;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+        .mobile-menu-toggle {
+            display: block;
+            background: transparent;
+            border: 1px solid #4caf50;
+            color: #4caf50;
+            font-size: 1.8em;
+            padding: 5px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+        }
+        .nav-links-container {
+            display: none; flex-wrap: wrap;
+            align-items: center; justify-content: center;
+            gap: 5px; width: 100%;
+        }
+        .nav-links-container.active { display: flex; }
+        .nav-item {
+            color: #81c784; text-decoration: none;
+            padding: 8px 12px; border-radius: 4px;
+            font-size: 0.9em; font-weight: 500;
+            transition: all 0.3s ease; white-space: nowrap;
+        }
+        .nav-item:hover { background: rgba(76, 175, 80, 0.2); color: #4caf50; }
+        .nav-item.active { background: rgba(76, 175, 80, 0.3); color: #4caf50; font-weight: bold; }
+        .dropdown { position: relative; display: inline-block; }
+        .dropbtn {
+            background: transparent; color: #81c784;
+            padding: 8px 12px; font-size: 0.9em; font-weight: 500;
+            border: none; cursor: pointer; border-radius: 4px;
+            font-family: inherit;
+        }
+        .dropbtn:hover { background: rgba(76, 175, 80, 0.2); color: #4caf50; }
+        .dropdown-content {
+            display: none; position: absolute; top: 100%; right: 0;
+            background: rgba(26, 26, 46, 0.98); min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+            z-index: 1001; border-radius: 8px;
+            border: 1px solid rgba(76, 175, 80, 0.3); padding: 8px 0;
+        }
+        .dropdown-content a {
+            color: #81c784; padding: 10px 16px;
+            text-decoration: none; display: block; font-size: 0.9em;
+        }
+        .dropdown-content a:hover { background: rgba(76, 175, 80, 0.2); color: #4caf50; }
+        .dropdown:hover .dropdown-content { display: block; }
+        .dropdown:hover .dropbtn { background: rgba(76, 175, 80, 0.2); color: #4caf50; }
+        @media (max-width: 768px) {
+            .global-nav { padding: 10px; }
+            .nav-item, .dropdown { width: 100%; text-align: center; }
+            .dropdown-content { position: static; width: 100%; margin-top: 5px; }
+            .dropbtn { width: 100%; }
+        }
 
- .container {
- max-width: 900px;
- margin: 0 auto;
- padding: 20px;
- }
- 
- header {
- text-align: center;
- padding: 40px 20px;
- background: linear-gradient(135deg, rgba(15, 52, 96, 0.8), rgba(22, 33, 62, 0.8));
- border-radius: 10px;
- margin-bottom: 30px;
- border: 2px solid rgba(76, 175, 80, 0.3);
- }
- 
- .logo {
- max-width: 130px;
- margin: 0 auto 15px auto;
- display: block;
- }
- 
- h1 {
- font-size: 2.2em;
- margin-bottom: 10px;
- color: #4caf50;
- text-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
- }
- 
- .tagline {
- font-size: 1em;
- color: #81c784;
- margin-bottom: 20px;
- }
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 50px 20px 40px;
+            background: linear-gradient(135deg, rgba(15,52,96,0.9), rgba(22,33,62,0.9));
+            border-radius: 12px;
+            margin-bottom: 40px;
+            border: 2px solid rgba(76,175,80,0.35);
+        }
+        .hero-logo { max-width: 120px; margin-bottom: 14px; }
+        .mabah-full { font-size: 0.88em; color: #81c784; font-weight: 600; margin-bottom: 6px; letter-spacing: 0.5px; }
+        .hero-opener { font-size: 1.05em; color: #c8e6c9; font-style: italic; margin-bottom: 10px; }
+        .hero h1 {
+            color: #4caf50;
+            font-size: clamp(1.6rem, 5vw, 2.6rem);
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+        .hero .subhead { font-size: 1.1em; color: #c8e6c9; font-style: italic; }
 
- h2 {
- color: #4caf50;
- margin-top: 30px;
- margin-bottom: 20px;
- font-size: 1.8em;
- border-bottom: 2px solid #4caf50;
- padding-bottom: 10px;
- }
+        /* Section boxes */
+        .section-box {
+            background: rgba(26,26,46,0.9);
+            border-left: 8px solid #4caf50;
+            border-radius: 12px;
+            padding: 30px 36px;
+            margin: 30px 0;
+        }
+        .section-box.red { border-left-color: #f44336; }
+        .section-box.gold { border-left-color: #f5c842; }
+        .section-box.plain {
+            border-left: none;
+            border: 1px solid rgba(76,175,80,0.25);
+        }
 
- h3 {
- color: #81c784;
- margin-top: 20px;
- margin-bottom: 10px;
- font-size: 1.2em;
- }
+        h2 {
+            color: #4caf50;
+            font-size: 1.8em;
+            margin: 50px 0 20px;
+            border-bottom: 2px solid rgba(76,175,80,0.3);
+            padding-bottom: 10px;
+        }
+        p { color: #c8e6c9; margin: 16px 0; font-size: 1.05em; line-height: 1.8; }
+        ul { margin: 12px 0 12px 1.4em; }
+        li { color: #c8e6c9; margin-bottom: 10px; font-size: 1.05em; line-height: 1.7; }
+        strong { color: #ffffff; }
+        .green { color: #4caf50; font-weight: bold; }
+        .gold { color: #f5c842; font-weight: bold; }
+        .red { color: #f44336; font-weight: bold; }
+        .checkmark { color: #4caf50; margin-right: 6px; }
 
- p {
- margin-bottom: 15px;
- color: #c8e6c9;
- }
+        /* Stat cards */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin: 28px 0;
+        }
+        .stat-card {
+            background: rgba(76,175,80,0.08);
+            border: 1px solid rgba(76,175,80,0.3);
+            border-radius: 10px;
+            padding: 22px 20px;
+            text-align: center;
+        }
+        .stat-card .stat-num {
+            font-size: 2.2em;
+            font-weight: 900;
+            color: #4caf50;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .stat-card p { margin: 0; font-size: 0.95em; color: #c8e6c9; }
 
- ul {
- margin-left: 20px;
- margin-top: 10px;
- margin-bottom: 15px;
- }
+        /* Graphic */
+        .graphic-block {
+            text-align: center;
+            margin: 36px 0;
+            padding: 20px;
+            background: rgba(0,0,0,0.25);
+            border-radius: 10px;
+            border: 1px solid rgba(76,175,80,0.2);
+        }
+        .graphic-block img {
+            max-width: 70%;
+            height: auto;
+            border-radius: 8px;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+        }
+        .graphic-block p { margin: 12px 0 0; font-size: 0.88em; color: #81c784; font-style: italic; }
 
- li {
- margin: 10px 0;
- color: #c8e6c9;
- }
+        /* CTA */
+        .cta-section {
+            text-align: center;
+            margin: 60px 0;
+            padding: 40px 30px;
+            background: rgba(244,67,54,0.07);
+            border: 2px solid rgba(244,67,54,0.3);
+            border-radius: 12px;
+        }
+        .btn {
+            background: linear-gradient(135deg, #4caf50, #2e7d32);
+            color: white; padding: 16px 36px;
+            font-size: 1.1em; font-weight: bold;
+            border: 2px solid #4caf50; border-radius: 8px;
+            text-decoration: none; display: inline-block;
+            margin: 8px;
+        }
+        .btn:hover { background: linear-gradient(135deg, #66bb6a, #388e3c); }
+        .btn-warning {
+            background: linear-gradient(135deg, #f5c842, #e0a800);
+            border-color: #f5c842; color: #000;
+        }
+        .btn-outline {
+            background: transparent;
+            border-color: #81c784; color: #81c784;
+        }
 
- .graphic-container {
- text-align: center;
- margin: 40px 0;
- padding: 20px;
- background: rgba(0, 0, 0, 0.3);
- border-radius: 8px;
- }
+        /* Credibility grid */
+        .cred-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 14px;
+            margin: 24px 0;
+        }
+        .cred-card {
+            background: rgba(76,175,80,0.08);
+            border: 1px solid rgba(76,175,80,0.25);
+            border-radius: 8px;
+            padding: 16px 18px;
+        }
+        .cred-card .cred-name { color: #81c784; font-weight: 700; font-size: 0.92em; margin-bottom: 5px; }
+        .cred-card p { margin: 0; font-size: 0.88em; color: #a5d6a7; }
 
- .graphic-container img {
- max-width: 50%;
- height: auto;
- border-radius: 8px;
- box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);
- margin: 0 auto;
- display: block;
- }
-
- .graphic-container p {
- margin: 12px 0 0 0;
- font-size: 0.9em;
- color: #a3d9a5;
- line-height: 1.4;
- }
-
- strong {
- color: #4caf50;
- }
-
- .nav-buttons {
- display: flex;
- justify-content: space-between;
- gap: 15px;
- margin-top: 40px;
- padding-top: 20px;
- border-top: 2px solid rgba(76, 175, 80, 0.3);
- }
-
- .btn {
- padding: 12px 25px;
- font-size: 0.95em;
- font-weight: bold;
- border: none;
- border-radius: 8px;
- cursor: pointer;
- text-decoration: none;
- display: inline-block;
- transition: all 0.3s ease;
- box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
- }
-
- .btn-primary {
- background: linear-gradient(135deg, #4caf50, #45a049);
- color: white;
- flex: 1;
- text-align: center;
- }
-
- .btn-primary:hover {
- background: linear-gradient(135deg, #45a049, #3d8b40);
- transform: translateY(-2px);
- box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
- }
-
- .btn-secondary {
- background: linear-gradient(135deg, #2196f3, #1976d2);
- color: white;
- flex: 1;
- text-align: center;
- }
-
- .btn-secondary:hover {
- background: linear-gradient(135deg, #1976d2, #1565c0);
- transform: translateY(-2px);
- }
-
- footer {
- text-align: center;
- padding: 30px 20px;
- border-top: 2px solid rgba(76, 175, 80, 0.3);
- color: #81c784;
- margin-top: 40px;
- font-size: 0.9em;
- line-height: 1.8;
- }
-
- footer p {
- margin: 10px 0;
- }
-
- a {
- color: #81c784;
- text-decoration: underline;
- }
-
- a:hover {
- color: #4caf50;
- }
-
- .checkmark {
- color: #4caf50;
- }
-
- @media (max-width: 768px) {
- h1 { font-size: 1.6em; }
- h2 { font-size: 1.4em; }
- .graphic-container img { max-width: 50%; }
- .container { padding: 15px; }
- header { padding: 25px 15px; }
- }
- 
-    /* === NAV STYLES === */
-    nav { position: sticky; top: 0; z-index: 1000; background: #1a1a2e; padding: 0.75rem 1.5rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid #4caf50; }
-    .nav-links { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; }
-    .nav-links a { color: #e0e0e0; text-decoration: none; padding: 0.4rem 0.7rem; border-radius: 4px; font-size: 0.9rem; }
-    .nav-links a:hover { background: #4caf50; color: #fff; }
-    .mobile-menu-toggle { display: none; background: none; border: none; color: #e0e0e0; font-size: 1.5rem; cursor: pointer; }
-    .dropdown { position: relative; }
-    .dropbtn { background: none; border: none; color: #e0e0e0; cursor: pointer; padding: 0.4rem 0.7rem; font-size: 0.9rem; border-radius: 4px; }
-    .dropbtn:hover { background: #4caf50; color: #fff; }
-    .dropdown-content { display: none; position: absolute; top: 100%; right: 0; background: #1a1a2e; border: 1px solid #4caf50; border-radius: 4px; min-width: 220px; z-index: 1001; }
-    .dropdown-content a { display: block; padding: 0.4rem 1rem; color: #e0e0e0; text-decoration: none; font-size: 0.88rem; }
-    .dropdown-content a:hover { background: #4caf50; color: #fff; }
-    .dropdown-group-label { padding: 0.5rem 1rem 0.2rem; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: #81c784; border-top: 1px solid rgba(76,175,80,0.25); margin-top: 0.2rem; }
-    .dropdown-group-label:first-child { border-top: none; margin-top: 0; }
-    .dropdown-content.show { display: block; }
-    .close-icon { display: none; }
-    @media (max-width: 768px) { .mobile-menu-toggle { display: block; } .nav-links { display: none; flex-direction: column; width: 100%; } .nav-links.active { display: flex; } .dropdown-content { position: static; border: none; } }
-    /* === END NAV STYLES === */
+        footer {
+            text-align: center; padding: 40px 20px; margin-top: 80px;
+            border-top: 2px solid rgba(76, 175, 80, 0.3);
+            background: rgba(26, 26, 46, 0.6); border-radius: 8px;
+        }
+        .footer-links {
+            display: flex; flex-wrap: wrap; gap: 20px;
+            justify-content: center; margin: 20px 0;
+        }
+        .footer-links a { color: #81c784; text-decoration: none; }
+        .footer-links a:hover { color: #4caf50; }
+        .footer-links span { color: #4caf50; }
+        .copyright { color: #666; font-size: 0.8em; margin-top: 20px; }
     </style>
-
-  <!-- Canonical & Open Graph -->
-  <link rel="canonical" href="https://phiersale.github.io/PHIERS-Concept/Telehealth-Insurance.html" />
-  <meta property="og:url" content="https://phiersale.github.io/PHIERS-Concept/Telehealth-Insurance.html" />
-  <meta property="og:title" content="Telehealth vs Insurance — PHIERS" />
-  <meta property="og:description" content="Why $600 telehealth beats insurance for 80% of healthcare needs at a fraction of the cost." />
-  <meta property="og:image" content="PHIERS_Logo.png" />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="https://phiersale.github.io/PHIERS-Concept/Telehealth-Insurance.html" />
-  <meta name="twitter:title" content="Telehealth vs Insurance — PHIERS" />
-  <meta name="twitter:description" content="Why $600 telehealth beats insurance for 80% of healthcare needs at a fraction of the cost." />
 </head>
-
 <body>
-<nav>
-    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">
-      <span class="menu-icon">&#9776;</span>
-      <span class="close-icon" style="display: none;">&#x2715;</span>
-    </button>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="OVERVIEW.html">Why This Works</a>
-      <a href="SimpleMath.html">The Math</a>
-      <a href="Quickstart.html">How It Works</a>
-      <a href="action.html" style="color:#f5c842; font-weight:700;">Take Action</a>
-      <a href="Donate.html">Donate</a>
-      <div class="dropdown">
-        <button class="dropbtn" onclick="toggleDropdown(event)">More &#x25BC;</button>
-        <div class="dropdown-content">
-          <div class="dropdown-group-label">Why It Matters</div>
-          <a href="Crisis.html">The Crisis</a>
-          <a href="Why-Change-Required.html">Why Change Required</a>
-          <a href="Telehealth-Insurance.html">Telehealth vs Insurance</a>
-          <div class="dropdown-group-label">Strategy &amp; Model</div>
-          <a href="5D_Solutions.html">5D Solutions</a>
-          <a href="Leverage.html">Leverage</a>
-          <a href="Unions-Strategy.html">Union Strategy</a>
-          <div class="dropdown-group-label">Stories &amp; Proof</div>
-          <a href="real-stories.html">Real Stories</a>
-          <a href="Veterans.html">Veterans</a>
-          <a href="SOTU-Pre-Sponse.html">SOTU Response</a>
-          <a href="Media.html">Media</a>
-          <div class="dropdown-group-label">Support &amp; Info</div>
-          <a href="FAQ.html">FAQ</a>
-          <a href="About.html">About</a>
-          <a href="Our-Origins.html">Origins</a>
-          <div class="dropdown-group-label">Deep Movement</div>
-          <a href="UNSTOPPABLE.html">UNSTOPPABLE</a>
+<div class="container">
+
+    <!-- NAV -->
+    <nav class="global-nav">
+        <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</div>
+        <div class="nav-links-container" id="navLinks">
+            <a href="index.html" class="nav-item">Home</a>
+            <a href="Crisis.html" class="nav-item">Crisis</a>
+            <a href="Telehealth-Insurance.html" class="nav-item active" style="color:#f5c842; font-weight:700;">Telehealth</a>
+            <a href="SimpleMath.html" class="nav-item">Simple Math</a>
+            <a href="5D_Solutions.html" class="nav-item">5D Solutions</a>
+            <a href="Leverage.html" class="nav-item">Leverage</a>
+            <a href="Action.html" class="nav-item">Action</a>
+            <a href="Roadmap.html" class="nav-item">Roadmap</a>
+            <a href="Donate.html" class="nav-item">Donate</a>
+            <div class="dropdown">
+                <button class="dropbtn">More ▼</button>
+                <div class="dropdown-content">
+                    <a href="FAQ.html">FAQ</a>
+                    <a href="Origins.html">Origins</a>
+                    <a href="Media.html">Media</a>
+                    <a href="About.html">About</a>
+                    <a href="Quickstart.html">Quickstart</a>
+                    <a href="Veterans.html">Veterans</a>
+                    <a href="SOTU-Response.html">SOTU Response</a>
+                    <a href="Unions-Strategy.html">Union Strategy</a>
+                    <a href="Real-Stories.html">Real Stories</a>
+                    <a href="UNSTOPPABLE.html">UNSTOPPABLE</a>
+                    <a href="UNBREAKABLE.html">UNBREAKABLE</a>
+                </div>
+            </div>
         </div>
-      </div>
+    </nav>
+
+    <!-- HERO -->
+    <div class="hero">
+        <img src="PHIERS_Logo.png" alt="PHIERS Logo" class="hero-logo">
+        <div class="mabah-full">MABAH — Make America Better And Healthier</div>
+        <p class="hero-opener">The system is rigged. The fix is simple.</p>
+        <h1>Telehealth Is the Answer to the Affordability Crisis</h1>
+        <p class="subhead">$600 a year replaces $10,000 insurance — for 80% of what Americans actually need.</p>
     </div>
-  </nav>
 
- <div class="container">
- <header>
- <img src="PHIERS_Logo.png" 
- alt="PHIERS Logo" 
- class="logo">
- <h1>Telehealth vs Insurance</h1>
- <p class="tagline">The System Rigged. The Solution Simple.</p>
- </header>
+    <!-- KEY STATS -->
+    <div class="stat-grid">
+        <div class="stat-card">
+            <div class="stat-num">80%</div>
+            <p>of Americans never use hospitalization or specialty care — they're paying $10,000/yr for protection they don't need</p>
+        </div>
+        <div class="stat-card">
+            <div class="stat-num">$600</div>
+            <p>covers 80% of healthcare needs via telehealth — 24/7 access, no gatekeepers, no denials, no claims</p>
+        </div>
+        <div class="stat-card">
+            <div class="stat-num">1/14th</div>
+            <p>the cost of traditional insurance — telehealth delivers the same care at a fraction of the price</p>
+        </div>
+        <div class="stat-card">
+            <div class="stat-num">8–13 mo.</div>
+            <p>from Congressional authorization to universal coverage — Congress has the authority under the ACA right now</p>
+        </div>
+    </div>
 
- <main>
+    <!-- THE CORE PROBLEM -->
+    <h2>The Problem Congress Won't Name</h2>
+    <div class="section-box red">
+        <p>Most Americans believe <strong>healthcare and insurance are the same thing.</strong></p>
+        <p>They're not.</p>
+        <p>Insurance was designed for <span class="red">rare, catastrophic events</span> — hospitalizations, surgeries, emergencies. But somewhere along the way, it became the front door to all care. That's why costs exploded.</p>
+        <p><strong>80% of what people actually need is basic, everyday care</strong> — primary care, urgent care, mental health, chronic disease management, prescription refills, preventive care, and labs.</p>
+        <p>Insurance companies <span class="red">block access, delay treatment, and deny claims</span> for these simple, routine needs — while charging thousands of dollars a year for the privilege.</p>
+        <p style="font-size:1.15em; color:#f44336; font-weight:700; margin-top:20px;">The front door costs $10,000/year. Most people only needed a $600 door all along.</p>
+    </div>
 
- <h2>Telehealth makes care cheaper and easier</h2>
+    <!-- WHAT TELEHEALTH DOES -->
+    <h2>What Telehealth Actually Does</h2>
+    <div class="section-box">
+        <p>Telehealth isn't insurance — it's <strong>direct care</strong>. No middlemen. No prior authorization. No billing codes. No networks. No claims.</p>
+        <p><span class="green">Just care.</span></p>
+        <p>Telehealth covers the services people need constantly:</p>
+        <ul>
+            <li>Primary care</li>
+            <li>Urgent care</li>
+            <li>Mental health &amp; counseling</li>
+            <li>Chronic disease management</li>
+            <li>Prescription refills</li>
+            <li>Preventive care</li>
+            <li>Basic labs</li>
+            <li>Care navigation</li>
+        </ul>
+        <p><strong>Telehealth delivers 80% of healthcare at roughly 1/14th the cost of insurance.</strong></p>
+        <p>Available 24/7. No waiting rooms. No referrals. No network restrictions.</p>
+    </div>
 
- <p>Insurance rules often <strong>block savings, delay care, or deny care entirely</strong> — even when people are fully insured.</p>
+    <div class="graphic-block">
+        <img src="TeleHlth_v_Insurance.png" alt="Telehealth vs Insurance cost comparison" onclick="window.open(this.src,'_blank')">
+        <p>The cost difference is staggering — and it's why the insurance industry lobbies to keep telehealth off the ACA Exchange.</p>
+    </div>
 
- <p>Most Americans think “healthcare = insurance.”</p>
+    <!-- THE 80/20 MODEL -->
+    <h2>The 80/20 Model: Care and Catastrophe — Separated</h2>
+    <div class="section-box">
+        <p>Insurance was never meant to be the front door. It was built to protect against <strong>catastrophic events</strong> that are rare but ruinously expensive:</p>
+        <ul>
+            <li>Hospitalizations</li>
+            <li>Surgeries</li>
+            <li>Emergency trauma</li>
+            <li>Long-term rehab</li>
+            <li>Expensive imaging</li>
+        </ul>
+        <p>These events are rare. But extremely costly when they happen.</p>
+        <p><strong>Insurance is the backstop — not the front door.</strong></p>
+        <p>PHIERS separates the two:</p>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:20px;">
+            <div style="background:rgba(76,175,80,0.1); border:1px solid rgba(76,175,80,0.3); border-radius:8px; padding:18px;">
+                <p style="color:#4caf50; font-weight:800; font-size:1.1em; margin:0 0 8px;">📱 Telehealth — The 80%</p>
+                <p style="margin:0; font-size:0.95em;">Everyday care. $600/yr. Direct access. No gatekeepers.</p>
+            </div>
+            <div style="background:rgba(33,150,243,0.1); border:1px solid rgba(33,150,243,0.3); border-radius:8px; padding:18px;">
+                <p style="color:#64b5f6; font-weight:800; font-size:1.1em; margin:0 0 8px;">🏥 Insurance — The 20%</p>
+                <p style="margin:0; font-size:0.95em;">Catastrophic backstop. Lower cost. Reserved for real emergencies.</p>
+            </div>
+        </div>
+    </div>
 
- <p>They’re not entirely wrong. They’re also not entirely right.</p>
+    <div class="graphic-block">
+        <img src="8020_Healthcare_Model_PHIERS_v_Insurance_Cost.png" alt="80/20 Healthcare Model: PHIERS vs Insurance Cost" onclick="window.open(this.src,'_blank')">
+        <p>The 80/20 model: telehealth covers everyday care, insurance protects against catastrophe. Together — universal, affordable coverage.</p>
+    </div>
 
- <h2>The Problem We're Solving</h2>
+    <!-- THE SAVINGS CASCADE -->
+    <h2>The PHIERS Savings Cascade</h2>
+    <div class="section-box gold">
+        <p>When telehealth handles the 80%, the entire system gets cheaper:</p>
+        <ul>
+            <li><span class="checkmark">✓</span> ER visits drop</li>
+            <li><span class="checkmark">✓</span> Hospital readmissions drop</li>
+            <li><span class="checkmark">✓</span> Insurance claims drop</li>
+            <li><span class="checkmark">✓</span> Premiums drop</li>
+            <li><span class="checkmark">✓</span> Medicaid costs drop</li>
+            <li><span class="checkmark">✓</span> Medicare costs drop</li>
+            <li><span class="checkmark">✓</span> ACA subsidies drop</li>
+            <li><span class="checkmark">✓</span> Private insurance stabilizes</li>
+        </ul>
+        <p style="font-size:1.15em; color:#f5c842; font-weight:700; margin-top:20px;">At national scale, this unlocks roughly <strong style="color:#f5c842;">$2.7 trillion a year</strong> in savings.</p>
+        <p>That money doesn't disappear. It goes back to workers, employers, unions, and communities.</p>
+    </div>
 
- <p>Most Americans believe <strong>healthcare and insurance are the same thing</strong>, but insurance was only ever designed for <strong>rare, catastrophic events</strong> — hospitalizations, surgeries, emergencies, specialty care.</p>
+    <!-- THE DEMAND -->
+    <h2>The One Demand</h2>
+    <div class="section-box">
+        <p>Congress has full authority under the ACA to expand covered benefits. No constitutional amendment. No Supreme Court approval. <strong>They can do this tomorrow.</strong></p>
+        <p>PHIERS's demand is specific and simple:</p>
+        <p style="font-size:1.25em; color:#f5c842; font-weight:800; text-align:center; margin:24px 0; padding:16px; background:rgba(245,200,66,0.08); border-radius:8px; border:1px solid rgba(245,200,66,0.3);">Add $600/year telehealth as a covered benefit under the ACA Exchange and CMS.</p>
+        <p>That single change makes telehealth available to every American — and triggers the savings cascade that stabilizes the entire system.</p>
+        <p><strong>Timeline: 8–13 months from authorization to universal coverage.</strong></p>
+    </div>
 
- <p>Meanwhile, <strong>80% of what people actually need is basic, everyday care</strong> — primary care, urgent care, mental health, chronic care, preventive care, prescriptions, and labs.</p>
+    <!-- GRAPHIC: Good Health Insurance -->
+    <div class="graphic-block">
+        <img src="Good_Health_Insurance__TELEHEALTH.jpg" alt="Good Health Insurance via Telehealth" onclick="window.open(this.src,'_blank')">
+        <p>This is what good healthcare actually looks like — delivered digitally, directly, without the middleman.</p>
+    </div>
 
- <p>Insurance plans often <strong>block access</strong>, <strong>delay treatment</strong>, or <strong>refuse to pay their share</strong> for these simple needs.</p>
+    <!-- KEY INSIGHT -->
+    <div style="margin:50px 0; padding:36px 30px; background:rgba(76,175,80,0.07); border:2px solid rgba(76,175,80,0.3); border-radius:12px; text-align:center;">
+        <p style="font-size:1.4em; font-weight:800; color:#4caf50; margin:0 0 12px;">Telehealth is care.<br>Insurance is protection.<br>PHIERS is the system that finally combines them.</p>
+        <p style="color:#c8e6c9; margin:0;">Once you separate care from catastrophe, the math becomes simple — and universal coverage becomes possible.</p>
+    </div>
 
- <p>Fortunately, <strong>80% of insured Americans never use hospitalization or specialty care at all.</strong> These people are the perfect candidates for telehealth.</p>
+    <!-- INDEPENDENT VALIDATION -->
+    <h2>Independent Validation</h2>
+    <div class="cred-grid">
+        <div class="cred-card">
+            <div class="cred-name">Congressman Van Hollen</div>
+            <p>Letter of support for PHIERS approach to healthcare stabilization</p>
+        </div>
+        <div class="cred-card">
+            <div class="cred-name">Maryland Health Care Commission</div>
+            <p>Formal recognition of cooperative telehealth delivery model</p>
+        </div>
+        <div class="cred-card">
+            <div class="cred-name">Cost Plus Drugs (Mark Cuban)</div>
+            <p>Independent validation of cost-elimination model — operational since 2022</p>
+        </div>
+        <div class="cred-card">
+            <div class="cred-name">ZORTT Elite Medical</div>
+            <p>Cooperative telehealth delivery for unions, gig workers, and veterans — already working</p>
+        </div>
+        <div class="cred-card">
+            <div class="cred-name">Interfaith Coalition</div>
+            <p>Multi-faith organizational support for community-based healthcare access</p>
+        </div>
+        <div class="cred-card">
+            <div class="cred-name">Harvard Kennedy School</div>
+            <p>Chenoweth research: no movement reaching 3.5% participation has ever failed</p>
+        </div>
+    </div>
 
- <p>There’s only one logical solution: <strong>care and catastrophe protection must be separated.</strong></p>
+    <!-- CTA -->
+    <div class="cta-section">
+        <h2 style="margin-top:0; color:#f44336; border:none; padding:0;">The Only Thing Missing Is You</h2>
+        <p style="font-size:1.15em; margin-bottom:28px;">Telehealth works. The model is validated. Congress has the authority.<br>What it needs is documented public direction.</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdETA-oNIeOAzEsG4GsYiiws1YBpLunx8ioVJkZac5hzSxaZw/viewform?usp=header" class="btn btn-warning" style="font-size:1.2em; padding:18px 46px;">📋 Document Your Direction</a>
+        <div style="margin-top:18px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+            <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now-short-version" class="btn" style="font-size:1em; padding:12px 24px;">✍ Sign the Petition</a>
+            <a href="SimpleMath.html" class="btn btn-outline" style="font-size:1em; padding:12px 24px;">📊 See the Math</a>
+            <a href="Action.html" class="btn btn-outline" style="font-size:1em; padding:12px 24px;">⚡ Take Action</a>
+        </div>
+    </div>
 
- <p>PHIERS does exactly that.</p>
+    <footer>
+        <h3>PHIERS Movement | MABAH</h3>
+        <p><strong>Make America Better And Healthier</strong></p>
+        <p style="margin: 20px 0;">PHIERS is a citizen coalition using collective leverage to force Congress to fix healthcare — or replace them.</p>
+        <div class="footer-links">
+            <a href="UNSTOPPABLE.html">UNSTOPPABLE</a>
+            <span>|</span>
+            <a href="mailto:info@phiers.org">Contact</a>
+            <span>|</span>
+            <span>© PHIERS</span>
+        </div>
+        <p class="copyright">PHIERS Movement | Built: 2026-03-07 @ 11:30 UTC</p>
+    </footer>
 
- <div class="graphic-container">
- <img src="8020_Healthcare_Model_PHIERS_v_Insurance_Cost.png" 
- alt="The 80/20 Healthcare Model - Telehealth vs Insurance">
- <p>The 80/20 Healthcare Model: Telehealth = Everyday Care, Insurance = Catastrophic Protection</p>
- </div>
+</div>
 
- <h2>What Telehealth Actually Does</h2>
-
- <p>Telehealth isn’t insurance — it’s <strong>direct care</strong>.</p>
-
- <p>It covers the services people use constantly:</p>
-
- <ul>
- <li>Primary care</li>
- <li>Urgent care</li>
- <li>Mental health</li>
- <li>Chronic disease management</li>
- <li>Prescription refills</li>
- <li>Preventive care</li>
- <li>Basic labs</li>
- <li>Care navigation</li>
- <li>Remote counseling</li>
- </ul>
-
- <p><strong>Telehealth delivers 80% of healthcare at a fraction of the cost — roughly 1/14th.</strong></p>
-
- <p>No claims. No networks. No middlemen. No billing codes. No prior authorization.</p>
-
- <p><strong>Just care.</strong></p>
-
- <h2>What Insurance Is Actually For</h2>
-
- <p>Insurance is a <strong>financial product</strong>, not a care system.</p>
-
- <p>It exists to protect people from:</p>
-
- <ul>
- <li>Hospitalizations</li>
- <li>Surgeries</li>
- <li>Emergency trauma</li>
- <li>Long‑term rehab</li>
- <li>Expensive imaging</li>
- <li>Catastrophic events</li>
- </ul>
-
- <p>These events are rare — but extremely costly.</p>
-
- <p>Insurance is the <strong>backstop</strong>, not the front door.</p>
-
- <h2>Why America Needs Both</h2>
-
- <p>When telehealth handles the 80%:</p>
-
- <ul>
- <li><span class="checkmark">✓</span> ER visits drop</li>
- <li><span class="checkmark">✓</span> Hospital readmissions drop</li>
- <li><span class="checkmark">✓</span> Claims drop</li>
- <li><span class="checkmark">✓</span> Premiums drop</li>
- <li><span class="checkmark">✓</span> Medicaid costs drop</li>
- <li><span class="checkmark">✓</span> Medicare costs drop</li>
- <li><span class="checkmark">✓</span> ACA subsidies drop</li>
- <li><span class="checkmark">✓</span> Private insurance stabilizes</li>
- </ul>
-
- <p>This is the <strong>PHIERS Savings Cascade</strong>.</p>
-
- <p>Telehealth <strong>shrinks the cost of the system</strong>, and insurance <strong>protects against the worst events</strong>.</p>
-
- <p><strong>Together, they create a system that is:</strong></p>
-
- <ul>
- <li><strong>Affordable</strong> — 80% cost reduction + cascading savings</li>
- <li><strong>Scalable</strong> — Works for 234 million Americans</li>
- <li><strong>Defensible</strong> — Market‑based, not government‑mandated</li>
- <li><strong>Universal</strong> — Accessible to everyone</li>
- </ul>
-
- <h2>The Key Insight</h2>
-
- <p><strong>Telehealth is care. Insurance is protection. PHIERS is the system that finally combines them.</strong></p>
-
- <p>Once you separate care from catastrophe, the math becomes simple — and universal coverage becomes possible.</p>
-
- <div class="graphic-container">
-  <img loading="lazy" src="TeleHlth_v_Insurance.png" alt="Telehealth vs Insurance comparison" onclick="window.open(this.src,'_blank')" style="cursor:pointer;">
-  <p>Telehealth vs. Insurance: The cost difference is staggering</p>
- </div>
-
- <p style="color:#c8e6c9; margin:20px 0;">This is what good healthcare actually looks like when delivered digitally:</p>
-
- <div class="graphic-container">
-  <img loading="lazy" src="Good_Health_Insurance__TELEHEALTH.jpg" alt="Good Health Insurance via Telehealth" onclick="window.open(this.src,'_blank')" style="cursor:pointer;">
-  <p>What good healthcare actually looks like — delivered digitally</p>
- </div>
-
- <p style="color:#c8e6c9; margin:20px 0;">The 80/20 model: how PHIERS covers 80% of your healthcare needs at a fraction of insurance cost:</p>
-
- <div class="graphic-container">
-  <img loading="lazy" src="8020_Healthcare_Model_PHIERS_v_Insurance_Cost.png" alt="80/20 Healthcare Model: PHIERS vs Insurance Cost" onclick="window.open(this.src,'_blank')" style="cursor:pointer;">
-  <p>The 80/20 model: PHIERS covers 80% of your needs at a fraction of insurance cost</p>
- </div>
-
- <div class="nav-buttons">
- <a href="index.html" class="btn btn-secondary">← Back to Main</a>
- <a href="https://phiersale.github.io/PHIERS-Concept/Simple-Math-Fast-Read.html" class="btn btn-primary">Continue →</a>
- </div>
-
- </main>
-
- <footer>
- <p><strong>PHIERS Movement | Make America Better And Healthier</strong></p>
- <p>Understanding the difference between care and catastrophe protection</p>
- <p style="margin-top: 15px;">© PHIERS.org - People's Health Insurance Exchange and Referral Service</p>
- </footer>
- </div>
 <script>
 function toggleMobileMenu() {
-  const navLinks = document.querySelector('.nav-links');
-  const menuIcon = document.querySelector('.menu-icon');
-  const closeIcon = document.querySelector('.close-icon');
-  if (!navLinks) return;
-  navLinks.classList.toggle('active');
-  if (navLinks.classList.contains('active')) {
-    if (menuIcon) menuIcon.style.display = 'none';
-    if (closeIcon) closeIcon.style.display = 'inline';
-  } else {
-    if (menuIcon) menuIcon.style.display = 'inline';
-    if (closeIcon) closeIcon.style.display = 'none';
-  }
-}
-function toggleDropdown(event) {
-  event.stopPropagation();
-  let btn = event.target;
-  while (btn && !btn.classList.contains('dropbtn')) { btn = btn.parentElement; }
-  if (!btn) return;
-  const dropdown = btn.nextElementSibling;
-  if (!dropdown) return;
-  const isOpen = dropdown.classList.contains('show');
-  document.querySelectorAll('.dropdown-content').forEach(d => d.classList.remove('show'));
-  document.querySelectorAll('.dropbtn').forEach(b => b.setAttribute('aria-expanded', 'false'));
-  if (!isOpen) { dropdown.classList.add('show'); btn.setAttribute('aria-expanded', 'true'); }
+    var navLinks = document.getElementById('navLinks');
+    navLinks.classList.toggle('active');
 }
 document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.dropbtn').forEach(btn => {
-    btn.setAttribute('aria-haspopup', 'true');
-    btn.setAttribute('aria-expanded', 'false');
-  });
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    if (link.getAttribute('href') === currentPage) {
-      link.style.background = 'rgba(76,175,80,0.25)';
-      link.style.color = '#fff';
-    }
-  });
-  document.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener('click', function() {
-      if (!this.getAttribute('href').startsWith('#')) {
-        sessionStorage.setItem('scrollToTop', '1');
-      }
+    var navItems = document.querySelectorAll('.nav-links-container a');
+    navItems.forEach(function(item) {
+        item.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                document.getElementById('navLinks').classList.remove('active');
+            }
+        });
     });
-  });
-  if (sessionStorage.getItem('scrollToTop') === '1') {
-    sessionStorage.removeItem('scrollToTop');
-    window.scrollTo(0, 0);
-  }
-  document.addEventListener('click', function(event) {
-    if (!event.target.matches('.dropbtn') && !event.target.closest('.dropbtn')) {
-      document.querySelectorAll('.dropdown-content').forEach(d => d.classList.remove('show'));
-      document.querySelectorAll('.dropbtn').forEach(b => b.setAttribute('aria-expanded', 'false'));
-    }
-    const nav = document.querySelector('nav');
-    const navLinks = document.querySelector('.nav-links');
-    if (nav && navLinks && !nav.contains(event.target) && navLinks.classList.contains('active')) {
-      navLinks.classList.remove('active');
-      const menuIcon = document.querySelector('.menu-icon');
-      const closeIcon = document.querySelector('.close-icon');
-      if (menuIcon) menuIcon.style.display = 'inline';
-      if (closeIcon) closeIcon.style.display = 'none';
-    }
-  });
 });
 </script>
-<div style="text-align:center; padding: 1rem 0 0.5rem; border-top: 1px solid rgba(76,175,80,0.15); margin-top: 1rem;">
-  <a href="UNBREAKABLE.html" style="color:#555; font-size:0.78rem; text-decoration:none; letter-spacing:0.04em;">UNBREAKABLE</a>
-</div>
 </body>
 </html>
