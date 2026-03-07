@@ -217,7 +217,6 @@
                     <a href="Real-Stories.html">Real Stories</a>
                     <a href="NoWar.html" style="color:#f44336; font-weight:600;">⚡ End the War</a>
                     <a href="UNSTOPPABLE.html">UNSTOPPABLE</a>
-                    <a href="UNBREAKABLE.html">UNBREAKABLE</a>
                 </div>
             </div>
         </div>
@@ -230,6 +229,11 @@
         <p class="hero-opener">Nobody voted for this war. Everybody pays for it.</p>
         <h1>End the Unauthorized War.<br><span style="color:#4caf50;">Use Healthcare Leverage to Force Congress to Act.</span></h1>
         <p class="subhead">We can't yell our way out of this. But we can organize our way out — starting with healthcare.</p>
+    </div>
+
+    <!-- Anchor image -->
+    <div style="max-width:700px; margin: 0 auto 40px; text-align:center;">
+        <img src="NoWar.png" alt="End the War. Save Lives." style="width:100%; border-radius:10px; border:2px solid rgba(244,67,54,0.4); box-shadow:0 8px 30px rgba(0,0,0,0.5);">
     </div>
 
     <!-- COST OF WAR STATS -->
@@ -250,13 +254,36 @@
 
     <!-- THE PROBLEM -->
     <h2>The War Nobody Authorized — and Everybody Pays For</h2>
+
+    <!-- Military.com: End the War. Save Lives. -->
+    <div style="text-align:center; margin:0 0 30px; padding:20px; background:rgba(0,0,0,0.3); border-radius:10px; border:1px solid rgba(244,67,54,0.25);">
+        <img src="NoWar.png"
+             alt="End the War. Save Lives. — Military.com"
+             style="max-width:80%; height:auto; border-radius:8px; cursor:pointer; display:block; margin:0 auto; transition:transform 0.3s;"
+             onclick="openModal(this.src)"
+             onmouseover="this.style.transform='scale(1.02)'"
+             onmouseout="this.style.transform='scale(1)'">
+        <p style="margin:10px 0 0; font-size:0.85em; color:#ef9a9a; font-style:italic;">Via Military.com — the call is getting louder. Congress still isn't listening.</p>
+    </div>
+
     <div class="red-box">
-        <p>There was no declaration of war. No vote by the people. No exit strategy.</p>
+        <p><strong>There was no declaration of war. No vote by the people. No exit strategy.</strong></p>
         <p>Yet the money flows out — <strong style="color:#f44336;">over $1 billion every day</strong> — while the same Congress that can't pass a healthcare fix writes blank checks for a conflict most Americans never asked for and can't afford.</p>
         <p>The biggest casualty of war is never the politicians who start it. It's the poor. The working families. The veterans who come home broken. The communities that lose their sons and daughters and then lose their funding too — because the money went somewhere else.</p>
         <p>People have protested. They've marched. They've called their representatives. And what did they get?</p>
         <p style="color:#f44336; font-weight:700; font-size:1.15em;">Nothing they wanted. Everything they feared.</p>
         <p>Not because their voices don't matter — but because they had no <em>leverage</em>.</p>
+    </div>
+
+    <!-- TEETH IMAGE -->
+    <div style="text-align:center; margin:40px 0 0; padding:20px; background:rgba(0,0,0,0.3); border-radius:10px; border:1px solid rgba(76,175,80,0.25);">
+        <img src="We_Gotz_Teeth_-_WE_Are_The_Teeth.jpg"
+             alt="PHIERS — We are the TEETH. No Kings rally."
+             style="max-width:80%; height:auto; border-radius:8px; cursor:pointer; display:block; margin:0 auto; transition:transform 0.3s;"
+             onclick="openModal(this.src)"
+             onmouseover="this.style.transform='scale(1.02)'"
+             onmouseout="this.style.transform='scale(1)'">
+        <p style="margin:10px 0 0; font-size:0.9em; color:#81c784; font-style:italic;">The energy is real. The numbers are real. What's been missing is the mechanism — the teeth that make Congress listen.</p>
     </div>
 
     <!-- THE STRUCTURAL TRAP -->
@@ -342,7 +369,7 @@
         <div class="footer-links">
             <a href="UNSTOPPABLE.html">UNSTOPPABLE</a>
             <span>|</span>
-            <a href="mailto:info@phiers.org">Contact</a>
+            <a href="/cdn-cgi/l/email-protection#5e373038311e2e36373b2c2d70312c39">Contact</a>
             <span>|</span>
             <span>© PHIERS</span>
         </div>
@@ -350,7 +377,7 @@
     </footer>
 
 </div>
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 function toggleMobileMenu() {
     var navLinks = document.getElementById('navLinks');
     navLinks.classList.toggle('active');
@@ -363,6 +390,33 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+});
+</script>
+
+<!-- IMAGE MODAL -->
+<div id="imageModal" style="display:none; position:fixed; z-index:9999; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); justify-content:center; align-items:center;" onclick="closeModal(event)">
+    <span style="position:fixed; top:20px; right:28px; color:#fff; font-size:42px; cursor:pointer; font-weight:bold; line-height:1;" onclick="closeModal(event)">&times;</span>
+    <img id="modalImage" style="max-width:90%; max-height:90vh; border-radius:8px; box-shadow:0 0 40px rgba(0,0,0,0.8);">
+</div>
+<script>
+function openModal(src) {
+    var modal = document.getElementById('imageModal');
+    modal.style.display = 'flex';
+    document.getElementById('modalImage').src = src;
+    document.body.style.overflow = 'hidden';
+}
+function closeModal(event) {
+    var modal = document.getElementById('imageModal');
+    if (event.target === modal || event.target.tagName === 'SPAN') {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+}
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        document.getElementById('imageModal').style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
 });
 </script>
 </body>
