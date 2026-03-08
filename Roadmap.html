@@ -12,123 +12,34 @@
 <meta property="og:type" content="website" />
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-    color: #e0e0e0;
-    line-height: 1.8;
-    min-height: 100vh;
-    padding: 20px;
-}
-
-/* === NAV === */
-.global-nav {
-    background: rgba(26,26,46,0.95);
-    border: 1px solid rgba(76,175,80,0.3);
-    border-radius: 8px;
-    padding: 12px 20px;
-    margin-bottom: 30px;
-    position: sticky;
-    top: 10px;
-    z-index: 1000;
-    backdrop-filter: blur(5px);
-}
-.mobile-menu-toggle {
-    display: block;
-    background: transparent;
-    border: 1px solid #4caf50;
-    color: #4caf50;
-    font-size: 1.8em;
-    padding: 5px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 100%;
-    text-align: center;
-    font-weight: bold;
-}
-.nav-links-container {
-    display: none; flex-wrap: wrap;
-    align-items: center; justify-content: center;
-    gap: 5px; width: 100%;
-}
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #e0e0e0; line-height: 1.8; min-height: 100vh; padding: 20px; }
+.section-divider { border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0; width: 100%; }
+.global-nav { background: rgba(26,26,46,0.95); border: 1px solid rgba(76,175,80,0.3); border-radius: 8px; padding: 12px 20px; margin-bottom: 30px; position: sticky; top: 10px; z-index: 1000; backdrop-filter: blur(5px); }
+.mobile-menu-toggle { display: block; background: transparent; border: 1px solid #4caf50; color: #4caf50; font-size: 1.8em; padding: 5px 15px; border-radius: 4px; cursor: pointer; width: 100%; text-align: center; font-weight: bold; }
+.nav-links-container { display: none; flex-wrap: wrap; align-items: center; justify-content: center; gap: 5px; width: 100%; }
 .nav-links-container.active { display: flex; }
-.nav-item {
-    color: #81c784; text-decoration: none;
-    padding: 8px 12px; border-radius: 4px;
-    font-size: 0.9em; font-weight: 500;
-    transition: all 0.3s ease; white-space: nowrap;
-}
+.nav-item { color: #81c784; text-decoration: none; padding: 8px 12px; border-radius: 4px; font-size: 0.9em; font-weight: 500; transition: all 0.3s ease; white-space: nowrap; }
 .nav-item:hover { background: rgba(76,175,80,0.2); color: #4caf50; }
 .nav-item.active { background: rgba(76,175,80,0.3); color: #4caf50; font-weight: bold; }
 .dropdown { position: relative; display: inline-block; }
-.dropbtn {
-    background: transparent; color: #81c784;
-    padding: 8px 12px; font-size: 0.9em; font-weight: 500;
-    border: none; cursor: pointer; border-radius: 4px;
-    font-family: inherit;
-}
+.dropbtn { background: transparent; color: #81c784; padding: 8px 12px; font-size: 0.9em; font-weight: 500; border: none; cursor: pointer; border-radius: 4px; font-family: inherit; }
 .dropbtn:hover { background: rgba(76,175,80,0.2); color: #4caf50; }
-.dropdown-content {
-    display: none; position: absolute; top: 100%; right: 0;
-    background: rgba(26,26,46,0.98); min-width: 200px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
-    z-index: 1001; border-radius: 8px;
-    border: 1px solid rgba(76,175,80,0.3); padding: 8px 0;
-}
-.dropdown-content a {
-    color: #81c784; padding: 10px 16px;
-    text-decoration: none; display: block; font-size: 0.9em;
-}
+.dropdown-content { display: none; position: absolute; top: 100%; right: 0; background: rgba(26,26,46,0.98); min-width: 200px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5); z-index: 1001; border-radius: 8px; border: 1px solid rgba(76,175,80,0.3); padding: 8px 0; }
+.dropdown-content a { color: #81c784; padding: 10px 16px; text-decoration: none; display: block; font-size: 0.9em; }
 .dropdown-content a:hover { background: rgba(76,175,80,0.2); color: #4caf50; }
 .dropdown:hover .dropdown-content { display: block; }
 .dropdown:hover .dropbtn { background: rgba(76,175,80,0.2); color: #4caf50; }
-@media (max-width: 768px) {
-    .global-nav { padding: 10px; top: 0; border-radius: 0; }
-    .nav-item, .dropdown { width: 100%; text-align: center; }
-    .dropdown-content { position: static; width: 100%; margin-top: 5px; }
-    .dropbtn { width: 100%; }
-}
-
-/* === HERO === */
-.hero {
-    text-align: center;
-    padding: 50px 20px 40px;
-    background: linear-gradient(135deg, rgba(15,52,96,0.9), rgba(22,33,62,0.9));
-    border-radius: 12px;
-    margin-bottom: 32px;
-    border: 2px solid rgba(76,175,80,0.3);
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-}
+@media (max-width: 768px) { .global-nav { padding: 10px; top: 0; border-radius: 0; } .nav-item, .dropdown { width: 100%; text-align: center; } .dropdown-content { position: static; width: 100%; margin-top: 5px; } .dropbtn { width: 100%; } }
+.hero { text-align: center; padding: 50px 20px 40px; background: linear-gradient(135deg, rgba(15,52,96,0.9), rgba(22,33,62,0.9)); border-radius: 12px; margin-bottom: 32px; border: 2px solid rgba(76,175,80,0.3); max-width: 900px; margin-left: auto; margin-right: auto; }
 .hero-logo { max-width: 120px; margin-bottom: 18px; }
 .mabah-full { font-size: 0.9em; color: #81c784; font-weight: 600; margin-bottom: 8px; letter-spacing: 2px; text-transform: uppercase; }
 .hero-opener { font-size: 1.1em; color: #a5d6a7; margin-bottom: 12px; font-style: italic; }
-.hero h1 {
-    color: #4caf50;
-    font-size: clamp(2rem, 7vw, 3.4rem);
-    margin-bottom: 16px;
-    font-weight: 900;
-    letter-spacing: 2px;
-    line-height: 1.2;
-}
+.hero h1 { color: #4caf50; font-size: clamp(2rem, 7vw, 3.4rem); margin-bottom: 16px; font-weight: 900; letter-spacing: 2px; line-height: 1.2; }
 .hero .subhead { font-size: 1.15em; color: #c8e6c9; font-weight: 600; letter-spacing: 1px; }
-
-/* === LAYOUT === */
-.container { max-width: 900px; margin: 0 auto; }
 .wrap { max-width: 900px; margin: 0 auto 28px; }
-.section-box {
-    background: rgba(26,26,46,0.9);
-    padding: 36px 40px;
-    border-radius: 12px;
-    border-left: 8px solid #4caf50;
-    margin-bottom: 0;
-}
+.section-box { background: rgba(26,26,46,0.9); padding: 36px 40px; border-radius: 12px; border-left: 8px solid #4caf50; margin-bottom: 0; }
 .section-box.gold { border-left-color: #f5c842; }
 .section-box.urgent { border-left-color: #e53935; }
-.section-box.plain { border-left: none; border: 1px solid rgba(76,175,80,0.2); }
-
-/* === TYPE === */
 .beat-label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: #4caf50; margin-bottom: 10px; }
 h2 { font-size: 1.7em; font-weight: 800; margin-bottom: 16px; line-height: 1.3; color: #4caf50; border-bottom: 2px solid rgba(76,175,80,0.3); padding-bottom: 10px; }
 h3 { font-size: 1.2em; font-weight: 700; margin: 24px 0 10px; color: #81c784; }
@@ -137,135 +48,40 @@ p { font-size: 1.05em; margin-bottom: 14px; line-height: 1.8; color: #c8e6c9; }
 p.lead { font-size: 1.2em; font-weight: 600; line-height: 1.65; margin-bottom: 20px; color: #e0e0e0; }
 ul { padding-left: 22px; margin-bottom: 18px; }
 li { font-size: 1.05em; margin-bottom: 8px; line-height: 1.65; color: #c8e6c9; }
-
-/* === GRID === */
-.grid-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 10px;
-    margin: 16px 0 20px;
-}
-.grid-item {
-    background: rgba(76,175,80,0.1);
-    border: 1px solid rgba(76,175,80,0.3);
-    border-radius: 6px;
-    padding: 12px 16px;
-}
+.grid-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin: 16px 0 20px; }
+.grid-item { background: rgba(76,175,80,0.1); border: 1px solid rgba(76,175,80,0.3); border-radius: 6px; padding: 12px 16px; }
 .grid-item p { margin: 0; color: #c8e6c9; font-size: 0.95em; font-weight: 600; }
-.grid-item.gold { background: rgba(245,200,66,0.1); border-color: rgba(245,200,66,0.35); }
-.grid-item.gold p { color: #ffe082; }
-
-/* === GLANCE ROWS === */
-.glance-row {
-    padding: 16px 20px;
-    background: rgba(76,175,80,0.08);
-    border-radius: 8px;
-    margin: 10px 0;
-    border-left: 4px solid #4caf50;
-}
+.glance-row { padding: 16px 20px; background: rgba(76,175,80,0.08); border-radius: 8px; margin: 10px 0; border-left: 4px solid #4caf50; }
 .glance-row p { margin: 0; font-size: 1em; color: #c8e6c9; }
 .glance-row a { color: #81c784; font-weight: 700; text-decoration: none; }
 .glance-row a:hover { color: #4caf50; text-decoration: underline; }
-.glance-row.gold { border-left-color: #f5c842; background: rgba(245,200,66,0.06); }
-.glance-row.gold a { color: #ffe082; }
-
-/* === HIGHLIGHT BOXES === */
-.highlight {
-    background: rgba(76,175,80,0.08);
-    border-left: 4px solid #4caf50;
-    padding: 20px 24px;
-    border-radius: 0 8px 8px 0;
-    margin: 28px 0;
-}
-.highlight p { margin-bottom: 0; }
-.gold-box {
-    background: rgba(245,200,66,0.08);
-    border-left: 4px solid #f5c842;
-    padding: 20px 24px;
-    border-radius: 0 8px 8px 0;
-    margin: 28px 0;
-}
+.highlight { background: rgba(76,175,80,0.08); border-left: 4px solid #4caf50; padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 28px 0; }
+.gold-box { background: rgba(245,200,66,0.08); border-left: 4px solid #f5c842; padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 28px 0; }
 .gold-box p { margin-bottom: 10px; color: #ffe082; }
 .gold-box p:last-child { margin-bottom: 0; }
-
-/* === EMPHASIS === */
 .green-emphasis { color: #4caf50; font-weight: 800; font-size: 1.1em; }
-
-/* === CREDIBILITY GRID === */
-.cred-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin: 32px 0; }
-.cred-card { background: rgba(26,26,46,0.9); border: 1px solid rgba(76,175,80,0.25); border-radius: 8px; padding: 18px 20px; }
-.cred-card h4 { color: #81c784; font-size: 0.9em; font-weight: 700; margin-bottom: 6px; letter-spacing: 0.5px; font-style: normal; }
-.cred-card p { color: #888; font-size: 0.85em; line-height: 1.6; margin: 0; font-weight: 400; }
-
-/* === CTA === */
-.cta-block {
-    text-align: center;
-    padding: 40px 24px;
-    background: rgba(26,26,46,0.9);
-    border: 1px solid rgba(76,175,80,0.3);
-    border-radius: 12px;
-    margin: 44px 0;
-}
-.btn-primary {
-    display: inline-block;
-    background: linear-gradient(135deg, #4caf50, #2e7d32);
-    color: #fff;
-    font-weight: 800; font-size: 18px; padding: 18px 44px;
-    border-radius: 8px; text-decoration: none; margin: 10px;
-    letter-spacing: 0.5px; transition: all 0.2s;
-    border: 2px solid #4caf50;
-}
+.cta-block { text-align: center; padding: 40px 24px; background: rgba(26,26,46,0.9); border: 1px solid rgba(76,175,80,0.3); border-radius: 12px; margin: 44px 0; }
+.btn-primary { display: inline-block; background: linear-gradient(135deg, #4caf50, #2e7d32); color: #fff; font-weight: 800; font-size: 18px; padding: 18px 44px; border-radius: 8px; text-decoration: none; margin: 10px; letter-spacing: 0.5px; transition: all 0.2s; border: 2px solid #4caf50; }
 .btn-primary:hover { background: linear-gradient(135deg, #43a047, #1b5e20); }
-.btn-secondary-cta {
-    display: inline-block; background: transparent; color: #81c784;
-    font-weight: 600; font-size: 15px; padding: 12px 24px;
-    border: 1px solid rgba(76,175,80,0.4); border-radius: 6px;
-    text-decoration: none; margin: 6px;
-    transition: all 0.2s;
-}
+.btn-secondary-cta { display: inline-block; background: transparent; color: #81c784; font-weight: 600; font-size: 15px; padding: 12px 24px; border: 1px solid rgba(76,175,80,0.4); border-radius: 6px; text-decoration: none; margin: 6px; transition: all 0.2s; }
 .btn-secondary-cta:hover { border-color: #4caf50; color: #4caf50; }
-
-/* === FOOTER === */
-footer {
-    background: rgba(26,26,46,0.6);
-    border: 1px solid rgba(76,175,80,0.2);
-    border-radius: 8px;
-    color: #aaa;
-    text-align: center;
-    padding: 36px 20px;
-    font-size: 13px;
-    margin-top: 20px;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-}
+footer { background: rgba(26,26,46,0.6); border: 1px solid rgba(76,175,80,0.2); border-radius: 8px; color: #aaa; text-align: center; padding: 36px 20px; font-size: 13px; margin-top: 20px; max-width: 900px; margin-left: auto; margin-right: auto; }
 footer h3 { color: #81c784; font-size: 1.0em; font-weight: 500; margin-bottom: 6px; }
 .footer-links { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin: 14px 0; }
 .footer-links a { color: #81c784; text-decoration: none; font-size: 0.9em; }
 .footer-links a:hover { color: #4caf50; }
-.footer-links span { color: #2a2a2a; }
 .copyright { color: #444; font-size: 0.78em; margin-top: 14px; }
-
-@media (max-width: 768px) {
-    body { padding: 10px; }
-    .hero { padding: 36px 16px 30px; }
-    .hero h1 { font-size: 1.8rem; }
-    h2 { font-size: 1.3em; }
-    p.lead { font-size: 1.05em; }
-    .section-box { padding: 24px 20px; }
-    .grid-list { grid-template-columns: 1fr 1fr; }
-    .cred-grid { grid-template-columns: 1fr; }
-}
+@media (max-width: 768px) { body { padding: 10px; } .hero { padding: 36px 16px 30px; } .hero h1 { font-size: 1.8rem; } h2 { font-size: 1.3em; } p.lead { font-size: 1.05em; } .section-box { padding: 24px 20px; } .grid-list { grid-template-columns: 1fr 1fr; } }
 </style>
 </head>
 <body>
 
-<!-- STANDARD NAV -->
 <nav class="global-nav">
-    <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</div>
+    <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">&#9776;</div>
     <div class="nav-links-container" id="navLinks">
         <a href="index.html" class="nav-item">Home</a>
         <a href="Crisis.html" class="nav-item">Crisis</a>
+        <a href="Telehealth-Insurance.html" class="nav-item" style="color:#f5c842; font-weight:700;">&#128241; The Problem: Telehealth vs Insurance</a>
         <a href="SimpleMath.html" class="nav-item">Simple Math</a>
         <a href="5D_Solutions.html" class="nav-item">5D Solutions</a>
         <a href="Leverage.html" class="nav-item">Leverage</a>
@@ -273,7 +89,7 @@ footer h3 { color: #81c784; font-size: 1.0em; font-weight: 500; margin-bottom: 6
         <a href="Roadmap.html" class="nav-item active">Roadmap</a>
         <a href="Donate.html" class="nav-item">Donate</a>
         <div class="dropdown">
-            <button class="dropbtn">More ▼</button>
+            <button class="dropbtn">More &#9660;</button>
             <div class="dropdown-content">
                 <a href="FAQ.html">FAQ</a>
                 <a href="Origins.html">Origins</a>
@@ -283,44 +99,31 @@ footer h3 { color: #81c784; font-size: 1.0em; font-weight: 500; margin-bottom: 6
                 <a href="Veterans.html">Veterans</a>
                 <a href="SOTU-Response.html">SOTU Response</a>
                 <a href="Union-Strategy.html">Union Strategy</a>
-                <a href="Telehealth-vs-Insurance.html">Telehealth vs Insurance</a>
                 <a href="Real-Stories.html">Real Stories</a>
+                <a href="NoWar.html" style="color:#f44336; font-weight:600;">&#9889; End the War</a>
                 <a href="UNSTOPPABLE.html">UNSTOPPABLE</a>
-                <a href="UNBREAKABLE.html">UNBREAKABLE</a>
             </div>
         </div>
     </div>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
     <img src="PHIERS_Logo.png" alt="PHIERS Logo" class="hero-logo">
-    <div class="mabah-full">MABAH — Making America Better And Healthier</div>
+    <div class="mabah-full">MABAH &mdash; Making America Better And Healthier</div>
     <div class="hero-opener">People don't just need a fix. They need a path.</div>
     <h1>THE ROADMAP</h1>
-    <div class="subhead">How PHIERS stabilizes the country — step by step.</div>
+    <div class="subhead">How PHIERS stabilizes the country &mdash; step by step.</div>
     <p style="font-size:0.95rem; color:rgba(255,255,255,0.35); font-style:italic; margin:16px 0 0;">This is the sequence that turns pressure into progress.</p>
 </div>
 
-
-<!-- INTRO -->
 <div class="wrap">
     <h2>Roadmap at a Glance</h2>
+    <div class="glance-row"><p><a href="#phase-one">Phase One &mdash; Stabilize the Base.</a> Routine healthcare costs drop from $10,000 to $600. One conversion funds twelve more.</p></div>
+    <div class="glance-row"><p><a href="#phase-two">Phase Two &mdash; Strengthen the Economic Core.</a> Savings free up wages, mobility, and hiring &mdash; without new taxes.</p></div>
+    <div class="glance-row"><p><a href="#phase-three">Phase Three &mdash; Reinvest the Savings.</a> $2.73T in annual waste redirected. 234 million covered. Congress accountable.</p></div>
+    <div class="glance-row" style="border-left-color:#f5c842;"><p><a href="#phase-four" style="color:#7a5c00;">Phase Four &mdash; National Renewal.</a> Pressure eases. Trust rebuilds. Communities stabilize. The country corrects course.</p></div>
 
-    <div class="glance-row">
-        <p><a href="#phase-one">Phase One — Stabilize the Base.</a> Routine healthcare costs drop<br>from $10,000 to $600. One conversion funds twelve more.</p>
-    </div>
-    <div class="glance-row">
-        <p><a href="#phase-two">Phase Two — Strengthen the Economic Core.</a> Savings free up wages, mobility, and hiring — without new taxes.</p>
-    </div>
-    <div class="glance-row">
-        <p><a href="#phase-three">Phase Three — Reinvest the Savings.</a> $2.73T in annual waste redirected. 234 million covered. Congress accountable.</p>
-    </div>
-    <div class="glance-row" style="border-left-color: #f5c842;">
-        <p><a href="#phase-four" style="color:#7a5c00;">Phase Four — National Renewal.</a> Pressure eases. Trust rebuilds. Communities stabilize. The country corrects course.</p>
-    </div>
-
-    <p style="margin-top:32px;">People don't just need a fix. They need a path — one that works in sequence and leads somewhere better than where we are now.</p>
+    <p style="margin-top:32px;">People don't just need a fix. They need a path &mdash; one that works in sequence and leads somewhere better than where we are now.</p>
     <p class="green-emphasis">PHIERS is built for that.</p>
 
     <div style="margin:32px 0 8px; padding:28px 28px; background:rgba(26,26,46,0.9); border-radius:8px; border-left:4px solid #4caf50;">
@@ -334,79 +137,66 @@ footer h3 { color: #81c784; font-size: 1.0em; font-weight: 500; margin-bottom: 6
     </div>
 </div>
 
+<hr class="section-divider">
 
-<!-- PHASE ONE -->
 <div class="wrap" style="padding-top:20px;" id="phase-one">
     <span class="beat-label">Phase One</span>
-    <div class="phase-block">
-        <h3>STABILIZE THE BASE</h3>
-        <h4>Routine Healthcare Becomes Predictable</h4>
-
-        <p class="green-emphasis">Everything starts here.</p>
-        <p>If healthcare costs are unstable, everything built on top of them is unstable too.</p>
-        <div class="grid-list">
-            <div class="grid-item"><p>workers</p></div>
-            <div class="grid-item"><p>households</p></div>
-            <div class="grid-item"><p>employers</p></div>
-            <div class="grid-item"><p>public budgets</p></div>
-        </div>
-
-        <p>When routine care is unstable, every other system absorbs the shock.</p>
-
-        <p>Stabilizing this cost:</p>
-        <div class="grid-list">
-            <div class="grid-item"><p>households breathe easier</p></div>
-            <div class="grid-item"><p>employers save money</p></div>
-            <div class="grid-item"><p>unions focus on wages</p></div>
-            <div class="grid-item"><p>public budgets relax</p></div>
-            <div class="grid-item"><p>workers can move</p></div>
-        </div>
-
-        <p class="green-emphasis">This is the foundation.</p>
-        <p>Stabilize routine care. Lower the cost. Make it predictable. When the base stabilizes, the rest of the system can move.</p>
+    <h3>STABILIZE THE BASE</h3>
+    <h4>Routine Healthcare Becomes Predictable</h4>
+    <p class="green-emphasis">Everything starts here.</p>
+    <p>If healthcare costs are unstable, everything built on top of them is unstable too.</p>
+    <div class="grid-list">
+        <div class="grid-item"><p>workers</p></div>
+        <div class="grid-item"><p>households</p></div>
+        <div class="grid-item"><p>employers</p></div>
+        <div class="grid-item"><p>public budgets</p></div>
     </div>
+    <p>When routine care is unstable, every other system absorbs the shock.</p>
+    <p>Stabilizing this cost:</p>
+    <div class="grid-list">
+        <div class="grid-item"><p>households breathe easier</p></div>
+        <div class="grid-item"><p>employers save money</p></div>
+        <div class="grid-item"><p>unions focus on wages</p></div>
+        <div class="grid-item"><p>public budgets relax</p></div>
+        <div class="grid-item"><p>workers can move</p></div>
+    </div>
+    <p class="green-emphasis">This is the foundation.</p>
+    <p>Stabilize routine care. Lower the cost. Make it predictable. When the base stabilizes, the rest of the system can move.</p>
 </div>
 
+<hr class="section-divider">
 
-<!-- PHASE TWO -->
-<div class="wrap-dark" id="phase-two">
-    <div class="inner">
-        <span class="beat-label">Phase Two</span>
-        <h2>STRENGTHEN THE ECONOMIC CORE</h2>
-        <h3 style="margin-top:4px; color:#81c784; font-style:italic; font-weight:400;">Work, Wages, and Stability Improve Together</h3>
-
-        <p>When healthcare stops swallowing wage gains, something important happens.</p>
-        <p style="font-size:19px; font-weight:700; color:#e0e0e0;">People finally feel their raises again.</p>
-        <p style="color:#81c784; font-style:italic;">That single change ripples through the entire economy.</p>
-        <p>When workers aren't chained to jobs for coverage, they can move. When employers can plan with confidence, hiring expands. When households regain breathing room, communities stabilize.</p>
-
-        <p style="margin-top:24px;">This phase strengthens:</p>
-        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); gap:10px; margin:16px 0 20px;">
-            <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(76,175,80,0.25); border-radius:6px; padding:12px 16px;"><p style="margin:0; color:#d0d0d0; font-weight:500;">wages</p></div>
-            <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(76,175,80,0.25); border-radius:6px; padding:12px 16px;"><p style="margin:0; color:#d0d0d0; font-weight:500;">job mobility</p></div>
-            <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(76,175,80,0.25); border-radius:6px; padding:12px 16px;"><p style="margin:0; color:#d0d0d0; font-weight:500;">local economies</p></div>
-            <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(76,175,80,0.25); border-radius:6px; padding:12px 16px;"><p style="margin:0; color:#d0d0d0; font-weight:500;">public services</p></div>
-            <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(76,175,80,0.25); border-radius:6px; padding:12px 16px;"><p style="margin:0; color:#d0d0d0; font-weight:500;">long-term resilience</p></div>
-        </div>
-
-        <p>Stability in one area reinforces stability in others.</p>
-        <p style="color:#81c784; font-weight:700; font-size:1.1em;">This is where pressure begins to ease.</p>
+<div class="wrap" id="phase-two">
+    <span class="beat-label">Phase Two</span>
+    <h2>STRENGTHEN THE ECONOMIC CORE</h2>
+    <h3 style="margin-top:4px; color:#81c784; font-style:italic; font-weight:400;">Work, Wages, and Stability Improve Together</h3>
+    <p>When healthcare stops swallowing wage gains, something important happens.</p>
+    <p style="font-size:19px; font-weight:700; color:#e0e0e0;">People finally feel their raises again.</p>
+    <p style="color:#81c784; font-style:italic;">That single change ripples through the entire economy.</p>
+    <p>When workers aren't chained to jobs for coverage, they can move. When employers can plan with confidence, hiring expands. When households regain breathing room, communities stabilize.</p>
+    <p style="margin-top:24px;">This phase strengthens:</p>
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); gap:10px; margin:16px 0 20px;">
+        <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(76,175,80,0.25); border-radius:6px; padding:12px 16px;"><p style="margin:0; color:#d0d0d0; font-weight:500;">wages</p></div>
+        <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(76,175,80,0.25); border-radius:6px; padding:12px 16px;"><p style="margin:0; color:#d0d0d0; font-weight:500;">job mobility</p></div>
+        <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(76,175,80,0.25); border-radius:6px; padding:12px 16px;"><p style="margin:0; color:#d0d0d0; font-weight:500;">local economies</p></div>
+        <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(76,175,80,0.25); border-radius:6px; padding:12px 16px;"><p style="margin:0; color:#d0d0d0; font-weight:500;">public services</p></div>
+        <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(76,175,80,0.25); border-radius:6px; padding:12px 16px;"><p style="margin:0; color:#d0d0d0; font-weight:500;">long-term resilience</p></div>
     </div>
+    <p>Stability in one area reinforces stability in others.</p>
+    <p style="color:#81c784; font-weight:700; font-size:1.1em;">This is where pressure begins to ease.</p>
 </div>
 
+<hr class="section-divider">
 
-<!-- PHASE THREE -->
 <div class="wrap" id="phase-three">
     <span class="beat-label">Phase Three</span>
-    <div class="phase-block gold">
+    <div class="section-box gold">
         <h3>REINVEST THE SAVINGS</h3>
         <h4>Cost Reduction Creates Room for Renewal</h4>
-
         <p>When routine healthcare costs fall at scale, fiscal room appears.</p>
         <p>Not through new debt. Not through new taxes.</p>
         <p>Through reduced waste and improved outcomes.</p>
         <p style="font-size:18px; font-weight:700; color:#7a5c00; margin-top:20px;">At national scale, this unlocks roughly $2.7 trillion a year in savings.</p>
-
         <p style="margin-top:20px;">Room created by:</p>
         <div class="grid-list">
             <div class="grid-item"><p>lower routine spending</p></div>
@@ -416,7 +206,6 @@ footer h3 { color: #81c784; font-size: 1.0em; font-weight: 500; margin-bottom: 6
             <div class="grid-item"><p>stronger household stability</p></div>
             <div class="grid-item"><p>lower long-term strain</p></div>
         </div>
-
         <p>That room supports reinvestment into:</p>
         <div class="grid-list">
             <div class="grid-item"><p>workforce development</p></div>
@@ -425,91 +214,48 @@ footer h3 { color: #81c784; font-size: 1.0em; font-weight: 500; margin-bottom: 6
             <div class="grid-item"><p>community resilience</p></div>
             <div class="grid-item"><p>economic mobility</p></div>
         </div>
-
         <p style="color:#7a5c00; font-weight:800;">The money doesn't disappear. It gets reinvested in the people who earned it.</p>
     </div>
 </div>
 
+<hr class="section-divider">
 
-<!-- PHASE FOUR -->
-<div class="wrap-dark" id="phase-four">
-    <div class="inner">
-        <span class="beat-label">Phase Four</span>
-        <h2>NATIONAL RENEWAL</h2>
-        <h3 style="margin-top:4px; color:#81c784; font-style:italic; font-weight:400;">A More Stable Country</h3>
-
-        <p>When the base stabilizes and pressure drops, the country starts to feel different.</p>
-
-        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); gap:10px; margin:16px 0 20px;">
-            <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(76,175,80,0.25); border-radius:6px; padding:12px 16px;"><p style="margin:0; color:#d0d0d0; font-weight:500;">lower costs</p></div>
-            <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(76,175,80,0.25); border-radius:6px; padding:12px 16px;"><p style="margin:0; color:#d0d0d0; font-weight:500;">stronger communities</p></div>
-            <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(76,175,80,0.25); border-radius:6px; padding:12px 16px;"><p style="margin:0; color:#d0d0d0; font-weight:500;">more mobility</p></div>
-            <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(76,175,80,0.25); border-radius:6px; padding:12px 16px;"><p style="margin:0; color:#d0d0d0; font-weight:500;">more trust in institutions</p></div>
-            <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(76,175,80,0.25); border-radius:6px; padding:12px 16px;"><p style="margin:0; color:#d0d0d0; font-weight:500;">more resilient systems</p></div>
-        </div>
-
-        <p>That's what renewal actually looks like.</p>
-        <p>This is not ideology. It is coordination at scale.</p>
-        <p style="color:#81c784; font-weight:700; font-size:1.1em;">A country that can coordinate can stabilize. A country that stabilizes can grow.</p>
+<div class="wrap" id="phase-four">
+    <span class="beat-label">Phase Four</span>
+    <h2>NATIONAL RENEWAL</h2>
+    <h3 style="margin-top:4px; color:#81c784; font-style:italic; font-weight:400;">A More Stable Country</h3>
+    <p>When the base stabilizes and pressure drops, the country starts to feel different.</p>
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); gap:10px; margin:16px 0 20px;">
+        <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(76,175,80,0.25); border-radius:6px; padding:12px 16px;"><p style="margin:0; color:#d0d0d0; font-weight:500;">lower costs</p></div>
+        <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(76,175,80,0.25); border-radius:6px; padding:12px 16px;"><p style="margin:0; color:#d0d0d0; font-weight:500;">stronger communities</p></div>
+        <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(76,175,80,0.25); border-radius:6px; padding:12px 16px;"><p style="margin:0; color:#d0d0d0; font-weight:500;">more mobility</p></div>
+        <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(76,175,80,0.25); border-radius:6px; padding:12px 16px;"><p style="margin:0; color:#d0d0d0; font-weight:500;">more trust in institutions</p></div>
+        <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(76,175,80,0.25); border-radius:6px; padding:12px 16px;"><p style="margin:0; color:#d0d0d0; font-weight:500;">more resilient systems</p></div>
     </div>
+    <p>That's what renewal actually looks like.</p>
+    <p>This is not ideology. It is coordination at scale.</p>
+    <p style="color:#81c784; font-weight:700; font-size:1.1em;">A country that can coordinate can stabilize. A country that stabilizes can grow.</p>
 </div>
 
+<hr class="section-divider">
 
-<!-- WHY NOW -->
 <div class="wrap">
     <span class="beat-label">The Moment</span>
-    <div class="phase-block urgent">
+    <div class="section-box urgent">
         <h3>WHY THIS MATTERS NOW</h3>
         <h4>A Moment That Requires Direction</h4>
-
         <p>Costs are rising.</p>
         <p>Trust is falling.</p>
-
         <p style="margin-top:20px;">Moments like this go one of two ways.</p>
         <p style="font-weight:700; color:#b71c1c;">Systems break.</p>
         <p style="font-weight:700; color:#2e7d32;">Or they realign.</p>
-
         <p style="margin-top:20px; color:#b71c1c; font-weight:800;">Realignment requires direction.</p>
-        <p style="font-size:1.2em; font-weight:800; margin-top:24px; color:#111;">This roadmap provides it.</p>
+        <p style="font-size:1.2em; font-weight:800; margin-top:24px; color:#c8e6c9;">This roadmap provides it.</p>
     </div>
 </div>
 
+<hr class="section-divider">
 
-<!-- CREDIBILITY GRID -->
-<div class="wrap-dark" style="padding-top:20px; padding-bottom:50px;">
-    <div class="inner">
-        <h2 style="margin-top:0;">Third-Party Validation</h2>
-        <div class="cred-grid">
-            <div class="cred-card">
-                <h4>Congressman Van Hollen</h4>
-                <p>Letter of support for PHIERS approach to healthcare stabilization.</p>
-            </div>
-            <div class="cred-card">
-                <h4>Maryland Health Care Commission</h4>
-                <p>Formal recognition of cooperative telehealth delivery model.</p>
-            </div>
-            <div class="cred-card">
-                <h4>Interfaith Coalition</h4>
-                <p>Multi-faith organizational support for community-based healthcare access.</p>
-            </div>
-            <div class="cred-card">
-                <h4>Cost Plus Drugs (Mark Cuban)</h4>
-                <p>Independent validation of cost-elimination model, operational since 2022.</p>
-            </div>
-            <div class="cred-card">
-                <h4>ZORTT Elite Medical</h4>
-                <p>Cooperative telehealth delivery for unions, gig workers, and veterans.</p>
-            </div>
-            <div class="cred-card">
-                <h4>Harvard Kennedy School</h4>
-                <p>Chenoweth research: no movement reaching 3.5% participation has ever failed.</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- THE FIRST STEP -->
 <div class="wrap">
     <span class="beat-label">The First Step</span>
     <h2>Documented Public Direction</h2>
@@ -518,31 +264,28 @@ footer h3 { color: #81c784; font-size: 1.0em; font-weight: 500; margin-bottom: 6
 
     <div class="gold-box" style="margin-top:28px;">
         <p style="font-size:17px; font-weight:700; color:#7a5c00;">1,500 signatures in a district changes the conversation.</p>
-        <p>At that threshold, your representatives face a documented, on-the-record choice: align with constituents — or explain publicly why they refused.</p>
+        <p>At that threshold, your representatives face a documented, on-the-record choice: align with constituents &mdash; or explain publicly why they refused.</p>
     </div>
 
     <h3 style="margin-top:44px;">What Happens Next</h3>
     <p>As participation grows, alignment becomes measurable.</p>
     <p>When 1,500 people in a district document the same direction, representatives receive clear, public constituent guidance.</p>
-
     <div style="margin:20px 0;">
         <p style="margin:6px 0; font-weight:600;">Town halls shift.</p>
         <p style="margin:6px 0; font-weight:600;">Local media pays attention.</p>
         <p style="margin:6px 0; font-weight:600;">Staff begin responding.</p>
     </div>
-
     <p>One district creates attention.<br>Many districts create pressure.<br>Enough districts create change.</p>
 
     <div class="cta-block">
-        <p style="font-size:1.1em; color:#555; margin-bottom:22px;">The movement needs your direction on the record.</p>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdETA-oNIeOAzEsG4GsYiiws1YBpLunx8ioVJkZac5hzSxaZw/viewform?usp=header" class="btn-primary">📋 Document Your Direction</a>
+        <p style="font-size:1.1em; color:#c8e6c9; margin-bottom:22px;">The movement needs your voice on the record.</p>
+        <a href="Action.html" class="btn-primary">&#9994; Make Your Voice Count</a>
         <div style="margin-top:14px;">
-            <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now-short-version" class="btn-secondary-cta">✍ Sign the Petition</a>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdETA-oNIeOAzEsG4GsYiiws1YBpLunx8ioVJkZac5hzSxaZw/viewform?usp=header" class="btn-secondary-cta">📊 Take the Survey</a>
+            <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now-short-version" class="btn-secondary-cta">&#9997; Sign the Petition</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdETA-oNIeOAzEsG4GsYiiws1YBpLunx8ioVJkZac5hzSxaZw/viewform?usp=header" class="btn-secondary-cta">&#128202; Take the Survey</a>
         </div>
     </div>
 
-    <!-- CLOSING FRAME -->
     <div style="text-align:center; padding:50px 20px; border-top:2px solid rgba(76,175,80,0.2); margin-top:20px;">
         <p style="font-size:20px; font-weight:700; color:#81c784; margin-bottom:6px;">Direction creates alignment.</p>
         <p style="font-size:20px; font-weight:700; color:#81c784; margin-bottom:6px;">Alignment creates pressure.</p>
@@ -550,7 +293,6 @@ footer h3 { color: #81c784; font-size: 1.0em; font-weight: 500; margin-bottom: 6
         <p style="font-size:28px; font-weight:900; color:#4caf50;">This is how a country stabilizes itself.</p>
     </div>
 </div>
-
 
 <footer>
     <h3>PHIERS Movement | MABAH</h3>
@@ -562,21 +304,20 @@ footer h3 { color: #81c784; font-size: 1.0em; font-weight: 500; margin-bottom: 6
         <span style="color:#2a2a2a;">|</span>
         <a href="UNBREAKABLE.html">UNBREAKABLE</a>
         <span style="color:#2a2a2a;">|</span>
-        <a href="/cdn-cgi/l/email-protection#3f565159507f4f57565a4d4c11504d58">Contact</a>
+        <a href="/cdn-cgi/l/email-protection#6a03040c052a1a02030f18194405180d">Contact</a>
         <span style="color:#2a2a2a;">|</span>
-        <span style="color:#2a2a2a;">© PHIERS</span>
+        <span style="color:#2a2a2a;">&#169; PHIERS</span>
     </div>
     <div style="color:#555; font-size:0.85em; margin-top:14px;">
-        PHIERS is a public-interest movement — not a company, not a product.<br>
+        PHIERS is a public-interest movement &mdash; not a company, not a product.<br>
         The only thing missing is you.
     </div>
-    <p class="copyright">© PHIERS.org Since 2014 - Original Concept - All Rights Reserved<br>
-    Prior art documented. PHIERS™, PHIERSale™, PHIERSWorks™ are protected marks established 2014–2025.</p>
-    <p style="font-size:0.75em; color:#999; margin-top:10px;">Built: 2026-03-07 @ 09:30 UTC</p>
+    <p class="copyright">&#169; PHIERS.org Since 2014 - Original Concept - All Rights Reserved<br>
+    Prior art documented. PHIERS&#8482;, PHIERSale&#8482;, PHIERSWorks&#8482; are protected marks established 2014&ndash;2025.</p>
+    <p style="font-size:0.75em; color:#999; margin-top:10px;">Built: 2026-03-08 @ 03:00 UTC</p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 function toggleMobileMenu() {
     var navLinks = document.getElementById('navLinks');
     if (navLinks) navLinks.classList.toggle('active');
@@ -584,10 +325,4 @@ function toggleMobileMenu() {
 document.addEventListener('click', function(e) {
     var nav = document.querySelector('.global-nav');
     var navLinks = document.getElementById('navLinks');
-    if (nav && navLinks && !nav.contains(e.target) && navLinks.classList.contains('active')) {
-        navLinks.classList.remove('active');
-    }
-});
-</script>
-</body>
-</html>
+    if (nav && navLinks && !na

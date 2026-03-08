@@ -13,203 +13,55 @@
     <meta property="og:type" content="website">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            color: #e0e0e0;
-            line-height: 1.8;
-            min-height: 100vh;
-            padding: 20px;
-        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #e0e0e0; line-height: 1.8; min-height: 100vh; padding: 20px; }
         .container { max-width: 900px; margin: 0 auto; }
-        .global-nav {
-            background: rgba(26, 26, 46, 0.95);
-            border: 1px solid rgba(76, 175, 80, 0.3);
-            border-radius: 8px;
-            padding: 12px 20px;
-            margin-bottom: 30px;
-            position: sticky;
-            top: 10px;
-            z-index: 1000;
-            backdrop-filter: blur(5px);
-        }
-        .mobile-menu-toggle {
-            display: block;
-            background: transparent;
-            border: 1px solid #4caf50;
-            color: #4caf50;
-            font-size: 1.8em;
-            padding: 5px 15px;
-            border-radius: 4px;
-            cursor: pointer;
-            width: 100%;
-            text-align: center;
-            font-weight: bold;
-        }
-        .nav-links-container {
-            display: none; flex-wrap: wrap;
-            align-items: center; justify-content: center;
-            gap: 5px; width: 100%;
-        }
+        .section-divider { border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 3rem 0; width: 100%; }
+        .global-nav { background: rgba(26,26,46,0.95); border: 1px solid rgba(76,175,80,0.3); border-radius: 8px; padding: 12px 20px; margin-bottom: 30px; position: sticky; top: 10px; z-index: 1000; backdrop-filter: blur(5px); }
+        .mobile-menu-toggle { display: block; background: transparent; border: 1px solid #4caf50; color: #4caf50; font-size: 1.8em; padding: 5px 15px; border-radius: 4px; cursor: pointer; width: 100%; text-align: center; font-weight: bold; }
+        .nav-links-container { display: none; flex-wrap: wrap; align-items: center; justify-content: center; gap: 5px; width: 100%; }
         .nav-links-container.active { display: flex; }
-        .nav-item {
-            color: #81c784; text-decoration: none;
-            padding: 8px 12px; border-radius: 4px;
-            font-size: 0.9em; font-weight: 500;
-            transition: all 0.3s ease; white-space: nowrap;
-        }
-        .nav-item:hover { background: rgba(76, 175, 80, 0.2); color: #4caf50; }
-        .nav-item.active { background: rgba(76, 175, 80, 0.3); color: #4caf50; font-weight: bold; }
+        .nav-item { color: #81c784; text-decoration: none; padding: 8px 12px; border-radius: 4px; font-size: 0.9em; font-weight: 500; transition: all 0.3s ease; white-space: nowrap; }
+        .nav-item:hover { background: rgba(76,175,80,0.2); color: #4caf50; }
+        .nav-item.active { background: rgba(76,175,80,0.3); color: #4caf50; font-weight: bold; }
         .dropdown { position: relative; display: inline-block; }
-        .dropbtn {
-            background: transparent; color: #81c784;
-            padding: 8px 12px; font-size: 0.9em; font-weight: 500;
-            border: none; cursor: pointer; border-radius: 4px;
-            font-family: inherit;
-        }
-        .dropbtn:hover { background: rgba(76, 175, 80, 0.2); color: #4caf50; }
-        .dropdown-content {
-            display: none; position: absolute; top: 100%; right: 0;
-            background: rgba(26, 26, 46, 0.98); min-width: 200px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
-            z-index: 1001; border-radius: 8px;
-            border: 1px solid rgba(76, 175, 80, 0.3); padding: 8px 0;
-        }
-        .dropdown-content a {
-            color: #81c784; padding: 10px 16px;
-            text-decoration: none; display: block;
-            font-size: 0.9em;
-        }
-        .dropdown-content a:hover { background: rgba(76, 175, 80, 0.2); color: #4caf50; }
+        .dropbtn { background: transparent; color: #81c784; padding: 8px 12px; font-size: 0.9em; font-weight: 500; border: none; cursor: pointer; border-radius: 4px; font-family: inherit; }
+        .dropbtn:hover { background: rgba(76,175,80,0.2); color: #4caf50; }
+        .dropdown-content { display: none; position: absolute; top: 100%; right: 0; background: rgba(26,26,46,0.98); min-width: 200px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4); z-index: 1001; border-radius: 8px; border: 1px solid rgba(76,175,80,0.3); padding: 8px 0; }
+        .dropdown-content a { color: #81c784; padding: 10px 16px; text-decoration: none; display: block; font-size: 0.9em; }
+        .dropdown-content a:hover { background: rgba(76,175,80,0.2); color: #4caf50; }
         .dropdown:hover .dropdown-content { display: block; }
-        .dropdown:hover .dropbtn { background: rgba(76, 175, 80, 0.2); color: #4caf50; }
-        @media (max-width: 768px) {
-            .global-nav { padding: 10px; }
-            .nav-item, .dropdown { width: 100%; text-align: center; }
-            .dropdown-content { position: static; width: 100%; margin-top: 5px; }
-            .dropbtn { width: 100%; }
-        }
-        .hero {
-            text-align: center;
-            padding: 50px 20px 40px;
-            background: linear-gradient(135deg, rgba(15, 52, 96, 0.9), rgba(22, 33, 62, 0.9));
-            border-radius: 12px;
-            margin-bottom: 40px;
-            border: 2px solid rgba(76, 175, 80, 0.3);
-        }
-        .hero-logo { max-width: 140px; margin-bottom: 15px; }
+        .dropdown:hover .dropbtn { background: rgba(76,175,80,0.2); color: #4caf50; }
+        @media (max-width: 768px) { .global-nav { padding: 10px; } .nav-item, .dropdown { width: 100%; text-align: center; } .dropdown-content { position: static; width: 100%; margin-top: 5px; } .dropbtn { width: 100%; } }
+        .hero { text-align: center; padding: 50px 20px 40px; background: linear-gradient(135deg, rgba(15,52,96,0.9), rgba(22,33,62,0.9)); border-radius: 12px; margin-bottom: 40px; border: 2px solid rgba(76,175,80,0.3); }
+        .hero-logo { max-width: 250px; width: 100%; margin-bottom: 15px; }
+        @media (max-width: 768px) { .hero-logo { max-width: 170px; } }
         .mabah-full { font-size: 1.0em; color: #81c784; font-weight: 600; margin-bottom: 5px; letter-spacing: 0.5px; }
-        .mabah-tagline { font-size: 1.2em; color: #4caf50; font-weight: bold; margin-bottom: 15px; font-style: italic; }
         .hero-opener { font-size: 1.25em; color: #a5d6a7; margin-bottom: 10px; }
         .hero h1 { color: #4caf50; font-size: clamp(1.4rem, 5vw, 2.8rem); margin-bottom: 15px; }
         .hero .subhead { font-size: 1.55em; color: #c8e6c9; font-style: normal; font-weight: 600; }
         .phiers-media-block { width: 100%; max-width: 500px; margin: 40px auto; }
-        .phiers-media-block img {
-            width: 100%; height: auto; display: block;
-            border-radius: 6px; border: 2px solid rgba(76, 175, 80, 0.3);
-            cursor: pointer;
-        }
-        .phiers-video-wrapper {
-            position: relative; width: 100%; padding-bottom: 56.25%;
-            height: 0; border-radius: 8px; overflow: hidden;
-        }
-        .phiers-video-wrapper iframe {
-            position: absolute; top: 0; left: 0;
-            width: 100%; height: 100%; border: none;
-        }
+        .phiers-media-block img { width: 100%; height: auto; display: block; border-radius: 6px; border: 2px solid rgba(76,175,80,0.3); cursor: pointer; }
+        .phiers-video-wrapper { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; border-radius: 8px; overflow: hidden; }
+        .phiers-video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
         @media (max-width: 768px) { .phiers-media-block { max-width: 100%; } }
-        h2 {
-            color: #4caf50; font-size: 1.8em;
-            margin: 0 0 20px;
-            border-bottom: 2px solid rgba(76, 175, 80, 0.3);
-            padding-bottom: 10px;
-        }
+        h2 { color: #4caf50; font-size: 1.8em; margin: 0 0 20px; border-bottom: 2px solid rgba(76,175,80,0.3); padding-bottom: 10px; }
         h3 { color: #81c784; font-size: 1.3em; margin: 24px 0 12px; }
         p { color: #c8e6c9; margin: 16px 0; line-height: 1.8; font-size: 1.1em; }
-        .section-box {
-            background: rgba(26, 26, 46, 0.9);
-            padding: 36px 40px;
-            margin-bottom: 28px;
-            border-radius: 12px;
-            border-left: 8px solid #4caf50;
-        }
-        .insight-box {
-            background: rgba(33, 150, 243, 0.1);
-            border: 2px solid #2196f3;
-            padding: 24px 28px;
-            margin: 24px 0;
-            border-radius: 8px;
-        }
-        .highlight-box {
-            background: rgba(76, 175, 80, 0.12);
-            border: 2px solid #4caf50;
-            padding: 24px 28px;
-            margin: 20px 0;
-            border-radius: 8px;
-        }
+        .section-box { background: rgba(26,26,46,0.9); padding: 36px 40px; margin-bottom: 28px; border-radius: 12px; border-left: 8px solid #4caf50; }
+        .insight-box { background: rgba(33,150,243,0.1); border: 2px solid #2196f3; padding: 24px 28px; margin: 24px 0; border-radius: 8px; }
+        .highlight-box { background: rgba(76,175,80,0.12); border: 2px solid #4caf50; padding: 24px 28px; margin: 20px 0; border-radius: 8px; }
         .green-emphasis { color: #4caf50; font-weight: bold; font-size: 1.15em; }
-        .punchline {
-            color: #fff; font-size: 1.1em; font-weight: bold;
-            font-style: italic; margin: 14px 0 4px;
-            border-left: 3px solid #4caf50; padding-left: 14px;
-        }
-        .credibility-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 14px;
-            margin: 24px 0;
-        }
-        .credibility-card {
-            background: rgba(76, 175, 80, 0.08);
-            border: 1px solid rgba(76, 175, 80, 0.3);
-            border-radius: 8px;
-            padding: 16px 18px;
-        }
-        .credibility-card .cred-name {
-            color: #4caf50; font-weight: bold; font-size: 1em; margin-bottom: 4px;
-        }
-        .credibility-card .cred-desc {
-            color: #a5d6a7; font-size: 0.9em; margin: 0; line-height: 1.5;
-        }
-        .btn {
-            background: linear-gradient(135deg, #4caf50, #2e7d32);
-            color: white; padding: 16px 36px;
-            font-size: 1.2em; font-weight: bold;
-            border: 2px solid #4caf50; border-radius: 8px;
-            text-decoration: none; display: inline-block;
-            margin: 10px;
-        }
-        .btn-warning {
-            background: linear-gradient(135deg, #f5c842, #e0a800);
-            border-color: #f5c842; color: #000;
-        }
-        footer {
-            text-align: center; padding: 40px 20px; margin-top: 80px;
-            border-top: 2px solid rgba(76, 175, 80, 0.3);
-            background: rgba(26, 26, 46, 0.6); border-radius: 8px;
-        }
-        .footer-links {
-            display: flex; flex-wrap: wrap; gap: 20px;
-            justify-content: center; margin: 20px 0;
-        }
+        .punchline { color: #fff; font-size: 1.1em; font-weight: bold; font-style: italic; margin: 14px 0 4px; border-left: 3px solid #4caf50; padding-left: 14px; }
+        .btn { background: linear-gradient(135deg, #4caf50, #2e7d32); color: white; padding: 16px 36px; font-size: 1.2em; font-weight: bold; border: 2px solid #4caf50; border-radius: 8px; text-decoration: none; display: inline-block; margin: 10px; }
+        .btn-warning { background: linear-gradient(135deg, #f5c842, #e0a800); border-color: #f5c842; color: #000; }
+        footer { text-align: center; padding: 40px 20px; margin-top: 80px; border-top: 2px solid rgba(76,175,80,0.3); background: rgba(26,26,46,0.6); border-radius: 8px; }
+        .footer-links { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin: 20px 0; }
         .footer-links a { color: #81c784; text-decoration: none; }
         .footer-links a:hover { color: #4caf50; }
         .copyright { color: #666; font-size: 0.8em; margin-top: 20px; }
-        .image-modal {
-            display: none; position: fixed; z-index: 10000;
-            left: 0; top: 0; width: 100%; height: 100%;
-            background-color: rgba(0,0,0,0.95);
-            overflow: auto;
-        }
-        .modal-content {
-            max-width: 90%; width: auto; height: auto;
-            display: block; margin: 80px auto;
-        }
-        .close-modal {
-            position: fixed; top: 20px; right: 25px;
-            color: white; font-size: 40px; font-weight: bold;
-            cursor: pointer; z-index: 10001;
-        }
+        .image-modal { display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.95); overflow: auto; }
+        .modal-content { max-width: 90%; width: auto; height: auto; display: block; margin: 80px auto; }
+        .close-modal { position: fixed; top: 20px; right: 25px; color: white; font-size: 40px; font-weight: bold; cursor: pointer; z-index: 10001; }
         .close-modal:hover { color: #4caf50; }
     </style>
 </head>
@@ -221,6 +73,7 @@
             <div class="nav-links-container" id="navLinks">
                 <a href="index.html" class="nav-item">Home</a>
                 <a href="Crisis.html" class="nav-item">Crisis</a>
+                <a href="Telehealth-Insurance.html" class="nav-item" style="color:#f5c842; font-weight:700;">📱 The Problem: Telehealth vs Insurance</a>
                 <a href="SimpleMath.html" class="nav-item">Simple Math</a>
                 <a href="5D_Solutions.html" class="nav-item active">5D Solutions</a>
                 <a href="Leverage.html" class="nav-item">Leverage</a>
@@ -238,15 +91,14 @@
                         <a href="Veterans.html">Veterans</a>
                         <a href="SOTU-Response.html">SOTU Response</a>
                         <a href="Union-Strategy.html">Union Strategy</a>
-                        <a href="Telehealth-vs-Insurance.html">Telehealth vs Insurance</a>
                         <a href="Real-Stories.html">Real Stories</a>
+                        <a href="NoWar.html" style="color:#f44336; font-weight:600;">⚡ End the War</a>
                         <a href="UNSTOPPABLE.html">UNSTOPPABLE</a>
                     </div>
                 </div>
             </div>
         </nav>
 
-        <!-- HERO -->
         <div class="hero">
             <img src="PHIERS_Logo.png" alt="PHIERS Logo" class="hero-logo">
             <div class="mabah-full">MABAH — Making America Better And Healthier</div>
@@ -255,13 +107,13 @@
             <div class="subhead">Healthcare. Jobs. Economy. Politics. Peace.<br>They break together — they have to be fixed together.</div>
         </div>
 
-        <!-- RUBIK'S CUBE -->
         <div class="phiers-media-block">
             <img src="5D_Solutions_Rubiks_Cube.png" alt="5D Solutions Rubik's Cube — five interconnected dimensions">
             <p style="text-align:center; color:#81c784; font-size:0.9em; margin-top:10px; font-style:italic;">Think of the system like a Rubik's Cube. Turning one side changes the others. Stability only happens when the moves are coordinated.</p>
         </div>
 
-        <!-- CORE IDEA -->
+        <hr class="section-divider">
+
         <div class="section-box" style="border-left-color: #2196f3; background: rgba(33,150,243,0.07);">
             <h2 style="color:#81c784; border-bottom-color: rgba(129,199,132,0.3);">Why the System Needs Multiple Moves</h2>
             <p>Most policy debates try to fix one problem at a time. Healthcare. Jobs. Housing. Wages. Each in its own lane, on its own timeline.</p>
@@ -270,7 +122,8 @@
             <p class="punchline">Solving problems one at a time can't stabilize the system. Coordinated solutions can.</p>
         </div>
 
-        <!-- 5D AT A GLANCE -->
+        <hr class="section-divider">
+
         <div class="section-box">
             <h2 style="margin-top:0;">5D at a Glance</h2>
             <div style="display:grid; gap:12px;">
@@ -297,7 +150,8 @@
             </div>
         </div>
 
-        <!-- THE FIVE DIMENSIONS -->
+        <hr class="section-divider">
+
         <div class="section-box">
             <h2 style="margin-top:0;">The Five Dimensions</h2>
             <p>Each dimension is practical. Each one reinforces the others. Each one is measurable. Each one is achievable.</p>
@@ -311,14 +165,16 @@
             <p class="green-emphasis">None function alone. Together, they stabilize the system.</p>
         </div>
 
-        <!-- HOW THEY WORK TOGETHER -->
+        <hr class="section-divider">
+
         <div class="section-box">
             <h2 style="margin-top:0;">How They Work Together</h2>
             <p>When healthcare stabilizes, workers gain flexibility. When workers gain flexibility, contracts strengthen. When contracts strengthen, wages rise. When wages rise, housing becomes sustainable. When housing stabilizes, public strain decreases. When public strain decreases, institutional focus improves.</p>
             <p class="punchline">This is coordinated reinforcement. This is how systems realign.</p>
         </div>
 
-        <!-- WHY THIS IS ACHIEVABLE -->
+        <hr class="section-divider">
+
         <div class="section-box">
             <h2 style="margin-top:0;">Why This Is Achievable</h2>
             <p>People assume big solutions require big money. They don't.</p>
@@ -331,46 +187,16 @@
             </div>
         </div>
 
-        <!-- MATH BRIDGE -->
+        <hr class="section-divider">
+
         <div style="text-align: center; margin: 50px 0;">
             <h2 style="border:none;">Ready for the Math?</h2>
             <p style="font-size: 1.15em;">The numbers are simple. The savings are real.</p>
             <a href="SimpleMath.html" class="btn" style="font-size:1.2em; padding:18px 40px;">See the Simple Math →</a>
         </div>
 
-        <!-- CREDIBILITY BLOCK -->
-        <div class="section-box" style="border-left-color: #81c784;">
-            <h2 style="margin-top:0;">This Framework Has Been Validated</h2>
-            <p>The 5D model isn't an idea waiting to be tested. The core mechanisms are already operational.</p>
-            <div class="credibility-grid">
-                <div class="credibility-card">
-                    <div class="cred-name">Congressman Van Hollen</div>
-                    <div class="cred-desc">Letter of support for the PHIERS approach to healthcare stabilization</div>
-                </div>
-                <div class="credibility-card">
-                    <div class="cred-name">Maryland Health Care Commission</div>
-                    <div class="cred-desc">Formal recognition of the cooperative telehealth delivery model</div>
-                </div>
-                <div class="credibility-card">
-                    <div class="cred-name">Interfaith Coalition</div>
-                    <div class="cred-desc">Multi-faith organizational support for community-based healthcare access</div>
-                </div>
-                <div class="credibility-card">
-                    <div class="cred-name">Cost Plus Drugs (Mark Cuban)</div>
-                    <div class="cred-desc">Independent validation of the cost-elimination model — operational since 2022</div>
-                </div>
-                <div class="credibility-card">
-                    <div class="cred-name">ZORTT Elite Medical</div>
-                    <div class="cred-desc">Cooperative telehealth delivery operating for unions, gig workers, and veterans</div>
-                </div>
-                <div class="credibility-card">
-                    <div class="cred-name">Harvard Kennedy School</div>
-                    <div class="cred-desc">Chenoweth research: no movement reaching 3.5% participation has ever failed</div>
-                </div>
-            </div>
-        </div>
+        <hr class="section-divider">
 
-        <!-- CASCADE VIDEO -->
         <div class="phiers-media-block" style="max-width:640px;">
             <p style="text-align:center; color:#4caf50; font-weight:600; margin-bottom:12px;">▶ Watch: How the 5D cascade works in practice (3:33)</p>
             <div class="phiers-video-wrapper">
@@ -385,7 +211,8 @@
             <p style="text-align:center; color:#81c784; font-size:0.9em; margin-top:10px; font-style:italic;">The exponential cascade that makes universal coverage inevitable.</p>
         </div>
 
-        <!-- THREE STEPS -->
+        <hr class="section-divider">
+
         <div style="background: rgba(76,175,80,0.1); border: 2px solid #4caf50; border-radius: 12px; padding: 32px 28px; margin: 40px 0; text-align:center;">
             <h3 style="color:#4caf50; margin-top:0; font-size:1.4em;">Three Steps. Real Leverage.</h3>
             <p style="color:#c8e6c9; margin-bottom:20px;">This is how individual participation becomes political gravity.</p>
@@ -406,14 +233,11 @@
                     <p style="font-size:0.9em; color:#a5d6a7; margin:6px 0 0;">Every person who understands the system makes the next conversation shorter.</p>
                 </div>
             </div>
-
-            <!-- FINAL CTA -->
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdETA-oNIeOAzEsG4GsYiiws1YBpLunx8ioVJkZac5hzSxaZw/viewform?usp=header" class="btn" style="font-size:1.3em; padding:20px 48px; display:inline-block; margin-bottom:16px;">📋 Document Your Direction</a>
+            <a href="Action.html" class="btn" style="font-size:1.3em; padding:20px 48px; display:inline-block; margin-bottom:16px;">✊ Make Your Voice Count</a>
             <div>
                 <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now-short-version" class="btn btn-warning" style="font-size:1em; padding:12px 28px;">✍ Sign the Petition</a>
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSdETA-oNIeOAzEsG4GsYiiws1YBpLunx8ioVJkZac5hzSxaZw/viewform?usp=header" class="btn" style="font-size:1em; padding:12px 28px; background:transparent; border:2px solid #4caf50;">📊 Take the Survey</a>
             </div>
-
             <p style="color:#a5d6a7; font-size:1.1em; font-weight:bold; margin: 28px 0 0; font-style:italic;">The five dimensions aren't theory. They're the blueprint for stabilization.</p>
         </div>
 
@@ -424,7 +248,7 @@
             <div class="footer-links">
                 <a href="UNSTOPPABLE.html">UNSTOPPABLE</a>
                 <span>|</span>
-                <a href="/cdn-cgi/l/email-protection#c8a1a6aea788b8a0a1adbabbe6a7baaf">Contact</a>
+                <a href="/cdn-cgi/l/email-protection#d8b1b6beb798a8b0b1bdaaabf6b7aabf">Contact</a>
                 <span>|</span>
                 <span>© PHIERS</span>
             </div>
@@ -434,8 +258,8 @@
             </div>
             <p style="color:#81c784; font-size:0.9em; margin-top:20px; font-style:italic;">PHIERS is a peaceful, democratic, confrontational accountability movement built to stabilize the country.</p>
             <p class="copyright">PHIERS Movement | Version: 2026-03-06</p>
-        <p style="font-size:0.75em; color:#999; margin-top:10px;">Built: 2026-03-06</p>
-</footer>
+            <p style="font-size:0.75em; color:#999; margin-top:10px;">Built: 2026-03-08 @ 05:00 UTC</p>
+        </footer>
     </div>
 
     <div id="imageModal" class="image-modal" onclick="closeModal(event)">
@@ -477,11 +301,4 @@
         if (e.key === 'Escape') {
             var modal = document.getElementById('imageModal');
             if (modal.style.display === 'block') {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        }
-    });
-    </script>
-</body>
-</html>
+                m
