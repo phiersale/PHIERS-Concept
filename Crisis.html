@@ -20,11 +20,49 @@
             line-height: 1.8;
             min-height: 100vh;
             padding: 20px;
+            position: relative;
         }
 
         .container {
             max-width: 900px;
             margin: 0 auto;
+        }
+
+        /* Scroll-to-top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: #f44336;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 24px;
+            box-shadow: 0 4px 15px rgba(244, 67, 54, 0.4);
+            transition: all 0.3s;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            background: #d32f2f;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(244, 67, 54, 0.6);
+        }
+
+        .content-section {
+            margin-bottom: 70px;
         }
 
         .global-nav {
@@ -181,10 +219,10 @@
 
         .hero {
             text-align: center;
-            padding: 50px 20px 40px 20px;
+            padding: 60px 20px 50px 20px;
             background: linear-gradient(135deg, rgba(15, 52, 96, 0.9), rgba(22, 33, 62, 0.9));
             border-radius: 12px;
-            margin-bottom: 40px;
+            margin-bottom: 70px;
             border: 2px solid rgba(244, 67, 54, 0.3);
         }
 
@@ -205,28 +243,53 @@
             font-size: 1.2em;
             color: #4caf50;
             font-weight: bold;
-            margin-bottom: 15px;
+            margin-bottom: 25px;
             font-style: italic;
         }
 
         .hero h1 {
             color: #f44336;
-            font-size: 2.2em;
+            font-size: 2.8em;
             margin-bottom: 15px;
             text-shadow: 0 0 20px rgba(244, 67, 54, 0.3);
-            line-height: 1.3;
+            line-height: 1.2;
         }
 
-        .hero .subhead {
-            font-size: 1.3em;
+        .hero-subhead {
             color: #c8e6c9;
+            font-size: 1.6em;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .hero-setup {
+            color: #81c784;
+            font-size: 1.4em;
+            font-weight: 500;
+            margin: 25px 0 15px 0;
             font-style: italic;
+        }
+
+        .hero-line {
+            color: #4caf50;
+            font-size: 2.2em;
+            font-weight: 700;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(244, 67, 54, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2em; }
+            .hero-subhead { font-size: 1.3em; }
+            .hero-setup { font-size: 1.2em; }
+            .hero-line { font-size: 1.8em; }
         }
 
         .phiers-media-block {
             width: 100%;
             max-width: 600px;
-            margin: 40px auto;
+            margin: 70px auto;
         }
 
         .phiers-media-block img {
@@ -262,19 +325,36 @@
             border: none;
         }
 
+        .video-label {
+            text-align: center;
+            color: #f5c842;
+            font-weight: 600;
+            margin-bottom: 12px;
+            font-size: 1.05em;
+        }
+
+        .video-caption {
+            text-align: center;
+            color: #81c784;
+            font-size: 0.9em;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
         @media (max-width: 768px) {
             .phiers-media-block {
                 max-width: 100%;
-                margin: 30px auto;
+                margin: 50px auto;
             }
         }
 
         h2 {
             color: #4caf50;
             font-size: 1.8em;
-            margin: 50px 0 30px 0;
+            margin: 0 0 30px 0;
             border-bottom: 2px solid rgba(76, 175, 80, 0.3);
             padding-bottom: 10px;
+            scroll-margin-top: 80px;
         }
 
         h3 {
@@ -291,6 +371,15 @@
         }
 
         .pattern-box {
+            background: rgba(244, 67, 54, 0.1);
+            border: 2px solid #f44336;
+            border-left: 5px solid #f44336;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+
+        .war-box {
             background: rgba(244, 67, 54, 0.1);
             border: 2px solid #f44336;
             border-left: 5px solid #f44336;
@@ -371,7 +460,7 @@
             display: inline-block;
             transition: all 0.3s;
             box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
-            margin: 20px 0;
+            margin: 20px 10px;
         }
 
         .btn:hover {
@@ -389,6 +478,14 @@
         .btn-warning:hover {
             background: linear-gradient(135deg, #f5c842, #d4a500);
             color: #000;
+        }
+
+        .btn-group {
+            margin: 30px 0;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         footer {
@@ -484,11 +581,6 @@
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2em; }
-            .hero .subhead { font-size: 1.1em; }
-            .hero-logo { max-width: 120px; }
-            h2 { font-size: 1.5em; }
-            .connected-grid { grid-template-columns: 1fr; }
             .close-modal {
                 top: 15px;
                 right: 15px;
@@ -500,10 +592,52 @@
                 max-width: 95%;
                 margin: 60px auto;
             }
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                margin: 10px 0;
+            }
+        }
+
+        /* War section paragraph consolidation */
+        .war-paragraph-group {
+            margin: 20px 0;
+        }
+
+        .war-paragraph-group p {
+            margin: 15px 0;
+        }
+
+        .war-closer {
+            margin-top: 30px;
+        }
+
+        /* Image context - matching video styles */
+        .image-context {
+            text-align: center;
+            color: #f5c842;
+            font-weight: 600;
+            margin-bottom: 12px;
+            font-size: 1.05em;
+        }
+
+        .image-takeaway {
+            text-align: center;
+            color: #81c784;
+            font-size: 0.9em;
+            margin-top: 10px;
+            font-style: italic;
         }
     </style>
 </head>
 <body>
+
+    <!-- Scroll to top button -->
+    <a href="#" class="scroll-top" id="scrollTop">↑</a>
 
     <div class="container">
         <nav class="global-nav">
@@ -534,55 +668,43 @@
             </div>
         </nav>
 
+        <!-- HERO - Restructured with correct flow -->
         <div class="hero">
             <img src="PHIERS_Logo.png" alt="PHIERS Logo" class="hero-logo">
             <div class="mabah-full">MABAH — Make America Better And Healthier</div>
             <div class="mabah-tagline">Sounds Like MAGA, But A Lot Bettah</div>
-            <h1>You're paying more. Getting less. And Congress has been paid to keep it that way.</h1>
-            <div class="subhead">Until now.</div>
+            <h1>You're paying more. Getting less.</h1>
+            <div class="hero-subhead">And Congress has been paid to keep it that way.</div>
+            <div class="hero-setup">Until someone did the math.</div>
+            <div class="hero-line">Until now.</div>
         </div>
 
-        <div class="phiers-media-block">
+        <!-- VIDEO - with context -->
+        <div class="phiers-media-block" style="margin: 50px auto;">
+            <div class="video-label">🎥 Before you read another word — watch this 2-minute clip</div>
             <div class="phiers-video-wrapper">
                 <iframe 
-                    src="https://www.youtube.com/embed/jMU6LKEBzbs" 
-                    title="The Simple Math of PHIERS"
-                    allowfullscreen>
-                </iframe>
-            </div>
-        </div>
-
-        <div class="phiers-media-block" style="max-width:640px; margin: 36px auto;">
-            <p style="text-align:center; color:#f5c842; font-weight:600; margin-bottom:12px; font-size:1.05em;">The Moment: Why Congress Created This Crisis (2:22)</p>
-            <div class="phiers-video-wrapper">
-                <iframe
-                    src="https://www.youtube.com/embed/eE-TxvI0d4Q"
+                    src="https://www.youtube.com/embed/eE-TxvI0d4Q" 
                     title="The Moment - Why Congress Created This Crisis (2:22)"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen>
                 </iframe>
             </div>
-            <p style="text-align:center; color:#81c784; font-size:0.9em; margin-top:10px; font-style:italic;">The human cost of congressional inaction.</p>
+            <div class="video-caption">This is why Congress hasn't fixed it.</div>
         </div>
 
-        <section>
-            <h2>The Pattern</h2>
-            <div class="pattern-box">
-                <p style="font-size: 1.2em; margin-bottom: 20px;">Your healthcare bill went up. Again.<br>Your rent went up. Again.<br>Groceries cost more. Again.<br>Your wages? Didn't keep up. Again.</p>
-                <p>And somewhere in Washington, Congress is debating each of these problems separately — like they're not all hitting your family at the exact same time.</p>
-                <p class="green-emphasis">They're not separate problems. They're one problem.</p>
-                <p>A system that works for the people at the top — and makes everyone else pay for it.</p>
-                <p>And a war nobody voted for is costing $1 billion of your money every single day — and making everything else more expensive.</p>
-                <p>Each issue gets debated separately. But in real life, families feel them all at the same time.</p>
-            </div>
-        </section>
-
-        <div class="phiers-media-block">
-            <img src="US_Millions_Face_Soaring_Health_Costs_as_Subsidies_Expire.png" alt="22 million Americans lost coverage when subsidies expired">
+        <!-- PATTERN - Split into two boxes -->
+        <div class="pattern-box" style="margin-bottom: 30px;">
+            <p style="font-size: 1.2em; margin-bottom: 20px;">Your healthcare bill went up. Again.<br>Your rent went up. Again.<br>Groceries cost more. Again.<br>Your wages? Didn't keep up. Again.</p>
+            <p class="green-emphasis">They're not separate problems. They're one problem.</p>
         </div>
 
-        <section>
+        <!-- WAR-BOX - Clean, hard-hitting, no redundancy -->
+        <div class="war-box">
+            <p>And a war nobody voted for is costing $1 billion of your money every single day — and making everything else more expensive.</p>
+        </div>
+
+        <!-- WHY THE SYSTEM KEEPS FAILING -->
+        <section class="content-section">
             <h2>Why the System Keeps Failing</h2>
             <div class="insight-box">
                 <p>Here's the dirty secret: Congress knows exactly how to fix this. They've known for years.</p>
@@ -599,7 +721,21 @@
             </div>
         </section>
 
-        <section>
+        <!-- VIDEO - Math video moved here, after reader is angry -->
+        <div class="phiers-media-block" style="margin: 50px auto;">
+            <div class="video-label">🎥 The Math Behind the Movement (3:33)</div>
+            <div class="phiers-video-wrapper">
+                <iframe 
+                    src="https://www.youtube.com/embed/jMU6LKEBzbs" 
+                    title="The Simple Math of PHIERS"
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="video-caption">$10,000 to $600. One conversion funds 12 more. This is how we win.</div>
+        </div>
+
+        <!-- WHAT THIS COSTS REGULAR PEOPLE -->
+        <section class="content-section">
             <h2>What This Costs Regular People</h2>
             <div class="pattern-box">
                 <p>Think about what broken healthcare actually does to your life:</p>
@@ -610,22 +746,34 @@
             </div>
         </section>
 
-        <section>
+        <!-- IMAGE with context -->
+        <div class="phiers-media-block">
+            <div class="image-context">📊 22 Million Americans Lost Coverage</div>
+            <img src="US_Millions_Face_Soaring_Health_Costs_as_Subsidies_Expire.png" alt="22 million Americans lost coverage when subsidies expired">
+            <div class="image-takeaway">When subsidies expired, Congress did nothing. That's not incompetence — that's a choice.</div>
+        </div>
+
+        <!-- WHY ANGER ALONE ISN'T ENOUGH -->
+        <section class="content-section">
             <h2>Why Anger Alone Isn't Enough</h2>
             <div class="insight-box">
                 <p>The problem isn't that people don't care. Everybody cares.</p>
                 <p class="green-emphasis" style="font-size: 1.5em;">The problem is that caring alone doesn't move Congress.</p>
-                <p>People with their names on the record, district by district — that's what moves Congress.</p>
+                <p>What moves Congress is people — organized, district by district, names on the record, impossible to ignore.</p>
                 <p>Millions of Americans already know the system is broken. The insurance companies know you know. Congress knows you know. And they're counting on you staying angry but scattered — venting on social media, signing petitions that go nowhere, showing up at rallies that get ignored by Monday morning.</p>
                 <p class="green-emphasis">PHIERS changes the equation. Your name, your district, counted and delivered. Impossible to ignore.</p>
             </div>
         </section>
 
+        <!-- IMAGE with context -->
         <div class="phiers-media-block">
+            <div class="image-context">📈 The Cascade Math</div>
             <img src="Cascade_Math.png" alt="Cascade math: 1 to 234 million coverage path">
+            <div class="image-takeaway">One person switches. That funds 12 more. Those 12 fund 148. This is how scale happens.</div>
         </div>
 
-        <section>
+        <!-- THE OPPORTUNITY -->
+        <section class="content-section">
             <h2>The Opportunity</h2>
             <div class="solution-box">
                 <p>Fix healthcare and $2.7 trillion stops flowing to insurance companies. That's real money.</p>
@@ -634,23 +782,32 @@
             </div>
         </section>
 
-        <section>
+        <!-- THE WAR SECTION - With paragraph grouping applied -->
+        <section class="content-section">
             <h2>The War Nobody Voted For — And Everybody Pays For</h2>
             <div class="pattern-box">
-                <p>Congress is spending over $1 billion of your money every single day on wars that were never declared. No vote. No mandate. No exit strategy. Just a blank check — signed by your representatives, charged to your future.</p>
-                <p>And here's what that means for your kitchen table right now:</p>
-                <p>Someone is attacking oil tankers in the Middle East. If those supply lines break — even for a week — gas prices spike. Shipping costs spike. Food costs spike. Everything that gets made, grown, or moved in this country gets more expensive. Fast.</p>
-                <p>You didn't start this war. You didn't vote for it. But you're paying for it — and you'll pay even more if it escalates.</p>
-                <p>The people who started it? They don't worry about their grocery bill.</p>
-                <p>Most people think this can't be changed. That regular people can't stop a war. That's what they want you to think.</p>
-                <p>The Constitution says Congress declares war. Your Congress member. The one you can vote out.</p>
-                <p class="green-emphasis">PHIERS builds the organized people power to make that real. We start with healthcare — because that's the fight we can win first, and winning it proves the power works. Then we turn that same power toward ending wars nobody voted for and demanding Congress spend your money on you.</p>
+                <div class="war-paragraph-group">
+                    <p>Congress is spending over $1 billion of your money every single day on wars that were never declared. No vote. No mandate. No exit strategy. Just a blank check — signed by your representatives, charged to your future.</p>
+                    
+                    <p>And here's what that means for your kitchen table right now: Someone is attacking oil tankers in the Middle East. If those supply lines break — even for a week — gas prices spike. Shipping costs spike. Food costs spike. Everything that gets made, grown, or moved in this country gets more expensive. Fast.</p>
+                    
+                    <p>You didn't start this war. You didn't vote for it. But you're paying for it — and you'll pay even more if it escalates. The people who started it? They don't worry about their grocery bill.</p>
+                </div>
+                
+                <div class="war-paragraph-group">
+                    <p>Most people think this can't be changed. That regular people can't stop a war. That's what they want you to think.</p>
+                    
+                    <p>The Constitution says Congress declares war. Your Congress member. The one you can vote out.</p>
+                    
+                    <p>PHIERS gives people the power to make that real. We start with healthcare — because that's the fight we can win first, and winning it proves the power works. Then we turn that same power toward ending wars nobody voted for and demanding Congress spend your money on you.</p>
+                </div>
             </div>
         </section>
 
-        <section>
+        <!-- THIS ISN'T LEFT VS RIGHT -->
+        <section class="content-section">
             <h2>This Isn't Left vs. Right. It's All of Us vs. A System That's Rigged.</h2>
-            <div class="solution-box" style="text-align: center;">
+            <div class="solution-box">
                 <p>Your insurance premium doesn't care who you voted for. Neither does your rent, your grocery bill, or your kid's medical debt.</p>
                 <p>The people profiting from this broken system — they're not left or right either. They're just rich. And they've been funding both sides long enough to make sure nothing changes.</p>
                 <p>Waiting for them to fix it themselves isn't patience. It's surrender.</p>
@@ -658,34 +815,36 @@
             </div>
         </section>
 
-        <section>
-            <h2>Why This Matters Now</h2>
-            <div class="pattern-box">
-                <p>People are exhausted. Stretched thin. Losing faith that anything can change.</p>
-                <p>That's not weakness — that's what happens when a system is designed to wear you down.</p>
-                <p>Keep people tired. Keep them divided. Keep them feeling alone. That's how the insurance companies, the drug companies, and the politicians they own stay in power.</p>
-                <p class="green-emphasis">But they missed something. Exhausted people eventually stop being tired and start being done. And when people who are done start organizing together? Congress has never beaten that. Not the Civil Rights Movement. Not the labor movement. Not suffrage. Not once.</p>
-                <p class="red-emphasis" style="font-size:1.2em;">We're at that moment right now.</p>
-            </div>
+        <!-- WHY THIS MATTERS NOW - with bridge to CTA -->
+        <section style="margin: 70px 0; padding: 40px 30px; background: rgba(244,67,54,0.07); border: 2px solid rgba(244,67,54,0.3); border-radius: 12px;">
+            <h2 style="margin-top:0; color:#f44336;">Why This Matters Now</h2>
+            <p>People are exhausted. Stretched thin. Losing faith that anything can change.</p>
+            <p>That's not weakness — that's what happens when a system is designed to wear you down.</p>
+            <p>Keep people tired. Keep them divided. Keep them feeling alone. That's how the insurance companies, the drug companies, and the politicians they own stay in power.</p>
+            <p class="green-emphasis">But they missed something. Exhausted people eventually stop being tired and start being done. And when people who are done start organizing together? Congress has never beaten that. Not the Civil Rights Movement. Not the labor movement. Not suffrage. Not once.</p>
+            <p class="red-emphasis" style="font-size:1.2em;">We're at that moment right now.</p>
+            <p class="green-emphasis" style="margin-top: 20px;">And your name on the record is how it starts.</p>
         </section>
 
-        <section style="text-align: center; margin: 60px 0; padding: 40px 30px; background: rgba(76,175,80,0.07); border: 1px solid rgba(76,175,80,0.25); border-radius: 12px;">
-            <h2 style="margin-top: 0;">This is not a like. Not a share. Not a tweet into the void.</h2>
-            <p style="font-size: 1.2em;">This is your name, your district, your demand — on the public record. Counted. Delivered to your Congress member. Impossible to ignore, impossible to deny, and impossible to delete.</p>
+        <!-- FINAL CTA -->
+        <section style="text-align: center; margin: 70px 0; padding: 40px 30px; background: rgba(76,175,80,0.07); border: 1px solid rgba(76,175,80,0.25); border-radius: 12px;">
+            <h2 style="margin-top:0;">Make It Official.</h2>
+            <p style="font-size: 1.2em;">This is not a like. Not a share. Not a tweet into the void.</p>
+            <p>This is your name, your district, your demand — on the public record. Counted. Delivered to your Congress member. Impossible to ignore, impossible to deny, and impossible to delete.</p>
             <p><strong>1,500 signatures in your district forces a mandatory town hall.</strong> They have to show up. They have to answer. In public.</p>
             <p class="green-emphasis">That's not activism. That's accountability.</p>
             <p class="red-emphasis" style="font-size:1.1em;">Add your name. Right now.</p>
-            <div style="margin: 30px 0; display:flex; gap:20px; justify-content:center; flex-wrap:wrap;">
+            <div class="btn-group">
                 <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now-short-version" class="btn">✅ Sign the Petition</a>
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSdETA-oNIeOAzEsG4GsYiiws1YBpLunx8ioVJkZac5hzSxaZw/viewform?usp=header" class="btn">📋 Take the Survey</a>
                 <a href="5D_Solutions.html" class="btn" style="background: transparent;">See the Solution</a>
             </div>
         </section>
 
+        <!-- FOOTER -->
         <footer>
             <h3>PHIERS Movement | MABAH</h3>
             <p><strong>Make America Better And Healthier</strong></p>
-            <p style="margin: 20px 0;">PHIERS is a people's movement — not a company, not a product. Built by regular people, for regular people. The only thing missing is you.</p>
             <div class="footer-links">
                 <a href="UNSTOPPABLE.html">UNSTOPPABLE</a>
                 <span>|</span>
@@ -763,6 +922,21 @@
                 });
             }
         });
+    });
+
+    // Scroll to top button
+    window.addEventListener('scroll', function() {
+        var scrollBtn = document.getElementById('scrollTop');
+        if (window.scrollY > 500) {
+            scrollBtn.classList.add('visible');
+        } else {
+            scrollBtn.classList.remove('visible');
+        }
+    });
+
+    document.getElementById('scrollTop').addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
     // Close on ESC key
