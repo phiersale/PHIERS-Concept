@@ -3,231 +3,461 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Take Action - PHIERS</title>
+    <title>Take Action — Your Name. Your District. On the Record. — PHIERS</title>
+    <meta name="description" content="Sign the petition. Take the survey. Share the model. Your name + your district = political pressure. Here's how you take part.">
     <link rel="canonical" href="https://phiersale.github.io/PHIERS-Concept/Action.html">
-    <meta name="description" content="Three steps to put your direction on the record. Sign the petition. Complete the survey. Share the model. Your name becomes a coordinate on a map of political pressure.">
-    <meta property="og:title" content="Take Action — Put Your Direction on the Record">
-    <meta property="og:description" content="Systems don't move because people yell. They move because people line up behind the same clear direction. Here's how you participate.">
-    <meta property="og:image" content="https://phiersale.github.io/PHIERS-Concept/PHIERS_Logo.png">
-    <meta property="og:url" content="https://phiersale.github.io/PHIERS-Concept/Action.html">
-    <meta property="og:type" content="website">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        /* ---------- HOMEPAGE DESIGN SYSTEM (flat dark, Arial) ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #0a0a0a;
             color: #e0e0e0;
-            line-height: 1.8;
+            line-height: 1.6;
             min-height: 100vh;
-            padding: 20px;
         }
-        .container { max-width: 900px; margin: 0 auto; }
-        
-        /* Subtle divider */
-        .section-divider {
-            border: 0;
-            height: 1px;
-            background: rgba(255,255,255,0.1);
-            margin: 3rem 0;
-            width: 100%;
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px 40px;
         }
-        
-        .global-nav {
-            background: rgba(26, 26, 46, 0.95);
-            border: 1px solid rgba(76, 175, 80, 0.3);
-            border-radius: 8px;
-            padding: 12px 20px;
-            margin-bottom: 30px;
-            position: sticky;
-            top: 10px;
-            z-index: 1000;
-            backdrop-filter: blur(5px);
-        }
-        .mobile-menu-toggle {
-            display: block;
-            background: transparent;
-            border: 1px solid #4caf50;
-            color: #4caf50;
-            font-size: 1.8em;
-            padding: 5px 15px;
-            border-radius: 4px;
-            cursor: pointer;
-            width: 100%;
+
+        /* urgency strip */
+        .urgency-strip {
+            background-color: #f5c842;
+            color: #0a0a0a;
             text-align: center;
-            font-weight: bold;
+            padding: 8px 16px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid #4caf50;
+            position: sticky;
+            top: 0;
+            z-index: 2000;
         }
+
+        /* global nav */
+        .global-nav {
+            background-color: #111;
+            border: 1px solid #333;
+            border-radius: 40px;
+            padding: 10px 25px;
+            margin: 20px 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.7);
+        }
+
         .nav-links-container {
-            display: none; flex-wrap: wrap;
-            align-items: center; justify-content: center;
-            gap: 5px; width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px 15px;
         }
-        .nav-links-container.active { display: flex; }
+
         .nav-item {
-            color: #81c784; text-decoration: none;
-            padding: 8px 12px; border-radius: 4px;
-            font-size: 0.9em; font-weight: 500;
-            transition: all 0.3s ease; white-space: nowrap;
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 4px 8px;
+            border-radius: 30px;
+            transition: 0.2s;
+            white-space: nowrap;
         }
-        .nav-item:hover { background: rgba(76, 175, 80, 0.2); color: #4caf50; }
-        .nav-item.active { background: rgba(76, 175, 80, 0.3); color: #4caf50; font-weight: bold; }
-        .dropdown { position: relative; display: inline-block; }
+        .nav-item:hover {
+            background-color: #333;
+            color: #4caf50;
+        }
+        .nav-item.active {
+            background-color: #4caf50;
+            color: #0a0a0a;
+            font-weight: 700;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
         .dropbtn {
-            background: transparent; color: #81c784;
-            padding: 8px 12px; font-size: 0.9em; font-weight: 500;
-            border: none; cursor: pointer; border-radius: 4px;
+            background: transparent;
+            color: #ccc;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 4px 8px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
             font-family: inherit;
         }
-        .dropbtn:hover { background: rgba(76, 175, 80, 0.2); color: #4caf50; }
+        .dropbtn:hover {
+            background-color: #333;
+            color: #4caf50;
+        }
         .dropdown-content {
-            display: none; position: absolute; top: 100%; right: 0;
-            background: rgba(26, 26, 46, 0.98); min-width: 200px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
-            z-index: 1001; border-radius: 8px;
-            border: 1px solid rgba(76, 175, 80, 0.3); padding: 8px 0;
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: #1a1a1a;
+            min-width: 200px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.8);
+            border-radius: 16px;
+            border: 1px solid #333;
+            padding: 8px 0;
+            z-index: 3000;
         }
         .dropdown-content a {
-            color: #81c784; padding: 10px 16px;
-            text-decoration: none; display: block;
-            font-size: 0.9em;
+            color: #ccc;
+            padding: 10px 18px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.85rem;
         }
-        .dropdown-content a:hover { background: rgba(76, 175, 80, 0.2); color: #4caf50; }
-        .dropdown:hover .dropdown-content { display: block; }
-        .dropdown:hover .dropbtn { background: rgba(76, 175, 80, 0.2); color: #4caf50; }
-        @media (max-width: 768px) {
-            .global-nav { padding: 10px; }
-            .nav-item, .dropdown { width: 100%; text-align: center; }
-            .dropdown-content { position: static; width: 100%; margin-top: 5px; }
-            .dropbtn { width: 100%; }
+        .dropdown-content a:hover {
+            background-color: #222;
+            color: #4caf50;
         }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: 1px solid #4caf50;
+            color: #4caf50;
+            font-size: 2rem;
+            padding: 0 15px;
+            border-radius: 40px;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        @media (max-width: 800px) {
+            .mobile-menu-toggle { display: block; }
+            .nav-links-container {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                align-items: flex-start;
+                margin-top: 15px;
+            }
+            .nav-links-container.active { display: flex; }
+            .dropdown-content { position: static; }
+        }
+
+        /* collapsible primer */
+        .primer-bar {
+            background-color: #111;
+            border: 2px solid #4caf50;
+            border-radius: 50px;
+            margin: 30px 0 20px;
+        }
+        .primer-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 28px;
+            cursor: pointer;
+        }
+        .primer-badge {
+            background: #4caf50;
+            color: #0a0a0a;
+            font-weight: 800;
+            font-size: 0.75rem;
+            padding: 5px 12px;
+            border-radius: 40px;
+            margin-right: 20px;
+        }
+        .primer-title {
+            color: #f0f0f0;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .primer-icon {
+            color: #4caf50;
+            font-size: 2rem;
+            line-height: 1;
+        }
+        .primer-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            background: #0f0f0f;
+            border-radius: 0 0 50px 50px;
+            border-top: 1px solid #2a2a2a;
+        }
+        .primer-content.expanded {
+            max-height: 500px;
+        }
+        .primer-inner {
+            padding: 25px 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* hero */
         .hero {
             text-align: center;
             padding: 50px 20px 40px;
-            background: linear-gradient(135deg, rgba(15, 52, 96, 0.9), rgba(22, 33, 62, 0.9));
-            border-radius: 12px;
-            margin-bottom: 40px;
-            border: 2px solid rgba(76, 175, 80, 0.3);
+            background-color: #111;
+            border-radius: 24px;
+            margin: 30px 0 50px;
+            border: 1px solid #2a2a2a;
         }
-        .hero-logo { 
-            max-width: 250px; 
-            width: 100%;
-            margin-bottom: 15px; 
+        .hero-logo {
+            max-width: 140px;
+            margin-bottom: 20px;
         }
-        @media (max-width: 768px) {
-            .hero-logo { max-width: 170px; }
+        .hero h1 {
+            color: #f44336;
+            font-size: 2.8rem;
+            margin: 20px 0 10px;
         }
-        .mabah-full { font-size: 1.0em; color: #81c784; font-weight: 600; margin-bottom: 5px; letter-spacing: 0.5px; }
-        .mabah-tagline { font-size: 1.2em; color: #4caf50; font-weight: bold; margin-bottom: 15px; font-style: italic; }
-        .hero-opener { font-size: 1.25em; color: #a5d6a7; margin-bottom: 10px; }
-        .hero h1 { color: #4caf50; font-size: clamp(1.4rem, 5vw, 2.8rem); margin-bottom: 15px; }
-        .hero .subhead { font-size: 1.55em; color: #c8e6c9; font-style: normal; font-weight: 600; }
-        .phiers-media-block { width: 100%; max-width: 600px; margin: 40px auto; }
-        .phiers-media-block img {
-            width: 100%; height: auto; display: block;
-            border-radius: 6px; border: 2px solid rgba(76, 175, 80, 0.3);
-            cursor: pointer;
+        .hero-subhead {
+            color: #f5c842;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            font-weight: 600;
         }
-        @media (max-width: 768px) { .phiers-media-block { max-width: 100%; } }
+        .hero-line {
+            color: #4caf50;
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
+
+        /* content sections */
         h2 {
-            color: #4caf50; font-size: 1.8em;
-            margin: 0 0 20px;
-            border-bottom: 2px solid rgba(76, 175, 80, 0.3);
+            color: #4caf50;
+            font-size: 2rem;
+            margin: 50px 0 25px 0;
+            border-bottom: 2px solid #2a2a2a;
             padding-bottom: 10px;
         }
-        p { color: #c8e6c9; margin: 16px 0; line-height: 1.8; font-size: 1.1em; }
-        .section {
-            background: rgba(26, 26, 46, 0.9);
-            padding: 36px 40px;
-            margin-bottom: 24px;
-            border-radius: 12px;
-            border-left: 8px solid #4caf50;
+        h3 {
+            color: #f5c842;
+            font-size: 1.5rem;
+            margin: 40px 0 15px;
         }
-        .section-number {
-            color: #4caf50; font-size: 1em; font-weight: bold;
-            text-transform: uppercase; letter-spacing: 1px;
-            margin-bottom: 8px;
+        .step-box {
+            background-color: #111;
+            border: 1px solid #333;
+            border-left: 6px solid #4caf50;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
         }
-        .green-emphasis { color: #4caf50; font-weight: bold; font-size: 1.15em; }
-        .punchline {
-            color: #fff; font-size: 1.1em; font-weight: bold;
-            font-style: italic; margin: 14px 0 4px;
-            border-left: 3px solid #4caf50; padding-left: 14px;
+        .step-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
         }
-        .impact-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 12px; margin: 20px 0;
-        }
-        .impact-item {
-            background: rgba(76, 175, 80, 0.1);
-            padding: 12px 16px;
-            border-radius: 8px;
-            border-left: 3px solid #4caf50;
-        }
-        .impact-item p { margin: 0; font-size: 1em; }
-        .btn {
-            background: linear-gradient(135deg, #4caf50, #2e7d32);
-            color: white; padding: 16px 36px;
-            font-size: 1.2em; font-weight: bold;
-            border: 2px solid #4caf50; border-radius: 8px;
-            text-decoration: none; display: inline-block;
-            margin: 10px;
-        }
-        .btn-warning {
-            background: linear-gradient(135deg, #f5c842, #e0a800);
-            border-color: #f5c842; color: #000;
-        }
-        .highlight-box {
-            background: rgba(76, 175, 80, 0.1);
-            border: 2px solid #4caf50;
-            padding: 20px 24px;
+        p {
+            color: #ccc;
+            font-size: 1.05rem;
             margin: 20px 0;
-            border-radius: 8px;
         }
+        .green-emphasis {
+            color: #4caf50;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        .red-emphasis {
+            color: #f44336;
+            font-weight: 700;
+        }
+        ul {
+            margin-left: 30px;
+            list-style-type: none;
+        }
+        li {
+            color: #ccc;
+            margin: 10px 0;
+            font-size: 1.05rem;
+        }
+        li:before {
+            content: "•";
+            color: #4caf50;
+            font-weight: bold;
+            display: inline-block;
+            width: 1.5em;
+            margin-left: -1.5em;
+        }
+
+        /* priority list */
+        .priority-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 25px 0;
+            justify-content: center;
+        }
+        .priority-item {
+            background: #1a1a1a;
+            border: 1px solid #4caf50;
+            border-radius: 40px;
+            padding: 10px 25px;
+            color: #f5c842;
+            font-weight: 600;
+        }
+
+        /* CTA blocks */
+        .cta-block {
+            text-align: center;
+            background: #111;
+            border: 2px solid #4caf50;
+            border-radius: 50px;
+            padding: 50px 30px;
+            margin: 50px 0;
+        }
+        .cta-block h2 {
+            border: none;
+            color: #f5c842;
+        }
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin: 35px 0 20px;
+        }
+        .btn {
+            background-color: #2a2a2a;
+            color: white;
+            padding: 14px 34px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border: 2px solid #4caf50;
+            border-radius: 60px;
+            text-decoration: none;
+            transition: 0.2s;
+            display: inline-block;
+            margin: 5px;
+        }
+        .btn:hover {
+            background-color: #4caf50;
+            color: #0a0a0a;
+            border-color: #4caf50;
+            transform: scale(1.02);
+        }
+        .btn-primary {
+            background-color: #4caf50;
+            color: #0a0a0a;
+            border-color: #4caf50;
+        }
+        .btn-primary:hover {
+            background-color: #66bb6a;
+        }
+        .trust-note {
+            color: #777;
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+
+        /* footer */
         footer {
-            text-align: center; padding: 40px 20px; margin-top: 80px;
-            border-top: 2px solid rgba(76, 175, 80, 0.3);
-            background: rgba(26, 26, 46, 0.6); border-radius: 8px;
+            background-color: #111;
+            border-radius: 30px;
+            padding: 50px 30px 30px;
+            margin-top: 80px;
+            border: 1px solid #2a2a2a;
+            text-align: center;
+        }
+        .footer-button {
+            margin: 30px 0;
         }
         .footer-links {
-            display: flex; flex-wrap: wrap; gap: 20px;
-            justify-content: center; margin: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin: 30px 0;
+            color: #4caf50;
         }
-        .footer-links a { color: #81c784; text-decoration: none; }
-        .footer-links a:hover { color: #4caf50; }
-        .copyright { color: #666; font-size: 0.8em; margin-top: 20px; }
-        .image-modal {
-            display: none; position: fixed; z-index: 10000;
-            left: 0; top: 0; width: 100%; height: 100%;
-            background-color: rgba(0,0,0,0.95);
-            overflow: auto;
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
         }
-        .modal-content {
-            max-width: 90%; width: auto; height: auto;
-            display: block; margin: 80px auto;
+        .footer-links a:hover {
+            color: #4caf50;
         }
-        .close-modal {
-            position: fixed; top: 20px; right: 25px;
-            color: white; font-size: 40px; font-weight: bold;
-            cursor: pointer; z-index: 10001;
+        .copyright {
+            color: #555;
+            font-size: 0.8rem;
+            margin-top: 20px;
         }
-        .close-modal:hover { color: #4caf50; }
+
+        /* scroll top */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #4caf50;
+            color: #0a0a0a;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 28px;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.2s;
+            z-index: 9999;
+        }
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* bottom line closing */
+        .closing-triptych {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin: 50px 0 30px;
+            font-size: 1.3rem;
+            color: #f5c842;
+        }
+        .divider {
+            border-top: 1px solid #333;
+            margin: 40px 0;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
+    <!-- URGENCY STRIP -->
+    <div class="urgency-strip">
+        ⚡ March 28 — No Kings III. 3.5% threshold. After that, every Congress member is on notice.
+    </div>
 
-        <!-- UPDATED NAV WITH TELEHEALTH -->
+    <div class="container">
+        <!-- GLOBAL NAV -->
         <nav class="global-nav">
             <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</div>
             <div class="nav-links-container" id="navLinks">
                 <a href="index.html" class="nav-item">Home</a>
                 <a href="Crisis.html" class="nav-item">Crisis</a>
-                <a href="Telehealth-Insurance.html" class="nav-item" style="color:#f5c842; font-weight:700;">📱 The Problem: Telehealth vs Insurance</a>
-                <a href="SimpleMath.html" class="nav-item">Simple Math</a>
                 <a href="5D_Solutions.html" class="nav-item">5D Solutions</a>
+                <a href="SimpleMath.html" class="nav-item">Simple Math</a>
+                <a href="Roadmap.html" class="nav-item">Roadmap</a>
                 <a href="Leverage.html" class="nav-item">Leverage</a>
                 <a href="Action.html" class="nav-item active">Action</a>
-                <a href="Roadmap.html" class="nav-item">Roadmap</a>
-                <a href="Donate.html" class="nav-item">Donate</a>
+                <a href="Telehealth-Insurance.html" class="nav-item">Telehealth</a>
+                <a href="Real-Stories.html" class="nav-item">Real Stories</a>
                 <div class="dropdown">
                     <button class="dropbtn">More ▼</button>
                     <div class="dropdown-content">
@@ -235,185 +465,266 @@
                         <a href="Origins.html">Origins</a>
                         <a href="Media.html">Media</a>
                         <a href="About.html">About</a>
-                        <a href="Quickstart.html">Quickstart</a>
                         <a href="Veterans.html">Veterans</a>
-                        <a href="SOTU-Response.html">SOTU Response</a>
                         <a href="Union-Strategy.html">Union Strategy</a>
-                        <a href="Real-Stories.html">Real Stories</a>
-                        <a href="NoWar.html" style="color:#f44336; font-weight:600;">⚡ End the War</a>
+                        <a href="NoWar.html">NoWar</a>
                         <a href="UNSTOPPABLE.html">UNSTOPPABLE</a>
+                        <a href="UNBREAKABLE.html">UNBREAKABLE</a>
+                        <a href="SOTU-Response.html">SOTU Response</a>
                     </div>
                 </div>
             </div>
         </nav>
 
-        <!-- UPDATED LOGO SIZE -->
+        <!-- COLLAPSIBLE PRIMER -->
+        <div class="primer-bar">
+            <div class="primer-header" onclick="togglePrimer()">
+                <span style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                    <span class="primer-badge">WHY PHIERS WORKS</span>
+                    <span class="primer-title">The leverage Congress can't ignore — healthcare is the proof.</span>
+                </span>
+                <span class="primer-icon" id="primerIcon">▼</span>
+            </div>
+            <div class="primer-content" id="primerContent">
+                <div class="primer-inner">
+                    <p>Every other reform movement tried to convince Congress. PHIERS reorganizes the money.</p>
+                    <p>When enough people switch to the $600 plan, insurance companies lose. When they lose, campaign donors lose. When donors lose, Congress has a new boss: you.</p>
+                    <p>Healthcare is the first fight because it's the easiest to win — and winning proves the power works for every other fight.</p>
+                    <p class="green-emphasis">This isn't a petition. It's a conversion campaign. And it's already math.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- HERO -->
         <div class="hero">
             <img src="PHIERS_Logo.png" alt="PHIERS Logo" class="hero-logo">
-            <div class="mabah-full">MABAH — Making America Better And Healthier</div>
-            <div class="hero-opener">Systems don't move because people yell.</div>
             <h1>TAKE ACTION</h1>
-            <div class="subhead">Put Your Direction on the Record</div>
+            <div class="hero-subhead">Your Name. Your District. On the Record.</div>
+            <p style="max-width:700px; margin:30px auto; color:#ddd;">
+                Systems don't change because people yell.<br>
+                They change when people <span class="green-emphasis">line up</span> behind the same demand.
+            </p>
+            <div class="hero-line">That's what action inside PHIERS is about.</div>
         </div>
 
-        <!-- SECTION DIVIDER -->
-        <hr class="section-divider">
+        <!-- INTRO -->
+        <p style="text-align:center; font-size:1.2rem; margin:40px 0;">
+            Not protests that fade.<br>
+            Not arguments online.<br>
+            Not picking sides.
+        </p>
+        <p style="text-align:center; font-size:1.2rem; color:#4caf50; margin-bottom:50px;">
+            It's real people, in real districts, putting their names on the record in a way elected officials can't ignore.
+        </p>
+        <p style="text-align:center; font-size:1.3rem; margin:30px 0 20px;">Here's how you take part.</p>
 
-        <div class="section" style="border-left-color: #81c784;">
-            <p>They move because people line up behind the same clear direction.</p>
-            <p class="green-emphasis">Action inside PHIERS isn't about pressure, protest, or picking sides. It's about documented public direction — the one thing institutions can't ignore.</p>
-            <p>Here's how you take part.</p>
-        </div>
-
-        <!-- SECTION DIVIDER -->
-        <hr class="section-divider">
-
-        <div class="section" id="step-1">
-            <div class="section-number">Step 1 — Get on the Record</div>
-            <h2>Sign the Petition</h2>
-            <p class="green-emphasis">Put your position on the record.</p>
-            <p>A signature isn't symbolic. It's measurable alignment.</p>
-            <p>When enough people document the same priority, it becomes political gravity — something elected officials have to respond to.</p>
-            <p class="punchline">This is the first step in creating leverage.</p>
-            <div style="text-align: center; margin: 30px 0;">
-                <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now-short-version" class="btn btn-warning" style="font-size:1.2em; padding:18px 40px;">✍ Sign the Petition</a>
+        <!-- STEP 1 -->
+        <div class="step-box">
+            <div class="step-icon">✍</div>
+            <h3 style="margin-top:0;">Step 1 — Get on the Record</h3>
+            <h2 style="font-size:1.8rem; border:none; margin:10px 0 20px; color:#f5c842;">Sign the Petition</h2>
+            <p>Put your name behind the change.</p>
+            <p>A signature isn't symbolic — it counts.<br>
+            It shows exactly how many people in your district want the same fix.</p>
+            <p>When your name is on the record, they can't pretend they didn't hear you.<br>
+            And when enough neighbors sign on, the pressure becomes real.</p>
+            <p class="green-emphasis">That's where leverage begins.</p>
+            <div style="text-align:center; margin:30px 0 10px;">
+                <a href="#" class="btn btn-primary" style="font-size:1.3rem;">[ Sign the Petition ]</a>
             </div>
         </div>
 
-        <!-- SECTION DIVIDER -->
-        <hr class="section-divider">
-
-        <div class="section" id="step-2">
-            <div class="section-number">Step 2 — Document Your Priorities</div>
-            <h2>Complete the Survey</h2>
-            <p class="green-emphasis">Tell us what you want stabilized first.</p>
-            <p>Tell us what matters most. Your answers become part of the public record.</p>
-            <p class="punchline">Clarity turns into structure. Structure turns into leverage.</p>
-            <div style="text-align: center; margin: 30px 0;">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdETA-oNIeOAzEsG4GsYiiws1YBpLunx8ioVJkZac5hzSxaZw/viewform?usp=header" class="btn" style="font-size:1.2em; padding:18px 40px;">📋 Take the Survey</a>
+        <!-- STEP 2 -->
+        <div class="step-box">
+            <div class="step-icon">📋</div>
+            <h3 style="margin-top:0;">Step 2 — Tell Us What Matters</h3>
+            <h2 style="font-size:1.8rem; border:none; margin:10px 0 20px; color:#f5c842;">Take the Survey</h2>
+            <p>Tell us what's hitting your family the hardest.<br>
+            Tell us what you want fixed first.</p>
+            
+            <p style="margin-top:30px;"><span class="green-emphasis">What matters most to you?</span></p>
+            <div class="priority-list">
+                <span class="priority-item">Healthcare costs</span>
+                <span class="priority-item">Wages</span>
+                <span class="priority-item">Housing</span>
+                <span class="priority-item">Peace</span>
+                <span class="priority-item">Stability</span>
+            </div>
+            
+            <p>Your answers show what people actually want.<br>
+            That's how scattered frustration turns into clear direction.</p>
+            <p class="green-emphasis">When people say the same thing together, leaders have to listen.</p>
+            
+            <div style="text-align:center; margin:30px 0 10px;">
+                <a href="#" class="btn btn-primary" style="font-size:1.3rem;">[ Take the Survey ]</a>
             </div>
         </div>
 
-        <!-- SECTION DIVIDER -->
-        <hr class="section-divider">
-
-        <div class="section" id="step-3">
-            <div class="section-number">Step 3 — Grow the Alignment</div>
-            <h2>Share the Model</h2>
-            <p class="green-emphasis">People move systems when they move together.</p>
-            <p>Every person who understands the system makes the next conversation shorter.</p>
-            <p>Sharing the model increases alignment, strengthens clarity, and expands leverage.</p>
-            <p class="punchline">This isn't about going viral. It's about coordination.</p>
-        </div>
-
-        <!-- SECTION DIVIDER -->
-        <hr class="section-divider">
-
-        <div class="section" style="border-left-color: #ff9800;">
-            <h2 style="color: #ff9800; border-bottom-color: rgba(255,152,0,0.3);">Why Your Action Matters</h2>
-            <p>People feel the pressure. Institutions feel the strain. Trust is low. Costs are high.</p>
-            <p>Moments like this either break systems or realign them.</p>
-            <p>Realignment needs clarity. Clarity needs documentation. Documentation creates leverage.</p>
-            <div class="highlight-box">
-                <p class="green-emphasis" style="font-size: 1.4em; margin:0;">Your action is the start of stabilization.</p>
+        <!-- STEP 3 -->
+        <div class="step-box">
+            <div class="step-icon">📢</div>
+            <h3 style="margin-top:0;">Step 3 — Grow the Movement</h3>
+            <h2 style="font-size:1.8rem; border:none; margin:10px 0 20px; color:#f5c842;">Share the Model</h2>
+            <p>Movements grow one conversation at a time.</p>
+            <p>When someone understands how the system works, the next conversation gets easier.<br>
+            <span class="green-emphasis">Every person who understands the model makes the next conversation easier.</span></p>
+            
+            <p>Share the model with:</p>
+            <ul>
+                <li>friends</li>
+                <li>family</li>
+                <li>co-workers</li>
+                <li>neighbors in your district</li>
+            </ul>
+            
+            <p>This isn't about going viral.<br>
+            It's about people organizing together.</p>
+            
+            <div style="text-align:center; margin:30px 0 10px;">
+                <a href="#" class="btn btn-primary" style="font-size:1.3rem;">[ Share the Model ]</a>
             </div>
         </div>
 
-        <!-- SECTION DIVIDER -->
-        <hr class="section-divider">
+        <!-- WHY YOUR ACTION MATTERS -->
+        <section>
+            <h2>Why Your Action Matters</h2>
+            <div class="step-box" style="border-left-color: #f44336;">
+                <p>People feel the pressure.</p>
+                <p><span class="red-emphasis">Healthcare costs are rising.<br>
+                Housing costs are rising.<br>
+                Groceries cost more every week.</span></p>
+                <p>Families are working harder than ever — and still falling behind.<br>
+                People aren't imagining the pressure. They're living it.</p>
+                <p class="green-emphasis">Moments like this go one of two ways:</p>
+                <p style="font-size:1.3rem; text-align:center;">Systems break.<br>Or systems realign.</p>
+                <p>Realignment doesn't happen by itself.<br>
+                It takes people moving together.</p>
+                <p class="green-emphasis">Your participation helps make that happen.</p>
+            </div>
+        </section>
 
-        <div style="background: rgba(255,193,7,0.07); border-left: 4px solid #f5c842; padding: 24px 28px; margin: 40px 0; border-radius: 0 10px 10px 0;">
-            <h3 style="margin-top:0; color:#f5c842;">What Happens After You Participate</h3>
-            <p>As participation grows, the documented results are compiled and delivered to Congress — and presented at town halls and public forums in every district that crosses the 1,500-signature threshold.</p>
-            <p style="margin-bottom:0; font-weight: 600; color: #a5d6a7;">1,500 signatures in your district triggers constituent engagement. Your name is not just a count — it is a coordinate on a map of political pressure.</p>
-        </div>
+        <!-- WHAT HAPPENS AFTER YOU PARTICIPATE -->
+        <section>
+            <h2>What Happens After You Participate</h2>
+            <div class="step-box" style="border-left-color: #2196f3;">
+                <p>As more people join, the results are organized <span class="green-emphasis">district by district</span> and delivered directly to Congress.</p>
+                <p>When a district reaches <span class="green-emphasis">1,500 signatures</span>, something real happens:</p>
+                <ul>
+                    <li>Town halls get scheduled.</li>
+                    <li>Local media starts asking questions.</li>
+                    <li>Neighbors start talking.</li>
+                </ul>
+                <p>Your name isn't just a number.<br>
+                <span class="green-emphasis">It shows exactly where the pressure is coming from.</span></p>
+                <p>Representatives have to answer the question — in public.</p>
+                <p class="green-emphasis">That's when pressure turns into leverage.</p>
+                <p style="text-align:center; font-size:1.2rem;">One district creates attention.<br>
+                Many districts create pressure.<br>
+                Enough districts create obligation.</p>
+            </div>
+        </section>
 
-        <!-- SECTION DIVIDER -->
-        <hr class="section-divider">
-
-        <!-- FINAL CTA - UPDATED BUTTON TEXT -->
-        <div style="text-align: center; margin: 60px 0; padding: 40px 30px; background: rgba(76,175,80,0.07); border: 2px solid rgba(76,175,80,0.3); border-radius: 12px;">
-            <h2 style="border:none; margin-top:0;">Make Your Voice Heard</h2>
-            <p style="font-size: 1.15em; color:#c8e6c9; margin-bottom: 8px;">When enough Americans align behind the same demand, Congress has two choices.</p>
-            <p style="font-size: 1.4em; font-weight: bold; color: #fff; margin-bottom: 30px; line-height: 1.6;">Act.<br>Or be replaced.</p>
-            <a href="Action.html" class="btn" style="font-size:1.3em; padding:20px 48px; display:inline-block; margin-bottom: 16px;">✊ Take Action</a>
-            <div style="margin-top: 8px;">
-                <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now-short-version" class="btn btn-warning" style="font-size:1em; padding:12px 28px;">✍ Sign the Petition</a>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdETA-oNIeOAzEsG4GsYiiws1YBpLunx8ioVJkZac5hzSxaZw/viewform?usp=header" class="btn" style="font-size:1em; padding:12px 28px; background:transparent; border:2px solid #4caf50;">📊 Take the Survey</a>
+        <!-- MAKE YOUR VOICE HEARD -->
+        <div class="cta-block">
+            <h2>Make Your Voice Heard</h2>
+            <p style="font-size:1.3rem; margin-bottom:20px;">When enough Americans stand behind the same demand, Congress has two choices:</p>
+            <p style="font-size:2rem; margin:30px 0;">
+                <span class="green-emphasis">Act.</span><br>
+                <span class="red-emphasis">Or face voters who will replace them with someone who will.</span>
+            </p>
+            <div class="btn-group">
+                <a href="#" class="btn btn-primary" style="font-size:1.3rem;">✍ Sign the Petition</a>
+                <a href="#" class="btn btn-primary" style="font-size:1.3rem;">📋 Take the Survey</a>
             </div>
         </div>
 
-        <!-- SECTION DIVIDER -->
-        <hr class="section-divider">
-
-        <div style="text-align: center; margin: 40px 0;">
-            <h3 style="color: #81c784; margin-bottom: 16px;">Support the Movement</h3>
-            <p style="font-size: 1em; color: #a5d6a7; margin-bottom: 20px;">PHIERS runs on participation, not corporate funding. If you can contribute, it keeps this going.</p>
-            <div class="phiers-media-block" style="margin: 0 auto;">
-                <img src="paypal_venmo_zelle.png" alt="Support via PayPal, Venmo, or Zelle">
+        <!-- SUPPORT THE MOVEMENT -->
+        <div style="background:#0f0f0f; border:2px solid #f5c842; border-radius:30px; padding:40px; margin:50px 0; text-align:center;">
+            <h2 style="color:#f5c842; border:none;">Support the Movement</h2>
+            <p>PHIERS runs on participation, not corporate funding.<br>
+            If you can contribute, it helps keep the movement growing.</p>
+            <div style="margin:30px 0;">
+                <a href="#" class="btn" style="border-color:#f5c842; color:#f5c842;">[ Support PHIERS ]</a>
             </div>
-            <a href="Donate.html" class="btn" style="font-size:1em; padding:12px 28px; background:transparent; border:2px solid #4caf50; margin-top: 16px;">Support the Movement</a>
         </div>
 
-        <!-- UPDATED FOOTER WITH EMAIL -->
+        <!-- THE BOTTOM LINE -->
+        <section>
+            <h2>The Bottom Line</h2>
+            <div class="step-box" style="border-left-color: #4caf50; text-align:center;">
+                <p style="font-size:1.2rem;">This isn't about yelling.</p>
+                <p>It's about people standing together behind the same direction.<br>
+                Putting their names on the record.<br>
+                And giving Congress a choice they can't dodge.</p>
+                <p style="font-size:1.5rem; margin:30px 0;">
+                    <span class="green-emphasis">Your name.</span><br>
+                    <span class="green-emphasis">Your district.</span><br>
+                    <span class="green-emphasis">Your priorities.</span>
+                </p>
+                <p class="green-emphasis" style="font-size:1.3rem;">That's how leverage starts.</p>
+            </div>
+        </section>
+
+        <!-- CLOSING TRIPTYCH -->
+        <div class="closing-triptych">
+            <div class="green-emphasis" style="font-size:1.8rem;">Direction brings people together.</div>
+            <div class="green-emphasis" style="font-size:1.8rem;">People together create pressure.</div>
+            <div class="green-emphasis" style="font-size:1.8rem;">Pressure creates change.</div>
+        </div>
+
+        <!-- FOOTER -->
         <footer>
-            <h3>PHIERS Movement | MABAH</h3>
-            <p><strong>Make America Better And Healthier</strong></p>
-            <p style="margin: 20px 0;">PHIERS is a citizen coalition using collective leverage to force Congress to fix healthcare — or replace them.</p>
+            <h3 style="color:#4caf50;">PHIERS Movement | MABAH</h3>
+            <p><strong>Making America Better And Healthier</strong></p>
+            <p><a href="UNSTOPPABLE.html" style="color:#4caf50; text-decoration:none;">UNSTOPPABLE</a></p>
+            <div class="footer-button">
+                <a href="Leverage.html" class="btn btn-primary">🔧 Fix Congress Now</a>
+            </div>
             <div class="footer-links">
-                <a href="UNSTOPPABLE.html">UNSTOPPABLE</a>
-                <span>|</span>
-                <a href="/cdn-cgi/l/email-protection#056c6b636a45756d6c6077762b6a7762">Contact</a>
-                <span>|</span>
-                <span>© PHIERS</span>
+                <a href="index.html">Home</a> <span>|</span>
+                <a href="Quickstart.html">Quick Start</a> <span>|</span>
+                <a href="Action.html">Take Action</a> <span>|</span>
+                <a href="UNSTOPPABLE.html">UNSTOPPABLE</a> <span>|</span>
+                <a href="UNBREAKABLE.html">UNBREAKABLE</a> <span>|</span>
+                <a href="FAQ.html">FAQ</a> <span>|</span>
+                <a href="Media.html">Media</a> <span>|</span>
+                <a href="About.html">About</a> <span>|</span>
+                <a href="Donate.html">Donate</a> <span>|</span>
+                <a href="mailto:info@phiers.org">Contact</a>
             </div>
-            <div style="color: #a5d6a7; font-size: 0.9em; margin-top: 30px;">
-                PHIERS is a public-interest movement — not a company, not a product.<br>
-                The only thing missing is you.
-            </div>
-            <p style="color:#81c784; font-size:0.9em; margin-top:20px; font-style:italic;">PHIERS is a peaceful, democratic, confrontational accountability movement built to stabilize the country.</p>
-            <p class="copyright">PHIERS Movement | Version: 2026-03-06</p>
-            <p style="font-size:0.75em; color:#999; margin-top:10px;">Built: 2026-03-08 @ 06:00 UTC</p>
+            <div style="color:#777; margin:30px 0;">PHIERS is a public-interest movement — not a company, not a product.<br>A people's movement. Not a penny from corporations.<br>The only thing missing is you.</div>
+            <p class="copyright">© PHIERS.org Since 2014 — Original Concept — All Rights Reserved<br>Prior art documented. PHIERS™, PHIERSale™, PHIERSWorks™ are protected marks established 2014–2025.</p>
         </footer>
     </div>
 
-    <div id="imageModal" class="image-modal" onclick="closeModal(event)">
-        <span class="close-modal" onclick="closeModal(event)">&times;</span>
-        <img class="modal-content" id="modalImage">
-    </div>
+    <!-- scroll top -->
+    <a href="#" class="scroll-top" id="scrollTop">↑</a>
 
     <script>
-    function toggleMobileMenu() {
-        var navLinks = document.getElementById('navLinks');
-        navLinks.classList.toggle('active');
-    }
-    function openModal(src) {
-        var modal = document.getElementById('imageModal');
-        var modalImg = document.getElementById('modalImage');
-        modal.style.display = 'block';
-        modalImg.src = src;
-        document.body.style.overflow = 'hidden';
-    }
-    function closeModal(event) {
-        var modal = document.getElementById('imageModal');
-        if (event.target === modal || event.target.classList.contains('close-modal')) {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
+        function toggleMobileMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
         }
-    }
-    document.addEventListener('DOMContentLoaded', function() {
-        var images = document.querySelectorAll('img');
-        images.forEach(function(img) {
-            if (img.src && !img.src.includes('PHIERS_Logo')) {
-                img.style.cursor = 'pointer';
-                img.addEventListener('click', function() {
-                    openModal(this.src);
-                });
+
+        function togglePrimer() {
+            var c = document.getElementById('primerContent');
+            var icon = document.getElementById('primerIcon');
+            c.classList.toggle('expanded');
+            icon.textContent = c.classList.contains('expanded') ? '▲' : '▼';
+        }
+
+        window.addEventListener('scroll', function() {
+            document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 500);
+        });
+        document.getElementById('scrollTop').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                // close any open modals if needed
             }
         });
-    });
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            var modal = document.getElementById('imageModal');
-            if (modal.style.display === 'block') {
-                
+    </script>
+</body>
+</html>
