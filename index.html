@@ -39,23 +39,26 @@ body { font-family: Arial, Helvetica, sans-serif; background: #fafafa; color: #1
   color: #fff; font-size: 1.45rem; font-weight: 900;
   letter-spacing: 1px; text-transform: none; margin-bottom: 16px;
 }
-.entry-modal .sub { color: #81c784; font-size: 0.9rem; margin-bottom: 24px; line-height: 1.6; max-width: 380px; margin-left: auto; margin-right: auto; }
-.entry-modal .fight-label { display: none; }
-.modal-btn-grid { display: flex; flex-direction: column; gap: 16px; margin-bottom: 22px; }
-.modal-btn-primary, .modal-btn-secondary {
-  display: block; width: 100%; border-radius: 8px;
-  padding: 18px 16px; text-decoration: none;
-  font-size: 1.1rem; font-weight: 700; transition: all 0.2s;
+.entry-modal .sub {
+  color: #81c784; font-size: 0.9rem; margin-bottom: 16px;
+  line-height: 1.6; max-width: 380px; margin-left: auto; margin-right: auto;
 }
-.modal-btn-primary {
-  background: #4caf50; color: #fff;
+.entry-modal .fight-label {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: #444; margin-bottom: 12px;
 }
-.modal-btn-primary:hover { background: #43a047; }
-.modal-btn-secondary {
-  background: transparent; border: 2px solid #444; color: #ccc;
+.fight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 22px; }
+.fight-btn {
+  display: block; background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(76,175,80,0.3); border-radius: 8px;
+  padding: 16px 10px; color: #ccc; text-decoration: none;
+  font-size: 0.88rem; font-weight: 600; line-height: 1.4;
+  transition: all 0.2s; cursor: pointer;
 }
-.modal-btn-secondary:hover { border-color: #777; color: #fff; }
-.modal-small-text { color: #666; font-size: 0.78rem; margin-top: -6px; margin-bottom: 18px; }
+.fight-btn:hover { background: rgba(76,175,80,0.15); border-color: #4caf50; color: #fff; }
+.fight-btn .icon { font-size: 1.5rem; display: block; margin-bottom: 5px; }
+.fight-btn.gold { border-color: rgba(245,200,66,0.35); }
+.fight-btn.gold:hover { background: rgba(245,200,66,0.1); border-color: #f5c842; }
 .modal-stat-line {
   background: rgba(76,175,80,0.1); border-radius: 6px;
   padding: 12px; color: #81c784; font-size: 0.85rem; font-weight: 600;
@@ -165,7 +168,7 @@ ul { padding-left: 22px; margin-bottom: 16px; }
 li { font-size: 1.03rem; margin-bottom: 9px; line-height: 1.7; font-weight: 500; }
 section.dark li { color: #ccc; }
 
-/* ===== RESTORED CSS FROM DIRECTIVE ===== */
+/* ===== RESTORED CSS ===== */
 .green-emphasis { color: #4caf50; font-weight: bold; font-size: 1.1rem; }
 .red-emphasis { color: #f44336; font-weight: bold; font-size: 1.1rem; }
 
@@ -255,7 +258,7 @@ footer h3 { color: #555; font-size: 0.92rem; font-weight: 500; margin-bottom: 6p
   .cred-grid { grid-template-columns: 1fr; }
   .teeth-img { max-width: 100%; }
   .entry-modal { padding: 28px 20px; }
-  .modal-btn-primary, .modal-btn-secondary { padding: 16px; font-size: 1rem; }
+  .fight-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -266,14 +269,33 @@ footer h3 { color: #555; font-size: 0.92rem; font-weight: 500; margin-bottom: 6p
   <div class="entry-modal">
     <img src="PHIERS_Logo.png" alt="PHIERS">
     <h2>Congress won't fix healthcare until we force them to.</h2>
-    <p class="sub">For 40 years both parties promised reform. Nothing changed — because the pressure wasn't big enough. PHIERS changes the math. When enough of us stand together, Congress has two choices: fix the system — or face voters who will.</p>
+    <p class="sub">For 40 years both parties promised reform. Nothing changed — because the pressure wasn't big enough. PHIERS changes the math.</p>
 
-    <div class="modal-btn-grid">
-      <a href="Leverage.html" class="modal-btn-primary" onclick="closeEntryModal()">🔧 Fix Congress Now</a>
-      <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now-short-version" class="modal-btn-secondary" onclick="closeEntryModal()" target="_blank" rel="noopener">✍️ Sign the Petition</a>
+    <p class="fight-label">What hits hardest for you right now?</p>
+    <div class="fight-grid">
+      <!-- Button 1: Fix Congress Now (primary action) -->
+      <a href="Leverage.html" class="fight-btn" onclick="closeEntryModal()">
+        <span class="icon">🔧</span>
+        Fix Congress Now<br><small style="font-weight:400;color:#888;">The leverage we have</small>
+      </a>
+      <!-- Button 2: Sign the Petition (immediate action) -->
+      <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now-short-version"
+         class="fight-btn" onclick="closeEntryModal()" target="_blank" rel="noopener">
+        <span class="icon">✍️</span>
+        Sign the Petition<br><small style="font-weight:400;color:#888;">2 minutes. Direct pressure.</small>
+      </a>
+      <!-- Button 3: Fix Healthcare (specific issue) -->
+      <a href="#healthcare" class="fight-btn" onclick="closeEntryModal()">
+        <span class="icon">🏥</span>
+        Fix Healthcare<br><small style="font-weight:400;color:#888;">$600 vs $10,000</small>
+      </a>
+      <!-- Button 4: End the War (high-emotion issue) -->
+      <a href="#war" class="fight-btn gold" onclick="closeEntryModal()">
+        <span class="icon">⚡</span>
+        End the War<br><small style="font-weight:400;color:#888;">Unauthorized. Expensive.</small>
+      </a>
     </div>
 
-    <p class="modal-small-text">Free. No spam. Just citizens organizing pressure.</p>
     <div class="modal-stat-line">History shows real change happens when just 3.5% of people act together.</div>
 
     <span class="entry-skip" onclick="closeEntryModal()">Continue to site</span>
@@ -446,7 +468,6 @@ footer h3 { color: #555; font-size: 0.92rem; font-weight: 500; margin-bottom: 6p
 
   <p style="font-size:1.08rem;font-weight:800;text-align:center;margin-top:26px;">Arithmetic does not care who is in office.</p>
 
-  <!-- Added "Fix Congress Now" button to Healthcare section -->
   <div style="text-align:center; margin:30px 0 10px;">
     <a href="Leverage.html" class="btn-primary">🔧 Fix Congress Now</a>
   </div>
@@ -476,7 +497,6 @@ footer h3 { color: #555; font-size: 0.92rem; font-weight: 500; margin-bottom: 6p
     <span class="attr">— Frederick Douglass</span>
   </div>
 
-  <!-- Added "Fix Congress Now" button to How It Works section -->
   <div style="text-align:center; margin-top:30px;">
     <a href="Leverage.html" class="btn-primary">🔧 Fix Congress Now</a>
   </div>
@@ -621,7 +641,6 @@ footer h3 { color: #555; font-size: 0.92rem; font-weight: 500; margin-bottom: 6p
 
   <p style="margin-top:22px;">That's not a fantasy. That's just math — once the money stops going to the wrong place.</p>
 
-  <!-- Removed redundant "See the Leverage →", kept "Fix Congress Now" and "See the 5D Plan" -->
   <div class="cta-mini">
     <a href="Leverage.html" class="btn-primary" style="margin-right:10px;">🔧 Fix Congress Now</a>
     <a href="5D_Solutions.html" class="cta-inline">See the 5D Plan →</a>
@@ -775,10 +794,9 @@ footer h3 { color: #555; font-size: 0.92rem; font-weight: 500; margin-bottom: 6p
 
     <p class="green-emphasis" style="font-size:1.15rem;margin:20px 0;">That's not activism. That's accountability.</p>
 
-    <!-- FIXED HIERARCHY: "Fix Congress Now" first and primary, "Sign the Petition" second -->
     <div style="margin:32px 0 16px;">
       <a href="Leverage.html" class="btn-primary" style="font-size:1.2rem;padding:22px 58px; margin-right:10px;">🔧 Fix Congress Now</a>
-      <a href="https://www.change.org/p/put-600-telehealth-plan-on-aca-exchange-now-short-version" class="btn-primary" style="font-size:1.2rem;padding:22px 58px; background:#2e7d32;">✅ Sign the Petition</a>
+      <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now-short-version" class="btn-primary" style="font-size:1.2rem;padding:22px 58px; background:#2e7d32;">✅ Sign the Petition</a>
     </div>
 
     <p style="color:#888;font-size:0.88rem;margin-bottom:28px;">One signature. Right now. That's where the power starts.</p>
