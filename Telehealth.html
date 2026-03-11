@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Take Action — Your Name. Your District. On the Record. — PHIERS</title>
-    <meta name="description" content="Sign the petition. Take the survey. Share the model. Your name + your district = political pressure. Here's how you take part.">
-    <link rel="canonical" href="https://phiersale.github.io/PHIERS-Concept/Action.html">
+    <title>Telehealth — The $600 Plan That Actually Works — PHIERS</title>
+    <meta name="description" content="You're paying $10,000 a year for a door you almost never walk through. There's a $600 door that covers everything you actually use. Here's how.">
+    <link rel="canonical" href="https://phiersale.github.io/PHIERS-Concept/Telehealth.html">
     <style>
         /* ---------- HOMEPAGE DESIGN SYSTEM (flat dark, Arial) ---------- */
         * {
@@ -207,7 +207,7 @@
             gap: 20px;
         }
 
-        /* hero */
+        /* hero - with larger logo and green title */
         .hero {
             text-align: center;
             padding: 50px 20px 40px;
@@ -217,17 +217,18 @@
             border: 1px solid #2a2a2a;
         }
         .hero-logo {
-            max-width: 140px;
+            max-width: 180px;  /* Increased from 140px */
             margin-bottom: 20px;
         }
         .hero h1 {
-            color: #f44336;
-            font-size: 2.8rem;
+            color: #4caf50;  /* Changed from red to green */
+            font-size: 3.2rem;  /* Increased from 2.8rem */
             margin: 20px 0 10px;
+            font-weight: 700;
         }
         .hero-subhead {
             color: #f5c842;
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             margin-bottom: 20px;
             font-weight: 600;
         }
@@ -237,7 +238,7 @@
             margin-top: 20px;
         }
 
-        /* content sections */
+        /* content sections - all red removed, now green/blue only */
         h2 {
             color: #4caf50;
             font-size: 2rem;
@@ -250,7 +251,7 @@
             font-size: 1.5rem;
             margin: 40px 0 15px;
         }
-        .step-box {
+        .content-box {
             background-color: #111;
             border: 1px solid #333;
             border-left: 6px solid #4caf50;
@@ -258,9 +259,8 @@
             border-radius: 20px;
             margin: 30px 0;
         }
-        .step-icon {
-            font-size: 2rem;
-            margin-bottom: 10px;
+        .blue-box {
+            border-left-color: #2196f3;
         }
         p {
             color: #ccc;
@@ -272,9 +272,10 @@
             font-weight: 700;
             font-size: 1.2rem;
         }
-        .red-emphasis {
-            color: #f44336;
+        .blue-emphasis {
+            color: #2196f3;
             font-weight: 700;
+            font-size: 1.2rem;
         }
         ul {
             margin-left: 30px;
@@ -294,21 +295,130 @@
             margin-left: -1.5em;
         }
 
-        /* priority list */
-        .priority-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin: 25px 0;
-            justify-content: center;
+        /* stat cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
         }
-        .priority-item {
-            background: #1a1a1a;
-            border: 1px solid #4caf50;
-            border-radius: 40px;
-            padding: 10px 25px;
-            color: #f5c842;
-            font-weight: 600;
+        .stat-card {
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+        }
+        .stat-number {
+            color: #4caf50;  /* Changed from red to green */
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .stat-label {
+            color: #aaa;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* visual contrast block */
+        .contrast-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 40px 0;
+        }
+        .contrast-card {
+            background: #111;
+            border: 2px solid;
+            border-radius: 16px;
+            padding: 30px;
+        }
+        .contrast-card.today {
+            border-color: #f44336;
+        }
+        .contrast-card.phi {
+            border-color: #4caf50;
+        }
+        .contrast-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        .contrast-card.today .contrast-title {
+            color: #f44336;
+        }
+        .contrast-card.phi .contrast-title {
+            color: #4caf50;
+        }
+        .contrast-price {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 20px 0;
+        }
+        .contrast-card.today .contrast-price {
+            color: #f44336;
+        }
+        .contrast-card.phi .contrast-price {
+            color: #4caf50;
+        }
+
+        @media (max-width: 600px) {
+            .contrast-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* comparison boxes */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .comparison-box {
+            background: #111;
+            border: 2px solid;
+            border-radius: 16px;
+            padding: 25px;
+        }
+        .comparison-box.telehealth {
+            border-color: #4caf50;
+        }
+        .comparison-box.insurance {
+            border-color: #2196f3;
+        }
+        .comparison-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        .comparison-box.telehealth .comparison-title {
+            color: #4caf50;
+        }
+        .comparison-box.insurance .comparison-title {
+            color: #2196f3;
+        }
+
+        /* relief section */
+        .relief-box {
+            background: linear-gradient(145deg, #111, #1a2a1a);
+            border: 2px solid #4caf50;
+            border-radius: 30px;
+            padding: 40px;
+            margin: 50px 0;
+            text-align: center;
+        }
+
+        /* early CTA */
+        .early-cta {
+            text-align: center;
+            background: #0f0f0f;
+            border: 2px solid #4caf50;
+            border-radius: 60px;
+            padding: 30px;
+            margin: 40px 0;
         }
 
         /* CTA blocks */
@@ -357,11 +467,6 @@
         }
         .btn-primary:hover {
             background-color: #66bb6a;
-        }
-        .trust-note {
-            color: #777;
-            font-size: 0.9rem;
-            margin-top: 20px;
         }
 
         /* footer */
@@ -421,21 +526,6 @@
             opacity: 1;
             visibility: visible;
         }
-
-        /* bottom line closing */
-        .closing-triptych {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            margin: 50px 0 30px;
-            font-size: 1.3rem;
-            color: #f5c842;
-        }
-        .divider {
-            border-top: 1px solid #333;
-            margin: 40px 0;
-        }
     </style>
 </head>
 <body>
@@ -455,8 +545,8 @@
                 <a href="SimpleMath.html" class="nav-item">Simple Math</a>
                 <a href="Roadmap.html" class="nav-item">Roadmap</a>
                 <a href="Leverage.html" class="nav-item">Leverage</a>
-                <a href="Action.html" class="nav-item active">Action</a>
-                <a href="Telehealth-Insurance.html" class="nav-item">Telehealth</a>
+                <a href="Action.html" class="nav-item">Action</a>
+                <a href="Telehealth.html" class="nav-item active">Telehealth</a>
                 <a href="Real-Stories.html" class="nav-item">Real Stories</a>
                 <div class="dropdown">
                     <button class="dropbtn">More ▼</button>
@@ -495,181 +585,234 @@
             </div>
         </div>
 
-        <!-- HERO -->
+        <!-- HERO - with larger logo and green title -->
         <div class="hero">
             <img src="PHIERS_Logo.png" alt="PHIERS Logo" class="hero-logo">
-            <h1>TAKE ACTION</h1>
-            <div class="hero-subhead">Your Name. Your District. On the Record.</div>
-            <p style="max-width:700px; margin:30px auto; color:#ddd;">
-                Systems don't change because people yell.<br>
-                They change when people <span class="green-emphasis">line up</span> behind the same demand.
+            <h1>TELEHEALTH</h1>
+            <div class="hero-subhead">The $600 Plan — What It Actually Means</div>
+            <p style="max-width:700px; margin:30px auto; color:#ddd; font-size:1.2rem;">
+                Right now, you're paying about $10,000 a year for a door you almost never walk through.
             </p>
-            <div class="hero-line">That's what action inside PHIERS is about.</div>
-        </div>
-
-        <!-- INTRO -->
-        <p style="text-align:center; font-size:1.2rem; margin:40px 0;">
-            Not protests that fade.<br>
-            Not arguments online.<br>
-            Not picking sides.
-        </p>
-        <p style="text-align:center; font-size:1.2rem; color:#4caf50; margin-bottom:50px;">
-            It's real people, in real districts, putting their names on the record in a way elected officials can't ignore.
-        </p>
-        <p style="text-align:center; font-size:1.3rem; margin:30px 0 20px;">Here's how you take part.</p>
-
-        <!-- STEP 1 -->
-        <div class="step-box">
-            <div class="step-icon">✍</div>
-            <h3 style="margin-top:0;">Step 1 — Get on the Record</h3>
-            <h2 style="font-size:1.8rem; border:none; margin:10px 0 20px; color:#f5c842;">Sign the Petition</h2>
-            <p>Put your name behind the change.</p>
-            <p>A signature isn't symbolic — it counts.<br>
-            It shows exactly how many people in your district want the same fix.</p>
-            <p>When your name is on the record, they can't pretend they didn't hear you.<br>
-            And when enough neighbors sign on, the pressure becomes real.</p>
-            <p class="green-emphasis">That's where leverage begins.</p>
-            <div style="text-align:center; margin:30px 0 10px;">
-                <a href="#" class="btn btn-primary" style="font-size:1.3rem;">[ Sign the Petition ]</a>
+            <p style="font-size:1.4rem; color:#f5c842; margin:20px 0;">
+                There's a $600 door that covers everything you actually use.
+            </p>
+            <div class="hero-line">
+                Congress could open it tomorrow. PHIERS is making sure they do.
             </div>
         </div>
 
-        <!-- STEP 2 -->
-        <div class="step-box">
-            <div class="step-icon">📋</div>
-            <h3 style="margin-top:0;">Step 2 — Tell Us What Matters</h3>
-            <h2 style="font-size:1.8rem; border:none; margin:10px 0 20px; color:#f5c842;">Take the Survey</h2>
-            <p>Tell us what's hitting your family the hardest.<br>
-            Tell us what you want fixed first.</p>
-            
-            <p style="margin-top:30px;"><span class="green-emphasis">What matters most to you?</span></p>
-            <div class="priority-list">
-                <span class="priority-item">Healthcare costs</span>
-                <span class="priority-item">Wages</span>
-                <span class="priority-item">Housing</span>
-                <span class="priority-item">Peace</span>
-                <span class="priority-item">Stability</span>
+        <!-- STATS CARDS -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">80%</div>
+                <div class="stat-label">of what people need is basic, everyday care — yet they pay for a system built for disasters</div>
             </div>
-            
-            <p>Your answers show what people actually want.<br>
-            That's how scattered frustration turns into clear direction.</p>
-            <p class="green-emphasis">When people say the same thing together, leaders have to listen.</p>
-            
-            <div style="text-align:center; margin:30px 0 10px;">
-                <a href="#" class="btn btn-primary" style="font-size:1.3rem;">[ Take the Survey ]</a>
+            <div class="stat-card">
+                <div class="stat-number">$600</div>
+                <div class="stat-label">covers everything you actually use — doctor visits, prescriptions, mental health, 24/7</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">1/14th</div>
+                <div class="stat-label">the cost of traditional insurance — same doctors, same care, no middlemen</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">8–13 mos</div>
+                <div class="stat-label">from a Congressional vote to universal coverage — they already have the authority</div>
             </div>
         </div>
 
-        <!-- STEP 3 -->
-        <div class="step-box">
-            <div class="step-icon">📢</div>
-            <h3 style="margin-top:0;">Step 3 — Grow the Movement</h3>
-            <h2 style="font-size:1.8rem; border:none; margin:10px 0 20px; color:#f5c842;">Share the Model</h2>
-            <p>Movements grow one conversation at a time.</p>
-            <p>When someone understands how the system works, the next conversation gets easier.<br>
-            <span class="green-emphasis">Every person who understands the model makes the next conversation easier.</span></p>
-            
-            <p>Share the model with:</p>
-            <ul>
-                <li>friends</li>
-                <li>family</li>
-                <li>co-workers</li>
-                <li>neighbors in your district</li>
-            </ul>
-            
-            <p>This isn't about going viral.<br>
-            It's about people organizing together.</p>
-            
-            <div style="text-align:center; margin:30px 0 10px;">
-                <a href="#" class="btn btn-primary" style="font-size:1.3rem;">[ Share the Model ]</a>
-            </div>
-        </div>
-
-        <!-- WHY YOUR ACTION MATTERS -->
-        <section>
-            <h2>Why Your Action Matters</h2>
-            <div class="step-box" style="border-left-color: #f44336;">
-                <p>People feel the pressure.</p>
-                <p><span class="red-emphasis">Healthcare costs are rising.<br>
-                Housing costs are rising.<br>
-                Groceries cost more every week.</span></p>
-                <p>Families are working harder than ever — and still falling behind.<br>
-                People aren't imagining the pressure. They're living it.</p>
-                <p class="green-emphasis">Moments like this go one of two ways:</p>
-                <p style="font-size:1.3rem; text-align:center;">Systems break.<br>Or systems realign.</p>
-                <p>Realignment doesn't happen by itself.<br>
-                It takes people moving together.</p>
-                <p class="green-emphasis">Your participation helps make that happen.</p>
-            </div>
-        </section>
-
-        <!-- WHAT HAPPENS AFTER YOU PARTICIPATE -->
-        <section>
-            <h2>What Happens After You Participate</h2>
-            <div class="step-box" style="border-left-color: #2196f3;">
-                <p>As more people join, the results are organized <span class="green-emphasis">district by district</span> and delivered directly to Congress.</p>
-                <p>When a district reaches <span class="green-emphasis">1,500 signatures</span>, something real happens:</p>
-                <ul>
-                    <li>Town halls get scheduled.</li>
-                    <li>Local media starts asking questions.</li>
-                    <li>Neighbors start talking.</li>
+        <!-- VISUAL CONTRAST BLOCK - NEW -->
+        <div class="contrast-grid">
+            <div class="contrast-card today">
+                <div class="contrast-title">Today</div>
+                <div class="contrast-price">$10,000/year</div>
+                <ul style="margin-top:20px;">
+                    <li>Paperwork maze</li>
+                    <li>Pre-approvals</li>
+                    <li>Claim denials</li>
+                    <li>Networks that change</li>
+                    <li>Surprise bills</li>
                 </ul>
-                <p>Your name isn't just a number.<br>
-                <span class="green-emphasis">It shows exactly where the pressure is coming from.</span></p>
-                <p>Representatives have to answer the question — in public.</p>
-                <p class="green-emphasis">That's when pressure turns into leverage.</p>
-                <p style="text-align:center; font-size:1.2rem;">One district creates attention.<br>
-                Many districts create pressure.<br>
-                Enough districts create obligation.</p>
+            </div>
+            <div class="contrast-card phi">
+                <div class="contrast-title">PHIERS Telehealth</div>
+                <div class="contrast-price">$600/year</div>
+                <ul style="margin-top:20px;">
+                    <li>Same doctors</li>
+                    <li>24/7 access</li>
+                    <li>No middlemen</li>
+                    <li>No waiting rooms</li>
+                    <li>No surprise bills</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- EARLY CTA - for higher conversion -->
+        <div class="early-cta">
+            <p style="font-size:1.3rem; margin-bottom:20px;">That's not fixing the broken system. That's a completely different system.</p>
+            <p class="green-emphasis" style="font-size:1.2rem;">Ready to make it real?</p>
+            <a href="#" class="btn btn-primary" style="font-size:1.3rem; margin-top:20px;">✍ Put Your Name on the Record</a>
+        </div>
+
+        <!-- THE SIMPLE TRUTH -->
+        <section>
+            <h2>The Simple Truth</h2>
+            <div class="content-box">
+                <p>About 80% of what people need is basic, everyday care.</p>
+                <p class="green-emphasis">Yet everyone pays as if they're going to the hospital every year.</p>
+                <p>Here's the real breakdown:</p>
+                <ul>
+                    <li>Insurance charges about $10,000 a year to run routine care through a maze of paperwork, pre-approvals, and claim denials.</li>
+                    <li>Telehealth covers the same everyday care for about $600 — same doctors, same care, just without the middlemen taking a cut.</li>
+                </ul>
+                <p class="green-emphasis">That's not fixing the broken system. That's a completely different system.</p>
             </div>
         </section>
 
-        <!-- MAKE YOUR VOICE HEARD -->
+        <!-- RELIEF MOMENTS - NEW "What This Means for Your Family" section moved up -->
+        <div class="relief-box">
+            <h2 style="color:#f5c842; border:none; margin-top:0;">What This Means for Your Family</h2>
+            <p style="font-size:1.2rem;">Imagine calling a doctor without worrying about the bill.</p>
+            <p style="font-size:1.2rem;">Imagine not losing half your raise to premiums.</p>
+            <p style="font-size:1.2rem;">Imagine switching jobs without risking your family's coverage.</p>
+            <p style="font-size:1.2rem;">Imagine getting care the same day instead of waiting three weeks.</p>
+            <p class="green-emphasis" style="font-size:1.3rem; margin-top:30px;">That's what $600 makes possible.</p>
+        </div>
+
+        <!-- WHY INSURANCE COSTS EXPLODED -->
+        <section>
+            <h2>Why Insurance Costs Exploded</h2>
+            <div class="content-box blue-box">
+                <p>Insurance was built for one thing: the rare, expensive disaster. A surgery. A hospitalization. Events that happen once or twice in a lifetime.</p>
+                <p>But somewhere along the way it became the only door to all healthcare. Doctor visits. Prescription refills. Therapy. A checkup.</p>
+                <p>Things that have nothing to do with disaster are now routed through a system designed for disaster.</p>
+                <p class="green-emphasis">That's why a basic doctor visit can cost hundreds. That's why premiums keep climbing.</p>
+                <p>When you price routine care like it's open-heart surgery, it eventually costs like open-heart surgery.</p>
+                <p class="green-emphasis">You've been paying $10,000 for a door you barely use. Most people only ever needed the $600 door.</p>
+            </div>
+        </section>
+
+        <!-- WHAT TELEHEALTH ACTUALLY GIVES YOU -->
+        <section>
+            <h2>What Telehealth Actually Gives You</h2>
+            <div class="content-box">
+                <p>Telehealth is direct care. No middleman. No pre-approval. No "out of network." No denials. Just a doctor — 24/7, whenever you need one.</p>
+                <p>It covers the things people actually use:</p>
+                <ul>
+                    <li>regular doctor visits and urgent care</li>
+                    <li>mental health and counseling</li>
+                    <li>managing conditions like diabetes or high blood pressure</li>
+                    <li>prescription refills</li>
+                    <li>preventive care and basic labs</li>
+                    <li>guidance to the right specialist when needed</li>
+                </ul>
+                <p>No waiting rooms. No taking half a day off work. No surprise bills.</p>
+                <p class="green-emphasis">Telehealth covers about 80% of what Americans need — at roughly one-fourteenth the cost of insurance.</p>
+            </div>
+        </section>
+
+        <!-- KEEP INSURANCE FOR THE BIG STUFF -->
+        <section>
+            <h2>Keep Insurance for the Big Stuff</h2>
+            <div class="content-box blue-box">
+                <p>Insurance still matters — for the 20%. Hospitalizations. Major surgery. Serious emergencies.</p>
+                <p>Those are rare, but when they happen they're financially devastating. Insurance is the right tool for that — and only that.</p>
+                <p class="green-emphasis">PHIERS doesn't eliminate insurance. It puts insurance back where it belongs.</p>
+            </div>
+
+            <div class="comparison-grid">
+                <div class="comparison-box telehealth">
+                    <div class="comparison-title">📱 Telehealth — The 80%</div>
+                    <p>Everything you use day to day. About $600 a year. Direct access. No gatekeepers.</p>
+                </div>
+                <div class="comparison-box insurance">
+                    <div class="comparison-title">🏥 Insurance — The 20%</div>
+                    <p>The catastrophic backstop. Lower cost because it's no longer covering your annual checkup.</p>
+                </div>
+            </div>
+            <p class="green-emphasis" style="text-align:center;">When you stop using a sledgehammer for everything, a lot of things get cheaper.</p>
+        </section>
+
+        <!-- BREATHING ROOM PARAGRAPH - NEW -->
+        <div class="relief-box" style="background: linear-gradient(145deg, #111, #112233);">
+            <p style="font-size:1.3rem;">When healthcare drops from $10,000 to $600, families finally get breathing room.</p>
+            <p style="font-size:1.2rem;">Bills get lighter. Paychecks go further. Life stops feeling like a constant emergency.</p>
+            <p class="green-emphasis" style="font-size:1.3rem;">That's what stabilization looks like.</p>
+        </div>
+
+        <!-- WHAT HAPPENS WHEN THIS CHANGES -->
+        <section>
+            <h2>What Happens When This Changes</h2>
+            <div class="content-box">
+                <p>When telehealth handles everyday care, the whole system gets cheaper. Automatically. At every level.</p>
+                <ul>
+                    <li>Fewer ER visits — people stop using emergency rooms for things a telehealth doctor can handle in 10 minutes</li>
+                    <li>Fewer insurance claims — fewer crises mean fewer catastrophic payouts</li>
+                    <li>Lower premiums, Medicare, and Medicaid costs — public programs stabilize</li>
+                    <li>Lower taxpayer subsidies — we spend less to cover the same people</li>
+                </ul>
+                <p>At national scale, that frees up about <span class="green-emphasis">$2.7 trillion a year</span> that's currently disappearing into insurance bureaucracy.</p>
+                <p>That money doesn't vanish. It flows back into the real economy: wages, local businesses, housing, public investment, community stability.</p>
+            </div>
+        </section>
+
+        <!-- CONGRESS KNOWS THIS WORKS - softened tone -->
+        <section>
+            <h2>Congress Knows This Works</h2>
+            <div class="content-box blue-box">
+                <p>This isn't a secret. Insurance companies and drug companies spend hundreds of millions making sure nothing changes. A $600 telehealth option threatens their profits directly.</p>
+                <p>Congress already has the authority under the ACA to make this happen. No new law. No new agency. One vote.</p>
+                <p class="green-emphasis">The problem isn't the idea — it's the politics. They haven't done it because nobody has organized enough people to force the issue.</p>
+                <p class="green-emphasis">That's what PHIERS changes.</p>
+            </div>
+        </section>
+
+        <!-- ONE SPECIFIC ASK -->
+        <section>
+            <h2>One Specific Ask. No Wiggle Room.</h2>
+            <div class="content-box">
+                <p class="green-emphasis" style="font-size:1.5rem;">PHIERS demands one thing:</p>
+                <p style="font-size:1.3rem; text-align:center; margin:30px 0;">Add $600-a-year telehealth as a covered benefit on the ACA Exchange and through CMS.</p>
+                <p style="text-align:center; font-size:1.2rem;">One benefit. One vote. Coverage could start rolling out in about a year.</p>
+            </div>
+        </section>
+
+        <!-- FIX HEALTHCARE AND EVERYTHING ELSE GETS EASIER -->
+        <section>
+            <h2>Fix Healthcare and Everything Else Gets Easier</h2>
+            <div class="content-box">
+                <p>Healthcare isn't just a health problem. It's the weight dragging everything else down.</p>
+                <ul>
+                    <li>When employers stop drowning in benefit costs, they can raise wages.</li>
+                    <li>When unions stop defending healthcare every contract fight, they can win better pay and safer conditions.</li>
+                    <li>When families stop choosing between the doctor and the rent, stability returns.</li>
+                </ul>
+                <p>The $2.7 trillion that comes back into the economy strengthens everything: jobs and housing, infrastructure and veterans' care, the safety net, local communities.</p>
+                <p class="green-emphasis">Healthcare is where we prove the power works. Everything else is what we do with the proof.</p>
+            </div>
+        </section>
+
+        <!-- THE ONLY THING MISSING IS YOU -->
+        <section>
+            <h2>The Only Thing Missing Is You</h2>
+            <div class="content-box blue-box">
+                <p>Telehealth works. The model is proven. The math is undeniable. Congress has the authority.</p>
+                <p class="green-emphasis">What's been missing is enough organized people making the cost of saying "no" higher than the money they're getting from lobbyists.</p>
+                <p class="green-emphasis" style="font-size:1.3rem;">That's where your name on the record matters. That's what changes the math.</p>
+            </div>
+        </section>
+
+        <!-- FINAL CTA -->
         <div class="cta-block">
-            <h2>Make Your Voice Heard</h2>
-            <p style="font-size:1.3rem; margin-bottom:20px;">When enough Americans stand behind the same demand, Congress has two choices:</p>
-            <p style="font-size:2rem; margin:30px 0;">
-                <span class="green-emphasis">Act.</span><br>
-                <span class="red-emphasis">Or face voters who will replace them with someone who will.</span>
-            </p>
+            <h2>Make It Official</h2>
             <div class="btn-group">
                 <a href="#" class="btn btn-primary" style="font-size:1.3rem;">✍ Sign the Petition</a>
                 <a href="#" class="btn btn-primary" style="font-size:1.3rem;">📋 Take the Survey</a>
             </div>
-        </div>
-
-        <!-- SUPPORT THE MOVEMENT -->
-        <div style="background:#0f0f0f; border:2px solid #f5c842; border-radius:30px; padding:40px; margin:50px 0; text-align:center;">
-            <h2 style="color:#f5c842; border:none;">Support the Movement</h2>
-            <p>PHIERS runs on participation, not corporate funding.<br>
-            If you can contribute, it helps keep the movement growing.</p>
-            <div style="margin:30px 0;">
-                <a href="#" class="btn" style="border-color:#f5c842; color:#f5c842;">[ Support PHIERS ]</a>
-            </div>
-        </div>
-
-        <!-- THE BOTTOM LINE -->
-        <section>
-            <h2>The Bottom Line</h2>
-            <div class="step-box" style="border-left-color: #4caf50; text-align:center;">
-                <p style="font-size:1.2rem;">This isn't about yelling.</p>
-                <p>It's about people standing together behind the same direction.<br>
-                Putting their names on the record.<br>
-                And giving Congress a choice they can't dodge.</p>
-                <p style="font-size:1.5rem; margin:30px 0;">
-                    <span class="green-emphasis">Your name.</span><br>
-                    <span class="green-emphasis">Your district.</span><br>
-                    <span class="green-emphasis">Your priorities.</span>
-                </p>
-                <p class="green-emphasis" style="font-size:1.3rem;">That's how leverage starts.</p>
-            </div>
-        </section>
-
-        <!-- CLOSING TRIPTYCH -->
-        <div class="closing-triptych">
-            <div class="green-emphasis" style="font-size:1.8rem;">Direction brings people together.</div>
-            <div class="green-emphasis" style="font-size:1.8rem;">People together create pressure.</div>
-            <div class="green-emphasis" style="font-size:1.8rem;">Pressure creates change.</div>
+            <p style="margin-top:40px; font-size:1.3rem;">
+                <span class="green-emphasis">Your name.</span> <span class="green-emphasis">Your district.</span> <span class="green-emphasis">Your priorities.</span>
+            </p>
+            <p class="green-emphasis" style="font-size:1.2rem;">That's how leverage starts.</p>
         </div>
 
         <!-- FOOTER -->
@@ -718,12 +861,6 @@
         document.getElementById('scrollTop').addEventListener('click', function(e) {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                // close any open modals if needed
-            }
         });
     </script>
 </body>
