@@ -1,879 +1,406 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The 5D Plan — How PHIERS Actually Fixes What's Broken — PHIERS</title>
-    <meta name="description" content="Healthcare, jobs, economy, power, peace. Five dimensions. One movement. Here's how PHIERS fixes the crisis — and why it only works when we do it together.">
-    <link rel="canonical" href="https://phiersale.github.io/PHIERS-Concept/5D_Solutions.html">
-    <style>
-        /* ---------- HOMEPAGE DESIGN SYSTEM (flat dark, Arial) ---------- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #0a0a0a;
-            color: #e0e0e0;
-            line-height: 1.6;
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px 40px;
-        }
-
-        /* urgency strip */
-        .urgency-strip {
-            background-color: #f5c842;
-            color: #0a0a0a;
-            text-align: center;
-            padding: 8px 16px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            border-bottom: 2px solid #4caf50;
-            position: sticky;
-            top: 0;
-            z-index: 2000;
-        }
-
-        /* global nav */
-        .global-nav {
-            background-color: #111;
-            border: 1px solid #333;
-            border-radius: 40px;
-            padding: 10px 25px;
-            margin: 20px 0 20px;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.7);
-        }
-
-        .nav-links-container {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 8px 15px;
-        }
-
-        .nav-item {
-            color: #ccc;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            padding: 4px 8px;
-            border-radius: 30px;
-            transition: 0.2s;
-            white-space: nowrap;
-        }
-        .nav-item:hover {
-            background-color: #333;
-            color: #4caf50;
-        }
-        .nav-item.active {
-            background-color: #4caf50;
-            color: #0a0a0a;
-            font-weight: 700;
-        }
-
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        .dropbtn {
-            background: transparent;
-            color: #ccc;
-            font-size: 0.9rem;
-            font-weight: 500;
-            padding: 4px 8px;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            font-family: inherit;
-        }
-        .dropbtn:hover {
-            background-color: #333;
-            color: #4caf50;
-        }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background-color: #1a1a1a;
-            min-width: 200px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.8);
-            border-radius: 16px;
-            border: 1px solid #333;
-            padding: 8px 0;
-            z-index: 3000;
-        }
-        .dropdown-content a {
-            color: #ccc;
-            padding: 10px 18px;
-            text-decoration: none;
-            display: block;
-            font-size: 0.85rem;
-        }
-        .dropdown-content a:hover {
-            background-color: #222;
-            color: #4caf50;
-        }
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: 1px solid #4caf50;
-            color: #4caf50;
-            font-size: 2rem;
-            padding: 0 15px;
-            border-radius: 40px;
-            cursor: pointer;
-            line-height: 1;
-        }
-
-        @media (max-width: 800px) {
-            .mobile-menu-toggle { display: block; }
-            .nav-links-container {
-                display: none;
-                width: 100%;
-                flex-direction: column;
-                align-items: flex-start;
-                margin-top: 15px;
-            }
-            .nav-links-container.active { display: flex; }
-            .dropdown-content { position: static; }
-        }
-
-        /* collapsible primer */
-        .primer-bar {
-            background-color: #111;
-            border: 2px solid #4caf50;
-            border-radius: 50px;
-            margin: 30px 0 20px;
-        }
-        .primer-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 16px 28px;
-            cursor: pointer;
-        }
-        .primer-badge {
-            background: #4caf50;
-            color: #0a0a0a;
-            font-weight: 800;
-            font-size: 0.75rem;
-            padding: 5px 12px;
-            border-radius: 40px;
-            margin-right: 20px;
-        }
-        .primer-title {
-            color: #f0f0f0;
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-        .primer-icon {
-            color: #4caf50;
-            font-size: 2rem;
-            line-height: 1;
-        }
-        .primer-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease;
-            background: #0f0f0f;
-            border-radius: 0 0 50px 50px;
-            border-top: 1px solid #2a2a2a;
-        }
-        .primer-content.expanded {
-            max-height: 500px;
-        }
-        .primer-inner {
-            padding: 25px 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        /* hero - strengthened with larger rubik's cube */
-        .hero {
-            text-align: center;
-            padding: 50px 20px 40px;
-            background-color: #111;
-            border-radius: 24px;
-            margin: 30px 0 50px;
-            border: 1px solid #2a2a2a;
-        }
-        .hero-logo {
-            max-width: 140px;
-            margin-bottom: 20px;
-        }
-        .hero-rubik {
-            width: 40%;
-            max-width: 300px;
-            margin: 20px auto 25px;
-            display: block;
-        }
-        .hero h1 {
-            color: #f44336;
-            font-size: 2.8rem;
-            margin: 20px 0 10px;
-        }
-        .hero-subhead {
-            color: #ddd;
-            font-size: 1.4rem;
-            margin-bottom: 20px;
-        }
-        .hero-line {
-            color: #f5c842;
-            font-size: 1.8rem;
-            font-weight: 700;
-            border-top: 1px solid #333;
-            padding-top: 20px;
-            margin-top: 20px;
-        }
-
-        /* content sections */
-        h2 {
-            color: #4caf50;
-            font-size: 2rem;
-            margin: 0 0 25px 0;
-            border-bottom: 2px solid #2a2a2a;
-            padding-bottom: 10px;
-        }
-        .pattern-box, .war-box, .insight-box, .solution-box {
-            background-color: #111;
-            border: 1px solid #333;
-            border-left: 6px solid;
-            padding: 30px;
-            border-radius: 20px;
-            margin: 30px 0;
-        }
-        .pattern-box { border-left-color: #f44336; }
-        .war-box { border-left-color: #f44336; }
-        .insight-box { border-left-color: #2196f3; }
-        .solution-box { border-left-color: #4caf50; }
-        p { color: #ccc; font-size: 1.05rem; margin: 20px 0; }
-        .green-emphasis { color: #4caf50; font-weight: 700; font-size: 1.2rem; }
-        .red-emphasis { color: #f44336; font-weight: 700; }
-        ul { margin-left: 30px; }
-        li { color: #ccc; margin: 8px 0; }
-
-        /* media blocks */
-        .phiers-media-block {
-            max-width: 700px;
-            margin: 60px auto;
-        }
-        .video-label, .image-context {
-            color: #f5c842;
-            font-weight: 600;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-        .phiers-video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 2px solid #333;
-        }
-        .phiers-video-wrapper iframe {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        .phiers-media-block img {
-            width: 100%;
-            border-radius: 16px;
-            border: 2px solid #333;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-        .phiers-media-block img:hover {
-            border-color: #4caf50;
-        }
-        .video-caption, .image-takeaway {
-            text-align: center;
-            color: #aaa;
-            font-style: italic;
-            margin-top: 8px;
-        }
-
-        /* CTA blocks */
-        .cta-block {
-            text-align: center;
-            background: #111;
-            border: 2px solid #4caf50;
-            border-radius: 50px;
-            padding: 50px 30px;
-            margin: 50px 0;
-        }
-        .cta-block h2 {
-            border: none;
-            color: #f5c842;
-        }
-        .btn-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center;
-            margin: 35px 0 20px;
-        }
-        .btn {
-            background-color: #2a2a2a;
-            color: white;
-            padding: 14px 34px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            border: 2px solid #4caf50;
-            border-radius: 60px;
-            text-decoration: none;
-            transition: 0.2s;
-            display: inline-block;
-        }
-        .btn:hover {
-            background-color: #4caf50;
-            color: #0a0a0a;
-            border-color: #4caf50;
-            transform: scale(1.02);
-        }
-        .btn-primary {
-            background-color: #4caf50;
-            color: #0a0a0a;
-            border-color: #4caf50;
-        }
-        .btn-primary:hover {
-            background-color: #66bb6a;
-        }
-        .trust-note {
-            color: #777;
-            font-size: 0.9rem;
-            margin-top: 20px;
-        }
-
-        /* footer */
-        footer {
-            background-color: #111;
-            border-radius: 30px;
-            padding: 50px 30px 30px;
-            margin-top: 80px;
-            border: 1px solid #2a2a2a;
-            text-align: center;
-        }
-        .footer-button {
-            margin: 30px 0;
-        }
-        .footer-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-            margin: 30px 0;
-            color: #4caf50;
-        }
-        .footer-links a {
-            color: #ccc;
-            text-decoration: none;
-        }
-        .footer-links a:hover { color: #4caf50; }
-        .copyright { color: #555; font-size: 0.8rem; margin-top: 20px; }
-
-        /* scroll top */
-        .scroll-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #4caf50;
-            color: #0a0a0a;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            font-size: 28px;
-            opacity: 0;
-            visibility: hidden;
-            transition: 0.2s;
-            z-index: 9999;
-        }
-        .scroll-top.visible { opacity: 1; visibility: visible; }
-
-        /* image modal */
-        .image-modal {
-            display: none;
-            position: fixed;
-            z-index: 10000;
-            left: 0; top: 0;
-            width: 100%; height: 100%;
-            background: rgba(0,0,0,0.95);
-        }
-        .modal-content {
-            max-width: 90%;
-            margin: 80px auto;
-            display: block;
-        }
-        .close-modal {
-            position: fixed;
-            top: 20px; right: 30px;
-            color: white;
-            font-size: 50px;
-            cursor: pointer;
-        }
-
-        /* at-a-glance grid with micro-headers */
-        .glance-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 40px 0;
-        }
-        .glance-item {
-            background: #111;
-            border: 1px solid #333;
-            border-left: 4px solid #4caf50;
-            padding: 25px;
-            border-radius: 16px;
-        }
-        .glance-item h3 {
-            color: #f5c842;
-            margin-bottom: 5px;
-            font-size: 1.3rem;
-        }
-        .glance-micro {
-            color: #4caf50;
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 10px;
-        }
-        .bridge-sentence {
-            text-align: center;
-            font-size: 1.3rem;
-            color: #f5c842;
-            margin: 40px 0 20px;
-            font-style: italic;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="PHIERS 5D Solutions: One movement. Five interconnected solutions. Zero wasted motion. Real reform requires 5-dimensional strategy.">
+<meta property="og:title" content="5D Solutions — PHIERS">
+<meta property="og:description" content="Congress keeps patching symptoms. PHIERS fixes the system that creates them. One movement. Five interconnected solutions.">
+<meta property="og:image" content="https://phiersale.github.io/PHIERS_Logo.png">
+<title>5D Solutions — PHIERS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Barlow+Condensed:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-deep:#080d1a;--bg-dark:#0d1525;--bg-card:#111d35;--bg-card2:#0a1628;
+    --green:#3ddc84;--green-dim:#2ab568;--green-glow:rgba(61,220,132,0.15);
+    --red:#e63946;--gold:#ffd60a;--blue:#2196f3;
+    --text-bright:#f0f4ff;--text-body:#b8c8e8;--text-dim:#7a94b8;
+    --border:rgba(61,220,132,0.2);
+    --font-display:'Bebas Neue',sans-serif;--font-condensed:'Barlow Condensed',sans-serif;--font-body:'Barlow',sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg-deep);color:var(--text-body);font-family:var(--font-body);font-size:1.05rem;line-height:1.8;overflow-x:hidden;}
+  nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(8,13,26,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;}
+  nav.scrolled{box-shadow:0 4px 40px rgba(61,220,132,0.1);}
+  .nav-left{display:flex;align-items:center;gap:14px;}
+  .nav-logo{height:38px;width:auto;}
+  .nav-tagline{font-style:italic;font-size:0.78rem;color:var(--green);line-height:1.3;display:none;}
+  @media(min-width:640px){.nav-tagline{display:block;}}
+  .nav-right{display:flex;align-items:center;gap:12px;}
+  .btn-petition{background:var(--red);color:#fff;font-family:var(--font-condensed);font-weight:700;font-size:1rem;letter-spacing:0.05em;padding:10px 20px;border:none;border-radius:4px;cursor:pointer;text-decoration:none;display:inline-block;transition:background 0.2s;}
+  .btn-petition:hover{background:#c1121f;}
+  .hamburger{background:none;border:1px solid var(--border);color:var(--text-bright);font-size:1.3rem;padding:8px 12px;border-radius:4px;cursor:pointer;}
+  .mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:var(--bg-dark);border-bottom:1px solid var(--border);z-index:999;padding:20px 24px;flex-direction:column;gap:4px;}
+  .mobile-menu.open{display:flex;}
+  .mobile-menu a{color:var(--text-body);text-decoration:none;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.05);font-size:1rem;}
+  .mobile-menu a:hover{color:var(--green);}
+  .page-wrap{max-width:860px;margin:0 auto;padding:100px 24px 80px;}
+  .section{margin-bottom:60px;}
+  .eyebrow{font-family:var(--font-condensed);font-weight:700;font-size:0.85rem;letter-spacing:0.15em;color:var(--green);text-transform:uppercase;margin-bottom:12px;display:block;}
+  .eyebrow.blue{color:var(--blue);}
+  h1{font-family:var(--font-display);font-size:clamp(2.8rem,7vw,5rem);color:var(--text-bright);line-height:1.0;margin-bottom:20px;}
+  h1 .green{color:var(--green);}
+  h2{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.8rem);color:var(--text-bright);line-height:1.05;margin-bottom:16px;}
+  h2 .green{color:var(--green);}h2 .red{color:var(--red);}h2 .gold{color:var(--gold);}h2 .blue{color:var(--blue);}
+  h3{font-family:var(--font-condensed);font-weight:700;font-size:1.2rem;color:var(--text-bright);margin-bottom:8px;}
+  p{margin-bottom:1rem;color:var(--text-body);}
+  p:last-child{margin-bottom:0;}
+  ul,ol{margin:12px 0 16px 24px;}
+  li{margin-bottom:6px;color:var(--text-body);}
+  strong{color:var(--text-bright);}
+  a{color:var(--green);text-decoration:none;}
+  a:hover{color:var(--green-dim);}
+  .btn-primary{display:inline-block;background:var(--green);color:var(--bg-deep);font-family:var(--font-condensed);font-weight:700;font-size:1.1rem;letter-spacing:0.05em;padding:14px 32px;border-radius:4px;text-decoration:none;transition:background 0.2s,transform 0.1s;margin:6px;}
+  .btn-primary:hover{background:var(--green-dim);transform:scale(1.02);}
+  .btn-secondary{display:inline-block;background:transparent;color:var(--green);font-family:var(--font-condensed);font-weight:700;font-size:1.1rem;letter-spacing:0.05em;padding:13px 28px;border-radius:4px;border:1px solid var(--green);text-decoration:none;transition:background 0.2s;margin:6px;}
+  .btn-secondary:hover{background:var(--green-glow);}
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:28px;}
+  .highlight-box{background:var(--green-glow);border:1px solid var(--border);border-left:4px solid var(--green);border-radius:0 8px 8px 0;padding:24px;margin:20px 0;}
+  /* DEMAND CARDS */
+  .demand-card{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--green);border-radius:0 8px 8px 0;padding:28px;margin:20px 0;}
+  .demand-card h3{color:var(--green);font-family:var(--font-display);font-size:1.4rem;margin-bottom:6px;}
+  .demand-card .subtitle{font-style:italic;color:var(--text-dim);font-size:0.92rem;margin-bottom:14px;}
+  /* VIDEO */
+  .video-wrap{background:rgba(33,150,243,0.07);border:1px solid rgba(33,150,243,0.3);border-radius:12px;padding:28px;margin:32px 0;}
+  .video-wrap h3{font-family:var(--font-display);font-size:1.6rem;color:var(--blue);margin-bottom:16px;text-align:center;}
+  .video-container{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;}
+  .video-container iframe{position:absolute;top:0;left:0;width:100%;height:100%;}
+  .video-caption{text-align:center;color:#64b5f6;font-style:italic;margin-top:12px;font-size:0.9rem;}
+  /* GRAPHIC */
+  .graphic-wrap{text-align:center;margin:32px 0;}
+  .graphic-wrap img{max-width:70%;height:auto;border-radius:8px;border:1px solid var(--border);cursor:pointer;transition:transform 0.3s;display:block;margin:0 auto;}
+  .graphic-wrap img:hover{transform:scale(1.02);}
+  .graphic-caption{font-size:0.85rem;color:var(--text-dim);font-style:italic;margin-top:8px;}
+  /* TIMELINE */
+  .timeline-item{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:20px 24px;margin:14px 0;}
+  .timeline-step{font-family:var(--font-condensed);font-weight:700;font-size:1rem;color:var(--gold);letter-spacing:0.05em;margin-bottom:6px;}
+  /* CASCADE FORMULA */
+  .cascade-formula{background:var(--bg-card2);border:1px solid var(--border);border-radius:8px;padding:20px 24px;margin:16px 0;font-family:monospace;font-size:0.95rem;color:var(--green);text-align:center;letter-spacing:0.05em;}
+  /* FINAL CTA BLOCK */
+  .final-cta{background:rgba(33,150,243,0.08);border:1px solid rgba(33,150,243,0.3);border-radius:8px;padding:36px;text-align:center;margin:20px 0;}
+  .final-cta h2{color:var(--blue);}
+  hr.divider{border:none;border-top:1px solid var(--border);margin:48px 0;}
+  .page-nav{display:flex;justify-content:space-between;padding:28px 0;border-top:1px solid var(--border);margin-top:48px;}
+  .page-nav a{color:var(--green);text-decoration:none;font-family:var(--font-condensed);font-weight:700;font-size:1rem;}
+  .page-nav a:hover{color:var(--green-dim);}
+  .image-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.9);z-index:9999;align-items:center;justify-content:center;}
+  .image-modal.active{display:flex;}
+  .modal-content{max-width:90vw;max-height:90vh;border-radius:8px;}
+  .close-modal{position:absolute;top:20px;right:28px;color:#fff;font-size:2rem;cursor:pointer;background:none;border:none;}
+  footer{background:var(--bg-card2);border-top:1px solid var(--border);padding:48px 24px 32px;text-align:center;margin-top:60px;}
+  .footer-logo{height:32px;margin-bottom:12px;}
+  .footer-mabah{font-family:var(--font-condensed);font-weight:700;font-size:1rem;color:var(--green);letter-spacing:0.1em;margin-bottom:4px;}
+  .footer-mabah-sub{font-size:0.82rem;color:var(--text-dim);font-style:italic;margin-bottom:20px;}
+  .footer-tagline{font-size:0.95rem;color:var(--text-body);margin-bottom:20px;}
+  .footer-nav{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:center;margin-bottom:20px;}
+  .footer-nav a{color:var(--text-dim);text-decoration:none;font-size:0.85rem;transition:color 0.2s;}
+  .footer-nav a:hover{color:var(--green);}
+  .footer-copy{font-size:0.8rem;color:var(--text-dim);line-height:1.8;}
+  .footer-copy a{color:var(--green);text-decoration:none;}
+</style>
 </head>
 <body>
-    <!-- URGENCY STRIP -->
-    <div class="urgency-strip">
-        ⚡ March 28 — No Kings III. 3.5% threshold. After that, every Congress member is on notice.
+
+<nav id="main-nav">
+  <div class="nav-left">
+    <a href="index.html"><img src="PHIERS_Logo.png" alt="PHIERS.org" class="nav-logo"></a>
+    <span class="nav-tagline">When Americans coordinate,<br>Congress has no choice.</span>
+  </div>
+  <div class="nav-right">
+    <a href="https://chng.it/PmmrfFDK6P" target="_blank" class="btn-petition">✍ Sign Now</a>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html">Home</a><a href="OVERVIEW.html">Overview</a><a href="Crisis.html">Crisis</a>
+  <a href="SimpleMath.html">Simple Math</a><a href="5D_Solutions.html">5D Solutions</a>
+  <a href="Leverage.html">Leverage</a><a href="Quickstart.html">Quick Start</a>
+  <a href="action.html">Take Action</a><a href="Donate.html">Donate</a>
+  <a href="FAQ.html">FAQ</a><a href="About.html">About</a><a href="Media.html">Media</a>
+</div>
+
+<div class="page-wrap">
+
+  <!-- HERO -->
+  <div class="section" style="text-align:center">
+    <img src="5D_Solutions_Rubiks Cube.png" alt="PHIERS 5D Solutions" style="height:120px;display:block;margin:0 auto 20px">
+    <span class="eyebrow">5D Solutions</span>
+    <h1>Real Reform Requires<br><span class="green">5-Dimensional Strategy.</span></h1>
+    <p style="font-size:1.15rem;max-width:680px;margin:0 auto 12px">Congress keeps patching symptoms. One bill here. One program there. That's why nothing changes. PHIERS fixes the system that creates them.</p>
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--green);border-radius:0 8px 8px 0;padding:16px 20px;margin:24px auto;max-width:680px;text-align:left;font-size:1rem">
+      PHIERS is a citizen coalition using collective leverage to force Congress to fix healthcare — or replace them.
+    </div>
+    <div class="cta-row">
+      <a href="https://chng.it/PmmrfFDK6P" target="_blank" class="btn-primary">✍ Join the 3.5%</a>
+    </div>
+    <p style="margin-top:16px;font-size:0.9rem;color:var(--text-dim);font-style:italic">One movement. Five interconnected solutions. Zero wasted motion.</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- HOW IT WORKS IMAGE -->
+  <div class="section">
+    <div class="graphic-wrap">
+      <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/How_It_Works.png"
+           alt="How PHIERS 5D Solutions Work"
+           onclick="openModal(this.src,this.alt)">
+    </div>
+  </div>
+
+  <!-- VIDEO -->
+  <div class="section">
+    <div class="video-wrap">
+      <h3>CASCADE MECHANISM: Why Congress Can't Ignore PHIERS (3:33)</h3>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/jMU6LKEBzbs" title="CASCADE MECHANISM: Why Congress Can't Ignore PHIERS" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <p class="video-caption">The exponential cascade that makes universal coverage inevitable.</p>
+    </div>
+  </div>
+
+  <!-- RUBIKS CUBE -->
+  <div class="section">
+    <div class="graphic-wrap">
+      <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Rubiks_Cube_-_SYMBOLS.png"
+           alt="PHIERS 5D Solutions - Interconnected Rubik's Cube"
+           onclick="openModal(this.src,this.alt)">
+      <p class="graphic-caption">All 5 Dimensions Strengthening Each Other – The Rubik's Cube Model</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 5D PHILOSOPHY -->
+  <div class="section">
+    <span class="eyebrow">The Philosophy</span>
+    <h2>We Don't Fix One Crisis at a Time.<br><span class="green">We Fix the System That Creates Them.</span></h2>
+    <p>Congress patches problems. One bill here. One program there. That's why nothing changes.</p>
+    <p><strong>PHIERS solves all five crises simultaneously.</strong></p>
+    <p>Healthcare crisis → unlocks jobs → unlocks safety net → unlocks opportunity → unlocks guardrails. Each dimension reinforces the others.</p>
+    <p style="font-size:1.1rem;color:var(--text-bright);margin:24px 0"><strong>This isn't a policy list. This is survival architecture.</strong></p>
+    <p>And it starts with one domino.</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- FIRST DOMINO -->
+  <div class="section">
+    <span class="eyebrow">The First Domino</span>
+    <h2>Telehealth for <span class="green">All.</span></h2>
+    <h3>The fastest, cheapest, most scalable way to deliver care — today.</h3>
+    <p>Telehealth already delivers:</p>
+    <ul>
+      <li>Faster care</li>
+      <li>Cheaper care</li>
+      <li>Fewer denials</li>
+      <li>Broader access</li>
+      <li>Better outcomes</li>
+    </ul>
+    <p>Congress could authorize $600 of telehealth coverage right now — instantly lowering costs for millions.</p>
+    <p style="color:var(--red)"><strong>They refuse to.</strong></p>
+    <p style="color:var(--green);font-weight:700;margin-top:16px">So we're forcing the issue.</p>
+    <p>Once telehealth is authorized, everything else becomes possible.</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- THE CASCADE -->
+  <div class="section">
+    <span class="eyebrow">The Cascade</span>
+    <h2>How One Fix Unlocks <span class="green">Everything Else.</span></h2>
+    <p style="font-size:1.05rem"><strong>This is why Congress is terrified:</strong></p>
+    <div class="highlight-box">
+      <p style="font-size:1.1rem;text-align:center;color:var(--text-bright)"><strong>Fix healthcare → unlock jobs → unlock safety net → unlock opportunity → unlock guardrails.</strong></p>
+      <p style="text-align:center;margin-top:12px">No new taxes. No new bureaucracy. Just one domino falling forward.</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- WHAT WE DEMAND -->
+  <div class="section" id="what-we-demand">
+    <span class="eyebrow blue">What We Demand</span>
+    <h2>Five Dimensions.<br><span class="blue">One Unified Movement.</span></h2>
+    <p>We're not here to beg Congress for scraps. We're here to force the only intelligent, interconnected, minimum-wasted-motion plan that solves multiple national crises at once.</p>
+    <p style="margin-top:16px"><strong>These aren't random policies. These are five dimensions of the same solution</strong> — each one unlocking the next, each one reinforcing the others.</p>
+    <p style="color:var(--green);font-weight:700;margin-top:16px">This is the 5D Blueprint for a stable, healthy, prosperous America.</p>
+
+    <div class="demand-card">
+      <h3>DEMAND #1 — Universal Telehealth Authorization</h3>
+      <p class="subtitle">The first domino. The fastest fix. The ignition point.</p>
+      <p><strong>Congress must authorize $600 of telehealth coverage for every American, immediately.</strong></p>
+      <p style="margin-top:12px"><strong>Why?</strong> Because telehealth is cheaper, faster, more accessible, less bureaucratic, less corruptible, and already working.</p>
+      <p style="color:var(--green);font-weight:700;margin-top:12px">This is the entry point to universal care — not in theory, but in practice.</p>
+      <p>Once telehealth is authorized, the entire 5D cascade becomes possible. <strong>This is the lever.</strong></p>
     </div>
 
-    <div class="container">
-        <!-- GLOBAL NAV -->
-        <nav class="global-nav">
-            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</div>
-            <div class="nav-links-container" id="navLinks">
-                <a href="index.html" class="nav-item">Home</a>
-                <a href="Crisis.html" class="nav-item">Crisis</a>
-                <a href="5D_Solutions.html" class="nav-item active">5D Solutions</a>
-                <a href="SimpleMath.html" class="nav-item">Simple Math</a>
-                <a href="Roadmap.html" class="nav-item">Roadmap</a>
-                <a href="Leverage.html" class="nav-item">Leverage</a>
-                <a href="Action.html" class="nav-item">Action</a>
-                <a href="Telehealth-Insurance.html" class="nav-item">Telehealth</a>
-                <a href="Real-Stories.html" class="nav-item">Real Stories</a>
-                <div class="dropdown">
-                    <button class="dropbtn">More ▼</button>
-                    <div class="dropdown-content">
-                        <a href="FAQ.html">FAQ</a>
-                        <a href="Origins.html">Origins</a>
-                        <a href="Media.html">Media</a>
-                        <a href="About.html">About</a>
-                        <a href="Veterans.html">Veterans</a>
-                        <a href="Union-Strategy.html">Union Strategy</a>
-                        <a href="NoWar.html">NoWar</a>
-                        <a href="UNSTOPPABLE.html">UNSTOPPABLE</a>
-                        <a href="UNBREAKABLE.html">UNBREAKABLE</a>
-                        <a href="SOTU-Response.html">SOTU Response</a>
-                    </div>
-                </div>
-            </div>
-        </nav>
-
-        <!-- COLLAPSIBLE PRIMER - trimmed slightly -->
-        <div class="primer-bar">
-            <div class="primer-header" onclick="togglePrimer()">
-                <span style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
-                    <span class="primer-badge">WHY PHIERS WORKS</span>
-                    <span class="primer-title">The leverage Congress can't ignore — healthcare is the proof.</span>
-                </span>
-                <span class="primer-icon" id="primerIcon">▼</span>
-            </div>
-            <div class="primer-content" id="primerContent">
-                <div class="primer-inner">
-                    <p>Every other reform movement tried to convince Congress. PHIERS reorganizes the money.</p>
-                    <p>When enough people switch to the $600 plan, insurance companies lose. When they lose, campaign donors lose. When donors lose, Congress has a new boss: you.</p>
-                    <p>Healthcare is the first fight because it's the easiest to win — and winning proves the power works for every other fight.</p>
-                    <p class="green-emphasis">This isn't a petition. It's a conversion campaign. And it's already math.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- HERO with enlarged Rubik's Cube -->
-        <div class="hero">
-            <img src="PHIERS_Logo.png" alt="PHIERS Logo" class="hero-logo">
-            <h1>The 5D Plan</h1>
-            <div class="hero-subhead">Five fixes that work together — because your life works that way too.</div>
-            <p style="color:#ccc; max-width:700px; margin:20px auto;">
-                When the rent goes up, something else gets cut.<br>
-                When healthcare eats your paycheck, the car repair waits.<br>
-                When the car doesn't get fixed, you risk losing the job.
-            </p>
-            <img src="5D_Solutions_Rubiks_Cube.png" alt="Rubik's Cube - Five Dimensions Working Together" class="hero-rubik">
-            <p style="color:#4caf50; font-weight:700; font-size:1.3rem;">It's all connected.</p>
-            <p style="color:#ddd;">Most plans try to fix one piece of the system. PHIERS fixes the whole machine.</p>
-            <div class="hero-line">That's why it works in five dimensions.</div>
-        </div>
-
-        <!-- SECTION 1 — THIS IS THE ONLY WAY IT WORKS (trimmed) -->
-        <section>
-            <h2>This Is the Only Way It Works</h2>
-            <div class="pattern-box">
-                <p style="font-size:1.2rem; font-weight:600;">The crisis is structural.<br>Which means the fix has to be structural too.</p>
-                <p>Trying to patch one thing at a time while everything else is on fire doesn't work. We fix them together — because that's the only way any of it sticks.</p>
-                <p>The system isn't broken in one place:</p>
-                <ul>
-                    <li>The cost is insane</li>
-                    <li>The scale feels impossible</li>
-                    <li>The politics are rigged</li>
-                    <li>The issues keep getting divided</li>
-                    <li>The power is in the wrong hands</li>
-                </ul>
-                <p class="green-emphasis">Fixing it means answering all five at once. That's what the 5D plan does.</p>
-            </div>
-        </section>
-
-        <!-- SECTION 2 — WHY YOU CAN'T FIX ONE THING -->
-        <section>
-            <h2>Why You Can't Fix One Thing Without the Others</h2>
-            <div class="insight-box">
-                <p>Here's what the chain looks like in real life:</p>
-                <p><span class="green-emphasis">Fix healthcare →</span> Workers aren't trapped in jobs they hate →<br>
-                <span class="green-emphasis">Free workers →</span> Wages go up (because unions negotiate wages instead of defending benefits) →<br>
-                <span class="green-emphasis">Wages go up →</span> Families can afford rent →<br>
-                <span class="green-emphasis">Families afford rent →</span> Communities get stronger →<br>
-                <span class="green-emphasis">Stronger communities →</span> Schools get funded, neighborhoods stabilize, local economies grow.</p>
-                <p class="red-emphasis">It all moves together — or it all falls together.</p>
-                <p class="green-emphasis">Each piece strengthens the others. This is how you actually fix things.</p>
-            </div>
-        </section>
-
-        <!-- SECTION 3 — WE FIX THEM TOGETHER -->
-        <section>
-            <h2>We Fix Them Together — Not One at a Time</h2>
-            <div class="war-box">
-                <p><span class="red-emphasis">The old way:</span></p>
-                <p>Pass one bill. Debate the next.<br>
-                Fund one program. Delay the next.<br>
-                Fight one fight. Abandon the rest.</p>
-                <p>But your problems don't wait their turn. Neither can the solutions.</p>
-                <p><span class="green-emphasis">We do them together:</span></p>
-                <ul>
-                    <li>Fix healthcare</li>
-                    <li>Create real jobs</li>
-                    <li>Put the savings back in people's pockets</li>
-                    <li>Give workers and voters real power</li>
-                    <li>Make the rules protect regular people</li>
-                </ul>
-                <p class="green-emphasis">This isn't sequential. This is simultaneous. That's the only way any of it sticks.</p>
-            </div>
-        </section>
-
-        <!-- BRIDGE SENTENCE before 5D list -->
-        <div class="bridge-sentence">
-            Most plans try to fix one piece. PHIERS fixes the whole machine.
-        </div>
-
-        <!-- 5D AT A GLANCE with micro-headers -->
-        <h2>5D at a Glance</h2>
-        <div class="glance-grid">
-            <div class="glance-item">
-                <div class="glance-micro">THE DOOR</div>
-                <h3>1. Healthcare</h3>
-                <p>Cut your bill from $10,000 to $600. Real doctors. 24/7 access. No waiting rooms. No surprise bills.<br><span class="green-emphasis">This is the door — everything else walks through it.</span></p>
-            </div>
-            <div class="glance-item">
-                <div class="glance-micro">AI-PROOF WORK</div>
-                <h3>2. Jobs</h3>
-                <p>Millions of jobs AI can't replace: home health, community care, elder care, mental health support, childcare.<br>Real work. Real wages.</p>
-            </div>
-            <div class="glance-item">
-                <div class="glance-micro">YOUR MONEY BACK</div>
-                <h3>3. Economy</h3>
-                <p>$2.7 trillion back where it belongs — money coming out of paychecks, small businesses, and family budgets. Not from new taxes. From stopping the waste.</p>
-            </div>
-            <div class="glance-item">
-                <div class="glance-micro">WHO'S THE BOSS</div>
-                <h3>4. Power</h3>
-                <p>When healthcare isn't tied to your job: unions negotiate wages, workers move freely, employers compete for labor again.</p>
-            </div>
-            <div class="glance-item">
-                <div class="glance-micro">RULES FOR US</div>
-                <h3>5. Peace</h3>
-                <p>Rules that protect people. Guardrails that keep the powerful accountable. A government that works for citizens again.</p>
-            </div>
-        </div>
-
-        <!-- VIDEO — Math Video -->
-        <div class="phiers-media-block">
-            <div class="video-label">🎥 The Math Behind the Movement (3:33)</div>
-            <div class="phiers-video-wrapper">
-                <iframe src="https://www.youtube.com/embed/jMU6LKEBzbs" allowfullscreen></iframe>
-            </div>
-            <div class="video-caption">$10,000 to $600. One conversion funds 12 more. This is how we win.</div>
-        </div>
-
-        <!-- DIMENSION 1 — DIRECT CARE -->
-        <section>
-            <h2>1. Healthcare — Direct Care</h2>
-            <div class="solution-box">
-                <p class="green-emphasis" style="font-size:1.5rem;">Healthcare That Actually Works</p>
-                <p>A flat-rate plan: <strong>$600 per person per month</strong>.</p>
-                <ul>
-                    <li>No deductibles</li>
-                    <li>No copays for primary care</li>
-                    <li>Unlimited telehealth</li>
-                    <li>Real prescriptions</li>
-                    <li>Mental health support</li>
-                    <li>Negotiated hospital rates</li>
-                    <li>No surprise bills</li>
-                    <li>No insurance maze</li>
-                </ul>
-                <p><span class="red-emphasis">What it replaces:</span> The system where families pay $24,000 a year and still get bills. Where insurance companies decide what's "medically necessary." Where coverage disappears if you lose your job.</p>
-                <p><span class="green-emphasis">What it means for your kitchen table:</span> You go to the doctor when you're sick — not when you can afford it. You know exactly what you'll pay: $600. You stop lying awake at 3 a.m. wondering if that lump is nothing — or whether finding out will bankrupt you.</p>
-                <p class="green-emphasis">Healthcare starts working like healthcare again. Not like a casino where the house always wins.</p>
-            </div>
-        </section>
-
-        <!-- DIMENSION 2 — CASCADE ECONOMICS -->
-        <section>
-            <h2>2. Jobs — How the Plan Pays for Itself</h2>
-            <div class="insight-box">
-                <p class="green-emphasis" style="font-size:1.5rem;">How the Movement Scales Without Permission</p>
-                <p>One person switches from a $24,000 plan to the $7,200 PHIERS plan. They save <strong>$16,800</strong>.</p>
-                <p>That savings funds <strong>12 more people</strong>.</p>
-                <p>Those 12 save their own $16,800. That funds <strong>144 more</strong>.</p>
-                <p>Cycle 1: 1 → 12<br>Cycle 2: 12 → 144<br>Cycle 3: 144 → 1,728<br>Cycle 4: 1,728 → 20,736<br>Cycle 5: 20,736 → 248,832</p>
-                <p>Start with 1,000 families → <strong>1.3 million families covered</strong>.</p>
-                <p>No new taxes. No legislation. No permission.</p>
-                <p><span class="green-emphasis">What it means for jobs:</span> Millions of new jobs AI can't replace: home health aides, community health workers, elder care, mental health support, childcare. Real work. Real wages.</p>
-                <p class="green-emphasis">The solution pays for itself — and then pays for the next person.</p>
-            </div>
-        </section>
-
-        <!-- IMAGE 1 — Cascade Math -->
-        <div class="phiers-media-block">
-            <div class="image-context">📈 The Cascade Math</div>
-            <img src="Cascade_Math.png" alt="Cascade math">
-            <div class="image-takeaway">One person switches. That funds 12 more. Those 12 fund 148. No new taxes. Just math.</div>
-        </div>
-
-        <!-- DIMENSION 3 — DISTRICT LEVERAGE -->
-        <section>
-            <h2>3. Economy — District Leverage</h2>
-            <div class="war-box">
-                <p class="green-emphasis" style="font-size:1.5rem;">The Pressure Congress Can't Ignore</p>
-                <p>When <strong>1,500 registered voters in a congressional district</strong> sign on, their representative must hold a public town hall.</p>
-                <p>In person. On camera. Answering their constituents.</p>
-                <p><span class="red-emphasis">The demand:</span> Put the $600 plan on the ACA exchange.</p>
-                <p>If they refuse → primary challenger.<br>If they dodge → general election opponent.<br>If they lie → the video lives forever.</p>
-                <p><span class="green-emphasis">What it means for your community:</span> $2.7 trillion stops flowing to insurance companies — that's money coming out of paychecks, small businesses, and family budgets. It starts flowing back into wages, your paycheck, local businesses, housing, grocery stores, schools.</p>
-                <p class="green-emphasis">This isn't redistribution. It's stopping the extraction. The money was yours before they took it. PHIERS just stops the theft.</p>
-            </div>
-        </section>
-
-        <!-- DIMENSION 4 — PARALLEL DEMANDS -->
-        <section>
-            <h2>4. Power — Parallel Demands</h2>
-            <div class="insight-box">
-                <p class="green-emphasis" style="font-size:1.5rem;">You Don't Have to Pick One Fight</p>
-                <p>The same signatures that force a healthcare town hall can force a war vote.</p>
-                <p><span class="red-emphasis">The Constitution says Congress declares war</span> — not presidents, not contractors. Most wars in our lifetime were never declared. That's illegal. It's also expensive — <strong>$1 billion a day</strong>.</p>
-                <p>PHIERS doesn't make you choose between healthcare and peace. The same organized pressure does both.</p>
-                <p><strong>One list of names. Two demands. One movement.</strong></p>
-                <p class="green-emphasis">Divided movements lose. Connected movements win.</p>
-            </div>
-        </section>
-
-        <!-- DIMENSION 5 — MOVEMENT OWNERSHIP -->
-        <section>
-            <h2>5. Peace — Movement Ownership</h2>
-            <div class="solution-box">
-                <p class="green-emphasis" style="font-size:1.5rem;">It Belongs to Us</p>
-                <p>PHIERS isn't a company. It isn't a product. It isn't a nonprofit run by donors.</p>
-                <p>It's a <strong>membership movement</strong>.</p>
-                <p>The people who join are the people who govern. The money stays in the movement. The decisions stay with the members.</p>
-                <p><span class="green-emphasis">What it means for your kitchen table:</span> You're not a customer. You're not a donor. You're a member. No one gets rich off your participation. No one sells your data. No one cuts a deal with insurance companies.</p>
-                <p class="green-emphasis">Movements that belong to us don't get bought. They don't get sold. They just keep winning.</p>
-            </div>
-        </section>
-
-        <!-- IMAGE 2 — 22 Million -->
-        <div class="phiers-media-block">
-            <div class="image-context">📊 22 Million Americans Lost Coverage</div>
-            <img src="US_Millions_Face_Soaring_Health_Costs_as_Subsidies_Expire.png" alt="22 million lost coverage">
-            <div class="image-takeaway">When subsidies expired, Congress did nothing. That's not incompetence — that's a choice.</div>
-        </div>
-
-        <!-- WHY ALL FIVE MATTER (emotional peak) -->
-        <section>
-            <h2>Why All Five Matter</h2>
-            <div class="solution-box">
-                <p>A plan without leverage is just a product.<br>Leverage without a plan is just noise.<br>Math without organization is just a spreadsheet.<br>Ownership without scale is just a club.</p>
-                <p><span class="green-emphasis">PHIERS combines all five:</span></p>
-                <ul>
-                    <li>A plan that works</li>
-                    <li>Math that scales</li>
-                    <li>Leverage that bites</li>
-                    <li>Demands that connect</li>
-                    <li>Ownership that lasts</li>
-                </ul>
-                <p class="green-emphasis" style="font-size:1.5rem;">That's not a policy idea. That's a movement architecture.</p>
-                <p class="green-emphasis">That's how a movement becomes unstoppable.</p>
-            </div>
-        </section>
-
-        <!-- FINAL CTA - moved up to emotional peak -->
-        <div class="cta-block">
-            <h2>Pick the Piece That Matters Most to You</h2>
-            <p style="font-size:1.2rem; color:#f5c842;">Cost. Jobs. Peace. Power. Ownership.</p>
-            <p>The piece you care about is already inside this movement.<br>And once you're in, the rest comes with it.</p>
-            <div class="btn-group">
-                <a href="Leverage.html" class="btn btn-primary">🔧 Fix Congress Now</a>
-                <a href="#" class="btn">✅ Switch to the $600 Plan</a>
-                <a href="#" class="btn">📖 Read the Full Architecture</a>
-            </div>
-            <div class="trust-note">Free. No spam. Just a movement organizing real pressure.</div>
-        </div>
-
-        <!-- WHAT THIS ACTUALLY PAYS FOR - strengthened -->
-        <section style="background:#0f0f0f; border:2px solid #f44336; border-radius:30px; padding:40px; margin:70px 0;">
-            <h2 style="color:#f44336;">What This Actually Pays For</h2>
-            <p>We're talking about real things:</p>
-            <ul style="columns:2; list-style:none; margin-left:0;">
-                <li>✓ Your rent</li>
-                <li>✓ Your grocery bill</li>
-                <li>✓ Your kid's student loans</li>
-                <li>✓ Childcare</li>
-                <li>✓ Retirement</li>
-            </ul>
-            <p>$2.7 trillion is already being collected. It's just going to the wrong place.</p>
-            <p class="green-emphasis">That's money coming out of your paycheck, your small business, your family budget — every single day.</p>
-            <p class="green-emphasis">The money is already there. We just have to take it back.</p>
-        </section>
-
-        <!-- WHAT WE'RE BUILDING -->
-        <section>
-            <h2>What We're Building</h2>
-            <div class="insight-box">
-                <p>The crisis showed us what's broken. The 5D plan shows us how to fix it.</p>
-                <p>Congress responds to organized voters. Not tweets. Not complaints. Numbers.</p>
-                <p>When enough people demand the same thing — district by district — Congress moves.</p>
-                <p class="red-emphasis">Protest without power gets you a news cycle. PHIERS gives you the power.</p>
-            </div>
-        </section>
-
-        <!-- FOOTER -->
-        <footer>
-            <h3 style="color:#4caf50;">PHIERS Movement | MABAH</h3>
-            <p><strong>Making America Better And Healthier</strong></p>
-            <p><a href="UNSTOPPABLE.html" style="color:#4caf50; text-decoration:none;">UNSTOPPABLE</a></p>
-            <div class="footer-button">
-                <a href="Leverage.html" class="btn btn-primary">🔧 Fix Congress Now</a>
-            </div>
-            <div class="footer-links">
-                <a href="index.html">Home</a> <span>|</span>
-                <a href="Quickstart.html">Quick Start</a> <span>|</span>
-                <a href="Action.html">Take Action</a> <span>|</span>
-                <a href="UNSTOPPABLE.html">UNSTOPPABLE</a> <span>|</span>
-                <a href="UNBREAKABLE.html">UNBREAKABLE</a> <span>|</span>
-                <a href="FAQ.html">FAQ</a> <span>|</span>
-                <a href="Media.html">Media</a> <span>|</span>
-                <a href="About.html">About</a> <span>|</span>
-                <a href="Donate.html">Donate</a> <span>|</span>
-                <a href="mailto:info@phiers.org">Contact</a>
-            </div>
-            <div style="color:#777; margin:30px 0;">PHIERS is a public-interest movement — not a company, not a product.<br>A people's movement. Not a penny from corporations.<br>The only thing missing is you.</div>
-            <p class="copyright">© PHIERS.org Since 2014 — Original Concept — All Rights Reserved<br>Prior art documented. PHIERS™, PHIERSale™, PHIERSWorks™ are protected marks established 2014–2025.</p>
-        </footer>
+    <div class="demand-card">
+      <h3>DEMAND #2 — Universal Healthcare in 8–13 Months</h3>
+      <p class="subtitle">Telehealth is the on-ramp. Universal care is the destination.</p>
+      <p>Once everyone has access to basic care, the cost of full coverage drops dramatically.</p>
+      <p style="color:var(--green);font-weight:700;margin-top:12px">Universal healthcare is no longer a 10-year dream. It becomes an 8–13 month inevitability.</p>
+      <p>This isn't ideology. It's math. And it's the foundation for everything that comes next.</p>
     </div>
 
-    <!-- scroll top -->
-    <a href="#" class="scroll-top" id="scrollTop">↑</a>
-
-    <!-- image modal -->
-    <div id="imageModal" class="image-modal" onclick="closeModal(event)">
-        <span class="close-modal" onclick="closeModal(event)">&times;</span>
-        <img class="modal-content" id="modalImage">
+    <div class="demand-card">
+      <h3>DEMAND #3 — Universal Basic Income (UBI)</h3>
+      <p class="subtitle">Funded by the $2.73 trillion we're already wasting.</p>
+      <p>The $2.73T isn't "new spending." It's the money we're already losing to administrative waste, denials, inflated drug prices, middlemen, profit extraction, and inefficiency baked into the system.</p>
+      <p><strong>We're not asking Congress to raise taxes.</strong> We're asking them to stop burning money and redirect the savings into:</p>
+      <ul>
+        <li>A national UBI</li>
+        <li>Economic stability</li>
+        <li>Entrepreneurship</li>
+        <li>Resilience</li>
+        <li>Dignity</li>
+      </ul>
+      <p style="color:var(--green);font-weight:700;margin-top:12px">This is how we stabilize people — permanently.</p>
     </div>
 
-    <script>
-        function toggleMobileMenu() {
-            document.getElementById('navLinks').classList.toggle('active');
-        }
+    <div class="demand-card">
+      <h3>DEMAND #4 — Millions of AI-Resistant Jobs</h3>
+      <p class="subtitle">Stability creates capacity. Capacity creates opportunity.</p>
+      <p>When people have healthcare, income stability, and breathing room, they can retrain, relocate, start businesses, fill essential roles, and build new industries.</p>
+      <p style="color:var(--green);font-weight:700;margin-top:12px">This is how we create millions of jobs that automation can't erase. This is how we rebuild the middle class.</p>
+    </div>
 
-        function togglePrimer() {
-            var c = document.getElementById('primerContent');
-            var icon = document.getElementById('primerIcon');
-            c.classList.toggle('expanded');
-            icon.textContent = c.classList.contains('expanded') ? '▲' : '▼';
-        }
+    <div class="demand-card">
+      <h3>DEMAND #5 — Guardrails Against Authoritarianism</h3>
+      <p class="subtitle">Economic stability is political stability.</p>
+      <p>When people are healthy, housed, fed, stable, and secure, they are harder to manipulate, harder to divide, harder to radicalize, and harder to control.</p>
+      <p style="color:var(--green);font-weight:700;margin-top:12px">Economic stability is the strongest defense against authoritarian drift.</p>
+      <p>This is how we protect democracy — not with speeches, but with material stability.</p>
+    </div>
+  </div>
 
-        function openModal(src) {
-            document.getElementById('imageModal').style.display = 'block';
-            document.getElementById('modalImage').src = src;
-            document.body.style.overflow = 'hidden';
-        }
-        function closeModal(e) {
-            if (e.target === document.getElementById('imageModal') || e.target.classList.contains('close-modal')) {
-                document.getElementById('imageModal').style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        }
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('img').forEach(img => {
-                if (!img.src.includes('PHIERS_Logo') && !img.src.includes('Rubiks_Cube')) {
-                    img.style.cursor = 'pointer';
-                    img.addEventListener('click', () => openModal(img.src));
-                }
-            });
-            document.getElementById('modalImage').addEventListener('click', e => e.stopPropagation());
-        });
+  <hr class="divider">
 
-        window.addEventListener('scroll', function() {
-            document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 500);
-        });
-        document.getElementById('scrollTop').addEventListener('click', function(e) {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+  <!-- 5D DIAGRAM -->
+  <div class="section">
+    <span class="eyebrow">The 5D Loop</span>
+    <h2>A Loop, <span class="green">Not a Line.</span></h2>
+    <div class="graphic-wrap">
+      <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_5D_Solutions.png"
+           alt="PHIERS 5D Solutions Framework"
+           onclick="openModal(this.src,this.alt)">
+      <p class="graphic-caption">Fundamentals • Distribution • Digital • Demand • Direct Pay → Affordable Healthcare</p>
+    </div>
+    <div class="highlight-box">
+      <ul style="list-style:none;margin:0;padding:0">
+        <li>✓ Healthcare savings fund UBI</li>
+        <li>✓ UBI fuels job creation</li>
+        <li>✓ Job creation stabilizes democracy</li>
+        <li>✓ Stability strengthens healthcare</li>
+        <li>✓ Healthcare reduces costs further</li>
+      </ul>
+      <p style="text-align:center;margin-top:20px;font-size:1.05rem;color:var(--green)"><strong>Self-reinforcing progress — the opposite of the downward spiral we're in now.</strong></p>
+    </div>
+    <p style="text-align:center;font-size:1.15rem;margin-top:24px"><strong>This is the soul of the movement.</strong></p>
+  </div>
 
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                document.getElementById('imageModal').style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        });
-    </script>
+  <hr class="divider">
+
+  <!-- DRUG DEV COSTS -->
+  <div class="section">
+    <span class="eyebrow">On Drug Costs</span>
+    <h2>$2.73T Savings →<br><span class="green">Universal Basic Income.</span></h2>
+    <p>Once healthcare stops draining people, employers, and government budgets, the savings become the fuel for economic stability, entrepreneurship, resilience, and dignity.</p>
+    <div class="graphic-wrap">
+      <img src="Drug_DEV_Costs__UAEM.png"
+           alt="Drug Development Cost Comparison - Academic vs Big Pharma"
+           onclick="openModal(this.src,this.alt)">
+      <p class="graphic-caption">Academic labs develop drugs at 1/24th the cost. Big Pharma just charges more.</p>
+    </div>
+    <p style="color:var(--green);font-weight:700">This isn't charity. It's returning the value we're already creating.</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- TIMELINE -->
+  <div class="section">
+    <span class="eyebrow">The Timeline</span>
+    <h2>From 3.5% to <span class="gold">July 4.</span></h2>
+    <p>We're not asking for miracles. We're following the math.</p>
+
+    <div class="timeline-item">
+      <div class="timeline-step">Step 1 — 3.5% Threshold Reached</div>
+      <p>This forces Congress to authorize the telehealth cascade.</p>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-step">Step 2 — Authorization → Exponential Growth</div>
+      <p>Once authorized, the cascade grows automatically:</p>
+      <div class="cascade-formula">1 → 12 → 148 → 1,776 → 21,312 → 255,744 → 3,068,928 → 36,827,136 → 442,000,000+</div>
+      <p>This is how systems scale.</p>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-step">Step 3 — 100 Million Members by July 4</div>
+      <p>Not because of hope. Because of math.</p>
+      <p style="color:var(--green);font-weight:700;margin-top:12px">Independence Day becomes the day America becomes independent from corporate healthcare.</p>
+    </div>
+
+    <p style="text-align:center;margin-top:24px;font-size:1.1rem"><strong>That's the arc. That's the meaning. That's the movement.</strong></p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- FINAL CTA -->
+  <div class="final-cta section">
+    <h2>Congress Ignored All Five Dimensions.<br><span class="blue">We're Fixing Them Anyway.</span></h2>
+    <p style="font-size:1.05rem;margin:16px 0">The cascade starts when you act:</p>
+    <div style="background:rgba(255,255,255,0.05);padding:16px 20px;border-radius:8px;margin:20px 0">
+      <p style="font-size:1.1rem;color:var(--text-bright);font-weight:700;text-align:center">Sign → Force Telehealth → Trigger 5D Cascade → 234M Covered → System Fixed</p>
+    </div>
+    <p style="margin-bottom:24px">This is survival math. And it starts with you.</p>
+    <div class="cta-row">
+      <a href="action.html" class="btn-primary">Force Congress to Act</a>
+      <a href="https://chng.it/PmmrfFDK6P" target="_blank" class="btn-secondary">✍ Sign the Petition</a>
+    </div>
+  </div>
+
+  <div class="page-nav">
+    <a href="SimpleMath.html">← Previous: Simple Math</a>
+    <a href="Leverage.html">Next: Leverage →</a>
+  </div>
+
+</div>
+
+<footer>
+  <img src="PHIERS_Logo.png" alt="PHIERS.org" class="footer-logo">
+  <div class="footer-mabah">MABAH — Making America Better And Healthier</div>
+  <div class="footer-mabah-sub">Sounds like MAGA. But a lot bettah.</div>
+  <div class="footer-tagline">PHIERS is a citizen coalition using collective leverage to force Congress to fix healthcare — or replace them.</div>
+  <nav class="footer-nav">
+    <a href="index.html">Home</a><a href="Quickstart.html">Quick Start</a><a href="OVERVIEW.html">Overview</a>
+    <a href="Crisis.html">Crisis</a><a href="SimpleMath.html">Simple Math</a><a href="5D_Solutions.html">5D Solutions</a>
+    <a href="action.html">Action</a><a href="Leverage.html">Leverage</a><a href="FAQ.html">FAQ</a>
+    <a href="real-stories.html">Real Stories</a><a href="Resources.html">Resources</a>
+    <a href="Media.html">Media</a><a href="About.html">About</a><a href="Donate.html">Donate</a>
+  </nav>
+  <div class="footer-copy">
+    Not built for profit. Not built for power. Built for We the People — by people who refused to stop.<br>
+    Will Price | Chief Solutions Architect · <a href="tel:+19163068967">(916) 306-8967</a> · <a href="mailto:info@phiers.org">info@phiers.org</a><br>
+    © PHIERS.org — Original Concept Since 2009. All Rights Reserved.
+  </div>
+</footer>
+
+<div class="image-modal" id="imageModal">
+  <button class="close-modal" onclick="closeModal()">✕</button>
+  <img class="modal-content" id="modalImg" alt="">
+</div>
+
+<script>
+  window.addEventListener('scroll',()=>{ document.getElementById('main-nav').classList.toggle('scrolled',window.scrollY>50); });
+  function toggleMenu(){ document.getElementById('mobile-menu').classList.toggle('open'); }
+  document.querySelectorAll('.mobile-menu a').forEach(a=>{ a.addEventListener('click',()=>document.getElementById('mobile-menu').classList.remove('open')); });
+  function openModal(src,alt){ document.getElementById('modalImg').src=src; document.getElementById('modalImg').alt=alt||''; document.getElementById('imageModal').classList.add('active'); document.body.style.overflow='hidden'; }
+  function closeModal(){ document.getElementById('imageModal').classList.remove('active'); document.body.style.overflow=''; }
+  document.getElementById('imageModal').addEventListener('click',function(e){ if(e.target===this) closeModal(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeModal(); });
+</script>
 </body>
 </html>
