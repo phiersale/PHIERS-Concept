@@ -854,7 +854,7 @@
     <div class="nav-tagline">MABAH — Making America Better And Healthier<br>Sounds like MAGA. But a lot bettah.</div>
   </div>
   <div class="nav-right">
-    <a href="https://www.change.org/p/congress-the-public-is-coordinating-it-s-time-to-answer" target="_blank" class="btn-petition">✍ Sign Now</a>
+    <a href="https://chng.it/PmmrfFDK6P" target="_blank" class="btn-petition">✍ Sign Now</a>
     <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">☰</button>
   </div>
 </nav>
@@ -891,7 +891,7 @@
   </div>
 
   <div class="cta-row">
-    <a href="https://www.change.org/p/congress-the-public-is-coordinating-it-s-time-to-answer" target="_blank" class="btn-primary">✍ Sign the Petition</a>
+    <a href="https://chng.it/PmmrfFDK6P" target="_blank" class="btn-primary">✍ Sign the Petition</a>
     <a href="#teeth" class="btn-secondary">→ Learn How Leverage Works</a>
   </div>
 
@@ -978,7 +978,7 @@
   <p style="margin-top:24px;font-style:italic;color:var(--text-dim)">This isn't a policy failure. It's a leverage failure. PHIERS-power gives us the leverage to fix it.</p>
 
   <div class="cta-row">
-    <a href="https://www.change.org/p/congress-the-public-is-coordinating-it-s-time-to-answer" target="_blank" class="btn-primary">✍ Sign the Petition</a>
+    <a href="https://chng.it/PmmrfFDK6P" target="_blank" class="btn-primary">✍ Sign the Petition</a>
   </div>
 </section>
 
@@ -1006,7 +1006,7 @@
     <p>When we reach that number, every member of Congress will know the public is coordinated — district by district. They will have to respond.</p>
 
     <div class="cta-row">
-      <a href="https://www.change.org/p/congress-the-public-is-coordinating-it-s-time-to-answer" target="_blank" class="btn-primary">✍ Join the 3.5%</a>
+      <a href="https://chng.it/PmmrfFDK6P" target="_blank" class="btn-primary">✍ Join the 3.5%</a>
     </div>
   </div>
 </section>
@@ -1052,7 +1052,7 @@
 
   <div class="cta-row">
     <a href="SimpleMath.html" target="_blank" class="btn-secondary">→ See the Full $600 Breakdown</a>
-    <a href="https://www.change.org/p/congress-the-public-is-coordinating-it-s-time-to-answer" target="_blank" class="btn-primary">✍ Sign the Petition</a>
+    <a href="https://chng.it/PmmrfFDK6P" target="_blank" class="btn-primary">✍ Sign the Petition</a>
   </div>
 
   <div style="margin-top:28px;border:1px solid var(--border);border-radius:6px;overflow:hidden">
@@ -1123,7 +1123,7 @@
     </div>
 
     <div class="cta-row">
-      <a href="https://www.change.org/p/congress-the-public-is-coordinating-it-s-time-to-answer" target="_blank" class="btn-primary">✍ Be Part of the 3.5%</a>
+      <a href="https://chng.it/PmmrfFDK6P" target="_blank" class="btn-primary">✍ Be Part of the 3.5%</a>
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSdETA-oNIeOAzEsG4GsYiiws1YBpLunx8ioVJkZac5hzSxaZw/viewform?usp=header" target="_blank" class="btn-secondary">📋 Take the Survey</a>
     </div>
   </div>
@@ -1262,7 +1262,7 @@
     </div>
 
     <div class="cta-row" style="justify-content:center">
-      <a href="https://www.change.org/p/congress-the-public-is-coordinating-it-s-time-to-answer" target="_blank" class="btn-primary">✍ Sign the Petition</a>
+      <a href="https://chng.it/PmmrfFDK6P" target="_blank" class="btn-primary">✍ Sign the Petition</a>
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSdETA-oNIeOAzEsG4GsYiiws1YBpLunx8ioVJkZac5hzSxaZw/viewform?usp=header" target="_blank" class="btn-secondary">📋 Take the Survey</a>
     </div>
   </div>
@@ -1319,7 +1319,7 @@
     <p>The No Kings Rally showed our power.<br>PHIERS makes it permanent.<br><strong style="color:var(--green)">PHIERS gives it teeth.</strong></p>
 
     <div class="cta-row" style="justify-content:center">
-      <a href="https://www.change.org/p/congress-the-public-is-coordinating-it-s-time-to-answer" target="_blank" class="btn-primary">✍ Sign the Petition</a>
+      <a href="https://chng.it/PmmrfFDK6P" target="_blank" class="btn-primary">✍ Sign the Petition</a>
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSdETA-oNIeOAzEsG4GsYiiws1YBpLunx8ioVJkZac5hzSxaZw/viewform?usp=header" target="_blank" class="btn-secondary">📋 Take the Survey</a>
     </div>
 
@@ -1464,7 +1464,18 @@
   // Mobile active page highlight
   (function() {
     var path = window.location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('.mobile-menu a').forEach(f
+    document.querySelectorAll('.mobile-menu a').forEach(function(a) {
+      if (a.getAttribute('href') === path) a.style.color = 'var(--green)';
+    });
+  })();
+
+  var btt = document.getElementById('back-to-top');
+  if (btt) {
+    window.addEventListener('scroll', function() { btt.classList.toggle('visible', window.scrollY > 400); });
+    btt.addEventListener('click', function() { window.scrollTo({top:0,behavior:'smooth'}); });
+  }
+
 </script>
+<button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
 </body>
 </html>
