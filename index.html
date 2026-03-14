@@ -925,7 +925,7 @@
     <h4>📬 Stay Informed</h4>
     <p>Be the first to know when PHIERS.org benefits become available — and when it's time to summon Congress to account in your district. That's how we force change.</p>
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSdETA-oNIeOAzEsG4GsYiiws1YBpLunx8ioVJkZac5hzSxaZw/viewform?usp=header" target="_blank" class="nl-btn">→ Join the Newsletter</a>
-    <p class="nl-note">No spam. No fundraising. Just the signal when it matters. · <a href="/cdn-cgi/l/email-protection#e38a8d858ca3938b8a869190cd8c9184" style="color:var(--green)"><span class="__cf_email__" data-cfemail="721b1c141d32021a1b1700015c1d0015">[email&#160;protected]</span></a></p>
+    <p class="nl-note">No spam. No fundraising. Just the signal when it matters. · <a href="mailto:info@phiers.org" style="color:var(--green)">info@phiers.org</a></p>
   </div>
 </section>
 
@@ -1224,7 +1224,7 @@
       </div>
     </div>
     <div class="video-wrap" id="wrap-unions">
-      <div class="video-facade" onclick="playVideo('unions','https://www.youtube.com/embed/VdeniYs1QsQ?autoplay=1&rel=0')" style="background-image:url('https://img.youtube.com/vi/VdeniYs1QsQ/maxresdefault.jpg');background-size:cover;background-position:center;position:relative;"><div style="position:absolute;inset:0;background:rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center;font-size:3rem;color:rgba(255,255,255,0.9);transition:color 0.2s">▶</div></div>
+      <div class="video-facade" onclick="playVideo('unions','https://www.youtube.com/embed/VdeniYs1QsQ?autoplay=1&rel=0')" style="background-image:url('https://img.youtube.com/vi/VdeniYs1QsQ/hqdefault.jpg');background-size:cover;background-position:center;position:relative;"><div style="position:absolute;inset:0;background:rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center;font-size:3rem;color:rgba(255,255,255,0.9);transition:color 0.2s">▶</div></div>
       <div class="video-info">
         <div class="video-title">Why PHIERS.org-powered unions will win</div>
         <div class="video-meta">5:55 · Union Strategy</div>
@@ -1333,7 +1333,7 @@
     <h4>📬 Stay Informed</h4>
     <p>Be the first to know when PHIERS.org benefits become available — and when it's time to summon Congress to account in your district. That's how we force change.</p>
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSdETA-oNIeOAzEsG4GsYiiws1YBpLunx8ioVJkZac5hzSxaZw/viewform?usp=header" target="_blank" class="nl-btn">→ Join the Newsletter</a>
-    <p class="nl-note">No spam. No fundraising. Just the signal when it matters. · <a href="/cdn-cgi/l/email-protection#a8c1c6cec7e8d8c0c1cddadb86c7dacf" style="color:var(--green)"><span class="__cf_email__" data-cfemail="761f18101936061e1f13040558190411">[email&#160;protected]</span></a></p>
+    <p class="nl-note">No spam. No fundraising. Just the signal when it matters. · <a href="mailto:info@phiers.org" style="color:var(--green)">info@phiers.org</a></p>
   </div>
 </section>
 
@@ -1367,7 +1367,7 @@
   </nav>
   <div class="footer-copy">
     Not built for profit. Not built for power. Built for We the People — by people who refused to stop.<br>
-    📧 <a href="/cdn-cgi/l/email-protection#8ce5e2eae3ccfce4e5e9feffa2e3feeb"><span class="__cf_email__" data-cfemail="c0a9aea6af80b0a8a9a5b2b3eeafb2a7">[email&#160;protected]</span></a><br>
+    📧 <a href="mailto:info@phiers.org">info@phiers.org</a><br>
     © PHIERS.org — Original Concept Since 2009. All Rights Reserved.<br>
     <span style="font-size:0.75rem">PHIERS™ · PHIERSale™ · PHIERWorks™ — Protected marks established 2009–2025.</span>
   </div>
@@ -1402,7 +1402,7 @@
 <!-- ═══════════════════════════════════════════════
      JAVASCRIPT
 ═══════════════════════════════════════════════ -->
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // Nav scroll
   window.addEventListener('scroll', () => {
     document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 50);
@@ -1465,4 +1465,22 @@
   (function() {
     var path = window.location.pathname.split('/').pop() || 'index.html';
     document.querySelectorAll('.mobile-menu a').forEach(function(a) {
-      if (a.ge
+      if (a.getAttribute('href') === path) a.style.color = 'var(--green)';
+    });
+  })();
+
+  // Back to top
+  var btt = document.getElementById('back-to-top');
+  if (btt) {
+    window.addEventListener('scroll', function() {
+      btt.classList.toggle('visible', window.scrollY > 400);
+    });
+    btt.addEventListener('click', function() {
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+  }
+
+</script>
+<button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
+</body>
+</html>
