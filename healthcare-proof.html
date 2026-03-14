@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHIERS - Make America Better And Healthier</title>
+    <meta name="description" content="PHIERS: A national citizen coalition using math, not ideology — and leverage, not hope — to force Congress to fix healthcare or face replacement.">
+    <meta property="og:title" content="PHIERS — The Math Congress Fears. The Movement They Can't Stop.">
+    <meta property="og:description" content="$600 replaces $10,000. 3.5% forces Congress to act — or we replace them. Join 11.6 million Americans and make healthcare unignorable.">
+    <meta property="og:image" content="https://phiersale.github.io/PHIERS-Concept/PHIERS_Logo.png">
+    <meta property="og:url" content="https://phiersale.github.io/PHIERS-Concept/index.html">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://phiersale.github.io/PHIERS-Concept/index.html" />
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #e0e0e0;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { max-width: 900px; margin: 0 auto; }
+        .global-nav {
+            background: rgba(26, 26, 46, 0.95);
+            border: 1px solid rgba(76, 175, 80, 0.3);
+            border-radius: 8px;
+            padding: 12px 20px;
+            margin-bottom: 30px;
+            position: sticky;
+            top: 10px;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+        .mobile-menu-toggle {
+            display: block;
+            background: transparent;
+            border: 1px solid #4caf50;
+            color: #4caf50;
+            font-size: 1.8em;
+            padding: 5px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+        }
+        .nav-links-container {
+            display: none; flex-wrap: wrap;
+            align-items: center; justify-content: center;
+            gap: 5px; width: 100%;
+        }
+        .nav-links-container.active { display: flex; }
+        .nav-item {
+            color: #81c784; text-decoration: none;
+            padding: 8px 12px; border-radius: 4px;
+            font-size: 0.9em; font-weight: 500;
+            transition: all 0.3s ease; white-space: nowrap;
+        }
+        .nav-item:hover { background: rgba(76, 175, 80, 0.2); color: #4caf50; }
+        .nav-item.active { background: rgba(76, 175, 80, 0.3); color: #4caf50; font-weight: bold; }
+        .dropdown { position: relative; display: inline-block; }
+        .dropbtn {
+            background: transparent; color: #81c784;
+            padding: 8px 12px; font-size: 0.9em; font-weight: 500;
+            border: none; cursor: pointer; border-radius: 4px;
+            font-family: inherit;
+        }
+        .dropbtn:hover { background: rgba(76, 175, 80, 0.2); color: #4caf50; }
+        .dropdown-content {
+            display: none; position: absolute; top: 100%; right: 0;
+            background: rgba(26, 26, 46, 0.98); min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+            z-index: 1001; border-radius: 8px;
+            border: 1px solid rgba(76, 175, 80, 0.3); padding: 8px 0;
+        }
+        .dropdown-content a {
+            color: #81c784; padding: 10px 16px;
+            text-decoration: none; display: block;
+            font-size: 0.9em;
+        }
+        .dropdown-content a:hover { background: rgba(76, 175, 80, 0.2); color: #4caf50; }
+        .dropdown:hover .dropdown-content { display: block; }
+        .dropdown:hover .dropbtn { background: rgba(76, 175, 80, 0.2); color: #4caf50; }
+        @media (max-width: 768px) {
+            .global-nav { padding: 10px; }
+            .nav-item, .dropdown { width: 100%; text-align: center; }
+            .dropdown-content { position: static; width: 100%; margin-top: 5px; }
+            .dropbtn { width: 100%; }
+        }
+        .hero {
+            text-align: center;
+            padding: 50px 20px 40px;
+            background: linear-gradient(135deg, rgba(15, 52, 96, 0.9), rgba(22, 33, 62, 0.9));
+            border-radius: 12px;
+            margin-bottom: 40px;
+            border: 2px solid rgba(244, 67, 54, 0.3);
+        }
+        .hero-logo { max-width: 140px; margin-bottom: 15px; }
+        .mabah-full { font-size: 1.1em; color: #81c784; font-weight: 600; margin-bottom: 5px; letter-spacing: 0.5px; }
+        .mabah-tagline { font-size: 1.2em; color: #4caf50; font-weight: bold; margin-bottom: 15px; font-style: italic; }
+        .hero h1 { color: #f44336; font-size: clamp(1.4rem, 5vw, 2.8rem); line-height: 1.2; margin-bottom: 15px; }
+        .hero .subhead { font-size: 1.3em; color: #c8e6c9; font-style: italic; }
+        .hero-glance {
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(76,175,80,0.35);
+            border-radius: 10px;
+            padding: 20px 28px;
+            margin: 28px auto 0;
+            max-width: 700px;
+            text-align: left;
+        }
+        .hero-glance h3 {
+            color: #81c784; font-size: 0.82em;
+            text-transform: uppercase; letter-spacing: 0.14em;
+            margin-bottom: 12px;
+        }
+        .hero-glance ul { margin: 0 0 0 1.2em; }
+        .hero-glance li { color: #c8e6c9; font-size: 1em; margin-bottom: 7px; }
+        .hero-cta-row {
+            margin-top: 28px;
+            display: flex; flex-wrap: wrap;
+            gap: 14px; justify-content: center;
+        }
+        .phiers-media-block { width: 100%; max-width: 600px; margin: 40px auto; }
+        .phiers-media-block img {
+            width: 100%; height: auto; display: block;
+            border-radius: 6px; border: 2px solid rgba(76, 175, 80, 0.3);
+            cursor: pointer;
+        }
+        .phiers-video-wrapper {
+            position: relative; width: 100%; padding-bottom: 56.25%;
+            height: 0; border-radius: 8px; overflow: hidden;
+        }
+        .phiers-video-wrapper iframe {
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%; border: none;
+        }
+        @media (max-width: 768px) { .phiers-media-block { max-width: 100%; } }
+        h2 {
+            color: #4caf50; font-size: 1.8em;
+            margin: 50px 0 30px;
+            border-bottom: 2px solid rgba(76, 175, 80, 0.3);
+            padding-bottom: 10px;
+        }
+        p { color: #c8e6c9; margin: 20px 0; line-height: 1.8; font-size: 1.1em; }
+        .insight-box {
+            background: rgba(33, 150, 243, 0.1);
+            border: 2px solid #2196f3; border-left: 5px solid #2196f3;
+            padding: 30px; margin: 30px 0; border-radius: 8px;
+        }
+        .solution-box {
+            background: rgba(76, 175, 80, 0.1);
+            border: 2px solid #4caf50; border-left: 5px solid #4caf50;
+            padding: 30px; margin: 30px 0; border-radius: 8px;
+        }
+        .btn {
+            background: linear-gradient(135deg, #4caf50, #2e7d32);
+            color: white; padding: 16px 36px;
+            font-size: 1.2em; font-weight: bold;
+            border: 2px solid #4caf50; border-radius: 8px;
+            text-decoration: none; display: inline-block;
+            margin: 8px 0;
+        }
+        .btn-warning {
+            background: linear-gradient(135deg, #f5c842, #e0a800);
+            border-color: #f5c842; color: #000;
+        }
+        .green-emphasis { color: #4caf50; font-weight: bold; font-size: 1.2em; }
+        footer {
+            text-align: center; padding: 40px 20px; margin-top: 80px;
+            border-top: 2px solid rgba(76, 175, 80, 0.3);
+            background: rgba(26, 26, 46, 0.6); border-radius: 8px;
+        }
+        .footer-links {
+            display: flex; flex-wrap: wrap; gap: 20px;
+            justify-content: center; margin: 20px 0;
+        }
+        .footer-links a { color: #81c784; text-decoration: none; }
+        .footer-links a:hover { color: #4caf50; }
+        .copyright { color: #666; font-size: 0.8em; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <nav class="global-nav">
+            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</div>
+            <div class="nav-links-container" id="navLinks">
+                <a href="index.html" class="nav-item active">Home</a>
+                <a href="Crisis.html" class="nav-item">Crisis</a>
+                <a href="Telehealth-Insurance.html" class="nav-item" style="color:#f5c842; font-weight:700;">Telehealth</a>
+                <a href="SimpleMath.html" class="nav-item">Simple Math</a>
+                <a href="5D_Solutions.html" class="nav-item">5D Solutions</a>
+                <a href="Leverage.html" class="nav-item">Leverage</a>
+                <a href="Action.html" class="nav-item">Action</a>
+                <a href="Roadmap.html" class="nav-item">Roadmap</a>
+                <a href="Donate.html" class="nav-item">Donate</a>
+                <div class="dropdown">
+                    <button class="dropbtn">More ▼</button>
+                    <div class="dropdown-content">
+                        <a href="FAQ.html">FAQ</a>
+                        <a href="Origins.html">Origins</a>
+                        <a href="Media.html">Media</a>
+                        <a href="About.html">About</a>
+                        <a href="Quickstart.html">Quickstart</a>
+                        <a href="Veterans.html">Veterans</a>
+                        <a href="SOTU-Response.html">SOTU Response</a>
+                        <a href="Union-Strategy.html">Union Strategy</a>
+                        <a href="Telehealth-Insurance.html">Telehealth vs Insurance</a>
+                        <a href="Real-Stories.html">Real Stories</a>
+                        <a href="NoWar.html" style="color:#f44336; font-weight:600;">⚡ End the War</a>
+                        <a href="UNSTOPPABLE.html">UNSTOPPABLE</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="hero">
+            <img src="PHIERS_Logo.png" alt="PHIERS Logo" class="hero-logo">
+            <div class="mabah-full">MABAH — Making America Better And Healthier</div>
+            <div class="mabah-tagline">Sounds Like MAGA, But A Lot Bettah</div>
+            <h1>The Math Congress Fears. <span style="color:#4caf50; white-space:nowrap;">The Movement They Can't Stop.</span></h1>
+
+        </div>
+
+        <div style="max-width:640px; margin: 0 auto 40px; padding: 0 10px;">
+            <p style="text-align:center; color:#f5c842; font-weight:600; margin-bottom:10px; font-size:1em;">▶ The 60-second PHIERS brief — watch this first</p>
+            <div style="position:relative; width:100%; padding-bottom:56.25%; height:0; border-radius:8px; overflow:hidden;">
+                <iframe
+                    src="https://www.youtube.com/embed/2j-dF3hgdeE"
+                    title="PHIERS Introduction"
+                    frameborder="0"
+                    loading="lazy"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    style="position:absolute; top:0; left:0; width:100%; height:100%; border:none;">
+                </iframe>
+            </div>
+            <div style="text-align:center; margin-top:12px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+                <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now-short-version" target="_blank" style="color:#f5c842; font-size:0.9em; text-decoration:underline;">✅ Sign the Petition</a>
+                <span style="color:#555;">|</span>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdETA-oNIeOAzEsG4GsYiiws1YBpLunx8ioVJkZac5hzSxaZw/viewform?usp=header" target="_blank" style="color:#81c784; font-size:0.9em; text-decoration:underline;">📋 Take the Survey</a>
+            </div>
+        </div>
+
+        <section>
+            <h2>What Is PHIERS?</h2>
+            <div class="insight-box">
+                <p style="font-size:1.5em; color:#4caf50; font-weight:800; margin-bottom:10px; line-height:1.3;">Politicians respond to organized power.<br>PHIERS organizes the public.</p>
+                <p style="margin-bottom:6px;"><strong>PHIERS isn't a policy campaign.</strong> It's a way for regular Americans to give Congress documented direction — and replace the ones who ignore it.</p>
+                <p>When millions of people say the same thing — on the record — Congress has to act. We don't ask people to yell louder. We help them line up behind one clear demand.</p>
+
+                <p>We use <strong style="color:#4caf50;">math and collective power</strong> to force Congress to stabilize healthcare, protect coverage, and stop using people's lives as bargaining chips.</p>
+                <p><strong>America is getting squeezed from all sides</strong> — rising costs, unstable jobs, political gridlock, and falling trust. These problems are connected. They need a connected solution.</p>
+                <p><strong>Healthcare is just the start.</strong> PHIERS is built as a permanent coordination system — a way for Americans to organize around practical solutions across the economy, national security, and more. When one part stabilizes, the others get stronger.</p>
+            </div>
+        </section>
+
+        <!-- IMAGE: Telehealth Saves Big -->
+        <div style="text-align:center; margin: 36px 0; padding: 20px; background: rgba(0,0,0,0.25); border-radius: 10px; border: 1px solid rgba(76,175,80,0.2);">
+            <img src="Telehealth_Benefits.jpg"
+                 alt="Telehealth Benefits: 24/7 doctors, fast prescriptions, no waiting rooms, mental health support, zero surprise bills — under $50/mo"
+                 style="max-width:50%; height:auto; border-radius:8px; cursor:pointer; display:block; margin:0 auto; transition:transform 0.3s;"
+                 onclick="openModal(this.src)"
+                 onmouseover="this.style.transform='scale(1.02)'"
+                 onmouseout="this.style.transform='scale(1)'">
+            <p style="margin:12px 0 0; font-size:0.9em; color:#81c784; font-style:italic;">Everything you actually need — under $50/month. No waiting rooms. No surprise bills. No gatekeepers.</p>
+        </div>
+
+        <!-- TELEHEALTH SECTION — UP FRONT AND CENTER -->
+        <section style="margin: 50px 0; padding: 36px 30px; background: rgba(76,175,80,0.08); border: 2px solid rgba(76,175,80,0.35); border-left: 6px solid #4caf50; border-radius: 12px;">
+            <h2 style="margin-top:0; color:#4caf50; font-size:1.7em;">Telehealth Is the Answer to the Affordability Crisis</h2>
+            <p style="font-size:1.15em; color:#e0e0e0; font-weight:600; margin-bottom:6px;">$600 telehealth replaces $10,000 insurance.<br>That's not a slogan — it's the math Congress doesn't want you to know.</p>
+
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:16px; margin:24px 0;">
+                <div style="background:rgba(26,26,46,0.9); border:1px solid rgba(76,175,80,0.3); border-radius:8px; padding:20px;">
+                    <p style="color:#4caf50; font-weight:800; font-size:1.3em; margin:0 0 8px;">80%</p>
+                    <p style="margin:0; color:#c8e6c9; font-size:0.95em;">of Americans never use hospitalization or specialty care. They're paying $10,000/year for protection they don't need.</p>
+                </div>
+                <div style="background:rgba(26,26,46,0.9); border:1px solid rgba(76,175,80,0.3); border-radius:8px; padding:20px;">
+                    <p style="color:#4caf50; font-weight:800; font-size:1.3em; margin:0 0 8px;">$600/yr</p>
+                    <p style="margin:0; color:#c8e6c9; font-size:0.95em;">Telehealth delivers 80% of healthcare needs — 24/7 access, no gatekeepers, no denials — at 1/14th the cost.</p>
+                </div>
+                <div style="background:rgba(26,26,46,0.9); border:1px solid rgba(76,175,80,0.3); border-radius:8px; padding:20px;">
+                    <p style="color:#4caf50; font-weight:800; font-size:1.3em; margin:0 0 8px;">8–13 mo.</p>
+                    <p style="margin:0; color:#c8e6c9; font-size:0.95em;">From Congressional authorization to universal coverage. Congress has the authority under the ACA. They can do this tomorrow.</p>
+                </div>
+            </div>
+
+            <p style="color:#c8e6c9; margin:0 0 10px;"><strong style="color:#ffffff;">Telehealth is care. Insurance is protection.</strong> Most Americans are paying for catastrophic coverage they never use — while skipping routine care they can't afford. PHIERS fixes the system by separating the two: <strong style="color:#4caf50;">$600 telehealth for the 80%. Insurance as the backstop for the rest.</strong></p>
+            <p style="color:#c8e6c9; margin:0 0 20px;">Our one demand to Congress: <strong style="color:#f5c842;">add $600 telehealth as a covered benefit under the ACA Exchange and CMS.</strong> That single change stabilizes costs for 234 million Americans — and saves roughly $2.7 trillion a year. <a href="https://www.cms.gov/data-research/statistics-trends-and-reports/national-health-expenditure-data" target="_blank" rel="noopener" style="color:#81c784; font-size:0.85em;">[CMS National Health Expenditure Data]</a></p>
+
+            <a href="Telehealth-Insurance.html" style="display:inline-block; background:linear-gradient(135deg,#4caf50,#2e7d32); color:#fff; font-weight:800; font-size:1.05em; padding:14px 30px; border-radius:8px; text-decoration:none; border:2px solid #4caf50;">📱 See the Full Telehealth Case →</a>
+        </section>
+
+        <!-- BRIDGE: Telehealth → 5D → Start Where You Are -->
+        <div style="margin: 40px 0; padding: 26px 32px; background: rgba(26,26,46,0.9); border-left: 6px solid #f5c842; border-radius: 12px; text-align:center;">
+            <p style="font-size:1.2em; font-weight:700; color:#f5c842; margin:0 0 10px;">Fixing healthcare generates the savings to solve everything else.</p>
+            <p style="color:#c8e6c9; margin:0;">$2.7 trillion a year — freed from a broken system — is the fuel for the five connected problems facing this country: healthcare, jobs, economy, politics, and peace. PHIERS is built to solve all five. Healthcare is where we start.</p>
+        </div>
+
+        <section style="text-align: center; margin: 60px 0; padding: 40px 30px; background: rgba(76,175,80,0.07); border: 1px solid rgba(76,175,80,0.25); border-radius: 12px;">
+            <h2 style="margin-top: 0;">Start Where You Are</h2>
+            <p style="font-size: 1.1em; margin-bottom: 30px;">Pick the page that fits your question right now.</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; max-width: 700px; margin: 0 auto;">
+                <a href="Crisis.html" style="display:block; background:linear-gradient(135deg,#4caf50,#2e7d32); border-radius:8px; padding:16px 18px; text-decoration:none; color:white;">
+                    <div style="font-size:1.1em; font-weight:bold; margin-bottom:4px;">🚨 The Crisis</div>
+                    <div style="font-size:0.85em; opacity:0.88;">What's actually happening — and why Congress hasn't fixed it</div>
+                </a>
+                <a href="Telehealth-Insurance.html" style="display:block; background:linear-gradient(135deg,#1b5e20,#2e7d32); border-radius:8px; padding:16px 18px; text-decoration:none; color:white; border:2px solid #f5c842;">
+                    <div style="font-size:1.1em; font-weight:bold; margin-bottom:4px; color:#f5c842;">📱 The Fix: Telehealth</div>
+                    <div style="font-size:0.85em; opacity:0.88;">$600 replaces $10,000 — why telehealth is the answer</div>
+                </a>
+                <a href="SimpleMath.html" style="display:block; background:linear-gradient(135deg,#4caf50,#2e7d32); border-radius:8px; padding:16px 18px; text-decoration:none; color:white;">
+                    <div style="font-size:1.1em; font-weight:bold; margin-bottom:4px;">📊 The Math</div>
+                    <div style="font-size:0.85em; opacity:0.88;">$600 replaces $10,000 — here's exactly how</div>
+                </a>
+                <a href="5D_Solutions.html" style="display:block; background:linear-gradient(135deg,#4caf50,#2e7d32); border-radius:8px; padding:16px 18px; text-decoration:none; color:white;">
+                    <div style="font-size:1.1em; font-weight:bold; margin-bottom:4px;">🔧 The Solution</div>
+                    <div style="font-size:0.85em; opacity:0.88;">Five connected problems, one connected answer</div>
+                </a>
+                <a href="Leverage.html" style="display:block; background:linear-gradient(135deg,#4caf50,#2e7d32); border-radius:8px; padding:16px 18px; text-decoration:none; color:white;">
+                    <div style="font-size:1.1em; font-weight:bold; margin-bottom:4px;">⚡ The Leverage</div>
+                    <div style="font-size:0.85em; opacity:0.88;">How signatures turn into political power</div>
+                </a>
+                <a href="NoWar.html" style="display:block; background:linear-gradient(135deg,#b71c1c,#f44336); border-radius:8px; padding:16px 18px; text-decoration:none; color:white;">
+                    <div style="font-size:1.1em; font-weight:bold; margin-bottom:4px;">⚔️ End the War</div>
+                    <div style="font-size:0.85em; opacity:0.88;">How healthcare leverage forces Congress to end the war</div>
+                </a>
+                <a href="UNSTOPPABLE.html" style="display:block; background:linear-gradient(135deg,#4caf50,#2e7d32); border-radius:8px; padding:16px 18px; text-decoration:none; color:white;">
+                    <div style="font-size:1.1em; font-weight:bold; margin-bottom:4px;">💪 UNSTOPPABLE</div>
+                    <div style="font-size:0.85em; opacity:0.88;">Why this movement can't be blocked or bought out</div>
+                </a>
+                <a href="Action.html" style="display:block; background:linear-gradient(135deg,#f5c842,#e0a800); border-radius:8px; padding:16px 18px; text-decoration:none; color:#000;">
+                    <div style="font-size:1.1em; font-weight:bold; margin-bottom:4px;">✊ Take Action</div>
+                    <div style="font-size:0.85em; opacity:0.75;">Add your name to the public record</div>
+                </a>
+            </div>
+        </section>
+
+        <section>
+            <h2>How PHIERS Works</h2>
+            <div class="solution-box">
+                <p style="font-size:1.15em; margin-bottom:25px;"><strong>Four steps. No ideology. Just your voice on record.</strong></p>
+                <div style="display:grid; gap:22px;">
+                    <div style="display:flex; gap:18px; align-items:center;">
+                        <span style="color:#4caf50; font-size:1.8em; font-weight:bold; min-width:36px; text-align:right; flex-shrink:0;">1.</span>
+                        <p style="margin:0;"><strong style="color:#4caf50;">Sign the petition + take the survey</strong> — Your name, your position, on the public record.</p>
+                    </div>
+                    <div style="display:flex; gap:18px; align-items:center;">
+                        <span style="color:#4caf50; font-size:1.8em; font-weight:bold; min-width:36px; text-align:right; flex-shrink:0;">2.</span>
+                        <p style="margin:0;"><strong style="color:#4caf50;">1,500 signatures in YOUR DISTRICT</strong> — Forces a mandatory town hall. Congress can't ignore it.</p>
+                    </div>
+                    <div style="display:flex; gap:18px; align-items:flex-start;">
+                        <span style="color:#4caf50; font-size:1.8em; font-weight:bold; min-width:36px; text-align:right; flex-shrink:0; padding-top:2px;">3.</span>
+                        <p style="margin:0;"><strong style="color:#4caf50;">3.5% participation (11.6M people)</strong> — No campaign in history has ever failed after hitting this number. The Civil Rights Movement, Indian Independence, the People Power Revolution — all crossed this line. All won. <a href="https://www.hks.harvard.edu/publications/why-civil-resistance-works-strategic-logic-nonviolent-conflict" target="_blank" rel="noopener" style="color:#81c784; font-size:0.85em;">[Chenoweth, Harvard Kennedy School]</a></p>
+                    </div>
+                    <div style="display:flex; gap:18px; align-items:center;">
+                        <span style="color:#f44336; font-size:1.8em; font-weight:bold; min-width:36px; text-align:right; flex-shrink:0;">4.</span>
+                        <p style="margin:0;"><strong style="color:#f44336;">Replace elected officials who refuse to do the Will of the People</strong> — No exceptions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NO KINGS RALLY TIMING -->
+        <div style="margin: 30px 0; padding: 26px 32px; background: linear-gradient(135deg, rgba(244,67,54,0.12), rgba(245,200,66,0.08)); border: 2px solid #f5c842; border-radius: 12px; text-align:center;">
+            <p style="font-size:1.3em; font-weight:900; color:#f5c842; margin:0 0 10px; line-height:1.3;">⚡ Perfect timing — the No Kings Rally is March 28th.</p>
+            <p style="color:#c8e6c9; margin:0; font-size:1.05em;">If you want to turn that energy into <em>lasting change</em>, document your direction before you march. Protests create visibility. PHIERS creates leverage. You need both.</p>
+            <div style="margin-top:18px;">
+                <a href="Action.html" style="display:inline-block; background:linear-gradient(135deg,#f5c842,#e0a800); color:#000; font-weight:900; font-size:1.1em; padding:14px 34px; border-radius:8px; text-decoration:none; border:2px solid #f5c842;">✊ Take Action Before the Rally →</a>
+            </div>
+        </div>
+
+        <!-- PATHOS VIDEO — breaks up mechanics from proof -->
+        <div class="phiers-media-block" style="max-width:640px; margin: 50px auto 20px;">
+            <p style="text-align:center; color:#81c784; font-size:0.95em; margin-bottom:8px; font-style:italic;">A global PR leader listed on the London Stock Exchange explains why they put their name behind this movement:</p>
+            <p style="text-align:center; color:#f5c842; font-weight:700; margin-bottom:12px; font-size:1.1em;">Pathos Communications: Why They Put Their Reputation Behind PHIERS (7:11)</p>
+            <div class="phiers-video-wrapper">
+                <iframe
+                    src="https://www.youtube.com/embed/UD8svoGU7ZU"
+                    title="Pathos Communications: Why They Put Their Reputation Behind PHIERS"
+                    frameborder="0"
+                    loading="lazy"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
+        <section style="margin: 50px 0; padding: 30px; background: rgba(244,67,54,0.07); border: 1px solid rgba(244,67,54,0.25); border-left: 5px solid #f44336; border-radius: 12px;">
+            <h2 style="margin-top:0; font-size:1.4em; color:#f44336;">Research Proves That Congress Can't Ignore 3.5%</h2>
+            <p style="margin:0 0 16px; color:#c8e6c9;"><strong>At that level of alignment:</strong></p>
+            <ul style="margin: 0 0 16px 1.4em; color:#c8e6c9; line-height:2;">
+                <li>Every district is affected</li>
+                <li>Every election becomes competitive</li>
+                <li>Every party must respond</li>
+            </ul>
+            <p style="margin:0 0 16px; color:#4caf50; font-weight:600;">Ignoring the demand becomes politically impossible.</p>
+            <div style="margin-top:20px; padding:20px 24px; background:rgba(76,175,80,0.12); border:2px solid #4caf50; border-radius:10px; text-align:center;">
+                <p style="font-size:1.25em; font-weight:900; color:#4caf50; margin:0 0 8px; line-height:1.3;">Once we hit critical mass, universal healthcare becomes inevitable — and free.</p>
+                <p style="color:#c8e6c9; margin:0; font-size:0.95em;">The savings already exist. The math already works. The only thing that's been missing is the organized public pressure to force Congress to act. That's exactly what 3.5% delivers.</p>
+            </div>
+        </section>
+
+        <section style="margin: 50px 0; padding: 30px; background: rgba(245,200,66,0.07); border: 1px solid rgba(245,200,66,0.3); border-radius: 12px;">
+            <h2 style="margin-top:0; font-size:1.3em; color:#f5c842;">💬 Explain PHIERS in 30 Seconds</h2>
+            <p style="color:#c8e6c9; margin:0 0 16px; font-size:0.95em;">Share this anywhere — at work, at a meeting, in a text.</p>
+            <div style="background:rgba(0,0,0,0.25); border-left:4px solid #f5c842; padding:16px 20px; border-radius:6px; font-size:1.05em; line-height:1.8; color:#e0e0e0;">
+                Healthcare is broken because politicians can ignore us. PHIERS unites millions behind one demand: add $600 telehealth to the ACA Exchange and CMS. That fix saves trillions — and once 3.5% align, Congress must act.
+            </div>
+        </section>
+
+        <!-- UNION VIDEO — breaks up 30-second explainer from Where You Go Next -->
+        <div class="phiers-media-block" style="max-width:640px; margin: 50px auto 20px;">
+            <p style="text-align:center; color:#81c784; font-size:0.95em; margin-bottom:8px; font-style:italic;">Why organized labor is the engine behind PHIERS:</p>
+            <p style="text-align:center; color:#f5c842; font-weight:800; margin-bottom:12px; font-size:1.2em; letter-spacing:0.3px;">Why PHIERS-Powered Unions Will Win (5:55)</p>
+            <div class="phiers-video-wrapper">
+                <iframe
+                    src="https://player.vimeo.com/video/1157760069"
+                    title="Why PHIERS-Powered Unions Will Win"
+                    frameborder="0"
+                    loading="lazy"
+                    allow="fullscreen; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
+        <section>
+            <h2>Where You Go Next</h2>
+            <div class="insight-box">
+                <p><a href="Telehealth-Insurance.html" style="color:#4caf50; font-weight:bold;">Telehealth vs Insurance</a> — $600 replaces $10,000. Why telehealth is the fix Congress is sitting on.</p>
+                <p><a href="SimpleMath.html" style="color:#4caf50; font-weight:bold;">Simple Math</a> — The math that makes this undeniable. $600 in, $10,000 savings out.</p>
+                <p><a href="5D_Solutions.html" style="color:#4caf50; font-weight:bold;">5D Solutions</a> — Five connected problems. One connected answer. Here's how it all fits together.</p>
+                <p><a href="Leverage.html" style="color:#4caf50; font-weight:bold;">Leverage</a> — How 1,500 signatures in your district forces Congress to hold a town hall.</p>
+                <p><a href="Roadmap.html" style="color:#4caf50; font-weight:bold;">Roadmap</a> — The sequence from where we are to national stabilization.</p>
+                <p><a href="Crisis.html" style="color:#4caf50; font-weight:bold;">The Crisis</a> — What's actually happening and why Congress hasn't fixed it.</p>
+                <p><a href="NoWar.html" style="color:#f44336; font-weight:bold;">End the War</a> — Why the wars are an economic threat — and how PHIERS builds the leverage to stop them.</p>
+                <p><a href="Action.html" style="color:#f5c842; font-weight:bold;">Take Action</a> — When you're ready to put your name on the record. This is where it counts.</p>
+            </div>
+        </section>
+
+        <!-- WAR SECTION -->
+        <section style="margin: 50px 0; padding: 30px 32px; background: rgba(244,67,54,0.08); border: 2px solid rgba(244,67,54,0.35); border-left: 6px solid #f44336; border-radius: 12px;">
+            <h2 style="margin-top:0; color:#f44336; border-color:rgba(244,67,54,0.3);">Healthcare Is Where We Get the Leverage. War Is Why We Can't Wait.</h2>
+            <p>Unauthorized wars are costing the United States <strong style="color:#f44336;">over $1 billion every single day</strong> — with no declaration, no mandate, and no end in sight. Most economists agree: prolonged military conflicts of this scale, layered on top of existing debt and global instability, carry a real risk of triggering global economic collapse.</p>
+            <p>PHIERS understands the sequence all too well. You don't fix everything at once — you fix things in stages, in the right order, with real leverage behind each step.</p>
+            <div style="margin: 20px 0; padding: 20px 24px; background: rgba(0,0,0,0.25); border-left: 4px solid #f5c842; border-radius: 8px;">
+                <p style="margin:0 0 10px; color:#f5c842; font-weight:700;">Stage 1 — Fix healthcare.</p>
+                <p style="margin:0 0 10px; color:#c8e6c9;">Prove PHIERS works. Generate $2.7 trillion in savings. Show Congress that organized constituents cannot be ignored.</p>
+                <p style="margin:0 0 10px; color:#f5c842; font-weight:700;">Stage 2 — Transfer that leverage.</p>
+                <p style="margin:0; color:#c8e6c9;">Use the same organized, documented, district-by-district pressure to demand Congress end the unauthorized wars — and make accountable decisions with the people's money.</p>
+            </div>
+            <p>Protest without leverage gets nothing. <strong>PHIERS builds the leverage.</strong> Healthcare first — because that's the proof of concept that opens every door that follows.</p>
+            <p style="color:#c8e6c9; font-style:italic; border-left:3px solid rgba(244,67,54,0.5); padding-left:16px; margin-top:16px;">The same organized public that stabilizes healthcare becomes the most powerful force to demand an end to unauthorized wars — preventing the $1 billion/day drain on our future.</p>
+            <p style="margin-top:20px;">
+                <a href="NoWar.html" style="display:inline-block; background:linear-gradient(135deg,#f44336,#b71c1c); color:#fff; font-weight:800; font-size:1.05em; padding:14px 28px; border-radius:8px; text-decoration:none; border:2px solid #f44336;">⚡ See the Full Plan to End the War →</a>
+            </p>
+        </section>
+
+        <section style="text-align: center; margin: 60px 0; padding: 40px 30px; background: rgba(244,67,54,0.07); border: 2px solid rgba(244,67,54,0.3); border-radius: 12px;">
+            <h2 style="margin-top:0; color:#f44336;">The Only Thing Missing Is You</h2>
+            <p style="font-size: 1.2em;"><strong>PHIERS is a public-interest movement</strong> — not a company, not a product. It works when people participate.</p>
+            <div style="margin: 30px 0;">
+                <a href="Action.html" class="btn btn-warning" style="font-size:1.3em; padding:20px 50px; display:inline-block;">✊ Take Action</a>
+                <div style="margin-top:20px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+                    <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now-short-version" class="btn" style="font-size:1em; padding:12px 24px;">Sign the Petition</a>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdETA-oNIeOAzEsG4GsYiiws1YBpLunx8ioVJkZac5hzSxaZw/viewform?usp=header" class="btn" style="font-size:1em; padding:12px 24px;">Take the Survey</a>
+                    <a href="Donate.html" class="btn" style="font-size:1em; padding:12px 24px; background: transparent; border-color: #81c784; color:#81c784;">Support the Movement</a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <h3>PHIERS Movement | MABAH</h3>
+            <p><strong>Make America Better And Healthier</strong></p>
+            <p style="margin: 20px 0;">PHIERS is a citizen coalition using collective leverage to force Congress to fix healthcare — or replace them.</p>
+            <div class="footer-links">
+                <a href="UNSTOPPABLE.html">UNSTOPPABLE</a>
+                <span>|</span>
+                <a href="/cdn-cgi/l/email-protection#462f28202906362e2f23343568293421">Contact</a>
+                <span>|</span>
+                <span>© PHIERS</span>
+            </div>
+            <div style="color: #a5d6a7; font-size: 0.9em; margin-top: 30px;">
+                PHIERS is a public-interest movement — not a company, not a product.<br>
+                The only thing missing is you.
+            </div>
+            <p class="copyright">PHIERS Movement | Version: 2026-03-06</p>
+        <p style="font-size:0.75em; color:#999; margin-top:10px;">Built: 2026-03-07 @ 16:30 UTC</p>
+</footer>
+    </div>
+
+    <script>
+    function toggleMobileMenu() {
+        var navLinks = document.getElementById('navLinks');
+        navLinks.classList.toggle('active');
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+    });
+    </script>
+</body>
+</html>
