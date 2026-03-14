@@ -95,7 +95,7 @@
 
 <nav id="main-nav">
   <div class="nav-left">
-    <a href="index.html"><img src="PHIERS_Logo.png" alt="PHIERS.org" class="nav-logo"></a>
+    <a href="index.html" style="font-family:var(--font-condensed);font-weight:700;font-size:1.3rem;color:#fff;text-decoration:none;letter-spacing:0.05em">PHIERS.org</a>
     <span class="nav-tagline">When Americans coordinate,<br>Congress has no choice.</span>
   </div>
   <div class="nav-right">
@@ -282,10 +282,13 @@
   window.addEventListener('scroll',()=>{ document.getElementById('main-nav').classList.toggle('scrolled',window.scrollY>50); });
   function toggleMenu(){ document.getElementById('mobile-menu').classList.toggle('open'); }
   document.querySelectorAll('.mobile-menu a').forEach(a=>{ a.addEventListener('click',()=>document.getElementById('mobile-menu').classList.remove('open')); });
-  function openModal(src,alt){ document.getElementById('modalImg').src=src; document.getElementById('modalImg').alt=alt||''; document.getElementById('imageModal').classList.add('active'); document.body.style.overflow='hidden'; }
-  function closeModal(){ document.getElementById('imageModal').classList.remove('active'); document.body.style.overflow=''; }
-  document.getElementById('imageModal').addEventListener('click',function(e){ if(e.target===this) closeModal(); });
-  document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeModal(); });
+  function openModal(src,alt){ document.getElementById('modalImg').src=src; document.getElementById('modalImg').alt=alt||'';
+  document.getElementById('imageModal').classList.add('active');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){ document.getElementById('imageModal').classList.remove('active'); document.body.style.overflow=''; }
+document.getElementById('imageModal').addEventListener('click',function(e){ if(e.target===this) closeModal(); });
+document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeModal(); });
 </script>
 </body>
 </html>
