@@ -165,7 +165,7 @@
   <a href="5D_Solutions.html">5D Solutions</a>
   <a href="Telehealth-Insurance.html">Telehealth vs Insurance</a>
   <a href="Leverage.html">Leverage</a>
-  <a href="action.html">Take Action</a>
+  <a href="Action.html">Take Action</a>
   <a href="organizers.html">For Organizers</a>
   <a href="Donate.html">Donate</a>
   <a href="FAQ.html">FAQ</a>
@@ -266,19 +266,19 @@
       <div class="next-card">
         <div class="next-card-title">When your district hits 1,500</div>
         <ul>
-          <li class="next-card li">A public town hall is organized</li>
-          <li class="next-card li">Your rep gets the data and must answer publicly</li>
-          <li class="next-card li">Local media starts asking questions</li>
-          <li class="next-card li">Neighbors start talking</li>
+          <li >A public town hall is organized</li>
+          <li >Your rep gets the data and must answer publicly</li>
+          <li >Local media starts asking questions</li>
+          <li >Neighbors start talking</li>
         </ul>
       </div>
       <div class="next-card">
         <div class="next-card-title">When we reach 12 million</div>
         <ul>
-          <li class="next-card li">Congress must respond on healthcare</li>
-          <li class="next-card li">Congress must respond on the wars</li>
-          <li class="next-card li">Congress must respond on the affordability crisis</li>
-          <li class="next-card li">All of it</li>
+          <li >Congress must respond on healthcare</li>
+          <li >Congress must respond on the wars</li>
+          <li >Congress must respond on the affordability crisis</li>
+          <li >All of it</li>
         </ul>
       </div>
     </div>
@@ -337,7 +337,7 @@
     <a href="5D_Solutions.html">5D Solutions</a>
     <a href="Telehealth-Insurance.html">Telehealth</a>
     <a href="Leverage.html">Leverage</a>
-    <a href="action.html">Take Action</a>
+    <a href="Action.html">Take Action</a>
     <a href="organizers.html">For Organizers</a>
     <a href="Donate.html">Donate</a>
     <a href="FAQ.html">FAQ</a>
@@ -357,27 +357,40 @@
 </div>
 
 <script>
-  // Banner
   function closeBanner() {
-    document.getElementById('sticky-banner').style.display = 'none';
-    document.getElementById('main-nav').classList.add('banner-hidden');
-    document.getElementById('mobile-menu').style.top = '64px';
+    var b = document.getElementById('sticky-banner');
+    var n = document.getElementById('main-nav');
+    var m = document.getElementById('mobile-menu');
+    if (b) b.style.display = 'none';
+    if (n) n.classList.add('banner-hidden');
+    if (m) m.style.top = '64px';
   }
-
-  // Nav scroll
-  window.addEventListener('scroll', () => {
-    document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 50);
-    document.getElementById('float-cta').classList.toggle('visible', window.scrollY > 400);
+  window.addEventListener('scroll', function() {
+    var n = document.getElementById('main-nav');
+    var f = document.getElementById('float-cta');
+    if (n) n.classList.toggle('scrolled', window.scrollY > 50);
+    if (f) f.classList.toggle('visible', window.scrollY > 400);
   });
-
-  // Mobile menu
   function toggleMenu() {
-    document.getElementById('mobile-menu').classList.toggle('open');
+    var banner = document.getElementById('sticky-banner');
+    var menu = document.getElementById('mobile-menu');
+    if (!menu) return;
+    var bannerVisible = banner && banner.style.display !== 'none';
+    menu.style.top = bannerVisible ? '100px' : '64px';
+    menu.classList.toggle('open');
   }
-  document.querySelectorAll('.mobile-menu a').forEach(a => {
-    a.addEventListener('click', () => document.getElementById('mobile-menu').classList.remove('open'));
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.mobile-menu a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        var m = document.getElementById('mobile-menu');
+        if (m) m.classList.remove('open');
+      });
+    });
+    var path = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.mobile-menu a').forEach(function(a) {
+      if (a.getAttribute('href') === path) a.style.color = 'var(--green)';
+    });
   });
-
-  // Active page highlight
-  (function() {
-    var path = window.loca
+</script>
+</body>
+</html>

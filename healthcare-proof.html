@@ -675,18 +675,11 @@
     <a href="#" class="scroll-top" id="scrollTop" title="scroll to top">↑</a>
 
     <!-- JAVASCRIPT -->
-    <script>
-        (function() {
-            const banner = document.getElementById('globalBanner');
-            const collapsedDiv = document.getElementById('bannerCollapsed');
-            const closeBtn = document.getElementById('closeBannerBtn');
-            banner.classList.remove('expanded');
-            function expand() { banner.classList.add('expanded'); sessionStorage.setItem('phiHasExpanded','true'); }
-            function collapse() { banner.classList.remove('expanded'); }
-            collapsedDiv.addEventListener('click', () => { if(!banner.classList.contains('expanded')) expand(); });
-            closeBtn.addEventListener('click', (e) => { e.stopPropagation(); collapse(); });
-        })();
-        (function() {
-            const btn = document.getElementById('scrollTop');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 500) btn.classList.add('visible'); else btn.c
+<script>
+function toggleMobileMenu() {
+  var n = document.getElementById('navLinks');
+  if (n) n.classList.toggle('active');
+}
+</script>
+</body>
+</html>

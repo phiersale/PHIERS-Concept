@@ -878,12 +878,12 @@ document.addEventListener('click', function(event) {
   const menuIcon = document.querySelector('.menu-icon');
   const closeIcon = document.querySelector('.close-icon');
   
-  if (!nav.contains(event.target) && navLinks.classList.contains('active')) {
+  if (!nav.contains(event.target) && navLinks && navLinks.classList.contains('active')) {
     navLinks.classList.remove('active');
-    menuIcon.style.display = 'inline';
-    closeIcon.style.display = 'none';
+    if (menuIcon) menuIcon.style.display = 'inline';
+    if (closeIcon) closeIcon.style.display = 'none';
   }
 });
-
-document.addEventListener('click', function(event) {
-  if (!event.targ
+</script>
+</body>
+</html>
