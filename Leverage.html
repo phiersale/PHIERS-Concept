@@ -3,137 +3,267 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="PHIERS Movement: 3.5% by March 28, 100M by July 4. Force Congress to authorize $600 telehealth. Universal coverage for 234M of the 99%.">
-    <meta property="og:title" content="PHIERS - Make America Better And Healthier">
-    <meta property="og:description" content="The math Congress fears: $600 telehealth covers 234M Americans. Sign the petition. March 28, 2026.">
-    <meta property="og:image" content="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Logo.png">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="color-scheme" content="dark light">
-    <title>The Leverage - PHIERS</title>
+    <meta name="description" content="Congressional Leverage: 3.5% threshold forces action. Binary choice: lead or be replaced. The math is undeniable.">
+    <meta property="og:title" content="PHIERS.org — The Leverage: Congress's Binary Choice">
+    <meta property="og:description" content="When 3.5% of Americans coordinate, Congress has no choice. 230:1 constituent advantage. Town halls. Primary challenges. Mathematical inevitability.">
+    <meta property="og:image" content="https://phiersale.github.io/PHIERS_Logo.png">
+    <link rel="icon" type="image/png" href="PHIERS_Logo.png">
+    <title>PHIERS.org — The Leverage: Congress's Binary Choice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Barlow+Condensed:wght@700;900&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --bg-deep: #080d1a;
+            --bg-dark: #0d1525;
+            --bg-card: #111d35;
+            --bg-card2: #0a1628;
+            --green: #3ddc84;
+            --green-dim: #2ab568;
+            --green-glow: rgba(61,220,132,0.15);
+            --red: #e63946;
+            --red-dim: #c1121f;
+            --gold: #ffd60a;
+            --blue: #2196f3;
+            --text-bright: #f0f4ff;
+            --text-body: #b8c8e8;
+            --text-dim: #7a94b8;
+            --border: rgba(61,220,132,0.2);
+            --border-red: rgba(230,57,70,0.25);
+            --font-display: 'Bebas Neue', sans-serif;
+            --font-condensed: 'Barlow Condensed', sans-serif;
+            --font-body: 'Barlow', sans-serif;
         }
-        
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            color: #e0e0e0;
-            line-height: 1.6;
-            min-height: 100vh;
+            background: var(--bg-deep);
+            color: var(--text-body);
+            font-family: var(--font-body);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.4;
         }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* NAVIGATION - Section 5 Constitutional Order */
         nav {
-            background: rgba(26, 26, 46, 0.8);
-            border: 1px solid rgba(76, 175, 80, 0.3);
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 30px;
-            position: sticky;
-            top: 0;
-            z-index: 999;
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: rgba(8,13,26,0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 24px;
+            height: 64px;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
+            align-items: center;
+            justify-content: space-between;
+            transition: box-shadow 0.3s;
         }
-
-        nav a {
-            color: #81c784;
+        nav.scrolled { box-shadow: 0 4px 40px rgba(61,220,132,0.1); }
+        .nav-left { display: flex; align-items: center; gap: 14px; }
+        .nav-wordmark {
+            font-family: var(--font-condensed);
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: #fff;
             text-decoration: none;
+            letter-spacing: 0.05em;
+        }
+        .nav-tagline {
+            font-family: var(--font-body);
+            font-style: italic;
+            font-size: 0.78rem;
+            color: var(--green);
+            line-height: 1.3;
+            display: none;
+        }
+        @media(min-width:640px){ .nav-tagline { display: block; } }
+        .nav-right { display: flex; align-items: center; gap: 12px; }
+        .btn-petition {
+            background: var(--red);
+            color: #fff;
+            font-family: var(--font-condensed);
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 0.05em;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.2s, transform 0.1s;
+            animation: pulse-btn 8s ease-in-out infinite;
+        }
+        .btn-petition:hover { background: var(--red-dim); transform: scale(1.03); }
+        @keyframes pulse-btn {
+            0%,90%,100% { box-shadow: 0 0 0 0 rgba(230,57,70,0); }
+            95% { box-shadow: 0 0 0 8px rgba(230,57,70,0.3); }
+        }
+        .hamburger {
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--text-bright);
+            font-size: 1.3rem;
             padding: 8px 12px;
             border-radius: 4px;
-            font-size: 0.9em;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            white-space: nowrap;
+            cursor: pointer;
         }
 
-        nav a:hover {
-            background: rgba(76, 175, 80, 0.2);
-            color: #4caf50;
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 64px; left: 0; right: 0;
+            background: var(--bg-dark);
+            border-bottom: 1px solid var(--border);
+            z-index: 999;
+            padding: 20px 24px;
+            flex-direction: column;
+            gap: 4px;
         }
+        .mobile-menu.open { display: flex; }
+        .mobile-menu a {
+            color: var(--text-body);
+            text-decoration: none;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+        .mobile-menu a:hover { color: var(--green); }
+        .mobile-menu a.active { color: var(--green); font-weight: 700; }
 
-        nav a.active {
-            background: rgba(76, 175, 80, 0.3);
-            color: #4caf50;
-            font-weight: bold;
+        .page-wrap {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 100px 24px 80px;
+            position: relative;
+            z-index: 1;
         }
-        
-        header {
-            text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(135deg, rgba(15, 52, 96, 0.8), rgba(22, 33, 62, 0.8));
-            border-radius: 10px;
-            margin-bottom: 30px;
-            border: 2px solid rgba(76, 175, 80, 0.3);
-        }
-        
-        .logo {
-            height: 120px;
-            width: auto;
-            margin: 0 auto 20px auto;
+        .section { margin-bottom: 60px; }
+
+        .eyebrow {
+            font-family: var(--font-condensed);
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            color: var(--green);
+            text-transform: uppercase;
+            margin-bottom: 12px;
             display: block;
         }
-
         h1 {
-            color: #4caf50;
-            font-size: 2.2em;
-            margin-bottom: 15px;
-            text-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
+            font-family: var(--font-display);
+            font-size: clamp(2.8rem, 7vw, 5rem);
+            color: var(--text-bright);
+            line-height: 1.0;
+            margin-bottom: 20px;
         }
-
+        h1 .green { color: var(--green); }
         h2 {
-            color: #4caf50;
-            font-size: 1.6em;
-            margin: 40px 0 20px 0;
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            color: var(--text-bright);
+            line-height: 1.05;
+            margin-bottom: 16px;
         }
-
+        h2 .green { color: var(--green); }
+        h2 .red { color: var(--red); }
+        h2 .gold { color: var(--gold); }
+        h2 .blue { color: var(--blue); }
         h3 {
-            color: #81c784;
-            font-size: 1.3em;
-            margin: 25px 0 15px 0;
+            font-family: var(--font-condensed);
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--text-bright);
+            margin-bottom: 8px;
+        }
+        p { margin-bottom: 1rem; color: var(--text-body); }
+        p:last-child { margin-bottom: 0; }
+        ul, ol { margin: 12px 0 16px 24px; }
+        li { margin-bottom: 6px; color: var(--text-body); }
+        strong { color: var(--text-bright); }
+        a { color: var(--green); text-decoration: none; }
+        a:hover { color: var(--green-dim); }
+
+        .btn-primary {
+            display: inline-block;
+            background: var(--green);
+            color: var(--bg-deep);
+            font-family: var(--font-condensed);
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 0.05em;
+            padding: 14px 32px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.1s;
+        }
+        .btn-primary:hover { background: var(--green-dim); transform: scale(1.02); }
+        .btn-secondary {
+            display: inline-block;
+            background: transparent;
+            color: var(--green);
+            font-family: var(--font-condensed);
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 0.05em;
+            padding: 13px 28px;
+            border-radius: 4px;
+            border: 1px solid var(--green);
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .btn-secondary:hover { background: var(--green-glow); }
+        .cta-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 28px;
         }
 
-        .subtitle {
-            font-size: 1.1em;
-            color: #81c784;
-            margin-bottom: 15px;
+        .leverage-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--green);
+            border-radius: 0 8px 8px 0;
+            padding: 28px;
+            margin: 20px 0;
+        }
+        .leverage-card h3 { color: var(--green); margin-top: 0; }
+
+        .highlight-box {
+            background: var(--green-glow);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--green);
+            border-radius: 0 8px 8px 0;
+            padding: 24px;
+            margin: 20px 0;
         }
 
-        p {
-            color: #c8e6c9;
-            margin: 15px 0;
-            line-height: 1.8;
-        }
-
-        /* CONSTITUTIONAL VIDEO BLOCK - Section 4 */
         .video-section {
-            background: linear-gradient(135deg, rgba(33, 150, 243, 0.1), rgba(25, 118, 210, 0.1));
-            border: 2px solid #2196f3;
+            background: rgba(33,150,243,0.07);
+            border: 1px solid rgba(33,150,243,0.3);
             border-radius: 12px;
-            padding: 2.5rem;
-            margin: 3rem 0;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            padding: 28px;
+            margin: 32px 0;
         }
-
         .video-section h2 {
-            color: #2196f3;
+            color: var(--blue);
             text-align: center;
             margin-bottom: 1.5rem;
             font-size: 2rem;
         }
-
         .video-container {
             position: relative;
             padding-bottom: 56.25%;
@@ -141,65 +271,12 @@
             overflow: hidden;
             border-radius: 12px;
             margin: 20px 0;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.4);
         }
-
         .video-container iframe {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .highlight-box {
-            background: rgba(76, 175, 80, 0.1);
-            border: 2px solid #4caf50;
-            padding: 25px;
-            margin: 25px 0;
-            border-radius: 8px;
-        }
-
-        .highlight-box p {
-            color: #ffffff;
-        }
-
-        .graphic-container {
-            text-align: center;
-            margin: 40px 0;
-        }
-
-        .graphic-container img {
-            max-width: 50%;
-            height: auto;
-            border-radius: 8px;
-            border: 2px solid rgba(76, 175, 80, 0.3);
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        .graphic-container img:hover {
-            transform: scale(1.05);
-        }
-
-        .graphic-caption {
-            color: #81c784;
-            font-size: 0.9em;
-            font-style: italic;
-            margin-top: 10px;
-        }
-
-        .leverage-card {
-            background: rgba(76, 175, 80, 0.1);
-            border-left: 5px solid #4caf50;
-            padding: 25px;
-            margin: 20px 0;
-            border-radius: 8px;
-        }
-
-        .leverage-card h3 {
-            color: #4caf50;
-            margin-top: 0;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
         }
 
         .binary-choice {
@@ -208,718 +285,373 @@
             gap: 20px;
             margin: 30px 0;
         }
+        @media(max-width:600px){ .binary-choice { grid-template-columns: 1fr; } }
+        .choice-card { padding: 25px; border-radius: 8px; }
+        .choice-a { background: rgba(61,220,132,0.1); border: 2px solid var(--green); }
+        .choice-a h3 { color: var(--green); }
+        .choice-b { background: rgba(230,57,70,0.1); border: 2px solid var(--red); }
+        .choice-b h3 { color: var(--red); }
 
-        .choice-card {
-            padding: 25px;
+        .graphic-container { text-align: center; margin: 40px 0; }
+        .graphic-container img {
+            max-width: 60%;
+            height: auto;
             border-radius: 8px;
-        }
-
-        .choice-a {
-            background: rgba(76, 175, 80, 0.1);
-            border: 3px solid #4caf50;
-        }
-
-        .choice-a h3 {
-            color: #4caf50;
-        }
-
-        .choice-b {
-            background: rgba(244, 67, 54, 0.1);
-            border: 3px solid #f44336;
-        }
-
-        .choice-b h3 {
-            color: #ef5350;
-        }
-
-        .btn {
-            background: linear-gradient(135deg, #4caf50, #2e7d32);
-            color: white;
-            padding: 14px 32px;
-            font-size: 1.1em;
-            font-weight: bold;
-            border: 2px solid #4caf50;
-            border-radius: 8px;
+            border: 2px solid var(--border);
             cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+            transition: transform 0.3s;
         }
+        .graphic-container img:hover { transform: scale(1.02); }
+        .graphic-caption { color: var(--text-dim); font-size: 0.9em; font-style: italic; margin-top: 10px; }
 
-        .btn:hover {
-            background: linear-gradient(135deg, #66bb6a, #388e3c);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
-        }
+        hr.divider { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
 
-        .btn-secondary {
-            background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(76, 175, 80, 0.1));
-            border: 2px solid #4caf50;
-        }
-
-        .btn-secondary:hover {
-            background: linear-gradient(135deg, rgba(76, 175, 80, 0.3), rgba(76, 175, 80, 0.2));
-        }
-
-        section {
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
-            padding: 40px;
-            margin-bottom: 30px;
-            border-radius: 8px;
-            border-left: 5px solid #4caf50;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-        }
-
-
-        /* Resources Dropdown */
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropbtn {
-            background: transparent;
-            color: #81c784;
-            padding: 8px 12px;
-            font-size: 0.9em;
-            font-weight: 500;
-            border: none;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        .dropbtn:hover {
-            background: rgba(76, 175, 80, 0.2);
-            color: #4caf50;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background: rgba(26, 26, 46, 0.98);
-            min-width: 200px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
-            z-index: 1000;
-            border-radius: 8px;
-            border: 1px solid rgba(76, 175, 80, 0.3);
-            margin-top: 5px;
-        }
-
-        .dropdown-content a {
-            color: #81c784;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            border-radius: 0;
-        }
-
-        .dropdown-content a:first-child {
-            border-radius: 8px 8px 0 0;
-        }
-
-        .dropdown-content a:last-child {
-            border-radius: 0 0 8px 8px;
-        }
-
-        .dropdown-content a:hover {
-            background: rgba(76, 175, 80, 0.2);
-            color: #4caf50;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .dropdown:hover .dropbtn {
-            background: rgba(76, 175, 80, 0.2);
-            color: #4caf50;
-        }
-
-        /* FOOTER - Section 7 Constitutional Compliance */
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: 60px;
-            border-top: 2px solid rgba(76, 175, 80, 0.3);
-            background: rgba(26, 26, 46, 0.6);
-            border-radius: 8px;
-        }
-
-        footer h3 {
-            color: #4caf50;
-            margin-bottom: 15px;
-        }
-
-        footer a {
-            color: #81c784;
-            text-decoration: none;
-            border-bottom: 1px dotted #81c784;
-        }
-
-        footer a:hover {
-            color: #4caf50;
-            border-bottom-color: #4caf50;
-        }
-
-        .footer-nav {
+        .page-nav {
             display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
+            justify-content: space-between;
+            padding: 28px 0;
+            border-top: 1px solid var(--border);
+            margin-top: 48px;
+        }
+        .page-nav a {
+            color: var(--green);
+            text-decoration: none;
+            font-family: var(--font-condensed);
+            font-weight: 700;
+            font-size: 1rem;
+        }
+        .page-nav a:hover { color: var(--green-dim); }
+
+        .image-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.95);
+            z-index: 9999;
+            align-items: center;
             justify-content: center;
-            margin: 20px 0;
         }
+        .image-modal.active { display: flex; }
+        .modal-content { max-width: 90vw; max-height: 90vh; border-radius: 8px; border: 1px solid var(--border); }
+        .close-modal {
+            position: absolute;
+            top: 20px; right: 28px;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            background: rgba(0,0,0,0.5);
+            border: 1px solid var(--border);
+            width: 40px; height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        .close-modal:hover { background: var(--red); }
 
-        .constitutional-disclaimer {
-            background: rgba(76, 175, 80, 0.1);
-            border: 1px solid rgba(76, 175, 80, 0.3);
-            border-radius: 8px;
-            padding: 20px;
-            margin: 20px 0;
-            font-size: 0.9em;
-            color: #a5d6a7;
-      
-      /* Mobile dropdown centering */
-      .dropdown-content a {
-        width: 100%;
-        text-align: center !important;
-        display: block;
-      }
+        .back-to-top {
+            position: fixed;
+            bottom: 28px; right: 24px;
+            background: var(--green);
+            color: var(--bg-deep);
+            border: none;
+            border-radius: 50%;
+            width: 44px; height: 44px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .back-to-top.visible { opacity: 1; pointer-events: auto; }
+        .back-to-top:hover { background: var(--green-dim); }
 
-        }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 1.8em; }
-            h2 { font-size: 1.4em; }
-            .logo { height: 100px; }
-            .binary-choice { grid-template-columns: 1fr; }
-            .graphic-container img { max-width: 100%; }
-            nav { flex-direction: column; }
-            nav a { text-align: center; }
-        }
-    
-        /* GLOBAL SPACING IMPROVEMENTS - Feb 15, 2026 */
-        section {
-            margin-bottom: 60px !important;
-        }
-        
-        h2 {
-            margin-top: 50px !important;
-            margin-bottom: 40px !important;
-        }
-        
-        h3 {
-            margin-top: 40px !important;
-            margin-bottom: 24px !important;
-        }
-        
-        .video-section, .video-container {
-            margin-top: 50px !important;
-            margin-bottom: 40px !important;
-        }
-        
-        img {
-            margin-top: 32px !important;
-            margin-bottom: 32px !important;
-        }
-        
-        p {
-            line-height: 1.6 !important;
-        }
-        
-        .graphic-caption, .video-caption {
-            margin-top: 24px !important;
-        }
-        
         footer {
-            margin-top: 80px !important;
-            padding-top: 40px !important;
+            position: relative;
+            z-index: 1;
+            background: var(--bg-dark);
+            border-top: 1px solid var(--border);
+            padding: 48px 24px 32px;
+            text-align: center;
         }
-        
-        ul, ol {
-            margin-top: 24px !important;
-            margin-bottom: 24px !important;
-        }
-        
-        li {
-            margin-bottom: 16px !important;
-        }
-
-
-/* MOBILE IMAGE SIZE FIX - Images load smaller, click to enlarge */
-@media (max-width: 768px) {
-  /* Make ALL images load smaller on mobile by default */
-  img:not(.mobile-menu-toggle *) {
-    max-width: 85% !important;
-    width: 85% !important;
-    height: auto !important;
-    display: block !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    margin-bottom: 1.5rem !important;
-  }
-  
-  /* Logo in hero can stay larger */
-  header img[alt*="PHIERS Logo"],
-  header img[src*="Logo"] {
-    max-width: 300px !important;
-    width: auto !important;
-  }
-  
-  /* Ensure modal images are full-size */
-  .modal-content {
-    max-width: 95% !important;
-    width: auto !important;
-  }
-}
-
-/* Desktop - keep images reasonable */
-@media (min-width: 769px) {
-  img:not(.mobile-menu-toggle *) {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-/* MOBILE UX IMPROVEMENTS - Feb 19, 2026 */
-
-/* Image Modal Styles */
-.image-modal {
-  display: none;
-  position: fixed;
-  z-index: 20000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.95);
-  align-items: center;
-  justify-content: center;
-}
-
-.image-modal.active {
-  display: flex;
-}
-
-.modal-content {
-  max-width: 90%;
-  max-height: 85vh;
-  display: block;
-  margin: auto;
-}
-
-.close-modal {
-  position: absolute;
-  top: 20px;
-  right: 35px;
-  color: #fff;
-  font-size: 40px;
-  font-weight: bold;
-  cursor: pointer;
-  z-index: 20001;
-}
-
-.close-modal:hover {
-  color: #4caf50;
-}
-
-/* Mobile Spacing Reduction */
-@media (max-width: 768px) {
-  section {
-    margin-bottom: 60px !important;
-  }
-  
-  h2 {
-    margin-top: 40px !important;
-    margin-bottom: 25px !important;
-  }
-  
-  /* Full-width CTA buttons */
-  .cta-button,
-  .btn-primary,
-  a[style*="display: inline-block"][style*="background: white"],
-  a[style*="display: inline-block"][style*="background: #2196f3"],
-  a[href*="change.org"][style*="font-size: 1."] {
-    width: 100% !important;
-    max-width: 100% !important;
-    display: block !important;
-  }
-}
-
-/* Responsive Images */
-img {
-  max-width: 100%;
-  height: auto;
-  cursor: pointer;
-}
-
-@media (max-width: 768px) {
-  img {
-    max-width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-/* AGGRESSIVE IMAGE OVERRIDE - FINAL FIX */
-@media (max-width: 768px) {
-  /* Force ALL images to be mobile-friendly - override inline styles */
-  img {
-    max-width: 85% !important;
-    width: auto !important;
-    height: auto !important;
-    display: block !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    margin-bottom: 1.5rem !important;
-  }
-  
-  /* Logo exceptions - keep reasonable */
-  img[alt*="Logo"], 
-  img[src*="Logo"],
-  img[alt*="PHIERS"] {
-    max-width: min(300px, 85%) !important;
-  }
-  
-  /* Small icons stay small */
-  img[width="50"],
-  img[width="100"],
-  img[height="50"],
-  img[height="100"] {
-    max-width: 100px !important;
-  }
-}
-
-/* Desktop - respect but limit inline styles */
-@media (min-width: 769px) {
-  img {
-    max-width: 100% !important;
-    height: auto !important;
-  }
-}
+        .footer-logo { height: 40px; margin-bottom: 12px; }
+        .footer-mabah { font-family: var(--font-condensed); font-weight: 700; font-size: 1.1rem; color: var(--text-bright); margin-bottom: 2px; }
+        .footer-mabah-sub { font-size: 0.88rem; color: var(--green); font-style: italic; margin-bottom: 20px; }
+        .footer-tagline { font-family: var(--font-condensed); font-size: 1rem; color: var(--text-dim); margin-bottom: 20px; font-style: italic; }
+        .footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 20px; margin-bottom: 24px; }
+        .footer-nav a { color: var(--text-dim); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
+        .footer-nav a:hover { color: var(--green); }
+        .footer-copy { font-size: 0.8rem; color: var(--text-dim); line-height: 1.8; }
+        .footer-copy a { color: var(--green); text-decoration: none; }
     </style>
 </head>
 <body>
 
-<!-- ============================================== -->
-<!-- UNIQUE VERIFICATION MARKER -->
-<!-- PHIERS_DEBUG_v4_20260220_170155 -->
-<!-- If you see this, the new files are live -->
-<!-- ============================================== -->
-    <div class="container">
-        <!-- NAVIGATION - Section 5 Constitutional Order -->
-                    <nav>
-    <!-- Mobile Menu Toggle -->
-    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">
-      <span class="menu-icon">☰</span>
-      <span class="close-icon" style="display: none;">✕</span>
-    </button>
-    
-    <!-- Navigation Links -->
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      
-      <div class="dropdown">
-        <button class="dropbtn" onclick="toggleDropdown(event)">Strategy ▼</button>
-        <div class="dropdown-content">
-          <a href="OVERVIEW.html">Overview</a>
-          <a href="Crisis.html">Crisis</a>
-          <a href="SimpleMath.html">Simple Math</a>
-          <a href="5D_Solutions.html">5D Solutions</a>
-          <a href="Leverage.html">Leverage</a>
-          <a href="Why-Change-Required.html">Why Change Required</a>
-          <a href="Unions-Strategy.html">Union Strategy</a>
-        </div>
-      </div>
-      
-      <a href="Quickstart.html">Quick Start</a>
-      <a href="action.html">Take Action</a>
-      <a href="Donate.html">Donate</a>
-      
-      <div class="dropdown">
-        <button class="dropbtn" onclick="toggleDropdown(event)">Resources ▼</button>
-        <div class="dropdown-content">
-          <a href="Media.html">Media</a>
-          <a href="real-stories.html">Real Stories</a>
-          <a href="FAQ.html">FAQ</a>
-          <a href="About.html">About</a>
-          <a href="Our-Origins.html">Origins</a>
-        </div>
-      </div>
+<nav id="main-nav">
+    <div class="nav-left">
+        <a href="index.html" class="nav-wordmark">PHIERS.org</a>
+        <div class="nav-tagline">MABAH — Making America Better And Healthier<br>Sounds like MAGA. But a lot bettah.</div>
     </div>
-  </nav>
+    <div class="nav-right">
+        <a href="https://www.change.org/p/congress-the-public-is-coordinating-it-s-time-to-answer" target="_blank" class="btn-petition">✍ Sign Now</a>
+        <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">☰</button>
+    </div>
+</nav>
 
-        <header>
-            <a href="index.html">
-    <img loading="lazy" src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/PHIERS_Logo.png" 
-                     alt="PHIERS Logo" 
-                     class="logo" loading="lazy">
-            </a>
-            <h1>Congressional Leverage: Binary Choice</h1>
-            <p class="subtitle">A small group can force national change if the math is undeniable.</p>
-        </header>
-            <section style="text-align: center; margin: 30px 0;">
-                <img loading="lazy" src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/Power_Concedes_Nothing_TEETH.png" 
-                     alt="Power Concedes Nothing Without Teeth" 
-                     style="max-width: 50%; height: auto; border-radius: 8px; border: 2px solid rgba(76, 175, 80, 0.3); cursor: pointer;"
-                     onclick="window.open(this.src, '_blank')" loading="lazy">
-            </section>
-
-
-        <!-- CONSTITUTIONAL VIDEO BLOCK - Section 4 Mandatory -->
-        <div class="video-section">
-            <h2>Congress: Get Out of the Way, Or Step Aside (4:44)</h2>
-            
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/xy3F9ZWbgS8" 
-                        title="Congress: Get Out of the Way, Or Step Aside"
-                        frameborder="0" 
-                        allowfullscreen></iframe>
-            </div>
-            
-            <p style="text-align: center; color: #64b5f6; font-weight: bold; margin-top: 15px;">The ultimatum. Lead this or face replacement.</p>
-        </div>
-
-        <main>
-            <section>
-                <div class="graphic-container">
-                    <img loading="lazy" src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/LEVERAGE_Pwr_of_the_People.png" 
-                         alt="Power of the People - Congressional Leverage"
-                         onclick="window.open(this.src, '_blank')" loading="lazy">
-                    <p class="graphic-caption">Click to enlarge • Power of the People: 100M+ Constituents vs Corporate Average = 230:1 Advantage</p>
-                </div>
-            </section>
-
-            <section>
-                <h2>The Four Pressure Points</h2>
-
-                <div class="leverage-card">
-                    <h3>1. Town Hall Pressure (Nader Rule)</h3>
-                    <p>
-                        <strong style="color: white;">1,500 signatures = mandatory town hall.</strong> 
-                        We're targeting 10,000+ per district. Representatives forced to face constituents with 
-                        petition data + survey stories.
-                    </p>
-                    <p style="margin-top: 15px;">
-                        This isn't optional. The Nader Rule forces them to show up and answer for their decisions.
-                    </p>
-                </div>
-
-                <div class="leverage-card">
-                    <h3>2. Primary Challenge Threat (Jan 2026)</h3>
-                    <p>
-                        <strong style="color: white;">Any representative refusing telehealth faces immediate primary challenge.</strong>
-                    </p>
-                    <p style="margin-top: 15px;">
-                        Healthcare IS the dominant issue (80% of voters). Refusing solution = automatic vulnerability.
-                    </p>
-                </div>
-
-                <div class="leverage-card">
-                    <h3>3. Media Amplification (55M Readers)</h3>
-                    <p>
-                        <strong style="color: white;">Pathos Communications + International Business Times</strong> - 
-                        Ready to publish PHIERS story.
-                    </p>
-                    <p style="margin-top: 15px;">
-                        <strong style="color: #4caf50;">Publication happens when fundraising goal is reached.</strong> 
-                        Your contribution directly funds the story that reaches 55M+ readers and changes the national conversation.
-                    </p>
-                    <p style="margin-top: 10px;">
-                        <a href="Donate.html" style="color: #4caf50; text-decoration: underline;">→ Fund the media campaign</a>
-                    </p>
-                </div>
-
-                <div class="leverage-card">
-                    <h3>4. Mathematical Inevitability</h3>
-                    <p>
-                        <strong style="color: white;">$1.95B per district constituent pressure vs. $8.5M corporate average.</strong>
-                    </p>
-                    <p style="margin-top: 15px; font-size: 1.2em; color: #4caf50; font-weight: bold;">
-                        230:1 advantage minimum.
-                    </p>
-                    <p style="margin-top: 10px;">
-                        Congress cannot ignore mathematical superiority.
-                    </p>
-                </div>
-            </section>
-
-            <section>
-                <h2>Congress's Binary Choice</h2>
-                
-                <div class="binary-choice">
-                    <div class="choice-card choice-a">
-                        <h3>OPTION A: LEAD THIS</h3>
-                        <p style="color: #c8e6c9; margin-top: 15px;">
-                            Say YES to telehealth in ACA by March 28, 2026.
-                        </p>
-                        <p style="color: #c8e6c9; margin-top: 10px;">
-                            Become heroes.
-                        </p>
-                        <p style="color: #c8e6c9; margin-top: 10px;">
-                            Save the 22M and many many more.
-                        </p>
-                        <p style="color: #c8e6c9; margin-top: 10px;">
-                            Trigger cascade.
-                        </p>
-                        <p style="color: white; font-weight: bold; margin-top: 15px; font-size: 1.1em;">
-                            Be remembered as problem-solvers.
-                        </p>
-                    </div>
-
-                    <div class="choice-card choice-b">
-                        <h3>OPTION B: FACE REPLACEMENT</h3>
-                        <p style="color: #ffcdd2; margin-top: 15px;">
-                            Refuse.
-                        </p>
-                        <p style="color: #ffcdd2; margin-top: 10px;">
-                            Face 100M+ organized constituents demanding removal.
-                        </p>
-                        <p style="color: #ffcdd2; margin-top: 10px;">
-                            Lose primary elections Jan 2026.
-                        </p>
-                        <p style="color: white; font-weight: bold; margin-top: 15px; font-size: 1.1em;">
-                            Be remembered as obstacles.
-                        </p>
-                    </div>
-                </div>
-
-                <p style="text-align: center; font-size: 1.2em; color: #4caf50; font-weight: bold; margin: 40px 0;">
-                    Congress will choose A. The pressure is mathematical. The choice is binary.
-                </p>
-            </section>
-
-            <section>
-                <h2>The 3.5% Threshold</h2>
-                
-                <div class="graphic-container">
-                    <img loading="lazy" src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/Guaranteed_Change__THUMBNAILjpg.jpg" 
-                         alt="Guaranteed Change - 3.5% = 11.6M Signatures"
-                         onclick="window.open(this.src, '_blank')" loading="lazy">
-                    <p class="graphic-caption">Click to enlarge • 3.5% = 11.6M signatures = Guaranteed systemic change (Harvard research)</p>
-                </div>
-
-                <div class="highlight-box">
-                    <h3 style="color: #4caf50; margin-top: 0;">Harvard Research (Erica Chenoweth):</h3>
-                    <p style="margin-top: 15px;">
-                        Studied 323 political campaigns from 1900-2006.
-                    </p>
-                    <p style="margin-top: 15px; font-size: 1.1em; color: white; font-weight: bold;">
-                        Finding: NO campaign where 3.5% of the population participated in sustained, organized action ever failed.
-                    </p>
-                    <p style="margin-top: 20px;">
-                        <strong style="color: #4caf50;">The math:</strong>
-                    </p>
-                    <ul style="padding-left: 20px; margin-top: 10px;">
-                        <li style="color: #c8e6c9; margin: 8px 0;">3.5% of US population = 11.6M Americans</li>
-                        <li style="color: #c8e6c9; margin: 8px 0;">We're targeting 100M+ = 9x the threshold</li>
-                        <li style="color: #c8e6c9; margin: 8px 0;">Implication: Mathematically unstoppable</li>
-                    </ul>
-                    <p style="margin-top: 20px; font-size: 1.1em; color: #4caf50; font-weight: bold;">
-                        Systemic change isn't just possible—it's guaranteed once we reach and sustain 3.5% organized participation.
-                    </p>
-                </div>
-            </section>
-
-            <section>
-                <h2>Vote Like Your Life Depends On It</h2>
-                
-                <div class="graphic-container">
-                    <img loading="lazy" src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/vote_lke_your_life_depends_on_it.jpg" 
-                         alt="Vote Like Your Life Depends On It"
-                         onclick="window.open(this.src, '_blank')" loading="lazy">
-                    <p class="graphic-caption">Click to enlarge • Because It Does — This Is About Healthcare, Jobs, and Survival</p>
-                </div>
-            </section>
-
-            <section style="text-align: center; margin: 50px 0;">
-                <h2>Ready to Build the Pressure?</h2>
-                <p style="font-size: 1.1em; margin: 20px 0;">
-                    Sign the petition. Build the leverage. Force Congress to choose.
-                </p>
-                
-                <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin: 30px 0;">
-                    <a href="https://chng.it/PmmrfFDK6P" target="_blank" class="btn">Sign the PHIERS Petition</a>
-                    <a href="action.html" class="btn btn-secondary">All Actions →</a>
-                </div>
-            </section>
-        </main>
-
-        <!-- FOOTER - Section 7 Constitutional Compliance -->
-        <footer>
-            <h3>PHIERS Movement | MABAH</h3>
-            <p><strong>Make America Better And Healthier</strong></p>
-            
-            <p style="margin: 15px 0;">
-                Will Price | Chief Solutions Architect<br>
-                Phone: <a href="tel:+19163068967">(916) 306-8967</a> | 
-                Email: <a href="mailto:info@phiers.org">info@phiers.org</a>
-            </p>
-            
-            <div class="footer-nav">
-                <a href="index.html">Home</a>
-                <a href="Quickstart.html">Quick Start</a>
-                <a href="OVERVIEW.html">OVERVIEW</a>
-                <a href="Crisis.html">Crisis</a>
-                <a href="SimpleMath.html">Simple Math</a>
-                <a href="5D_Solutions.html">5D Solutions</a>
-                <a href="action.html">Action</a>
-                <a href="Leverage.html">Leverage</a>
-                <a href="FAQ.html">FAQ</a>
-                <a href="Resources.html">Resources</a>
-                <a href="Media.html">Media</a>
-                <a href="About.html">About</a>
-                <a href="Donate.html">Donate</a>
-            </div>
-            
-            <div class="constitutional-disclaimer">
-                <p>
-                    PHIERS is a public-interest movement — not a company, not a product.<br>
-                    The only thing missing is you.
-                </p>
-            </div>
-            
-            <p style="margin-top: 20px; font-size: 0.85rem; c
-
-<!-- Image Modal -->
-<div id="imageModal" class="image-modal">
-  <span class="close-modal" onclick="closeImageModal()">&times;</span>
-  <img loading="lazy" class="modal-content" id="modalImage" alt="" loading="lazy">
+<div class="mobile-menu" id="mobile-menu">
+    <a href="index.html#crisis">The Crisis</a>
+    <a href="index.html#coordination">The Missing Piece</a>
+    <a href="index.html#proof">The $600 Plan</a>
+    <a href="index.html#teeth">How We Force Action</a>
+    <a href="index.html#credibility">Why This Is Real</a>
+    <a href="index.html#roadmap">Roadmap</a>
+    <a href="Crisis.html">Crisis Deep Dive</a>
+    <a href="SimpleMath.html">Simple Math</a>
+    <a href="5D_Solutions.html">5D Solutions</a>
+    <a href="Telehealth-Insurance.html">Telehealth & Insurance</a>
+    <a href="Donate.html">Donate</a>
+    <a href="organizers.html">For Organizers</a>
+    <a href="healthcare-proof.html" target="_blank" style="color:var(--green);font-weight:700">→ The Full Story</a>
 </div>
 
+<div class="page-wrap">
+
+    <div style="text-align:center; margin-bottom:52px;">
+        <img src="PHIERS_Logo.png" alt="PHIERS.org" style="height:120px;width:auto;display:block;margin:0 auto 20px">
+        <span class="eyebrow">Congressional Leverage</span>
+        <h1>Congress's<br><span class="green">Binary Choice.</span></h1>
+        <p style="font-size:1.15rem;max-width:680px;margin:0 auto 24px">A small group can force national change if the math is undeniable. When 3.5% coordinate, Congress has no choice but to respond.</p>
+    </div>
+
+    <div class="graphic-container">
+        <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/Power_Concedes_Nothing_TEETH.png" 
+             alt="Power Concedes Nothing Without Teeth" 
+             onclick="openModal(this.src, this.alt)">
+        <p class="graphic-caption">Power concedes nothing without a demand that has TEETH.</p>
+    </div>
+
+    <div class="video-section">
+        <h2>Congress: Get Out of the Way, Or Step Aside (4:44)</h2>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/xy3F9ZWbgS8" 
+                    title="Congress: Get Out of the Way, Or Step Aside"
+                    frameborder="0" 
+                    allowfullscreen></iframe>
+        </div>
+        <p style="text-align: center; color: var(--blue); font-weight: bold; margin-top: 15px;">The ultimatum. Lead this or face replacement.</p>
+    </div>
+
+    <div class="graphic-container">
+        <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/LEVERAGE_Pwr_of_the_People.png" 
+             alt="Power of the People - Congressional Leverage"
+             onclick="openModal(this.src, this.alt)">
+        <p class="graphic-caption">Power of the People: 100M+ Constituents vs Corporate Average = 230:1 Advantage</p>
+    </div>
+
+    <div class="section">
+        <span class="eyebrow">The Four Pressure Points</span>
+        <h2>How We Force <span class="green">Action.</span></h2>
+
+        <div class="leverage-card">
+            <h3>1. Town Hall Pressure (Nader Rule)</h3>
+            <p><strong style="color: var(--text-bright);">1,500 signatures = mandatory town hall.</strong> We're targeting 10,000+ per district. Representatives forced to face constituents with petition data + survey stories.</p>
+            <p style="margin-top: 15px;">This isn't optional. The Nader Rule forces them to show up and answer for their decisions.</p>
+        </div>
+
+        <div class="leverage-card">
+            <h3>2. Primary Challenge Threat (Jan 2026)</h3>
+            <p><strong style="color: var(--text-bright);">Any representative refusing telehealth faces immediate primary challenge.</strong></p>
+            <p style="margin-top: 15px;">Healthcare IS the dominant issue (80% of voters). Refusing solution = automatic vulnerability.</p>
+        </div>
+
+        <div class="leverage-card">
+            <h3>3. Media Amplification (55M Readers)</h3>
+            <p><strong style="color: var(--text-bright);">Pathos Communications + International Business Times</strong> - Ready to publish PHIERS story.</p>
+            <p style="margin-top: 15px;"><strong style="color: var(--green);">Publication happens when fundraising goal is reached.</strong> Your contribution directly funds the story that reaches 55M+ readers and changes the national conversation.</p>
+            <p style="margin-top: 10px;"><a href="Donate.html" style="color: var(--green); text-decoration: underline;">→ Fund the media campaign</a></p>
+        </div>
+
+        <div class="leverage-card">
+            <h3>4. Mathematical Inevitability</h3>
+            <p><strong style="color: var(--text-bright);">$1.95B per district constituent pressure vs. $8.5M corporate average.</strong></p>
+            <p style="margin-top: 15px; font-size: 1.2em; color: var(--green); font-weight: bold;">230:1 advantage minimum.</p>
+            <p style="margin-top: 10px;">Congress cannot ignore mathematical superiority.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <span class="eyebrow">The Choice</span>
+        <h2>Congress's <span class="red">Binary Choice.</span></h2>
+        
+        <div class="binary-choice">
+            <div class="choice-card choice-a">
+                <h3>OPTION A: LEAD THIS</h3>
+                <p style="margin-top: 15px;">Say YES to telehealth in ACA by March 28, 2026.</p>
+                <p style="margin-top: 10px;">Become heroes.</p>
+                <p style="margin-top: 10px;">Save the 22M and many many more.</p>
+                <p style="margin-top: 10px;">Trigger cascade.</p>
+                <p style="color: var(--text-bright); font-weight: bold; margin-top: 15px; font-size: 1.1em;">Be remembered as problem-solvers.</p>
+            </div>
+
+            <div class="choice-card choice-b">
+                <h3>OPTION B: FACE REPLACEMENT</h3>
+                <p style="margin-top: 15px;">Refuse.</p>
+                <p style="margin-top: 10px;">Face 100M+ organized constituents demanding removal.</p>
+                <p style="margin-top: 10px;">Lose primary elections Jan 2026.</p>
+                <p style="color: var(--text-bright); font-weight: bold; margin-top: 15px; font-size: 1.1em;">Be remembered as obstacles.</p>
+            </div>
+        </div>
+
+        <p style="text-align: center; font-size: 1.2em; color: var(--green); font-weight: bold; margin: 40px 0;">
+            Congress will choose A. The pressure is mathematical. The choice is binary.
+        </p>
+    </div>
+
+    <div class="section">
+        <span class="eyebrow">The Research</span>
+        <h2>The 3.5% <span class="green">Threshold.</span></h2>
+        
+        <div class="graphic-container">
+            <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/Guaranteed_Change__THUMBNAILjpg.jpg" 
+                 alt="Guaranteed Change - 3.5% = 11.6M Signatures"
+                 onclick="openModal(this.src, this.alt)">
+            <p class="graphic-caption">3.5% = 11.6M signatures = Guaranteed systemic change (Harvard research)</p>
+        </div>
+
+        <div class="highlight-box">
+            <h3 style="color: var(--green); margin-top: 0;">Harvard Research (Erica Chenoweth):</h3>
+            <p style="margin-top: 15px;">Studied 323 political campaigns from 1900-2006.</p>
+            <p style="margin-top: 15px; font-size: 1.1em; color: var(--text-bright); font-weight: bold;">Finding: NO campaign where 3.5% of the population participated in sustained, organized action ever failed.</p>
+            <p style="margin-top: 20px;"><strong style="color: var(--green);">The math:</strong></p>
+            <ul style="padding-left: 20px; margin-top: 10px;">
+                <li style="margin: 8px 0;">3.5% of US population = 11.6M Americans</li>
+                <li style="margin: 8px 0;">We're targeting 100M+ = 9x the threshold</li>
+                <li style="margin: 8px 0;">Implication: Mathematically unstoppable</li>
+            </ul>
+            <p style="margin-top: 20px; font-size: 1.1em; color: var(--green); font-weight: bold;">
+                Systemic change isn't just possible—it's guaranteed once we reach and sustain 3.5% organized participation.
+            </p>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="graphic-container">
+            <img src="https://raw.githubusercontent.com/phiersale/PHIERS-Concept/main/vote_lke_your_life_depends_on_it.jpg" 
+                 alt="Vote Like Your Life Depends On It"
+                 onclick="openModal(this.src, this.alt)">
+            <p class="graphic-caption">Because It Does — This Is About Healthcare, Jobs, and Survival</p>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin: 50px 0;">
+        <h2>Ready to Build the <span class="green">Pressure?</span></h2>
+        <p style="font-size: 1.1em; margin: 20px 0;">
+            Sign the petition. Build the leverage. Force Congress to choose.
+        </p>
+        <div class="cta-row">
+            <a href="https://www.change.org/p/congress-the-public-is-coordinating-it-s-time-to-answer" target="_blank" class="btn-primary">✍ Sign the Petition</a>
+            <a href="Action.html" class="btn-secondary">All Actions →</a>
+        </div>
+    </div>
+
+    <div class="page-nav">
+        <a href="5D_Solutions.html">← Back to 5D Solutions</a>
+        <a href="organizers.html">Next: For Organizers →</a>
+    </div>
+
+</div>
+
+<footer>
+    <img src="PHIERS_Logo.png" alt="PHIERS.org" class="footer-logo">
+    <div class="footer-mabah">MABAH — Making America Better And Healthier</div>
+    <div class="footer-mabah-sub">Sounds like MAGA. But a lot bettah.</div>
+    <div class="footer-tagline">PHIERS-power: When millions coordinate, Congress must respond — or be replaced.</div>
+    <div style="font-size:0.82rem;color:var(--text-dim);font-style:italic;margin-bottom:16px">PHIERS (pronounced "fires") — transformation in motion. Because that's what happens when citizens organize.</div>
+    <nav class="footer-nav">
+        <a href="#crisis">The Crisis</a>
+        <a href="#proof">The $600 Plan</a>
+        <a href="#teeth">How It Works</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="organizers.html">For Organizers</a>
+        <a href="SimpleMath.html">Simple Math</a>
+        <a href="5D_Solutions.html">5D Solutions</a>
+        <a href="Telehealth-Insurance.html">Telehealth & Insurance</a>
+        <a href="Donate.html">Donate</a>
+        <a href="About.html">About</a>
+    </nav>
+    <div class="footer-copy">
+        Not built for profit. Not built for power. Built for We the People — by people who refused to stop.<br>
+        📧 <a href="mailto:info@phiers.org">info@phiers.org</a><br>
+        © PHIERS.org — Original Concept Since 2009. All Rights Reserved.<br>
+        <span style="font-size:0.75rem">PHIERS™ · PHIERSale™ · PHIERWorks™ — Protected marks established 2009–2025.</span>
+    </div>
+</footer>
+
+<div class="image-modal" id="imageModal" onclick="closeModal()">
+    <button class="close-modal" onclick="closeModal(event)">✕</button>
+    <img class="modal-content" id="modalImg" alt="">
+</div>
+
+<button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
+
 <script>
-function toggleMobileMenu() {
-  var n = document.getElementById('navLinks');
-  if (n) n.classList.toggle('active');
-}
-function openModal(src) {
-  var m = document.getElementById('imageModal');
-  var i = document.getElementById('modalImage');
-  if (m && i) { i.src = src; m.style.display = 'block'; document.body.style.overflow = 'hidden'; }
-}
-function closeModal() {
-  var m = document.getElementById('imageModal');
-  if (m) { m.style.display = 'none'; document.body.style.overflow = ''; }
-}
-function closeImageModal() { closeModal(); }
-document.addEventListener('DOMContentLoaded', function() {
-  var modal = document.getElementById('imageModal');
-  if (modal) {
-    modal.addEventListener('click', function(e) { if (e.target === modal) closeModal(); });
-  }
-  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
-  document.querySelectorAll('img').forEach(function(img) {
-    if (!img.src.includes('Logo')) {
-      img.style.cursor = 'pointer';
-      img.addEventListener('click', function() { openModal(this.src); });
+    window.addEventListener('scroll', () => {
+        document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    function toggleMenu() {
+        document.getElementById('mobile-menu').classList.toggle('open');
     }
-  });
-});
+    
+    document.addEventListener('click', function(event) {
+        const menu = document.getElementById('mobile-menu');
+        const hamburger = document.querySelector('.hamburger');
+        if (menu && menu.classList.contains('open') && 
+            !menu.contains(event.target) && 
+            !hamburger.contains(event.target)) {
+            menu.classList.remove('open');
+        }
+    });
+
+    document.querySelectorAll('.mobile-menu a').forEach(a => {
+        a.addEventListener('click', () => document.getElementById('mobile-menu').classList.remove('open'));
+    });
+
+    (function() {
+        var currentPage = 'Leverage.html';
+        document.querySelectorAll('.mobile-menu a').forEach(function(a) {
+            if (a.getAttribute('href') === currentPage) {
+                a.classList.add('active');
+            }
+        });
+    })();
+
+    function openModal(src, alt) {
+        document.getElementById('modalImg').src = src;
+        document.getElementById('modalImg').alt = alt || '';
+        document.getElementById('imageModal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closeModal(e) {
+        if (e && e.stopPropagation) e.stopPropagation();
+        document.getElementById('imageModal').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    var btt = document.getElementById('back-to-top');
+    if (btt) {
+        window.addEventListener('scroll', function() { 
+            btt.classList.toggle('visible', window.scrollY > 400); 
+        });
+        btt.addEventListener('click', function() { 
+            window.scrollTo({top: 0, behavior: 'smooth'}); 
+        });
+    }
 </script>
 </body>
 </html>

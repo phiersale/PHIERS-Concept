@@ -4,10 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="PHIERS.org — For movement organizers. Give the No Kings movement permanent teeth. The mechanism that turns protest into power.">
-<meta property="og:title" content="Give the Movement Teeth — PHIERS.org for Organizers">
+<meta property="og:title" content="PHIERS.org — For Organizers: Give the Movement Teeth">
 <meta property="og:description" content="You built the movement. PHIERS.org gives it teeth. Partner with us before March 28.">
 <meta property="og:image" content="PHIERS_Logo.png">
-<title>Give the Movement Teeth — PHIERS.org for Organizers</title>
+<link rel="icon" type="image/png" href="PHIERS_Logo.png">
+<title>PHIERS.org — For Organizers: Give the Movement Teeth</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Barlow+Condensed:wght@700;900&display=swap" rel="stylesheet">
 <style>
@@ -41,8 +42,16 @@
     line-height: 1.8;
     overflow-x: hidden;
   }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
 
-  /* ── NAV ── */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -59,8 +68,8 @@
   }
   nav.scrolled { box-shadow: 0 4px 40px rgba(61,220,132,0.1); }
   .nav-left { display: flex; align-items: center; gap: 14px; }
-  .nav-logo { height: 38px; width: auto; }
   .nav-tagline {
+    font-family: var(--font-body);
     font-style: italic;
     font-size: 0.78rem;
     color: var(--green);
@@ -99,6 +108,7 @@
     border-radius: 4px;
     cursor: pointer;
   }
+
   .mobile-menu {
     display: none;
     position: fixed;
@@ -120,8 +130,8 @@
     transition: color 0.2s;
   }
   .mobile-menu a:hover { color: var(--green); }
+  .mobile-menu a.active { color: var(--green); font-weight: 700; }
 
-  /* ── LAYOUT ── */
   .section {
     position: relative;
     z-index: 1;
@@ -140,7 +150,6 @@
     padding: 0 24px;
   }
 
-  /* ── TYPOGRAPHY ── */
   .section-label {
     font-family: var(--font-condensed);
     font-weight: 700;
@@ -178,7 +187,6 @@
   }
   p + p { margin-top: 14px; }
 
-  /* ── HERO ── */
   #hero {
     min-height: 100vh;
     display: flex;
@@ -231,7 +239,6 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* ── BUTTONS ── */
   .btn-primary {
     background: var(--red);
     color: #fff;
@@ -280,14 +287,8 @@
     display: inline-block;
   }
   .btn-secondary:hover { background: var(--green-glow); }
-  .cta-row {
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-    margin-top: 32px;
-  }
+  .cta-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 32px; }
 
-  /* ── YOU BUILT IT ── */
   #built { background: var(--bg-card2); }
   .built-body { color: var(--text-body); max-width: 720px; }
   .built-body p { margin-bottom: 16px; }
@@ -306,9 +307,7 @@
   }
   .pull-quote .green { color: var(--green); }
 
-  /* ── THE GAP ── */
   #gap { background: var(--bg-deep); }
-
   .gap-statement {
     font-family: var(--font-condensed);
     font-weight: 700;
@@ -329,41 +328,19 @@
     margin: 28px 0;
   }
   @media(max-width: 500px){ .contrast-grid { grid-template-columns: 1fr; } }
-  .contrast-card {
-    padding: 24px;
-    border-radius: 6px;
-    text-align: center;
-  }
-  .contrast-card.fades {
-    background: rgba(230,57,70,0.06);
-    border: 1px solid rgba(230,57,70,0.25);
-  }
-  .contrast-card.stays {
-    background: rgba(61,220,132,0.06);
-    border: 1px solid rgba(61,220,132,0.25);
-  }
+  .contrast-card { padding: 24px; border-radius: 6px; text-align: center; }
+  .contrast-card.fades { background: rgba(230,57,70,0.06); border: 1px solid rgba(230,57,70,0.25); }
+  .contrast-card.stays { background: rgba(61,220,132,0.06); border: 1px solid rgba(61,220,132,0.25); }
   .contrast-card .contrast-icon { font-size: 2rem; margin-bottom: 10px; }
   .contrast-card h3 { margin-bottom: 8px; font-size: 1.1rem; }
   .contrast-card.fades h3 { color: var(--red); }
   .contrast-card.stays h3 { color: var(--green); }
   .contrast-card p { font-size: 0.88rem; color: var(--text-dim); line-height: 1.6; }
 
-  /* ── THE MECHANISM ── */
   #mechanism { background: var(--bg-card2); }
+  .mechanism-intro { font-size: 1.05rem; color: var(--text-body); margin-bottom: 32px; line-height: 1.9; }
 
-  .mechanism-intro {
-    font-size: 1.05rem;
-    color: var(--text-body);
-    margin-bottom: 32px;
-    line-height: 1.9;
-  }
-
-  .what-phiers-adds {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin: 28px 0;
-  }
+  .what-phiers-adds { display: flex; flex-direction: column; gap: 16px; margin: 28px 0; }
   .add-item {
     display: flex;
     gap: 20px;
@@ -374,17 +351,11 @@
     transition: border-color 0.2s;
   }
   .add-item:hover { border-color: var(--green); }
-  .add-icon {
-    font-size: 1.6rem;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
+  .add-icon { font-size: 1.6rem; flex-shrink: 0; margin-top: 2px; }
   .add-content h3 { color: var(--green); margin-bottom: 6px; }
   .add-content p { font-size: 0.93rem; color: var(--text-body); line-height: 1.7; }
 
-  /* ── PARTNERSHIP ── */
   #partnership { background: var(--bg-deep); }
-
   .one-thing {
     font-family: var(--font-display);
     font-size: clamp(2rem, 5vw, 3.5rem);
@@ -421,11 +392,7 @@
     padding: 32px;
     margin: 28px 0;
   }
-  .ask-box h3 {
-    color: var(--green);
-    font-size: 1.4rem;
-    margin-bottom: 16px;
-  }
+  .ask-box h3 { color: var(--green); font-size: 1.4rem; margin-bottom: 16px; }
   .ask-list { list-style: none; }
   .ask-list li {
     padding: 10px 0 10px 28px;
@@ -435,28 +402,12 @@
     font-size: 0.97rem;
     line-height: 1.6;
   }
-  .ask-list li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--green);
-    font-weight: 700;
-  }
+  .ask-list li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
   .ask-list li:last-child { border-bottom: none; }
 
-  /* ── WHY NOW ── */
   #whynow { background: var(--bg-card2); }
-
-  .deadline-blocks {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin: 28px 0;
-  }
-  @media(min-width: 700px){
-    .deadline-blocks { flex-direction: row; }
-    .deadline-block { flex: 1; }
-  }
+  .deadline-blocks { display: flex; flex-direction: column; gap: 16px; margin: 28px 0; }
+  @media(min-width: 700px){ .deadline-blocks { flex-direction: row; } .deadline-block { flex: 1; } }
   .deadline-block {
     background: var(--bg-dark);
     border: 1px solid var(--border);
@@ -476,28 +427,37 @@
     border-radius: 20px;
     margin-bottom: 12px;
   }
-  .deadline-title {
-    font-family: var(--font-condensed);
-    font-weight: 700;
-    font-size: 1.15rem;
-    color: var(--text-bright);
-    margin-bottom: 8px;
-  }
+  .deadline-title { font-family: var(--font-condensed); font-weight: 700; font-size: 1.15rem; color: var(--text-bright); margin-bottom: 8px; }
   .deadline-desc { font-size: 0.88rem; color: var(--text-dim); line-height: 1.6; }
 
-  /* ── FINAL CALL ── */
+  .back-to-top {
+    position: fixed;
+    bottom: 28px; right: 24px;
+    background: var(--green);
+    color: var(--bg-deep);
+    border: none;
+    border-radius: 50%;
+    width: 44px; height: 44px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .back-to-top.visible { opacity: 1; pointer-events: auto; }
+  .back-to-top:hover { background: var(--green-dim); }
+
   #finalcall {
     background: linear-gradient(180deg, var(--bg-deep) 0%, #050a14 100%);
     border-top: 2px solid var(--green);
     text-align: center;
   }
   #finalcall h2 { text-align: center; }
-  .final-body {
-    color: var(--text-body);
-    max-width: 600px;
-    margin: 0 auto 28px;
-    line-height: 1.9;
-  }
+  .final-body { color: var(--text-body); max-width: 600px; margin: 0 auto 28px; line-height: 1.9; }
   .contact-box {
     background: var(--bg-card);
     border: 1px solid var(--border);
@@ -522,31 +482,26 @@
     margin-right: auto;
   }
   .share-line p { color: var(--text-body); font-size: 0.95rem; margin-bottom: 8px; }
-  .hashtag {
-    font-family: var(--font-display);
-    font-size: clamp(1.4rem, 3vw, 2rem);
-    color: var(--green);
-    letter-spacing: 0.04em;
-  }
+  .hashtag { font-family: var(--font-display); font-size: clamp(1.4rem, 3vw, 2rem); color: var(--green); letter-spacing: 0.04em; }
 
-  /* ── FOOTER ── */
   footer {
-    background: var(--bg-card2);
-    border-top: 1px solid var(--border);
-    padding: 48px 24px;
-    text-align: center;
     position: relative;
     z-index: 1;
+    background: var(--bg-dark);
+    border-top: 1px solid var(--border);
+    padding: 48px 24px 32px;
+    text-align: center;
   }
-  .footer-logo { height: 48px; margin-bottom: 16px; }
-  .footer-mabah { font-family: var(--font-condensed); font-weight: 700; font-size: 1.2rem; color: var(--green); margin-bottom: 4px; }
-  .footer-mabah-sub { font-style: italic; color: var(--text-dim); font-size: 0.9rem; margin-bottom: 20px; }
+  .footer-logo { height: 40px; margin-bottom: 12px; }
+  .footer-mabah { font-family: var(--font-condensed); font-weight: 700; font-size: 1.1rem; color: var(--text-bright); margin-bottom: 2px; }
+  .footer-mabah-sub { font-size: 0.88rem; color: var(--green); font-style: italic; margin-bottom: 20px; }
+  .footer-tagline { font-family: var(--font-condensed); font-size: 1rem; color: var(--text-dim); margin-bottom: 20px; font-style: italic; }
   .footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 20px; margin-bottom: 24px; }
-  .footer-nav a { color: var(--text-dim); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+  .footer-nav a { color: var(--text-dim); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
   .footer-nav a:hover { color: var(--green); }
   .footer-copy { font-size: 0.8rem; color: var(--text-dim); line-height: 1.8; }
+  .footer-copy a { color: var(--green); text-decoration: none; }
 
-  /* ── BACK LINK ── */
   .back-link {
     display: inline-flex;
     align-items: center;
@@ -565,72 +520,57 @@
 </head>
 <body>
 
-<!-- NAV -->
+<!-- ── UNIVERSAL NAVIGATION ── -->
 <nav id="main-nav">
   <div class="nav-left">
-    <img src="PHIERS_Logo.png" alt="PHIERS.org" class="nav-logo">
+    <a href="index.html" style="font-family:var(--font-condensed);font-weight:700;font-size:1.3rem;color:#fff;text-decoration:none;letter-spacing:0.05em">PHIERS.org</a>
     <div class="nav-tagline">MABAH — Making America Better And Healthier<br>Sounds like MAGA. But a lot bettah.</div>
   </div>
   <div class="nav-right">
-    <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now-short-version" target="_blank" class="btn-petition">✍ Sign the Petition</a>
+    <a href="https://www.change.org/p/congress-the-public-is-coordinating-it-s-time-to-answer" target="_blank" class="btn-petition">✍ Sign Now</a>
     <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">☰</button>
   </div>
 </nav>
 
+<!-- ── UNIVERSAL MOBILE MENU ── -->
 <div class="mobile-menu" id="mobile-menu">
-  <a href="healthcare-proof.html">← Back to Homepage</a>
   <a href="index.html#crisis">The Crisis</a>
   <a href="index.html#coordination">The Missing Piece</a>
   <a href="index.html#proof">The $600 Plan</a>
   <a href="index.html#teeth">How We Force Action</a>
   <a href="index.html#credibility">Why This Is Real</a>
   <a href="index.html#roadmap">Roadmap</a>
+  <a href="Crisis.html">Crisis Deep Dive</a>
   <a href="SimpleMath.html">Simple Math</a>
+  <a href="5D_Solutions.html">5D Solutions</a>
+  <a href="Telehealth-Insurance.html">Telehealth & Insurance</a>
   <a href="Donate.html">Donate</a>
+  <a href="organizers.html">For Organizers</a>
+  <a href="healthcare-proof.html" target="_blank" style="color:var(--green);font-weight:700">→ The Full Story</a>
 </div>
 
-<!-- ═══════════════════════════════════════
-     HERO
-═══════════════════════════════════════ -->
 <section id="hero">
   <div class="section">
-    <a href="healthcare-proof.html" class="back-link">← Back to PHIERS.org</a>
-
-    <p class="hero-address" style="opacity:0;animation:fadeUp 0.5s 0.1s forwards">
-      To every organizer, coordinator, and grassroots leader who has been fighting for accountability:
-    </p>
-
-    <h1 class="page-headline" style="opacity:0;animation:fadeUp 0.6s 0.3s forwards">
-      You Built<br>The Movement.<br><span>PHIERS.org</span><br>Gives It Teeth.
-    </h1>
-
-    <p class="hero-sub">
-      The No Kings Rally will be the largest protest in American history.
-      But without a mechanism to hold Congress accountable after March 28 — it becomes a photo op.
-      PHIERS.org is that mechanism.
-    </p>
-
+    <a href="index.html" class="back-link">← Back to Homepage</a>
+    <p class="hero-address">To every organizer, coordinator, and grassroots leader who has been fighting for accountability:</p>
+    <h1 class="page-headline">You Built<br>The Movement.<br><span>PHIERS.org</span><br>Gives It Teeth.</h1>
+    <p class="hero-sub">The No Kings Rally will be the largest protest in American history. But without a mechanism to hold Congress accountable after March 28 — it becomes a photo op. PHIERS.org is that mechanism.</p>
     <div class="hero-tension">
       We don't ask you to change your message.<br>
       We don't ask you to change your mission.<br>
       We don't ask you to join an organization.<br><br>
       <strong>We give your demands the one thing they're missing: teeth.</strong>
     </div>
-
     <div class="hero-ctas">
       <a href="#finalcall" class="btn-green">→ Partner With PHIERS.org</a>
-      <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now-short-version" target="_blank" class="btn-primary">✍ Sign the Petition First</a>
+      <a href="https://www.change.org/p/congress-the-public-is-coordinating-it-s-time-to-answer" target="_blank" class="btn-primary">✍ Sign the Petition First</a>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     YOU BUILT IT
-═══════════════════════════════════════ -->
 <section class="section" id="built">
   <p class="section-label">We See What You've Built</p>
   <h2>You've Done <span class="green">The Hard Part.</span></h2>
-
   <div class="built-body">
     <p>You organized the marches. You built the coalitions. You got people off their couches and into the streets.</p>
     <p>That energy is real. That anger is justified. That demand for accountability is the most American impulse there is.</p>
@@ -638,32 +578,22 @@
     <p>People march. Speeches are made. Photos are taken. Congress waits it out. And nothing changes.</p>
     <p>Not because the movement failed. Because protest alone has never been enough.</p>
   </div>
-
   <div class="pull-quote">
     Power concedes nothing without<br>a demand that has <span class="green">TEETH.</span>
   </div>
-
   <div class="built-body">
     <p>The movements that changed history didn't just march. They marched <em>and</em> they organized. They created visibility <em>and</em> leverage. They demanded change <em>and</em> enforced consequences.</p>
     <p>PHIERS.org is the enforcement mechanism your movement has been building toward.</p>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     THE GAP
-═══════════════════════════════════════ -->
 <section class="section" id="gap">
   <p class="section-label">The Gap Every Movement Faces</p>
   <h2>Visibility Without Accountability<br>Is Just <span class="red">Noise.</span></h2>
-
-  <div class="gap-statement">
-    Congress ignores protests because protests don't threaten their jobs.
-  </div>
-
+  <div class="gap-statement">Congress ignores protests because protests don't threaten their jobs.</div>
   <p>Politicians calculate the cost of responding versus the cost of waiting it out. Most of the time — waiting wins.</p>
   <p>The only thing that reliably moves Congress is organized constituent pressure with documented electoral consequences.</p>
   <p>When a politician sees that 1,500 verified constituents in their own district are aligned on a specific demand — and that those constituents will act on it — the math changes.</p>
-
   <div class="contrast-grid">
     <div class="contrast-card fades">
       <div class="contrast-icon">📸</div>
@@ -676,19 +606,13 @@
       <p>Creates visibility AND documented leverage. Turns public sentiment into constituent demands on the record. Forces response or triggers organized consequences. The moment becomes permanent.</p>
     </div>
   </div>
-
   <p style="margin-top:8px"><strong style="color:var(--text-bright)">No leverage = no change.</strong> That's the lesson of every protest movement that faded. The ones that didn't fade had a mechanism. PHIERS.org is the mechanism.</p>
 </section>
 
-<!-- ═══════════════════════════════════════
-     THE MECHANISM
-═══════════════════════════════════════ -->
 <section class="section" id="mechanism">
   <p class="section-label">What PHIERS.org Adds</p>
   <h2>Protests Create Visibility.<br>PHIERS.org Creates <span class="green">Leverage.</span><br>The Movement Needs Both.</h2>
-
   <p class="mechanism-intro">PHIERS.org is a citizen coordination system built to turn public energy into documented political pressure — district by district, representative by representative. Here's what it adds to everything you've already built:</p>
-
   <div class="what-phiers-adds">
     <div class="add-item">
       <div class="add-icon">🎯</div>
@@ -728,52 +652,19 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     PARTNERSHIP
-═══════════════════════════════════════ -->
 <section class="section" id="partnership">
   <p class="section-label">What Partnership Looks Like</p>
   <h2>We Don't Ask You To Become PHIERS.org.<br>We Ask You To <span class="green">Point Your People Toward It.</span></h2>
-
-  <div class="one-thing">
-    Tell your people to sign<br>the petition before March 28.
-  </div>
-
+  <div class="one-thing">Tell your people to sign<br>the petition before March 28.</div>
   <p>That's it. Every signature your network generates becomes documented leverage. Every survey response becomes constituent direction Congress must answer. Every share gets us closer to the 12 million that history shows cannot be ignored.</p>
-
   <div class="brings-grid">
-    <div class="brings-item">
-      <div class="brings-icon">🎯</div>
-      <strong>Winnable First Demand</strong>
-      Specific, undeniable, achievable — the proof of concept that opens every door.
-    </div>
-    <div class="brings-item">
-      <div class="brings-icon">📊</div>
-      <strong>District-Level Data</strong>
-      Where your members are, what they want, documented and delivered.
-    </div>
-    <div class="brings-item">
-      <div class="brings-icon">🗓</div>
-      <strong>Three Deadlines</strong>
-      March 28 → July 4th → November 2026. A movement with a calendar.
-    </div>
-    <div class="brings-item">
-      <div class="brings-icon">🏛</div>
-      <strong>15 Years of Work</strong>
-      Validated by Pathos Communications, Mark Cuban's Cost Plus Drugs, Harvard Kennedy School research.
-    </div>
-    <div class="brings-item">
-      <div class="brings-icon">⚡</div>
-      <strong>Permanent Mechanism</strong>
-      Doesn't fade after the rally. Builds and grows until Congress responds.
-    </div>
-    <div class="brings-item">
-      <div class="brings-icon">✊</div>
-      <strong>Constitutional Power</strong>
-      Peaceful. Legal. Unstoppable. The founders built this mechanism in — we're using it.
-    </div>
+    <div class="brings-item"><div class="brings-icon">🎯</div><strong>Winnable First Demand</strong>Specific, undeniable, achievable — the proof of concept that opens every door.</div>
+    <div class="brings-item"><div class="brings-icon">📊</div><strong>District-Level Data</strong>Where your members are, what they want, documented and delivered.</div>
+    <div class="brings-item"><div class="brings-icon">🗓</div><strong>Three Deadlines</strong>March 28 → July 4th → November 2026. A movement with a calendar.</div>
+    <div class="brings-item"><div class="brings-icon">🏛</div><strong>15 Years of Work</strong>Validated by Pathos Communications, Mark Cuban's Cost Plus Drugs, Harvard Kennedy School research.</div>
+    <div class="brings-item"><div class="brings-icon">⚡</div><strong>Permanent Mechanism</strong>Doesn't fade after the rally. Builds and grows until Congress responds.</div>
+    <div class="brings-item"><div class="brings-icon">✊</div><strong>Constitutional Power</strong>Peaceful. Legal. Unstoppable. The founders built this mechanism in — we're using it.</div>
   </div>
-
   <div class="ask-box">
     <h3>What We Ask of You</h3>
     <ul class="ask-list">
@@ -786,15 +677,10 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     WHY NOW
-═══════════════════════════════════════ -->
 <section class="section" id="whynow">
   <p class="section-label">Why This Moment Is Different</p>
   <h2>The 250th Anniversary <span class="green">Changes Everything.</span></h2>
-
   <p>July 4, 2026 marks 250 years since Americans declared independence from a government that stopped representing them. We have three deadlines and one mission:</p>
-
   <div class="deadline-blocks">
     <div class="deadline-block">
       <div class="deadline-date">📅 March 28</div>
@@ -812,17 +698,12 @@
       <div class="deadline-desc">Every candidate in every district knows the public is organized and keeping score. The only people elected are those who publicly commit to the will of their constituents. Corruption loses its grip.</div>
     </div>
   </div>
-
   <p>This is how we make the No Kings movement permanent. Not just a moment — a mandate.</p>
 </section>
 
-<!-- ═══════════════════════════════════════
-     FINAL CALL
-═══════════════════════════════════════ -->
 <section class="section" id="finalcall">
   <p class="section-label" style="text-align:center">The Ask</p>
   <h2 style="text-align:center">You've Given Everything<br>To Build This Movement.<br><span class="green">Give It One More Thing.</span></h2>
-
   <p class="final-body">
     PHIERS.org has been building this mechanism since 2009 — forged under pressure, validated by people who know the difference, ready to deploy the moment the movement is ready to use it.<br><br>
     That moment is now.<br><br>
@@ -830,33 +711,27 @@
     PHIERS.org shows what's possible when that organization has a mechanism behind it.<br><br>
     Together — the rally becomes the spark. PHIERS.org becomes the fire.
   </p>
-
   <div style="text-align:center;margin:28px 0">
     <p style="font-family:var(--font-display);font-size:clamp(1.6rem,4vw,2.6rem);color:var(--text-bright);letter-spacing:0.03em;line-height:1.2">
       PHIERS.org — pronounced "fires."<br>
       <span style="color:var(--green)">As in transformation.</span>
     </p>
   </div>
-
   <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-bottom:36px">
-    <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now-short-version" target="_blank" class="btn-green">→ Partner With PHIERS.org Now</a>
-    <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now-short-version" target="_blank" class="btn-primary">✍ Sign the Petition</a>
+    <a href="#finalcall" class="btn-green">→ Partner With PHIERS.org Now</a>
+    <a href="https://www.change.org/p/congress-the-public-is-coordinating-it-s-time-to-answer" target="_blank" class="btn-primary">✍ Sign the Petition</a>
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSdETA-oNIeOAzEsG4GsYiiws1YBpLunx8ioVJkZac5hzSxaZw/viewform?usp=header" target="_blank" class="btn-secondary">📋 Take the Survey</a>
   </div>
-
   <div class="contact-box">
     <h3>Ready to coordinate directly?</h3>
     <p>Reach out to discuss how PHIERS.org can amplify your coalition's work before March 28.</p>
     <p>📧 Email: <a href="mailto:info@phiers.org">info@phiers.org</a></p>
-    <p>🔗 LinkedIn: <em>[Link added after launch]</em></p>
     <p style="font-size:0.85rem;color:var(--text-dim);margin-top:12px">We respond to every organizer inquiry. This movement belongs to all of us.</p>
   </div>
-
   <div class="share-line">
     <p>The biggest protest in American history deserves a mechanism. Send this page to every organizer you know.</p>
     <div class="hashtag">#PHIERdUpNow</div>
   </div>
-
   <div style="background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--green);border-radius:0 8px 8px 0;padding:24px 28px;margin:28px auto;max-width:560px">
     <img src="PHIERS_Logo.png" alt="PHIERS.org" style="height:32px;margin-bottom:12px;display:block">
     <h4 style="font-family:var(--font-condensed);font-weight:700;font-size:1.15rem;color:var(--text-bright);margin-bottom:4px">📬 Get Notified When We Reach Critical Mass</h4>
@@ -866,23 +741,81 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <img src="PHIERS_Logo.png" alt="PHIERS.org" class="footer-logo">
   <div class="footer-mabah">MABAH — Making America Better And Healthier</div>
   <div class="footer-mabah-sub">Sounds like MAGA. But a lot bettah.</div>
+  <div class="footer-tagline">PHIERS-power: When millions coordinate, Congress must respond — or be replaced.</div>
+  <div style="font-size:0.82rem;color:var(--text-dim);font-style:italic;margin-bottom:16px">PHIERS (pronounced "fires") — transformation in motion. Because that's what happens when citizens organize.</div>
   <nav class="footer-nav">
-    <a href="index.html">Homepage</a>
-    <a href="index.html#crisis">The Crisis</a>
-    <a href="index.html#proof">The $600 Plan</a>
-    <a href="index.html#teeth">How It Works</a>
-    <a href="index.html#roadmap">Roadmap</a>
+    <a href="#crisis">The Crisis</a>
+    <a href="#proof">The $600 Plan</a>
+    <a href="#teeth">How It Works</a>
+    <a href="#roadmap">Roadmap</a>
+    <a href="organizers.html">For Organizers</a>
     <a href="SimpleMath.html">Simple Math</a>
+    <a href="5D_Solutions.html">5D Solutions</a>
+    <a href="Telehealth-Insurance.html">Telehealth & Insurance</a>
     <a href="Donate.html">Donate</a>
     <a href="About.html">About</a>
   </nav>
   <div class="footer-copy">
     Not built for profit. Not built for power. Built for We the People — by people who refused to stop.<br>
-    📧 <a href="mailto:info@phiers.org
+    📧 <a href="mailto:info@phiers.org">info@phiers.org</a><br>
+    © PHIERS.org — Original Concept Since 2009. All Rights Reserved.<br>
+    <span style="font-size:0.75rem">PHIERS™ · PHIERSale™ · PHIERWorks™ — Protected marks established 2009–2025.</span>
+  </div>
+</footer>
+
+<button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
+
+<script>
+  window.addEventListener('scroll', () => {
+    document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  function toggleMenu() {
+    document.getElementById('mobile-menu').classList.toggle('open');
+  }
+  
+  document.addEventListener('click', function(event) {
+    const menu = document.getElementById('mobile-menu');
+    const hamburger = document.querySelector('.hamburger');
+    if (menu && menu.classList.contains('open') && 
+        !menu.contains(event.target) && 
+        !hamburger.contains(event.target)) {
+      menu.classList.remove('open');
+    }
+  });
+
+  document.querySelectorAll('.mobile-menu a').forEach(a => {
+    a.addEventListener('click', () => document.getElementById('mobile-menu').classList.remove('open'));
+  });
+
+  (function() {
+    var currentPage = 'organizers.html';
+    document.querySelectorAll('.mobile-menu a').forEach(function(a) {
+      if (a.getAttribute('href') === currentPage) {
+        a.classList.add('active');
+      }
+    });
+  })();
+
+  var btt = document.getElementById('back-to-top');
+  if (btt) {
+    window.addEventListener('scroll', function() { 
+      btt.classList.toggle('visible', window.scrollY > 400); 
+    });
+    btt.addEventListener('click', function() { 
+      window.scrollTo({top: 0, behavior: 'smooth'}); 
+    });
+  }
+
+  document.querySelectorAll('.hero-address, .page-headline, .hero-sub, .hero-tension, .hero-ctas').forEach(el => {
+    el.style.animation = 'none';
+    el.offsetHeight;
+    el.style.animation = null;
+  });
+</script>
 </body>
 </html>
