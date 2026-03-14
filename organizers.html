@@ -568,25 +568,24 @@
 <!-- NAV -->
 <nav id="main-nav">
   <div class="nav-left">
-    <img src="PHIERS_Logo.png" alt="PHIERS.org" class="nav-logo">
-    <div class="nav-tagline">MABAH — Making America Better And Healthier<br>Sounds like MAGA. But a lot bettah.</div>
+    <a href="index.html" class="nav-wordmark">PHIERS.org</a>
   </div>
   <div class="nav-right">
-    <a href="https://www.change.org/p/congress-the-public-is-coordinating-it-s-time-to-answer" target="_blank" class="btn-petition">✍ Sign the Petition</a>
+    <a href="https://www.change.org/p/congress-the-public-is-coordinating-it-s-time-to-answer" target="_blank" class="btn-petition">✍ Sign Now</a>
     <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">☰</button>
   </div>
 </nav>
-
 <div class="mobile-menu" id="mobile-menu">
-  <a href="healthcare-proof.html">← Back to Homepage</a>
-  <a href="index.html#crisis">The Crisis</a>
-  <a href="index.html#coordination">The Missing Piece</a>
-  <a href="index.html#proof">The $600 Plan</a>
-  <a href="index.html#teeth">How We Force Action</a>
-  <a href="index.html#credibility">Why This Is Real</a>
-  <a href="index.html#roadmap">Roadmap</a>
+  <a href="index.html">🏠 Home</a>
+  <a href="Crisis.html">The Crisis</a>
   <a href="SimpleMath.html">Simple Math</a>
+  <a href="5D_Solutions.html">5D Solutions</a>
+  <a href="Telehealth-Insurance.html">Telehealth vs Insurance</a>
+  <a href="Action.html">Take Action</a>
   <a href="Donate.html">Donate</a>
+  <a href="FAQ.html">FAQ</a>
+  <a href="About.html">About</a>
+  <a href="healthcare-proof.html" style="color:var(--green);font-weight:700">→ Deep Dive</a>
 </div>
 
 <!-- ═══════════════════════════════════════
@@ -873,11 +872,28 @@
   <div class="footer-mabah-sub">Sounds like MAGA. But a lot bettah.</div>
   <nav class="footer-nav">
     <a href="index.html">Homepage</a>
-    <a href="index.html#crisis">The Crisis</a>
-    <a href="index.html#proof">The $600 Plan</a>
-    <a href="index.html#teeth">How It Works</a>
-    <a href="index.html#roadmap">Roadmap</a>
-    <a href="SimpleMath.html">Simple Math</a>
-    <a href="Donate.ht
+    <a href="index.h</footer>
+<script>
+function toggleMenu() {
+  var menu = document.getElementById('mobile-menu');
+  if (menu) menu.classList.toggle('open');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.mobile-menu a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      var m = document.getElementById('mobile-menu');
+      if (m) m.classList.remove('open');
+    });
+  });
+  var path = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.mobile-menu a').forEach(function(a) {
+    if (a.getAttribute('href') === path) a.style.color = 'var(--green)';
+  });
+});
+window.addEventListener('scroll', function() {
+  var n = document.getElementById('main-nav');
+  if (n) n.classList.toggle('scrolled', window.scrollY > 50);
+});
+</script>
 </body>
 </html>

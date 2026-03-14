@@ -799,18 +799,67 @@ img {
 </div>
 
 <script>
-function toggleMobileMenu(){var n=document.getElementById("navLinks");if(n)n.classList.toggle("active");}
-function openModal(src){var m=document.getElementById("imageModal");var i=document.getElementById("modalImage");if(m&&i){i.src=src;m.style.display="block";document.body.style.overflow="hidden";}}
-function closeModal(){var m=document.getElementById("imageModal");if(m){m.style.display="none";document.body.style.overflow="";}}
-function closeImageModal(){closeModal();}
-document.addEventListener("DOMContentLoaded",function(){
-  var modal=document.getElementById("imageModal");
-  if(modal){modal.addEventListener("click",function(e){if(e.target===modal)closeModal();});}
-  document.addEventListener("keydown",function(e){if(e.key==="Escape")closeModal();});
-  document.querySelectorAll("img").forEach(function(img){
-    if(img.src&&!img.src.includes("Logo")){img.style.cursor="pointer";img.addEventListener("click",function(){openModal(this.src);});}
+function closeImageModal() {
+  const modal = document.getElementById('imageModal');
+  if (modal) modal.classList.remove('active');
+}
+
+// Wait for DOM to be fully loaded
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initImageModal);
+} else {
+  initImageModal();
+}
+
+function initImageModal() {
+  const modal = document.getElementById('imageModal');
+  const modalImg = document.getElementById('modalImage');
+  
+  if (!modal || !modalImg) return;
+  
+  // Add click handlers to all images except menu icons
+  const images = document.querySelectorAll('img:not(.mobile-menu-toggle):not(.mobile-menu-toggle *)');
+  
+  images.forEach(function(img) {
+    if (img.parentElement && img.parentElement.tagName !== 'BUTTON') {
+      img.style.cursor = 'pointer';
+      img.addEventListener('click', function() {
+        modal.classList.add('active');
+        modalImg.src = this.src;
+        modalImg.alt = this.alt || '';
+      });
+    }
   });
-});
+  
+  // Close on X click
+  const closeBtn = modal.querySelector('.close-modal');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeImageModal);
+  }
+  
+  // Close on outside click
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) {
+      closeImageModal();
+    }
+  });
+  
+  // Close on ESC key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+      closeImageModal();
+    }
+  });
+}
 </script>
+<div style="display: flex; justify-content: space-between; margin: 60px 0 40px 0; padding: 30px 0; border-top: 2px solid rgba(76, 175, 80, 0.3);">
+  <a href="real-stories.html" style="color: #4caf50; text-decoration: none; font-size: 1.1em;">
+    ← Previous: Real Stories
+  </a>
+  <a href="About.html" style="color: #4caf50; text-decoration: none; font-size: 1.1em;">
+    Next: About →
+  </a>
+</div>
+
 </body>
 </html>

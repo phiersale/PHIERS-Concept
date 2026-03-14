@@ -120,24 +120,23 @@
 <nav id="main-nav">
   <div class="nav-left">
     <a href="index.html" class="nav-wordmark">PHIERS.org</a>
-    <span class="nav-tagline">When Americans coordinate,<br>Congress has no choice.</span>
   </div>
   <div class="nav-right">
     <a href="https://www.change.org/p/congress-the-public-is-coordinating-it-s-time-to-answer" target="_blank" class="btn-petition">✍ Sign Now</a>
     <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">☰</button>
   </div>
 </nav>
-
 <div class="mobile-menu" id="mobile-menu">
-  <a href="index.html">Home</a>
+  <a href="index.html">🏠 Home</a>
   <a href="Crisis.html">The Crisis</a>
   <a href="SimpleMath.html">Simple Math</a>
   <a href="5D_Solutions.html">5D Solutions</a>
   <a href="Telehealth-Insurance.html">Telehealth vs Insurance</a>
-  <a href="Leverage.html">Leverage</a>
   <a href="Action.html">Take Action</a>
   <a href="Donate.html">Donate</a>
-  <a href="healthcare-proof.html" style="color:var(--green);font-weight:700">→ The Full Story</a>
+  <a href="FAQ.html">FAQ</a>
+  <a href="About.html">About</a>
+  <a href="healthcare-proof.html" style="color:var(--green);font-weight:700">→ Deep Dive</a>
 </div>
 
 <div class="page-wrap">
@@ -313,11 +312,42 @@
 </div>
 
 <script>
-  window.addEventListener('scroll',()=>{ document.getElementById('main-nav').classList.toggle('scrolled',window.scrollY>50); });
-  function toggleMenu(){ document.getElementById('mobile-menu').classList.toggle('open'); }
-  document.querySelectorAll('.mobile-menu a').forEach(a=>{ a.addEventListener('click',()=>document.getElementById('mobile-menu').classList.remove('open')); });
-  function openModal(src,alt){ document.getElementById('modalImg').src=src; document.getElementById('modalImg').alt=alt||''; document.getElementById('imageModal').classList.add('active'); document.body.style.overflow='hidden'; }
-  function closeModal(){ document.getElementById('imageModal').classList.remove('active'); document.body.style.overflow='';
+function toggleMenu() {
+  var menu = document.getElementById('mobile-menu');
+  if (menu) menu.classList.toggle('open');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.mobile-menu a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      var m = document.getElementById('mobile-menu');
+      if (m) m.classList.remove('open');
+    });
+  });
+  // Highlight current page
+  var path = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.mobile-menu a').forEach(function(a) {
+    if (a.getAttribute('href') === path) a.style.color = 'var(--green)';
+  });
+});
+window.addEventListener('scroll', function() {
+  var n = document.getElementById('main-nav');
+  if (n) n.classList.toggle('scrolled', window.scrollY > 50);
+});
+// Modal
+function openModal(src, alt) {
+  var m = document.getElementById('imageModal');
+  var i = document.getElementById('modalImg');
+  if (m && i) { i.src = src; i.alt = alt || ''; m.classList.add('active'); document.body.style.overflow = 'hidden'; }
+}
+function closeModal() {
+  var m = document.getElementById('imageModal');
+  if (m) { m.classList.remove('active'); document.body.style.overflow = ''; }
+}
+document.addEventListener('DOMContentLoaded', function() {
+  var m = document.getElementById('imageModal');
+  if (m) { m.addEventListener('click', function(e) { if (e.target === m) closeModal(); }); }
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+});
 </script>
 </body>
 </html>
