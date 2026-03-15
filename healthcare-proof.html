@@ -3,717 +3,811 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHIERS · leverage that works</title>
+    <title>PHIERS - The Full Story: Healthcare Proof</title>
+    <meta name="description" content="PHIERS: A national citizen coalition using math, not ideology — and leverage, not hope — to force Congress to fix healthcare or face replacement.">
+    <meta property="og:title" content="PHIERS — The Math Congress Fears. The Movement They Can't Stop.">
+    <meta property="og:description" content="$600 replaces $10,000. 3.5% forces Congress to act — or we replace them. Join 11.6 million Americans and make healthcare unignorable.">
+    <meta property="og:image" content="/PHIERS_Logo.png">
+    <meta property="og:url" content="https://phiersale.github.io/PHIERS-Concept/healthcare-proof.html">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/png" href="/PHIERS_Logo.png">
+    <link rel="canonical" href="https://phiersale.github.io/PHIERS-Concept/healthcare-proof.html" />
     <style>
-        /* ----- RESET & BASE ----- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            background: #0c0c1a;
-            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-            line-height: 1.5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
             color: #e0e0e0;
+            line-height: 1.8;
+            min-height: 100vh;
         }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
 
-        /* ----- PRODUCTION NAV (with full dropdown) ----- */
-        .site-nav {
-            background: rgba(10, 10, 20, 0.98);
-            backdrop-filter: blur(10px);
-            padding: 0.75rem 2rem;
-            border-bottom: 1px solid #2a2a4a;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-        .nav-logo a {
-            color: #4caf50;
-            font-size: 1.8rem;
-            font-weight: 800;
-            letter-spacing: -1px;
-            text-decoration: none;
-        }
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        .nav-links > a {
-            color: #81c784;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s;
-            font-size: 1rem;
-        }
-        .nav-links > a:hover {
-            color: #4caf50;
-        }
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        .dropbtn {
-            color: #81c784;
-            font-weight: 500;
-            font-size: 1rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            right: 0;
-            background: #1a1a2e;
-            min-width: 220px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.5);
-            border: 1px solid #2a2a4a;
-            border-radius: 8px;
-            padding: 0.5rem 0;
-            z-index: 1001;
-        }
-        .dropdown-content a {
-            color: #c8e6c9;
-            padding: 0.7rem 1.2rem;
-            text-decoration: none;
-            display: block;
-            font-size: 0.95rem;
-            border-left: 3px solid transparent;
-        }
-        .dropdown-content a:hover {
-            background: #252542;
-            border-left-color: #4caf50;
-            color: #fff;
-        }
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-        .nav-cta {
-            background: #4caf50;
-            color: #0c0c1a !important;
-            padding: 0.5rem 1.2rem;
-            border-radius: 40px;
-            font-weight: 700;
-        }
-        .nav-cta:hover {
-            background: #66bb6a;
-            color: #000 !important;
-        }
-        .mobile-menu-toggle {
-            display: none;
-            color: #81c784;
-            font-size: 1.8rem;
-            cursor: pointer;
-        }
-        @media (max-width: 800px) {
-            .nav-right {
-                display: none;
-                width: 100%;
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 1rem 0;
-            }
-            .nav-right.show {
-                display: flex;
-            }
-            .nav-links {
-                flex-direction: column;
-                align-items: flex-start;
-                width: 100%;
-            }
-            .dropdown-content {
-                position: static;
-                box-shadow: none;
-                width: 100%;
-            }
-            .mobile-menu-toggle {
-                display: block;
-            }
-        }
-
-        /* ----- BANNER COMPONENT (updated copy) ----- */
-        .phi-banner {
-            background: rgba(26, 26, 46, 0.95);
-            border-left: 4px solid #4caf50;
-            color: #81c784;
-            width: 100%;
-            font-size: 1rem;
-            transition: background 0.2s;
-            cursor: pointer;
-            z-index: 999;
-            position: relative;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.5);
-        }
-        .phi-banner.expanded {
-            background: rgba(15, 52, 96, 0.95);
-        }
-        .banner-collapsed {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0.9rem 2rem;
-            gap: 1rem;
-            flex-wrap: wrap;
-            cursor: pointer;
-        }
-        .banner-expand-wrap {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease;
-        }
-        .phi-banner.expanded .banner-expand-wrap {
-            max-height: 450px;
-        }
-        .banner-expanded {
-            padding: 1.5rem 2rem 2rem;
-            border-top: 1px solid #2e7d32;
-            color: #c8e6c9;
-        }
-        .banner-expanded p {
-            max-width: 900px;
-            margin-bottom: 1.2rem;
-            font-size: 1.1rem;
-        }
-        .banner-expanded strong {
-            color: #4caf50;
-            font-weight: 600;
-            font-size: 1.15rem;
-        }
-        .highlight-yellow {
-            color: #f5c842;
-            font-weight: 500;
-            white-space: nowrap;
-        }
-        .close-indicator {
-            color: #f5c842;
-            font-weight: 600;
-            padding: 0.3rem 1rem;
-            border-radius: 30px;
-            background: rgba(0,0,0,0.3);
-            display: inline-block;
-            cursor: pointer;
-            border: 1px solid #3a5f3a;
-            transition: 0.2s;
-            margin-top: 0.5rem;
-        }
-        .close-indicator:hover {
-            background: #2e5f2e;
-            color: white;
-        }
-
-        /* ----- MAIN LAYOUT ----- */
-        .page-wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 2rem 3rem;
-        }
-
-        /* ----- TYPOGRAPHY ----- */
-        .hero-red {
-            font-size: 3.2rem;
-            font-weight: 800;
-            color: #ef5350;
-            line-height: 1.2;
-            margin-bottom: 0.5rem;
-        }
-        .hero-line2 {
-            font-size: 2.5rem;
-            font-weight: 600;
-            color: #f0f0f0;
-        }
-        .hero-line3 {
-            font-size: 1.8rem;
-            font-weight: 400;
-            color: #ccc;
-            margin-top: 1rem;
-        }
-        .hero-line3b {
-            font-size: 1.3rem;
-            color: #81c784;
-            margin: 1rem 0 2rem;
-        }
-        .hero-until {
-            font-size: 2.8rem;
-            font-weight: 700;
-            color: #4caf50;
-            margin-top: 1.5rem;
-        }
-        .subhead {
-            font-size: 1.5rem;
-            border-left: 4px solid #4caf50;
-            padding-left: 1.5rem;
-            margin: 2rem 0 3rem;
-            color: #ddd;
-        }
-        h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin: 3rem 0 1rem;
-            color: #f5f5f5;
-            border-bottom: 1px solid #2a2a4a;
-            padding-bottom: 0.5rem;
-        }
-        .section-hr {
-            margin: 2.5rem 0 1.5rem;
-            border: 0;
-            height: 1px;
-            background: linear-gradient(90deg, #2a2a4a, #4caf50, #2a2a4a);
-        }
-        .box-copy {
-            background: rgba(20,20,40,0.6);
-            border-radius: 24px;
-            padding: 2rem;
-            border-left: 8px solid #4caf50;
-            font-size: 1.3rem;
-            margin: 1.5rem 0;
-        }
-        .green-em {
-            color: #4caf50;
-            font-weight: 600;
-            font-size: 1.4rem;
-            margin: 1rem 0;
-        }
-        .red-em {
-            color: #ef5350;
-            font-weight: 600;
-        }
-        .large-green {
-            font-size: 2rem;
-            color: #4caf50;
-            font-weight: 700;
-        }
-
-        /* ----- BUTTON GRID ----- */
-        .btn-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 1.2rem;
-            margin: 2rem 0;
-        }
-        .btn-grid a {
-            background: #1a1a2e;
-            color: #81c784;
-            text-decoration: none;
-            padding: 1rem 1.5rem;
-            border-radius: 60px;
-            font-weight: 600;
-            font-size: 1.2rem;
-            border: 1px solid #2e7d32;
-            text-align: center;
-            transition: 0.2s;
-        }
-        .btn-grid a:hover {
-            background: #2a2a4a;
-            border-color: #4caf50;
-            color: #fff;
-        }
-
-        .step-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 1.8rem;
-            margin: 2rem 0;
-        }
-        .step-card {
-            background: #1a1a2e;
-            border-radius: 20px;
-            padding: 1.8rem;
-            border: 1px solid #33335e;
-        }
-        .step-card strong {
-            color: #4caf50;
-            font-size: 1.3rem;
-        }
-
-        .solution-box {
-            background: #0e1a2b;
-            border-radius: 28px;
-            padding: 2.5rem;
-            border: 2px solid #2e7d32;
-            margin: 2rem 0;
-        }
-
-        .two-col {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-        .two-col > div {
-            flex: 1 1 300px;
-            background: #121225;
-            padding: 2rem;
-            border-radius: 20px;
-        }
-
-        /* ----- CTA & FOOTER ----- */
-        .cta-final {
-            background: #1a2a1a;
-            border-radius: 32px;
-            padding: 3rem;
-            text-align: center;
-            border: 1px solid #4caf50;
-            margin: 3rem 0;
-        }
-        .cta-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-        .btn-primary, .btn-secondary {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            border-radius: 60px;
-            font-weight: 700;
-            font-size: 1.3rem;
-            text-decoration: none;
-            transition: 0.2s;
-        }
-        .btn-primary {
-            background: #4caf50;
-            color: #0c0c1a;
-            border: 2px solid #4caf50;
-        }
-        .btn-primary:hover {
-            background: #66bb6a;
-        }
-        .btn-secondary {
-            background: transparent;
-            border: 2px solid #4caf50;
-            color: #4caf50;
-        }
-        .btn-secondary:hover {
-            background: rgba(76, 175, 80, 0.1);
-        }
-
-        /* ----- FOOTER ----- */
-        .site-footer {
-            background: #0a0a18;
-            border-top: 1px solid #2a2a4a;
-            padding: 3rem 2rem 2rem;
-            margin-top: 3rem;
-        }
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 2rem;
-        }
-        .footer-links a {
-            color: #81c784;
-            text-decoration: none;
-            margin-right: 2rem;
-            font-size: 1rem;
-        }
-        .footer-links a:hover {
-            color: #4caf50;
-            text-decoration: underline;
-        }
-        .footer-credit {
-            color: #5f5f85;
-            font-size: 0.9rem;
-        }
-        .footer-credit a {
-            color: #4caf50;
-            text-decoration: none;
-        }
-        .unstoppable {
-            font-weight: 700;
-            color: #f5c842;
-        }
-
-        /* ----- SCROLL TO TOP ----- */
-        .scroll-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background: #4caf50;
-            color: #0c0c1a;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            text-decoration: none;
-            z-index: 900;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-            visibility: hidden;
-            opacity: 0;
-            transition: visibility 0.2s, opacity 0.2s;
-        }
-        .scroll-top.visible {
-            visibility: visible;
-            opacity: 0.8;
-        }
-        .scroll-top:hover {
-            opacity: 1;
-            transform: scale(1.1);
-            background: #66bb6a;
-        }
-
-        /* BACK LINK */
+        /* Back link */
         .back-link {
             display: inline-block;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             color: #81c784;
             text-decoration: none;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 500;
             padding: 0.5rem 1rem;
             border: 1px solid #2e7d32;
             border-radius: 30px;
             transition: background 0.2s;
         }
-        .back-link:hover {
-            background: rgba(76, 175, 80, 0.1);
+        .back-link:hover { background: rgba(76, 175, 80, 0.1); color: #4caf50; }
+
+        /* Navigation - Old UX Standard */
+        .global-nav {
+            background: rgba(26, 26, 46, 0.95);
+            border: 1px solid rgba(76, 175, 80, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 30px;
+            position: sticky;
+            top: 10px;
+            z-index: 999;
+            backdrop-filter: blur(5px);
+        }
+        .mobile-menu-toggle {
+            display: none;
+            background: transparent;
+            border: 1px solid #4caf50;
+            color: #4caf50;
+            font-size: 1.8rem;
+            padding: 5px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+        }
+        .nav-links-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+        .nav-links-container a, .dropbtn {
+            color: #81c784;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        .nav-links-container a:hover, .dropbtn:hover {
+            background: rgba(76, 175, 80, 0.2);
+            color: #4caf50;
+        }
+        .nav-links-container a.active {
+            background: rgba(76, 175, 80, 0.3);
+            color: #4caf50;
+            font-weight: bold;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: rgba(26, 26, 46, 0.98);
+            min-width: 220px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+            z-index: 1000;
+            border-radius: 8px;
+            border: 1px solid rgba(76, 175, 80, 0.3);
+            padding: 8px 0;
+            right: 0;
+        }
+        .dropdown-content a {
+            color: #81c784;
+            padding: 10px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.9em;
+            white-space: nowrap;
+        }
+        .dropdown-content a:hover {
+            background: rgba(76, 175, 80, 0.2);
+            color: #4caf50;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown:hover .dropbtn {
+            background: rgba(76, 175, 80, 0.2);
             color: #4caf50;
         }
 
-        @media (max-width: 700px) {
-            .hero-red { font-size: 2.4rem; }
-            .hero-line2 { font-size: 1.8rem; }
-            .page-wrapper { padding: 1.5rem; }
-            .banner-collapsed { padding: 0.8rem 1rem; }
-            .footer-content { flex-direction: column; text-align: center; }
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 50px 20px 40px;
+            background: linear-gradient(135deg, rgba(15, 52, 96, 0.9), rgba(22, 33, 62, 0.9));
+            border-radius: 12px;
+            margin-bottom: 40px;
+            border: 2px solid rgba(244, 67, 54, 0.3);
+        }
+        .hero-logo { max-width: 140px; margin-bottom: 15px; }
+        .mabah-full { font-size: 1.1em; color: #81c784; font-weight: 600; margin-bottom: 5px; letter-spacing: 0.5px; }
+        .mabah-tagline { font-size: 1.2em; color: #4caf50; font-weight: bold; margin-bottom: 15px; font-style: italic; }
+        .hero h1 { color: #f44336; font-size: clamp(1.4rem, 5vw, 2.8rem); line-height: 1.2; margin-bottom: 15px; }
+
+        /* Typography */
+        h2 {
+            color: #4caf50;
+            font-size: 1.8em;
+            margin: 50px 0 30px;
+            border-bottom: 2px solid rgba(76, 175, 80, 0.3);
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: #81c784;
+            font-size: 1.3em;
+            margin: 30px 0 15px;
+        }
+        p {
+            color: #c8e6c9;
+            margin: 20px 0;
+            line-height: 1.8;
+            font-size: 1.05em;
+        }
+        strong { color: #ffffff; }
+
+        /* Content Boxes */
+        .insight-box {
+            background: rgba(33, 150, 243, 0.1);
+            border: 2px solid #2196f3;
+            border-left: 5px solid #2196f3;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+        .solution-box {
+            background: rgba(76, 175, 80, 0.1);
+            border: 2px solid #4caf50;
+            border-left: 5px solid #4caf50;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+        .warning-box {
+            background: rgba(244, 67, 54, 0.07);
+            border: 2px solid rgba(244, 67, 54, 0.35);
+            border-left: 6px solid #f44336;
+            padding: 30px 32px;
+            margin: 30px 0;
+            border-radius: 12px;
+        }
+        .highlight-box {
+            background: rgba(76, 175, 80, 0.1);
+            border: 2px solid #4caf50;
+            border-left: 5px solid #4caf50;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin: 24px 0;
+        }
+        .stat-card {
+            background: rgba(26, 26, 46, 0.9);
+            border: 1px solid rgba(76, 175, 80, 0.3);
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .stat-number {
+            color: #4caf50;
+            font-weight: 800;
+            font-size: 1.3em;
+            margin-bottom: 8px;
+        }
+
+        /* Video */
+        .video-section {
+            background: rgba(33, 150, 243, 0.1);
+            border: 2px solid #2196f3;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin: 3rem 0;
+        }
+        .video-section h2 {
+            color: #2196f3;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            border-bottom: none;
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Graphics */
+        .graphic-wrap {
+            text-align: center;
+            margin: 36px 0;
+            padding: 20px;
+            background: rgba(0,0,0,0.25);
+            border-radius: 10px;
+            border: 1px solid rgba(76,175,80,0.2);
+        }
+        .graphic-wrap img {
+            max-width: 50%;
+            height: auto;
+            border-radius: 8px;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+            transition: transform 0.3s;
+            border: 2px solid rgba(76, 175, 80, 0.3);
+        }
+        .graphic-wrap img:hover { transform: scale(1.02); }
+        .graphic-caption {
+            margin: 12px 0 0;
+            font-size: 0.9em;
+            color: #81c784;
+            font-style: italic;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #4caf50, #2e7d32);
+            color: white;
+            padding: 16px 36px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border: 2px solid #4caf50;
+            border-radius: 8px;
+            text-decoration: none;
+            margin: 8px 0;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+        }
+        .btn-warning {
+            background: linear-gradient(135deg, #f5c842, #e0a800);
+            border-color: #f5c842;
+            color: #000;
+        }
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid #81c784;
+            color: #81c784;
+        }
+        .btn-secondary:hover {
+            background: rgba(129, 199, 132, 0.1);
+        }
+
+        /* Action Grid */
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 14px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .action-card {
+            display: block;
+            background: linear-gradient(135deg, #4caf50, #2e7d32);
+            border-radius: 8px;
+            padding: 16px 18px;
+            text-decoration: none;
+            color: white;
+            transition: transform 0.2s;
+        }
+        .action-card:hover { transform: translateY(-2px); }
+        .action-card.war { background: linear-gradient(135deg, #b71c1c, #f44336); }
+        .action-card.telehealth { background: linear-gradient(135deg, #1b5e20, #2e7d32); border: 2px solid #f5c842; }
+        .action-card.action { background: linear-gradient(135deg, #f5c842, #e0a800); color: #000; }
+        .action-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+        .action-title.telehealth { color: #f5c842; }
+        .action-desc {
+            font-size: 0.85em;
+            opacity: 0.88;
+        }
+
+        /* Footer - Old UX Standard */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 80px;
+            border-top: 2px solid rgba(76, 175, 80, 0.3);
+            background: rgba(26, 26, 46, 0.6);
+            border-radius: 8px;
+        }
+        footer h3 { color: #4caf50; margin-bottom: 15px; }
+        footer a {
+            color: #81c784;
+            text-decoration: none;
+            border-bottom: 1px dotted #81c784;
+        }
+        footer a:hover {
+            color: #4caf50;
+            border-bottom-color: #4caf50;
+        }
+        .footer-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .footer-nav a {
+            color: #81c784;
+            text-decoration: none;
+            font-size: 0.9rem;
+            border-bottom: none;
+        }
+        .footer-nav a:hover {
+            color: #4caf50;
+        }
+        .constitutional-disclaimer {
+            background: rgba(76, 175, 80, 0.1);
+            border: 1px solid rgba(76, 175, 80, 0.3);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            font-size: 0.9em;
+            color: #a5d6a7;
+        }
+
+        /* Image Modal */
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 20000;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.95);
+            align-items: center;
+            justify-content: center;
+        }
+        .image-modal.active { display: flex; }
+        .modal-content {
+            max-width: 90%;
+            max-height: 85vh;
+            display: block;
+            margin: auto;
+        }
+        .close-modal {
+            position: absolute;
+            top: 20px; right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 20001;
+        }
+        .close-modal:hover { color: #4caf50; }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8em; }
+            h2 { font-size: 1.3em; }
+            .graphic-wrap img { max-width: 100%; }
+            .mobile-menu-toggle { display: block; }
+            .nav-links-container {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+            }
+            .nav-links-container.active { display: flex; }
+            .dropdown {
+                width: 100%;
+                text-align: center;
+            }
+            .dropdown-content {
+                position: static;
+                width: 100%;
+                margin-top: 5px;
+            }
+            .dropbtn { width: 100%; }
+            .footer-nav { flex-direction: column; gap: 10px; }
+            img { max-width: 85% !important; width: auto !important; height: auto !important; display: block !important; margin-left: auto !important; margin-right: auto !important; }
+        }
+
+        ul { margin: 20px 0 20px 40px; color: #c8e6c9; }
+        li { margin: 10px 0; }
+        hr.divider {
+            border: none;
+            border-top: 1px solid rgba(76, 175, 80, 0.3);
+            margin: 48px 0;
+        }
+        .green-emphasis {
+            color: #4caf50;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .hashtag {
+            font-size: 1.5rem;
+            color: #4caf50;
+            text-align: center;
+            margin: 30px 0;
         }
     </style>
 </head>
 <body>
 
-    <!-- BACK LINK (no target="_blank") -->
-    <div style="max-width:1200px; margin:0 auto; padding:1rem 2rem 0;">
-        <a href="index.html" class="back-link">← Back to PHIERS.org</a>
-    </div>
+<div class="container">
+    <a href="index.html" class="back-link">← Back to PHIERS.org</a>
 
-    <!-- PRODUCTION NAV -->
-    <nav class="site-nav">
-        <div class="nav-logo"><a href="index.html" target="_blank">PHIERS</a></div>
-        <div class="mobile-menu-toggle" onclick="document.querySelector('.nav-right').classList.toggle('show')">☰</div>
-        <div class="nav-right">
-            <div class="nav-links">
-                <a href="Crisis.html" target="_blank">Crisis</a>
-                <a href="5D_Solutions.html" target="_blank">5D Solutions</a>
-                <a href="NoWar.html" target="_blank">No War</a>
-                <a href="SimpleMath.html" target="_blank">Simple Math</a>
-                <a href="Leverage.html" target="_blank">Leverage</a>
-                <div class="dropdown">
-                    <span class="dropbtn">More ▼</span>
-                    <div class="dropdown-content">
-                        <a href="FAQ.html" target="_blank">FAQ</a>
-                        <a href="Origins.html" target="_blank">Origins</a>
-                        <a href="Media.html" target="_blank">Media</a>
-                        <a href="About.html" target="_blank">About</a>
-                        <a href="Quickstart.html" target="_blank">Quickstart</a>
-                        <a href="Veterans.html" target="_blank">Veterans</a>
-                        <a href="SOTU.html" target="_blank">SOTU Response</a>
-                        <a href="UnionStrategy.html" target="_blank">Union Strategy</a>
-                        <a href="Telehealth.html" target="_blank">Telehealth vs Insurance</a>
-                        <a href="RealStories.html" target="_blank">Real Stories</a>
-                        <a href="Action.html" target="_blank">Action</a>
-                    </div>
+    <!-- Navigation - Old UX Standard -->
+    <nav class="global-nav">
+        <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</div>
+        <div class="nav-links-container" id="navLinks">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="toggleDropdown(event)">Strategy ▼</button>
+                <div class="dropdown-content">
+                    <a href="OVERVIEW.html">Overview</a>
+                    <a href="Crisis.html">Crisis</a>
+                    <a href="SimpleMath.html">Simple Math</a>
+                    <a href="5D_Solutions.html">5D Solutions</a>
+                    <a href="Leverage.html">Leverage</a>
+                    <a href="Why-Change-Required.html">Why Change Required</a>
+                    <a href="Unions-Strategy.html">Union Strategy</a>
                 </div>
             </div>
-            <a href="https://www.change.org/p/congress-the-public-is-coordinating-it-s-time-to-answer" class="nav-cta" target="_blank">SIGN</a>
+            <a href="Quickstart.html">Quick Start</a>
+            <a href="action.html">Take Action</a>
+            <a href="Donate.html">Donate</a>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="toggleDropdown(event)">Resources ▼</button>
+                <div class="dropdown-content">
+                    <a href="real-stories.html">Real Stories</a>
+                    <a href="FAQ.html">FAQ</a>
+                    <a href="About.html">About</a>
+                    <a href="Our-Origins.html">Origins</a>
+                </div>
+            </div>
         </div>
     </nav>
 
-    <!-- BANNER COMPONENT -->
-    <div id="globalBanner" class="phi-banner">
-        <div class="banner-collapsed" id="bannerCollapsed">
-            <span>⚡ New here? Why PHIERS works when nothing else has.</span>
-            <span class="highlight-yellow">[Tap to find out →]</span>
+    <!-- Hero Section -->
+    <div class="hero">
+        <img src="/PHIERS_Logo.png" alt="PHIERS Logo" class="hero-logo">
+        <div class="mabah-full">MABAH — Making America Better And Healthier</div>
+        <div class="mabah-tagline">Sounds Like MAGA, But A Lot Bettah</div>
+        <h1>The Math Congress Fears. <span style="color:#4caf50; white-space:nowrap;">The Movement They Can't Stop.</span></h1>
+    </div>
+
+    <!-- Intro Video -->
+    <div class="video-section">
+        <h2>The 60-Second PHIERS Brief</h2>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/2j-dF3hgdeE" loading="lazy"
+                    title="PHIERS Introduction"
+                    frameborder="0"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+            </iframe>
         </div>
-        <div class="banner-expand-wrap" id="bannerExpandWrap">
-            <div class="banner-expanded">
-                <p>Right now, Congress doesn't have to listen to you. PHIERS changes that.</p>
-                <p>For the first time, regular people have real leverage over Congress — not just a vote every four years, but organized pressure that makes ignoring us politically fatal. The moment 12 million Americans put their names on the record around a single demand, every Congress member faces the same choice: act, or get replaced by someone who will. That power exists the moment people show up. Not after a bill passes. Not after an election. Now.</p>
-                <p>Healthcare is where we prove it — because the math is undeniable and the win is fast. Force that fix, and we have the power to end the war, stop the draft, fix wages, housing, hunger, and everything else Congress has refused to touch. Not sequentially. All of it. Same organized people. Same leverage. Same consequence for Congress if they refuse.</p>
-                <p><strong>Your name on the record isn't a request. It's how we claim the power Congress doesn't want us to have.</strong></p>
-                <span class="close-indicator" id="closeBannerBtn">[Close ↑]</span>
-            </div>
+        <div style="text-align:center; margin-top:20px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+            <a href="https://www.change.org/p/congress-the-public-is-coordinating-it-s-time-to-answer" target="_blank" rel="noopener noreferrer" style="color:#f5c842;">✅ Sign the Petition</a>
+            <span style="color:#555;">|</span>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdETA-oNIeOAzEsG4GsYiiws1YBpLunx8ioVJkZac5hzSxaZw/viewform?usp=header" target="_blank" rel="noopener noreferrer" style="color:#81c784;">📋 Take the Survey</a>
         </div>
     </div>
 
-    <main class="page-wrapper">
-        <section>
-            <div class="hero-red">Congress hasn't fixed healthcare. Or wages. Or housing. Or the war.</div>
-            <div class="hero-line2">Not because they can't.</div>
-            <div class="hero-line3">Because nobody had the leverage to make them.</div>
-            <div class="hero-line3b">Until now.</div>
-            <div class="hero-until">Now you do.</div>
-            <div class="subhead">$600 replaces $10,000. The math is real. 12 million organized people makes it inevitable. Congress knows it — which is exactly why they've made sure you never had the leverage to force it. Until now.</div>
-        </section>
-
-        <hr class="section-hr">
-
+    <!-- What Is PHIERS -->
+    <section>
         <h2>What Is PHIERS?</h2>
-        <div class="box-copy">
-            PHIERS isn't a think tank. It's not a lobbying group. It's not another petition that goes nowhere.<br><br>
-            It's the mechanism that gives regular people the power to force Congress to choose — act, or get replaced by someone who will. The moment enough people organize around a single demand, that power is live. Not after a bill passes. Not after an election. The second people show up.<br><br>
-            We start with healthcare because that's where the math is clearest and the suffering is worst. Force that fix, and the same power moves to everything else — the war, the draft, jobs, housing, wages. All of it.
+        <div class="insight-box">
+            <p style="font-size:1.5em; color:#4caf50; font-weight:800; margin-bottom:10px; line-height:1.3;">Politicians respond to organized power.<br>PHIERS organizes the public.</p>
+            <p><strong>PHIERS isn't a policy campaign.</strong> It's a way for regular Americans to give Congress documented direction — and replace the ones who ignore it.</p>
+            <p>When millions of people say the same thing — on the record — Congress has to act. We don't ask people to yell louder. We help them line up behind one clear demand.</p>
+            <p>We use <strong style="color:#4caf50;">math and collective power</strong> to force Congress to stabilize healthcare, protect coverage, and stop using people's lives as bargaining chips.</p>
         </div>
-        <div class="green-em">Healthcare is where we prove the power works. Organized people are how we get it.</div>
+    </section>
 
-        <hr class="section-hr">
+    <!-- Telehealth Benefits Graphic -->
+    <div class="graphic-wrap">
+        <img src="/Telehealth_Benefits.jpg"
+             alt="Telehealth Benefits: 24/7 doctors, fast prescriptions, no waiting rooms, mental health support, zero surprise bills — under $50/mo"
+             onclick="openModal(this.src)">
+        <p class="graphic-caption">Everything you actually need — under $50/month. No waiting rooms. No surprise bills. No gatekeepers.</p>
+    </div>
 
-        <h2>Pick What Matters to You</h2>
-        <p style="font-size:1.5rem; color:#aaa;">No jargon. No spin. Just what's broken, why it stays broken, and how we get the power to fix it together.</p>
-        <div class="btn-grid">
-            <a href="Telehealth.html" target="_blank">Healthcare</a>
-            <a href="NoWar.html" target="_blank">War / Draft</a>
-            <a href="Crisis.html" target="_blank">Housing</a>
-            <a href="Crisis.html" target="_blank">Wages</a>
-            <a href="SimpleMath.html" target="_blank">Economy</a>
-            <a href="Crisis.html" target="_blank">Hunger</a>
+    <!-- Telehealth Section -->
+    <section style="margin: 50px 0; padding: 36px 30px; background: rgba(76,175,80,0.08); border: 2px solid rgba(76,175,80,0.35); border-left: 6px solid #4caf50; border-radius: 12px;">
+        <h2 style="margin-top:0; color:#4caf50;">Telehealth Is the Answer to the Affordability Crisis</h2>
+        <p style="font-size:1.15em; color:#e0e0e0; font-weight:600; margin-bottom:6px;">$600 telehealth replaces $10,000 insurance.<br>That's not a slogan — it's the math Congress doesn't want you to know.</p>
+
+        <div class="stat-grid">
+            <div class="stat-card">
+                <div class="stat-number">80%</div>
+                <p style="margin:0;">of Americans never use hospitalization. They're paying $10,000/year for protection they don't need.</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">$600/yr</div>
+                <p style="margin:0;">Telehealth delivers 80% of healthcare needs — 24/7 access, no denials — at 1/14th the cost.</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">8–13 mo.</div>
+                <p style="margin:0;">From Congressional authorization to universal coverage. Congress can do this tomorrow.</p>
+            </div>
         </div>
 
-        <hr class="section-hr">
+        <p><strong style="color:#ffffff;">Telehealth is care. Insurance is protection.</strong> Most Americans are paying for catastrophic coverage they never use — while skipping routine care they can't afford. PHIERS fixes the system by separating the two: <strong style="color:#4caf50;">$600 telehealth for the 80%. Insurance as the backstop for the rest.</strong></p>
+        <p>Our one demand to Congress: <strong style="color:#f5c842;">add $600 telehealth as a covered benefit under the ACA Exchange and CMS.</strong> That single change stabilizes costs for 234 million Americans — and saves roughly $2.7 trillion a year. <a href="https://www.cms.gov/data-research/statistics-trends-and-reports/national-health-expenditure-data" target="_blank" rel="noopener noreferrer" style="color:#81c784;">[CMS Data]</a></p>
 
+        <a href="Telehealth-Insurance.html" style="display:inline-block; background:linear-gradient(135deg,#4caf50,#2e7d32); color:#fff; font-weight:800; font-size:1.05em; padding:14px 30px; border-radius:8px; text-decoration:none; border:2px solid #4caf50; margin-top:20px;">📱 See the Full Telehealth Case →</a>
+    </section>
+
+    <!-- Bridge: Telehealth → 5D -->
+    <div style="margin: 40px 0; padding: 26px 32px; background: rgba(26,26,46,0.9); border-left: 6px solid #f5c842; border-radius: 12px; text-align:center;">
+        <p style="font-size:1.2em; font-weight:700; color:#f5c842; margin:0 0 10px;">Fixing healthcare generates the savings to solve everything else.</p>
+        <p style="color:#c8e6c9; margin:0;">$2.7 trillion a year — freed from a broken system — is the fuel for the five connected problems facing this country. PHIERS is built to solve all five. Healthcare is where we start.</p>
+    </div>
+
+    <!-- Start Where You Are Grid -->
+    <section style="text-align: center; margin: 60px 0; padding: 40px 30px; background: rgba(76,175,80,0.07); border: 1px solid rgba(76,175,80,0.25); border-radius: 12px;">
+        <h2 style="margin-top: 0;">Start Where You Are</h2>
+        <p style="font-size: 1.1em; margin-bottom: 30px;">Pick the page that fits your question right now.</p>
+        <div class="action-grid">
+            <a href="Crisis.html" class="action-card">
+                <div class="action-title">🚨 The Crisis</div>
+                <div class="action-desc">What's actually happening — and why Congress hasn't fixed it</div>
+            </a>
+            <a href="Telehealth-Insurance.html" class="action-card telehealth">
+                <div class="action-title telehealth">📱 The Fix: Telehealth</div>
+                <div class="action-desc">$600 replaces $10,000 — why telehealth is the answer</div>
+            </a>
+            <a href="SimpleMath.html" class="action-card">
+                <div class="action-title">📊 The Math</div>
+                <div class="action-desc">$600 replaces $10,000 — here's exactly how</div>
+            </a>
+            <a href="5D_Solutions.html" class="action-card">
+                <div class="action-title">🔧 The Solution</div>
+                <div class="action-desc">Five connected problems, one connected answer</div>
+            </a>
+            <a href="Leverage.html" class="action-card">
+                <div class="action-title">⚡ The Leverage</div>
+                <div class="action-desc">How signatures turn into political power</div>
+            </a>
+            <a href="NoWar.html" class="action-card war">
+                <div class="action-title">⚔️ End the War</div>
+                <div class="action-desc">How healthcare leverage forces Congress to end the war</div>
+            </a>
+            <a href="UNSTOPPABLE.html" class="action-card">
+                <div class="action-title">💪 UNSTOPPABLE</div>
+                <div class="action-desc">Why this movement can't be blocked or bought out</div>
+            </a>
+            <a href="action.html" class="action-card action">
+                <div class="action-title">✊ Take Action</div>
+                <div class="action-desc">Add your name to the public record</div>
+            </a>
+        </div>
+    </section>
+
+    <!-- How PHIERS Works -->
+    <section>
         <h2>How PHIERS Works</h2>
-        <p style="color:#b0b0b0; font-size:1.3rem;">Four steps. No ideology. Just regular people getting the power to make Congress act.</p>
-        <div class="step-grid">
-            <div class="step-card"><strong>Step 1:</strong> We put it on the record. Your name. Your district. A clear, specific demand. This isn't a request — it's the first brick.</div>
-            <div class="step-card"><strong>Step 2:</strong> We build pressure district by district. 1,500 signatures forces a mandatory town hall. They have to answer. On the record.</div>
-            <div class="step-card"><strong>Step 3:</strong> We hit 3.5%. Harvard research proves it: no campaign that hit 3.5% has ever failed. 12 million Americans = leverage live.</div>
-            <div class="step-card"><strong style="color:#ef5350;">Step 4:</strong> Ignore us and we replace you. That's not a threat. That's how elections work.</div>
-        </div>
-
-        <hr class="section-hr">
-
         <div class="solution-box">
-            <h2 style="border:none; margin-top:0;">This Is What Power Actually Looks Like</h2>
-            <p style="font-size:1.4rem;">PHIERS doesn't ask Congress to change. It gives people the power to force them to choose.</p>
-            <p>The moment 12 million Americans put their names on the record, every Congress member faces the same binary: act, or get replaced. That power exists the second people organize — not after a bill passes, not after we win on healthcare, not someday. Now. Building with every name added.</p>
-            <p>Healthcare is the proof of concept — the most mathematically undeniable demand we could make. When we force that fix, we don't move on to the next issue. We turn the same organized power toward ending the war, stopping the draft, raising wages, and fixing everything else Congress has refused to touch.</p>
-            <div class="green-em">This isn't a sequence. It's a power shift. And your name starts it.</div>
-        </div>
-
-        <hr class="section-hr">
-
-        <h2>What $2.7 Trillion Actually Buys</h2>
-        <p style="font-size:1.4rem;">Fix healthcare and $2.7 trillion stops flowing to insurance companies every year. That money comes back to you.</p>
-        <p>Affordable housing. Better wages. Job training that actually leads somewhere. Schools that don't have to beg for funding. A safety net that catches people instead of letting them fall through. And yes — a basic income guarantee that means no family ever hits the floor with nothing.</p>
-        <div class="green-em">That's not a fantasy. That's just math — once the money stops going to the wrong place.</div>
-
-        <hr class="section-hr">
-
-        <h2>The 3.5% Rule</h2>
-        <p>Harvard research proved something every successful movement already knew:</p>
-        <div class="large-green">Once 3.5% of people get organized around a single demand — no government in history has been able to stop them.</div>
-        <p style="margin:1.5rem 0;">The Civil Rights Movement hit it. Labor unions hit it. Women's suffrage hit it.</p>
-        <div class="green-em">Every single time — they won.</div>
-        <p>3.5% of America is 12 million people. We hit that number and universal healthcare is inevitable. The war ends. The draft dies. Congress starts doing its job.</p>
-        <div class="red-em">Not someday. Not maybe. Done.</div>
-
-        <hr class="section-hr">
-
-        <h2>8 Out of 10 Americans</h2>
-        <p style="font-size:1.5rem;">Are paying $10,000 a year for hospital coverage they will almost certainly never use — while skipping the doctor visits they actually need because the copay is too high.</p>
-        <div class="red-em">That's not insurance protecting you. That's a system designed to take your money.</div>
-        <p>$600 telehealth covers 80% of what you actually need. 24/7 doctors. Fast prescriptions. Mental health support. No waiting rooms. No surprise bills. No gatekeepers.</p>
-        <p>The only reason this isn't already law is because Congress answers to insurance companies — not you.</p>
-        <div class="green-em">PHIERS changes that math. Your name is how it starts.</div>
-
-        <h2>Your Kitchen Table Has a War Problem — Whether You Know It Yet or Not</h2>
-        <div class="two-col">
-            <div>
-                <p><strong>Congress is funding wars that were never declared</strong> — no vote, no mandate, no end in sight. Over $1 billion of your money. Every single day. And now they're talking about a draft. Your kids. Sent to fight in a war your representatives were too cowardly to put their names on.</p>
-                <p>When oil tankers get attacked in the Middle East and supply lines break — your gas goes up. Your groceries go up. Your electric bill goes up. Your rent goes up. Everything goes up. Fast. This isn't a foreign policy problem. This is your kitchen table.</p>
-            </div>
-            <div>
-                <p><strong>The Constitution says Congress declares war.</strong> Not the President. Not a defense contractor. Congress. Your representatives. The ones you can replace.</p>
-                <p>PHIERS gives people the power to make that real. The same organized leverage that forces Congress to fix healthcare is the same leverage that ends the war and kills the draft. Not after healthcare wins. Simultaneously. Same people. Same power. Same consequence for Congress if they refuse.</p>
-                <div class="green-em">That's not radical. That's the Constitution doing its job — because we made Congress do theirs.</div>
+            <p style="font-size:1.15em; margin-bottom:25px;"><strong>Four steps. No ideology. Just your voice on record.</strong></p>
+            <div style="display:grid; gap:22px;">
+                <div style="display:flex; gap:18px; align-items:center;">
+                    <span style="color:#4caf50; font-size:1.8em; font-weight:bold; min-width:36px;">1.</span>
+                    <p style="margin:0;"><strong style="color:#4caf50;">Sign the petition + take the survey</strong> — Your name, your position, on the public record.</p>
+                </div>
+                <div style="display:flex; gap:18px; align-items:center;">
+                    <span style="color:#4caf50; font-size:1.8em; font-weight:bold; min-width:36px;">2.</span>
+                    <p style="margin:0;"><strong style="color:#4caf50;">1,500 signatures in YOUR DISTRICT</strong> — Forces a mandatory town hall. Congress can't ignore it.</p>
+                </div>
+                <div style="display:flex; gap:18px; align-items:flex-start;">
+                    <span style="color:#4caf50; font-size:1.8em; font-weight:bold; min-width:36px;">3.</span>
+                    <p style="margin:0;"><strong style="color:#4caf50;">3.5% participation (11.6M people)</strong> — No campaign in history has ever failed after hitting this number. <a href="https://www.hks.harvard.edu/publications/why-civil-resistance-works-strategic-logic-nonviolent-conflict" target="_blank" rel="noopener noreferrer" style="color:#81c784;">[Chenoweth, Harvard]</a></p>
+                </div>
+                <div style="display:flex; gap:18px; align-items:center;">
+                    <span style="color:#f44336; font-size:1.8em; font-weight:bold; min-width:36px;">4.</span>
+                    <p style="margin:0;"><strong style="color:#f44336;">Replace elected officials who refuse</strong> — No exceptions.</p>
+                </div>
             </div>
         </div>
-        <p style="font-size:1.4rem; margin-top:1rem;">Protest without power gets you a news cycle.</p>
-        <div class="green-em">PHIERS gives you the power.</div>
+    </section>
 
-        <div class="cta-final">
-            <h2 style="border:none; margin-top:0;">Make It Official.</h2>
-            <p style="font-size:1.3rem;">This is not a like. Not a share. Not a tweet into the void.<br> This is your name, your district, your demand — on the public record. Counted. Delivered to your Congress member. Impossible to ignore, impossible to deny, and impossible to delete.</p>
-            <p style="font-weight:700;">1,500 signatures in your district forces a mandatory town hall. They have to show up. They have to answer. On the record.</p>
-            <p>This isn't asking nicely. This is organized, district-by-district pressure that gives us the power to force Congress to act — on healthcare, on the war, on everything they've been paid to ignore.</p>
-            <div class="green-em" style="font-size:2rem;">One signature. Right now. That's where the power starts.</div>
-            <div class="cta-buttons">
-                <a href="https://www.change.org/p/congress-the-public-is-coordinating-it-s-time-to-answer" class="btn-primary" target="_blank">SIGN THE DEMAND</a>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdETA-oNIeOAzEsG4GsYiiws1YBpLunx8ioVJkZac5hzSxaZw/viewform?usp=header" class="btn-secondary" target="_blank">DISTRICT LOOKUP</a>
-            </div>
+    <!-- No Kings Rally Timing -->
+    <div style="margin: 30px 0; padding: 26px 32px; background: linear-gradient(135deg, rgba(244,67,54,0.12), rgba(245,200,66,0.08)); border: 2px solid #f5c842; border-radius: 12px; text-align:center;">
+        <p style="font-size:1.3em; font-weight:900; color:#f5c842; margin:0 0 10px;">⚡ Perfect timing — the No Kings Rally is March 28th.</p>
+        <p style="color:#c8e6c9; margin:0; font-size:1.05em;">If you want to turn that energy into lasting change, document your direction before you march. Protests create visibility. PHIERS creates leverage. You need both.</p>
+        <div style="margin-top:18px;">
+            <a href="action.html" class="btn btn-warning" style="font-size:1.1em; padding:14px 34px;">✊ Take Action Before the Rally →</a>
         </div>
-    </main>
+    </div>
 
-    <footer class="site-footer">
-        <div class="footer-content">
-            <div class="footer-links">
-                <a href="mailto:info@phiers.org">Contact</a>
-                <a href="FAQ.html" target="_blank">FAQ</a>
-                <a href="Action.html" target="_blank">Volunteer</a>
-            </div>
-            <div class="footer-credit">
-                <span class="unstoppable">UNSTOPPABLE</span> · © 2026 PHIERS · <a href="mailto:info@phiers.org">info@phiers.org</a>
+    <!-- Pathos Video -->
+    <div style="max-width:640px; margin: 50px auto 20px;">
+        <p style="text-align:center; color:#81c784; font-style:italic;">A global PR leader listed on the London Stock Exchange explains why they put their name behind this movement:</p>
+        <p style="text-align:center; color:#f5c842; font-weight:700; margin-bottom:12px;">Pathos Communications: Why They Put Their Reputation Behind PHIERS (7:11)</p>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/UD8svoGU7ZU" loading="lazy"
+                    title="Pathos Communications: Why They Put Their Reputation Behind PHIERS"
+                    frameborder="0"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+
+    <!-- Research Proves 3.5% -->
+    <section style="margin: 50px 0; padding: 30px; background: rgba(244,67,54,0.07); border: 1px solid rgba(244,67,54,0.25); border-left: 5px solid #f44336; border-radius: 12px;">
+        <h2 style="margin-top:0; color:#f44336;">Research Proves That Congress Can't Ignore 3.5%</h2>
+        <p><strong>At that level of alignment:</strong> Every district is affected, every election becomes competitive, every party must respond.</p>
+        <div style="margin-top:20px; padding:20px 24px; background:rgba(76,175,80,0.12); border:2px solid #4caf50; border-radius:10px;">
+            <p style="font-size:1.25em; font-weight:900; color:#4caf50; margin:0 0 8px;">Once we hit critical mass, universal healthcare becomes inevitable — and free.</p>
+            <p style="color:#c8e6c9; margin:0;">The savings already exist. The math already works. The only thing missing is organized public pressure. That's exactly what 3.5% delivers.</p>
+        </div>
+    </section>
+
+    <!-- 30-Second Explainer -->
+    <section style="margin: 50px 0; padding: 30px; background: rgba(245,200,66,0.07); border: 1px solid rgba(245,200,66,0.3); border-radius: 12px;">
+        <h2 style="margin-top:0; color:#f5c842;">💬 Explain PHIERS in 30 Seconds</h2>
+        <div style="background:rgba(0,0,0,0.25); border-left:4px solid #f5c842; padding:16px 20px; border-radius:6px;">
+            Healthcare is broken because politicians can ignore us. PHIERS unites millions behind one demand: add $600 telehealth to the ACA Exchange and CMS. That fix saves trillions — and once 3.5% align, Congress must act.
+        </div>
+    </section>
+
+    <!-- Unions Video -->
+    <div style="max-width:640px; margin: 50px auto 20px;">
+        <p style="text-align:center; color:#81c784; font-style:italic;">Why organized labor is the engine behind PHIERS:</p>
+        <p style="text-align:center; color:#f5c842; font-weight:800; margin-bottom:12px;">Why PHIERS-Powered Unions Will Win (5:55)</p>
+        <div class="video-container">
+            <iframe src="https://player.vimeo.com/video/1157760069" loading="lazy"
+                    title="Why PHIERS-Powered Unions Will Win"
+                    frameborder="0"
+                    allow="fullscreen; picture-in-picture"
+                    allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+
+    <!-- War Section -->
+    <section class="warning-box">
+        <h2 style="margin-top:0; color:#f44336;">Healthcare Is Where We Get the Leverage. War Is Why We Can't Wait.</h2>
+        <p>Unauthorized wars are costing the United States <strong style="color:#f44336;">over $1 billion every single day</strong> — with no declaration, no mandate, and no end in sight. Most economists agree: prolonged military conflicts of this scale, layered on top of existing debt and global instability, carry a real risk of triggering global economic collapse.</p>
+        
+        <div style="margin: 20px 0; padding: 20px 24px; background: rgba(0,0,0,0.25); border-left: 4px solid #f5c842; border-radius: 8px;">
+            <p style="margin:0 0 10px; color:#f5c842; font-weight:700;">Stage 1 — Fix healthcare.</p>
+            <p style="margin:0 0 10px;">Prove PHIERS works. Generate $2.7 trillion in savings. Show Congress that organized constituents cannot be ignored.</p>
+            <p style="margin:0 0 10px; color:#f5c842; font-weight:700;">Stage 2 — Transfer that leverage.</p>
+            <p style="margin:0;">Use the same organized, documented, district-by-district pressure to demand Congress end the unauthorized wars.</p>
+        </div>
+        
+        <p>Protest without leverage gets nothing. <strong>PHIERS builds the leverage.</strong> Healthcare first — because that's the proof of concept that opens every door that follows.</p>
+        
+        <a href="NoWar.html" class="btn" style="background:linear-gradient(135deg,#f44336,#b71c1c); border-color:#f44336; margin-top:20px;">⚡ See the Full Plan to End the War →</a>
+    </section>
+
+    <!-- Final CTA -->
+    <section style="text-align: center; margin: 60px 0; padding: 40px 30px; background: rgba(244,67,54,0.07); border: 2px solid rgba(244,67,54,0.3); border-radius: 12px;">
+        <h2 style="margin-top:0; color:#f44336;">The Only Thing Missing Is You</h2>
+        <p style="font-size: 1.2em;"><strong>PHIERS is a public-interest movement</strong> — not a company, not a product. It works when people participate.</p>
+        
+        <div style="margin: 30px 0;">
+            <a href="action.html" class="btn btn-warning" style="font-size:1.3em; padding:20px 50px;">✊ Take Action</a>
+            <div style="margin-top:20px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+                <a href="https://www.change.org/p/congress-the-public-is-coordinating-it-s-time-to-answer" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="font-size:1em; padding:12px 24px;">Sign the Petition</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdETA-oNIeOAzEsG4GsYiiws1YBpLunx8ioVJkZac5hzSxaZw/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="font-size:1em; padding:12px 24px;">Take the Survey</a>
+                <a href="Donate.html" class="btn btn-secondary" style="font-size:1em; padding:12px 24px;">Support the Movement</a>
             </div>
         </div>
-        <div style="text-align:center; margin-top:2rem; color:#5f5f85; font-size:0.9rem;">
-            A people's movement. Not a penny from corporations.
+        
+        <div class="hashtag">#PHIERdUpNow</div>
+    </section>
+
+    <!-- Footer - Old UX Standard -->
+    <footer>
+        <h3>PHIERS Movement | MABAH</h3>
+        <p><strong>Make America Better And Healthier</strong></p>
+        <p style="margin: 15px 0;">
+            Will Price | Chief Solutions Architect<br>
+            Phone: <a href="tel:+19163068967">(916) 306-8967</a> | 
+            Email: <a href="mailto:info@phiers.org">info@phiers.org</a>
+        </p>
+        <div class="footer-nav">
+            <a href="index.html">Home</a>
+            <a href="Quickstart.html">Quick Start</a>
+            <a href="OVERVIEW.html">OVERVIEW</a>
+            <a href="Crisis.html">Crisis</a>
+            <a href="SimpleMath.html">Simple Math</a>
+            <a href="5D_Solutions.html">5D Solutions</a>
+            <a href="action.html">Action</a>
+            <a href="Leverage.html">Leverage</a>
+            <a href="Resources.html">Resources</a>
+            <a href="About.html">About</a>
+            <a href="Donate.html">Donate</a>
         </div>
+        <div class="constitutional-disclaimer">
+            <p>PHIERS is a public-interest movement — not a company, not a product. The only thing missing is you.</p>
+        </div>
+        <p style="margin-top: 2rem; font-size: 0.75rem; color: #666;">PHIERS Movement | Version: 2026-03-07</p>
     </footer>
+</div>
 
-    <a href="#" class="scroll-top" id="scrollTop" title="scroll to top">↑</a>
+<!-- Image Modal -->
+<div id="imageModal" class="image-modal">
+    <span class="close-modal" onclick="closeImageModal()">&times;</span>
+    <img loading="lazy" class="modal-content" id="modalImage" alt="">
+</div>
 
 <script>
 function toggleMobileMenu() {
-  var n = document.getElementById('navLinks');
-  if (n) n.classList.toggle('active');
+    var n = document.getElementById('navLinks');
+    if (n) n.classList.toggle('active');
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    const banner = document.getElementById('globalBanner');
-    const collapsed = document.getElementById('bannerCollapsed');
-    const closeBtn = document.getElementById('closeBannerBtn');
-    
-    if (collapsed) {
-        collapsed.addEventListener('click', function() {
-            banner.classList.toggle('expanded');
-        });
-    }
-    
-    if (closeBtn) {
-        closeBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            banner.classList.remove('expanded');
-        });
-    }
-});
+function toggleDropdown(event) {
+    if (event) event.stopPropagation();
+    var btn = event.target;
+    while (btn && !btn.classList.contains('dropbtn')) { btn = btn.parentElement; }
+    if (!btn) return;
+    var dropdown = btn.nextElementSibling;
+    if (!dropdown) return;
+    document.querySelectorAll('.dropdown-content').forEach(function(d) { if (d !== dropdown) d.classList.remove('show'); });
+    dropdown.classList.toggle('show');
+}
 
-window.addEventListener('scroll', function() {
-    const scrollTop = document.getElementById('scrollTop');
-    if (scrollTop) {
-        if (window.scrollY > 400) {
-            scrollTop.classList.add('visible');
-        } else {
-            scrollTop.classList.remove('visible');
-        }
+function openModal(src) {
+    var m = document.getElementById('imageModal');
+    var i = document.getElementById('modalImage');
+    if (m && i) { i.src = src; m.classList.add('active'); document.body.style.overflow = 'hidden'; }
+}
+
+function closeModal() {
+    var m = document.getElementById('imageModal');
+    if (m) { m.classList.remove('active'); document.body.style.overflow = ''; }
+}
+
+function closeImageModal() { closeModal(); }
+
+document.addEventListener('DOMContentLoaded', function() {
+    var modal = document.getElementById('imageModal');
+    if (modal) {
+        modal.addEventListener('click', function(e) { if (e.target === modal) closeModal(); });
     }
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+    document.querySelectorAll('img').forEach(function(img) {
+        if (!img.src.includes('Logo') && img.closest('.graphic-wrap')) {
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', function() { openModal(this.src); });
+        }
+    });
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.dropdown')) {
+            document.querySelectorAll('.dropdown-content').forEach(function(d) { d.classList.remove('show'); });
+        }
+    });
 });
 </script>
 </body>
