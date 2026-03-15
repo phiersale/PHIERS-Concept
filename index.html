@@ -405,6 +405,32 @@
   .back-to-top { position: fixed; bottom: 28px; right: 24px; background: var(--green); color: var(--bg-deep); border: none; border-radius: 50%; width: 44px; height: 44px; font-size: 1.2rem; cursor: pointer; opacity: 0; pointer-events: none; transition: opacity 0.3s; z-index: 999; display: flex; align-items: center; justify-content: center; }
   .back-to-top.visible { opacity: 1; pointer-events: auto; }
   .back-to-top:hover { background: var(--green-dim); }
+
+  .mobile-menu { gap: 0; padding: 16px 24px 24px; }
+  .menu-label { font-family: var(--font-condensed); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-dim); padding: 16px 0 4px; border-bottom: 1px solid rgba(61,220,132,0.15); margin-bottom: 2px; display: block; }
+  .menu-label:first-child { padding-top: 4px; }
+  .mobile-menu a { padding: 8px 0 8px 12px; border-bottom: none; font-size: 0.97rem; }
+  .mobile-menu a.menu-deepdive { color: var(--green); font-weight: 700; padding-left: 0; margin-top: 4px; }
+
+  .priority-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; max-width: 960px; margin: 0 auto; }
+  .priority-card { background: #111d35; border: 1px solid rgba(61,220,132,0.2); border-top: 3px solid var(--green); border-radius: 0 0 8px 8px; padding: 28px; }
+  .priority-label { font-family: var(--font-condensed); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 8px; }
+  .priority-card h3 { font-family: var(--font-condensed); font-weight: 700; font-size: 1.4rem; color: var(--text-bright); margin-bottom: 12px; }
+  .priority-card p { color: var(--text-body); font-size: 0.97rem; line-height: 1.65; margin-bottom: 20px; }
+  .card-link { color: var(--green); text-decoration: none; font-family: var(--font-condensed); font-weight: 700; font-size: 1rem; transition: opacity 0.2s; }
+  .card-link:hover { opacity: 0.75; }
+
+  .float-cta { position: fixed; bottom: 28px; right: 24px; z-index: 998; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+  .float-cta.visible { opacity: 1; pointer-events: auto; }
+  .float-cta a { display: block; background: var(--red); color: #fff; padding: 12px 22px; border-radius: 50px; text-decoration: none; font-family: var(--font-condensed); font-weight: 700; font-size: 1rem; letter-spacing: 0.05em; box-shadow: 0 4px 20px rgba(230,57,70,0.4); animation: pulse-btn 8s ease-in-out infinite; }
+  .float-cta-close { position: absolute; top: -8px; right: -8px; background: #111d35; border: 1px solid rgba(255,255,255,0.2); color: var(--text-dim); width: 22px; height: 22px; border-radius: 50%; font-size: 0.75rem; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+  .float-cta-close:hover { color: var(--text-bright); }
+
+  /* ── MOBILE IMAGE SAFETY ── */
+  @media (max-width: 640px) {
+    .graphic-wrap img { max-width: 90% !important; }
+    img[style*="height:"] { max-width: 100%; }
+  }
 </style>
 </head>
 <body>
@@ -425,22 +451,25 @@
 
 <!-- UNIVERSAL MOBILE MENU - Same on every page -->
 <div class="mobile-menu" id="mobile-menu">
-  <a href="index.html#crisis">The Crisis</a>
-  <a href="index.html#coordination">The Missing Piece</a>
-  <a href="index.html#proof">The $600 Plan</a>
-  <a href="index.html#teeth">How We Force Action</a>
-  <a href="index.html#credibility">Why This Is Real</a>
-  <a href="index.html#roadmap">Roadmap</a>
-  <a href="Crisis.html">Crisis Deep Dive</a>
+  <span class="menu-label">Take Action</span>
+  <a href="https://www.change.org/p/congress-the-public-is-coordinating-it-s-time-to-answer" target="_blank">Sign the Petition</a>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdETA-oNIeOAzEsG4GsYiiws1YBpLunx8ioVJkZac5hzSxaZw/viewform?usp=header" target="_blank">Take the Survey</a>
+  <span class="menu-label">Understand the Fight</span>
+  <a href="Crisis.html">The Crisis</a>
   <a href="SimpleMath.html">Simple Math</a>
   <a href="5D_Solutions.html">5D Solutions</a>
-  <a href="Telehealth-Insurance.html">Telehealth & Insurance</a>
-  <a href="Donate.html">Donate</a>
+  <a href="Telehealth-Insurance.html">Telehealth vs Insurance</a>
+  <span class="menu-label">Who We're With</span>
   <a href="organizers.html">For Organizers</a>
-  <a href="Unions-Strategy.html">Union Strategy</a>
   <a href="NoWar.html">No War / No Draft</a>
-  <a href="Resources.html">Resources</a>
-  <a href="healthcare-proof.html" target="_blank" style="color:var(--green);font-weight:700">→ The Full Story</a>
+  <a href="Unions-Strategy.html">Union Strategy</a>
+  <span class="menu-label">Resources</span>
+  <a href="Resources.html">Resource Hub</a>
+  <a href="real-stories.html">Real Stories</a>
+  <a href="FAQ.html">FAQ</a>
+  <a href="healthcare-proof.html" target="_blank" class="menu-deepdive">→ The Full Story</a>
+  <span class="menu-label">Support</span>
+  <a href="Donate.html">Donate</a>
 </div>
 
 <!-- ═══════════════════════════════════════════════
@@ -448,7 +477,7 @@
 ═══════════════════════════════════════════════ -->
 <section id="hero">
   <div style="text-align:center;margin-bottom:32px;padding-top:8px">
-    <img src="PHIERS_Logo.png" alt="PHIERS.org" style="height:140px;width:auto;display:inline-block">
+    <img src="PHIERS_Logo.png" alt="PHIERS.org" style="height:80px;width:auto;display:inline-block">
   </div>
 
   <h1 class="hero-h1">Americans can force Congress<br><span class="green">to do its job.</span></h1>
@@ -540,9 +569,6 @@
   <img src="We_Gotz_Teeth_for_No_Kings.jpg" alt="We Are The TEETH — No Kings" class="teeth-img">
   <p style="text-align:center;margin-top:-16px"><a href="organizers.html" style="color:var(--green);font-family:var(--font-condensed);font-weight:700;font-size:1rem;text-decoration:none">→ Are you a movement organizer? See how PHIERS.org gives your demands teeth.</a></p>
   <p style="margin-top:24px;font-style:italic;color:var(--text-dim)">This isn't a policy failure. It's a leverage failure. PHIERS-power gives us the leverage to fix it.</p>
-  <div class="cta-row">
-    <a href="https://www.change.org/p/congress-the-public-is-coordinating-it-s-time-to-answer" target="_blank" class="btn-primary">✍ Sign the Petition</a>
-  </div>
 </section>
 
 <hr class="divider">
@@ -564,9 +590,6 @@
     </div>
     <p>In the United States, that's about <strong style="color:var(--text-bright)">12 million people.</strong></p>
     <p>When we reach that number, every member of Congress will know the public is coordinated — district by district. They will have to respond.</p>
-    <div class="cta-row">
-      <a href="https://www.change.org/p/congress-the-public-is-coordinating-it-s-time-to-answer" target="_blank" class="btn-primary">✍ Join the 3.5%</a>
-    </div>
   </div>
 </section>
 
@@ -601,7 +624,6 @@
   <p style="color:var(--text-dim);font-size:0.9rem">So why hasn't Congress done it? Because they don't have to. <strong style="color:var(--text-bright)">Not yet.</strong> That changes when the public finally has a way to act together.</p>
   <div class="cta-row">
     <a href="SimpleMath.html" target="_blank" class="btn-secondary">→ See the Full $600 Breakdown</a>
-    <a href="https://www.change.org/p/congress-the-public-is-coordinating-it-s-time-to-answer" target="_blank" class="btn-primary">✍ Sign the Petition</a>
   </div>
   <div style="margin-top:28px;border:1px solid var(--border);border-radius:6px;overflow:hidden">
     <button onclick="toggleExpand()" id="expand-btn" style="width:100%;background:var(--bg-card);border:none;color:var(--text-bright);font-family:var(--font-condensed);font-weight:700;font-size:1rem;letter-spacing:0.05em;padding:16px 20px;cursor:pointer;text-align:left;display:flex;justify-content:space-between;align-items:center">
@@ -666,8 +688,38 @@
       <p><strong>It's how citizens take back control of their government.</strong></p>
     </div>
     <div class="cta-row">
-      <a href="https://www.change.org/p/congress-the-public-is-coordinating-it-s-time-to-answer" target="_blank" class="btn-primary">✍ Be Part of the 3.5%</a>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdETA-oNIeOAzEsG4GsYiiws1YBpLunx8ioVJkZac5hzSxaZw/viewform?usp=header" target="_blank" class="btn-secondary">📋 Take the Survey</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdETA-oNIeOAzEsG4GsYiiws1YBpLunx8ioVJkZac5hzSxaZw/viewform?usp=header" target="_blank" class="btn-secondary">→ Take the Survey</a>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- TOP PRIORITIES -->
+<section class="section-full" id="priorities">
+  <div class="inner">
+    <span class="eyebrow">Once We Have the Numbers</span>
+    <h2>Top Priorities After We Force Change</h2>
+    <p style="font-size:1.1rem;color:var(--text-body);max-width:680px;margin:0 auto 36px;">Leverage over Congress is the mechanism. Here's what we do with it — and who we need to get there.</p>
+    <div class="priority-grid">
+      <div class="priority-card">
+        <div class="priority-label">Organizers</div>
+        <h3>For Organizers</h3>
+        <p>You build the infrastructure that makes movements real. PHIERS gives district-level organizers the tools, the data, and the coordinated strategy to turn signatures into congressional pressure.</p>
+        <a href="organizers.html" class="card-link">→ For Organizers</a>
+      </div>
+      <div class="priority-card">
+        <div class="priority-label">Anti-War</div>
+        <h3>No War / No Draft</h3>
+        <p>Healthcare leverage and anti-war organizing share the same coalition. When we control the conversation in every district, we can demand an end to wars that drain the resources this country needs at home.</p>
+        <a href="NoWar.html" class="card-link">→ No War / No Draft</a>
+      </div>
+      <div class="priority-card">
+        <div class="priority-label">Unions</div>
+        <h3>Union Strategy</h3>
+        <p>Unions have the numbers, the organizing infrastructure, and the most to gain from universal healthcare. PHIERS converts that power into a coordinated federal mandate — not just a contract win.</p>
+        <a href="Unions-Strategy.html" class="card-link">→ Union Strategy</a>
+      </div>
     </div>
   </div>
 </section>
@@ -686,15 +738,15 @@
       <div class="cred-card">
         <div class="cred-icon">📄</div>
         <div>
-          <div class="cred-name"><a href="Chris_Van_Hollen_Letter_2014.png" target="_blank" style="color:var(--text-bright);text-decoration:underline;text-underline-offset:3px">Congressman Chris Van Hollen</a></div>
-          <div class="cred-desc">Letter of Support, March 2014 — Congress of the United States, House of Representatives. Named PHIERS.org directly. "Has the potential to become a vital part of the health care system."</div>
+          <div class="cred-name"><a href="VanHollen_Letter_of_Support.png" target="_blank" style="color:var(--text-bright);text-decoration:underline;text-underline-offset:3px">Congressman Chris Van Hollen</a></div>
+          <div class="cred-desc">Letter of Support — Congress of the United States, House of Representatives. "Has the potential to become a vital part of the health care system."</div>
         </div>
       </div>
       <div class="cred-card">
         <div class="cred-icon">🏛</div>
         <div>
           <div class="cred-name"><a href="KJ_Sacramento_Support_Letter.png" target="_blank" style="color:var(--text-bright);text-decoration:underline;text-underline-offset:3px">Mayor Kevin Johnson — City of Sacramento</a></div>
-          <div class="cred-desc">Letter of Support, September 2009 — Mayor's Office, City of Sacramento. Committed to establishing a point of contact on his staff to immediately begin a PHIERS demonstration project.</div>
+          <div class="cred-desc">Letter of Support, September 2009 — Mayor's Office, City of Sacramento. "PHIERS could be readily adapted throughout California as a flagship community health care approach to reducing the cost of healthcare."</div>
         </div>
       </div>
       <div class="cred-card">
@@ -703,6 +755,14 @@
           <div class="cred-name">Pathos Communications — London Stock Exchange</div>
           <div class="cred-desc">"If you weren't legit, we wouldn't risk putting our name behind yours." Global PR firm staked their reputation on PHIERS.<br>
           <a href="https://www.youtube.com/watch?v=UD8svoGU7ZU" target="_blank" class="cred-video-link">▶ Watch: Why Pathos backed PHIERS (7:11)</a></div>
+        </div>
+      </div>
+      <div class="cred-card">
+        <div class="cred-icon">🎬</div>
+        <div>
+          <div class="cred-name">DotCom Magazine — Industry Validation</div>
+          <div class="cred-desc">Interviewed by the platform promoted by Shark Tank co-founders Kevin Harrington and Kevin O'Leary. Proves years in this space — and ties directly to Mark Cuban's independent validation of the same model.<br>
+          <a href="https://youtu.be/pUdlWukaLLY" target="_blank" class="cred-video-link">▶ Watch the interview</a></div>
         </div>
       </div>
       <div class="cred-card">
@@ -797,8 +857,7 @@
       </div>
     </div>
     <div class="cta-row" style="justify-content:center">
-      <a href="https://www.change.org/p/congress-the-public-is-coordinating-it-s-time-to-answer" target="_blank" class="btn-primary">✍ Sign the Petition</a>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdETA-oNIeOAzEsG4GsYiiws1YBpLunx8ioVJkZac5hzSxaZw/viewform?usp=header" target="_blank" class="btn-secondary">📋 Take the Survey</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdETA-oNIeOAzEsG4GsYiiws1YBpLunx8ioVJkZac5hzSxaZw/viewform?usp=header" target="_blank" class="btn-secondary">→ Take the Survey</a>
     </div>
   </div>
 </section>
@@ -999,5 +1058,10 @@
   })();
 </script>
 <button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
+
+<div class="float-cta" id="float-cta">
+  <button class="float-cta-close" onclick="document.getElementById('float-cta').style.display='none'" aria-label="Close">✕</button>
+  <a href="https://www.change.org/p/congress-the-public-is-coordinating-it-s-time-to-answer" target="_blank">✍ Sign the Petition</a>
+</div>
 </body>
 </html>
