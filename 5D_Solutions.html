@@ -120,6 +120,7 @@
     padding: 20px 24px;
     flex-direction: column;
     gap: 4px;
+    align-items: center;
   }
   .mobile-menu.open { display: flex; }
   .mobile-menu a {
@@ -475,7 +476,9 @@
 
 <div class="page-wrap">
 
-  <div class="section" style="text-align:center">
+  <div style="text-align:center;padding:24px 0 0"><img src="/PHIERS_Logo.png" alt="PHIERS.org" style="height:72px;width:auto;display:inline-block"></div>
+
+<div class="section" style="text-align:center">
     <img src="/5D_Solutions_Rubiks_Cube.png" alt="PHIERS 5D Solutions Rubik's Cube — five interconnected dimensions: healthcare, jobs, economy, politics, and peace" style="height:120px;display:block;margin:0 auto 20px">
     <span class="eyebrow">5D Solutions</span>
     <h1>Real Reform Requires<br><span class="green">5-Dimensional Strategy.</span></h1>
@@ -732,7 +735,6 @@
 </div>
 
 <button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
-
 <script>
   window.addEventListener('scroll', () => {
     document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 50);
@@ -741,12 +743,12 @@
   function toggleMenu() {
     document.getElementById('mobile-menu').classList.toggle('open');
   }
-  
+
   document.addEventListener('click', function(event) {
     const menu = document.getElementById('mobile-menu');
     const hamburger = document.querySelector('.hamburger');
-    if (menu.classList.contains('open') && 
-        !menu.contains(event.target) && 
+    if (menu && menu.classList.contains('open') &&
+        !menu.contains(event.target) &&
         !hamburger.contains(event.target)) {
       menu.classList.remove('open');
     }
@@ -759,9 +761,7 @@
   (function() {
     var currentPage = window.location.pathname.split('/').pop() || 'index.html';
     document.querySelectorAll('.mobile-menu a').forEach(function(a) {
-      if (a.getAttribute('href') === currentPage) {
-        a.classList.add('active');
-      }
+      if (a.getAttribute('href') === currentPage) { a.classList.add('active'); }
     });
   })();
 
@@ -771,7 +771,7 @@
     document.getElementById('imageModal').classList.add('active');
     document.body.style.overflow = 'hidden';
   }
-  
+
   function closeModal(e) {
     if (e && e.stopPropagation) e.stopPropagation();
     document.getElementById('imageModal').classList.remove('active');
@@ -780,11 +780,11 @@
 
   var btt = document.getElementById('back-to-top');
   if (btt) {
-    window.addEventListener('scroll', function() { 
-      btt.classList.toggle('visible', window.scrollY > 400); 
+    window.addEventListener('scroll', function() {
+      btt.classList.toggle('visible', window.scrollY > 400);
     });
-    btt.addEventListener('click', function() { 
-      window.scrollTo({top: 0, behavior: 'smooth'}); 
+    btt.addEventListener('click', function() {
+      window.scrollTo({top: 0, behavior: 'smooth'});
     });
   }
 </script>

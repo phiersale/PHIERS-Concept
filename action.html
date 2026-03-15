@@ -160,6 +160,7 @@
     padding: 20px 24px;
     flex-direction: column;
     gap: 4px;
+    align-items: center;
   }
   .mobile-menu.open { display: flex; }
   .mobile-menu a {
@@ -169,6 +170,8 @@
     border-bottom: 1px solid rgba(255,255,255,0.05);
     font-size: 1rem;
     transition: color 0.2s;
+    text-align: center;
+    width: 100%;
   }
   .mobile-menu a:hover { color: var(--green); }
   .mobile-menu a.active { color: var(--green); font-weight: 700; }
@@ -825,7 +828,7 @@
     var f = document.getElementById('float-cta');
     var btt = document.getElementById('back-to-top');
     if (n) n.classList.toggle('scrolled', window.scrollY > 50);
-    if (f) f.classList.toggle('visible', window.scrollY > 400);
+    if (f) f.classList.toggle('visible', window.scrollY > 800);
     if (btt) btt.classList.toggle('visible', window.scrollY > 400);
   });
 
@@ -839,10 +842,10 @@
   }
 
   document.addEventListener('click', function(event) {
-    const menu = document.getElementById('mobile-menu');
-    const hamburger = document.querySelector('.hamburger');
-    if (menu && menu.classList.contains('open') && 
-        !menu.contains(event.target) && 
+    var menu = document.getElementById('mobile-menu');
+    var hamburger = document.querySelector('.hamburger');
+    if (menu && menu.classList.contains('open') &&
+        !menu.contains(event.target) &&
         !hamburger.contains(event.target)) {
       menu.classList.remove('open');
     }
@@ -865,8 +868,8 @@
 
   var btt = document.getElementById('back-to-top');
   if (btt) {
-    btt.addEventListener('click', function() { 
-      window.scrollTo({top: 0, behavior: 'smooth'}); 
+    btt.addEventListener('click', function() {
+      window.scrollTo({top: 0, behavior: 'smooth'});
     });
   }
 </script>
