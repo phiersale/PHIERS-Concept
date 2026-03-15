@@ -3,449 +3,266 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="dark light">
-    <title>Real Stories - PHIERS</title>
+    <meta name="description" content="Real stories from real people. These are the voices Congress ignores — and the lives PHIERS is fighting for.">
+    <meta property="og:title" content="PHIERS.org — Real Stories. Real People. Real Stakes.">
+    <meta property="og:description" content="Insurance denied. Telehealth saved. These are the stories that prove why change is required.">
+    <meta property="og:image" content="https://phiersale.github.io/PHIERS_Logo.png">
+    <link rel="icon" type="image/png" href="PHIERS_Logo.png">
+    <title>PHIERS.org — Real Stories. Real People. Real Stakes.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Barlow+Condensed:wght@700;900&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            color: #e0e0e0;
-            line-height: 1.6;
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        header {
-            text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(135deg, rgba(15, 52, 96, 0.8), rgba(22, 33, 62, 0.8));
-            border-radius: 10px;
-            margin-bottom: 30px;
-            border: 2px solid rgba(76, 175, 80, 0.3);
-        }
-        
-        h1 {
-            color: #4caf50;
-            font-size: 2em;
-            margin-bottom: 15px;
-            text-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
-        }
-
-        .story-card {
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
-            border-left: 5px solid #4caf50;
-            padding: 30px;
-            margin-bottom: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-        }
-
-        .story-card h3 {
-            color: #4caf50;
-            margin-bottom: 10px;
-            font-size: 1.3em;
-        }
-
-        .story-meta {
-            color: #81c784;
-            font-size: 0.9em;
-            margin-bottom: 15px;
-            font-style: italic;
-        }
-
-        .story-card p {
-            color: #c8e6c9;
-            font-size: 1.05em;
-            line-height: 1.7;
-            font-style: italic;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 14px 32px;
-            background: linear-gradient(135deg, #4caf50, #45a049);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 1.05em;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.5);
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px 20px;
-            border-top: 2px solid rgba(76, 175, 80, 0.3);
-            color: #81c784;
-            margin-top: 40px;
-            font-size: 0.9em;
-        }
-
-        footer a {
-            color: #4caf50;
-            text-decoration: none;
-        }
-
-/* MOBILE IMAGE SIZE FIX - Images load smaller, click to enlarge */
-@media (max-width: 768px) {
-  /* Make ALL images load smaller on mobile by default */
-  img:not(.mobile-menu-toggle *) {
-    max-width: 85% !important;
-    width: 85% !important;
-    height: auto !important;
-    display: block !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    margin-bottom: 1.5rem !important;
-  }
-  
-  /* Logo in hero can stay larger */
-  header img[alt*="PHIERS Logo"],
-  header img[src*="Logo"] {
-    max-width: 300px !important;
-    width: auto !important;
-  }
-  
-  /* Ensure modal images are full-size */
-  .modal-content {
-    max-width: 95% !important;
-    width: auto !important;
-  }
-}
-
-/* Desktop - keep images reasonable */
-@media (min-width: 769px) {
-  img:not(.mobile-menu-toggle *) {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-/* MOBILE UX IMPROVEMENTS - Feb 19, 2026 */
-
-/* Image Modal Styles */
-.image-modal {
-  display: none;
-  position: fixed;
-  z-index: 20000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.95);
-  align-items: center;
-  justify-content: center;
-}
-
-.image-modal.active {
-  display: flex;
-}
-
-.modal-content {
-  max-width: 90%;
-  max-height: 85vh;
-  display: block;
-  margin: auto;
-}
-
-.close-modal {
-  position: absolute;
-  top: 20px;
-  right: 35px;
-  color: #fff;
-  font-size: 40px;
-  font-weight: bold;
-  cursor: pointer;
-  z-index: 20001;
-}
-
-.close-modal:hover {
-  color: #4caf50;
-}
-
-/* Mobile Spacing Reduction */
-@media (max-width: 768px) {
-  section {
-    margin-bottom: 60px !important;
-  }
-  
-  h2 {
-    margin-top: 40px !important;
-    margin-bottom: 25px !important;
-  }
-  
-  /* Full-width CTA buttons */
-  .cta-button,
-  .btn-primary,
-  a[style*="display: inline-block"][style*="background: white"],
-  a[style*="display: inline-block"][style*="background: #2196f3"],
-  a[href*="change.org"][style*="font-size: 1."] {
-    width: 100% !important;
-    max-width: 100% !important;
-    display: block !important;
-  }
-}
-
-/* Responsive Images */
-img {
-  max-width: 100%;
-  height: auto;
-  cursor: pointer;
-}
-
-@media (max-width: 768px) {
-  img {
-    max-width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-/* AGGRESSIVE IMAGE OVERRIDE - FINAL FIX */
-@media (max-width: 768px) {
-  /* Force ALL images to be mobile-friendly - override inline styles */
-  img {
-    max-width: 85% !important;
-    width: auto !important;
-    height: auto !important;
-    display: block !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    margin-bottom: 1.5rem !important;
-  }
-  
-  /* Logo exceptions - keep reasonable */
-  img[alt*="Logo"], 
-  img[src*="Logo"],
-  img[alt*="PHIERS"] {
-    max-width: min(300px, 85%) !important;
-  }
-  
-  /* Small icons stay small */
-  img[width="50"],
-  img[width="100"],
-  img[height="50"],
-  img[height="100"] {
-    max-width: 100px !important;
-  }
-}
-
-/* Desktop - respect but limit inline styles */
-@media (min-width: 769px) {
-  img {
-    max-width: 100% !important;
-    height: auto !important;
-  }
-}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #080d1a; font-family: 'Barlow', sans-serif; color: #b8c8e8; line-height: 1.8; font-size: 1.05rem; overflow-x: hidden; }
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(8,13,26,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(61,220,132,0.2); padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        nav.scrolled { box-shadow: 0 4px 40px rgba(61,220,132,0.1); }
+        .nav-left { display: flex; align-items: center; gap: 14px; }
+        .nav-left a { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.3rem; color: #fff; text-decoration: none; letter-spacing: 0.05em; }
+        .nav-tagline { font-style: italic; font-size: 0.78rem; color: #3ddc84; line-height: 1.3; display: none; }
+        @media(min-width:640px){ .nav-tagline { display: block; } }
+        .nav-right { display: flex; align-items: center; gap: 12px; }
+        .btn-petition { background: #e63946; color: #fff; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 0.05em; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.2s, transform 0.1s; animation: pulse-btn 8s ease-in-out infinite; }
+        .btn-petition:hover { background: #c1121f; transform: scale(1.03); }
+        @keyframes pulse-btn { 0%,90%,100% { box-shadow: 0 0 0 0 rgba(230,57,70,0); } 95% { box-shadow: 0 0 0 8px rgba(230,57,70,0.3); } }
+        .hamburger { background: none; border: 1px solid rgba(61,220,132,0.2); color: #f0f4ff; font-size: 1.3rem; padding: 8px 12px; border-radius: 4px; cursor: pointer; }
+        .mobile-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; background: #0d1525; border-bottom: 1px solid rgba(61,220,132,0.2); z-index: 999; padding: 20px 24px; flex-direction: column; gap: 4px; }
+        .mobile-menu.open { display: flex; }
+        .mobile-menu a { color: #b8c8e8; text-decoration: none; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 1rem; transition: color 0.2s; }
+        .mobile-menu a:hover { color: #3ddc84; }
+        .mobile-menu a.active { color: #3ddc84; font-weight: 700; }
+        .page-wrap { max-width: 880px; margin: 0 auto; padding: 100px 24px 80px; position: relative; z-index: 1; }
+        .section { margin-bottom: 60px; }
+        .eyebrow { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.15em; color: #3ddc84; text-transform: uppercase; margin-bottom: 12px; display: block; }
+        h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 8vw, 5.2rem); color: #f0f4ff; line-height: 1.0; margin-bottom: 16px; }
+        h1 .green { color: #3ddc84; }
+        h1 .red { color: #e63946; }
+        .hero-subhead { font-size: 1.3rem; color: #b8c8e8; max-width: 700px; margin-bottom: 28px; line-height: 1.6; }
+        .story-card { background: #111d35; border: 1px solid rgba(61,220,132,0.2); border-left: 4px solid #3ddc84; border-radius: 0 8px 8px 0; padding: 32px; margin-bottom: 24px; transition: border-color 0.2s; }
+        .story-card:hover { border-color: #3ddc84; }
+        .story-card h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.5rem; color: #f0f4ff; margin-bottom: 8px; }
+        .story-meta { color: #7a94b8; font-size: 0.9rem; margin-bottom: 16px; font-style: italic; }
+        .story-card p { color: #b8c8e8; font-size: 1.05rem; line-height: 1.7; font-style: italic; }
+        .cta-block { background: rgba(61,220,132,0.1); border: 2px solid #3ddc84; border-radius: 12px; padding: 48px 32px; text-align: center; margin: 60px 0 40px; }
+        .cta-block h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 5vw, 3.2rem); color: #f0f4ff; margin-bottom: 20px; }
+        .cta-block h2 .green { color: #3ddc84; }
+        .btn-primary { background: #3ddc84; color: #080d1a; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.2rem; letter-spacing: 0.05em; padding: 14px 36px; border-radius: 4px; text-decoration: none; display: inline-block; transition: background 0.2s, transform 0.1s; }
+        .btn-primary:hover { background: #2ab568; transform: scale(1.02); }
+        .btn-secondary { background: transparent; color: #3ddc84; border: 1px solid #3ddc84; padding: 14px 36px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.2rem; letter-spacing: 0.05em; border-radius: 4px; text-decoration: none; transition: background 0.2s; }
+        .btn-secondary:hover { background: rgba(61,220,132,0.15); }
+        .back-link { display: inline-block; color: #3ddc84; text-decoration: none; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.1rem; margin: 20px 0 40px; }
+        .back-link:hover { text-decoration: underline; }
+        hr.divider { border: none; border-top: 1px solid rgba(61,220,132,0.2); margin: 60px 0; }
+        footer { background: #0d1525; border-top: 1px solid rgba(61,220,132,0.2); padding: 48px 24px 32px; text-align: center; }
+        .footer-logo { height: 40px; margin-bottom: 16px; }
+        .footer-mabah { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.1rem; color: #f0f4ff; }
+        .footer-mabah-sub { font-size: 0.9rem; color: #3ddc84; font-style: italic; margin-bottom: 24px; }
+        .footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 24px; margin-bottom: 24px; }
+        .footer-nav a { color: #7a94b8; text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .footer-nav a:hover { color: #3ddc84; }
+        .footer-copy { font-size: 0.8rem; color: #7a94b8; max-width: 600px; margin: 0 auto; }
+        .footer-copy a { color: #3ddc84; text-decoration: none; }
+        .image-modal { display: none; position: fixed; z-index: 9999; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); justify-content: center; align-items: center; }
+        .image-modal.active { display: flex; }
+        .modal-content { max-width: 90vw; max-height: 90vh; border-radius: 8px; border: 2px solid #3ddc84; }
+        .close-modal { position: absolute; top: 20px; right: 30px; color: #fff; font-size: 3rem; cursor: pointer; background: none; border: none; }
+        .close-modal:hover { color: #3ddc84; }
     </style>
 </head>
 <body>
-    <nav>
-    <!-- Mobile Menu Toggle -->
-    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">
-      <span class="menu-icon">☰</span>
-      <span class="close-icon" style="display: none;">✕</span>
-    </button>
-    
-    <!-- Navigation Links -->
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      
-      <div class="dropdown">
-        <button class="dropbtn" onclick="toggleDropdown(event)">Strategy ▼</button>
-        <div class="dropdown-content">
-          <a href="OVERVIEW.html">Overview</a>
-          <a href="Crisis.html">Crisis</a>
-          <a href="SimpleMath.html">Simple Math</a>
-          <a href="5D_Solutions.html">5D Solutions</a>
-          <a href="Leverage.html">Leverage</a>
-          <a href="Why-Change-Required.html">Why Change Required</a>
-          <a href="Unions-Strategy.html">Union Strategy</a>
+
+    <nav id="main-nav">
+        <div class="nav-left">
+            <a href="index.html">PHIERS.org</a>
+            <div class="nav-tagline">MABAH — Making America Better And Healthier<br>Sounds like MAGA. But a lot bettah.</div>
         </div>
-      </div>
-      
-      <a href="Quickstart.html">Quick Start</a>
-      <a href="action.html">Take Action</a>
-      <a href="Donate.html">Donate</a>
-      
-      <div class="dropdown">
-        <button class="dropbtn" onclick="toggleDropdown(event)">Resources ▼</button>
-        <div class="dropdown-content">
-          <a href="Media.html">Media</a>
-          <a href="real-stories.html">Real Stories</a>
-          <a href="FAQ.html">FAQ</a>
-          <a href="About.html">About</a>
-          <a href="Our-Origins.html">Origins</a>
+        <div class="nav-right">
+            <a href="https://www.change.org/p/congress-the-public-is-coordinating-it-s-time-to-answer" target="_blank" class="btn-petition">✍ Sign Now</a>
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">☰</button>
         </div>
-      </div>
+    </nav>
+
+    <!-- ── UNIVERSAL MOBILE MENU (updated with Unions + NoWar) ── -->
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html#crisis">The Crisis</a>
+        <a href="index.html#coordination">The Missing Piece</a>
+        <a href="index.html#proof">The $600 Plan</a>
+        <a href="index.html#teeth">How We Force Action</a>
+        <a href="index.html#credibility">Why This Is Real</a>
+        <a href="index.html#roadmap">Roadmap</a>
+        <a href="Crisis.html">Crisis Deep Dive</a>
+        <a href="SimpleMath.html">Simple Math</a>
+        <a href="5D_Solutions.html">5D Solutions</a>
+        <a href="Telehealth-Insurance.html">Telehealth &amp; Insurance</a>
+        <a href="Donate.html">Donate</a>
+        <a href="organizers.html">For Organizers</a>
+        <a href="Unions-Strategy.html">Union Strategy</a>
+        <a href="NoWar.html">No War / No Draft</a>
+        <a href="Resources.html">Resources</a>
+        <a href="healthcare-proof.html" target="_blank" style="color:#3ddc84;font-weight:700">→ The Full Story</a>
     </div>
-  </nav>
 
-<!-- ============================================== -->
-<!-- UNIQUE VERIFICATION MARKER -->
-<!-- PHIERS_DEBUG_v4_20260220_170155 -->
-<!-- If you see this, the new files are live -->
-<!-- ============================================== -->
-    <div class="container">
-        <header>
-            <h1>ðŸ’” Real Stories</h1>
-            <p style="color: #c8e6c9; font-size: 1.1em; margin-top: 15px;">
-                These are the voices Congress ignores. These are the people we're fighting for.
-            </p>
-        </header>
-        <!-- NAVIGATION BUTTONS (Under Hero) -->
-        <nav style="
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
-            border: 2px solid rgba(76, 175, 80, 0.3);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 40px;
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-        ">
-            <a href="index.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">ðŸ  Start Here</a>
-            
-            <a href="crisis.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">ðŸš¨ What's Broken</a>
-            
-            <a href="why-change-required.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">âš–ï¸ Why Change Required</a>
-            
-            <a href="solutions.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">ðŸ“‹ What We Demand</a>
-            
-            <a href="action.html" style="background: linear-gradient(135deg, #2196f3, #1976d2); color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s; box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(33, 150, 243, 0.5)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(33, 150, 243, 0.3)'">âœï¸ Petition</a>
-            
-            <a href="simple-math.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">ðŸ“Š Receipts</a>
-            
-            <a href="faq.html" style="background: rgba(76, 175, 80, 0.2); color: #81c784; padding: 10px 20px; border: 2px solid rgba(76, 175, 80, 0.4); border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: all 0.3s;" onmouseover="this.style.background='rgba(76, 175, 80, 0.3)'; this.style.color='#4caf50'" onmouseout="this.style.background='rgba(76, 175, 80, 0.2)'; this.style.color='#81c784'">â“ FAQ</a>
-        </nav>
+    <div class="page-wrap">
 
+        <div class="section">
+            <img src="PHIERS_Logo.png" alt="PHIERS.org" style="height:52px;display:block;margin:0 auto 20px;">
+            <span class="eyebrow">The Voices Congress Ignores</span>
+            <h1>Real Stories.<br><span class="green">Real People.</span> <span class="red">Real Stakes.</span></h1>
+            <p class="hero-subhead">These aren't anecdotes. They're evidence. Insurance failed. Telehealth saved. This is why we fight.</p>
+        </div>
+
+        <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin:20px 0 40px;">
+            <a href="index.html" style="color:#3ddc84; padding:6px 12px; border:1px solid rgba(61,220,132,0.3); border-radius:30px; text-decoration:none; font-size:0.9rem;">🏠 Home</a>
+            <a href="Crisis.html" style="color:#3ddc84; padding:6px 12px; border:1px solid rgba(61,220,132,0.3); border-radius:30px; text-decoration:none; font-size:0.9rem;">🚨 Crisis</a>
+            <a href="Why-Change-Required.html" style="color:#3ddc84; padding:6px 12px; border:1px solid rgba(61,220,132,0.3); border-radius:30px; text-decoration:none; font-size:0.9rem;">⚖️ Why Change</a>
+            <a href="5D_Solutions.html" style="color:#3ddc84; padding:6px 12px; border:1px solid rgba(61,220,132,0.3); border-radius:30px; text-decoration:none; font-size:0.9rem;">📋 Solutions</a>
+            <a href="Action.html" style="background:#2196f3; color:white; padding:6px 12px; border-radius:30px; text-decoration:none; font-size:0.9rem;">✍️ Petition</a>
+            <a href="SimpleMath.html" style="color:#3ddc84; padding:6px 12px; border:1px solid rgba(61,220,132,0.3); border-radius:30px; text-decoration:none; font-size:0.9rem;">📊 Math</a>
+        </div>
 
         <div class="story-card">
             <h3>"I had insurance. I still couldn't afford care."</h3>
-            <p class="story-meta">Maria, 42 â€” Phoenix, AZ</p>
+            <div class="story-meta">Maria, 42 — Phoenix, AZ</div>
             <p>"I was paying $780 a month for insurance through my job. When my daughter needed an MRI, the insurer denied it twice. The hospital told me it would be $3,400 out of pocket. I ended up driving her to urgent care three times because it was all I could afford. We weren't uninsured. We were just unprotected."</p>
         </div>
 
         <div class="story-card">
-            <h3>"Telehealth saved my life â€” literally."</h3>
-            <p class="story-meta">James, 57 â€” Columbus, OH</p>
+            <h3>"Telehealth saved my life — literally."</h3>
+            <div class="story-meta">James, 57 — Columbus, OH</div>
             <p>"I had chest pain at 2 AM. I didn't want to go to the ER because of the cost. I opened my telehealth app and a doctor told me to get to the hospital immediately. It turned out to be a mild heart attack. If I had waited, I might not be here. That call cost me $35. The ambulance cost me $1,900."</p>
         </div>
 
         <div class="story-card">
             <h3>"Insurance denied my cancer scan. Telehealth didn't."</h3>
-            <p class="story-meta">Aisha, 33 â€” Atlanta, GA</p>
+            <div class="story-meta">Aisha, 33 — Atlanta, GA</div>
             <p>"My oncologist ordered a follow-up scan. Insurance denied it as 'not medically necessary.' A telehealth doctor reviewed my case and approved it in 12 minutes. The scan found early recurrence. Insurance almost killed me. Telehealth saved me."</p>
         </div>
 
         <div class="story-card">
             <h3>"I lost my job. I lost my insurance. I didn't lose my doctor."</h3>
-            <p class="story-meta">Tom, 51 â€” Milwaukee, WI</p>
+            <div class="story-meta">Tom, 51 — Milwaukee, WI</div>
             <p>"When the factory downsized, I lost my insurance overnight. My telehealth provider kept me on for $49 a month. I still had access to my doctor, my prescriptions, and mental health support. If I had relied on insurance, I'd have been cut off."</p>
         </div>
 
         <div class="story-card">
             <h3>"My son's asthma was getting worse. Telehealth finally listened."</h3>
-            <p class="story-meta">Rosa, 29 â€” San Antonio, TX</p>
+            <div class="story-meta">Rosa, 29 — San Antonio, TX</div>
             <p>"For two years, insurance kept denying the inhaler my son needed. A telehealth doctor reviewed his history and approved it immediately. No hoops. No appeals. No waiting. Just care."</p>
         </div>
 
         <div class="story-card">
             <h3>"Insurance said no. Telehealth said yes. My job depends on it."</h3>
-            <p class="story-meta">Derek, 38 â€” Sacramento, CA</p>
-            <p>"I drive for a living. When I needed a medical clearance after an injury, insurance told me it would take 3â€“6 weeks. Telehealth cleared me in 24 hours. That difference meant I kept my job."</p>
+            <div class="story-meta">Derek, 38 — Sacramento, CA</div>
+            <p>"I drive for a living. When I needed a medical clearance after an injury, insurance told me it would take 3–6 weeks. Telehealth cleared me in 24 hours. That difference meant I kept my job."</p>
         </div>
 
         <div class="story-card">
             <h3>"Telehealth is the only reason I can afford therapy."</h3>
-            <p class="story-meta">Lena, 24 â€” Brooklyn, NY</p>
+            <div class="story-meta">Lena, 24 — Brooklyn, NY</div>
             <p>"My insurance plan only covers therapy after a $2,000 deductible. Telehealth gives me weekly sessions for $40. Without it, I'd be on my own."</p>
         </div>
 
-        <div style="text-align: center; margin: 50px 0; padding: 40px; background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(129, 199, 132, 0.15)); border: 3px solid #4caf50; border-radius: 8px;">
-            <h2 style="color: #4caf50; margin-bottom: 20px;">These Stories Are Why We Fight</h2>
-            <p style="color: #c8e6c9; font-size: 1.05em; margin-bottom: 25px;">
+        <div class="cta-block">
+            <h2>These Stories Are <span class="green">Why We Fight</span></h2>
+            <p style="font-size:1.2rem; max-width:600px; margin:0 auto 30px; color:#b8c8e8;">
                 Congress has the power to authorize $600 telehealth through the ACA.<br>
                 They refuse. We're forcing them to act.
             </p>
-            <a href="../action.html" class="btn" style="font-size: 1.15em; padding: 16px 40px;">âœï¸ Sign the Petition Now</a>
+            <a href="https://www.change.org/p/congress-the-public-is-coordinating-it-s-time-to-answer" target="_blank" class="btn-primary">✍ Sign the Petition Now</a>
         </div>
 
-        <div style="text-align: center; margin: 40px 0;">
-            <a href="../crisis.html" style="color: #4caf50; font-size: 1.05em; font-weight: bold; text-decoration: underline;">â† Back to What's Broken</a>
+        <div style="text-align:center;">
+            <a href="Crisis.html" class="back-link">← Back to The Crisis</a>
         </div>
 
-        <footer>
-            <p style="font-weight: bold; font-size: 1.1em; margin-bottom: 15px;">
-                PHIERS Movement | Make America Better And Healthier (MABAH)
-            </p>
-            
-            <p style="margin: 15px 0;">
-                <strong>Contact:</strong> Will Price | <a href="mailto:info@phiers.org">info@phiers.org</a> | 916-306-8967
-            </p>
-            
-            <p style="margin-top: 20px;">
-                Â© PHIERS.org â€” People's Health Insurance Economic Recovery Solutions
-            </p>
-            <p style="margin-top: 15px; font-size: 0.9em; font-weight: bold;">
-                If you see an error in the math or policy, tell us â€” we'l
+    </div>
 
-<!-- Image Modal -->
-<div id="imageModal" class="image-modal">
-  <span class="close-modal" onclick="closeImageModal()">&times;</span>
-    <img loading="lazy" class="modal-content" id="modalImage" alt="" loading="lazy">
-</div>
+    <footer>
+        <img src="PHIERS_Logo.png" alt="PHIERS.org" class="footer-logo">
+        <div class="footer-mabah">MABAH — Making America Better And Healthier</div>
+        <div class="footer-mabah-sub">Sounds like MAGA. But a lot bettah.</div>
+        <nav class="footer-nav">
+            <a href="index.html">Home</a>
+            <a href="Crisis.html">Crisis</a>
+            <a href="SimpleMath.html">Simple Math</a>
+            <a href="5D_Solutions.html">5D Solutions</a>
+            <a href="Unions-Strategy.html">Union Strategy</a>
+            <a href="organizers.html">For Organizers</a>
+            <a href="Donate.html">Donate</a>
+        </nav>
+        <div class="footer-copy">
+            PHIERS is a people's movement — not a company, not a product. Built by regular people who are done waiting for Congress to do its job. The only thing missing is you.<br>
+            📧 <a href="mailto:info@phiers.org">info@phiers.org</a><br>
+            © PHIERS.org — Original Concept Since 2009
+        </div>
+    </footer>
 
-<script>
-function toggleMobileMenu() {
-  var n = document.getElementById('navLinks');
-  if (n) n.classList.toggle('active');
-}
-function openModal(src) {
-  var m = document.getElementById('imageModal');
-  var i = document.getElementById('modalImage');
-  if (m && i) { i.src = src; m.style.display = 'block'; document.body.style.overflow = 'hidden'; }
-}
-function closeModal() {
-  var m = document.getElementById('imageModal');
-  if (m) { m.style.display = 'none'; document.body.style.overflow = ''; }
-}
-function closeImageModal() { closeModal(); }
-document.addEventListener('DOMContentLoaded', function() {
-  var modal = document.getElementById('imageModal');
-  if (modal) {
-    modal.addEventListener('click', function(e) { if (e.target === modal) closeModal(); });
-  }
-  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
-  document.querySelectorAll('img').forEach(function(img) {
-    if (!img.src.includes('Logo')) {
-      img.style.cursor = 'pointer';
-      img.addEventListener('click', function() { openModal(this.src); });
-    }
-  });
-});
-</script>
+    <div class="image-modal" id="imageModal" onclick="closeModal(event)">
+        <span class="close-modal" onclick="closeModal(event)">&times;</span>
+        <img class="modal-content" id="modalImage" alt="">
+    </div>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('mobile-menu').classList.toggle('open');
+        }
+
+        document.addEventListener('click', function(event) {
+            var menu = document.getElementById('mobile-menu');
+            var hamburger = document.querySelector('.hamburger');
+            if (menu && menu.classList.contains('open') &&
+                !menu.contains(event.target) &&
+                !hamburger.contains(event.target)) {
+                menu.classList.remove('open');
+            }
+        });
+
+        document.querySelectorAll('.mobile-menu a').forEach(function(a) {
+            a.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.remove('open');
+            });
+        });
+
+        (function() {
+            var currentPage = 'real-stories.html';
+            document.querySelectorAll('.mobile-menu a').forEach(function(a) {
+                if (a.getAttribute('href') === currentPage) {
+                    a.classList.add('active');
+                }
+            });
+        })();
+
+        window.addEventListener('scroll', function() {
+            document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        function openModal(src) {
+            var modal = document.getElementById('imageModal');
+            var img = document.getElementById('modalImage');
+            img.src = src;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(event) {
+            var modal = document.getElementById('imageModal');
+            if (event.target === modal || event.target.classList.contains('close-modal')) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        document.querySelectorAll('img[onclick*="openModal"]').forEach(function(img) {
+            var src = img.src;
+            img.removeAttribute('onclick');
+            img.addEventListener('click', function() { openModal(src); });
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.getElementById('imageModal').classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    </script>
 </body>
 </html>
