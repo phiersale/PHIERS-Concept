@@ -121,7 +121,6 @@
     padding: 20px 24px;
     flex-direction: column;
     gap: 4px;
-    align-items: center;
   }
   .mobile-menu.open { display: flex; }
   .mobile-menu a {
@@ -131,8 +130,6 @@
     border-bottom: 1px solid rgba(255,255,255,0.05);
     font-size: 1rem;
     transition: color 0.2s;
-    text-align: center;
-    width: 100%;
   }
   .mobile-menu a:hover { color: var(--green); }
   .mobile-menu a.active { color: var(--green); }
@@ -232,7 +229,7 @@
     line-height: 1.0;
     margin-bottom: 24px;
   }
-  .hero-body { font-size: 1.15rem; color: var(--text-body); line-height: 1.9; max-width: 620px; margin: 0 auto 32px; text-align: left; }
+  .hero-body { font-size: 1.15rem; color: var(--text-body); line-height: 1.9; max-width: 620px; margin: 0 auto 32px; }
   .hero-body strong { color: var(--text-bright); }
   #hero .cta-row { justify-content: center; }
 
@@ -435,56 +432,16 @@
     img[style*="height:"] { max-width: 100%; }
   }
 
-  @media (max-width: 640px) {
-    .hamburger { margin: 0 auto; }
-    .nav-right { justify-content: center; width: 100%; }
-    nav { flex-wrap: wrap; height: auto; padding: 8px 24px; }
-    .nav-left { width: 100%; justify-content: center; }
-  }
-
-  /* Collapsible mobile menu sections */
-  .menu-section {
-    width: 100%;
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-  }
-  .menu-section[open] > summary { color: var(--green); }
-  .menu-section > summary.menu-label {
-    cursor: pointer;
-    font-family: var(--font-condensed);
-    font-size: 1rem;
-    font-weight: 900;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--text-bright);
-    padding: 14px 0;
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    width: 100%;
-  }
-  .menu-section > summary.menu-label::after {
-    content: '▾';
-    font-size: 0.85rem;
-    transition: transform 0.2s;
-  }
-  .menu-section[open] > summary.menu-label::after { transform: rotate(180deg); }
-  .menu-section > summary::-webkit-details-marker { display: none; }
-  .menu-section a {
-    display: block;
-    padding: 10px 0;
-    text-align: center;
-    width: 100%;
-    color: var(--text-body);
-    text-decoration: none;
-    font-size: 1rem;
-    transition: color 0.2s;
-    border-bottom: 1px solid rgba(255,255,255,0.04);
-  }
-  .menu-section a:last-child { border-bottom: none; }
-  .menu-section a:hover, .menu-section a.active { color: var(--green); }
-</style>
+  .menu-section{width:100%;border-bottom:1px solid rgba(255,255,255,0.07);}
+  .menu-section[open]>summary{color:#3ddc84;}
+  .menu-section>summary.menu-label{cursor:pointer;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:900;letter-spacing:0.12em;text-transform:uppercase;color:#f0f4ff;padding:14px 0;list-style:none;display:flex;justify-content:center;align-items:center;gap:8px;width:100%;}
+  .menu-section>summary.menu-label::after{content:'▾';font-size:0.85rem;transition:transform 0.2s;}
+  .menu-section[open]>summary.menu-label::after{transform:rotate(180deg);}
+  .menu-section>summary::-webkit-details-marker{display:none;}
+  .menu-section a{display:block;padding:10px 0;text-align:center;width:100%;color:#b8c8e8;text-decoration:none;font-size:1rem;transition:color 0.2s;border-bottom:1px solid rgba(255,255,255,0.04);}
+  .menu-section a:last-child{border-bottom:none;}
+  .menu-section a:hover,.menu-section a.active{color:#3ddc84;}
+  </style>
 </head>
 <body>
 
@@ -538,7 +495,7 @@
 ═══════════════════════════════════════════════ -->
 <section id="hero">
   <div style="text-align:center;margin-bottom:32px;padding-top:8px">
-    <img src="/PHIERS_Logo.png" alt="PHIERS.org" style="height:80px;width:auto;display:inline-block">
+    <img src="PHIERS_Logo.png" alt="PHIERS.org" style="height:80px;width:auto;display:inline-block">
   </div>
 
   <h1 class="hero-h1">Americans can force Congress<br><span class="green">to do its job.</span></h1>
@@ -547,20 +504,13 @@
     <p><em style="color:var(--text-dim);font-size:0.95rem">PHIERS — pronounced "fires." As in transformation. Because that's what happens when citizens organize.</em></p>
     <p>For decades, Congress has ignored what the public wants — not because these things are impossible, but because there has been no organized consequence for ignoring us.</p>
     <p><strong>PHIERS changes that. We coordinate millions of citizens into a force Congress cannot ignore.</strong></p>
-
-    <div style="display:flex;gap:10px;flex-wrap:wrap;margin:20px 0;">
-      <span style="background:var(--green-glow);border:1px solid rgba(61,220,132,0.25);padding:6px 14px;border-radius:30px;font-family:var(--font-condensed);font-size:0.9rem;color:var(--text-bright)">🇺🇸 3.5% threshold</span>
-      <span style="background:var(--green-glow);border:1px solid rgba(61,220,132,0.25);padding:6px 14px;border-radius:30px;font-family:var(--font-condensed);font-size:0.9rem;color:var(--text-bright)">💰 $600 vs $10,000</span>
-      <span style="background:var(--green-glow);border:1px solid rgba(61,220,132,0.25);padding:6px 14px;border-radius:30px;font-family:var(--font-condensed);font-size:0.9rem;color:var(--text-bright)">⚡ 12M people needed</span>
-    </div>
-
     <p>Our first test: a <strong>$600 healthcare model</strong> that delivers the same care Americans pay $10,000 for today. Congress could authorize it tomorrow. They refuse. When millions demand it together, they will have no choice.</p>
     <p>And once we prove we have the numbers — once Congress feels real pressure — <strong style="color:var(--green)">everything else becomes possible. Including ending the wars.</strong></p>
   </div>
 
   <div class="cta-row">
     <a href="https://www.change.org/p/congress-the-public-is-coordinating-it-s-time-to-answer" target="_blank" rel="noopener noreferrer" class="btn-primary">✍ Sign the Petition</a>
-    <a href="#teeth" class="btn-secondary">→ Learn How Leverage Works</a>
+    <a href="index.html#teeth" class="btn-secondary">→ Learn How Leverage Works</a>
   </div>
 
   <div style="margin-top:24px;padding:16px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:6px;font-family:var(--font-condensed);font-size:0.95rem;color:var(--text-dim);line-height:2">
@@ -589,11 +539,11 @@
   </div>
 
   <div class="newsletter-block" style="margin-top:36px">
-    <img src="/PHIERS_Logo.png" alt="PHIERS.org" style="height:28px;margin-bottom:10px;display:block">
+    <img src="PHIERS_Logo.png" alt="PHIERS.org" style="height:28px;margin-bottom:10px;display:block">
     <h4>📬 Stay Informed</h4>
     <p>Be the first to know when PHIERS.org benefits become available — and when it's time to summon Congress to account in your district. That's how we force change.</p>
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSdETA-oNIeOAzEsG4GsYiiws1YBpLunx8ioVJkZac5hzSxaZw/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="nl-btn">→ Join the Newsletter</a>
-    <p class="nl-note">No spam. No fundraising. Just the signal when it matters. · <a href="mailto:info@phiers.org">info@phiers.org</a></p>
+    <p class="nl-note">No spam. No fundraising. Just the signal when it matters. · <a href="mailto:info@phiers.org" style="color:var(--green)">info@phiers.org</a></p>
   </div>
 </section>
 
@@ -621,9 +571,9 @@
 <section class="section" id="crisis">
   <span class="eyebrow">The Crisis</span>
   <h2>Congress has stopped listening<br><span class="red">to the people who elected them.</span></h2>
-  <p><strong>The problems aren't complicated.</strong> The solutions often exist. Congress just won't act — because they face no organized consequence for ignoring us.</p>
+  <p>The problems aren't complicated. The solutions often exist. Congress just won't act — because they face no organized consequence for ignoring us.</p>
   <ul class="crisis-list">
-    <li>Unauthorized wars draining over <strong>$1 billion every single day</strong> — no vote, no mandate, no end in sight — and oil price spikes from those wars are already hitting your grocery bill, your gas tank, and every supply chain that keeps this country running</li>
+    <li>Unauthorized wars draining over <strong>$1 billion every single day</strong> — no vote, no mandate, no end in sight</li>
     <li>Healthcare costs <strong>exploding while care gets worse</strong> — while a $600 solution sits on the shelf</li>
     <li>Working people crushed by an <strong>affordability crisis</strong> that keeps deepening</li>
     <li>Politicians <strong>keep their seats</strong> no matter what they fail to do</li>
@@ -634,7 +584,7 @@
     <span class="green">Power concedes nothing without a demand that has TEETH.</span>
   </div>
   <p style="text-align:center;font-family:var(--font-condensed);font-weight:700;font-size:1.1rem;color:var(--text-bright);margin-bottom:20px">Protests create visibility. PHIERS creates leverage. The movement needs both.</p>
-  <img src="/We_Gotz_Teeth_for_No_Kings.jpg" alt="We Are The TEETH — No Kings" class="teeth-img">
+  <img src="We_Gotz_Teeth_for_No_Kings.jpg" alt="We Are The TEETH — No Kings" class="teeth-img">
   <p style="text-align:center;margin-top:-16px"><a href="organizers.html" style="color:var(--green);font-family:var(--font-condensed);font-weight:700;font-size:1rem;text-decoration:none">→ Are you a movement organizer? See how PHIERS.org gives your demands teeth.</a></p>
   <p style="margin-top:24px;font-style:italic;color:var(--text-dim)">This isn't a policy failure. It's a leverage failure. PHIERS-power gives us the leverage to fix it.</p>
 </section>
@@ -648,16 +598,16 @@
   <div class="inner">
     <span class="eyebrow">The Missing Piece</span>
     <h2>Millions Are Angry.<br><span class="green">But We're Scattered.</span></h2>
-    <p><strong>No coordination. No unified demand. No pressure.</strong></p>
-    <p><strong>PHIERS changes that.</strong></p>
+    <p>No coordination. No unified demand. No pressure.</p>
+    <p>PHIERS changes that.</p>
     <div class="stat-callout">
       <div class="big-num">3.5%</div>
       <div class="big-label">The Threshold That Changes Everything</div>
       <p style="color:var(--text-body);font-size:0.97rem;margin-bottom:8px">A Harvard researcher studied hundreds of movements across more than a century. The finding was consistent: when roughly 3.5% of a population acts together in a sustained, coordinated way, governments have historically been unable to ignore them.</p>
       <div class="big-source">— Erica Chenoweth, Harvard Kennedy School · No nonviolent movement at this threshold has ever failed</div>
     </div>
-    <p><strong>In the United States, that's about <span style="color:var(--text-bright)">12 million people.</span></strong></p>
-    <p><strong>When we reach that number, every member of Congress will know the public is coordinated</strong> — district by district. They will have to respond.</p>
+    <p>In the United States, that's about <strong style="color:var(--text-bright)">12 million people.</strong></p>
+    <p>When we reach that number, every member of Congress will know the public is coordinated — district by district. They will have to respond.</p>
   </div>
 </section>
 
@@ -669,7 +619,7 @@
 <section class="section" id="proof">
   <span class="eyebrow">The Proof</span>
   <h2>Healthcare proves<br><span class="green">the leverage works.</span></h2>
-  <p><strong>If the math is this obvious, why hasn't Congress acted?</strong> Because they don't have to. <strong style="color:var(--text-bright)">Yet.</strong> Healthcare is our first test. It's undeniable. It's winnable. And when we win it, we prove something bigger: that coordinated citizens can force Congress to act.</p>
+  <p>If the math is this obvious, why hasn't Congress acted? Because they don't have to. <strong style="color:var(--text-bright)">Yet.</strong> Healthcare is our first test. It's undeniable. It's winnable. And when we win it, we prove something bigger: that coordinated citizens can force Congress to act.</p>
   <div class="math-compare">
     <div class="math-card bad">
       <div class="math-label">Current System</div>
@@ -686,12 +636,12 @@
     <span style="font-family:var(--font-condensed);font-weight:700;font-size:1.05rem;color:var(--text-bright)">Why $600? Telehealth bypasses insurance entirely.</span>
     <a href="Telehealth-Insurance.html" style="color:var(--green);font-family:var(--font-condensed);font-weight:700;font-size:0.95rem;white-space:nowrap;text-decoration:none">Learn how →</a>
   </div>
-  <p><strong>The technology already exists.</strong> Telehealth, diagnostics, and coordinated care can deliver most treatment at a fraction of today's cost. The savings are massive — <strong style="color:var(--text-bright)">trillions of dollars already collected and allocated</strong>.</p>
-  <p><strong>PHIERS.org sponsors CMS beneficiaries into their chosen telehealth platform.</strong> Without PHIERS, people must pay to participate. <strong style="color:var(--green)">PHIERS is what makes it free.</strong></p>
+  <p>The technology already exists. Telehealth, diagnostics, and coordinated care can deliver most treatment at a fraction of today's cost. The savings are massive — <strong style="color:var(--text-bright)">trillions of dollars already collected and allocated</strong>.</p>
+  <p>PHIERS.org sponsors CMS beneficiaries into their chosen telehealth platform. Without PHIERS, people must pay to participate. <strong style="color:var(--green)">PHIERS is what makes it free.</strong></p>
   <div class="pull-quote"><p>"Power concedes nothing without a demand that has TEETH."</p></div>
   <p style="color:var(--text-dim);font-size:0.9rem">So why hasn't Congress done it? Because they don't have to. <strong style="color:var(--text-bright)">Not yet.</strong> That changes when the public finally has a way to act together.</p>
   <div class="cta-row">
-    <a href="SimpleMath.html" class="btn-secondary">→ See the Full $600 Breakdown</a>
+    <a href="SimpleMath.html" target="_blank" class="btn-secondary">→ See the Full $600 Breakdown</a>
   </div>
   <div style="margin-top:28px;border:1px solid var(--border);border-radius:6px;overflow:hidden">
     <button onclick="toggleExpand()" id="expand-btn" style="width:100%;background:var(--bg-card);border:none;color:var(--text-bright);font-family:var(--font-condensed);font-weight:700;font-size:1rem;letter-spacing:0.05em;padding:16px 20px;cursor:pointer;text-align:left;display:flex;justify-content:space-between;align-items:center">
@@ -947,31 +897,9 @@
       </ul>
     </div>
     <p>PHIERS has been building this solution since 2009. Not because the moment was right. Because the problem was real — and nobody else was solving it.</p>
-
-    <div style="display:flex;gap:12px;margin:24px 0;flex-wrap:wrap;">
-      <div style="flex:1;min-width:80px;text-align:center;background:var(--bg-card2);border:1px solid var(--border);padding:16px 12px;border-radius:8px;">
-        <div style="font-size:1.8rem;font-weight:700;color:var(--green);font-family:var(--font-condensed)">2009</div>
-        <div style="font-size:0.8rem;color:var(--text-dim);margin-top:4px">Concept born</div>
-      </div>
-      <div style="flex:1;min-width:80px;text-align:center;background:var(--bg-card2);border:1px solid var(--border);padding:16px 12px;border-radius:8px;">
-        <div style="font-size:1.8rem;font-weight:700;color:var(--green);font-family:var(--font-condensed)">16+</div>
-        <div style="font-size:0.8rem;color:var(--text-dim);margin-top:4px">Years of pivots</div>
-      </div>
-      <div style="flex:1;min-width:80px;text-align:center;background:var(--bg-card2);border:1px solid var(--border);padding:16px 12px;border-radius:8px;">
-        <div style="font-size:1.8rem;font-weight:700;color:var(--green);font-family:var(--font-condensed)">5D</div>
-        <div style="font-size:0.8rem;color:var(--text-dim);margin-top:4px">Solutions forged</div>
-      </div>
-      <div style="flex:1;min-width:80px;text-align:center;background:var(--bg-card2);border:1px solid var(--border);padding:16px 12px;border-radius:8px;">
-        <div style="font-size:1.8rem;font-weight:700;color:var(--green);font-family:var(--font-condensed)">0</div>
-        <div style="font-size:0.8rem;color:var(--text-dim);margin-top:4px">Times we quit</div>
-      </div>
-    </div>
-
     <p>Every time the system pushed back, PHIERS didn't retreat. We pivoted to solve the next emerging problem. School health. Veterans. Faith communities. Pharmaceutical costs. Telehealth.</p>
     <p>Fifteen years of pivots didn't weaken PHIERS. They built it into something that can address five dimensions of the affordability crisis simultaneously — with zero wasted motion. That's the 5D solution. Not designed in a think tank. Forged under pressure. In the real world. Over 15 years.</p>
-    <div class="pull-quote" style="margin:28px 0 20px">
-      <p>And through all of it — the problems multiplied and got worse. Congress still hasn't acted. PHIERS is still here. And we are still the proper response to them all.</p>
-    </div>
+    <p style="margin-top:4px;color:var(--text-dim);font-style:italic">And through all of it — the problems multiplied and got worse. Congress still hasn't acted. PHIERS is still here. And we are still the proper response to them all.</p>
     <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:20px 24px;margin:28px 0">
       <p style="color:var(--text-bright);font-style:italic;font-size:1.05rem;margin-bottom:8px">"If you weren't legit, we wouldn't risk putting our name behind yours."</p>
       <p style="color:var(--text-bright);font-style:italic;font-size:1.05rem;margin-bottom:12px">"Major outlets are interested — Forbes, USA Today, International Business Times."</p>
@@ -990,24 +918,6 @@
   <div class="final-wrap">
     <h2>Congress Won't Fix Itself.<br><span class="green">But We the People Will.</span></h2>
     <p style="font-family:var(--font-condensed);font-weight:700;font-size:1.1rem;color:var(--text-bright)">Our goal: a Congress that is for, by, and accountable to We the People — only.</p>
-    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin:24px 0 28px;text-align:center;">
-      <div style="flex:1;min-width:80px;">
-        <div style="font-size:1.8rem">📅</div>
-        <div style="font-family:var(--font-condensed);font-weight:700;color:var(--gold);font-size:1rem;margin-top:4px">Mar 28</div>
-        <div style="font-size:0.78rem;color:var(--text-dim)">No Kings III</div>
-      </div>
-      <div style="flex:1;min-width:80px;">
-        <div style="font-size:1.8rem">🗽</div>
-        <div style="font-family:var(--font-condensed);font-weight:700;color:var(--gold);font-size:1rem;margin-top:4px">Jul 4</div>
-        <div style="font-size:0.78rem;color:var(--text-dim)">Independence</div>
-      </div>
-      <div style="flex:1;min-width:80px;">
-        <div style="font-size:1.8rem">🗳️</div>
-        <div style="font-family:var(--font-condensed);font-weight:700;color:var(--gold);font-size:1rem;margin-top:4px">Nov 2026</div>
-        <div style="font-size:0.78rem;color:var(--text-dim)">Accountability</div>
-      </div>
-    </div>
-
     <p>Your signature isn't just a petition. It's a coordination signal. It tells your representative that you're watching — and that you're not alone.</p>
     <p>When 12 million of us coordinate, Congress will have no choice but to respond. Not just on healthcare. On everything.</p>
     <p style="color:var(--text-dim)">March 28. July 4th. November 2026.</p>
@@ -1016,18 +926,17 @@
     <div class="cta-row" style="justify-content:center">
       <a href="https://www.change.org/p/congress-the-public-is-coordinating-it-s-time-to-answer" target="_blank" rel="noopener noreferrer" class="btn-primary">✍ Sign the Petition</a>
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSdETA-oNIeOAzEsG4GsYiiws1YBpLunx8ioVJkZac5hzSxaZw/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="btn-secondary">📋 Take the Survey</a>
-      <a href="Donate.html" class="btn-secondary">💚 Donate</a>
     </div>
     <p style="margin-top:28px;text-align:center;color:var(--text-dim);font-size:0.9rem;font-style:italic">The biggest protest in American history deserves a mechanism.<br>This is it. Send it to everyone you know — today.</p>
     <div class="hashtag">#PHIERdUpNow</div>
   </div>
 
   <div class="newsletter-block" style="margin-top:48px">
-    <img src="/PHIERS_Logo.png" alt="PHIERS.org" style="height:28px;margin-bottom:10px;display:block">
+    <img src="PHIERS_Logo.png" alt="PHIERS.org" style="height:28px;margin-bottom:10px;display:block">
     <h4>📬 Stay Informed</h4>
     <p>Be the first to know when PHIERS.org benefits become available — and when it's time to summon Congress to account in your district. That's how we force change.</p>
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSdETA-oNIeOAzEsG4GsYiiws1YBpLunx8ioVJkZac5hzSxaZw/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="nl-btn">→ Join the Newsletter</a>
-    <p class="nl-note">No spam. No fundraising. Just the signal when it matters. · <a href="mailto:info@phiers.org">info@phiers.org</a></p>
+    <p class="nl-note">No spam. No fundraising. Just the signal when it matters. · <a href="mailto:info@phiers.org" style="color:var(--green)">info@phiers.org</a></p>
   </div>
 </section>
 
@@ -1041,16 +950,16 @@
 </section>
 
 <footer>
-  <img src="/PHIERS_Logo.png" alt="PHIERS.org" class="footer-logo">
+  <img src="PHIERS_Logo.png" alt="PHIERS.org" class="footer-logo">
   <div class="footer-mabah">MABAH — Making America Better And Healthier</div>
   <div class="footer-mabah-sub">Sounds like MAGA. But a lot bettah.</div>
   <div class="footer-tagline">PHIERS-power: When millions coordinate, Congress must respond — or be replaced.</div>
   <div style="font-size:0.82rem;color:var(--text-dim);font-style:italic;margin-bottom:16px">PHIERS (pronounced "fires") — transformation in motion. Because that's what happens when citizens organize.</div>
   <nav class="footer-nav">
-    <a href="#crisis">The Crisis</a>
-    <a href="#proof">The $600 Plan</a>
-    <a href="#teeth">How It Works</a>
-    <a href="#roadmap">Roadmap</a>
+    <a href="index.html#crisis">The Crisis</a>
+    <a href="index.html#proof">The $600 Plan</a>
+    <a href="index.html#teeth">How It Works</a>
+    <a href="index.html#roadmap">Roadmap</a>
     <a href="organizers.html">For Organizers</a>
     <a href="SimpleMath.html">Simple Math</a>
     <a href="5D_Solutions.html">5D Solutions</a>
