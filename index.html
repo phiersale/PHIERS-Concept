@@ -108,6 +108,7 @@
     padding: 8px 12px;
     border-radius: 4px;
     cursor: pointer;
+    display: block;
   }
 
   /* ── UNIVERSAL MOBILE MENU ── */
@@ -121,6 +122,7 @@
     padding: 20px 24px;
     flex-direction: column;
     gap: 4px;
+    align-items: center;
   }
   .mobile-menu.open { display: flex; }
   .mobile-menu a {
@@ -407,8 +409,6 @@
   .back-to-top:hover { background: var(--green-dim); }
 
   .mobile-menu { gap: 0; padding: 16px 24px 24px; }
-  .menu-label { font-family: var(--font-condensed); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-dim); padding: 16px 0 4px; border-bottom: 1px solid rgba(61,220,132,0.15); margin-bottom: 2px; display: block; }
-  .menu-label:first-child { padding-top: 4px; }
   .mobile-menu a { padding: 8px 0 8px 12px; border-bottom: none; font-size: 0.97rem; }
   .mobile-menu a.menu-deepdive { color: var(--green); font-weight: 700; padding-left: 0; margin-top: 4px; }
 
@@ -432,7 +432,7 @@
     img[style*="height:"] { max-width: 100%; }
   }
 
-  .menu-section{width:100%;border-bottom:1px solid rgba(255,255,255,0.07);}
+  .menu-section{width:100%;max-width:360px;border-bottom:1px solid rgba(255,255,255,0.07);}
   .menu-section[open]>summary{color:#3ddc84;}
   .menu-section>summary.menu-label{cursor:pointer;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:900;letter-spacing:0.12em;text-transform:uppercase;color:#f0f4ff;padding:14px 0;list-style:none;display:flex;justify-content:center;align-items:center;gap:8px;width:100%;}
   .menu-section>summary.menu-label::after{content:'▾';font-size:0.85rem;transition:transform 0.2s;}
@@ -453,9 +453,9 @@
     <a href="index.html" style="font-family:var(--font-condensed);font-weight:700;font-size:1.3rem;color:#fff;text-decoration:none;letter-spacing:0.05em">PHIERS.org</a>
     <div class="nav-tagline">MABAH — Making America Better And Healthier<br>Sounds like MAGA. But a lot bettah.</div>
   </div>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">☰</button>
   <div class="nav-right">
     <a href="https://www.change.org/p/congress-the-public-is-coordinating-it-s-time-to-answer" target="_blank" rel="noopener noreferrer" class="btn-petition">✍ Sign Now</a>
-    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">☰</button>
   </div>
 </nav>
 
@@ -1075,6 +1075,6 @@
       else if (href === path) { a.classList.add('active'); }
     });
   })();
-</scr
+</script>
 </body>
 </html>
