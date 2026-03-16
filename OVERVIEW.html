@@ -647,6 +647,7 @@ img {
     @media (max-width: 768px) { .mobile-menu-toggle { display: block; } .nav-links { display: none; flex-direction: column; width: 100%; } .nav-links.active { display: flex; } .dropdown-content { position: static; border: none; } }
     /* === END NAV STYLES === */
     </style>
+<link rel="icon" type="image/png" href="/PHIERS_Logo.png">
 </head>
 <body>
 
@@ -713,7 +714,7 @@ img {
  class="hero-image" onclick="openModal(this.src)" style="cursor:pointer;">
  
  <div class="cta-group">
- <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now" class="cta-primary">Sign the PHIERS Petition</a>
+ <a href="https://www.change.org/p/congress-the-public-is-coordinating-it-s-time-to-answer" class="cta-primary">Sign the PHIERS Petition</a>
  <a href="#how-it-works" class="cta-secondary">How It Works</a>
  </div>
  </header>
@@ -908,179 +909,30 @@ img {
  </div>
  
  <div class="cta-group" style="margin-top: 40px;">
- <a href="https://www.change.org/p/put-the-600-telehealth-plan-on-the-aca-exchange-now" class="cta-primary">Sign the PHIERS Petition</a>
+ <a href="https://www.change.org/p/congress-the-public-is-coordinating-it-s-time-to-answer" class="cta-primary">Sign the PHIERS Petition</a>
  </div>
  </section>
  </main>
 
  <!-- FOOTER - Section 7 Constitutional Compliance -->
- <footer>
- <h3>PHIERS Movement | MABAH</h3>
- <p><strong>Make America Better And Healthier</strong></p>
- 
- <p style="margin: 15px 0;">
- Will Price | Chief Solutions Architect<br>
- Phone: <a href="tel:+19163068967">(916) 306-8967</a> | 
- Email: <a href="mailto:info@phiers.org">info@phiers.org</a>
- </p>
- 
- <div class="footer-nav">
- <a href="index.html">Home</a>
- <a href="Quickstart.html">Quick Start</a>
- <a href="OVERVIEW.html">OVERVIEW</a>
- <a href="Crisis.html">Crisis</a>
- <a href="SimpleMath.html">Simple Math</a>
- <a href="5D_Solutions.html">5D Solutions</a>
- <a href="action.html">Action</a>
- <a href="Leverage.html">Leverage</a>
- <a href="FAQ.html">FAQ</a>
- <a href="Resources.html">Resources</a>
- <a href="Media.html">Media</a>
- <a href="About.html">About</a>
- <a href="Donate.html">Donate</a>
- </div>
- 
- <div class="constitutional-disclaimer">
- <p>
- PHIERS is a public-interest movement — not a company, not a product.<br>
- The only thing missing is you.
- </p>
- </div>
- 
- <p style="margin-top: 20px; font-s
-
-<!-- Image Modal -->
-<div id="imageModal" class="image-modal">
- <span class="close-modal" onclick="closeImageModal()">&times;</span>
- <img loading="lazy" class="modal-content" id="modalImage" alt="" >
-</div>
-
-<script>
-function closeImageModal() {
- const modal = document.getElementById('imageModal');
- if (modal) modal.classList.remove('active');
-}
-
-// Wait for DOM to be fully loaded
-if (document.readyState === 'loading') {
- document.addEventListener('DOMContentLoaded', initImageModal);
-} else {
- initImageModal();
-}
-
-function initImageModal() {
- const modal = document.getElementById('imageModal');
- const modalImg = document.getElementById('modalImage');
- 
- if (!modal || !modalImg) return;
- 
- // Add click handlers to all images except menu icons
- const images = document.querySelectorAll('img:not(.mobile-menu-toggle):not(.mobile-menu-toggle *)');
- 
- images.forEach(function(img) {
- if (img.parentElement && img.parentElement.tagName !== 'BUTTON') {
- img.style.cursor = 'pointer';
- img.addEventListener('click', function() {
- modal.classList.add('active');
- modalImg.src = this.src;
- modalImg.alt = this.alt || '';
- });
- }
- });
- 
- // Close on X click
- const closeBtn = modal.querySelector('.close-modal');
- if (closeBtn) {
- closeBtn.addEventListener('click', closeImageModal);
- }
- 
- // Close on outside click
- modal.addEventListener('click', function(e) {
- if (e.target === modal) {
- closeImageModal();
- }
- });
- 
- // Close on ESC key
- document.addEventListener('keydown', function(e) {
- if (e.key === 'Escape' && modal.classList.contains('active')) {
- closeImageModal();
- }
- });
-}
-</script>
-<div style="display: flex; justify-content: flex-end; margin: 60px 0 40px 0; padding: 30px 0; border-top: 2px solid rgba(76, 175, 80, 0.3);">
- <a href="Crisis.html" style="color: #4caf50; text-decoration: none; font-size: 1.1em;">
- Next: Crisis →
- </a>
-</div>
-
-<script>
-function toggleMobileMenu() {
-  const navLinks = document.querySelector('.nav-links');
-  const menuIcon = document.querySelector('.menu-icon');
-  const closeIcon = document.querySelector('.close-icon');
-  if (!navLinks) return;
-  navLinks.classList.toggle('active');
-  if (navLinks.classList.contains('active')) {
-    if (menuIcon) menuIcon.style.display = 'none';
-    if (closeIcon) closeIcon.style.display = 'inline';
-  } else {
-    if (menuIcon) menuIcon.style.display = 'inline';
-    if (closeIcon) closeIcon.style.display = 'none';
-  }
-}
-function toggleDropdown(event) {
-  event.stopPropagation();
-  let btn = event.target;
-  while (btn && !btn.classList.contains('dropbtn')) { btn = btn.parentElement; }
-  if (!btn) return;
-  const dropdown = btn.nextElementSibling;
-  if (!dropdown) return;
-  const isOpen = dropdown.classList.contains('show');
-  document.querySelectorAll('.dropdown-content').forEach(d => d.classList.remove('show'));
-  document.querySelectorAll('.dropbtn').forEach(b => b.setAttribute('aria-expanded', 'false'));
-  if (!isOpen) { dropdown.classList.add('show'); btn.setAttribute('aria-expanded', 'true'); }
-}
-document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.dropbtn').forEach(btn => {
-    btn.setAttribute('aria-haspopup', 'true');
-    btn.setAttribute('aria-expanded', 'false');
-  });
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    if (link.getAttribute('href') === currentPage) {
-      link.style.background = 'rgba(76,175,80,0.25)';
-      link.style.color = '#fff';
-    }
-  });
-  document.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener('click', function() {
-      if (!this.getAttribute('href').startsWith('#')) {
-        sessionStorage.setItem('scrollToTop', '1');
-      }
-    });
-  });
-  if (sessionStorage.getItem('scrollToTop') === '1') {
-    sessionStorage.removeItem('scrollToTop');
-    window.scrollTo(0, 0);
-  }
-  document.addEventListener('click', function(event) {
-    if (!event.target.matches('.dropbtn') && !event.target.closest('.dropbtn')) {
-      document.querySelectorAll('.dropdown-content').forEach(d => d.classList.remove('show'));
-      document.querySelectorAll('.dropbtn').forEach(b => b.setAttribute('aria-expanded', 'false'));
-    }
-    const nav = document.querySelector('nav');
-    const navLinks = document.querySelector('.nav-links');
-    if (nav && navLinks && !nav.contains(event.target) && navLinks.classList.contains('active')) {
-      navLinks.classList.remove('active');
-      const menuIcon = document.querySelector('.menu-icon');
-      const closeIcon = document.querySelector('.close-icon');
-      if (menuIcon) menuIcon.style.display = 'inline';
-      if (closeIcon) closeIcon.style.display = 'none';
-    }
-  });
-});
-</script>
+<footer>
+    <p style="font-weight:bold;font-size:1.1em;margin-bottom:15px;">PHIERS Movement | Make America Better And Healthier (MABAH)</p>
+    <p style="margin:15px 0;">Will Price | Chief Solutions Architect<br>
+    Phone: <a href="tel:+19163068967">(916) 306-8967</a> |
+    Email: <a href="mailto:info@phiers.org">info@phiers.org</a></p>
+    <div class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="Quickstart.html">Quick Start</a>
+        <a href="OVERVIEW.html">OVERVIEW</a>
+        <a href="Crisis.html">Crisis</a>
+        <a href="SimpleMath.html">Simple Math</a>
+        <a href="5D_Solutions.html">5D Solutions</a>
+        <a href="action.html">Action</a>
+        <a href="FAQ.html">FAQ</a>
+        <a href="About.html">About</a>
+        <a href="Donate.html">Donate</a>
+    </div>
+    <p style="margin-top:20px;font-size:0.85em;color:#81c784;">PHIERS is a public-interest movement — not a company, not a product. The only thing missing is you.</p>
+</footer>
 </body>
 </html>

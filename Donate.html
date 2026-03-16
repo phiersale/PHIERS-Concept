@@ -6,7 +6,7 @@
 <meta name="description" content="Support PHIERS.org. One dollar from a million people is a million dollars. Give what you find.">
 <meta property="og:title" content="PHIERS.org — Support the Movement">
 <meta property="og:description" content="A movement funded by the people belongs to the people. Give what you find.">
-<meta property="og:image" content="PHIERS_Logo.png">
+<meta property="og:image" content="/PHIERS_Logo.png">
 <link rel="icon" type="image/png" href="PHIERS_Logo.png">
 <title>PHIERS.org — Support the Movement</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -457,6 +457,25 @@
     .tier-grid { grid-template-columns: 1fr; }
     .qr-wrapper img { max-width: 150px; }
   }
+
+  .menu-section { width: 100%; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .menu-section[open] > summary { color: var(--green); }
+  .menu-section > summary.menu-label {
+    cursor: pointer; font-family: var(--font-condensed); font-size: 1rem; font-weight: 900;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-bright);
+    padding: 14px 0; list-style: none; display: flex; justify-content: center;
+    align-items: center; gap: 8px; width: 100%;
+  }
+  .menu-section > summary.menu-label::after { content: '▾'; font-size: 0.85rem; transition: transform 0.2s; }
+  .menu-section[open] > summary.menu-label::after { transform: rotate(180deg); }
+  .menu-section > summary::-webkit-details-marker { display: none; }
+  .menu-section a {
+    display: block; padding: 10px 0; text-align: center; width: 100%;
+    color: var(--text-body); text-decoration: none; font-size: 1rem;
+    transition: color 0.2s; border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .menu-section a:last-child { border-bottom: none; }
+  .menu-section a:hover, .menu-section a.active { color: var(--green); }
 </style>
 </head>
 <body>
@@ -473,25 +492,33 @@
 </nav>
 
 <div class="mobile-menu" id="mobile-menu">
-  <span class="menu-label">Take Action</span>
-  <a href="https://www.change.org/p/congress-the-public-is-coordinating-it-s-time-to-answer" target="_blank" rel="noopener noreferrer">✍ Sign the Petition</a>
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdETA-oNIeOAzEsG4GsYiiws1YBpLunx8ioVJkZac5hzSxaZw/viewform?usp=header" target="_blank" rel="noopener noreferrer">📋 Take the Survey</a>
-  <span class="menu-label">Understand the Fight</span>
-  <a href="Crisis.html">🚨 The Crisis</a>
-  <a href="SimpleMath.html">📊 Simple Math</a>
-  <a href="5D_Solutions.html">🔬 5D Solutions</a>
-  <a href="Telehealth-Insurance.html">💡 Telehealth vs Insurance</a>
-  <span class="menu-label">Who We're With</span>
-  <a href="organizers.html">✊ For Organizers</a>
-  <a href="NoWar.html">🕊 No War / No Draft</a>
-  <a href="Unions-Strategy.html">💪 Union Strategy</a>
-  <span class="menu-label">Resources</span>
-  <a href="Resources.html">📚 Resource Hub</a>
-  <a href="real-stories.html">💬 Real Stories</a>
-  <a href="FAQ.html" target="_blank">❓ FAQ</a> <!-- old UX -->
-  <a href="healthcare-proof.html" target="_blank" class="menu-deepdive">→ The Full Story</a> <!-- old UX -->
-  <span class="menu-label">Support</span>
-  <a href="Donate.html">💚 Donate</a>
+  <details class="menu-section">
+    <summary class="menu-label">Understand the Fight</summary>
+    <a href="Crisis.html">🚨 The Crisis</a>
+    <a href="SimpleMath.html">📊 Simple Math</a>
+    <a href="5D_Solutions.html">🔬 5D Solutions</a>
+    <a href="Telehealth-Insurance.html">💡 Telehealth vs Insurance</a>
+  </details>
+  <details class="menu-section">
+    <summary class="menu-label">Who We're With</summary>
+    <a href="organizers.html">✊ For Organizers</a>
+    <a href="NoWar.html">🕊 No War / No Draft</a>
+    <a href="Unions-Strategy.html">💪 Union Strategy</a>
+  </details>
+  <details class="menu-section">
+    <summary class="menu-label">Resources</summary>
+    <a href="Resources.html">📚 Resource Hub</a>
+    <a href="real-stories.html">💬 Real Stories</a>
+    <a href="FAQ.html" target="_blank">❓ FAQ</a>
+    <a href="healthcare-proof.html" target="_blank" class="menu-deepdive">→ The Full Story</a>
+  </details>
+  <details class="menu-section">
+    <summary class="menu-label">Take Action</summary>
+    <a href="https://www.change.org/p/congress-the-public-is-coordinating-it-s-time-to-answer" target="_blank" rel="noopener noreferrer">✍ Sign the Petition</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdETA-oNIeOAzEsG4GsYiiws1YBpLunx8ioVJkZac5hzSxaZw/viewform?usp=header" target="_blank" rel="noopener noreferrer">📋 Take the Survey</a>
+    <a href="Donate.html">💚 Donate</a>
+    <a href="action.html">📣 Take Action</a>
+  </details>
 </div>
 
 <div class="page-wrap">
@@ -583,7 +610,7 @@
       <div class="method-details">
         <p><strong><a href="mailto:info@phiers.org">info@phiers.org</a></strong></p>
         <div class="qr-wrapper">
-          <img src="/PayPal.png" alt="PayPal QR Code" onclick="openModal(this.src)">
+          <img src="/PAyPal.png" alt="PayPal QR Code" onclick="openModal(this.src)">
         </div>
       </div>
     </div>

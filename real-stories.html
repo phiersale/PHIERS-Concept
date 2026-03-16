@@ -430,6 +430,38 @@ img {
 
 <script>
 function openModal(src) {
+    var m =
+<div id="imageModal" class="image-modal">
+    <span class="close-modal" onclick="closeModal()">&times;</span>
+    <img loading="lazy" class="modal-content" id="modalImage" alt="">
+</div>
+
+<script>
+function toggleMobileMenu() {
+    var navLinks = document.querySelector('.nav-links');
+    var menuIcon = document.querySelector('.menu-icon');
+    var closeIcon = document.querySelector('.close-icon');
+    if (!navLinks) return;
+    navLinks.classList.toggle('active');
+    if (navLinks.classList.contains('active')) {
+        if (menuIcon) menuIcon.style.display = 'none';
+        if (closeIcon) closeIcon.style.display = 'inline';
+    } else {
+        if (menuIcon) menuIcon.style.display = 'inline';
+        if (closeIcon) closeIcon.style.display = 'none';
+    }
+}
+function toggleDropdown(event) {
+    if (event) event.stopPropagation();
+    var btn = event.target;
+    while (btn && !btn.classList.contains('dropbtn')) { btn = btn.parentElement; }
+    if (!btn) return;
+    var dropdown = btn.nextElementSibling;
+    if (!dropdown) return;
+    document.querySelectorAll('.dropdown-content').forEach(function(d) { if (d !== dropdown) d.classList.remove('show'); });
+    dropdown.classList.toggle('show');
+}
+function openModal(src) {
     var m = document.getElementById('imageModal');
     var i = document.getElementById('modalImage');
     if (m && i) { i.src = src; m.classList.add('active'); document.body.style.overflow = 'hidden'; }
@@ -442,7 +474,36 @@ document.addEventListener('DOMContentLoaded', function() {
     var modal = document.getElementById('imageModal');
     if (modal) modal.addEventListener('click', function(e) { if (e.target === modal) closeModal(); });
     document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+    document.addEventListener('click', function(e) {
+        if (!e.target.matches('.dropbtn') && !e.target.closest('.dropbtn')) {
+            document.querySelectorAll('.dropdown-content').forEach(function(d) { d.classList.remove('show'); });
+        }
+    });
+    (function() {
+        var currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.nav-links a, .dropdown-content a').forEach(function(a) {
+            if (a.getAttribute('href') === currentPage) { a.classList.add('active'); }
+        });
+    })();
 });
 </script>
+
+<footer>
+    <p style="font-weight:bold;font-size:1.1em;margin-bottom:15px;">PHIERS Movement | Make America Better And Healthier (MABAH)</p>
+    <p style="margin:15px 0;">Will Price | <a href="mailto:info@phiers.org">info@phiers.org</a> | <a href="tel:+19163068967">(916) 306-8967</a></p>
+    <div class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="Quickstart.html">Quick Start</a>
+        <a href="OVERVIEW.html">OVERVIEW</a>
+        <a href="Crisis.html">Crisis</a>
+        <a href="SimpleMath.html">Simple Math</a>
+        <a href="5D_Solutions.html">5D Solutions</a>
+        <a href="action.html">Action</a>
+        <a href="FAQ.html">FAQ</a>
+        <a href="About.html">About</a>
+        <a href="Donate.html">Donate</a>
+    </div>
+    <p style="margin-top:20px;font-size:0.85em;color:#81c784;">PHIERS is a public-interest movement — not a company, not a product. The only thing missing is you.</p>
+</footer>
 </body>
 </html>
