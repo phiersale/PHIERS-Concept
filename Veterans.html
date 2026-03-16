@@ -803,6 +803,13 @@ if (btt) btt.addEventListener('click', function() { window.scrollTo({top:0,behav
 
 document.addEventListener('click', function(event) {
   var menu = document.getElementById('mobile-menu');
-  var hamburger = document.queryS
+  var hamburger = document.querySelector('.hamburger');
+  if (menu && hamburger) {
+    if (menu.classList.contains('open') && !menu.contains(event.target) && !hamburger.contains(event.target)) {
+      menu.classList.remove('open');
+    }
+  }
+});
+</script>
 </body>
 </html>

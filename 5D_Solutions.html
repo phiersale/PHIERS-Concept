@@ -799,6 +799,9 @@
 
   var btt = document.getElementById('back-to-top');
   if (btt) {
-    window.addEventListener
+    window.addEventListener('scroll', function() { btt.classList.toggle('visible', window.scrollY > 400); });
+    btt.addEventListener('click', function() { window.scrollTo({top:0,behavior:'smooth'}); });
+  }
+</script>
 </body>
 </html>
