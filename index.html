@@ -80,18 +80,7 @@
   <div class="hero-welcome">Welcome to PHIERStorm.</div>
   <p style="font-family:var(--font-condensed);font-size:1.2rem;color:var(--green);text-align:center;margin-top:-10px;margin-bottom:30px;">Where movements get power.</p>
   
-  <!-- Simple "What is PHIERS?" link - moved below "Where movements get power" -->
-  <div style="text-align:center; margin-bottom:25px;">
-    <a href="#" onclick="toggleDef(); return false;" style="font-family:var(--font-condensed); color:var(--text-dim); font-size:0.85rem; text-decoration:none; border-bottom:1px dotted var(--border); font-weight:normal;">what is PHIERS? ⏷</a>
-  </div>
-  
-  <!-- Hidden definition that appears when clicked -->
-  <div class="phiers-def-body" id="phiers-def-body" hidden style="background:#0a1628; border:1px solid var(--border); border-radius:8px; padding:20px; margin:0 auto 25px auto; max-width:600px; text-align:left;">
-    <p style="color:#b8c8e8; margin-bottom:10px;">PHIERS is where movements, voters, and consumers come together — with real power over Congress and the market.</p>
-    <p style="color:#b8c8e8; margin-bottom:0;">If you marched at NoKings, boycott, union, or mutual aid — you're already here. PHIERStorm gives everything you're doing the one thing it's been missing: <strong style="color:#f0f4ff;">power that actually works.</strong></p>
-  </div>
-  
-  <!-- Power Quote - Bold and prominent (moved below original content) -->
+   <!-- Power Quote - Bold and prominent (moved below original content) -->
   <h1 class="hero-h1" style="font-size:clamp(2rem, 6vw, 3.5rem); margin:40px 0 10px 0;">
     Power concedes nothing
   </h1>
@@ -633,17 +622,6 @@ function playVideo(which, src) {
   var wrap = document.getElementById('wrap-' + which);
   if (!wrap) return;
   wrap.innerHTML = '<iframe width="100%" height="100%" src="' + src + '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:4px"></iframe>';
-}
-
-function toggleDef() {
-  var btn = document.querySelector('.phiers-def-toggle');
-  var body = document.getElementById('phiers-def-body');
-  if (!btn || !body) return;
-  var expanded = btn.getAttribute('aria-expanded') === 'true';
-  body.hidden = expanded;
-  btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-  var arrow = btn.querySelector('.def-arrow');
-  if (arrow) arrow.textContent = expanded ? '▼' : '▲';
 }
 
 document.querySelectorAll('.collapse-toggle').forEach(function(btn) {
