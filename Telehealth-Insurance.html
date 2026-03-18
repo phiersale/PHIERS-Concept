@@ -3,15 +3,183 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Telehealth is care. Insurance is protection. Most Americans are paying $10,000 for protection they never use. The $600 solution already exists.">
-<meta property="og:title" content="PHIERS.org — Telehealth vs Insurance: The 80/20 Solution">
-<meta property="og:description" content="80% of Americans never use hospitalization. They're paying $10,000/year for protection they don't need. $600 telehealth covers everything they actually use.">
+<meta name="description" content="TeleCARE: The 80/20 Care Engine. $600 telehealth handles the care 80% of people actually use. Insurance covers the rare 20%. The fix is simple.">
+<meta property="og:title" content="PHIERS.org — TeleCARE: The 80/20 Care Engine">
+<meta property="og:description" content="80% of healthcare is simple and telehealth-ready. Stop paying $10,000 for protection you rarely use. TeleCARE delivers real care for ~$600/year.">
 <meta property="og:image" content="PHIERS_Logo.png">
 <link rel="icon" type="image/png" href="PHIERS_Logo.png">
-<title>PHIERS.org — Telehealth vs Insurance: The 80/20 Solution</title>
+<title>PHIERS.org — TeleCARE: The 80/20 Care Engine</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Barlow+Condensed:wght@700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles-new.css">
+<style>
+.graphic-wrap {
+    margin: 40px 0;
+    text-align: center;
+}
+.graphic-wrap img {
+    max-width: 100%;
+    border-radius: 12px;
+    border: 2px solid var(--border);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.graphic-wrap img:hover {
+    transform: scale(1.02);
+    border-color: var(--green);
+}
+.graphic-caption {
+    font-family: var(--font-condensed);
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    margin-top: 8px;
+}
+.compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 40px 0;
+}
+.compare-card {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+}
+.compare-card.telehealth {
+    border-color: var(--green);
+}
+.compare-card.insurance {
+    border-color: var(--gold);
+}
+.compare-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+    color: var(--text-bright);
+}
+.telehealth .compare-title { color: var(--green); }
+.insurance .compare-title { color: var(--gold); }
+.savings-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin: 24px 0;
+}
+.savings-list li {
+    padding: 8px 12px;
+    background: rgba(61, 220, 132, 0.1);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    text-align: center;
+    font-family: var(--font-condensed);
+    font-size: 1rem;
+}
+.stat-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 30px 0;
+}
+.stat-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+}
+.stat-num {
+    font-family: var(--font-display);
+    font-size: 2.8rem;
+    color: var(--green);
+    line-height: 1;
+    margin-bottom: 8px;
+}
+.stat-num.red {
+    color: var(--red);
+}
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    line-height: 1.4;
+}
+.who-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin: 30px 0;
+}
+.who-item {
+    background: rgba(255, 215, 0, 0.05);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 8px;
+    text-align: center;
+    font-family: var(--font-condensed);
+    font-size: 1.1rem;
+    color: var(--text-bright);
+}
+.who-item:hover {
+    border-color: var(--gold);
+}
+.insight {
+    background: rgba(61, 220, 132, 0.1);
+    border-left: 4px solid var(--green);
+    padding: 20px;
+    margin: 30px 0;
+    border-radius: 0 8px 8px 0;
+}
+.not-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 20px 0 30px;
+}
+.not-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    padding: 8px 16px;
+    text-align: center;
+    font-family: var(--font-condensed);
+    color: var(--text-dim);
+    font-size: 0.95rem;
+}
+.not-item strong {
+    color: var(--gold);
+}
+.system-summary {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin: 20px 0;
+}
+.system-item {
+    background: rgba(61, 220, 132, 0.05);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+    font-family: var(--font-condensed);
+    font-size: 1.1rem;
+}
+.system-item strong {
+    color: var(--green);
+    display: block;
+    margin-bottom: 4px;
+    font-size: 1.3rem;
+}
+@media (max-width: 768px) {
+    .compare-grid { grid-template-columns: 1fr; }
+    .savings-list { grid-template-columns: 1fr; }
+    .stat-row { grid-template-columns: 1fr; }
+    .who-grid { grid-template-columns: repeat(2, 1fr); }
+    .not-list { grid-template-columns: 1fr; }
+    .system-summary { grid-template-columns: 1fr; }
+}
+</style>
 </head>
 <body>
 
@@ -32,12 +200,12 @@
     <a href="Crisis.html">🚨 The Crisis</a>
     <a href="SimpleMath.html">📊 Simple Math</a>
     <a href="5D_Solutions.html">🔬 5D Solutions</a>
-    <a href="Telehealth-Insurance.html">💡 Telehealth vs Insurance</a>
+    <a href="Telehealth-Insurance.html" class="active">💡 TeleCARE</a>
   </details>
   <details class="menu-section">
-    <summary class="menu-label">Who We're With</summary>
+    <summary class="menu-label">Who We're For</summary>
     <a href="organizers.html">✊ For Organizers</a>
-    <a href="Veterans.html">🏖 Veterans</a>
+    <a href="Veterans.html">🎖 Veterans</a>
     <a href="NoWar.html">🕊 No War / No Draft</a>
     <a href="Unions-Strategy.html">💪 Union Strategy</a>
   </details>
@@ -57,130 +225,413 @@
   </details>
 </div>
 
-<div class="page-wrap">
+<div class="page-wrap" style="max-width: 1000px; margin: 0 auto; padding: 20px;">
 
-  <div class="section" style="text-align:center">
-    <img src="PHIERS_Logo.png" alt="PHIERS.org" style="height:80px;display:block;margin:0 auto 24px">
-    <span class="eyebrow">Telehealth vs Insurance</span>
-    <h1>The System Is Rigged.<br><span class="green">The Fix Is Simple.</span></h1>
-    <p style="font-size:1.15rem;max-width:600px;margin:0 auto 24px">Most Americans think healthcare and insurance are the same thing. They're not. And that confusion is costing you $10,000 a year.</p>
-    <div class="cta-row" style="justify-content:center">
-      <a href="https://www.change.org/p/congress-the-public-is-coordinating-it-s-time-to-answer" target="_blank" rel="noopener noreferrer" class="btn-primary">✍ Sign the Petition</a>
-      <a href="SimpleMath.html" class="btn-secondary">→ See the Math</a>
+    <!-- Hero -->
+    <div style="text-align: center; margin: 40px 0 60px;">
+        <img src="PHIERS_Logo.png" alt="PHIERS.org" style="height: 100px; width: auto; margin-bottom: 20px;">
+        <span class="eyebrow">⚕️ T E L E C A R E ⚕️</span>
+        <h1 style="font-size: clamp(2.2rem, 8vw, 3.5rem); margin: 10px 0 5px;">THE SYSTEM IS RIGGED.<br><span style="color: var(--green);">THE FIX IS SIMPLE.</span></h1>
+        <p style="font-family: var(--font-condensed); font-size: 1.3rem; color: var(--text-bright); max-width: 700px; margin: 20px auto;">
+            Built for the people who've been paying too much for too little — for far too long.
+        </p>
     </div>
-  </div>
 
-  <hr class="divider">
+    <!-- The Problem -->
+    <section class="section" style="border-left-color: var(--red);">
+        <span class="eyebrow">🚨 THE PROBLEM</span>
+        <p>People are paying <strong>$10,000+ a year</strong> for health insurance they can't even use.</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 25px 0;">
+            <div style="background: rgba(255, 0, 0, 0.05); padding: 15px; border-radius: 8px; border-left: 3px solid var(--red);">❌ Deductibles so high they might as well not exist</div>
+            <div style="background: rgba(255, 0, 0, 0.05); padding: 15px; border-radius: 8px; border-left: 3px solid var(--red);">❌ Copays that punish people for getting help</div>
+            <div style="background: rgba(255, 0, 0, 0.05); padding: 15px; border-radius: 8px; border-left: 3px solid var(--red);">❌ Networks that shrink every year</div>
+            <div style="background: rgba(255, 0, 0, 0.05); padding: 15px; border-radius: 8px; border-left: 3px solid var(--red);">❌ Bills that show up months later</div>
+            <div style="background: rgba(255, 0, 0, 0.05); padding: 15px; border-radius: 8px; border-left: 3px solid var(--red);">❌ Denied claims</div>
+            <div style="background: rgba(255, 0, 0, 0.05); padding: 15px; border-radius: 8px; border-left: 3px solid var(--red);">❌ Endless paperwork</div>
+        </div>
+        <p><strong>A system designed to delay, deny, and exhaust people until they give up.</strong></p>
+        <p style="margin-top: 20px;">People are angry — and they're right to be. The system is failing families, workers, students, elders, and small businesses.</p>
+        <p><strong>This system wasn't built for you. It was built to protect profits.</strong></p>
+        <p style="color: var(--green); font-family: var(--font-display); font-size: 1.8rem; margin-top: 30px;">TeleCARE is the alternative.</p>
+    </section>
 
-  <div class="section">
-    <span class="eyebrow">The Problem</span>
-    <h2>You're Paying for<br><span class="red">Protection You Never Use.</span></h2>
-    <p>Insurance was only ever designed for <strong>rare, catastrophic events</strong> — hospitalizations, surgeries, emergencies, specialty care.</p>
-    <p>Meanwhile, <strong>80% of what people actually need is basic, everyday care</strong> — primary care, urgent care, mental health, chronic care, preventive care, prescriptions, and labs.</p>
-    <p>Insurance plans often <strong>block access</strong>, <strong>delay treatment</strong>, or <strong>refuse to pay</strong> for these simple needs.</p>
-    <div class="stat-row">
-      <div class="stat-card">
-        <div class="stat-num">80%</div>
-        <div class="stat-label">of insured Americans never use hospitalization or specialty care</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num" style="color:var(--red)">$10,000</div>
-        <div class="stat-label">what they pay per year for protection they don't need</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">$600</div>
-        <div class="stat-label">what telehealth costs — covering everything they actually use</div>
-      </div>
-    </div>
-    <div class="highlight">
-      <p><strong>There's only one logical solution: care and catastrophe protection must be separated.</strong> PHIERS does exactly that.</p>
-    </div>
-  </div>
+    <hr class="divider">
 
-  <hr class="divider">
+    <!-- What TeleCARE Is Not -->
+    <section class="section">
+        <span class="eyebrow">⚠️ CLARITY</span>
+        <h2><span style="color: var(--gold);">⭐</span> What TeleCARE Is Not</h2>
+        <p>To be clear:</p>
+        <div class="not-list">
+            <div class="not-item"><strong>Not</strong> insurance</div>
+            <div class="not-item"><strong>Not</strong> a government program</div>
+            <div class="not-item"><strong>Not</strong> a pilot</div>
+            <div class="not-item"><strong>Not</strong> a new bureaucracy</div>
+            <div class="not-item"><strong>Not</strong> a replacement for hospitals</div>
+            <div class="not-item"><strong>Not</strong> a telehealth company</div>
+        </div>
+        <p><strong>TeleCARE is the care layer people should've had all along.</strong></p>
+    </section>
 
-  <div class="section">
-    <span class="eyebrow">The 80/20 Model</span>
-    <h2>Telehealth Is Care.<br><span class="green">Insurance Is Protection.</span></h2>
-    <div class="graphic-wrap">
-      <img src="8020_Healthcare_Model_PHIERS_v_Insurance_Cost.png"
-           alt="The 80/20 Healthcare Model: Telehealth vs Insurance"
-           onclick="openModal(this.src, this.alt)">
-      <p class="graphic-caption">The 80/20 Healthcare Model: Telehealth = Everyday Care, Insurance = Catastrophic Protection</p>
-    </div>
-    <div class="compare-grid">
-      <div class="compare-card telehealth">
-        <div class="compare-title">Telehealth — $600/yr</div>
-        <p style="font-size:0.88rem;margin-bottom:12px">The 80% you actually use:</p>
-        <ul style="list-style:none;padding:0;margin:0">
-          <li style="padding:4px 0;font-size:0.9rem;color:var(--text-body)">✓ Primary care</li>
-          <li style="padding:4px 0;font-size:0.9rem;color:var(--text-body)">✓ Urgent care</li>
-          <li style="padding:4px 0;font-size:0.9rem;color:var(--text-body)">✓ Mental health</li>
-          <li style="padding:4px 0;font-size:0.9rem;color:var(--text-body)">✓ Chronic disease management</li>
-          <li style="padding:4px 0;font-size:0.9rem;color:var(--text-body)">✓ Prescription refills</li>
-          <li style="padding:4px 0;font-size:0.9rem;color:var(--text-body)">✓ Preventive care</li>
-          <li style="padding:4px 0;font-size:0.9rem;color:var(--text-body)">✓ Basic labs</li>
+    <hr class="divider">
+
+    <!-- 80/20 Truth -->
+    <section class="section">
+        <span class="eyebrow">📊 THE 80/20 TRUTH</span>
+        <h2><span style="color: var(--gold);">⭐</span> The 80/20 Truth About Healthcare</h2>
+        <p>Here's what insurance companies don't want people to understand:</p>
+        <p><strong>80% of healthcare is simple, predictable, and telehealth-ready.</strong></p>
+        
+        <!-- Stat cards from older version - INTEGRATED -->
+        <div class="stat-row">
+            <div class="stat-card">
+                <div class="stat-num">80%</div>
+                <div class="stat-label">of insured Americans never use hospitalization or specialty care</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num red">$10,000</div>
+                <div class="stat-label">what they pay per year for protection they don't need</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">$600</div>
+                <div class="stat-label">what telehealth costs — covering everything they actually use</div>
+            </div>
+        </div>
+        
+        <div class="compare-grid">
+            <div class="compare-card telehealth">
+                <div class="compare-title">80% — Everyday Care</div>
+                <p>What people actually need:</p>
+                <ul style="columns: 2; column-gap: 20px;">
+                    <li style="margin-bottom: 8px;">✓ Primary care</li>
+                    <li style="margin-bottom: 8px;">✓ Urgent care</li>
+                    <li style="margin-bottom: 8px;">✓ Mental health</li>
+                    <li style="margin-bottom: 8px;">✓ Chronic care</li>
+                    <li style="margin-bottom: 8px;">✓ Prescriptions</li>
+                    <li style="margin-bottom: 8px;">✓ Preventive care</li>
+                    <li style="margin-bottom: 8px;">✓ Dental & vision</li>
+                    <li style="margin-bottom: 8px;">✓ Care navigation</li>
+                </ul>
+                <p style="margin-top: 15px;"><em>This is the 80% — the part that should be easy and affordable.</em></p>
+            </div>
+            <div class="compare-card insurance">
+                <div class="compare-title">20% — Rare but Expensive</div>
+                <ul>
+                    <li style="margin-bottom: 8px;">→ Hospitalizations</li>
+                    <li style="margin-bottom: 8px;">→ Surgeries</li>
+                    <li style="margin-bottom: 8px;">→ Specialists</li>
+                    <li style="margin-bottom: 8px;">→ Emergency trauma</li>
+                    <li style="margin-bottom: 8px;">→ Advanced imaging</li>
+                </ul>
+                <p style="margin-top: 15px;"><em>Rare — but expensive.</em></p>
+            </div>
+        </div>
+
+        <div style="background: rgba(255, 215, 0, 0.05); border: 1px solid var(--gold); border-radius: 12px; padding: 25px; margin: 30px 0;">
+            <p style="font-size: 1.2rem;"><strong>The Problem:</strong> Insurance bundles the 80% and the 20% together… and charges people <strong style="color: var(--red);">$10,000+ a year</strong> for the whole thing.</p>
+            <p>Even though most people never use the expensive part.</p>
+            <p>You're paying for <strong>protection you rarely use</strong> — instead of care you need every day.</p>
+        </div>
+
+        <p>That's why:</p>
+        <ul style="columns: 2; margin: 20px 0;">
+            <li>Care gets delayed</li>
+            <li>Problems get worse</li>
+            <li>ER visits go up</li>
+            <li>Costs explode</li>
         </ul>
-        <p style="margin-top:12px;font-size:0.88rem;color:var(--text-dim)">No claims. No networks. No middlemen. No prior authorization. <strong style="color:var(--green)">Just care.</strong></p>
-      </div>
-      <div class="compare-card insurance">
-        <div class="compare-title">Insurance — Backstop Only</div>
-        <p style="font-size:0.88rem;margin-bottom:12px">The 20% you rarely need:</p>
-        <ul style="list-style:none;padding:0;margin:0">
-          <li style="padding:4px 0;font-size:0.9rem;color:var(--text-body)">→ Hospitalizations</li>
-          <li style="padding:4px 0;font-size:0.9rem;color:var(--text-body)">→ Surgeries</li>
-          <li style="padding:4px 0;font-size:0.9rem;color:var(--text-body)">→ Emergency trauma</li>
-          <li style="padding:4px 0;font-size:0.9rem;color:var(--text-body)">→ Long-term rehab</li>
-          <li style="padding:4px 0;font-size:0.9rem;color:var(--text-body)">→ Expensive imaging</li>
-          <li style="padding:4px 0;font-size:0.9rem;color:var(--text-body)">→ Catastrophic events</li>
+        <p><strong>The system is working exactly as designed — just not for you.</strong></p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- The Simple Fix -->
+    <section class="section">
+        <span class="eyebrow">🔧 THE FIX</span>
+        <h2><span style="color: var(--gold);">⭐</span> The Simple Fix</h2>
+        <p style="font-size: 1.4rem; font-family: var(--font-display);">Care and catastrophe protection must be separated.</p>
+        <div style="display: flex; gap: 20px; justify-content: center; margin: 30px 0; flex-wrap: wrap;">
+            <div style="background: var(--green); color: #080d1a; padding: 20px 40px; border-radius: 50px; font-weight: 700; font-size: 1.3rem;">TeleCARE handles the 80%</div>
+            <div style="background: var(--gold); color: #080d1a; padding: 20px 40px; border-radius: 50px; font-weight: 700; font-size: 1.3rem;">Insurance handles the 20%</div>
+        </div>
+        <p style="text-align: center; font-size: 1.5rem;">That's it.</p>
+        <p style="text-align: center; margin-top: 20px;"><strong>Telehealth delivers 80% of healthcare at a fraction of the cost — roughly <span style="color: var(--green); font-size: 1.4rem;">1/14th</span>.</strong></p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- What TeleCARE Is -->
+    <section class="section">
+        <span class="eyebrow">🏥 THE SOLUTION</span>
+        <h2><span style="color: var(--gold);">⭐</span> What TeleCARE Is</h2>
+        <p>TeleCARE is a statewide, open telehealth network that delivers the care most people need — without the insurance middlemen.</p>
+        
+        <div style="background: rgba(61, 220, 132, 0.1); border: 2px solid var(--green); border-radius: 12px; padding: 25px; margin: 25px 0;">
+            <p style="font-family: var(--font-display); font-size: 1.5rem; color: var(--green); margin-bottom: 15px;">TeleCARE covers:</p>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+                <div style="background: rgba(0,0,0,0.3); padding: 8px; border-radius: 6px; text-align: center;">Primary care</div>
+                <div style="background: rgba(0,0,0,0.3); padding: 8px; border-radius: 6px; text-align: center;">Urgent care</div>
+                <div style="background: rgba(0,0,0,0.3); padding: 8px; border-radius: 6px; text-align: center;">Mental health</div>
+                <div style="background: rgba(0,0,0,0.3); padding: 8px; border-radius: 6px; text-align: center;">Chronic care</div>
+                <div style="background: rgba(0,0,0,0.3); padding: 8px; border-radius: 6px; text-align: center;">Prescriptions</div>
+                <div style="background: rgba(0,0,0,0.3); padding: 8px; border-radius: 6px; text-align: center;">Dental & vision</div>
+                <div style="background: rgba(0,0,0,0.3); padding: 8px; border-radius: 6px; text-align: center;">Preventive care</div>
+                <div style="background: rgba(0,0,0,0.3); padding: 8px; border-radius: 6px; text-align: center;">Care navigation</div>
+            </div>
+            <p style="margin-top: 20px; font-size: 1.3rem;"><strong>TeleCARE costs: <span style="color: var(--green);">~$600 per year</span> — not $10,000+.</strong></p>
+            <p>No claims. No networks. No prior authorization. <strong>Just care.</strong></p>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- What Insurance Becomes -->
+    <section class="section">
+        <span class="eyebrow">🛡️ PROTECTION</span>
+        <h2><span style="color: var(--gold);">⭐</span> What Insurance Becomes</h2>
+        <p>Insurance goes back to what it was always meant to be: <strong>Protection. Not the front door.</strong></p>
+        <div style="background: rgba(255, 215, 0, 0.1); border: 2px solid var(--gold); border-radius: 12px; padding: 25px; margin: 25px 0;">
+            <p style="font-family: var(--font-display); font-size: 1.5rem; color: var(--gold); margin-bottom: 15px;">It covers:</p>
+            <ul style="columns: 2;">
+                <li>Hospitalizations</li>
+                <li>Surgeries</li>
+                <li>Catastrophic events</li>
+                <li>High-cost specialty care</li>
+            </ul>
+            <p><em>Rare — but necessary.</em></p>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- The 80/20 Care Engine -->
+    <section class="section">
+        <span class="eyebrow">⚙️ THE ENGINE</span>
+        <h2><span style="color: var(--gold);">⭐</span> The 80/20 Care Engine</h2>
+        <div class="insight">
+            <p style="font-size: 1.3rem;"><strong>TeleCARE handles the 80%. Insurance handles the 20%. TeleCARE generates the savings that make the 20% affordable.</strong></p>
+        </div>
+        <p>This is the engine.</p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Why This Works Financially -->
+    <section class="section">
+        <span class="eyebrow">💰 THE MATH</span>
+        <h2><span style="color: var(--gold);">⭐</span> Why This Works Financially</h2>
+        <p>TeleCARE replaces high-cost, low-value care with coordinated telehealth and community-based support.</p>
+        
+        <div class="savings-list">
+            <li>ER visits drop</li>
+            <li>Hospitalizations drop</li>
+            <li>Readmissions drop</li>
+            <li>Insurance claims drop</li>
+            <li>Premiums drop</li>
+            <li>Medicaid costs drop</li>
+            <li>Medicare costs drop</li>
+            <li>Private insurance stabilizes</li>
+        </div>
+        
+        <p><strong>The savings pay for the system.</strong></p>
+        <p>Healthy people cost less. Simple systems scale.</p>
+        <p style="margin-top: 15px;"><em>Telehealth shrinks the cost of the entire system. Insurance protects against the worst events.</em></p>
+        
+        <!-- Four-point summary from older version - INTEGRATED -->
+        <div class="system-summary">
+            <div class="system-item"><strong>Affordable</strong> 80% cost reduction + cascading savings</div>
+            <div class="system-item"><strong>Scalable</strong> Works for 234 million Americans</div>
+            <div class="system-item"><strong>Defensible</strong> Market-based, not government-mandated</div>
+            <div class="system-item"><strong>Universal</strong> Accessible to everyone</div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Why Current System Is Expensive -->
+    <section class="section">
+        <span class="eyebrow">🏦 THE SCAM</span>
+        <h2><span style="color: var(--gold);">⭐</span> Why the Current System Is So Expensive</h2>
+        <p>Insurance companies profit when:</p>
+        <ul style="columns: 2; margin: 20px 0;">
+            <li>People avoid care</li>
+            <li>People delay care</li>
+            <li>People get confused</li>
+            <li>Claims get denied</li>
+            <li>Costs shift to patients</li>
         </ul>
-        <p style="margin-top:12px;font-size:0.88rem;color:var(--text-dim)">Rare — but extremely costly. Insurance is the <strong style="color:var(--text-bright)">backstop</strong>, not the front door.</p>
-      </div>
+        <p><strong>The system is working exactly as designed — just not for you.</strong></p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Flipping Incentives -->
+    <section class="section">
+        <span class="eyebrow">🔄 FLIPPED</span>
+        <h2><span style="color: var(--gold);">⭐</span> TeleCARE Flips the Incentives</h2>
+        <p>We want:</p>
+        <ul style="columns: 2; margin: 20px 0;">
+            <li>People to get care early</li>
+            <li>Problems solved before they escalate</li>
+            <li>Stability, not crisis</li>
+            <li>Access, not barriers</li>
+        </ul>
+        <p><strong>TeleCARE is built for people, not profits.</strong></p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Who TeleCARE Helps -->
+    <section class="section">
+        <span class="eyebrow">👥 THE PEOPLE</span>
+        <h2><span style="color: var(--gold);">⭐</span> Who TeleCARE Helps</h2>
+        <div class="who-grid">
+            <div class="who-item">Workers</div>
+            <div class="who-item">Students</div>
+            <div class="who-item">Parents</div>
+            <div class="who-item">Elders</div>
+            <div class="who-item">Veterans</div>
+            <div class="who-item">Small business owners</div>
+            <div class="who-item">Gig workers</div>
+            <div class="who-item">People between jobs</div>
+        </div>
+        <p><strong>This is a system for everyone who's been left behind.</strong></p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Supports Providers -->
+    <section class="section">
+        <span class="eyebrow">👩‍⚕️ PROVIDERS</span>
+        <h2><span style="color: var(--gold);">⭐</span> TeleCARE Supports Providers — It Doesn't Replace Them</h2>
+        <p>TeleCARE is the backbone, not another telehealth app.</p>
+        <p>It gives providers:</p>
+        <ul style="columns: 2; margin: 20px 0;">
+            <li>More patients</li>
+            <li>More stability</li>
+            <li>Less admin burden</li>
+            <li>Better coordination</li>
+            <li>A shared system of record</li>
+            <li>A statewide network</li>
+        </ul>
+        <p>At scale, TeleCARE can even cover the monthly cost of care access.</p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- One Network -->
+    <section class="section">
+        <span class="eyebrow">🔗 CONNECTED</span>
+        <h2><span style="color: var(--gold);">⭐</span> One Network. One System. One Entry Point.</h2>
+        <p>TeleCARE connects:</p>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 20px 0;">
+            <div style="background: rgba(255,255,255,0.02); padding: 8px; border-radius: 6px;">Clinics</div>
+            <div style="background: rgba(255,255,255,0.02); padding: 8px; border-radius: 6px;">Telehealth providers</div>
+            <div style="background: rgba(255,255,255,0.02); padding: 8px; border-radius: 6px;">Schools</div>
+            <div style="background: rgba(255,255,255,0.02); padding: 8px; border-radius: 6px;">Senior centers</div>
+            <div style="background: rgba(255,255,255,0.02); padding: 8px; border-radius: 6px;">Churches</div>
+            <div style="background: rgba(255,255,255,0.02); padding: 8px; border-radius: 6px;">Shelters</div>
+            <div style="background: rgba(255,255,255,0.02); padding: 8px; border-radius: 6px;">Food banks</div>
+            <div style="background: rgba(255,255,255,0.02); padding: 8px; border-radius: 6px;">Campuses</div>
+            <div style="background: rgba(255,255,255,0.02); padding: 8px; border-radius: 6px;">County programs</div>
+        </div>
+        <p>People can enter from anywhere.</p>
+        <p><strong>One coordinated system instead of fragmentation.</strong></p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Why Now -->
+    <section class="section">
+        <span class="eyebrow">⏰ URGENCY</span>
+        <h2><span style="color: var(--gold);">⭐</span> Why TeleCARE Matters Now</h2>
+        <p>People are losing:</p>
+        <ul style="columns: 2; margin: 20px 0;">
+            <li>Care</li>
+            <li>Housing</li>
+            <li>Food</li>
+            <li>Income</li>
+            <li>Stability</li>
+        </ul>
+        <p>Meanwhile:</p>
+        <ul>
+            <li>Cities are overwhelmed</li>
+            <li>Public health systems are stretched</li>
+            <li>Providers are disconnected</li>
+        </ul>
+        <p>TeleCARE creates the missing layer:</p>
+        <ul style="margin: 20px 0;">
+            <li>One open network</li>
+            <li>One shared system</li>
+            <li>One affordable entry point</li>
+            <li>One statewide safety net</li>
+        </ul>
+    </section>
+
+    <hr class="divider">
+
+    <!-- PHIER-Powered -->
+    <section class="section">
+        <span class="eyebrow">⚡ POWER</span>
+        <h2><span style="color: var(--gold);">⭐</span> What Makes It PHIER‑Powered</h2>
+        <p><strong>TeleCARE is the care layer. PHIERS is the power layer.</strong></p>
+        <p>Together they add:</p>
+        <ul style="margin: 20px 0;">
+            <li><strong style="color: var(--green);">PHIERSale</strong> → Lower cost of living</li>
+            <li><strong style="color: var(--green);">PHIERWorks</strong> → Income + job pathways</li>
+            <li><strong style="color: var(--green);">PHIERPlace</strong> → Referral + access system</li>
+            <li><strong style="color: var(--green);">Shared Case Management</strong> → One system across organizations</li>
+        </ul>
+        <p>Care + stability + economic support — all connected.</p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Built to Scale -->
+    <section class="section">
+        <span class="eyebrow">📈 SCALE</span>
+        <h2><span style="color: var(--gold);">⭐</span> Built to Scale</h2>
+        <p>TeleCARE can be deployed:</p>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin: 20px 0;">
+            <span style="background: rgba(61,220,132,0.1); border: 1px solid var(--border); border-radius: 30px; padding: 8px 20px;">Statewide</span>
+            <span style="background: rgba(61,220,132,0.1); border: 1px solid var(--border); border-radius: 30px; padding: 8px 20px;">Countywide</span>
+            <span style="background: rgba(61,220,132,0.1); border: 1px solid var(--border); border-radius: 30px; padding: 8px 20px;">Citywide</span>
+            <span style="background: rgba(61,220,132,0.1); border: 1px solid var(--border); border-radius: 30px; padding: 8px 20px;">Campus-wide</span>
+            <span style="background: rgba(61,220,132,0.1); border: 1px solid var(--border); border-radius: 30px; padding: 8px 20px;">Regionally</span>
+            <span style="background: rgba(61,220,132,0.1); border: 1px solid var(--border); border-radius: 30px; padding: 8px 20px;">Nationally</span>
+        </div>
+        <p><strong>Any system can adopt it.</strong></p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- One Sentence Version -->
+    <section class="section" style="text-align: center; border-left-color: var(--gold);">
+        <span class="eyebrow">🎯 IN ONE SENTENCE</span>
+        <h2><span style="color: var(--gold);">⭐</span> The One‑Sentence Version</h2>
+        <p style="font-size: 1.3rem; line-height: 1.6; max-width: 800px; margin: 30px auto; background: rgba(255,215,0,0.05); padding: 30px; border-radius: 12px;">
+            <strong>TeleCARE is the PHIER‑powered, people‑first care engine that delivers the 80% of healthcare people actually use for ~$600/year — while insurance covers the rare 20% — cutting costs, expanding access, and finally making universal care possible.</strong>
+        </p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Final CTA - with line from older version -->
+    <div style="text-align: center; margin: 80px 0;">
+        <h2 style="color: var(--green);">Congress could authorize this tomorrow.</h2>
+        <p style="font-size: 1.2rem; margin: 20px 0;">They just haven't had to.</p>
+        <p style="font-size: 1.1rem; margin-bottom: 30px; color: var(--text-bright);">Once you separate care from catastrophe, the math becomes simple — and universal coverage becomes possible.</p>
+        <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+            <a href="https://www.change.org/p/congress-the-public-is-coordinating-it-s-time-to-answer" target="_blank" rel="noopener noreferrer" class="btn-gold" style="color:#080d1a; font-size:1.3rem; padding:16px 32px;">✍ SIGN THE PETITION</a>
+            <a href="SimpleMath.html" class="btn-secondary" style="font-size:1.3rem; padding:16px 32px;">📊 SEE THE MATH</a>
+        </div>
     </div>
-    <p><strong>Telehealth delivers 80% of healthcare at a fraction of the cost — roughly 1/14th.</strong></p>
-  </div>
 
-  <hr class="divider">
-
-  <div class="section">
-    <span class="eyebrow">The PHIERS Savings Cascade</span>
-    <h2>When Telehealth Handles the 80%,<br><span class="green">Everything Gets Cheaper.</span></h2>
-    <ul class="savings-list">
-      <li>ER visits drop</li>
-      <li>Hospital readmissions drop</li>
-      <li>Insurance claims drop</li>
-      <li>Premiums drop</li>
-      <li>Medicaid costs drop</li>
-      <li>Medicare costs drop</li>
-      <li>ACA subsidies drop</li>
-      <li>Private insurance stabilizes</li>
-    </ul>
-    <p>Telehealth <strong>shrinks the cost of the entire system</strong>. Insurance <strong>protects against the worst events</strong>.</p>
-    <div class="insight">
-      <p style="font-family:var(--font-condensed);font-weight:700;font-size:1.2rem;color:var(--text-bright);margin-bottom:8px">Together, they create a system that is:</p>
-      <p style="margin-bottom:6px"><strong style="color:var(--green)">Affordable</strong> — 80% cost reduction + cascading savings</p>
-      <p style="margin-bottom:6px"><strong style="color:var(--green)">Scalable</strong> — Works for 234 million Americans</p>
-      <p style="margin-bottom:6px"><strong style="color:var(--green)">Defensible</strong> — Market-based, not government-mandated</p>
-      <p style="margin-bottom:0"><strong style="color:var(--green)">Universal</strong> — Accessible to everyone</p>
+    <!-- Page Navigation -->
+    <div class="page-nav" style="display: flex; justify-content: space-between; margin: 60px 0 40px;">
+        <a href="5D_Solutions.html" style="color: var(--green);">← Back to 5D Solutions</a>
+        <a href="Donate.html" style="color: var(--green);">Donate →</a>
     </div>
-  </div>
-
-  <hr class="divider">
-
-  <div class="section" style="text-align:center">
-    <span class="eyebrow">The Key Insight</span>
-    <h2>Telehealth is care.<br>Insurance is protection.<br><span class="green">PHIERS combines them.</span></h2>
-    <p style="max-width:580px;margin:0 auto 24px">Once you separate care from catastrophe, the math becomes simple — and universal coverage becomes possible. Congress could authorize this tomorrow. They just haven't had to.</p>
-    <div class="cta-row" style="justify-content:center">
-      <a href="https://www.change.org/p/congress-the-public-is-coordinating-it-s-time-to-answer" target="_blank" rel="noopener noreferrer" class="btn-primary">✍ Sign the Petition</a>
-      <a href="SimpleMath.html" class="btn-secondary">→ See the Full Math</a>
-    </div>
-  </div>
-
-  <div class="page-nav">
-    <a href="5D_Solutions.html">← Back to 5D Solutions</a>
-    <a href="Donate.html">Donate →</a>
-  </div>
 
 </div>
 
@@ -191,20 +642,18 @@
   <div class="footer-tagline">PHIERS-power: When millions coordinate, Congress must respond — or be replaced.</div>
   <div style="font-size:0.82rem;color:var(--text-dim);font-style:italic;margin-bottom:16px">PHIERS (pronounced "fires") — transformation in motion. Because that's what happens when citizens organize.</div>
   <nav class="footer-nav">
-    <a href="index.html#crisis">The Crisis</a>
-    <a href="index.html#proof">The $600 Plan</a>
-    <a href="index.html#teeth">How It Works</a>
-    <a href="index.html#roadmap">Roadmap</a>
-    <a href="organizers.html">✊ For Organizers</a>
-    <a href="SimpleMath.html">📊 Simple Math</a>
+    <a href="Crisis.html">The Crisis</a>
+    <a href="SimpleMath.html">Simple Math</a>
     <a href="5D_Solutions.html">5D Solutions</a>
-    <a href="Telehealth-Insurance.html">Telehealth & Insurance</a>
+    <a href="Telehealth-Insurance.html">TeleCARE</a>
+    <a href="organizers.html">For Organizers</a>
+    <a href="Unions-Strategy.html">Unions</a>
     <a href="Donate.html">Donate</a>
-    <a href="About.html">About</a>
+    <a href="FAQ.html">FAQ</a>
   </nav>
   <div class="footer-copy">
     Not built for profit. Not built for power. Built for We the People — by people who refused to stop.<br>
-    📧 <a href="mailto:info@phiers.org">info@phiers.org</a><br>
+    📧 <a href="mailto:info@phiers.org">info@phiers.org</a> · 📞 (916) 306-8967<br>
     © PHIERS.org — Original Concept Since 2009. All Rights Reserved.<br>
     <span style="font-size:0.75rem">PHIERS™ · PHIERSale™ · PHIERWorks™ — Protected marks established 2009–2025.</span>
   </div>
