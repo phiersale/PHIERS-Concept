@@ -13,7 +13,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Barlow+Condensed:wght@700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles-new.css">
 <style>
-/* FAQ-specific overrides - matches new UX system */
+/* FAQ-specific additions - extends the existing styles-new.css */
 .faq-hero {
     text-align: center;
     padding: 60px 20px;
@@ -33,6 +33,13 @@
     right: 0;
     height: 2px;
     background: linear-gradient(90deg, transparent, var(--green), var(--gold), var(--red), transparent);
+}
+
+.faq-hero-logo {
+    height: 100px;
+    width: auto;
+    margin: 0 auto 30px auto;
+    display: block;
 }
 
 .faq-hero h1 {
@@ -57,7 +64,7 @@
 .faq-grid {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 15px;
     margin: 40px 0;
 }
 
@@ -65,65 +72,110 @@
     background: var(--bg-card);
     border: 2px solid var(--border);
     border-radius: 12px;
-    padding: 30px;
-    transition: all 0.3s ease;
-    position: relative;
     overflow: hidden;
+    transition: all 0.3s ease;
 }
 
 .faq-item:hover {
     border-color: var(--green);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    transform: translateY(-2px);
 }
 
-.faq-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 4px;
-    height: 100%;
-    background: linear-gradient(to bottom, var(--green), var(--gold));
-    opacity: 0;
-    transition: opacity 0.3s ease;
+.faq-question {
+    padding: 25px 30px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    background: rgba(61, 220, 132, 0.02);
+    transition: background 0.3s ease;
 }
 
-.faq-item:hover::before {
-    opacity: 1;
+.faq-question:hover {
+    background: rgba(61, 220, 132, 0.1);
 }
 
-.faq-item h2 {
+.faq-question h2 {
     font-family: var(--font-condensed);
     font-size: 1.8rem;
     color: var(--gold);
-    margin-bottom: 20px;
+    margin: 0;
     letter-spacing: 1px;
+    flex: 1;
 }
 
-.faq-item p {
+.faq-toggle {
+    font-family: var(--font-condensed);
+    font-size: 2rem;
+    color: var(--green);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(61, 220, 132, 0.1);
+    transition: all 0.3s ease;
+}
+
+.faq-question:hover .faq-toggle {
+    background: rgba(61, 220, 132, 0.2);
+    transform: scale(1.1);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, padding 0.3s ease;
+    padding: 0 30px;
+    background: rgba(0, 0, 0, 0.2);
+    border-top: 0 solid var(--border);
+}
+
+.faq-item.open .faq-answer {
+    max-height: 2000px; /* Large enough for any answer */
+    padding: 25px 30px;
+    border-top-width: 1px;
+}
+
+.faq-item.open .faq-toggle {
+    transform: rotate(45deg);
+    background: rgba(255, 215, 0, 0.2);
+    color: var(--gold);
+}
+
+.faq-item.open .faq-question:hover .faq-toggle {
+    transform: rotate(45deg) scale(1.1);
+}
+
+.faq-answer p {
     font-family: var(--font-body);
     color: var(--text-body);
     line-height: 1.7;
     margin-bottom: 15px;
 }
 
-.faq-item strong {
+.faq-answer p:last-child {
+    margin-bottom: 0;
+}
+
+.faq-answer strong {
     color: var(--text-bright);
     font-weight: 700;
 }
 
-.faq-item ul, .faq-item ol {
+.faq-answer ul, .faq-answer ol {
     margin: 15px 0 15px 25px;
     color: var(--text-body);
 }
 
-.faq-item li {
+.faq-answer li {
     margin-bottom: 10px;
     line-height: 1.6;
 }
 
-.faq-item .highlight {
+.faq-answer .highlight {
     color: var(--green);
     font-family: var(--font-condensed);
     font-weight: 700;
@@ -220,13 +272,42 @@
     margin-bottom: 10px;
 }
 
+/* Expand/collapse all button */
+.faq-controls {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0 30px;
+}
+
+.faq-control-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    font-family: var(--font-condensed);
+    font-size: 1rem;
+    padding: 8px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.faq-control-btn:hover {
+    border-color: var(--green);
+    color: var(--green);
+    background: rgba(76, 175, 80, 0.1);
+}
+
 @media (max-width: 768px) {
-    .faq-item {
+    .faq-question {
         padding: 20px;
     }
     
-    .faq-item h2 {
+    .faq-question h2 {
         font-size: 1.5rem;
+    }
+    
+    .faq-answer.open {
+        padding: 20px;
     }
     
     .video-section-faq {
@@ -235,6 +316,12 @@
     
     .faq-cta {
         padding: 30px 20px;
+    }
+    
+    .faq-toggle {
+        width: 30px;
+        height: 30px;
+        font-size: 1.5rem;
     }
 }
 </style>
@@ -291,8 +378,9 @@
     <!-- Back link -->
     <a href="index.html" class="back-link">← Back to PHIERS.org</a>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Logo at Top -->
     <div class="faq-hero">
+        <img src="PHIERS_Logo.png" alt="PHIERS.org" class="faq-hero-logo">
         <div class="section-marker-faq">❓ QUESTIONS & ANSWERS</div>
         <h1>FREQUENTLY ASKED<br><span style="color: var(--gold);">QUESTIONS</span></h1>
         <p class="hero-sub">Honest answers. Clear explanations. No political jargon.</p>
@@ -330,122 +418,188 @@
         </p>
     </div>
 
-    <!-- FAQ Grid -->
-    <div class="faq-grid">
+    <!-- Expand/Collapse All Controls -->
+    <div class="faq-controls">
+        <button class="faq-control-btn" id="expand-all">+ EXPAND ALL</button>
+        <button class="faq-control-btn" id="collapse-all" style="margin-left: 10px;">− COLLAPSE ALL</button>
+    </div>
+
+    <!-- FAQ Grid - Collapsible Sections (Collapsed by Default) -->
+    <div class="faq-grid" id="faq-grid">
 
         <!-- 1. Is this realistic? -->
         <div class="faq-item">
-            <h2>1. Is this realistic?</h2>
-            <p><strong style="color:var(--gold);">Yes — because it's based on math, not hope.</strong></p>
-            <ul>
-                <li>Telehealth is already cheaper and faster.</li>
-                <li>Universal healthcare already saves $2.73T.</li>
-                <li>UBI is funded by redirecting waste, not raising taxes.</li>
-                <li>Job creation is a function of stability.</li>
-                <li>Democracy is protected by economic security.</li>
-            </ul>
-            <div class="highlight">This isn't a wishlist. It's a systems upgrade.</div>
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <h2>1. Is this realistic?</h2>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p><strong style="color:var(--gold);">Yes — because it's based on math, not hope.</strong></p>
+                <ul>
+                    <li>Telehealth is already cheaper and faster.</li>
+                    <li>Universal healthcare already saves $2.73T.</li>
+                    <li>UBI is funded by redirecting waste, not raising taxes.</li>
+                    <li>Job creation is a function of stability.</li>
+                    <li>Democracy is protected by economic security.</li>
+                </ul>
+                <div class="highlight">This isn't a wishlist. It's a systems upgrade.</div>
+            </div>
         </div>
 
         <!-- 2. Why telehealth first? -->
         <div class="faq-item">
-            <h2>2. Why telehealth first?</h2>
-            <p><strong style="color:var(--gold);">Because it's the first domino.</strong></p>
-            <p>Telehealth is: 10x cheaper, instantly scalable, already working, already nationwide, and already saving lives.</p>
-            <div class="highlight">Once telehealth is authorized, the entire 5D cascade becomes possible.</div>
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <h2>2. Why telehealth first?</h2>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p><strong style="color:var(--gold);">Because it's the first domino.</strong></p>
+                <p>Telehealth is: 10x cheaper, instantly scalable, already working, already nationwide, and already saving lives.</p>
+                <div class="highlight">Once telehealth is authorized, the entire 5D cascade becomes possible.</div>
+            </div>
         </div>
 
         <!-- 3. Why 3.5%? -->
         <div class="faq-item">
-            <h2>3. Why 3.5%?</h2>
-            <p>Harvard research shows that when 3.5% of a population organizes, systemic change becomes: guaranteed, peaceful, non-negotiable, and inevitable.</p>
-            <p><strong style="color:var(--text-bright);">For the U.S., that's 11.6 million people.</strong></p>
-            <div class="highlight">That's why the petition matters.</div>
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <h2>3. Why 3.5%?</h2>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>Harvard research shows that when 3.5% of a population organizes, systemic change becomes: guaranteed, peaceful, non-negotiable, and inevitable.</p>
+                <p><strong style="color:var(--text-bright);">For the U.S., that's 11.6 million people.</strong></p>
+                <div class="highlight">That's why the petition matters.</div>
+            </div>
         </div>
 
         <!-- 4. Why not wait for Congress? -->
         <div class="faq-item">
-            <h2>4. Why not wait for Congress to act on its own?</h2>
-            <p><strong style="color:var(--gold);">Because they won't.</strong></p>
-            <p>Congress has the authority, the money, the infrastructure, and the power — but not the incentive.</p>
-            <div class="highlight">3.5% gives them the incentive.</div>
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <h2>4. Why not wait for Congress to act on its own?</h2>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p><strong style="color:var(--gold);">Because they won't.</strong></p>
+                <p>Congress has the authority, the money, the infrastructure, and the power — but not the incentive.</p>
+                <div class="highlight">3.5% gives them the incentive.</div>
+            </div>
         </div>
 
         <!-- 5. Is this partisan? -->
         <div class="faq-item">
-            <h2>5. Is this partisan?</h2>
-            <p><strong style="color:var(--gold);">No.</strong></p>
-            <p>Healthcare, stability, jobs, and democracy are not partisan issues. They're human issues.</p>
-            <p>This movement includes: conservatives, liberals, independents, libertarians, apolitical Americans, and people who've never voted.</p>
-            <div class="highlight">The only requirement is wanting a country that works.</div>
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <h2>5. Is this partisan?</h2>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p><strong style="color:var(--gold);">No.</strong></p>
+                <p>Healthcare, stability, jobs, and democracy are not partisan issues. They're human issues.</p>
+                <p>This movement includes: conservatives, liberals, independents, libertarians, apolitical Americans, and people who've never voted.</p>
+                <div class="highlight">The only requirement is wanting a country that works.</div>
+            </div>
         </div>
 
         <!-- 6. Is this socialism? -->
         <div class="faq-item">
-            <h2>6. Is this socialism?</h2>
-            <p><strong style="color:var(--gold);">No.</strong></p>
-            <p>This is: market-efficient, cost-reducing, waste-eliminating, innovation-friendly, and freedom-expanding.</p>
-            <p>We're not nationalizing anything. We're redirecting waste and unlocking efficiency.</p>
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <h2>6. Is this socialism?</h2>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p><strong style="color:var(--gold);">No.</strong></p>
+                <p>This is: market-efficient, cost-reducing, waste-eliminating, innovation-friendly, and freedom-expanding.</p>
+                <p>We're not nationalizing anything. We're redirecting waste and unlocking efficiency.</p>
+            </div>
         </div>
 
         <!-- 7. How does this get funded? -->
         <div class="faq-item">
-            <h2>7. How does this get funded?</h2>
-            <p><strong style="color:var(--gold);">Through the $2.73 trillion we're already wasting.</strong></p>
-            <p>We're not asking for new taxes, new agencies, or new bureaucracy.</p>
-            <p>We're asking Congress to stop burning money and redirect it into: universal healthcare, UBI, job creation, and democratic stability.</p>
-            <div class="highlight">This is minimum wasted motion.</div>
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <h2>7. How does this get funded?</h2>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p><strong style="color:var(--gold);">Through the $2.73 trillion we're already wasting.</strong></p>
+                <p>We're not asking for new taxes, new agencies, or new bureaucracy.</p>
+                <p>We're asking Congress to stop burning money and redirect it into: universal healthcare, UBI, job creation, and democratic stability.</p>
+                <div class="highlight">This is minimum wasted motion.</div>
+            </div>
         </div>
 
         <!-- 8. How does this create jobs? -->
         <div class="faq-item">
-            <h2>8. How does this create jobs?</h2>
-            <p><strong style="color:var(--gold);">Stability creates capacity. Capacity creates opportunity.</strong></p>
-            <p>When people have healthcare, income stability, and breathing room, they can: retrain, relocate, start businesses, fill essential roles, and build new industries.</p>
-            <div class="highlight">This is how we create millions of AI-resistant jobs.</div>
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <h2>8. How does this create jobs?</h2>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p><strong style="color:var(--gold);">Stability creates capacity. Capacity creates opportunity.</strong></p>
+                <p>When people have healthcare, income stability, and breathing room, they can: retrain, relocate, start businesses, fill essential roles, and build new industries.</p>
+                <div class="highlight">This is how we create millions of AI-resistant jobs.</div>
+            </div>
         </div>
 
         <!-- 9. How does this protect democracy? -->
         <div class="faq-item">
-            <h2>9. How does this protect democracy?</h2>
-            <p>Authoritarianism thrives in chaos, fear, scarcity, and instability.</p>
-            <p>It collapses when people are healthy, housed, fed, stable, and secure.</p>
-            <div class="highlight">Economic stability is political stability.</div>
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <h2>9. How does this protect democracy?</h2>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>Authoritarianism thrives in chaos, fear, scarcity, and instability.</p>
+                <p>It collapses when people are healthy, housed, fed, stable, and secure.</p>
+                <div class="highlight">Economic stability is political stability.</div>
+            </div>
         </div>
 
         <!-- 10. What happens after I sign? -->
         <div class="faq-item">
-            <h2>10. What happens after I sign?</h2>
-            <p><strong style="color:var(--gold);">Three things:</strong></p>
-            <ol>
-                <li>Your signature counts toward the 3.5% threshold.</li>
-                <li>Your district receives targeted pressure.</li>
-                <li>Congress loses the ability to ignore the people.</li>
-            </ol>
-            <div class="highlight">This is how peaceful change happens.</div>
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <h2>10. What happens after I sign?</h2>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p><strong style="color:var(--gold);">Three things:</strong></p>
+                <ol>
+                    <li>Your signature counts toward the 3.5% threshold.</li>
+                    <li>Your district receives targeted pressure.</li>
+                    <li>Congress loses the ability to ignore the people.</li>
+                </ol>
+                <div class="highlight">This is how peaceful change happens.</div>
+            </div>
         </div>
 
         <!-- 11. What if Congress still refuses? -->
         <div class="faq-item">
-            <h2>11. What if Congress still refuses?</h2>
-            <p><strong style="color:var(--gold);">Then we replace them — peacefully, legally, and at scale.</strong></p>
-            <p>This movement is built for: primaries, general elections, district-level mobilization, and accountability.</p>
-            <p>No violence. No chaos. Just organized civic power.</p>
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <h2>11. What if Congress still refuses?</h2>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p><strong style="color:var(--gold);">Then we replace them — peacefully, legally, and at scale.</strong></p>
+                <p>This movement is built for: primaries, general elections, district-level mobilization, and accountability.</p>
+                <p>No violence. No chaos. Just organized civic power.</p>
+            </div>
         </div>
 
         <!-- 12. Why now? -->
         <div class="faq-item">
-            <h2>12. Why now?</h2>
-            <p><strong style="color:var(--gold);">Because:</strong></p>
-            <ul>
-                <li>The crisis is unfolding now</li>
-                <li>The system is failing now</li>
-                <li>People are suffering now</li>
-                <li>Jobs are disappearing now</li>
-                <li>Authoritarian risk is rising now</li>
-            </ul>
-            <p><strong>And because the math finally works.</strong></p>
-            <div class="highlight">This is the first time in decades that a peaceful, scalable, intelligent solution has been possible.</div>
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <h2>12. Why now?</h2>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p><strong style="color:var(--gold);">Because:</strong></p>
+                <ul>
+                    <li>The crisis is unfolding now</li>
+                    <li>The system is failing now</li>
+                    <li>People are suffering now</li>
+                    <li>Jobs are disappearing now</li>
+                    <li>Authoritarian risk is rising now</li>
+                </ul>
+                <p><strong>And because the math finally works.</strong></p>
+                <div class="highlight">This is the first time in decades that a peaceful, scalable, intelligent solution has been possible.</div>
+            </div>
         </div>
     </div>
 
@@ -507,11 +661,48 @@
 <button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
 
 <script>
+// Toggle individual FAQ
+function toggleFAQ(element) {
+    const faqItem = element.closest('.faq-item');
+    if (!faqItem) return;
+    
+    const isOpen = faqItem.classList.contains('open');
+    const toggleSpan = faqItem.querySelector('.faq-toggle');
+    
+    if (isOpen) {
+        faqItem.classList.remove('open');
+        if (toggleSpan) toggleSpan.textContent = '+';
+    } else {
+        faqItem.classList.add('open');
+        if (toggleSpan) toggleSpan.textContent = '×';
+    }
+}
+
+// Expand all FAQs
+function expandAll() {
+    document.querySelectorAll('.faq-item').forEach(item => {
+        item.classList.add('open');
+        const toggle = item.querySelector('.faq-toggle');
+        if (toggle) toggle.textContent = '×';
+    });
+}
+
+// Collapse all FAQs
+function collapseAll() {
+    document.querySelectorAll('.faq-item').forEach(item => {
+        item.classList.remove('open');
+        const toggle = item.querySelector('.faq-toggle');
+        if (toggle) toggle.textContent = '+';
+    });
+}
+
+// Mobile menu toggle
 function toggleMenu() {
     var menu = document.getElementById('mobile-menu');
     if (menu) menu.classList.toggle('open');
 }
 
+// Close mobile menu when clicking outside
 document.addEventListener('click', function(event) {
     var menu = document.getElementById('mobile-menu');
     var hamburger = document.querySelector('.hamburger');
@@ -521,6 +712,7 @@ document.addEventListener('click', function(event) {
     }
 });
 
+// Close mobile menu when clicking a link
 document.querySelectorAll('.mobile-menu a').forEach(function(a) {
     a.addEventListener('click', function() {
         var m = document.getElementById('mobile-menu');
@@ -528,6 +720,7 @@ document.querySelectorAll('.mobile-menu a').forEach(function(a) {
     });
 });
 
+// Video play function
 function playVideo(which, src) {
     var wrap = document.getElementById('wrap-' + which);
     if (!wrap) return;
@@ -550,13 +743,28 @@ if (btt) {
     });
 }
 
-// Active menu state
-(function() {
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', function() {
+    // All FAQs are collapsed by default (no 'open' class)
+    
+    // Set up expand/collapse all buttons
+    const expandBtn = document.getElementById('expand-all');
+    const collapseBtn = document.getElementById('collapse-all');
+    
+    if (expandBtn) {
+        expandBtn.addEventListener('click', expandAll);
+    }
+    
+    if (collapseBtn) {
+        collapseBtn.addEventListener('click', collapseAll);
+    }
+    
+    // Active menu state
     var currentPage = window.location.pathname.split('/').pop() || 'index.html';
     document.querySelectorAll('.mobile-menu a').forEach(function(a) {
         if (a.getAttribute('href') === currentPage) a.classList.add('active');
     });
-})();
+});
 </script>
 </body>
 </html>
