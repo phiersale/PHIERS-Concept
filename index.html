@@ -115,7 +115,7 @@
   </h1>
   <p style="font-family:var(--font-condensed);font-size:clamp(1rem,2vw,1.15rem);
             color:var(--text-dim);max-width:640px;margin:0 auto;line-height:1.7;">
-    PHIERS is a coordinated movement that turns one action — adding your name — into real leverage over Congress.
+    PHIERS is a coordinated movement that turns one action — adding your name — into real leverage to force Congress to act.
   </p>
 </section>
 
@@ -468,6 +468,18 @@
           onmouseout="this.style.background='#3ddc84';this.style.color='#111d35'">
         JOIN THE MOVEMENT — See Why Congress Can't Ignore This →
       </a>
+      <div style="margin-top:16px;">
+        <button onclick="dismissPhierModal()" style="
+            background:transparent;border:none;
+            font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;
+            color:rgba(255,255,255,0.4);cursor:pointer;letter-spacing:0.5px;
+            text-decoration:underline;padding:4px 8px;
+            transition:color 0.2s;"
+            onmouseover="this.style.color='rgba(255,255,255,0.7)'"
+            onmouseout="this.style.color='rgba(255,255,255,0.4)'">
+          Don't show again this session
+        </button>
+      </div>
     </div>
   </div>
 </div>
@@ -586,28 +598,30 @@ if (btt) {
   });
 })();
 
-// Mission modal — starts hidden, shows once per session
+// Mission modal — shows every visit unless "don't show again" clicked this session
 function closePhierModal() {
   var modal = document.getElementById('phiers-modal');
   if (modal) {
     modal.style.display = 'none';
     document.body.style.overflow = 'auto';
-    localStorage.setItem('phiersModalSeen', 'true');
   }
+}
+
+function dismissPhierModal() {
+  sessionStorage.setItem('phiersModalDismissed', 'true');
+  closePhierModal();
 }
 
 (function initModal() {
   var modal = document.getElementById('phiers-modal');
   if (!modal) return;
-  if (localStorage.getItem('phiersModalSeen')) {
+  if (sessionStorage.getItem('phiersModalDismissed')) {
     modal.style.display = 'none';
     document.body.style.overflow = 'auto';
     return;
   }
-  setTimeout(function() {
-    modal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-  }, 3000);
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
 })();
 
 document.addEventListener('keydown', function(e) {
