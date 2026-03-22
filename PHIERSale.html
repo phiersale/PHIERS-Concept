@@ -764,6 +764,14 @@
     });
     var currentPage = window.location.pathname.split('/').pop() || 'index.html';
     document.querySelectorAll('.mobile-menu a').forEach(function(a) {
-      if (a.getAttribute('href') ===
+      if (a.getAttribute('href') === currentPage) {
+        a.classList.add('active');
+      }
+    });
+  });
+
+  var btt = document.getElementById('back-to-top');
+  if (btt) btt.addEventListener('click', function() { window.scrollTo({top:0, behavior:'smooth'}); });
+</script>
 </body>
 </html>
