@@ -245,7 +245,7 @@
       <a href="index.html">PHIERS.org</a>
     </div>
     <div class="nav-right">
-      <a href="https://forms.gle/euJkZxjUserFVCPK8" target="_blank" rel="noopener noreferrer" class="btn-petition">⚡ JOIN FIRST WAVE</a>
+      <a href="petition.html" class="btn-petition">✍ Sign the Petition</a>
       <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">☰</button>
     </div>
   </nav>
@@ -272,9 +272,9 @@
     <a href="FAQ.html" target="_blank">❓ FAQ</a>
     <a href="healthcare-proof.html" target="_blank" class="menu-deepdive">→ The Full Story</a>
   </details>
-  <details class="menu-section">
+    <details class="menu-section">
     <summary class="menu-label">Take Action</summary>
-    <a href="https://forms.gle/euJkZxjUserFVCPK8" target="_blank" rel="noopener noreferrer">⚡ JOIN FIRST WAVE</a>
+    <a href="petition.html">📋 Sign the Petition</a>
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSdETA-oNIeOAzEsG4GsYiiws1YBpLunx8ioVJkZac5hzSxaZw/viewform?usp=header" target="_blank" rel="noopener noreferrer">📋 Take the Survey</a>
     <a href="Donate.html">💚 Donate</a>
     <a href="action.html">📣 Take Action</a>
@@ -427,7 +427,7 @@
       </p>
       <p style="font-size:1.2rem; max-width:700px; margin:0 auto 24px;">Your name on the record isn't just about a $600 healthcare plan. It's proof that you showed up. That you were counted. That when the moment came — you didn't wait for someone else to fix it.</p>
       <div class="cta-row">
-        <a href="https://forms.gle/euJkZxjUserFVCPK8" target="_blank" rel="noopener noreferrer" class="btn-primary">⚡ JOIN FIRST WAVE</a>
+        <a href="petition.html" class="btn-petition">✍ Sign the Petition</a>
         <a href="action.html" class="btn-secondary">→ See How It Works</a>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSdETA-oNIeOAzEsG4GsYiiws1YBpLunx8ioVJkZac5hzSxaZw/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="btn-secondary">📋 Take the Survey</a>
         <a href="Crisis.html" class="btn-secondary">← Back to the Crisis</a>
@@ -461,6 +461,7 @@
       <a href="organizers.html">✊ For Organizers</a>
       <a href="Veterans.html">🎖 Veterans</a>
       <a href="Donate.html">Donate</a>
+      <a href="PHIERSale.html">🛒 PHIERSale</a>
     </nav>
     <div class="footer-copy">
       PHIERS is a people's movement — not a company, not a product. Built by regular people who are done waiting for Congress to do its job. The only thing missing is you.<br>
@@ -535,9 +536,16 @@
     });
 </script>
 
-<button style="position:fixed;bottom:28px;left:24px;background:#3ddc84;color:#080d1a;border:none;border-radius:50%;width:44px;height:44px;font-size:1.2rem;cursor:pointer;opacity:0;pointer-events:none;transition:opacity 0.3s;z-index:999;display:flex;align-items:center;justify-content:center;" id="back-to-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<button class="back-to-top" id="back-to-top" aria-label="Back to top"
+        onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 <script>
-  var btt = document.getElementById('back-to-top')
+  var btt = document.getElementById('back-to-top');
+  if (btt) {
+    window.addEventListener('scroll', function() {
+      btt.style.opacity = window.scrollY > 400 ? '1' : '0';
+      btt.style.pointerEvents = window.scrollY > 400 ? 'auto' : 'none';
+    });
+  }
 </script>
 </body>
 </html>
