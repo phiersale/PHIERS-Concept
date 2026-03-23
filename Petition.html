@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sign the PHIERS petition. Put your name on the record. 1,500 signatures in your district forces a mandatory town hall. July 4, 2026 — Real Independence Day.">
+<meta property="og:title" content="PHIERS — Public Demand for Congressional Action">
+<meta property="og:description" content="You're angry. You're right to be. This is what happens when anger has leverage behind it. Sign the petition.">
+<meta property="og:image" content="PHIERS_Logo.png">
+<link rel="icon" type="image/png" href="PHIERS_Logo.png">
+<title>PHIERS — Sign the Petition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Barlow+Condensed:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles-new.css">
+<style>
+  /* ── PETITION-SPECIFIC STYLES ── */
+  .petition-wrap {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 100px 24px 80px;
+  }
+
+  .petition-hero {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .petition-hero img.anchor {
+    width: 100%;
+    max-width: 680px;
+    border-radius: 8px;
+    border: 2px solid rgba(230,57,70,0.3);
+    margin: 0 auto 32px;
+    display: block;
+  }
+
+  .petition-eyebrow {
+    font-family: var(--font-condensed);
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 12px;
+  }
+
+  .petition-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 6vw, 3.8rem);
+    color: var(--text-bright);
+    line-height: 1.05;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
+
+  .petition-hero h1 span { color: var(--red); }
+
+  /* ── PREAMBLE ── */
+  .preamble {
+    background: rgba(13,21,37,0.8);
+    border: 1px solid rgba(61,220,132,0.15);
+    border-left: 4px solid var(--red);
+    border-radius: 8px;
+    padding: 36px 40px;
+    margin-bottom: 48px;
+  }
+
+  .preamble p {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    color: var(--text-body);
+    line-height: 1.85;
+    margin-bottom: 20px;
+  }
+
+  .preamble p:last-child { margin-bottom: 0; }
+
+  .preamble p.opener {
+    font-family: var(--font-condensed);
+    font-size: 1.3rem;
+    color: var(--text-bright);
+    font-weight: 700;
+    line-height: 1.5;
+  }
+
+  .preamble .demands {
+    margin: 24px 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .preamble .demands li {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--text-body);
+    line-height: 1.7;
+    padding: 14px 0 14px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    position: relative;
+  }
+
+  .preamble .demands li:last-child { border-bottom: none; }
+
+  .preamble .demands li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 60%;
+    background: var(--red);
+    border-radius: 2px;
+  }
+
+  .preamble .demands li strong {
+    font-family: var(--font-condensed);
+    font-size: 1.1rem;
+    color: var(--text-bright);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .preamble .north-star {
+    text-align: center;
+    margin-top: 28px;
+    padding: 20px;
+    border: 1px solid rgba(255,214,10,0.3);
+    border-radius: 8px;
+    background: rgba(255,214,10,0.04);
+  }
+
+  .preamble .north-star p {
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 3vw, 1.6rem);
+    color: var(--gold);
+    letter-spacing: 1px;
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  /* ── FORM ── */
+  .petition-form-wrap {
+    background: rgba(13,21,37,0.9);
+    border: 1px solid rgba(61,220,132,0.2);
+    border-radius: 12px;
+    padding: 40px;
+    margin-bottom: 48px;
+  }
+
+  .form-header {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+
+  .form-header h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    color: var(--green);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+
+  .form-header p {
+    font-family: var(--font-condensed);
+    font-size: 1rem;
+    color: var(--text-dim);
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .form-field.full { grid-column: 1 / -1; }
+
+  .form-field label {
+    font-family: var(--font-condensed);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .form-field label span.req {
+    color: var(--red);
+    margin-left: 2px;
+  }
+
+  .form-field input,
+  .form-field select {
+    background: rgba(8,13,26,0.8);
+    border: 1px solid rgba(61,220,132,0.2);
+    border-radius: 6px;
+    padding: 14px 16px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--text-bright);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+    width: 100%;
+  }
+
+  .form-field input:focus,
+  .form-field select:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px rgba(61,220,132,0.1);
+  }
+
+  .form-field input::placeholder { color: var(--text-dim); opacity: 0.6; }
+
+  .form-field select option {
+    background: var(--bg-dark);
+    color: var(--text-bright);
+  }
+
+  /* Notify checkbox */
+  .notify-field {
+    margin: 8px 0 20px;
+    padding: 20px;
+    background: rgba(61,220,132,0.04);
+    border: 1px solid rgba(61,220,132,0.15);
+    border-radius: 8px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    cursor: pointer;
+  }
+
+  .notify-field input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    accent-color: var(--green);
+    margin-top: 2px;
+    cursor: pointer;
+  }
+
+  .notify-field label {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--text-body);
+    line-height: 1.6;
+    cursor: pointer;
+  }
+
+  .notify-field label strong {
+    color: var(--green);
+    font-weight: 700;
+  }
+
+  /* Matters most */
+  .matters-field {
+    margin-bottom: 20px;
+  }
+
+  .matters-label {
+    font-family: var(--font-condensed);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .matters-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .matters-option {
+    display: none;
+  }
+
+  .matters-option + label {
+    font-family: var(--font-condensed);
+    font-size: 0.95rem;
+    color: var(--text-dim);
+    padding: 8px 16px;
+    border: 1px solid rgba(61,220,132,0.2);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+  }
+
+  .matters-option:checked + label {
+    background: rgba(61,220,132,0.15);
+    border-color: var(--green);
+    color: var(--green);
+  }
+
+  .matters-option + label:hover {
+    border-color: rgba(61,220,132,0.5);
+    color: var(--text-bright);
+  }
+
+  /* Submit button */
+  .btn-submit {
+    width: 100%;
+    background: var(--red);
+    color: #fff;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    padding: 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    margin-top: 8px;
+  }
+
+  .btn-submit:hover { background: var(--red-dim); transform: scale(1.01); }
+  .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+  /* States */
+  .form-status {
+    display: none;
+    text-align: center;
+    padding: 24px;
+    border-radius: 8px;
+    margin-top: 20px;
+    font-family: var(--font-condensed);
+    font-size: 1.1rem;
+  }
+
+  .form-status.success {
+    display: block;
+    background: rgba(61,220,132,0.1);
+    border: 1px solid var(--green);
+    color: var(--green);
+  }
+
+  .form-status.error {
+    display: block;
+    background: rgba(230,57,70,0.1);
+    border: 1px solid var(--red);
+    color: var(--red);
+  }
+
+  /* Success screen */
+  .success-screen {
+    display: none;
+    text-align: center;
+    padding: 48px 24px;
+  }
+
+  .success-screen.visible { display: block; }
+
+  .success-screen h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--green);
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
+
+  .success-screen p {
+    font-family: var(--font-condensed);
+    font-size: 1.1rem;
+    color: var(--text-body);
+    line-height: 1.7;
+    max-width: 560px;
+    margin: 0 auto 24px;
+  }
+
+  .success-screen .share-prompt {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    color: var(--gold);
+    letter-spacing: 1px;
+    margin: 32px 0 16px;
+  }
+
+  /* Divider */
+  .petition-divider {
+    border: none;
+    border-top: 1px solid rgba(61,220,132,0.15);
+    margin: 48px 0;
+  }
+
+  /* Counter strip */
+  .counter-strip {
+    text-align: center;
+    padding: 28px 24px;
+    background: rgba(230,57,70,0.05);
+    border: 1px solid rgba(230,57,70,0.2);
+    border-radius: 8px;
+    margin-bottom: 48px;
+  }
+
+  .counter-strip p {
+    font-family: var(--font-condensed);
+    font-size: 1rem;
+    color: var(--text-dim);
+    margin-bottom: 6px;
+  }
+
+  .counter-strip .counter-number {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: var(--red);
+    letter-spacing: 2px;
+    line-height: 1;
+  }
+
+  .counter-strip .counter-goal {
+    font-family: var(--font-condensed);
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    margin-top: 6px;
+  }
+
+  @media (max-width: 600px) {
+    .form-grid { grid-template-columns: 1fr; }
+    .form-field.full { grid-column: 1; }
+    .petition-form-wrap { padding: 24px 20px; }
+    .preamble { padding: 24px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav id="main-nav">
+  <div class="nav-left">
+    <a href="index.html" style="font-family:var(--font-condensed);font-weight:700;font-size:1.3rem;color:#fff;text-decoration:none;letter-spacing:0.05em">PHIERS.org</a>
+    <div class="nav-tagline">When Americans coordinate, Congress has no choice.</div>
+  </div>
+  <div class="nav-right">
+    <a href="https://forms.gle/euJkZxjUserFVCPK8" target="_blank" rel="noopener noreferrer">⚡ JOIN THE FIRST WAVE</a>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<!-- ── MOBILE MENU ── -->
+<div class="mobile-menu" id="mobile-menu">
+  <details class="menu-section">
+    <summary class="menu-label">Understand the Fight</summary>
+    <a href="Crisis.html">🚨 The Crisis</a>
+    <a href="SimpleMath.html">📊 Simple Math</a>
+    <a href="Leverage.html">⚡ The Leverage</a>
+    <a href="5D_Solutions.html">🔬 5D Solutions</a>
+    <a href="Telehealth-Insurance.html">💡 TeleCARE</a>
+  </details>
+  <details class="menu-section">
+    <summary class="menu-label">Who We're For</summary>
+    <a href="organizers.html">✊ For Organizers</a>
+    <a href="Veterans.html">🎖 Veterans</a>
+    <a href="NoWar.html">🕊 No War / No Draft</a>
+    <a href="Unions-Strategy.html">💪 Union Strategy</a>
+  </details>
+  <details class="menu-section">
+    <summary class="menu-label">Resources</summary>
+    <a href="Resources.html">📚 Resource Hub</a>
+    <a href="real-stories.html">💬 Real Stories</a>
+    <a href="FAQ.html" target="_blank">❓ FAQ</a>
+    <a href="healthcare-proof.html" target="_blank" class="menu-deepdive">→ The Full Story</a>
+  </details>
+  <details class="menu-section">
+    <summary class="menu-label">Take Action</summary>
+    <a href="petition.html">📋 Sign the Petition</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdETA-oNIeOAzEsG4GsYiiws1YBpLunx8ioVJkZac5hzSxaZw/viewform?usp=header" target="_blank" rel="noopener noreferrer">📋 Take the Survey</a>
+    <a href="Donate.html">💚 Donate</a>
+    <a href="action.html">📣 Take Action</a>
+  </details>
+</div>
+
+<!-- ── PAGE CONTENT ── -->
+<div class="page-wrap">
+<div class="petition-wrap">
+
+  <!-- HERO -->
+  <div class="petition-hero">
+    <img src="Online_Petition.png"
+         alt="Sign the PHIERS Online Petition"
+         class="anchor">
+    <div class="petition-eyebrow">Public Demand for Congressional Action</div>
+    <h1>Your Name Is<br><span>Leverage.</span></h1>
+  </div>
+
+  <!-- COUNTER STRIP -->
+  <div class="counter-strip">
+    <p>Names on the record so far</p>
+    <div class="counter-number">GROWING</div>
+    <div class="counter-goal">1,500 in your district triggers a mandatory town hall</div>
+  </div>
+
+  <!-- PREAMBLE -->
+  <div class="preamble">
+
+    <p class="opener">You're angry. Good. You should be.</p>
+
+    <p>A war nobody voted for. A draft they're already talking about. Healthcare you can't afford. A government that takes your money, ignores your voice, and does whatever it wants — because so far, it could.</p>
+
+    <p>You've called. You've marched. You've posted. Nothing changed.<br>That's what happens when anger has no leverage behind it.</p>
+
+    <p>Here's what changes that.</p>
+
+    <p><strong style="color:var(--text-bright);font-size:1.1em;">We're going to fix healthcare without them.</strong></p>
+
+    <p>Not ask for it. Not beg for it. Fix it. A $600 telehealth plan that replaces $10,000 in insurance premiums — saving $2.7 trillion a year and covering 234 million Americans. The authority already exists. We're organizing the people to make it happen.</p>
+
+    <p>When we prove we can solve what Congress couldn't — and we will — they lose the argument. They lose the leverage. They lose the ability to ignore us on anything else. The war. The draft. The economy. All of it.</p>
+
+    <p><strong style="color:var(--red);">That changes the moment you sign this.</strong></p>
+
+    <div style="text-align:center;margin:28px 0 32px;">
+      <a href="#petition-form-section"
+         style="font-family:var(--font-condensed);font-weight:700;
+                color:#080d1a;background:var(--gold);
+                padding:14px 32px;border-radius:4px;font-size:1.1rem;
+                text-decoration:none;display:inline-block;letter-spacing:1px;">
+        ⚡ ADD MY NAME NOW →
+      </a>
+    </div>
+
+    <p>When 3.5% of Americans organize around one demand, governments have no choice but to respond. Every time in history. Without exception. And millions more will follow.</p>
+
+    <p>You are not alone. You are not powerless. You just needed the right leverage. This is it.</p>
+
+    <hr style="border:none;border-top:1px solid rgba(255,255,255,0.08);margin:28px 0;">
+
+    <p style="font-family:var(--font-condensed);font-size:1rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:2px;margin-bottom:16px;">We demand Congress take four actions — or face replacement:</p>
+
+    <ul class="demands">
+      <li>
+        <strong>1. Open telehealth to every American through the ACA Exchange</strong>
+        $600 a year replaces $10,000 in insurance premiums, saving $2.7 trillion annually and covering 234 million Americans. The authority exists. Use it.
+      </li>
+      <li>
+        <strong>2. End the unauthorized wars immediately</strong>
+        Congress never voted for them. The Constitution requires a declaration. Over $1 billion of our money every single day, on conflicts nobody authorized. End them now.
+      </li>
+      <li>
+        <strong>3. Deny any future funding for unauthorized wars</strong>
+        Not one more dollar for military action Congress hasn't voted to authorize. Not one.
+      </li>
+      <li>
+        <strong>4. Block any draft before it starts</strong>
+        The people talking about a draft will not be the ones sent. We will. Our kids will. Our neighbors will. Stop it now.
+      </li>
+    </ul>
+
+    <p>When 1,500 people in your congressional district sign, we organize a public town hall. Your representatives show up, answer to you, and commit — or face a primary challenge before the next election.</p>
+
+    <p>This is not a petition into the void. This is organized people proving they can solve problems Congress won't — and using that proof to force Congress to choose: get on board, or get replaced.</p>
+
+    <div class="north-star">
+      <p>July 4, 2026. Real Independence Day.<br>
+      <span style="font-size:0.85em;font-family:var(--font-condensed);color:var(--text-dim);font-style:italic;letter-spacing:0.5px;">We celebrate because we already won.</span></p>
+    </div>
+
+  </div>
+
+  <!-- FORM -->
+  <div class="petition-form-wrap" id="petition-form-section">
+
+    <div class="form-header">
+      <h2>Put Your Name On The Record</h2>
+      <p>Your district. Your demand. Counted, tracked, delivered to Congress.</p>
+    </div>
+
+    <form id="petition-form" novalidate>
+
+      <div class="form-grid">
+        <div class="form-field">
+          <label for="firstName">First Name <span class="req">*</span></label>
+          <input type="text" id="firstName" name="firstName" placeholder="First name" required autocomplete="given-name">
+        </div>
+        <div class="form-field">
+          <label for="lastName">Last Name <span class="req">*</span></label>
+          <input type="text" id="lastName" name="lastName" placeholder="Last name" required autocomplete="family-name">
+        </div>
+        <div class="form-field">
+          <label for="zipCode">ZIP Code <span class="req">*</span></label>
+          <input type="text" id="zipCode" name="zipCode" placeholder="Your ZIP code" required maxlength="10" autocomplete="postal-code">
+        </div>
+        <div class="form-field">
+          <label for="email">Email Address <span class="req">*</span></label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email">
+        </div>
+      </div>
+
+      <div class="notify-field">
+        <input type="checkbox" id="notify" name="notify" value="yes" checked>
+        <label for="notify">
+          <strong>Yes — notify me</strong> when we reach 1,500 signatures in my voting district so I can attend the town hall meeting where my representatives will have to answer to us.
+        </label>
+      </div>
+
+      <div class="matters-field">
+        <span class="matters-label">What matters most to you? <span style="color:var(--text-dim);font-size:0.8em;text-transform:none;letter-spacing:0;">(optional — select all that apply)</span></span>
+        <div class="matters-options">
+          <input type="checkbox" class="matters-option" id="m1" name="matters" value="Healthcare costs">
+          <label for="m1">Healthcare costs</label>
+          <input type="checkbox" class="matters-option" id="m2" name="matters" value="The war / threat of a draft">
+          <label for="m2">The war / threat of a draft</label>
+          <input type="checkbox" class="matters-option" id="m3" name="matters" value="Jobs and the economy">
+          <label for="m3">Jobs and the economy</label>
+          <input type="checkbox" class="matters-option" id="m4" name="matters" value="Housing costs">
+          <label for="m4">Housing costs</label>
+          <input type="checkbox" class="matters-option" id="m5" name="matters" value="All of the above">
+          <label for="m5">All of the above</label>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-submit" id="submit-btn">
+        ⚡ ADD MY NAME TO THE RECORD
+      </button>
+
+      <div class="form-status" id="form-status"></div>
+
+    </form>
+
+    <!-- SUCCESS SCREEN (hidden until submit) -->
+    <div class="success-screen" id="success-screen">
+      <h2>You're On The Record.</h2>
+      <p>Your name. Your district. Your demand — counted, tracked, and on its way to Congress.</p>
+      <p>When your district hits 1,500, we'll let you know. Show up. Make them answer.</p>
+      <div class="share-prompt">Now share it with 5 people in your district.</div>
+      <p style="color:var(--text-dim);font-size:0.95rem;">That's how we win. District by district. Name by name.</p>
+      <div style="margin-top:32px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+        <a href="action.html" class="btn-petition" style="text-decoration:none;">See What's Next →</a>
+        <a href="index.html" style="font-family:var(--font-condensed);color:var(--text-dim);font-size:0.95rem;text-decoration:none;padding:12px 20px;border:1px solid rgba(255,255,255,0.1);border-radius:4px;">← Back to Homepage</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM NOTE -->
+  <div style="text-align:center;padding:0 0 40px;">
+    <p style="font-family:var(--font-condensed);font-size:0.85rem;color:var(--text-dim);line-height:1.7;">
+      No spam. No selling your data. No gimmicks.<br>
+      Just organized citizens building real leverage — district by district.<br>
+      <a href="index.html" style="color:var(--green);text-decoration:none;">← Back to PHIERS.org</a>
+    </p>
+  </div>
+
+</div><!-- end petition-wrap -->
+</div><!-- end page-wrap -->
+
+<!-- ── FOOTER ── -->
+<footer>
+  <img src="PHIERS_Logo.png" alt="PHIERS.org" class="footer-logo">
+  <div class="footer-power">
+    Energy without power fails.<br>
+    PHIERStorm is the power.<br>
+    <span style="color:var(--text-dim);">The only thing missing is you.</span>
+  </div>
+  <nav class="footer-nav">
+    <a href="index.html">Home</a>
+    <a href="Crisis.html">The Crisis</a>
+    <a href="SimpleMath.html">Simple Math</a>
+    <a href="Leverage.html">Leverage</a>
+    <a href="https://forms.gle/euJkZxjUserFVCPK8" target="_blank" rel="noopener noreferrer">⚡ JOIN THE FIRST WAVE</a>
+    <a href="Donate.html">Donate</a>
+    <a href="FAQ.html" target="_blank">FAQ</a>
+    <a href="healthcare-proof.html" target="_blank">Full Story</a>
+  </nav>
+  <div class="footer-copy">
+    Not built for profit. Not built for power. Built for We the People — by people who refused to stop.<br>
+    📧 <a href="mailto:info@phiers.org">info@phiers.org</a> · 📞 (916) 306-8967<br>
+    © PHIERS.org — Original Concept Since 2009. All Rights Reserved.
+  </div>
+</footer>
+
+<button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
+
+<script>
+// ── GOOGLE SHEETS ENDPOINT ──
+// REPLACE THIS URL with your deployed Google Apps Script web app URL
+// Instructions below in the setup guide
+var SHEETS_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+
+// ── NAVIGATION ──
+function toggleMenu() {
+  var menu = document.getElementById('mobile-menu');
+  if (menu) menu.classList.toggle('open');
+}
+
+document.addEventListener('click', function(event) {
+  var menu = document.getElementById('mobile-menu');
+  var hamburger = document.querySelector('.hamburger');
+  if (menu && hamburger && menu.classList.contains('open') &&
+      !menu.contains(event.target) && !hamburger.contains(event.target)) {
+    menu.classList.remove('open');
+  }
+});
+
+document.querySelectorAll('.mobile-menu a').forEach(function(a) {
+  a.addEventListener('click', function() {
+    var m = document.getElementById('mobile-menu');
+    if (m) m.classList.remove('open');
+  });
+});
+
+window.addEventListener('scroll', function() {
+  var n = document.getElementById('main-nav');
+  if (n) n.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+var btt = document.getElementById('back-to-top');
+if (btt) {
+  window.addEventListener('scroll', function() {
+    btt.classList.toggle('visible', window.scrollY > 400);
+  });
+  btt.addEventListener('click', function() {
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+}
+
+// ── FORM SUBMISSION ──
+document.getElementById('petition-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  var btn = document.getElementById('submit-btn');
+  var status = document.getElementById('form-status');
+
+  // Validate required fields
+  var firstName = document.getElementById('firstName').value.trim();
+  var lastName = document.getElementById('lastName').value.trim();
+  var zipCode = document.getElementById('zipCode').value.trim();
+  var email = document.getElementById('email').value.trim();
+
+  if (!firstName || !lastName || !zipCode || !email) {
+    status.className = 'form-status error';
+    status.textContent = 'Please fill in all required fields.';
+    return;
+  }
+
+  // Basic email validation
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    status.className = 'form-status error';
+    status.textContent = 'Please enter a valid email address.';
+    return;
+  }
+
+  // ZIP validation
+  if (!/^\d{5}(-\d{4})?$/.test(zipCode)) {
+    status.className = 'form-status error';
+    status.textContent = 'Please enter a valid ZIP code (e.g. 90210).';
+    return;
+  }
+
+  // Collect "matters" checkboxes
+  var matters = [];
+  document.querySelectorAll('input[name="matters"]:checked').forEach(function(cb) {
+    matters.push(cb.value);
+  });
+
+  var notify = document.getElementById('notify').checked ? 'Yes' : 'No';
+
+  // Disable button
+  btn.disabled = true;
+  btn.textContent = 'Submitting...';
+  status.className = 'form-status';
+
+  // Build payload
+  var payload = {
+    firstName: firstName,
+    lastName: lastName,
+    zipCode: zipCode,
+    email: email,
+    notify: notify,
+    matters: matters.join(', ') || 'Not specified',
+    timestamp: new Date().toISOString()
+  };
+
+  // Submit to Google Sheets
+  fetch(SHEETS_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  })
+  .then(function() {
+    // no-cors means we can't read the response — assume success
+    showSuccess();
+  })
+  .catch(function(err) {
+    btn.disabled = false;
+    btn.textContent = '⚡ ADD MY NAME TO THE RECORD';
+    status.className = 'form-status error';
+    status.textContent = 'Something went wrong. Please try again or email info@phiers.org.';
+  });
+});
+
+function showSuccess() {
+  document.getElementById('petition-form').style.display = 'none';
+  document.getElementById('form-status').style.display = 'none';
+  document.getElementById('success-screen').classList.add('visible');
+  document.getElementById('petition-form-section').scrollIntoView({behavior: 'smooth', block: 'start'});
+}
+
+(function() {
+  var currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.mobile-menu a').forEach(function(a) {
+    if (a.getAttribute('href') === currentPage) a.classList.add('active');
+  });
+})();
+</script>
+
+<!--
+═══════════════════════════════════════════════════════
+  GOOGLE APPS SCRIPT SETUP — 5 MINUTE GUIDE
+  Follow these steps to connect the form to Google Sheets
+═══════════════════════════════════════════════════════
+
+STEP 1: Create a Google Sheet
+  - Go to sheets.google.com
+  - Create a new spreadsheet named "PHIERS Petition Signatures"
+  - Add these headers in Row 1:
+    A: Timestamp  B: First Name  C: Last Name
+    D: ZIP Code   E: Email       F: Notify  G: What Matters Most
+
+STEP 2: Open Apps Script
+  - In your Sheet: Extensions → Apps Script
+  - Delete any existing code and paste this:
+
+function doPost(e) {
+  try {
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    var data = JSON.parse(e.postData.contents);
+    sheet.appendRow([
+      data.timestamp || new Date().toISOString(),
+      data.firstName || '',
+      data.lastName || '',
+      data.zipCode || '',
+      data.email || '',
+      data.notify || '',
+      data.matters || ''
+    ]);
+    return ContentService
+      .createTextOutput(JSON.stringify({result: 'success'}))
+      .setMimeType(ContentService.MimeType.JSON);
+  } catch(err) {
+    return ContentService
+      .createTextOutput(JSON.stringify({result: 'error', error: err.toString()}))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+
+STEP 3: Deploy
+  - Click Deploy → New deployment
+  - Type: Web app
+  - Execute as: Me
+  - Who has access: Anyone
+  - Click Deploy → copy the Web App URL
+
+STEP 4: Paste the URL
+  - In petition.html find:
+    var SHEETS_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+  - Replace with your URL
+
+STEP 5: Test
+  - Submit the form once with test data
+  - Check your Google Sheet — row should appear instantly
+  - Delete the test row
+
+DONE. Sort by ZIP to track district progress toward 1,500.
+═══════════════════════════════════════════════════════
+-->
+
+</body>
+</html>
