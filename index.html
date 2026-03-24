@@ -22,6 +22,9 @@
     <a href="index.html" style="font-family:var(--font-condensed);font-weight:700;font-size:1.3rem;color:#fff;text-decoration:none;letter-spacing:0.05em">PHIERS.org</a>
     <div class="nav-tagline">When Americans coordinate, Congress has no choice.</div>
   </div>
+  <div class="nav-center">
+    <button class="hamburger-desktop" onclick="toggleMenu()" aria-label="Menu">☰</button>
+  </div>
   <div class="nav-right">
     <a href="petition.html">✍ Sign the Petition</a>
     <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">☰</button>
@@ -474,8 +477,9 @@ function toggleMenu() {
 document.addEventListener('click', function(event) {
   var menu = document.getElementById('mobile-menu');
   var hamburger = document.querySelector('.hamburger');
-  if (menu && hamburger && menu.classList.contains('open') &&
-      !menu.contains(event.target) && !hamburger.contains(event.target)) {
+  var hamburgerDesktop = document.querySelector('.hamburger-desktop');
+  if (menu && (hamburger || hamburgerDesktop) && menu.classList.contains('open') &&
+      !menu.contains(event.target) && !hamburger?.contains(event.target) && !hamburgerDesktop?.contains(event.target)) {
     menu.classList.remove('open');
   }
 });
@@ -538,6 +542,7 @@ function closePhierModal() {
   }
 }
 
+// IMMEDIATE MODAL DISPLAY - NO DELAY
 (function initModal() {
   var modal = document.getElementById('phiers-modal');
   if (!modal) return;
@@ -546,6 +551,7 @@ function closePhierModal() {
     document.body.style.overflow = 'auto';
     return;
   }
+  // Show immediately - no setTimeout, no delay
   modal.style.display = 'flex';
   document.body.style.overflow = 'hidden';
 })();
