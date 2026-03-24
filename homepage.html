@@ -622,7 +622,7 @@
                   border:2px solid rgba(61,220,132,0.3);box-shadow:0 25px 50px -12px rgba(0,0,0,0.8);object-fit:contain;">
     </div>
     
-    <!-- Button container - always accessible -->
+   <!-- Button container - always accessible -->
     <div style="text-align:center;margin-top:24px;padding-bottom:10px;">
       <a href="#learn-more" onclick="closePhierModal()" style="
           background:#3ddc84;color:#111d35;padding:14px 40px;border-radius:40px;
@@ -631,7 +631,7 @@
           display:inline-block;border:2px solid #3ddc84;transition:all 0.3s ease;"
           onmouseover="this.style.background='transparent';this.style.color='#3ddc84'"
           onmouseout="this.style.background='#3ddc84';this.style.color='#111d35'">
-        JOIN THE MOVEMENT — See Why Congress Can't Ignore This →
+        Join the Movement →
       </a>
     </div>
   </div>
@@ -757,22 +757,23 @@ function closePhierModal() {
   if (modal) {
     modal.style.display = 'none';
     document.body.style.overflow = 'auto';
-    localStorage.setItem('phiersModalSeen', 'true');
+    sessionStorage.setItem('phiersModalSeen', 'true');
   }
 }
 
+// IMMEDIATE MODAL DISPLAY - NO DELAY
 (function initModal() {
   var modal = document.getElementById('phiers-modal');
   if (!modal) return;
-  if (localStorage.getItem('phiersModalSeen')) {
+  if (sessionStorage.getItem('phiersModalSeen')) {
     modal.style.display = 'none';
     document.body.style.overflow = 'auto';
     return;
   }
-  setTimeout(function() {
-    modal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-  })();
+  // Show immediately - no setTimeout
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+})();
 
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') {
