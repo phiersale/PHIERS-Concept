@@ -12,238 +12,19 @@
 <meta name="description" content="An unauthorized war costs $1B+ a day. Congress never voted for it. PHIERS shows how one coordinated action creates leverage to force Congress to act — on healthcare, the war, and the draft at the same time.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Barlow+Condensed:wght@700;900&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg-deep: #080d1a;
-      --bg-dark: #0d1525;
-      --bg-card: #111d35;
-      --green: #3ddc84;
-      --red: #e63946;
-      --gold: #ffd60a;
-      --text-bright: #f0f4ff;
-      --text-body: #b8c8e8;
-      --text-dim: #7a94b8;
-      --border: rgba(61,220,132,0.2);
-      --font-display: 'Bebas Neue', sans-serif;
-      --font-condensed: 'Barlow Condensed', sans-serif;
-      --font-body: 'Barlow', sans-serif;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    body {
-      background: #080d1a;
-      font-family: 'Barlow', sans-serif;
-      color: #b8c8e8;
-      line-height: 1.8;
-      font-size: 1.05rem;
-      overflow-x: hidden;
-    }
-
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 1000;
-      background: rgba(8,13,26,0.95);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(61,220,132,0.2);
-      padding: 0 24px;
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    nav.scrolled { box-shadow: 0 4px 40px rgba(61,220,132,0.1); }
-
-    .nav-left { display: flex; align-items: center; gap: 14px; }
-    .nav-left a {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 1.3rem;
-      color: #fff;
-      text-decoration: none;
-      letter-spacing: 0.05em;
-    }
-    .nav-tagline {
-      font-style: italic;
-      font-size: 0.78rem;
-      color: #3ddc84;
-      line-height: 1.3;
-      display: none;
-    }
-    @media(min-width:640px){ .nav-tagline { display: block; } }
-
-    .nav-right { display: flex; align-items: center; gap: 12px; }
-    .btn-petition {
-      background: #e63946;
-      color: #fff;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 1rem;
-      letter-spacing: 0.05em;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
-      transition: background 0.2s, transform 0.1s;
-      animation: pulse-btn 8s ease-in-out infinite;
-    }
-    .btn-petition:hover { background: #c1121f; transform: scale(1.03); }
-    @keyframes pulse-btn {
-      0%,90%,100% { box-shadow: 0 0 0 0 rgba(230,57,70,0); }
-      95% { box-shadow: 0 0 0 8px rgba(230,57,70,0.3); }
-    }
-
-    .hamburger {
-      background: none;
-      border: 1px solid rgba(61,220,132,0.2);
-      color: #f0f4ff;
-      font-size: 1.3rem;
-      padding: 8px 12px;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    .mobile-menu {
-      display: none;
-      position: fixed;
-      top: 64px; left: 0; right: 0;
-      background: #0d1525;
-      border-bottom: 1px solid rgba(61,220,132,0.2);
-      z-index: 999;
-      padding: 20px 24px;
-      flex-direction: column;
-      gap: 4px;
-    }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a {
-      color: #b8c8e8;
-      text-decoration: none;
-      padding: 10px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-      font-size: 1rem;
-      transition: color 0.2s;
-    }
-    .mobile-menu a:hover { color: #3ddc84; }
-    .mobile-menu a.active { color: #3ddc84; font-weight: 700; }
-
-    .page-wrap {
-      max-width: 880px;
-      margin: 0 auto;
-      padding: 100px 24px 80px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .section { margin-bottom: 70px; position: relative; }
-
-    .eyebrow {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 0.85rem;
-      letter-spacing: 0.15em;
-      color: #3ddc84;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-      display: block;
-    }
-
-    h1 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(3rem, 8vw, 5.2rem);
-      color: #f0f4ff;
-      line-height: 1.0;
-      margin-bottom: 16px;
-    }
-    h1 .red { color: #e63946; }
-    h1 .green { color: #3ddc84; }
-
-    .hero-subhead { font-size: 1.4rem; color: #b8c8e8; max-width: 700px; margin-bottom: 16px; line-height: 1.4; }
-    .hero-paragraph { font-size: 1.2rem; color: #b8c8e8; max-width: 700px; margin-bottom: 28px; line-height: 1.6; }
-
-    .stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 40px 0; }
-    .stat-card { background: #111d35; border: 1px solid rgba(230,57,70,0.3); border-radius: 8px; padding: 24px 20px; text-align: center; }
-    .stat-card .big { font-family: 'Bebas Neue', sans-serif; font-size: 2.8rem; color: #e63946; line-height: 1; margin-bottom: 12px; }
-    .stat-card p { color: #b8c8e8; margin: 0; font-size: 0.95rem; }
-
-    .red-box { background: rgba(230,57,70,0.05); border: 1px solid rgba(230,57,70,0.25); border-left: 4px solid #e63946; border-radius: 0 8px 8px 0; padding: 28px; margin: 32px 0; }
-    .green-box { background: rgba(61,220,132,0.05); border: 1px solid rgba(61,220,132,0.25); border-left: 4px solid #3ddc84; border-radius: 0 8px 8px 0; padding: 28px; margin: 32px 0; }
-    .gold-box { background: rgba(255,214,10,0.05); border: 1px solid rgba(255,214,10,0.25); border-left: 4px solid #ffd60a; border-radius: 0 8px 8px 0; padding: 28px; margin: 32px 0; }
-
-    h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 5vw, 3.2rem); color: #f0f4ff; line-height: 1.1; margin-bottom: 24px; }
-    h2 .red { color: #e63946; }
-    h2 .green { color: #3ddc84; }
-    h2 .gold { color: #ffd60a; }
-
-    .sequence { counter-reset: step; margin: 30px 0; }
-    .seq-item { display: flex; gap: 20px; margin-bottom: 28px; align-items: flex-start; }
-    .seq-num { background: #3ddc84; color: #080d1a; font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.2rem; min-width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 4px; }
-    .seq-content h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.2rem; color: #f0f4ff; margin-bottom: 6px; }
-    .seq-content p { margin: 0; }
-
-    .cta-row { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin: 36px 0 20px; }
-    .btn-primary { background: #3ddc84; color: #080d1a; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.2rem; letter-spacing: 0.05em; padding: 14px 36px; border-radius: 4px; text-decoration: none; transition: background 0.2s, transform 0.1s; }
-    .btn-primary:hover { background: #2ab568; transform: scale(1.02); }
-    .btn-secondary { background: transparent; color: #3ddc84; border: 1px solid #3ddc84; padding: 14px 36px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.2rem; letter-spacing: 0.05em; border-radius: 4px; text-decoration: none; transition: background 0.2s; }
-    .btn-secondary:hover { background: rgba(61,220,132,0.15); }
-    .btn-warning { background: #ffd60a; color: #080d1a; border: 1px solid #ffd60a; }
-    .btn-warning:hover { background: #e6c20a; }
-
-    .next-grid { background: #0d1525; border-left: 4px solid #3ddc84; border-radius: 0 8px 8px 0; padding: 28px; margin: 40px 0; }
-    .next-grid p { margin: 8px 0; }
-    .next-grid a { color: #3ddc84; font-weight: 600; text-decoration: none; }
-    .next-grid a:hover { text-decoration: underline; }
-
-    .hashtag { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: #3ddc84; text-align: center; margin: 40px 0 10px; letter-spacing: 0.04em; }
-
-    hr.divider { border: none; border-top: 1px solid rgba(61,220,132,0.2); margin: 60px 0; }
-
-    footer { background: #0d1525; border-top: 1px solid rgba(61,220,132,0.2); padding: 48px 24px 32px; text-align: center; }
-    .footer-logo { height: 40px; margin-bottom: 16px; }
-    .footer-mabah { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.1rem; color: #f0f4ff; }
-    .footer-mabah-sub { font-size: 0.9rem; color: #3ddc84; font-style: italic; margin-bottom: 24px; }
-    .footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 24px; margin-bottom: 24px; }
-    .footer-nav a { color: #7a94b8; text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
-    .footer-nav a:hover { color: #3ddc84; }
-    .footer-copy { font-size: 0.8rem; color: #7a94b8; max-width: 600px; margin: 0 auto; }
-    .footer-copy a { color: #3ddc84; text-decoration: none; }
-
-    .image-modal { display: none; position: fixed; z-index: 9999; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); justify-content: center; align-items: center; }
-    .image-modal.active { display: flex; }
-    .modal-content { max-width: 90vw; max-height: 90vh; border-radius: 8px; border: 2px solid #3ddc84; }
-    .close-modal { position: absolute; top: 20px; right: 30px; color: #fff; font-size: 3rem; cursor: pointer; background: none; border: none; }
-    .close-modal:hover { color: #3ddc84; }
+<link rel="stylesheet" href="styles-new.css">
   
-  .mobile-menu { gap: 0; padding: 16px 24px 24px; }
-  .menu-label { font-family: var(--font-condensed); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-dim); padding: 16px 0 4px; border-bottom: 1px solid rgba(61,220,132,0.15); margin-bottom: 2px; display: block; }
-  .menu-label:first-child { padding-top: 4px; }
-  .mobile-menu a { padding: 8px 0 8px 12px; border-bottom: none; font-size: 0.97rem; }
-  .mobile-menu a.menu-deepdive { color: var(--green); font-weight: 700; padding-left: 0; margin-top: 4px; }
-
-  /* ── MOBILE IMAGE SAFETY ── */
-  @media (max-width: 640px) {
-    .graphic-wrap img { max-width: 90% !important; }
-    img[style*="height:"] { max-width: 100%; }
-  }
-
-  .menu-section{width:100%;border-bottom:1px solid rgba(255,255,255,0.07);}
-  .menu-section[open]>summary{color:var(--green);}
-  .menu-section>summary.menu-label{cursor:pointer;font-family:var(--font-condensed);font-size:1rem;font-weight:900;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-bright);padding:14px 0;list-style:none;display:flex;justify-content:center;align-items:center;gap:8px;width:100%;}
-  .menu-section>summary.menu-label::after{content:'▾';font-size:0.85rem;transition:transform 0.2s;}
-  .menu-section[open]>summary.menu-label::after{transform:rotate(180deg);}
-  .menu-section>summary::-webkit-details-marker{display:none;}
-  .menu-section a{display:block;padding:10px 0;text-align:center;width:100%;color:var(--text-body);text-decoration:none;font-size:1rem;transition:color 0.2s;border-bottom:1px solid rgba(255,255,255,0.04);}
-  .menu-section a:last-child{border-bottom:none;}
-  .menu-section a:hover,.menu-section a.active{color:var(--green);}
-</style>
 </head>
 <body>
 
- <nav id="main-nav">
+<nav id="main-nav">
   <div class="nav-left">
-    <a href="index.html">PHIERS.org</a>
+    <a href="index.html" style="font-family:var(--font-condensed);font-weight:700;font-size:1.3rem;color:#fff;text-decoration:none;letter-spacing:0.05em">PHIERS.org</a>
     <div class="nav-tagline">When Americans coordinate, Congress has no choice.</div>
+  </div>
+  <div class="nav-center">
+    <button class="hamburger-desktop" onclick="toggleMenu()" aria-label="Menu">☰</button>
   </div>
   <div class="nav-right">
     <a href="petition.html">✍ Sign the Petition</a>
@@ -294,7 +75,7 @@
       <span class="eyebrow">End the War · Stop the Draft</span>
       <h1><span class="red">End the Unauthorized War.</span><br><span class="green">One coordinated action creates the leverage to force Congress to act — on all of it.</span></h1>
       <p class="hero-subhead">Congress Never Voted For This. Your Kids Shouldn't Have To Fight In It.</p>
-      <p class="hero-paragraph">PHIERStorm is how we stop it.</p>
+      <p class="hero-paragraph"><strong>PHIERStorm is how we stop it.</strong></p>
       <div style="background:rgba(61,220,132,0.06);border:1px solid rgba(61,220,132,0.2);border-left:4px solid #3ddc84;border-radius:0 8px 8px 0;padding:18px 22px;margin:20px 0;">
         <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;color:#3ddc84;font-size:1.05rem;margin:0;line-height:1.6;">
           The same coordinated action builds the leverage to stop this war — and fix healthcare at the same time.<br>
@@ -519,19 +300,17 @@
   </div>
 
   <script>
-    function toggleMenu() {
+   function toggleMenu() {
       var menu = document.getElementById('mobile-menu');
-      if (!menu) return;
-      menu.style.top = '64px';
-      menu.classList.toggle('open');
+      if (menu) menu.classList.toggle('open');
     }
-
+    
     document.addEventListener('click', function(event) {
       var menu = document.getElementById('mobile-menu');
       var hamburger = document.querySelector('.hamburger');
-      if (menu && menu.classList.contains('open') &&
-          !menu.contains(event.target) &&
-          !hamburger.contains(event.target)) {
+      var hamburgerDesktop = document.querySelector('.hamburger-desktop');
+      if (menu && (hamburger || hamburgerDesktop) && menu.classList.contains('open') &&
+          !menu.contains(event.target) && !hamburger?.contains(event.target) && !hamburgerDesktop?.contains(event.target)) {
         menu.classList.remove('open');
       }
     });
