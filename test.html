@@ -542,30 +542,24 @@
     
     
     function loadVideo(videoId, element) {
-        const iframe = document.createElement('iframe');
-        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
-        iframe.setAttribute('frameborder', '0');
-        iframe.setAttribute('allowfullscreen', '');
-        iframe.style.width = '100%';
-        iframe.style.height = '100%';
-        iframe.style.position = 'absolute';
-        iframe.style.top = '0';
-        iframe.style.left = '0';
-        
-        const container = element.parentElement;
-        const parent = container.parentElement;
-        container.style.display = 'none';
-        
-        const newContainer = document.createElement('div');
-        newContainer.style.position = 'relative';
-        newContainer.style.paddingBottom = '56.25%';
-        newContainer.style.height = '0';
-        newContainer.style.overflow = 'hidden';
-        newContainer.style.borderRadius = '12px';
-        newContainer.appendChild(iframe);
-        
-        parent.replaceChild(newContainer, container);
-    }
+            // element is the video-facade div
+            const facade = element;
+            
+            // Create iframe
+            const iframe = document.createElement('iframe');
+            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+            iframe.setAttribute('frameborder', '0');
+            iframe.setAttribute('allowfullscreen', '');
+            iframe.style.width = '100%';
+            iframe.style.height = '100%';
+            iframe.style.position = 'absolute';
+            iframe.style.top = '0';
+            iframe.style.left = '0';
+            
+            // Clear the facade and add iframe (keeps same dimensions)
+            facade.innerHTML = '';
+            facade.appendChild(iframe);
+        }
     
     const videoFacade = document.getElementById('videoFacade');
     const watchLink = document.getElementById('watchLink');
