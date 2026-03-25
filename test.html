@@ -518,6 +518,11 @@
     </div>
 </div>
 
+<!-- START HERE HELPER -->
+<div style="text-align: center; margin: 1rem auto 3rem auto;">
+    <a href="homepage.html" style="display: inline-block; background: transparent; color: var(--green); border: 1.5px solid rgba(61,220,132,0.5); padding: 8px 24px; border-radius: 40px; font-family: var(--font-body); font-weight: 500; font-size: 0.9rem; text-decoration: none; transition: all 0.2s ease;" onmouseover="this.style.borderColor='var(--green)'; this.style.background='rgba(61,220,132,0.05)'" onmouseout="this.style.borderColor='rgba(61,220,132,0.5)'; this.style.background='transparent'">Start here if you're not sure →</a>
+</div>
+    
 <script>
        const modal = document.getElementById('entryModal');
     const enterBtn = document.getElementById('enterSiteBtn');
@@ -561,21 +566,15 @@
             facade.appendChild(iframe);
         }
     
-    const videoFacade = document.getElementById('videoFacade');
-    const watchLink = document.getElementById('watchLink');
-    const videoId = videoFacade.getAttribute('data-video-id');
-    
-    function initVideo() {
-        loadVideo(videoId, videoFacade);
-    }
-    
-    videoFacade.addEventListener('click', initVideo);
-    if (watchLink) {
-        watchLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            initVideo();
-        });
-    }
+        const videoFacade = document.getElementById('videoFacade');
+        const videoId = videoFacade.getAttribute('data-video-id');
+        
+        function initVideo() {
+            loadVideo(videoId, videoFacade);
+        }
+        
+        videoFacade.addEventListener('click', initVideo);
+            
 </script>
 
 </body>
