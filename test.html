@@ -286,28 +286,7 @@
             margin-bottom: 1.5rem;
             color: var(--text-bright);
         }
-        
-        .btn-soft-outline {
-            display: inline-block;
-            background: transparent;
-            border: 2px solid rgba(61, 220, 132, 0.5);
-            color: var(--green);
-            padding: 0.8rem 2rem;
-            border-radius: 40px;
-            font-family: var(--font-body);
-            font-weight: 600;
-            font-size: 1rem;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            margin-bottom: 1rem;
-        }
-        
-        .btn-soft-outline:hover {
-            background: rgba(61, 220, 132, 0.1);
-            border-color: var(--green);
-            color: var(--green);
-        }
-        
+                
         .catch-line {
             font-family: var(--font-body);
             font-size: 0.85rem;
@@ -385,7 +364,7 @@
             }
         }
         
-        .modal-content .enter-button {
+                #enterSiteBtn {
             opacity: 0;
             animation: fadeInButton 0.3s ease-in 3s forwards;
         }
@@ -394,6 +373,36 @@
             to {
                 opacity: 1;
             }
+        }
+        
+        /* Ensure modal is fixed overlay, not inline */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 99999;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            max-width: 90vw;
+            max-height: 90vh;
+            text-align: center;
+        }
+        
+        .modal-content img {
+            max-width: 100%;
+            max-height: 80vh;
+            width: auto;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 8px;
         }
         
         /* Logo in nav */
@@ -414,10 +423,10 @@
 <body>
 
 <!-- MODAL with 3-second delay -->
-<div id="entryModal" class="modal">
-    <div class="modal-content">
-        <img src="Congress_Dont_Work_4U-WEre_changing_that-BIG.jpg" alt="Congress" class="modal-image">
-        <button class="enter-button" id="enterSiteBtn">Enter the Site →</button>
+<div id="entryModal" class="modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:99999;align-items:center;justify-content:center;">
+    <div class="modal-content" style="max-width:90vw;max-height:90vh;text-align:center;">
+        <img src="Congress_Dont_Work_4U-WEre_changing_that-BIG.jpg" alt="Congress" style="max-width:100%;max-height:80vh;width:auto;height:auto;display:block;margin:0 auto;border-radius:8px;">
+        <button class="enter-button" id="enterSiteBtn" style="display:block;margin:20px auto 0;padding:12px 32px;background:var(--green);color:#111d35;border:2px solid var(--green);border-radius:40px;font-family:var(--font-body);font-weight:700;font-size:1rem;cursor:pointer;transition:all 0.2s ease;">Enter the Site →</button>
     </div>
 </div>
 
@@ -661,7 +670,7 @@
 </div>
 
 <script>
-    const modal = document.getElementById('entryModal');
+       const modal = document.getElementById('entryModal');
     const enterBtn = document.getElementById('enterSiteBtn');
     
     if (!sessionStorage.getItem('modalShown')) {
