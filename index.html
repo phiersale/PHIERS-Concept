@@ -1,360 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>PHIERS | You Are Not Powerless</title>
-    <link rel="icon" type="image/png" href="PHIERS_Logo.png">
-    <meta property="og:image" content="PHIERS_Logo.png">
-    <link rel="stylesheet" href="styles-new.css">
-    <style>
-        /* Additional styles for new components — extends styles-new.css */
-        
-        /* Hero micro-line */
-        .hero-micro {
-            font-family: var(--font-body);
-            font-size: 0.9rem;
-            color: var(--red);
-            font-weight: 500;
-            margin-top: 0.5rem;
-            letter-spacing: 0.3px;
-        }
-        
-        /* Hero image caption */
-        .hero-image-caption {
-            font-family: var(--font-body);
-            text-align: center;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-top: 0.75rem;
-            font-style: italic;
-        }
-        
-        /* Pathos validation block */
-        .validation-block {
-            max-width: 800px;
-            margin: 4rem auto;
-            padding: 0 var(--mobile-padding);
-            text-align: center;
-        }
-        
-        .validation-eyebrow {
-            font-family: var(--font-body);
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 600;
-            color: var(--red);
-            margin-bottom: 1rem;
-        }
-        
-        .validation-quote {
-            font-family: var(--font-headline);
-            font-size: 1.8rem;
-            font-weight: 600;
-            line-height: 1.3;
-            color: var(--text-primary);
-            margin-bottom: 1rem;
-        }
-        
-        .validation-attribution {
-            font-family: var(--font-body);
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            margin-bottom: 0.5rem;
-        }
-        
-        .validation-grassroots {
-            font-family: var(--font-body);
-            font-size: 0.95rem;
-            color: var(--green);
-            font-weight: 500;
-            margin: 1.5rem 0 2rem;
-        }
-        
-        /* Video thumbnail facade */
-        .video-facade {
-            position: relative;
-            cursor: pointer;
-            border-radius: 12px;
-            overflow: hidden;
-            margin: 1.5rem 0;
-            aspect-ratio: 16 / 9;
-            background: #000;
-        }
-        
-        .video-facade img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-        
-        .video-facade:hover img {
-            transform: scale(1.05);
-        }
-        
-        .play-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 70px;
-            height: 70px;
-            background: var(--red);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.2s ease;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            font-size: 32px;
-            color: white;
-        }
-        
-        .video-facade:hover .play-button {
-            transform: translate(-50%, -50%) scale(1.1);
-        }
-        
-        .watch-link {
-            display: inline-block;
-            margin-top: 0.75rem;
-            font-family: var(--font-body);
-            font-weight: 600;
-            color: var(--red);
-            text-decoration: none;
-            font-size: 0.95rem;
-        }
-        
-        .watch-link:hover {
-            text-decoration: underline;
-        }
-        
-        /* Doors section */
-        .doors-section {
-            max-width: 1200px;
-            margin: 5rem auto;
-            padding: 0 var(--mobile-padding);
-        }
-        
-        .doors-label {
-            font-family: var(--font-body);
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 600;
-            color: var(--red);
-            text-align: center;
-            margin-bottom: 0.5rem;
-        }
-        
-        .doors-header {
-            font-family: var(--font-headline);
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
-        }
-        
-        .doors-bridge {
-            font-family: var(--font-body);
-            text-align: center;
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            margin-bottom: 2.5rem;
-        }
-        
-        .doors-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            justify-content: center;
-        }
-        
-        .door-card {
-            flex: 1;
-            min-width: 280px;
-            background: var(--bg-card);
-            border-radius: 20px;
-            padding: 2rem;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            border-top: 4px solid;
-        }
-        
-        .door-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 28px rgba(0,0,0,0.15);
-        }
-        
-        .door-card.red {
-            border-top-color: var(--red);
-        }
-        
-        .door-card.green {
-            border-top-color: var(--green);
-        }
-        
-        .door-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .deep-dive-badge {
-            display: inline-block;
-            background: var(--green);
-            color: white;
-            font-family: var(--font-body);
-            font-size: 0.7rem;
-            font-weight: 600;
-            padding: 0.2rem 0.8rem;
-            border-radius: 20px;
-            letter-spacing: 0.5px;
-            margin-bottom: 0.75rem;
-        }
-        
-        .door-title {
-            font-family: var(--font-headline);
-            font-size: 1.6rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            color: var(--text-primary);
-        }
-        
-        .door-description {
-            font-family: var(--font-body);
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            line-height: 1.5;
-            margin-bottom: 1.5rem;
-        }
-        
-        .door-btn {
-            display: inline-block;
-            background: transparent;
-            border: 2px solid;
-            padding: 0.7rem 1.5rem;
-            border-radius: 40px;
-            font-family: var(--font-body);
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            font-size: 0.9rem;
-        }
-        
-        .door-card.red .door-btn {
-            border-color: var(--red);
-            color: var(--red);
-        }
-        
-        .door-card.red .door-btn:hover {
-            background: var(--red);
-            color: white;
-        }
-        
-        .door-card.green .door-btn {
-            border-color: var(--green);
-            color: var(--green);
-        }
-        
-        .door-card.green .door-btn:hover {
-            background: var(--green);
-            color: white;
-        }
-        
-        /* Petition CTA */
-        .petition-cta {
-            text-align: center;
-            max-width: 600px;
-            margin: 3rem auto 5rem;
-            padding: 0 var(--mobile-padding);
-        }
-        
-        .petition-cta p {
-            font-family: var(--font-headline);
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            color: var(--text-primary);
-        }
-        
-        .btn-green-outline {
-            display: inline-block;
-            background: transparent;
-            border: 2px solid var(--green);
-            color: var(--green);
-            padding: 0.8rem 2rem;
-            border-radius: 40px;
-            font-family: var(--font-body);
-            font-weight: 700;
-            font-size: 1rem;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            margin-bottom: 1rem;
-        }
-        
-        .btn-green-outline:hover {
-            background: var(--green);
-            color: white;
-        }
-        
-        .catch-line {
-            font-family: var(--font-body);
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-        
-     @media (max-width: 768px) {
-            .validation-quote {
-                font-size: 1.4rem;
-            }
-            .doors-header {
-                font-size: 1.8rem;
-            }
-            .petition-cta p {
-                font-size: 1.2rem;
-            }
-            .door-card {
-                padding: 1.5rem;
-            }
-            .doors-grid {
-                flex-direction: column;
-                align-items: center;
-            }
-            .door-card {
-                width: 100%;
-                max-width: 400px;
-            }
-        }
-        
-        /* Modal button delay fix */
-        .modal-content .enter-button {
-            opacity: 0;
-            animation: fadeInButton 0.3s ease-in 2s forwards;
-        }
-        
-        @keyframes fadeInButton {
-            to {
-                opacity: 1;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<link rel="preload" as="image" href="Congress_Dont_Work_4U-WEre_changing_that-BIG.jpg">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Congress ignores you because they can. PHIERS changes that. 3.5% of Americans organized = unstoppable change. PHIERStorm is the leverage.">
+<meta property="og:title" content="PHIERS.org — PHIERStorm: The Leverage Congress Can't Ignore">
+<meta property="og:description" content="3.5% organized = unstoppable change. That's the line. Energy without power fails. PHIERStorm is the leverage.">
+<meta property="og:image" content="PHIERS_Logo.png">
+<link rel="icon" type="image/png" href="PHIERS_Logo.png">
+<title>PHIERS.org — Welcome to PHIERStorm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Barlow+Condensed:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles-new.css">
 </head>
 <body>
 
-<!-- MODAL with correct image and sessionStorage -->
-<div id="entryModal" class="modal">
-    <div class="modal-content">
-        <img src="Congress_Dont_Work_4U-WEre_changing_that-BIG.jpg" alt="Congress" class="modal-image">
-        <button class="enter-button" id="enterSiteBtn">Enter the Site →</button>
-    </div>
-</div>
-
-<!-- NAV - CORRECT: matches homepage.html exactly -->
+<!-- ── NAV ── -->
 <nav id="main-nav">
   <div class="nav-left">
     <a href="index.html" style="font-family:var(--font-condensed);font-weight:700;font-size:1.3rem;color:#fff;text-decoration:none;letter-spacing:0.05em">PHIERS.org</a>
     <div class="nav-tagline">When Americans coordinate, Congress has no choice.</div>
+  </div>
+  <div class="nav-center">
+    <button class="hamburger-desktop" onclick="toggleMenu()" aria-label="Menu">☰</button>
   </div>
   <div class="nav-right">
     <a href="petition.html">✍ Sign the Petition</a>
@@ -362,8 +31,7 @@
   </div>
 </nav>
 
-
-<!-- MOBILE MENU -->
+<!-- ── MOBILE MENU ── -->
 <div class="mobile-menu" id="mobile-menu">
   <!-- END THE WAR - FIRST ITEM -->
   <div style="padding: 8px 20px 0 20px;">
@@ -400,93 +68,393 @@
   </details>
 </div>
 
+<div class="page-wrap" id="learn-more">
+
+<section id="hero" class="hero-with-teeth" style="text-align:center;padding:60px 24px 48px;">
+  <div style="margin-bottom:20px;">
+    <img src="PHIERS_Logo.png" alt="PHIERS.org" style="height:100px;width:auto;display:inline-block;margin-bottom:5px;">
+  </div>
+  <h1 class="hero-h1">You Are Not Powerless.</h1>
+  <p class="hero-sub" style="color:var(--text-dim)">You just haven't had the right leverage yet.</p>
+  <div style="margin:24px 0;">
+    <p class="hero-sub" style="color:var(--text-dim)">Congress ignores you — <span class="red">because they can.</span></p>
+    <p class="hero-sub" style="color:var(--text-dim)">The wars keep going — <span class="red">because Congress won't stop them.</span></p>
+    <p class="hero-sub" style="color:var(--green);margin-top:20px;font-weight:700;">Together, we force Congress to act — or replace them.</p>
+  </div>
+  <div class="graphic-container" style="max-width:680px;margin:32px auto 0;">
+    <img src="We_Gotz_Teeth_for_No_Kings.jpg"
+         alt="We are the Teeth — No Kings — Power concedes nothing without a demand"
+         style="width:100%;border-radius:8px;border:2px solid rgba(61,220,132,0.2);">
+    <p class="graphic-caption" style="margin-top:12px;font-style:italic;color:var(--text-dim);">
+      Power concedes nothing without a demand that has teeth.
+    </p>
+  </div>
+</section>
+
+<section class="section" style="max-width:780px;margin:0 auto;padding-top:48px;padding-bottom:36px;">
+  <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(1.4rem,3vw,1.9rem);color:var(--text-bright);letter-spacing:1px;margin-bottom:20px;text-align:center;">
+    How We Got Here — And What We Can Do Now
+  </h2>
+<div style="font-family:var(--font-condensed);font-size:clamp(1rem,2vw,1.15rem);color:var(--text-dim);line-height:1.8;text-align:center;">
   
-<main style="max-width:1200px;margin:0 auto;">
+  <p style="margin-bottom:1rem; font-size:clamp(1.2rem,2.5vw,1.4rem); font-weight:700; color:var(--text-bright);">
+    This is the moment everything either gets worse — or we decide it doesn't.
+  </p>
+  
+  <p style="margin-bottom:1rem;">
+    Costs keep rising. Healthcare is broken. And Congress is funding a war it never authorized—burning billions, shaking the global economy, and risking American lives in a conflict nobody voted for.
+  </p>
+  
+   <p style="margin-bottom:1rem; background:rgba(61,220,132,0.08); padding:16px 20px; border-left:3px solid var(--green); border-radius:0 8px 8px 0; text-align:center;">
+    <strong style="color:var(--green);">They have the power to stop it.</strong><br>
+    They just haven't been forced to.
+  </p>
+  
+  <p style="margin-bottom:1rem;">
+    Change isn't impossible —<br>but without coordinated pressure, ignoring the public is still easier than acting.
+  </p>
+  
+  <p style="margin-bottom:1rem; font-weight:700; color:var(--green); font-size:1.1rem;">
+    PHIERS exists to change that.
+  </p>
+  
+  <p style="margin-bottom:1rem;">
+    Anger doesn't move Congress.<br>
+    <strong style="color:var(--green);">Organized people with leverage do.</strong>
+  </p>
+  
+  <p style="margin-top:1.5rem; font-weight:600; color:var(--text-bright);">
+    Here's how we build that leverage —<br>and how you can be part of it right now.
+  </p>
+  
+</div>
+</section>
 
-    <!-- HERO SECTION -->
-      <section class="hero" style="text-align:center;">
-        <div class="hero-content">
-            <h1>You Are Not Powerless.</h1>
-            <p class="subhead">You just haven't had the right leverage yet.</p>
-            <p class="body-text">Congress ignores the public — because it can.<br>PHIERStorm turns people into pressure Congress can't ignore.</p>
-            <p class="hero-micro">A coordinated public pressure system built to force action.</p>
-            <a href="petition.html" class="btn-primary">✍ Add Your Name →</a>
-        </div>
-      <div class="hero-image">
-       <img src="We_Gotz_Teeth_for_No_Kings.jpg" alt="We Got Teeth for No Kings" style="max-width:80%;height:auto;border-radius:16px;margin:0 auto;display:block;">
-        <p class="hero-image-caption">Power concedes nothing without a demand that has teeth.</p>
+<hr class="divider">
+
+  <section class="section" style="max-width:780px;margin:0 auto;padding-top:48px;padding-bottom:36px;text-align:center;">
+
+  <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(1.4rem,3vw,1.9rem);color:var(--text-bright);letter-spacing:1px;margin-bottom:20px;">
+    This Doesn’t Stay Contained
+  </h2>
+
+  <div style="font-family:var(--font-condensed);font-size:clamp(1rem,2vw,1.15rem);color:var(--text-dim);line-height:1.8;">
+    
+    <p style="margin-bottom:1rem;">
+      Wars like this don’t just cost money. They ripple outward—through the global economy, through supply chains, through jobs, prices, and food security.
+    </p>
+
+    <p style="margin-bottom:1rem;">
+      We’re already feeling it.<br>
+      And without pressure, it gets worse.
+    </p>
+
+    <p style="margin-bottom:1.5rem; font-weight:700; color:var(--green);">
+      PHIERS is built to address this at every level.
+    </p>
+
+    <p style="font-weight:600; color:var(--text-bright);">
+      Keep reading to see how this works —<br>
+      or <a href="5D_Solutions.html" style="color:var(--green);text-decoration:none;border-bottom:1px solid rgba(61,220,132,0.4);">go straight to the 5D Solution →</a>
+    </p>
+
+  </div>
+
+</section>
+
+<hr class="divider">
+
+  
+<section class="section" style="text-align:center;padding-top:52px;padding-bottom:32px;">
+
+  <!-- MOVEMENT IDENTITY (LOGO) -->
+  <div style="margin:10px 0 28px;">
+    <img src="PHIERStorm_the_Movement.png"
+         alt="PHIERStorm — The Movement"
+         style="max-width:220px;width:100%;opacity:0.95;">
+  </div>
+
+  <!-- CORE STATEMENT -->
+  <h1 class="hero-h1" style="margin:0 0 20px;">
+    PHIERStorm is how we turn pressure into power.<br>
+    <span class="green">We finish what they start.</span>
+  </h1>
+
+  <!-- EXPLANATION -->
+  <p style="font-family:var(--font-condensed);font-size:clamp(1rem,2vw,1.15rem);color:var(--text-dim);max-width:640px;margin:0 auto;line-height:1.7;">
+    PHIERS is a coordinated movement that turns one action — adding your name — into real leverage to force Congress to act.
+  </p>
+
+</section>
+<hr class="divider">
+
+<!-- LIGHT CTA - CAPTURE THE ENERGY -->
+<div style="text-align:center; margin: 20px 0 40px;">
+  <p style="font-family:var(--font-condensed); font-size:1.1rem; color:var(--text-dim); margin-bottom:12px;">
+    Ready to be part of something that actually works?
+  </p>
+  <a href="petition.html" style="
+      display: inline-block;
+      background: transparent;
+      color: var(--green);
+      font-family: var(--font-condensed);
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      padding: 8px 20px;
+      border: 1px solid var(--green);
+      border-radius: 40px;
+      text-decoration: none;
+      transition: all 0.2s ease;"
+      onmouseover="this.style.background='var(--green)'; this.style.color='#111d35'"
+      onmouseout="this.style.background='transparent'; this.style.color='var(--green)'">
+    ✍ Add Your Name →
+  </a>
+</div>
+
+<hr class="divider">
+
+<section class="section" style="text-align:center;padding-top:48px;padding-bottom:48px;">
+  <div style="display:inline-block;border:2px solid var(--gold);border-radius:12px;padding:32px 48px;max-width:680px;">
+    <p style="font-family:var(--font-condensed);color:var(--gold);font-size:0.85rem;text-transform:uppercase;letter-spacing:3px;margin-bottom:12px;">Our North Star Goal</p>
+    <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,3rem);color:var(--gold);margin:0 0 16px 0;letter-spacing:2px;">
+      July 4, 2026.<br>Real Independence Day.
+    </h2>
+    <p style="font-family:var(--font-condensed);font-size:1.1rem;color:var(--text-bright);line-height:1.6;margin:0 0 12px;">
+      Not a deadline. A celebration.<br>
+      The day we celebrate because we already won.<br>
+      Healthcare for all. The war over. A tyrant held accountable by the people.<br>
+      <span style="color:var(--gold);font-weight:700;">That's what we're building toward. Starting right now.</span>
+    </p>
+    <p style="font-family:var(--font-condensed);font-size:1rem;color:var(--text-dim);font-style:italic;margin:0;">
+      This isn't a dream. It's what happens when 3.5% organizes with leverage.
+    </p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section class="section" style="max-width:760px;margin:0 auto;padding-top:52px;padding-bottom:52px;">
+  <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(1.4rem,3vw,1.9rem);color:var(--text-bright);letter-spacing:1px;margin-bottom:24px;">The Fix</h2>
+  
+  <div style="background:rgba(61,220,132,0.06); padding:20px 24px; border-left:3px solid var(--green); border-radius:0 8px 8px 0; margin-bottom:24px;">
+    <p style="font-family:var(--font-condensed);font-size:clamp(1rem,2vw,1.2rem);color:var(--text-bright);margin:0;line-height:1.6;">
+      Rallies show Congress we’re angry.<br>
+      <strong style="color:var(--green);">PHIERS shows them we’re organized.</strong>
+    </p>
+  </div>
+  
+  <p style="font-family:var(--font-condensed);font-size:clamp(1.1rem,2.2vw,1.3rem);color:var(--text-bright);font-weight:700;margin-bottom:16px;">
+    Congress can do better. We've handed them the solution.
+  </p>
+  <p style="font-family:var(--font-condensed);font-size:clamp(1rem,2vw,1.15rem);color:var(--green);font-weight:700;">
+    PHIERS proves the problems can be solved — with or without them.
+  </p>
+</section>
+
+<hr class="divider">
+
+<section class="section" style="max-width:760px;margin:0 auto;padding-top:52px;padding-bottom:52px;">
+  <div style="margin:8px 0 32px;padding:28px 32px;background:rgba(230,57,70,0.06);border-left:4px solid var(--red);border-radius:4px;">
+    <p style="font-family:'Bebas Neue',sans-serif;font-size:clamp(1.6rem,3.5vw,2.2rem);color:var(--red);line-height:1.2;margin:0;letter-spacing:1px;">
+      Anger without leverage gets a news cycle.<br>
+      <span style="color:var(--green);">We're building the leverage.</span>
+    </p>
+  </div>
+  <p style="font-family:var(--font-condensed);font-size:clamp(1rem,2vw,1.2rem);color:var(--text-dim);line-height:1.8;margin-bottom:20px;">
+    We fix healthcare without them — proving we don't need them.<br>
+    That proof gives us power over everything else.<br>
+    The war. The draft. The economy.
+  </p>
+  <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,4vw,2.5rem);color:var(--red);letter-spacing:1px;line-height:1.1;margin:0;">
+    We are the teeth behind every demand<br>being made in the streets.
+  </h2>
+</section>
+
+<hr class="divider">
+
+<section class="section" style="text-align:center;padding-top:52px;padding-bottom:52px;">
+  <span class="eyebrow">The Math Is Proven</span>
+  <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,6vw,4rem);color:var(--green);margin:8px 0 16px;letter-spacing:2px;">
+    3.5% organized = unstoppable.
+  </h2>
+  <p style="font-family:var(--font-condensed);font-size:clamp(1rem,2vw,1.2rem);color:var(--text-dim);margin-bottom:8px;">
+    Every time in history. Without exception.
+  </p>
+  <p style="font-family:var(--font-condensed);font-size:clamp(1rem,2vw,1.15rem);color:var(--text-dim);margin-bottom:32px;">
+    District by district. Name by name. We're building to it.<br>
+    The savings this unlocks — $2.7 trillion a year — cover the cost of everything we're demanding. Every bit of it.
+  </p>
+  <div class="graphic-container" style="max-width:560px;margin:0 auto;">
+    <img src="3.5pct_Erica_Chenoweth.jpg"
+         alt="3.5% — Chenoweth Research: Every Time"
+         style="width:100%;border-radius:8px;">
+    <p class="graphic-caption">Harvard researcher Erica Chenoweth. The data is ironclad.</p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section class="section" style="text-align:center;padding-top:52px;padding-bottom:52px;">
+  <p style="font-family:var(--font-condensed);font-size:clamp(1rem,2vw,1.2rem);color:var(--text-dim);margin-bottom:8px;">
+    Before you go deeper — add your name.
+  </p>
+  <p style="font-family:var(--font-condensed);font-size:clamp(1rem,2vw,1.15rem);color:var(--text-bright);margin-bottom:8px;">
+    1,500 signatures in your district triggers a mandatory town hall.
+  </p>
+  <p style="font-family:var(--font-condensed);font-size:clamp(1rem,2vw,1.15rem);color:var(--text-dim);margin-bottom:32px;">
+    Your rep shows up. Answers. Commits. Or gets replaced.
+  </p>
+  <a href="petition.html" class="btn-petition">✍ Sign the Petition</a>
+</section>
+
+<hr class="divider">
+
+<section class="section" style="padding-top:52px;padding-bottom:52px;">
+  <div style="text-align:center;margin-bottom:40px;">
+    <span class="eyebrow">Go Deeper</span>
+    <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,4vw,2.5rem);color:var(--text-bright);margin:8px 0 12px;">
+      Want to understand how this works?
+    </h2>
+    <p style="font-family:var(--font-condensed);font-size:1.05rem;color:var(--text-dim);max-width:600px;margin:0 auto;">
+      Pick the door that speaks to you. One explains the mechanism. The other is a deeper dive into the healthcare proof.
+    </p>
+  </div>
+
+  <div style="display:flex;flex-wrap:wrap;gap:24px;justify-content:center;max-width:900px;margin:0 auto;">
+
+    <!-- DOOR 1 — LEVERAGE -->
+    <a href="homepage.html" style="text-decoration:none;flex:1;min-width:280px;max-width:420px;">
+      <div style="background:rgba(230,57,70,0.08);border:2px solid rgba(230,57,70,0.4);border-radius:16px;
+                  padding:36px 32px;text-align:center;height:100%;
+                  transition:all 0.25s ease;cursor:pointer;"
+           onmouseover="this.style.background='rgba(230,57,70,0.15)';this.style.borderColor='var(--red)'"
+           onmouseout="this.style.background='rgba(230,57,70,0.08)';this.style.borderColor='rgba(230,57,70,0.4)'">
+        <div style="font-size:2.5rem;margin-bottom:16px;">⚡</div>
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--red);letter-spacing:1px;margin:0 0 16px 0;">
+          The Leverage
+        </h3>
+        <p style="font-family:var(--font-condensed);font-size:1rem;color:var(--text-dim);line-height:1.6;margin:0 0 16px 0;">
+          How organized people become impossible to ignore.<br>
+          How 3.5% makes Congress comply — or get replaced.
+        </p>
+        <p style="font-family:var(--font-condensed);font-size:0.9rem;color:rgba(230,57,70,0.8);font-style:italic;margin:0 0 24px;">
+          Inside: the math, the district strategy, and why Congress has no choice.
+        </p>
+      <span class="door-button red">Show me the Leverage →</span>
       </div>
-    </section>
+    </a>
 
-    <!-- PATHOS VALIDATION BLOCK -->
-      <div class="validation-block" style="max-width:800px;margin:0 auto;text-align:center;">
-        <div class="validation-eyebrow">Independent Validation</div>
-        <div class="validation-quote">"If you weren't legit, we wouldn't risk putting our name behind yours."</div>
-        <div class="validation-attribution">— Pathos Communications · Global PR firm, listed on the London Stock Exchange</div>
-        <div class="validation-attribution">After hours of interviews with Will Price</div>
-        <div class="validation-grassroots">We passed their test. We chose to stay grassroots anyway. That's the point.</div>
-        
-        <!-- YouTube facade (click-to-play, no Font Awesome - using plain text ▶) -->
-        <div class="video-facade" id="videoFacade" data-video-id="UD8svoGU7ZU" style="max-width:800px;margin:0 auto;">
-            <img src="https://img.youtube.com/vi/UD8svoGU7ZU/hqdefault.jpg" alt="Watch the video">
-            <div class="play-button">▶</div>
+    <!-- DOOR 2 — SOLUTION -->
+    <a href="healthcare-proof.html" style="text-decoration:none;flex:1;min-width:280px;max-width:420px;">
+      <div style="background:rgba(61,220,132,0.06);border:2px solid rgba(61,220,132,0.3);border-radius:16px;
+                  padding:36px 32px;text-align:center;height:100%;
+                  transition:all 0.25s ease;cursor:pointer;position:relative;"
+           onmouseover="this.style.background='rgba(61,220,132,0.12)';this.style.borderColor='var(--green)'"
+           onmouseout="this.style.background='rgba(61,220,132,0.06)';this.style.borderColor='rgba(61,220,132,0.3)'">
+        <div style="position:absolute;top:-10px;right:20px;background:var(--gold);color:var(--bg-deep);
+                    font-family:var(--font-condensed);font-weight:700;font-size:0.7rem;
+                    padding:4px 12px;border-radius:20px;letter-spacing:1px;text-transform:uppercase;">
+          📖 DEEP DIVE
         </div>
-        
-        <a href="#" class="watch-link" id="watchLink">▶ Watch why they staked their reputation on PHIERS — 7:11</a>
-    </div>
-
-    <!-- THREE DOORS SECTION -->
-      <div class="doors-section" style="max-width:1200px;margin:0 auto;text-align:center;">
-        <div class="doors-label">Start Here</div>
-        <h2 class="doors-header">Choose your path.</h2>
-        <div class="doors-bridge">This is where you come in.</div>
-        
-      <div class="doors-grid" style="display:flex;flex-wrap:wrap;gap:2rem;justify-content:center;">
-            <!-- Door 1 - Red -->
-            <div class="door-card red">
-                <div class="door-icon">⚡</div>
-                <div class="door-title">The Leverage</div>
-                <div class="door-description">
-                    How organized people become impossible to ignore — and how 3.5% forces Congress to act — or be replaced.
-                </div>
-                <a href="homepage.html" class="door-btn">Show me the Leverage →</a>
-            </div>
-            
-            <!-- Door 2 - Green with Deep Dive badge above title -->
-            <div class="door-card green">
-                <div class="deep-dive-badge">📖 DEEP DIVE</div>
-                <div class="door-icon">💡</div>
-                <div class="door-title">The Solution</div>
-                <div class="door-description">
-                    How PHIER-powered systems fix healthcare, fund everything we're demanding, and prove we don't need permission.
-                </div>
-                <a href="healthcare-proof.html" class="door-btn">Explore the Solution →</a>
-            </div>
-            
-            <!-- Door 3 - Red/Urgent -->
-            <div class="door-card red">
-                <div class="door-icon">🕊</div>
-                <div class="door-title">Stop the War</div>
-                <div class="door-description">
-                    Congress funded a war nobody voted for. We're done waiting for them to stop it.
-                </div>
-                <a href="NoWar.html" class="door-btn">Take Action Now →</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- PETITION CTA (green outlined) -->
-      <div class="petition-cta" style="text-align:center;max-width:600px;margin:0 auto;">
-        <p>Your signature is where this movement starts.<br>Not tomorrow — now.</p>
-        <a href="petition.html" class="btn-green-outline">✍ Sign the Petition</a>
-        <div class="catch-line">Not ready to dive in? Start with the video above.</div>
+        <div style="font-size:2.5rem;margin-bottom:16px;">💡</div>
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--green);letter-spacing:1px;margin:0 0 16px 0;">
+          The Healthcare Solution
+        </h3>
+        <p style="font-family:var(--font-condensed);font-size:1rem;color:var(--text-dim);line-height:1.6;margin:0 0 8px 0;">
+          Why fixing healthcare is the first domino — and the complete proof it works.
+        </p>
+        <p style="font-family:var(--font-condensed);font-size:0.8rem;color:var(--gold);margin-bottom:24px;font-style:italic;">
+          📖 This page is a deeper dive into the healthcare proof
+        </p>
+      <span class="door-button green">Explore the Deep Dive →</span>
       </div>
+    </a>
 
-</main>
+  </div>
+</section>
 
-<!-- FOOTER - FULL STANDARD PHIERS FOOTER from project instructions -->
- <footer style="text-align:center;">
-  <img src="PHIERS_Logo.png" alt="PHIERS.org" class="footer-logo" style="max-width:120px;height:auto;margin:0 auto;">
+<hr class="divider">
+
+<section class="section" id="credibility-strip" style="text-align:center;padding-top:52px;padding-bottom:52px;">
+  <span class="eyebrow">Third-Party Validation</span>
+  <blockquote style="font-family:var(--font-condensed);font-size:clamp(1.1rem,2.5vw,1.4rem);color:var(--text-bright);
+                     font-style:italic;max-width:680px;margin:20px auto 16px;line-height:1.6;border:none;padding:0;">
+    "If you weren't legit, we wouldn't risk putting our name behind yours."
+  </blockquote>
+  <p style="font-family:var(--font-condensed);font-size:0.95rem;color:var(--text-dim);margin-bottom:20px;">
+    — Pathos Communications &nbsp;·&nbsp; Global PR firm, listed on the London Stock Exchange<br>
+    After hours of interviews with Will Price
+  </p>
+  <a href="https://www.youtube.com/watch?v=UD8svoGU7ZU" target="_blank" rel="noopener noreferrer"
+     style="display:inline-block;margin-bottom:16px;">
+    <div style="position:relative;max-width:480px;margin:0 auto;">
+      <img src="https://img.youtube.com/vi/UD8svoGU7ZU/maxresdefault.jpg"
+           alt="Pathos Communications — Why They Staked Their Reputation on PHIERS"
+           style="width:100%;border-radius:8px;border:2px solid rgba(61,220,132,0.3);display:block;">
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+        <div style="width:64px;height:64px;background:rgba(0,0,0,0.75);border-radius:50%;
+                    display:flex;align-items:center;justify-content:center;
+                    border:2px solid rgba(255,255,255,0.6);">
+          <span style="color:#fff;font-size:1.6rem;margin-left:4px;">▶</span>
+        </div>
+      </div>
+    </div>
+  </a>
+  <br>
+  <a href="https://www.youtube.com/watch?v=UD8svoGU7ZU" target="_blank" rel="noopener noreferrer"
+     style="font-family:var(--font-condensed);color:var(--green);font-size:0.95rem;text-decoration:none;
+            border-bottom:1px solid rgba(61,220,132,0.4);">
+    ▶ Watch why they staked their reputation on PHIERS — 7:11
+  </a>
+</section>
+
+<hr class="divider">
+
+<section class="section" style="text-align:center;padding-top:60px;padding-bottom:72px;">
+  <p style="font-family:var(--font-condensed);font-size:clamp(1rem,2vw,1.2rem);color:var(--text-dim);margin-bottom:8px;">
+    You now know what we're building.
+  </p>
+  <p style="font-family:var(--font-condensed);font-size:clamp(1rem,2vw,1.15rem);color:var(--text-bright);margin-bottom:8px;">
+    One signature is how it starts.
+  </p>
+  <p style="font-family:var(--font-condensed);font-size:clamp(1rem,2vw,1.15rem);color:var(--text-dim);margin-bottom:32px;">
+    Don't leave without putting your name on the record.
+  </p>
+
+  <div style="background:rgba(255,214,10,0.06);border:2px solid rgba(255,214,10,0.3);
+              border-radius:12px;padding:32px 40px;max-width:620px;margin:0 auto 40px;">
+    <p style="font-family:'Bebas Neue',sans-serif;font-size:clamp(1.5rem,3vw,2rem);color:var(--gold);
+               letter-spacing:1px;margin:0 0 8px 0;">
+      July 4, 2026. Real Independence Day.
+    </p>
+    <p style="font-family:var(--font-condensed);font-size:1rem;color:var(--text-dim);margin:0 0 10px;">
+      Independence Day 2026 isn't just a holiday this year.<br>
+      It's the day we celebrate because we already won.
+    </p>
+    <p style="font-family:var(--font-condensed);font-size:0.95rem;color:var(--text-dim);font-style:italic;margin:0;">
+      This isn't a dream. It's what happens when 3.5% organizes with leverage.
+    </p>
+  </div>
+
+  <a href="petition.html" class="btn-petition">✍ Sign the Petition</a>
+</section>
+
+</div><!-- end page-wrap -->
+
+<!-- NEXT STEP CTA - URGENT -->
+<section style="text-align:center;padding: 40px 24px 60px 24px;">
+  <a href="NoWar.html" style="display:inline-block;background:var(--red);color:#fff;font-family:var(--font-condensed);font-weight:700;font-size:1.3rem;padding:18px 36px;border-radius:8px;text-decoration:none;transition:all 0.2s;box-shadow:0 4px 20px rgba(230,57,70,0.4);" onmouseover="this.style.background='var(--red-dim)';this.style.transform='scale(1.02)';" onmouseout="this.style.background='var(--red)';this.style.transform='scale(1)';">⚠️ STOP THE WAR — MAKE CONGRESS DO ITS JOB →</a>
+  <p style="font-family:var(--font-condensed);font-size:0.9rem;color:var(--text-dim);margin-top:16px;max-width:500px;margin-left:auto;margin-right:auto;">
+    War escalation threatens everything — the global economy, the climate, and the future of our families. This is the single most important thing we can do right now.
+  </p>
+</section>
+  
+<hr class="divider">
+
+<!-- ── FOOTER ── -->
+<footer>
+  <img src="PHIERS_Logo.png" alt="PHIERS.org" class="footer-logo">
   <div style="font-family:var(--font-condensed);font-weight:700;font-size:1rem;color:var(--text-dim);margin-bottom:4px;">PHIERS is a people's movement — not a company, not a product.</div>
   <div style="font-size:0.9rem;color:var(--text-dim);margin-bottom:6px;">Built by regular people who are done waiting.</div>
 
@@ -497,7 +465,6 @@
     <span style="color:var(--text-dim);">The only thing missing is you.</span>
   </div>
 
-  <!-- MEET THE ARCHITECT — footer placement -->
   <div style="margin:24px auto;padding:20px 24px;max-width:560px;border:1px solid rgba(61,220,132,0.15);border-radius:8px;">
     <p style="font-family:var(--font-condensed);color:var(--text-dim);font-size:0.8rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Built by</p>
     <p style="font-family:var(--font-condensed);color:var(--text-bright);font-weight:700;font-size:1rem;margin-bottom:4px;">Will Price | Founder &amp; Chief Solutions Architect</p>
@@ -531,80 +498,54 @@
   </div>
 </footer>
 
-<script>
-    // Modal with sessionStorage (once per session)
-    const modal = document.getElementById('entryModal');
-    const enterBtn = document.getElementById('enterSiteBtn');
+<button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
+
+<!-- MISSION MODAL - IMPROVED VERSION -->
+<div id="phiers-modal" role="dialog" aria-modal="true" aria-label="Welcome message"
+     style="position:fixed;inset:0;background:rgba(0,0,0,0.85);display:none;
+            align-items:center;justify-content:center;z-index:99999;padding:20px;">
+  <div style="position:relative;max-width:90vw;max-height:90vh;width:auto;margin:auto;">
+    <!-- Close button - ALWAYS visible, positioned absolutely -->
+    <button onclick="closePhierModal()" aria-label="Close modal" style="
+        position:absolute;top:-15px;right:-15px;background:#111d35;color:#3ddc84;
+        border:2px solid #3ddc84;border-radius:50%;width:44px;height:44px;
+        font-size:1.4rem;cursor:pointer;font-family:'Barlow Condensed',sans-serif;
+        display:flex;align-items:center;justify-content:center;
+        padding:0;transition:all 0.2s;z-index:100000;box-shadow:0 2px 10px rgba(0,0,0,0.5);"
+        onmouseover="this.style.background='#3ddc84';this.style.color='#111d35'"
+        onmouseout="this.style.background='#111d35';this.style.color='#3ddc84'">✕</button>
     
-    if (!sessionStorage.getItem('modalShown')) {
-        modal.style.display = 'flex';
-        sessionStorage.setItem('modalShown', 'true');
-    } else {
-        modal.style.display = 'none';
-    }
+    <!-- Image container with scaling -->
+    <div style="max-width:100%;max-height:calc(90vh - 80px);margin:0 auto;display:flex;justify-content:center;align-items:center;">
+      <img src="Congress_Dont_Work_4U-WEre_changing_that-BIG.jpg"
+           alt="Congress Doesn't Work For You — We're Changing That"
+           style="max-width:100%;max-height:calc(90vh - 80px);width:auto;height:auto;display:block;border-radius:16px;
+                  border:2px solid rgba(61,220,132,0.3);box-shadow:0 25px 50px -12px rgba(0,0,0,0.8);object-fit:contain;">
+    </div>
     
-    enterBtn.addEventListener('click', () => {
-        modal.style.display = 'none';
-    });
-    
-    window.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            modal.style.display = 'none';
-        }
-        if (e.target === document.getElementById('will-modal')) {
-            document.getElementById('will-modal').style.display = 'none';
-        }
-    });
-    
-    // Mobile menu toggle
-    function toggleMenu() {
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenu.classList.toggle('open');
-    }
-    
-    // YouTube facade click-to-play
-    function loadVideo(videoId, element) {
-        const iframe = document.createElement('iframe');
-        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
-        iframe.setAttribute('frameborder', '0');
-        iframe.setAttribute('allowfullscreen', '');
-        iframe.style.width = '100%';
-        iframe.style.height = '100%';
-        iframe.style.position = 'absolute';
-        iframe.style.top = '0';
-        iframe.style.left = '0';
-        
-        const container = element.parentElement;
-        const parent = container.parentElement;
-        container.style.display = 'none';
-        
-        const newContainer = document.createElement('div');
-        newContainer.style.position = 'relative';
-        newContainer.style.paddingBottom = '56.25%';
-        newContainer.style.height = '0';
-        newContainer.style.overflow = 'hidden';
-        newContainer.style.borderRadius = '12px';
-        newContainer.appendChild(iframe);
-        
-        parent.replaceChild(newContainer, container);
-    }
-    
-    const videoFacade = document.getElementById('videoFacade');
-    const watchLink = document.getElementById('watchLink');
-    const videoId = videoFacade.getAttribute('data-video-id');
-    
-    function initVideo() {
-        loadVideo(videoId, videoFacade);
-    }
-    
-    videoFacade.addEventListener('click', initVideo);
-    if (watchLink) {
-        watchLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            initVideo();
-        });
-    }
-</script>
+    <!-- Button container - always accessible -->
+   <div style="text-align:center; margin-top: 20px;">
+      <a href="#learn-more" onclick="closePhierModal()" style="
+          background: transparent;
+          color: #3ddc84;
+          padding: 10px 24px;
+          font-family: 'Barlow Condensed', sans-serif;
+          font-weight: 600;
+          font-size: 1rem;
+          letter-spacing: 1px;
+          text-decoration: none;
+          display: inline-block;
+          border: 1px solid #3ddc84;
+          border-radius: 40px;
+          transition: all 0.2s ease;"
+          onmouseover="this.style.background='#3ddc84'; this.style.color='#111d35'"
+          onmouseout="this.style.background='transparent'; this.style.color='#3ddc84'">
+        Enter the Site →
+      </a>
+    </div>
+  </div>
+</div>
+
 <!-- WILL PRICE MODAL -->
 <div id="will-modal"
      onclick="if(event.target===this)this.style.display='none'"
@@ -614,7 +555,6 @@
               background:rgba(8,13,26,0.97);border:2px solid rgba(61,220,132,0.35);
               border-radius:16px;box-shadow:0 25px 60px rgba(0,0,0,0.8);
               overflow:hidden;max-height:90vh;overflow-y:auto;">
-
     <button onclick="document.getElementById('will-modal').style.display='none'"
             aria-label="Close"
             style="position:absolute;top:12px;right:12px;background:#111d35;
@@ -624,7 +564,6 @@
                    z-index:10;transition:all 0.2s;"
             onmouseover="this.style.background='#3ddc84';this.style.color='#111d35'"
             onmouseout="this.style.background='#111d35';this.style.color='#3ddc84'">✕</button>
-
     <div style="display:flex;flex-wrap:wrap;align-items:stretch;">
       <div style="flex:0 0 240px;width:100%;max-width:100%;min-height:280px;overflow:hidden;">
         <img src="Will_Price.png"
@@ -650,5 +589,104 @@
   </div>
 </div>
 
+<script>
+function toggleMenu() {
+  var menu = document.getElementById('mobile-menu');
+  if (menu) menu.classList.toggle('open');
+}
+
+document.addEventListener('click', function(event) {
+  var menu = document.getElementById('mobile-menu');
+  var hamburger = document.querySelector('.hamburger');
+  var hamburgerDesktop = document.querySelector('.hamburger-desktop');
+  if (menu && (hamburger || hamburgerDesktop) && menu.classList.contains('open') &&
+      !menu.contains(event.target) && !hamburger?.contains(event.target) && !hamburgerDesktop?.contains(event.target)) {
+    menu.classList.remove('open');
+  }
+});
+
+document.querySelectorAll('.mobile-menu a').forEach(function(a) {
+  a.addEventListener('click', function() {
+    var m = document.getElementById('mobile-menu');
+    if (m) m.classList.remove('open');
+  });
+});
+
+function playVideo(which, src) {
+  var wrap = document.getElementById('wrap-' + which);
+  if (!wrap) return;
+  wrap.innerHTML = '<iframe width="100%" height="100%" src="' + src +
+    '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen ' +
+    'style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:4px"></iframe>';
+}
+
+document.querySelectorAll('.collapse-toggle').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var target = document.getElementById(this.getAttribute('data-target'));
+    if (target) {
+      target.classList.toggle('open');
+      this.textContent = target.classList.contains('open')
+        ? '▼ Show less'
+        : this.getAttribute('data-label');
+    }
+  });
+});
+
+window.addEventListener('scroll', function() {
+  var n = document.getElementById('main-nav');
+  if (n) n.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+var btt = document.getElementById('back-to-top');
+if (btt) {
+  window.addEventListener('scroll', function() {
+    btt.classList.toggle('visible', window.scrollY > 400);
+  });
+  btt.addEventListener('click', function() {
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+}
+
+(function() {
+  var currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.mobile-menu a').forEach(function(a) {
+    if (a.getAttribute('href') === currentPage) a.classList.add('active');
+  });
+})();
+
+function closePhierModal() {
+  var modal = document.getElementById('phiers-modal');
+  if (modal) {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+    sessionStorage.setItem('phiersModalSeen', 'true');
+  }
+}
+
+// IMMEDIATE MODAL DISPLAY - NO DELAY
+(function initModal() {
+  var modal = document.getElementById('phiers-modal');
+  if (!modal) return;
+  if (sessionStorage.getItem('phiersModalSeen')) {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+    return;
+  }
+  // Show immediately - no setTimeout, no delay
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+})();
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    var modal = document.getElementById('phiers-modal');
+    var modalVisible = modal && modal.style.display === 'flex';
+    if (!modalVisible) {
+      var wm = document.getElementById('will-modal');
+      if (wm) wm.style.display = 'none';
+    }
+  }
+});
+</script>
 </body>
 </html>
