@@ -352,11 +352,6 @@
   </div>
 </footer>
 
-  <div class="image-modal" id="imageModal" onclick="closeModal(event)">
-    <span class="close-modal" onclick="closeModal(event)">&times;</span>
-    <img class="modal-content" id="modalImage" alt="">
-  </div>
-
   <script>
    function toggleMenu() {
       var menu = document.getElementById('mobile-menu');
@@ -392,28 +387,6 @@
       document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 50);
     });
 
-    function openModal(src) {
-      var modal = document.getElementById('imageModal');
-      var img = document.getElementById('modalImage');
-      img.src = src;
-      modal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal(event) {
-      var modal = document.getElementById('imageModal');
-      if (event.target === modal || event.target.classList.contains('close-modal')) {
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-    }
-
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        document.getElementById('imageModal').classList.remove('active');
-        document.body.style.overflow = '';
-      }
-    });
 </script>
 
 <button class="back-to-top" id="back-to-top" aria-label="Back to top"
