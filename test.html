@@ -10,11 +10,36 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Barlow+Condensed:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles-new.css">
     <style>
-        /* Additional styles for new components */
+        /* Additional styles */
+        
+        /* Section containers with light boxes */
+        .section-box {
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 2.5rem;
+            background: rgba(17, 29, 53, 0.6);
+            border-radius: 24px;
+            border: 1px solid rgba(61, 220, 132, 0.15);
+        }
+        
+        .section-box-light {
+            background: rgba(17, 29, 53, 0.4);
+        }
+        
+        /* Text containers for readability */
+        .text-container {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+        
+        .text-left {
+            text-align: left;
+        }
+        
+        /* Validation block */
         .validation-block {
             max-width: 800px;
-            margin: 4rem auto;
-            padding: 0 24px;
+            margin: 0 auto;
             text-align: center;
         }
         
@@ -35,6 +60,7 @@
             line-height: 1.3;
             color: var(--text-bright);
             margin-bottom: 1rem;
+            text-align: center;
         }
         
         .validation-attribution {
@@ -52,6 +78,7 @@
             margin: 1.5rem 0 2rem;
         }
         
+        /* Video facade */
         .video-facade {
             position: relative;
             cursor: pointer;
@@ -105,14 +132,10 @@
             font-size: 0.95rem;
         }
         
-        .watch-link:hover {
-            text-decoration: underline;
-        }
-        
+        /* Doors section */
         .doors-section {
             max-width: 1200px;
-            margin: 5rem auto;
-            padding: 0 24px;
+            margin: 0 auto;
         }
         
         .doors-label {
@@ -153,12 +176,13 @@
         .door-card {
             flex: 1;
             min-width: 280px;
-            background: var(--bg-card);
+            background: rgba(17, 29, 53, 0.8);
             border-radius: 20px;
             padding: 2rem;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
             border-top: 4px solid;
             border: 1px solid var(--border);
+            text-align: left;
         }
         
         .door-card:hover {
@@ -241,11 +265,11 @@
             color: white;
         }
         
+        /* Petition CTA */
         .petition-cta {
             text-align: center;
             max-width: 600px;
-            margin: 3rem auto 5rem;
-            padding: 0 24px;
+            margin: 0 auto;
         }
         
         .petition-cta p {
@@ -256,24 +280,25 @@
             color: var(--text-bright);
         }
         
-        .btn-green-outline {
+        .btn-soft-outline {
             display: inline-block;
             background: transparent;
-            border: 2px solid var(--green);
+            border: 2px solid rgba(61, 220, 132, 0.5);
             color: var(--green);
             padding: 0.8rem 2rem;
             border-radius: 40px;
             font-family: var(--font-body);
-            font-weight: 700;
+            font-weight: 600;
             font-size: 1rem;
             text-decoration: none;
             transition: all 0.2s ease;
             margin-bottom: 1rem;
         }
         
-        .btn-green-outline:hover {
-            background: var(--green);
-            color: white;
+        .btn-soft-outline:hover {
+            background: rgba(61, 220, 132, 0.1);
+            border-color: var(--green);
+            color: var(--green);
         }
         
         .catch-line {
@@ -282,40 +307,7 @@
             color: var(--text-dim);
         }
         
-        @media (max-width: 768px) {
-            .validation-quote {
-                font-size: 1.4rem;
-            }
-            .doors-header {
-                font-size: 1.8rem;
-            }
-            .petition-cta p {
-                font-size: 1.2rem;
-            }
-            .door-card {
-                padding: 1.5rem;
-            }
-            .doors-grid {
-                flex-direction: column;
-                align-items: center;
-            }
-            .door-card {
-                width: 100%;
-                max-width: 400px;
-            }
-        }
-        
-        .modal-content .enter-button {
-            opacity: 0;
-            animation: fadeInButton 0.3s ease-in 2s forwards;
-        }
-        
-        @keyframes fadeInButton {
-            to {
-                opacity: 1;
-            }
-        }
-        
+        /* Hero */
         .hero-image-container {
             max-width: 600px;
             margin: 40px auto 0;
@@ -345,11 +337,76 @@
             font-weight: 500;
             margin-top: 0.5rem;
         }
+        
+        /* Nav adjustments */
+        .nav-right .sign-petition-link {
+            border: 1px solid rgba(61, 220, 132, 0.3);
+            padding: 6px 14px;
+            border-radius: 40px;
+            transition: all 0.2s ease;
+        }
+        
+        .nav-right .sign-petition-link:hover {
+            border-color: var(--green);
+            background: rgba(61, 220, 132, 0.05);
+        }
+        
+        @media (max-width: 768px) {
+            .validation-quote {
+                font-size: 1.4rem;
+            }
+            .doors-header {
+                font-size: 1.8rem;
+            }
+            .petition-cta p {
+                font-size: 1.2rem;
+            }
+            .door-card {
+                padding: 1.5rem;
+            }
+            .doors-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            .door-card {
+                width: 100%;
+                max-width: 400px;
+            }
+            .section-box {
+                padding: 1.5rem;
+                margin: 2rem;
+            }
+        }
+        
+        .modal-content .enter-button {
+            opacity: 0;
+            animation: fadeInButton 0.3s ease-in 3s forwards;
+        }
+        
+        @keyframes fadeInButton {
+            to {
+                opacity: 1;
+            }
+        }
+        
+        /* Logo in nav */
+        .nav-logo-img {
+            height: 40px;
+            width: auto;
+            margin-right: 12px;
+            vertical-align: middle;
+        }
+        
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
     </style>
 </head>
 <body>
 
-<!-- MODAL -->
+<!-- MODAL with 3-second delay -->
 <div id="entryModal" class="modal">
     <div class="modal-content">
         <img src="Congress_Dont_Work_4U-WEre_changing_that-BIG.jpg" alt="Congress" class="modal-image">
@@ -357,14 +414,15 @@
     </div>
 </div>
 
-<!-- NAV -->
+<!-- NAV with logo -->
 <nav id="main-nav">
     <div class="nav-left">
+        <img src="PHIERS_Logo.png" alt="PHIERS" class="nav-logo-img">
         <a href="index.html" style="font-family:var(--font-condensed);font-weight:700;font-size:1.3rem;color:#fff;text-decoration:none;letter-spacing:0.05em">PHIERS.org</a>
         <div class="nav-tagline">When Americans coordinate, Congress has no choice.</div>
     </div>
     <div class="nav-right">
-        <a href="petition.html">✍ Sign the Petition</a>
+        <a href="petition.html" class="sign-petition-link">✍ Sign the Petition</a>
         <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">☰</button>
     </div>
 </nav>
@@ -404,7 +462,7 @@
     </details>
 </div>
 
-<!-- HERO - Using working #hero pattern from homepage.html -->
+<!-- HERO SECTION -->
 <section id="hero" style="text-align:center;padding-top:80px;padding-bottom:40px;padding-left:24px;padding-right:24px;">
     
     <h1 class="hero-h1">You Are Not Powerless.</h1>
@@ -413,10 +471,14 @@
         You just haven't had the right leverage yet.
     </p>
     
-    <p class="hero-sub" style="color:var(--text-dim);margin-top:16px;">
-        Congress ignores the public — <span style="color:var(--red)">because it can.</span><br>
-        PHIERStorm turns people into pressure Congress can't ignore.
-    </p>
+    <div class="text-container text-left" style="margin-top: 24px;">
+        <p class="hero-sub" style="color:var(--text-dim);margin-bottom:16px;">
+            Congress ignores the public — <span style="color:var(--red)">because it can.</span>
+        </p>
+        <p class="hero-sub" style="color:var(--text-dim);">
+            PHIERStorm turns people into pressure Congress can't ignore.
+        </p>
+    </div>
     
     <p class="hero-micro">
         A coordinated public pressure system built to force action.
@@ -433,64 +495,70 @@
     
 </section>
 
-<!-- PATHOS VALIDATION BLOCK -->
-<div class="validation-block">
-    <div class="validation-eyebrow">Independent Validation</div>
-    <div class="validation-quote">"If you weren't legit, we wouldn't risk putting our name behind yours."</div>
-    <div class="validation-attribution">— Pathos Communications · Global PR firm, listed on the London Stock Exchange</div>
-    <div class="validation-attribution">After hours of interviews with Will Price</div>
-    <div class="validation-grassroots">We passed their test. We chose to stay grassroots anyway. That's the point.</div>
-    
-    <div class="video-facade" id="videoFacade" data-video-id="UD8svoGU7ZU">
-        <img src="https://img.youtube.com/vi/UD8svoGU7ZU/hqdefault.jpg" alt="Watch the video">
-        <div class="play-button">▶</div>
-    </div>
-    
-    <a href="#" class="watch-link" id="watchLink">▶ Watch why they staked their reputation on PHIERS — 7:11</a>
-</div>
-
-<!-- THREE DOORS SECTION -->
-<div class="doors-section">
-    <div class="doors-label">Start Here</div>
-    <h2 class="doors-header">Choose your path.</h2>
-    <div class="doors-bridge">This is where you come in.</div>
-    
-    <div class="doors-grid">
-        <div class="door-card red">
-            <div class="door-icon">⚡</div>
-            <div class="door-title">The Leverage</div>
-            <div class="door-description">
-                How organized people become impossible to ignore — and how 3.5% forces Congress to act — or be replaced.
-            </div>
-            <a href="homepage.html" class="door-btn">Show me the Leverage →</a>
+<!-- PATHOS VALIDATION BLOCK with light box -->
+<div class="section-box">
+    <div class="validation-block">
+        <div class="validation-eyebrow">Independent Validation</div>
+        <div class="validation-quote">"If you weren't legit, we wouldn't risk putting our name behind yours."</div>
+        <div class="validation-attribution">— Pathos Communications · Global PR firm, listed on the London Stock Exchange</div>
+        <div class="validation-attribution">After hours of interviews with Will Price</div>
+        <div class="validation-grassroots">We passed their test. We chose to stay grassroots anyway. That's the point.</div>
+        
+        <div class="video-facade" id="videoFacade" data-video-id="UD8svoGU7ZU">
+            <img src="https://img.youtube.com/vi/UD8svoGU7ZU/hqdefault.jpg" alt="Watch the video">
+            <div class="play-button">▶</div>
         </div>
         
-        <div class="door-card green">
-            <div class="deep-dive-badge">📖 DEEP DIVE</div>
-            <div class="door-icon">💡</div>
-            <div class="door-title">The Solution</div>
-            <div class="door-description">
-                How PHIER-powered systems fix healthcare, fund everything we're demanding, and prove we don't need permission.
-            </div>
-            <a href="healthcare-proof.html" class="door-btn">Explore the Solution →</a>
-        </div>
-        
-        <div class="door-card red">
-            <div class="door-icon">🕊</div>
-            <div class="door-title">Stop the War</div>
-            <div class="door-description">
-                Congress funded a war nobody voted for. We're done waiting for them to stop it.
-            </div>
-            <a href="NoWar.html" class="door-btn">Take Action Now →</a>
-        </div>
+        <a href="#" class="watch-link" id="watchLink">▶ Watch why they staked their reputation on PHIERS — 7:11</a>
     </div>
 </div>
 
-<!-- PETITION CTA -->
-<div class="petition-cta">
-    <p>Your signature is where this movement starts.<br>Not tomorrow — now.</p>
-    <a href="petition.html" class="btn-green-outline">✍ Sign the Petition</a>
-    <div class="catch-line">Not ready to dive in? Start with the video above.</div>
+<!-- THREE DOORS SECTION with light box -->
+<div class="section-box">
+    <div class="doors-section">
+        <div class="doors-label">Start Here</div>
+        <h2 class="doors-header">Choose your path.</h2>
+        <div class="doors-bridge">This is where you come in.</div>
+        
+        <div class="doors-grid">
+            <div class="door-card red">
+                <div class="door-icon">⚡</div>
+                <div class="door-title">The Leverage</div>
+                <div class="door-description">
+                    How organized people become impossible to ignore — and how 3.5% forces Congress to act — or be replaced.
+                </div>
+                <a href="homepage.html" class="door-btn">Show me the Leverage →</a>
+            </div>
+            
+            <div class="door-card green">
+                <div class="deep-dive-badge">📖 DEEP DIVE</div>
+                <div class="door-icon">💡</div>
+                <div class="door-title">The Solution</div>
+                <div class="door-description">
+                    How PHIER-powered systems fix healthcare, fund everything we're demanding, and prove we don't need permission.
+                </div>
+                <a href="healthcare-proof.html" class="door-btn">Explore the Solution →</a>
+            </div>
+            
+            <div class="door-card red">
+                <div class="door-icon">🕊</div>
+                <div class="door-title">Stop the War</div>
+                <div class="door-description">
+                    Congress funded a war nobody voted for. We're done waiting for them to stop it.
+                </div>
+                <a href="NoWar.html" class="door-btn">Take Action Now →</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- PETITION CTA with light box -->
+<div class="section-box section-box-light">
+    <div class="petition-cta">
+        <p>Your signature is where this movement starts.<br>Not tomorrow — now.</p>
+        <a href="petition.html" class="btn-soft-outline">✍ Sign the Petition</a>
+        <div class="catch-line">Not ready to dive in? Start with the video above.</div>
+    </div>
 </div>
 
 <!-- FOOTER -->
