@@ -3,58 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>PHIERS — Make Congress Do Its Job</title>
+  <title>PHIERS — Enter</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Barlow+Condensed:wght@400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles-new.css">
   <style>
     body {
       background: #080d1a;
-      font-family: 'Barlow', sans-serif;
-      color: #b8c8e8;
-      line-height: 1.6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
     }
     
-    .gateway-container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 80px 24px 60px;
+    .modal-entry {
+      max-width: 90vw;
+      max-height: 90vh;
       text-align: center;
     }
     
-    .hero-logo {
-      height: 80px;
+    .modal-entry img {
+      max-width: 100%;
+      max-height: 80vh;
       width: auto;
-      display: inline-block;
-      margin-bottom: 20px;
-      opacity: 0.85;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border-radius: 8px;
+      border: 1px solid rgba(61, 220, 132, 0.3);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
     }
     
-    h1 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(2.8rem, 8vw, 4.5rem);
-      color: #f0f4ff;
-      margin-bottom: 20px;
-      line-height: 1.05;
-    }
-    
-    .urgency-stake {
-      color: #e63946;
-      font-weight: 600;
-      margin: 16px 0 8px;
-    }
-    
-    .promise-bold {
-      font-size: 1.5rem;
-      font-weight: 800;
-      margin-top: 10px;
-      color: #3ddc84;
-      letter-spacing: 0.5px;
-    }
-    
-    .cta-button {
-      display: inline-block;
-      margin-top: 20px;
+    .enter-button {
+      display: block;
+      margin: 24px auto 0;
       padding: 12px 32px;
       background: transparent;
       color: #3ddc84;
@@ -63,66 +47,50 @@
       font-family: 'Barlow', sans-serif;
       font-weight: 600;
       font-size: 1rem;
-      text-decoration: none;
+      cursor: pointer;
       transition: all 0.2s ease;
     }
     
-    .cta-button:hover {
+    .enter-button:hover {
       border-color: #3ddc84;
       background: rgba(61, 220, 132, 0.05);
     }
     
-    .cta-start {
-      margin-top: 8px;
-      font-size: 0.9rem;
-      color: #7a94b8;
-      font-style: italic;
-    }
-    
     @media (max-width: 768px) {
-      .gateway-container {
-        padding: 60px 20px 40px;
+      .modal-entry img {
+        max-height: 60vh;
+        max-width: 95vw;
       }
-      .hero-logo {
-        height: 60px;
-      }
-      .promise-bold {
-        font-size: 1.3rem;
+      .enter-button {
+        padding: 10px 24px;
+        font-size: 0.9rem;
       }
     }
   </style>
 </head>
 <body>
 
-<div class="gateway-container">
-  
-  <img src="PHIERS_Logo.png" alt="PHIERS.org" class="hero-logo">
-  
-  <h1>Make Congress do its job.</h1>
-  
-  <p>Congress isn't broken. It's unresponsive.</p>
-  <p class="urgency-stake">And right now, that's putting us on a path we may not recover from.</p>
-  <p>We don't have time to wait this out.</p>
-  
-  <p>People think this is about politics.<br>It's not.</p>
-  <p>It's about whether Congress does its job — before the consequences compound.</p>
-  
-  <p>We protest. We vote. We wait.</p>
-  <p>Nothing changes.</p>
-  <p>Not because people don't care —<br>but because we're not acting together.</p>
-  
-  <p>There is a way to change that.</p>
-  <p>Not by yelling louder.<br>Not by waiting longer.</p>
-  <p class="promise-bold">By coordinating.</p>
-  
-  <p style="font-style: italic; opacity: 0.85;">Once you see how it works, you won't unsee it.</p>
-  
-  <a href="petition.html" class="cta-button">→ Add Your Name</a>
-  
-  <p class="cta-start">Start here. It will make sense.</p>
-  <p style="font-size: 0.85rem; opacity: 0.7;">Real people. Real districts. On the record.</p>
-  
+<div class="modal-entry">
+  <img src="Congress_Dont_Work_4U-WEre_changing_that-BIG.jpg" alt="Congress">
+  <button class="enter-button" id="enterBtn">Add Your Name →</button>
 </div>
+
+<script>
+  const enterBtn = document.getElementById('enterBtn');
+  
+  // Check if this is the first visit
+  if (!sessionStorage.getItem('gatewaySeen')) {
+    // First visit — show modal page, set session, then redirect on click
+    sessionStorage.setItem('gatewaySeen', 'true');
+    
+    enterBtn.addEventListener('click', () => {
+      window.location.href = 'gateway.html';
+    });
+  } else {
+    // Returning visitor — skip modal, go straight to gateway
+    window.location.href = 'gateway.html';
+  }
+</script>
 
 </body>
 </html>
