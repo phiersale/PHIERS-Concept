@@ -8,23 +8,38 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Barlow+Condensed:wght@400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles-new.css">
   <style>
-    /* Additional styles for index gateway */
-    .hero-visual {
-      margin: 32px 0;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid rgba(61, 220, 132, 0.3);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    body {
+      background: #080d1a;
+      font-family: 'Barlow', sans-serif;
+      color: #b8c8e8;
+      line-height: 1.6;
     }
     
-    .hero-visual img {
-      width: 100%;
-      height: auto;
-      display: block;
+    .gateway-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 80px 24px 60px;
+      text-align: center;
+    }
+    
+    .hero-logo {
+      height: 80px;
+      width: auto;
+      display: inline-block;
+      margin-bottom: 20px;
+      opacity: 0.85;
+    }
+    
+    h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.8rem, 8vw, 4.5rem);
+      color: #f0f4ff;
+      margin-bottom: 20px;
+      line-height: 1.05;
     }
     
     .urgency-stake {
-      color: var(--red);
+      color: #e63946;
       font-weight: 600;
       margin: 16px 0 8px;
     }
@@ -33,25 +48,44 @@
       font-size: 1.5rem;
       font-weight: 800;
       margin-top: 10px;
-      color: var(--green);
+      color: #3ddc84;
       letter-spacing: 0.5px;
     }
     
-    .section-divider {
-      height: 1px;
-      background: rgba(61, 220, 132, 0.2);
-      max-width: 200px;
-      margin: 0 auto;
+    .cta-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 32px;
+      background: transparent;
+      color: #3ddc84;
+      border: 1.5px solid rgba(61, 220, 132, 0.5);
+      border-radius: 40px;
+      font-family: 'Barlow', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    
+    .cta-button:hover {
+      border-color: #3ddc84;
+      background: rgba(61, 220, 132, 0.05);
     }
     
     .cta-start {
       margin-top: 8px;
       font-size: 0.9rem;
-      color: var(--text-dim);
+      color: #7a94b8;
       font-style: italic;
     }
     
     @media (max-width: 768px) {
+      .gateway-container {
+        padding: 60px 20px 40px;
+      }
+      .hero-logo {
+        height: 60px;
+      }
       .promise-bold {
         font-size: 1.3rem;
       }
@@ -60,72 +94,35 @@
 </head>
 <body>
 
-<!-- MODAL -->
-<div id="entryModal" class="modal">
-  <div class="modal-content">
-    <img src="Congress_Dont_Work_4U-WEre_changing_that-BIG.jpg" alt="Congress">
-    <button class="modal-button" id="enterSiteBtn">Add Your Name →</button>
-  </div>
-</div>
-
-<!-- HERO SECTION -->
-<section id="hero" style="text-align:center; padding-top:80px; padding-bottom:40px;">
-  <img src="PHIERS_Logo.png" alt="PHIERS.org" style="height:80px; width:auto; display:inline-block; margin-bottom:20px;">
+<div class="gateway-container">
   
-  <div class="hero-visual">
-    <img src="Congress_Dont_Work_4U-WEre_changing_that-BIG.jpg" alt="Congress Doesn't Work For You">
-  </div>
+  <img src="PHIERS_Logo.png" alt="PHIERS.org" class="hero-logo">
   
-  <h1 class="hero-h1">Make Congress do its job.</h1>
+  <h1>Make Congress do its job.</h1>
   
-  <p class="hero-sub" style="color:var(--text-dim);">Congress isn't broken. It's unresponsive.</p>
+  <p>Congress isn't broken. It's unresponsive.</p>
   <p class="urgency-stake">And right now, that's putting us on a path we may not recover from.</p>
-  <p class="hero-sub" style="color:var(--text-dim); margin-bottom: 1rem;">We don't have time to wait this out.</p>
+  <p>We don't have time to wait this out.</p>
   
-  <p class="hero-sub" style="color:var(--text-dim);">People think this is about politics.<br>It's not.</p>
-  <p class="hero-sub" style="color:var(--text-dim); margin-bottom: 1rem;">It's about whether Congress does its job — before the consequences compound.</p>
+  <p>People think this is about politics.<br>It's not.</p>
+  <p>It's about whether Congress does its job — before the consequences compound.</p>
   
-  <p class="hero-sub" style="color:var(--text-dim);">We protest. We vote. We wait.</p>
-  <p class="hero-sub" style="color:var(--text-dim); margin-bottom: 1rem;">Nothing changes.</p>
-  <p class="hero-sub" style="color:var(--text-dim);">Not because people don't care —<br>but because we're not acting together.</p>
+  <p>We protest. We vote. We wait.</p>
+  <p>Nothing changes.</p>
+  <p>Not because people don't care —<br>but because we're not acting together.</p>
   
-  <p class="hero-sub" style="color:var(--text-dim); margin-top: 1rem;">There is a way to change that.</p>
-  <p class="hero-sub" style="color:var(--text-dim);">Not by yelling louder.<br>Not by waiting longer.</p>
+  <p>There is a way to change that.</p>
+  <p>Not by yelling louder.<br>Not by waiting longer.</p>
   <p class="promise-bold">By coordinating.</p>
   
-  <p class="hero-sub" style="color:var(--text-dim); font-style: italic; margin: 1rem 0;">Once you see how it works, you won't unsee it.</p>
+  <p style="font-style: italic; opacity: 0.85;">Once you see how it works, you won't unsee it.</p>
   
-  <div class="cta-row" style="justify-content:center; margin-top: 20px;">
-    <a href="petition.html" class="btn-primary" style="display:inline-block;background:transparent;color:var(--green);border:1.5px solid rgba(61,220,132,0.5);padding:12px 32px;border-radius:40px;font-family:var(--font-body);font-weight:600;font-size:1rem;text-decoration:none;">→ Add Your Name</a>
-  </div>
+  <a href="petition.html" class="cta-button">→ Add Your Name</a>
   
   <p class="cta-start">Start here. It will make sense.</p>
-  <p style="font-family: var(--font-body); color: var(--text-dim); font-size: 0.85rem; margin-top: 8px;">Real people. Real districts. On the record.</p>
-</section>
-
-<script>
-  const modal = document.getElementById('entryModal');
-  const enterBtn = document.getElementById('enterSiteBtn');
+  <p style="font-size: 0.85rem; opacity: 0.7;">Real people. Real districts. On the record.</p>
   
-  if (!sessionStorage.getItem('modalShown')) {
-    setTimeout(() => {
-      modal.style.display = 'flex';
-    }, 800);
-    sessionStorage.setItem('modalShown', 'true');
-  } else {
-    modal.style.display = 'none';
-  }
-  
-  enterBtn.addEventListener('click', () => {
-    modal.style.display = 'none';
-  });
-  
-  window.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      modal.style.display = 'none';
-    }
-  });
-</script>
+</div>
 
 </body>
 </html>
