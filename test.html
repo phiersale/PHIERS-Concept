@@ -1,3 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PHIERS — No Kings. No Waiting.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Barlow+Condensed:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles-new.css">
+  <style>
+    /* Additional styles for index gateway */
+    .hero-visual {
+      margin: 32px 0;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(61, 220, 132, 0.3);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+    
+    .hero-visual img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    .urgency-stake {
+      color: var(--red);
+      font-weight: 600;
+      margin: 16px 0 8px;
+    }
+    
+    .promise-bold {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-top: 10px;
+      color: var(--green);
+      letter-spacing: 0.5px;
+    }
+    
+    .section-divider {
+      height: 1px;
+      background: rgba(61, 220, 132, 0.2);
+      max-width: 200px;
+      margin: 0 auto;
+    }
+    
+    @media (max-width: 768px) {
+      .promise-bold {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- MODAL -->
+<div id="entryModal" class="modal">
+  <div class="modal-content">
+    <img src="Congress_Dont_Work_4U-WEre_changing_that-BIG.jpg" alt="Congress">
+    <button class="modal-button" id="enterSiteBtn">See How This Works →</button>
+  </div>
+</div>
+
 <div class="preamble">
 
   <p class="opener">You're angry. Good. You should be.</p>
@@ -94,12 +157,61 @@
     </li>
   </ul>
 
+  <!-- WHY THIS WORKS -->
+  <div style="margin:32px 0;padding:24px 28px;
+              border:1px solid rgba(61,220,132,0.2);
+              border-radius:8px;
+              background:rgba(61,220,132,0.05);">
+
+    <p style="font-family:var(--font-condensed);
+              font-size:0.9rem;
+              color:var(--text-dim);
+              text-transform:uppercase;
+              letter-spacing:2px;
+              margin-bottom:12px;">
+      Why this works
+    </p>
+
+    <p style="margin-bottom:16px;">
+      Most petitions fail because they collect names without structure.
+    </p>
+
+    <p style="margin-bottom:16px;">
+      This is structured.
+    </p>
+
+    <ul style="list-style:none;padding:0;margin:0 0 16px;">
+      <li style="padding:8px 0 8px 20px;position:relative;">
+        <span style="position:absolute;left:0;color:var(--green);">▸</span>
+        Names are tied to real congressional districts
+      </li>
+      <li style="padding:8px 0 8px 20px;position:relative;">
+        <span style="position:absolute;left:0;color:var(--green);">▸</span>
+        Pressure builds visibly at the district level
+      </li>
+      <li style="padding:8px 0 8px 20px;position:relative;">
+        <span style="position:absolute;left:0;color:var(--green);">▸</span>
+        Thresholds trigger direct accountability (public town halls)
+      </li>
+    </ul>
+
+    <p style="font-family:var(--font-condensed);
+              font-size:1.05rem;
+              color:var(--green);
+              font-weight:700;
+              margin:0;">
+      That’s the difference between noise — and leverage.
+    </p>
+
+  </div>
+
+  <!-- CLOSE INTO ACTION -->
   <p>
-    This is not symbolic.
+    This only works if people step in.
   </p>
 
   <p style="font-family:var(--font-condensed);font-size:1.1rem;color:var(--green);font-weight:700;">
-    This is how pressure is built — and applied.
+    This is how pressure starts.
   </p>
 
   <div style="text-align:center;margin:32px 0 0;">
@@ -113,3 +225,34 @@
   </div>
 
 </div>
+  
+  <p style="font-family: var(--font-body); color: var(--text-dim); margin-top: 16px;">Takes less than a minute.</p>
+  <p style="font-family: var(--font-body); color: var(--text-dim); font-size: 0.85rem; opacity: 0.7;">Real people. Real districts. On the record.</p>
+</section>
+
+<script>
+  const modal = document.getElementById('entryModal');
+  const enterBtn = document.getElementById('enterSiteBtn');
+  
+  if (!sessionStorage.getItem('modalShown')) {
+    setTimeout(() => {
+      modal.style.display = 'flex';
+    }, 800);
+    sessionStorage.setItem('modalShown', 'true');
+  } else {
+    modal.style.display = 'none';
+  }
+  
+  enterBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+  
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>
