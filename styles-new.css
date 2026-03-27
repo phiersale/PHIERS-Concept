@@ -106,17 +106,24 @@
   /* ── MOBILE MENU ── */
   .mobile-menu {
     display: none;
-    position: fixed;
+    position: fixed !important;
     top: 64px; left: 0; right: 0;
     background: var(--bg-dark);
     border-bottom: 1px solid var(--border);
-    z-index: 9999 !important;
+    z-index: 99999 !important;
     padding: 20px 24px;
     flex-direction: column;
     gap: 4px;
     align-items: center;
   }
-  .mobile-menu.open { display: flex; }
+  .mobile-menu.open {
+    display: flex !important;
+    z-index: 99999 !important;
+    position: fixed !important;
+    top: 64px !important;
+    left: 0 !important;
+    right: 0 !important;
+  }
   .menu-section { width: 100%; max-width: 360px; border-bottom: 1px solid rgba(255,255,255,0.07); }
   .menu-section[open] > summary { color: var(--green); }
   .menu-section > summary.menu-label {
@@ -1091,49 +1098,4 @@ body.modal-open {
 .go-description {
   color: var(--text-dim);
   font-size: 0.95rem;
-}
-
-
-/* Pathos video - standalone (does NOT affect Cascade) */
-.pathos-video {
-    position: relative;
-    cursor: pointer;
-    border-radius: 12px;
-    overflow: hidden;
-    margin: 1.5rem 0;
-    aspect-ratio: 16 / 9;
-    background: #000;
-}
-
-.pathos-video img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.pathos-video iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-}
-
-.pathos-video .play-button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 70px;
-    height: 70px;
-    background: var(--red);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.2s ease;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    font-size: 32px;
-    color: white;
 }
