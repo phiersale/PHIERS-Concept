@@ -1110,9 +1110,55 @@ body.modal-open {
     z-index: 99999 !important;
 }
 
+/* Pathos video - standalone (does NOT affect Cascade) */
+.pathos-video {
+    position: relative;
+    cursor: pointer;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 1.5rem auto;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    width: 100%;
+    max-width: 100%;
+}
+
+.pathos-video img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.pathos-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.pathos-video .play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+    background: var(--red);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    font-size: 32px;
+    color: white;
+}
+
 @media (max-width: 768px) {
   .pathos-video {
     width: 100% !important;
-    margin: 1rem 0 !important;
+    margin: 1rem auto !important;
   }
 }
