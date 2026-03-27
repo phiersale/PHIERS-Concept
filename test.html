@@ -3,69 +3,384 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PHIERS</title>
+<meta name="description" content="Your name is leverage. Put it on the record. Make Congress do its job.">
+<meta property="og:title" content="PHIERS.org — Be Counted">
+<meta property="og:description" content="1,500 signatures in your district triggers a mandatory town hall. Make Congress answer.">
+<meta property="og:image" content="PHIERS_Logo.png">
+<link rel="icon" type="image/png" href="PHIERS_Logo.png">
+<title>PHIERS — Be Counted</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Barlow+Condensed:wght@400;600;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles-new.css">
+
+<style>
+.page-wrap { max-width: 900px; margin: 0 auto; padding: 100px 24px 60px; }
+.petition-eyebrow { font-family: var(--font-condensed); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; color: var(--red); margin-bottom: 1rem; display: block; }
+.petition-hero { text-align: center; margin-bottom: 3rem; }
+.hero-logo { height: 70px; width: auto; margin-bottom: 24px; opacity: 0.85; }
+.petition-hero h1 { font-family: var(--font-display); font-size: clamp(2.5rem, 8vw, 4rem); color: var(--text-bright); line-height: 1.1; }
+.petition-hero h1 span { color: var(--green); }
+.preamble { max-width: 720px; margin: 0 auto; }
+.preamble p { margin-bottom: 1rem; font-size: 1.05rem; }
+.preamble .opener { font-size: 1.2rem; font-weight: 600; color: var(--text-bright); }
+.petition-divider { margin: 2rem 0; border: none; border-top: 1px solid rgba(61,220,132,0.2); }
+.demands { list-style: none; margin: 1.5rem 0; }
+.demands li { padding: 12px 0 12px 28px; position: relative; border-bottom: 1px solid rgba(255,255,255,0.05); line-height: 1.5; }
+.demands li::before { content: '▸'; position: absolute; left: 0; color: var(--green); }
+.petition-form-wrap { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; margin-top: 3rem; }
+.form-header { text-align: center; margin-bottom: 2rem; }
+.form-header h2 { font-family: var(--font-display); font-size: 1.8rem; margin-bottom: 0.5rem; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+.form-field { display: flex; flex-direction: column; }
+.form-field label { font-family: var(--font-condensed); font-size: 0.85rem; font-weight: 600; color: var(--text-dim); margin-bottom: 4px; }
+.form-field input { background: var(--bg-deep); border: 1px solid var(--border); border-radius: 8px; padding: 12px; color: var(--text-bright); font-family: var(--font-body); font-size: 1rem; }
+.form-field input:focus { outline: none; border-color: var(--green); }
+.btn-outline { display: block; width: 100%; background: transparent; border: 1.5px solid rgba(61,220,132,0.5); color: var(--green); padding: 14px 28px; border-radius: 40px; font-family: var(--font-body); font-weight: 600; font-size: 1rem; cursor: pointer; transition: all 0.2s ease; text-align: center; text-decoration: none; }
+.btn-outline:hover { border-color: var(--green); background: rgba(61,220,132,0.05); transform: scale(1.02); }
+.btn-gold-outline { display: inline-block; background: transparent; border: 1.5px solid rgba(255,214,10,0.5); color: var(--gold); font-family: var(--font-condensed); font-weight: 900; padding: 12px 28px; border-radius: 40px; text-decoration: none; transition: all 0.2s ease; }
+.btn-gold-outline:hover { border-color: var(--gold); background: rgba(255,214,10,0.05); transform: scale(1.02); }
+
+.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 99999; align-items: center; justify-content: center; }
+.modal-content { max-width: 90vw; max-height: 90vh; text-align: center; }
+.modal-content img { max-width: 100%; max-height: 70vh; width: auto; height: auto; display: block; margin: 0 auto; border-radius: 8px; }
+.modal-button { display: block; margin: 20px auto 0; padding: 10px 28px; background: transparent; color: var(--green); border: 1.5px solid rgba(61,220,132,0.5); border-radius: 40px; font-family: var(--font-body); font-weight: 600; font-size: 1rem; cursor: pointer; transition: all 0.2s ease; }
+.modal-button:hover { border-color: var(--green); background: rgba(61,220,132,0.05); }
+
+@media (max-width: 600px) {
+  .form-grid { grid-template-columns: 1fr; }
+  .page-wrap { padding: 80px 20px 40px; }
+  .modal-content img { max-height: 60vh; }
+}
+</style>
 </head>
 <body>
 
-<div class="center-wrap">
+<!-- MODAL -->
+<div id="entryModal" class="modal">
+  <div class="modal-content">
+    <img src="Congress_Dont_Work_4U-WEre_changing_that-BIG.jpg" alt="Congress">
+    <button class="modal-button" id="enterSiteBtn">Enter Site →</button>
+  </div>
+</div>
 
-  <h1>Make Congress do its job.</h1>
+<!-- ── NAV ── -->
+<nav id="main-nav">
+  <div class="nav-left">
+    <a href="index.html" style="font-family:var(--font-condensed);font-weight:700;font-size:1.3rem;color:#fff;text-decoration:none;letter-spacing:0.05em">PHIERS.org</a>
+    <div class="nav-tagline">When Americans coordinate, Congress has no choice.</div>
+  </div>
+  <div class="nav-center">
+    <button class="hamburger-desktop" onclick="toggleMenu()" aria-label="Menu">☰</button>
+  </div>
+  <div class="nav-right">
+    <a href="petition.html">✍ Sign the Petition</a>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">☰</button>
+  </div>
+</nav>
 
-  <p>Congress isn’t broken.<br>It’s unresponsive.</p>
+<!-- ── MOBILE MENU ── -->
+<div class="mobile-menu" id="mobile-menu">
+  <div style="padding: 8px 20px 0 20px;">
+    <a href="NoWar.html" style="display: block; padding: 14px 16px; font-family: var(--font-condensed); font-weight: 700; font-size: 1.15rem; color: var(--red); text-decoration: none; background: rgba(230,57,70,0.1); border-radius: 8px; margin-bottom: 8px;">🕊 END THE WAR / NO DRAFT</a>
+  </div>
+  <details class="menu-section">
+    <summary class="menu-label">Understand the Fight</summary>
+    <a href="Crisis.html">🚨 The Crisis</a>
+    <a href="SimpleMath.html">📊 Simple Math</a>
+    <a href="Leverage.html">⚡ The Leverage</a>
+    <a href="5D_Solutions.html">🔬 5D Solutions</a>
+    <a href="Telehealth-Insurance.html">💡 TeleCARE</a>
+  </details>
+  <details class="menu-section">
+    <summary class="menu-label">Who We're For</summary>
+    <a href="organizers.html">✊ For Organizers</a>
+    <a href="Veterans.html">🎖 Veterans</a>
+    <a href="Unions-Strategy.html">💪 Union Strategy</a>
+  </details>
+  <details class="menu-section">
+    <summary class="menu-label">Resources</summary>
+    <a href="Resources.html">📚 Resource Hub</a>
+    <a href="real-stories.html">💬 Real Stories</a>
+    <a href="FAQ.html" target="_blank">❓ FAQ</a>
+    <a href="healthcare-proof.html" target="_blank" class="menu-deepdive">→ The Full Story</a>
+  </details>
+  <details class="menu-section">
+    <summary class="menu-label">Take Action</summary>
+    <a href="petition.html">📋 Sign the Petition</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdETA-oNIeOAzEsG4GsYiiws1YBpLunx8ioVJkZac5hzSxaZw/viewform?usp=header" target="_blank" rel="noopener noreferrer">📋 Take the Survey</a>
+    <a href="Donate.html">💚 Donate</a>
+    <a href="action.html">📣 Take Action</a>
+  </details>
+</div>
 
-  <p>
-    And right now, that’s putting us on a path we may not recover from.
-  </p>
+<!-- MAIN CONTENT -->
+<div class="page-wrap">
 
-  <p>
-    People think this is about politics.<br>
-    It’s not.
-  </p>
+<div class="petition-hero">
+  <img src="PHIERS_Logo.png" alt="PHIERS.org" class="hero-logo">
+  <div class="petition-eyebrow">Public Demand for Congressional Action</div>
+  <h1>Your Name Is<br><span>Leverage.</span></h1>
+</div>
 
-  <p>
-    It’s about whether Congress does its job — before the consequences compound.
-  </p>
+<div class="preamble">
 
-  <p>
-    We protest. We vote. We wait.<br>
-    Nothing changes.
-  </p>
+<p class="opener">You're angry. Good. You should be.</p>
 
-  <p>
-    Not because people don’t care —<br>
-    but because we’re not acting together.
-  </p>
+<p>
+A war nobody voted for. Rising costs. Systems under pressure.<br>
+A government that keeps moving forward — whether you agree or not.
+</p>
 
-  <p>
-    There is a way to change that.
-  </p>
+<p>
+You've called. You've marched. You've posted.<br>
+Nothing changed.
+</p>
 
-  <p>
-    Not by yelling louder.<br>
-    Not by waiting longer.
-  </p>
+<p>
+Not because people don't care —  
+but because there's no coordinated leverage behind it.
+</p>
 
-  <p style="font-weight:700;">
-    By coordinating.
-  </p>
+<p style="font-family:var(--font-condensed);font-size:1.3rem;color:var(--green);font-weight:700;">
+This changes that.
+</p>
 
-  <p>
-    Once you see how it works, you won’t unsee it.
-  </p>
+<p>This is not a petition.</p>
 
-  <a href="home.html" class="btn-primary">
-    → Add Your Name
-  </a>
+<p>
+Petitions collect opinions.  
+Opinions don't move Congress.
+</p>
 
-  <p class="subtle">
-    Start here. It will make sense.<br><br>
-    Real people.<br>
-    Real districts.<br>
-    On the record.
-  </p>
+<p style="font-family:var(--font-condensed);font-size:1.3rem;color:var(--green);font-weight:700;">
+Pressure does.
+</p>
+
+<p>Congress responds to one thing:</p>
+
+<p style="font-family:var(--font-condensed);font-size:1.2rem;color:var(--text-bright);font-weight:700;">
+visible pressure from people inside their own districts.
+</p>
+
+<p>That's what this creates — and what they can't ignore.</p>
+
+<hr class="petition-divider">
+
+<p>We apply that locally:</p>
+
+<p style="font-family:var(--font-condensed);font-size:1.4rem;color:var(--red);font-weight:700;text-align:center;">
+1,500 people in your district
+</p>
+
+<p style="text-align:center;">
+triggers a public town hall where your representatives must answer — on the record.
+</p>
+
+<p style="text-align:center;color:var(--text-dim);font-size:0.95rem;">
+They show up because they have to — or they get replaced.
+</p>
+
+<hr class="petition-divider">
+
+<div class="petition-eyebrow">We demand Congress act — or face replacement</div>
+
+<ul class="demands">
+<li><strong>End the unauthorized wars immediately</strong></li>
+<li><strong>Deny future funding</strong></li>
+<li><strong>Block any draft</strong></li>
+<li><strong>Do the job you were elected to do</strong></li>
+</ul>
+
+<div style="margin:32px 0;padding:24px 28px;border:1px solid rgba(61,220,132,0.2);border-radius:8px;background:rgba(61,220,132,0.05);">
+
+<div class="petition-eyebrow">Why this works</div>
+
+<p>Most petitions fail because they collect names without structure.</p>
+
+<p style="font-family:var(--font-condensed);font-weight:700;color:var(--text-bright);">
+This is structured to create pressure.
+</p>
+
+<ul class="demands">
+<li><strong>District-based</strong></li>
+<li><strong>Visible pressure</strong></li>
+<li><strong>Clear trigger</strong></li>
+</ul>
+
+<p style="font-family:var(--font-condensed);color:var(--green);font-weight:700;">
+That's the difference between noise — and leverage.
+</p>
 
 </div>
+
+<p>This only works if people step in.</p>
+
+<p style="font-family:var(--font-condensed);font-size:1.2rem;color:var(--green);font-weight:700;">
+Be one of them.
+</p>
+
+<div style="text-align:center;margin-top:32px;">
+  <a href="#petition-form-section" class="btn-gold-outline">
+    ⚡ BE COUNTED IN YOUR DISTRICT →
+  </a>
+</div>
+
+</div>
+
+<div class="petition-form-wrap" id="petition-form-section">
+
+<div class="form-header">
+  <h2>Be Counted in Your District</h2>
+  <p>Real people. Real districts. On the record.</p>
+</div>
+
+<form action="homepage.html" method="get">
+
+<div class="form-grid">
+  <div class="form-field"><label>First Name</label><input type="text" required></div>
+  <div class="form-field"><label>Last Name</label><input type="text" required></div>
+  <div class="form-field"><label>ZIP Code</label><input type="text" required></div>
+  <div class="form-field"><label>Email</label><input type="email" required></div>
+</div>
+
+<button type="submit" class="btn-outline">
+  ⚡ BE COUNTED IN MY DISTRICT
+</button>
+
+<p style="text-align:center;font-size:0.85rem;color:var(--text-dim);margin-top:12px;">
+No spam. No sharing. Used only to verify real people in real districts.
+</p>
+
+</form>
+
+</div>
+
+</div>
+
+<!-- ── FOOTER ── -->
+<footer style="text-align:center; padding: 3rem 1rem 2rem;">
+  <img src="PHIERS_Logo.png" alt="PHIERS.org" class="footer-logo" style="max-width:100px; height:auto; margin:0 auto 1rem; display:block;">
+  <div style="font-family:var(--font-condensed); font-weight:700; font-size:1rem; color:var(--text-dim); margin-bottom:4px;">PHIERS is a people's movement — not a company, not a product.</div>
+  <div style="font-size:0.9rem; color:var(--text-dim); margin-bottom:6px;">Built by regular people who are done waiting.</div>
+  <div class="footer-power">Energy without power fails.<br>PHIERStorm is the power.</div>
+  <div class="footer-links">
+    <a href="Crisis.html">The Crisis</a>
+    <a href="SimpleMath.html">Simple Math</a>
+    <a href="5D_Solutions.html">5D Solutions</a>
+    <a href="Telehealth-Insurance.html">Telehealth</a>
+    <a href="NoWar.html">No War / No Draft</a>
+    <a href="organizers.html">Organizers</a>
+    <a href="Unions-Strategy.html">Unions</a>
+    <a href="Donate.html">Donate</a>
+    <a href="FAQ.html">FAQ</a>
+    <a href="About.html">About</a>
+    <a href="healthcare-proof.html">Full Story</a>
+  </div>
+  <div class="footer-copy">© PHIERS.org — All Rights Reserved.</div>
+</footer>
+
+<button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
+
+<!-- WILL PRICE MODAL -->
+<div id="will-modal"
+     onclick="if(event.target===this)this.style.display='none'"
+     style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);
+            z-index:99998;align-items:center;justify-content:center;padding:16px;">
+  <div style="position:relative;max-width:720px;width:100%;
+              background:rgba(8,13,26,0.97);border:2px solid rgba(61,220,132,0.35);
+              border-radius:16px;box-shadow:0 25px 60px rgba(0,0,0,0.8);
+              overflow:hidden;max-height:90vh;overflow-y:auto;">
+
+    <button onclick="document.getElementById('will-modal').style.display='none'"
+            aria-label="Close"
+            style="position:absolute;top:12px;right:12px;background:#111d35;
+                   color:#3ddc84;border:2px solid #3ddc84;border-radius:50%;
+                   width:40px;height:40px;font-size:1.2rem;cursor:pointer;
+                   display:flex;align-items:center;justify-content:center;
+                   z-index:10;transition:all 0.2s;"
+            onmouseover="this.style.background='#3ddc84';this.style.color='#111d35'"
+            onmouseout="this.style.background='#111d35';this.style.color='#3ddc84'">✕</button>
+
+    <div style="display:flex;flex-wrap:wrap;align-items:stretch;">
+      <div style="flex:0 0 240px;width:100%;max-width:100%;min-height:280px;overflow:hidden;">
+        <img src="Will_Price.png"
+             alt="Will Price — Founder & Chief Solutions Architect, PHIERS"
+             style="width:100%;height:100%;min-height:260px;
+                    object-fit:cover;object-position:55% top;display:block;">
+      </div>
+      <div style="flex:1;min-width:240px;padding:28px 24px;
+                  display:flex;flex-direction:column;justify-content:center;">
+        <p style="font-family:'Barlow Condensed',sans-serif;font-size:0.75rem;
+                  color:#3ddc84;text-transform:uppercase;letter-spacing:3px;margin:0 0 8px 0;">The Architect</p>
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,4vw,2.2rem);
+                   color:#ffffff;line-height:1.05;margin:0 0 4px 0;letter-spacing:1px;">Will Price</h3>
+        <p style="font-family:'Barlow Condensed',sans-serif;font-size:0.92rem;color:#ffd60a;
+                  font-weight:700;margin:0 0 16px 0;line-height:1.3;">
+          Founder &amp; Chief Solutions Architect, PHIERS
+        </p>
+        <p style="font-family:'Barlow',sans-serif;font-size:0.93rem;color:#c8d8c8;line-height:1.65;margin:0;">
+          Not a politician. Not a lobbyist. A systems architect who found $2.7 trillion in wasted spending — and built the lever to redirect it toward healthcare, jobs, and a monthly check for every American. Building this since 2009.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function toggleMenu() {
+  var menu = document.getElementById('mobile-menu');
+  if (menu) menu.classList.toggle('open');
+}
+
+document.addEventListener('click', function(event) {
+  var menu = document.getElementById('mobile-menu');
+  var hamburger = document.querySelector('.hamburger');
+  if (menu && hamburger && menu.classList.contains('open') &&
+      !menu.contains(event.target) && !hamburger.contains(event.target)) {
+    menu.classList.remove('open');
+  }
+});
+
+document.querySelectorAll('.mobile-menu a').forEach(function(a) {
+  a.addEventListener('click', function() {
+    var m = document.getElementById('mobile-menu');
+    if (m) m.classList.remove('open');
+  });
+});
+
+const modal = document.getElementById('entryModal');
+const enterBtn = document.getElementById('enterSiteBtn');
+
+if (!sessionStorage.getItem('modalShown')) {
+  setTimeout(() => {
+    modal.style.display = 'flex';
+  }, 800);
+  sessionStorage.setItem('modalShown', 'true');
+} else {
+  modal.style.display = 'none';
+}
+
+enterBtn.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
+
+window.addEventListener('click', (e) => {
+  if (e.target === modal) {
+    modal.style.display = 'none';
+  }
+});
+
+var btt = document.getElementById('back-to-top');
+if (btt) {
+  window.addEventListener('scroll', function() {
+    btt.classList.toggle('visible', window.scrollY > 400);
+  });
+  btt.addEventListener('click', function() {
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+}
+</script>
 
 </body>
 </html>
