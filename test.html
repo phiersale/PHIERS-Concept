@@ -394,7 +394,70 @@
                 font-size: 0.9rem;
             }
         }
+        /* Rhythm and scannability improvements */
+        .hero-rhythm {
+            max-width: 720px;
+            margin: 0 auto;
+        }
         
+        .statement-urgent {
+            color: var(--red);
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin: 1rem 0;
+            letter-spacing: -0.2px;
+        }
+        
+        .statement-hopeful {
+            color: var(--green);
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin: 1rem 0;
+        }
+        
+        .statement-turning {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-bright);
+            margin: 1.5rem 0;
+            border-left: 3px solid var(--green);
+            padding-left: 1rem;
+            text-align: left;
+        }
+        
+        .divider-light {
+            width: 60px;
+            height: 2px;
+            background: rgba(61,220,132,0.3);
+            margin: 1.5rem auto;
+        }
+        
+        .hero-image-container {
+            max-width: 500px;
+            margin: 40px auto 0;
+        }
+        
+        .hero-image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid rgba(61,220,132,0.2);
+            display: block;
+        }
+        
+        .modal-content img {
+            max-width: 100%;
+            max-height: 70vh;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-image-container {
+                max-width: 90%;
+            }
+            .statement-turning {
+                font-size: 1.1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -410,32 +473,44 @@
 <!-- HERO SECTION -->
 <section id="hero" style="text-align:center;padding-top:80px;padding-bottom:40px;padding-left:24px;padding-right:24px;">
     
-    <img src="PHIERS_Logo.png" alt="PHIERS.org" style="height:80px;width:auto;display:inline-block;margin-bottom:32px;">
+    <img src="PHIERS_Logo.png" alt="PHIERS.org" style="height:70px;width:auto;display:inline-block;margin-bottom:24px;">
     
-    <h1 class="hero-h1">Make Congress do its job.</h1>
+    <h1 class="hero-h1" style="font-size:clamp(2.2rem,7vw,4rem); margin-bottom:24px;">Make Congress do its job.</h1>
     
-    <p class="hero-sub" style="color:var(--text-dim); margin-bottom: 1rem;">Congress isn't broken. It's unresponsive.</p>
-    <p class="hero-sub" style="color:var(--red); font-weight:600; margin-bottom: 0.5rem;">And right now, that's putting us on a path we may not recover from.</p>
-    <p class="hero-sub" style="color:var(--text-dim); margin-bottom: 1.5rem;">We don't have time to wait this out.</p>
-    
-    <p class="hero-sub" style="color:var(--text-dim); margin-bottom: 0.5rem;">People think this is about politics.<br>It's not.</p>
-    <p class="hero-sub" style="color:var(--text-dim); margin-bottom: 1.5rem;">It's about whether Congress does its job — before the consequences compound.</p>
-    
-    <p class="hero-sub" style="color:var(--text-dim); margin-bottom: 0.5rem;">We protest. We vote. We wait.</p>
-    <p class="hero-sub" style="color:var(--text-dim); margin-bottom: 0.5rem;">Nothing changes.</p>
-    <p class="hero-sub" style="color:var(--text-dim); margin-bottom: 1.5rem;">Not because people don't care —<br>but because we're not acting together.</p>
-    
-    <p class="hero-sub" style="color:var(--text-dim); margin-bottom: 0.5rem;">There is a way to change that.</p>
-    <p class="hero-sub" style="color:var(--text-dim); margin-bottom: 0.5rem;">Not by yelling louder.<br>Not by waiting longer.</p>
-    <p class="hero-sub" style="color:var(--green); font-weight:800; font-size:1.5rem; margin-bottom: 1rem;">By coordinating.</p>
-    
-    <p class="hero-sub" style="color:var(--text-dim); font-style:italic; margin-bottom: 1.5rem;">Once you see how it works, you won't unsee it.</p>
-    
-    <div class="cta-row" style="justify-content:center;margin-top:8px;">
-       <a href="petition.html" style="display:inline-block;background:transparent;color:var(--green);border:1.5px solid rgba(61,220,132,0.5);padding:10px 28px;border-radius:40px;font-family:var(--font-body);font-weight:600;font-size:1rem;text-decoration:none;transition:all 0.2s ease;" onmouseover="this.style.borderColor='var(--green)';this.style.background='rgba(61,220,132,0.05)'" onmouseout="this.style.borderColor='rgba(61,220,132,0.5)';this.style.background='transparent'">✍ Add Your Name →</a>
+    <div class="hero-rhythm">
+        
+        <p style="color:var(--text-dim); font-size:1rem;">Congress isn't broken. It's unresponsive.</p>
+        <p class="statement-urgent">And right now, that's putting us on a path we may not recover from.</p>
+        <p style="color:var(--text-dim); font-size:1rem;">We don't have time to wait this out.</p>
+        
+        <div class="divider-light"></div>
+        
+        <p style="color:var(--text-dim); font-size:1rem;">People think this is about politics.<br>It's not.</p>
+        <p style="color:var(--text-dim); font-size:1rem; margin-bottom:1rem;">It's about whether Congress does its job — before the consequences compound.</p>
+        
+        <div class="divider-light"></div>
+        
+        <p style="color:var(--text-dim); font-size:1rem;">We protest. We vote. We wait.</p>
+        <p style="color:var(--text-dim); font-size:1rem;">Nothing changes.</p>
+        <p style="color:var(--text-dim); font-size:1rem; margin-bottom:1.5rem;">Not because people don't care —<br>but because we're not acting together.</p>
+        
+        <div class="divider-light"></div>
+        
+        <p style="color:var(--text-dim); font-size:1rem;">There is a way to change that.</p>
+        <p style="color:var(--text-dim); font-size:1rem;">Not by yelling louder.<br>Not by waiting longer.</p>
+        <p class="statement-hopeful" style="font-size:1.6rem;">By coordinating.</p>
+        
+        <div class="divider-light"></div>
+        
+        <p class="statement-turning">Once you see how it works, you won't unsee it.</p>
+        
     </div>
     
-    <p style="font-family:var(--font-body); color:var(--text-dim); margin-top: 12px;">Start here. It will make sense.</p>
+    <div class="cta-row" style="justify-content:center;margin-top:24px;">
+       <a href="petition.html" style="display:inline-block;background:transparent;color:var(--green);border:1.5px solid rgba(61,220,132,0.5);padding:12px 32px;border-radius:40px;font-family:var(--font-body);font-weight:600;font-size:1rem;text-decoration:none;transition:all 0.2s ease;" onmouseover="this.style.borderColor='var(--green)';this.style.background='rgba(61,220,132,0.05)'" onmouseout="this.style.borderColor='rgba(61,220,132,0.5)';this.style.background='transparent'">✍ Add Your Name →</a>
+    </div>
+    
+    <p style="font-family:var(--font-body); color:var(--text-dim); margin-top: 16px;">Start here. It will make sense.</p>
     <p style="font-family:var(--font-body); color:var(--text-dim); font-size:0.85rem;">Real people. Real districts. On the record.</p>
     
     <div class="hero-image-container">
