@@ -190,7 +190,7 @@
         </div>
     
         <!-- VIDEO -->
-        <div class="video-facade" id="pathosVideoFacade" data-video-id="UD8svoGU7ZU">
+       <div class="pathos-video" id="pathosVideoFacade" data-video-id="UD8svoGU7ZU">
           <img src="https://img.youtube.com/vi/UD8svoGU7ZU/hqdefault.jpg" alt="Watch the video">
           <div class="play-button">▶</div>
         </div>
@@ -753,25 +753,33 @@ function playVideo(which, src) {
 }
 
 // Pathos video handler
-const pathosVideo = document.getElementById('pathosVideoFacade');
-if (pathosVideo) {
-  const videoId = pathosVideo.getAttribute('data-video-id');
-  pathosVideo.addEventListener('click', () => {
-    const iframe = document.createElement('iframe');
-    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
-    iframe.setAttribute('allowfullscreen', '');
-    iframe.style.width = '100%';
-    iframe.style.height = '100%';
-    iframe.style.position = 'absolute';
-    iframe.style.top = '0';
-    iframe.style.left = '0';
-    iframe.style.border = 'none';
-    pathosVideo.innerHTML = '';
-    pathosVideo.appendChild(iframe);
-    // Re-apply styles to maintain aspect ratio
-    pathosVideo.style.position = 'relative';
-  });
-}
+  const pathosVideo = document.getElementById('pathosVideoFacade');
+  if (pathosVideo) {
+    const videoId = pathosVideo.getAttribute('data-video-id');
+    pathosVideo.addEventListener('click', () => {
+      // Get the container (the facade itself)
+      const container = pathosVideo;
+      
+      // Create iframe
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+      iframe.setAttribute('allowfullscreen', '');
+      iframe.style.width = '100%';
+      iframe.style.height = '100%';
+      iframe.style.position = 'absolute';
+      iframe.style.top = '0';
+      iframe.style.left = '0';
+      iframe.style.border = 'none';
+      
+      // Clear the container
+      container.innerHTML = '';
+      container.appendChild(iframe);
+      
+      // Ensure container maintains aspect ratio
+      container.style.position = 'relative';
+      container.style.aspectRatio = '16 / 9';
+    });
+  }
 
 window.addEventListener('scroll', function() {
   var n = document.getElementById('main-nav');
