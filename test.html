@@ -1,647 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>PHIERS | Make Congress Do Its Job</title>
-    <link rel="icon" type="image/png" href="PHIERS_Logo.png">
-    <meta property="og:image" content="PHIERS_Logo.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Barlow+Condensed:wght@400;600;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles-new.css">
-    <style>
-        /* Additional styles */
-        
-        /* Section containers with light boxes */
-        .section-box {
-            max-width: 1000px;
-            margin: 3rem auto;
-            padding: 2.5rem;
-            background: rgba(17, 29, 53, 0.6);
-            border-radius: 24px;
-            border: 1px solid rgba(61, 220, 132, 0.15);
-        }
-        
-        .section-box-light {
-            background: rgba(17, 29, 53, 0.4);
-        }
-        
-        /* Text containers for readability */
-        .text-container {
-            max-width: 720px;
-            margin: 0 auto;
-        }
-        
-        .text-left {
-            text-align: left;
-        }
-        
-        /* Validation block */
-        .validation-block {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        
-        .validation-eyebrow {
-            font-family: var(--font-body);
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 600;
-            color: var(--red);
-            margin-bottom: 1rem;
-        }
-        
-        .validation-quote {
-            font-family: var(--font-display);
-            font-size: 1.8rem;
-            font-weight: 600;
-            line-height: 1.3;
-            color: var(--text-bright);
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-        
-        .validation-attribution {
-            font-family: var(--font-body);
-            font-size: 0.9rem;
-            color: var(--text-body);
-            margin-bottom: 0.5rem;
-        }
-        
-        .validation-grassroots {
-            font-family: var(--font-body);
-            font-size: 0.95rem;
-            color: var(--green);
-            font-weight: 500;
-            margin: 1.5rem 0 2rem;
-        }
-        
-        /* Video facade */
-        .video-facade {
-            position: relative;
-            cursor: pointer;
-            border-radius: 12px;
-            overflow: hidden;
-            margin: 1.5rem 0;
-            aspect-ratio: 16 / 9;
-            background: #000;
-        }
-        
-        .video-facade img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-        
-        .video-facade:hover img {
-            transform: scale(1.05);
-        }
-        
-        .play-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 70px;
-            height: 70px;
-            background: var(--red);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.2s ease;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            font-size: 32px;
-            color: white;
-        }
-        
-        .video-facade:hover .play-button {
-            transform: translate(-50%, -50%) scale(1.1);
-        }
-        
-        .watch-link {
-            display: inline-block;
-            margin-top: 0.75rem;
-            font-family: var(--font-body);
-            font-weight: 600;
-            color: var(--red);
-            text-decoration: none;
-            font-size: 0.95rem;
-        }
-        
-        /* Doors section */
-        .doors-section {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .doors-label {
-            font-family: var(--font-body);
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 600;
-            color: var(--red);
-            text-align: center;
-            margin-bottom: 0.5rem;
-        }
-        
-        .doors-header {
-            font-family: var(--font-display);
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--text-bright);
-        }
-        
-        .doors-bridge {
-            font-family: var(--font-body);
-            text-align: center;
-            font-size: 1.1rem;
-            color: var(--text-body);
-            margin-bottom: 2.5rem;
-        }
-        
-        .doors-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            justify-content: center;
-        }
-        
-        .door-card {
-            flex: 1;
-            min-width: 280px;
-            background: rgba(17, 29, 53, 0.8);
-            border-radius: 20px;
-            padding: 2rem;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            border-top: 4px solid;
-            border: 1px solid var(--border);
-            text-align: left;
-        }
-        
-        .door-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 28px rgba(0,0,0,0.15);
-        }
-        
-        .door-card.red {
-            border-top-color: var(--red);
-        }
-        
-        .door-card.green {
-            border-top-color: var(--green);
-        }
-        
-        .deep-dive-badge {
-            display: inline-block;
-            background: var(--green);
-            color: white;
-            font-family: var(--font-body);
-            font-size: 0.7rem;
-            font-weight: 600;
-            padding: 0.2rem 0.8rem;
-            border-radius: 20px;
-            letter-spacing: 0.5px;
-            margin-bottom: 0.75rem;
-        }
-        
-        .door-title {
-            font-family: var(--font-display);
-            font-size: 1.6rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            color: var(--text-bright);
-        }
-        
-        .door-description {
-            font-family: var(--font-body);
-            font-size: 0.95rem;
-            color: var(--text-body);
-            line-height: 1.5;
-            margin-bottom: 1.5rem;
-        }
-        
-        .door-btn {
-            display: inline-block;
-            background: rgba(230, 57, 70, 0.2);
-            border: 2px solid;
-            padding: 0.7rem 1.5rem;
-            border-radius: 40px;
-            font-family: var(--font-body);
-            font-weight: 700;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            font-size: 0.9rem;
-            cursor: pointer;
-        }
-        
-        .door-card.red .door-btn {
-            border-color: var(--red);
-            color: var(--red);
-            background: rgba(230, 57, 70, 0.2);
-        }
-        
-        .door-card.red .door-btn:hover {
-            background: var(--red);
-            color: white;
-            transform: scale(1.02);
-            box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3);
-        }
-        
-        .door-card.green .door-btn {
-            border-color: var(--green);
-            color: var(--green);
-            background: rgba(61, 220, 132, 0.15);
-        }
-        
-        .door-card.green .door-btn:hover {
-            background: var(--green);
-            color: #111d35;
-            transform: scale(1.02);
-            box-shadow: 0 4px 12px rgba(61, 220, 132, 0.3);
-        }
-        
-        /* Petition CTA */
-        .petition-cta {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .petition-cta p {
-            font-family: var(--font-display);
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            color: var(--text-bright);
-        }
-                
-        .catch-line {
-            font-family: var(--font-body);
-            font-size: 0.85rem;
-            color: var(--text-dim);
-        }
-        
-        /* Hero */
-        .hero-image-container {
-            max-width: 600px;
-            margin: 40px auto 0;
-        }
-        
-        .hero-image-container img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            border: 2px solid rgba(61,220,132,0.2);
-            display: block;
-        }
-        
-        .hero-caption {
-            font-family: var(--font-condensed);
-            font-size: 0.8rem;
-            color: var(--text-dim);
-            text-align: center;
-            margin-top: 12px;
-            font-style: italic;
-        }
-        
-        .hero-micro {
-            font-family: var(--font-condensed);
-            font-size: 0.9rem;
-            color: var(--red);
-            font-weight: 500;
-            margin-top: 0.5rem;
-        }
-        
-              
-               @media (max-width: 768px) {
-            .validation-quote {
-                font-size: 1.4rem;
-            }
-            .doors-header {
-                font-size: 1.8rem;
-            }
-            .petition-cta p {
-                font-size: 1.2rem;
-            }
-            .door-card {
-                padding: 1.5rem;
-            }
-            .doors-grid {
-                flex-direction: column;
-                align-items: center;
-            }
-            .door-card {
-                width: 100%;
-                max-width: 400px;
-            }
-            .section-box {
-                padding: 1.5rem;
-                margin: 2rem;
-            }
-        }
-        
-        
-        /* Ensure modal is fixed overlay, not inline */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.9);
-            z-index: 99999;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .modal-content {
-            max-width: 90vw;
-            max-height: 90vh;
-            text-align: center;
-        }
-        
-        .modal-content img {
-            max-width: 100%;
-            max-height: 80vh;
-            width: auto;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-            border-radius: 8px;
-        }
-        
-
-        @media (max-width: 768px) {
-            .modal-content img {
-                max-height: 60vh;
-                max-width: 95vw;
-            }
-            
-            .modal-content {
-                padding: 0 10px;
-            }
-            
-            #enterSiteBtn {
-                padding: 10px 24px;
-                font-size: 0.9rem;
-            }
-        }
-        /* Rhythm and scannability improvements */
-        .hero-rhythm {
-            max-width: 720px;
-            margin: 0 auto;
-        }
-        
-        .statement-urgent {
-            color: var(--red);
-            font-weight: 700;
-            font-size: 1.2rem;
-            margin: 1rem 0;
-            letter-spacing: -0.2px;
-        }
-        
-               
-        .statement-turning {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--text-bright);
-            margin: 1.5rem 0;
-            border-left: 3px solid var(--green);
-            padding-left: 1rem;
-            text-align: left;
-        }
-        
-        .divider-light {
-            width: 60px;
-            height: 2px;
-            background: rgba(61,220,132,0.3);
-            margin: 1.5rem auto;
-        }
-        
-        .hero-image-container {
-            max-width: 500px;
-            margin: 40px auto 0;
-        }
-        
-        .hero-image-container img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            border: 1px solid rgba(61,220,132,0.2);
-            display: block;
-        }
-        
-        .modal-content img {
-            max-width: 100%;
-            max-height: 70vh;
-        }
-        
-        @media (max-width: 768px) {
-            .hero-image-container {
-                max-width: 90%;
-            }
-            .statement-turning {
-                font-size: 1.1rem;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PHIERS</title>
+<link rel="stylesheet" href="styles-new.css">
 </head>
 <body>
 
-<!-- MODAL with 3-second delay -->
-<div id="entryModal" class="modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:99999;align-items:center;justify-content:center;">
-    <div class="modal-content" style="max-width:90vw;max-height:90vh;text-align:center;">
-        <img src="Congress_Dont_Work_4U-WEre_changing_that-BIG.jpg" alt="Congress" style="max-width:100%;max-height:80vh;width:auto;height:auto;display:block;margin:0 auto;border-radius:8px;">
-        <button class="enter-button" id="enterSiteBtn" style="display:block;margin:20px auto 0;padding:10px 28px;background:transparent;color:var(--green);border:1.5px solid rgba(61,220,132,0.5);border-radius:40px;font-family:var(--font-body);font-weight:600;font-size:1rem;cursor:pointer;transition:all 0.2s ease;" onmouseover="this.style.borderColor='var(--green)';this.style.background='rgba(61,220,132,0.05)'" onmouseout="this.style.borderColor='rgba(61,220,132,0.5)';this.style.background='transparent'">Enter the Site →</button>
-    </div>
+<div class="center-wrap">
+
+  <h1>Make Congress do its job.</h1>
+
+  <p>Congress isn’t broken.<br>It’s unresponsive.</p>
+
+  <p>
+    And right now, that’s putting us on a path we may not recover from.
+  </p>
+
+  <p>
+    People think this is about politics.<br>
+    It’s not.
+  </p>
+
+  <p>
+    It’s about whether Congress does its job — before the consequences compound.
+  </p>
+
+  <p>
+    We protest. We vote. We wait.<br>
+    Nothing changes.
+  </p>
+
+  <p>
+    Not because people don’t care —<br>
+    but because we’re not acting together.
+  </p>
+
+  <p>
+    There is a way to change that.
+  </p>
+
+  <p>
+    Not by yelling louder.<br>
+    Not by waiting longer.
+  </p>
+
+  <p style="font-weight:700;">
+    By coordinating.
+  </p>
+
+  <p>
+    Once you see how it works, you won’t unsee it.
+  </p>
+
+  <a href="home.html" class="btn-primary">
+    → Add Your Name
+  </a>
+
+  <p class="subtle">
+    Start here. It will make sense.<br><br>
+    Real people.<br>
+    Real districts.<br>
+    On the record.
+  </p>
+
 </div>
-
-<!-- HERO SECTION -->
-<section id="hero" style="text-align:center;padding-top:80px;padding-bottom:40px;padding-left:24px;padding-right:24px;">
-    
-    <img src="PHIERS_Logo.png" alt="PHIERS.org" style="height:70px;width:auto;display:inline-block;margin-bottom:24px;">
-    
-    <h1 class="hero-h1" style="font-size:clamp(2.2rem,7vw,4rem); margin-bottom:24px;">Make Congress do its job.</h1>
-    
-    <div style="max-width: 680px; margin: 0 auto;">
-        
-        <p style="color:var(--text-dim); font-size:1rem;">Congress isn't broken. It's unresponsive.</p>
-        <p class="statement-urgent" style="color:var(--red); font-weight:700; font-size:1.2rem; margin:0.5rem 0;">And right now, that's putting us on a path we may not recover from.</p>
-        <p style="color:var(--text-dim); font-size:1rem; margin-bottom:1rem;">We don't have time to wait this out.</p>
-        
-        <!-- Image break 1 -->
-        <div style="margin: 1.5rem auto; max-width: 400px;">
-            <img src="Congress_Dont_Work_4U-WEre_changing_that-BIG.jpg" alt="Congress" style="width:100%; height:auto; border-radius:12px; border:1px solid rgba(61,220,132,0.2);">
-        </div>
-        
-        <p style="color:var(--text-dim); font-size:1rem;">People think this is about politics.<br>It's not.</p>
-        <p style="color:var(--text-dim); font-size:1rem; max-width: 580px; margin: 0 auto 1rem auto; text-align:center;">It's about whether Congress does its job — before the consequences compound.</p>
-        
-        <!-- Image break 2 -->
-        <div style="margin: 1.5rem auto; max-width: 300px;">
-            <img src="We_Gotz_Teeth_for_No_Kings.jpg" alt="We Got Teeth for No Kings" style="width:100%; height:auto; border-radius:8px; border:1px solid rgba(61,220,132,0.2);">
-        </div>
-        
-        <p style="color:var(--text-dim); font-size:1rem;">We protest. We vote. We wait.</p>
-        <p style="color:var(--text-dim); font-size:1rem;">Nothing changes.</p>
-        <p style="color:var(--text-dim); font-size:1rem; margin-bottom:1rem;">Not because people don't care —<br>but because we're not acting together.</p>
-        
-        <!-- Image break 3 -->
-        <div style="margin: 1.5rem auto; max-width: 500px;">
-            <img src="veterans_from_back.jpg" alt="Veterans" style="width:100%; height:auto; border-radius:12px; border:1px solid rgba(61,220,132,0.2);">
-        </div>
-        
-        <p style="color:var(--text-dim); font-size:1rem;">There is a way to change that.</p>
-        <p style="color:var(--text-dim); font-size:1rem;">Not by yelling louder.<br>Not by waiting longer.</p>
-        <p style="color:var(--green); font-weight:800; font-size:1.6rem; margin:0.5rem 0;">By coordinating.</p>
-        
-        <!-- Image break 4 -->
-        <div style="margin: 1.5rem auto; max-width: 400px;">
-            <img src="PHIERStorm_the_Movement.png" alt="PHIERStorm" style="width:100%; height:auto; opacity:0.9;">
-        </div>
-        
-        <p style="color:var(--text-bright); font-weight:600; font-size:1.2rem; border-left:3px solid var(--green); text-align:left; margin:1rem auto; max-width:500px; background:rgba(61,220,132,0.08); padding:1rem; border-radius:8px;">Once you see how it works, you won't unsee it.</p>
-        
-    </div>
-    
-    <div class="cta-row" style="justify-content:center;margin-top:24px;">
-       <a href="petition.html" style="display:inline-block;background:transparent;color:var(--green);border:1.5px solid rgba(61,220,132,0.5);padding:12px 32px;border-radius:40px;font-family:var(--font-body);font-weight:600;font-size:1rem;text-decoration:none;transition:all 0.2s ease;" onmouseover="this.style.borderColor='var(--green)';this.style.background='rgba(61,220,132,0.05)'" onmouseout="this.style.borderColor='rgba(61,220,132,0.5)';this.style.background='transparent'">✍ Add Your Name →</a>
-    </div>
-    
-    <p style="font-family:var(--font-body); color:var(--text-dim); margin-top: 16px;">Start here. It will make sense.</p>
-    <p style="font-family:var(--font-body); color:var(--text-dim); font-size:0.85rem;">Real people. Real districts. On the record.</p>
-    
-</section>
-
-<!-- PATHOS VALIDATION BLOCK with light box -->
-<div class="section-box">
-    <div class="validation-block">
-        <div class="validation-eyebrow">Independent Validation</div>
-        <div class="validation-quote">"If you weren't legit, we wouldn't risk putting our name behind yours."</div>
-        <div class="validation-attribution">— Pathos Communications · Global PR firm, listed on the London Stock Exchange</div>
-        <div class="validation-attribution">After hours of interviews with Will Price</div>
-        <div class="validation-grassroots">We passed their test. We chose to stay grassroots anyway. That's the point.</div>
-        
-        <div class="video-facade" id="videoFacade" data-video-id="UD8svoGU7ZU">
-            <img src="https://img.youtube.com/vi/UD8svoGU7ZU/hqdefault.jpg" alt="Watch the video">
-            <div class="play-button">▶</div>
-        </div>
-
-         <p style="font-family:var(--font-body); font-size:0.75rem; color:var(--text-dim); margin-top: 8px; text-align:center;">Click to play — video loads right here</p>
-    </div>
-</div>
-
-<!-- THREE DOORS SECTION with light box -->
-<div class="section-box">
-    <div class="doors-section">
-        <div class="doors-label">Start Here</div>
-        <h2 class="doors-header">Choose your path.</h2>
-        <div class="doors-bridge">Learn about the leverage, the solution — or how to end the war now.</div>
-        <div class="doors-bridge" style="margin-top:-1rem;font-weight:700;color:var(--text-bright); font-size:1.15rem;">We're more powerful than you've been led to believe.</div>
-                
-        <div class="doors-grid">
-            <div class="door-card red">
-                <div class="door-title">The Leverage</div>
-                <div class="door-description">
-                    How organized people force Congress to act — or be replaced.
-                </div>
-                <a href="homepage.html" class="door-btn">Show me the Leverage →</a>
-            </div>
-            
-           <div class="door-card green">
-            <div class="door-title">The Solution</div>
-                <div class="door-description">
-                    How PHIER-powered systems fix healthcare and fund what we demand.
-                </div>
-                <a href="healthcare-proof.html" class="door-btn">Explore the Solution →</a>
-            </div>
-            
-            <div class="door-card red">
-                <div class="door-title">Stop the War</div>
-                <div class="door-description">
-                    Congress funded a war nobody voted for. End the war or be replaced.
-                </div>
-                <a href="NoWar.html" class="door-btn">Take Action Now →</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- PETITION CTA with light box -->
-<div class="section-box section-box-light">
-    <div class="petition-cta">
-        <p>Your signature is how this movement starts.<br>Not tomorrow — now.</p>
-   <a href="petition.html" style="display:inline-block;background:transparent;color:var(--green);border:1.5px solid rgba(61,220,132,0.5);padding:10px 28px;border-radius:40px;font-family:var(--font-body);font-weight:600;font-size:1rem;text-decoration:none;transition:all 0.2s ease;margin-bottom:1rem;" onmouseover="this.style.borderColor='var(--green)';this.style.background='rgba(61,220,132,0.05)'" onmouseout="this.style.borderColor='rgba(61,220,132,0.5)';this.style.background='transparent'">✍ Sign the Petition</a>
-        <div class="catch-line">Not ready to dive in? Start with the video above.</div>
-    </div>
-</div>
-
-<!-- START HERE HELPER -->
-<div style="text-align: center; margin: 1rem auto 3rem auto;">
-    <a href="homepage.html" style="display: inline-block; background: transparent; color: var(--green); border: 1.5px solid rgba(61,220,132,0.5); padding: 8px 24px; border-radius: 40px; font-family: var(--font-body); font-weight: 500; font-size: 0.9rem; text-decoration: none; transition: all 0.2s ease;" onmouseover="this.style.borderColor='var(--green)'; this.style.background='rgba(61,220,132,0.05)'" onmouseout="this.style.borderColor='rgba(61,220,132,0.5)'; this.style.background='transparent'">Start here if you're not sure →</a>
-</div>
-    
-<script>
-       const modal = document.getElementById('entryModal');
-    const enterBtn = document.getElementById('enterSiteBtn');
-    
-    if (!sessionStorage.getItem('modalShown')) {
-        modal.style.display = 'flex';
-        sessionStorage.setItem('modalShown', 'true');
-    } else {
-        modal.style.display = 'none';
-    }
-    
-    enterBtn.addEventListener('click', () => {
-        modal.style.display = 'none';
-    });
-    
-    window.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            modal.style.display = 'none';
-        }
-      
-    });
-    
-    
-    function loadVideo(videoId, element) {
-            // element is the video-facade div
-            const facade = element;
-            
-            // Create iframe
-            const iframe = document.createElement('iframe');
-            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
-            iframe.setAttribute('frameborder', '0');
-            iframe.setAttribute('allowfullscreen', '');
-            iframe.style.width = '100%';
-            iframe.style.height = '100%';
-            iframe.style.position = 'absolute';
-            iframe.style.top = '0';
-            iframe.style.left = '0';
-            
-            // Clear the facade and add iframe (keeps same dimensions)
-            facade.innerHTML = '';
-            facade.appendChild(iframe);
-        }
-    
-        const videoFacade = document.getElementById('videoFacade');
-        const videoId = videoFacade.getAttribute('data-video-id');
-        
-        function initVideo() {
-            loadVideo(videoId, videoFacade);
-        }
-        
-        videoFacade.addEventListener('click', initVideo);
-            
-</script>
 
 </body>
 </html>
