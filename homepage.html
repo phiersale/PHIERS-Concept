@@ -793,8 +793,11 @@ function toggleMenu() {
 document.addEventListener('click', function(event) {
   var menu = document.getElementById('mobile-menu');
   var hamburger = document.querySelector('.hamburger');
-  if (menu && hamburger && menu.classList.contains('open') &&
-      !menu.contains(event.target) && !hamburger.contains(event.target)) {
+  var hamburgerDesktop = document.querySelector('.hamburger-desktop');
+  if (menu && menu.classList.contains('open') &&
+      !menu.contains(event.target) && 
+      !(hamburger && hamburger.contains(event.target)) &&
+      !(hamburgerDesktop && hamburgerDesktop.contains(event.target))) {
     menu.classList.remove('open');
   }
 });
