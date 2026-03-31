@@ -203,17 +203,97 @@ h1 span {
     max-height: 60vh;
   }
 }
+
+.entry-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+.entry-modal.open {
+  opacity: 1;
+  pointer-events: auto;
+  animation: modalFade 0.5s ease;
+}
+@keyframes modalFade {
+  from { opacity: 0; transform: scale(0.98); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.entry-modal-inner {
+  max-width: 1000px;
+  width: 100%;
+  text-align: center;
+}
+.entry-modal-inner img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  transition: transform 6s ease;
+}
+.entry-modal.open .entry-modal-inner img {
+  transform: scale(1.03);
+  transition-delay: 0.2s;
+}
+.entry-modal-btn {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 8px 28px;
+  background: transparent;
+  color: #3ddc84;
+  border: 1.5px solid rgba(61,220,132,0.7);
+  border-radius: 40px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+.entry-modal-btn:hover {
+  border-color: #3ddc84;
+  background: rgba(61,220,132,0.08);
+  transform: scale(1.03);
+}
+body.modal-open {
+  overflow: hidden;
+}
+.entry-modal-hook {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  color: #8899bb;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+}
 </style>
 </head>
 <body>
+
+<!-- ── ENTRY MODAL ── -->
+<div class="entry-modal" id="entry-modal">
+  <div class="entry-modal-inner">
+    <div class="entry-modal-hook">This is how they actually listen.</div>
+    <img src="Congress_Doesnt_Listent_to_You-2.jpg"
+         alt="Congress doesn't have to listen to you. This is how you make them.">
+    <a class="entry-modal-btn" onclick="closeEntryModal()">Make Them Listen →</a>
+  </div>
+</div>
+
 
 
 <!-- MAIN CONTENT — NO NAV, NO FOOTER, NO PETITION FORM -->
 <div class="page-wrap">
 
   <img src="PHIERS_Logo.png" alt="PHIERS.org" class="hero-logo">
-  
-  <p style="font-family:'Barlow Condensed',sans-serif; color:#3ddc84; letter-spacing:2px; font-weight:600; margin-bottom:8px; font-size:0.8rem;">PHIERS · Power Held In Every Representative's Seat</p>
   
   <div class="eyebrow">Make Congress Do Their Job</div>
   
@@ -223,16 +303,18 @@ h1 span {
     
     <p class="opener">You're angry. Good. You should be.</p>
 
+    <p style="font-weight:600; color:#f0f4ff;">Because right now, they don't have to listen to you.</p>
+
     <p>This isn't about opinions. It's about pressure.</p>
     <p style="font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:1rem; color:#8899bb; margin-top:16px; line-height:1.8;">
       PHIERS started as healthcare infrastructure.<br>
       It evolved into a safety net.<br>
       Now it's what was always needed most —<br>
-      <span style="color:#3ddc84;">Power Held In Every Representative's Seat.</span><br>
+      <span style="color:#3ddc84;"><span style="font-family:'Bebas Neue',sans-serif;color:#3ddc84;font-size:1.15em;">P</span>ower <span style="font-family:'Bebas Neue',sans-serif;color:#3ddc84;font-size:1.15em;">H</span>eld <span style="font-family:'Bebas Neue',sans-serif;color:#3ddc84;font-size:1.15em;">I</span>n <span style="font-family:'Bebas Neue',sans-serif;color:#3ddc84;font-size:1.15em;">E</span>very <span style="font-family:'Bebas Neue',sans-serif;color:#3ddc84;font-size:1.15em;">R</span>epresentative's <span style="font-family:'Bebas Neue',sans-serif;color:#3ddc84;font-size:1.15em;">S</span>eat.</span><br>
       16 years in the making. Built for this moment.
     </p>
 
-    <p>A war nobody voted for. Rising costs. Systems under pressure.<br>A government that keeps moving forward — whether you agree or not.</p>
+    <p>A war nobody voted for. Rising costs. Systems under pressure.<br>A government that keeps moving forward — with or without public consent.</p>
     
     <p>You've called. You've marched. You've posted.<br>Nothing changed.</p>
     
@@ -283,11 +365,26 @@ h1 span {
         1,500 people in your district
       </p>
       <p style="margin:0;">
-        triggers a public town hall where your representatives must answer — on the record.
+        creates a public town hall your representative cannot ignore —
+      where they have to answer, on the record, in front of the people they represent.
       </p>
     </div>
 
-    <p style="color:#8899bb;font-size:0.95rem;">They show up because they have to — or they get replaced.</p>
+    <p style="color:#8899bb;font-size:0.95rem;">When that many people show up together, ignoring it stops being an option.</p>
+
+    <hr class="divider">
+
+    <p style="font-family:'Barlow Condensed',sans-serif; font-size:1.3rem; font-weight:700; color:#f0f4ff; line-height:1.3; margin-bottom:12px;">
+      This only works if people understand it.
+    </p>
+    <p style="color:#b8c8e8; max-width:520px; margin:0 auto 18px;">
+      Most don't — yet.
+    </p>
+    <p style="font-family:'Barlow Condensed',sans-serif; font-size:1.15rem; font-weight:700; color:#3ddc84; margin-bottom:18px;">
+      This is what you're about to see.
+    </p>
+    <a href="homepage-teeth.html" class="btn-outline">See How the Leverage Works →</a>
+    <p style="font-size:0.8rem; color:#8899bb; margin-top:10px; opacity:0.75;">Start here. It takes about 3 minutes.</p>
     
     <hr class="divider">
 
@@ -307,13 +404,25 @@ h1 span {
       Once you see how it works, you won't unsee it.
     </div>
     
-  <a href="homepage-teeth.html" class="btn-outline">See How the Leverage Works →</a>
-  <p style="font-family:var(--font-condensed); font-size:0.8rem; color:var(--text-dim); margin-top:10px; opacity:0.7;">You can explore the full site anytime — but these three steps give you the clearest start.</p>
-    
   </div>
 
 </div>
 
+
+
+<script>
+function closeEntryModal() {
+  document.getElementById('entry-modal').classList.remove('open');
+  document.body.classList.remove('modal-open');
+  sessionStorage.setItem('entryModalShown', '1');
+  window.scrollTo({top:0, behavior:'instant'});
+}
+
+if (!sessionStorage.getItem('entryModalShown')) {
+  document.getElementById('entry-modal').classList.add('open');
+  document.body.classList.add('modal-open');
+}
+</script>
 
 </body>
 </html>
