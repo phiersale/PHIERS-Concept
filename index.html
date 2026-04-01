@@ -15,6 +15,34 @@
 </head>
 <body>
 
+<!-- ── ENTRY MODAL ── -->
+<div class="entry-modal" id="entry-modal">
+  <div class="entry-modal-inner">
+    <img src="Congress_Doesnt_Listen_to_You-3.jpg"
+         alt="Congress doesn't have to listen to you. This is how you make them.">
+    <a class="entry-modal-btn" onclick="closeEntryModal()">Be Heard →</a>
+  </div>
+</div>
+
+<!-- ── VIDEO EXPAND OVERLAY ── -->
+<div id="video-expand-overlay" onclick="collapseHeroVideo()">
+  <div style="max-width:860px;width:100%;text-align:center;">
+    <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;border:2px solid rgba(61,220,132,0.25);">
+      <iframe
+        id="expanded-video-iframe"
+        src=""
+        title="How PHIERS Forces Congress to Respond"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        style="position:absolute;top:0;left:0;width:100%;height:100%;">
+      </iframe>
+    </div>
+    <p style="font-family:'Barlow Condensed',sans-serif;font-size:0.8rem;color:rgba(255,255,255,0.4);margin-top:10px;">Click anywhere to close</p>
+  </div>
+</div>
+
+
 <!-- ── NAV ── -->
 <nav id="main-nav">
   <div class="nav-left">
@@ -104,9 +132,10 @@
   <p style="font-family:var(--font-condensed);font-weight:700;font-size:1rem;color:var(--text-dim);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px;">
     If you watch one thing — watch this.
   </p>
-  <div style="max-width:760px;margin:0 auto;">
-    <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;border:2px solid rgba(61,220,132,0.2);box-shadow:0 20px 50px rgba(0,0,0,0.5);">
+  <div style="max-width:480px;margin:0 auto;">
+    <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;border:2px solid rgba(61,220,132,0.2);box-shadow:0 12px 40px rgba(0,0,0,0.5);cursor:pointer;" id="hero-video-wrap" onclick="expandHeroVideo()">
       <iframe
+        id="hero-video-iframe"
         src="https://www.youtube.com/embed/C2mMIx5yoyw?rel=0"
         title="How PHIERS Forces Congress to Respond"
         frameborder="0"
@@ -115,7 +144,8 @@
         style="position:absolute;top:0;left:0;width:100%;height:100%;">
       </iframe>
     </div>
-    <p style="font-family:var(--font-condensed);font-size:0.95rem;color:var(--text-dim);margin-top:12px;line-height:1.5;">
+    <p style="font-family:var(--font-condensed);font-size:0.8rem;color:rgba(61,220,132,0.5);letter-spacing:0.08em;text-transform:uppercase;margin-top:8px;">⤢ Click to enlarge</p>
+    <p style="font-family:var(--font-condensed);font-size:0.95rem;color:var(--text-dim);margin-top:8px;line-height:1.5;">
       3.5% organized. 1,500 people per district. Built over 16 years.<br>
       <span style="color:var(--green);font-weight:700;">This is how we make Congress do its job.</span>
     </p>
@@ -768,5 +798,30 @@ if (btt) {
 }
 </script>
 
+
+<script>
+function closeEntryModal() {
+  document.getElementById('entry-modal').classList.remove('open');
+  document.body.classList.remove('modal-open');
+  sessionStorage.setItem('entryModalShown', '1');
+  window.scrollTo({top:0, behavior:'instant'});
+}
+if (!sessionStorage.getItem('entryModalShown')) {
+  document.getElementById('entry-modal').classList.add('open');
+  document.body.classList.add('modal-open');
+}
+function expandHeroVideo() {
+  var overlay = document.getElementById('video-expand-overlay');
+  var iframe = document.getElementById('expanded-video-iframe');
+  iframe.src = 'https://www.youtube.com/embed/C2mMIx5yoyw?rel=0';
+  overlay.classList.add('open');
+}
+function collapseHeroVideo() {
+  var overlay = document.getElementById('video-expand-overlay');
+  var iframe = document.getElementById('expanded-video-iframe');
+  overlay.classList.remove('open');
+  iframe.src = '';
+}
+</script>
 </body>
 </html>
