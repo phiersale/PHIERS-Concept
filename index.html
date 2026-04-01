@@ -12,6 +12,68 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Barlow+Condensed:wght@400;600;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles-new.css">
+<style>
+.entry-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+.entry-modal.open {
+  opacity: 1;
+  pointer-events: auto;
+  animation: modalFade 0.5s ease;
+}
+@keyframes modalFade {
+  from { opacity: 0; transform: scale(0.98); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.entry-modal-inner {
+  max-width: 1000px;
+  width: 100%;
+  text-align: center;
+}
+.entry-modal-inner img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  transition: transform 6s ease;
+}
+.entry-modal.open .entry-modal-inner img {
+  transform: scale(1.03);
+  transition-delay: 0.2s;
+}
+.entry-modal-btn {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 8px 28px;
+  background: transparent;
+  color: #3ddc84;
+  border: 1.5px solid rgba(61,220,132,0.7);
+  border-radius: 40px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+.entry-modal-btn:hover {
+  border-color: #3ddc84;
+  background: rgba(61,220,132,0.08);
+  transform: scale(1.03);
+}
+body.modal-open { overflow: hidden; }
+</style>
 </head>
 <body>
 <!-- ── ENTRY MODAL ── -->
