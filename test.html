@@ -329,6 +329,28 @@
   setTimeout(function() {
     document.querySelector('.p-ring[data-ring="0"]').click();
   }, 800);
+
+  // Desktop label scaling on ring hover
+if (window.innerWidth >= 769) {
+  var allRings = document.querySelectorAll('.p-ring');
+  allRings.forEach(function(ring) {
+    ring.addEventListener('mouseenter', function() {
+      var idx = this.getAttribute('data-ring');
+      var label = document.querySelector('.label-' + idx);
+      if (label) {
+        label.style.transform = 'translateX(-50%) scale(1.08)';
+        label.style.transition = 'transform 0.2s ease';
+      }
+    });
+    ring.addEventListener('mouseleave', function() {
+      var idx = this.getAttribute('data-ring');
+      var label = document.querySelector('.label-' + idx);
+      if (label) {
+        label.style.transform = 'translateX(-50%) scale(1)';
+      }
+    });
+  });
+}
 })();
 </script>
   
