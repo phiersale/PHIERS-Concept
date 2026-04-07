@@ -230,13 +230,19 @@
     transform: scale(1.05);
     filter: brightness(1.25);
   }
-  /* Scale labels slightly on ring hover */
-  .p-ring:hover ~ .ring-label {
-    transform: translateX(-50%) scale(1.05);
+  
+  /* Scale each label when its corresponding ring is hovered */
+  [data-ring="0"]:hover ~ .label-0 { transform: translateX(-50%) scale(1.08); }
+  [data-ring="1"]:hover ~ .label-1 { transform: translateX(-50%) scale(1.08); }
+  [data-ring="2"]:hover ~ .label-2 { transform: translateX(-50%) scale(1.08); }
+  [data-ring="3"]:hover ~ .label-3 { transform: translateX(-50%) scale(1.08); }
+  [data-ring="4"]:hover ~ .label-4 { transform: translateX(-50%) scale(1.08); }
+  [data-ring="5"]:hover ~ .label-5 { transform: translateX(-50%) scale(1.08); }
+  
+  .ring-label {
     transition: transform 0.2s ease;
   }
 }
-
 /* Mobile improvements - larger, more readable text */
 @media (max-width: 768px) {
   .ring-label {
