@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Movements without leverage don't win. PHIERS gives every movement the one thing they're missing.">
+<meta name="description" content="Congress ignores you because they can. PHIERS changes that. Organized people = unstoppable change.">
 <meta property="og:title" content="PHIERS.org — The Leverage Congress Can't Ignore">
-<meta property="og:description" content="Organized people, by district, with real consequences. That's how change actually happens.">
+<meta property="og:description" content="How organized people force Congress to act — or be replaced.">
 <meta property="og:image" content="PHIERS_Logo.png">
 <link rel="icon" type="image/png" href="PHIERS_Logo.png">
 <title>PHIERS.org — The Leverage Congress Can't Ignore</title>
@@ -13,42 +13,90 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Barlow+Condensed:wght@400;600;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles-new.css">
 <style>
-.teeth-quote {
-  font-family: var(--font-display);
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: var(--green);
+.entry-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+.entry-modal.open {
+  opacity: 1;
+  pointer-events: auto;
+  animation: modalFade 0.5s ease;
+}
+@keyframes modalFade {
+  from { opacity: 0; transform: scale(0.98); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.entry-modal-inner {
+  max-width: 1000px;
+  width: 100%;
   text-align: center;
-  margin: 2rem 0;
-  line-height: 1.3;
 }
-@media (max-width: 768px) {
-  .teeth-quote { font-size: 1.3rem; }
+.entry-modal-inner img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  transition: transform 6s ease;
 }
-  /* Breathing room fixes */
-  .section { padding-top: 72px !important; padding-bottom: 72px !important; }
-  .section-alt .inner { padding-top: 16px; padding-bottom: 16px; }
-  .section-alt { padding-top: 72px !important; padding-bottom: 72px !important; }
-  hr.divider { margin: 8px auto !important; }
+.entry-modal.open .entry-modal-inner img {
+  transform: scale(1.03);
+  transition-delay: 0.2s;
+}
+.entry-modal-btn {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 8px 28px;
+  background: transparent;
+  color: #3ddc84;
+  border: 1.5px solid rgba(61,220,132,0.7);
+  border-radius: 40px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+.entry-modal-btn:hover {
+  border-color: #3ddc84;
+  background: rgba(61,220,132,0.08);
+  transform: scale(1.03);
+}
+body.modal-open { overflow: hidden; }
 </style>
 </head>
 <body>
-<div style="padding:16px 24px 0 24px; text-align:center;">
-  <span style="font-family:var(--font-condensed); font-size:0.85rem; color:var(--text-dim); letter-spacing:2px; text-transform:uppercase; margin:0; display:block; text-align:center;">Step 2 of 3 — How the Leverage Works</span>
-  <p style="font-family:var(--font-condensed); font-size:0.78rem; color:var(--text-dim); opacity:0.65; margin:4px 0 0 0; text-align:center;">Three short pages. Enough to understand the whole system.</p>
+<!-- ── ENTRY MODAL ── -->
+<div class="entry-modal" id="entry-modal">
+  <div class="entry-modal-inner">
+    <img src="Congress_Doesnt_Listen_to_You-3-Backpack.jpg"
+         alt="Congress doesn't have to listen to you. This is how you make them.">
+    <a class="entry-modal-btn" onclick="closeEntryModal()">Be Heard →</a>
+  </div>
 </div>
+
 
 <!-- ── NAV ── -->
 <nav id="main-nav">
   <div class="nav-left">
     <a href="index.html" style="font-family:var(--font-condensed);font-weight:700;font-size:1.3rem;color:#fff;text-decoration:none;letter-spacing:0.05em">PHIERS.org</a>
-    <div class="nav-tagline">PHIERS · Power Held In Every Representative's Seat</div>
+    <div class="nav-tagline">When Americans coordinate, Congress has no choice.</div>
   </div>
   <div class="nav-center">
     <button class="hamburger-desktop" onclick="toggleMenu()" aria-label="Menu">☰</button>
   </div>
   <div class="nav-right">
-    <a href="petition.html">✍ Sign the Petition</a>
+    <a href="petition.html" class="cta-secondary" style="padding: 8px 20px;">✍ Sign the Petition</a>
     <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">☰</button>
   </div>
 </nav>
@@ -89,522 +137,757 @@
 </div>
 
 <!-- ═══════════════════════════════════════
-     HERO
+     HERO SECTION (COMPLETE)
 ═══════════════════════════════════════ -->
-<section id="hero" style="text-align:center; padding-top:80px; padding-bottom:40px; padding-left:24px; padding-right:24px;">
-  <img src="PHIERS_Logo.png" alt="PHIERS.org" style="height:90px; opacity:0.85; margin-bottom:16px;">
-  <h1 class="hero-h1">Movements Without Leverage Don't Win.</h1>
-  <div style="max-width:720px; margin:0 auto;">
-    <p class="hero-sub" style="color:var(--text-dim); margin-bottom:1rem;">
-      Protests create attention. Petitions create signals. Viral moments create headlines.
+<section id="hero" style="text-align:center; padding: 100px 24px 48px; max-width:900px; margin:0 auto;">
+  
+  <!-- LOGO - LARGER SIZE (130px) -->
+  <img src="PHIERS_Logo.png" alt="PHIERS.org" style="height:130px; opacity:0.85; margin-bottom:24px;">
+
+  <span class="eyebrow" style="display:block; margin-bottom:12px;">
+    The Crisis Is Now
+  </span>
+
+  <!-- SPLIT HEADLINE - DIFFERENT COLORS & SIZES -->
+  <h1 class="hero-h1">
+    <span style="color: var(--text-bright); font-size: 1.2em; display: block; margin-bottom: 12px;">America Isn't Facing Five Crises.</span>
+    <span style="color: var(--green); font-size: 1em; display: block;">It's Facing One System That's Failing All of Them.</span>
+  </h1>
+
+<p class="hero-sub" style="margin-bottom:1.25rem; color: var(--text-dim); opacity: 0.85;">
+  Because Congress isn't doing its job — and nothing forces them to.<br>
+  Healthcare. Wages. The economy. Politics. War.<br>
+  They don't break separately. They break together.
+</p>
+
+
+  <div style="max-width:680px; margin:0 auto;">
+    
+    <p class="hero-body" style="margin-bottom:1rem;">
+      What looks like five different problems is one system — each piece feeding the others, each failure making the next one worse.
     </p>
-    <p class="hero-sub" style="color:var(--text-dim); margin-bottom:1.5rem;">
-      None of them create consequences.
+
+    <p class="hero-body" style="margin-bottom:1.5rem;">
+      And right now, that system is destabilizing — fast.<br>
+      When one part breaks, the consequences don't stay contained — they cascade.
     </p>
-    <p class="hero-sub" style="color:var(--text-bright); font-weight:600; margin-bottom:2rem;">
-      Congress ignores them — because nothing forces them to respond.
+
+    <p class="hero-body" style="margin-bottom:1.25rem;">
+      Congress isn't fixing it — not because it can't, but because it doesn't have to.
     </p>
-    <p style="font-family:var(--font-condensed); font-weight:700; color:var(--green); font-size:1.1rem; margin-top:8px; margin-bottom:0;">Until something does.</p>
-    <p style="font-family:var(--font-condensed); font-weight:700; color:var(--text-bright); margin-top:6px; margin-bottom:0;">This is that something.</p>
-    <p style="font-weight:600; color:var(--text-bright); margin-top:8px; margin-bottom:0;">Here's how it changes.</p>
+
   </div>
-</section>
 
-  <!-- PHIERS ONION RINGS DIAGRAM -->
-<div style="background:#080d1a;padding:48px 24px 32px;text-align:center;">
+  <a href="homepage-teeth.html" class="cta-secondary" style="display:inline-block; margin: 32px 0;">
+    See How It Works →
+  </a>
 
-  <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.8rem;
-            color:#3ddc84;text-transform:uppercase;letter-spacing:3px;margin-bottom:8px;">
-    How PHIERS Works
-  </p>
-  <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(1.6rem,4vw,2.4rem);
-             color:#f0f4ff;letter-spacing:2px;margin-bottom:6px;">
-    One System. Every Layer Already Inside the Last.
+
+<!-- ⭐ BEGIN: AUDIENCE FORK (DARK THEME) ⭐ -->
+  <div class="audience-fork">
+    <h3 class="fork-title">Choose Your Path</h3>
+  
+    <div class="fork-buttons">
+     <a href="petition.html" class="cta-primary" style="display:block; text-align:center;">
+            I'm an individual — add my name
+    </a>
+  
+      <a href="organizers.html" class="cta-secondary" style="display:block; text-align:center;">
+              I represent a group or organization
+      </a>
+    </div>
+  
+    <p class="fork-note">Or keep scrolling to learn more.</p>
+  </div>
+<!-- ⭐ END: AUDIENCE FORK ⭐ -->
+
+
+<!-- ⭐ BEGIN: HOMEPAGE CLARITY BLOCK (DARK THEME) ⭐ -->
+  <div class="onboarding-box">
+    <h3>Before You Sign</h3>
+  
+    <p><strong>What this petition is:</strong> An online count of people in your district who want to participate in a coordinated civic effort.</p>
+  
+    <p><strong>What you provide:</strong> Just your email and ZIP code.</p>
+  
+    <p><strong>Why ZIP code matters:</strong> It connects you to your congressional district so your name is counted where it has real impact.</p>
+  
+    <p><strong>How long it takes:</strong> About 10 seconds.</p>
+  
+    <p><strong>What happens next:</strong> You'll receive a confirmation email and optional next steps. There is no obligation beyond being counted.</p>
+  
+    <p><strong>Your district goal:</strong> 1,500 people. Your signature adds to your district's count.</p>
+
+    <p class="clarity-cta">
+     <a href="petition.html" class="cta-primary" style="margin-top: 20px;">
+            ✍ Ready to add your name? →
+     </a>
+    </p>
+    
+  </div>
+<!-- ⭐ END: HOMEPAGE CLARITY BLOCK ⭐ -->
+
+
+
+</section>   <!-- this closes the hero -->
+
+<!-- SECTION 2 — EMOTIONAL TURN -->
+<section style="text-align:center; padding: 80px 24px; max-width:900px; margin:0 auto;">
+
+  <h2 style="font-family:var(--font-condensed); font-weight:700; font-size:2.2rem; margin-bottom:1rem; color:var(--text-bright);">
+    You are not powerless.
   </h2>
-  <p style="font-family:'Barlow',sans-serif;color:#7a94b8;font-size:0.95rem;margin-bottom:24px;">
-    Start with the most urgent threat — because nothing else works until it's stabilized.
+
+  <p style="font-size:1.25rem; color:var(--text-dim); margin-bottom:2rem; font-weight:500; opacity: 0.85;">
+    You just haven't had the right leverage yet.
   </p>
-  <p style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;color:#7a94b8;
-            margin-bottom:16px;letter-spacing:0.05em;">↓ Tap any ring to see what's inside</p>
 
-  <!-- RINGS -->
-  <div id="phiers-onion" style="position:relative;width:min(520px,92vw);
-       aspect-ratio:1;margin:0 auto 32px;cursor:pointer;">
+  <div style="max-width:720px; margin:0 auto;">
 
-    <!-- Ring 0 - outermost - ON FIRE -->
-    <div class="p-ring" data-ring="0" style="position:absolute;inset:0;border-radius:50%;
-         border:2.5px solid rgba(230,57,70,0.7);
-         background:radial-gradient(ellipse at center,rgba(230,57,70,0) 0%,rgba(230,57,70,0.18) 100%);
-         box-shadow:0 0 40px rgba(230,57,70,0.25),inset 0 0 40px rgba(230,57,70,0.08);
-         animation:firePulse 2.5s ease-in-out infinite;cursor:pointer;transition:transform 0.3s,filter 0.3s;">
-    </div>
-    <!-- Ring 1 -->
-    <div class="p-ring" data-ring="1" style="position:absolute;inset:10%;border-radius:50%;
-         border:2px solid rgba(230,57,70,0.5);
-         background:radial-gradient(ellipse at center,rgba(230,57,70,0) 0%,rgba(230,57,70,0.12) 100%);
-         box-shadow:0 0 30px rgba(230,57,70,0.15);cursor:pointer;transition:transform 0.3s,filter 0.3s;">
-    </div>
-    <!-- Ring 2 -->
-    <div class="p-ring" data-ring="2" style="position:absolute;inset:22%;border-radius:50%;
-         border:2px solid rgba(255,214,10,0.5);
-         background:radial-gradient(ellipse at center,rgba(255,214,10,0) 0%,rgba(255,214,10,0.1) 100%);
-         box-shadow:0 0 24px rgba(255,214,10,0.15);cursor:pointer;transition:transform 0.3s,filter 0.3s;">
-    </div>
-    <!-- Ring 3 -->
-    <div class="p-ring" data-ring="3" style="position:absolute;inset:34%;border-radius:50%;
-         border:2px solid rgba(61,220,132,0.5);
-         background:radial-gradient(ellipse at center,rgba(61,220,132,0) 0%,rgba(61,220,132,0.1) 100%);
-         box-shadow:0 0 20px rgba(61,220,132,0.15);cursor:pointer;transition:transform 0.3s,filter 0.3s;">
-    </div>
-    <!-- Ring 4 -->
-    <div class="p-ring" data-ring="4" style="position:absolute;inset:46%;border-radius:50%;
-         border:2px solid rgba(61,220,132,0.7);
-         background:radial-gradient(ellipse at center,rgba(61,220,132,0.05) 0%,rgba(61,220,132,0.18) 100%);
-         box-shadow:0 0 16px rgba(61,220,132,0.2);cursor:pointer;transition:transform 0.3s,filter 0.3s;">
-    </div>
-    <!-- Center -->
-    <div class="p-ring" data-ring="5" style="position:absolute;inset:58%;border-radius:50%;
-         border:2px solid #3ddc84;background:rgba(61,220,132,0.15);
-         box-shadow:0 0 20px rgba(61,220,132,0.4);cursor:pointer;transition:transform 0.3s,filter 0.3s;">
-    </div>
+      <p style="font-size:1.15rem; color:var(--text-dim); margin-bottom:1rem;">
+        Congress ignores the public — <span style="color:var(--red); font-weight:600;">because it can.</span>
+      </p>
 
-    <!-- Labels with improved readability classes -->
-    <div class="ring-label label-0" style="position:absolute;top:3%;left:50%;transform:translateX(-50%);
-         font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(0.5rem,1.3vw,0.7rem);
-         color:#e63946;text-transform:uppercase;letter-spacing:0.08em;pointer-events:none;text-align:center;">
-      🔥 STOP THE WAR · ARTICLE 25 · STRAIT OF HORMUZ
-    </div>
-    <div class="ring-label label-1" style="position:absolute;top:13%;left:50%;transform:translateX(-50%);
-         font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(0.45rem,1.1vw,0.63rem);
-         color:#ff6b6b;text-transform:uppercase;letter-spacing:0.08em;pointer-events:none;text-align:center;">
-      ⚖️ CONTROL CONGRESS · WAR POWERS
-    </div>
-    <div class="ring-label label-2" style="position:absolute;top:25%;left:50%;transform:translateX(-50%);
-         font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(0.42rem,1vw,0.6rem);
-         color:#ffd60a;text-transform:uppercase;letter-spacing:0.08em;pointer-events:none;text-align:center;">
-      💊 $2.7T HEALTHCARE SAVINGS
-    </div>
-    <div class="ring-label label-3" style="position:absolute;top:37%;left:50%;transform:translateX(-50%);
-         font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(0.4rem,0.9vw,0.57rem);
-         color:#3ddc84;text-transform:uppercase;letter-spacing:0.08em;pointer-events:none;text-align:center;">
-      🔨 12M NEW JOBS
-    </div>
-    <div class="ring-label label-4" style="position:absolute;top:49%;left:50%;transform:translateX(-50%);
-         font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(0.38rem,0.85vw,0.54rem);
-         color:#3ddc84;text-transform:uppercase;letter-spacing:0.08em;pointer-events:none;text-align:center;">
-      🏪 PHIERSALE
-    </div>
-    <div class="ring-label label-5" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-         font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(0.35rem,0.8vw,0.5rem);
-         color:#3ddc84;text-transform:uppercase;letter-spacing:0.05em;pointer-events:none;text-align:center;width:80%;">
-      ✊ ECONOMIC FLOOR · UBI
-    </div>
+      <p style="font-size:1.25rem; color:var(--text-bright); font-weight:600; margin-bottom:1rem;">
+        PHIERStorm is how we force that to change.
+      </p>
+
+      <p style="font-size:1.15rem; color:var(--text-dim); margin-bottom:2rem;">
+        PHIERStorm turns people into coordinated pressure Congress 
+        <span style="color:var(--green); font-weight:600;">can't ignore</span> — 
+        <span style="color:var(--red); font-weight:600;">or survive.</span>
+      </p>
+
+      <p style="font-size:1.1rem; color:var(--text-dim); margin-bottom:0.75rem; font-weight:500;">
+        This is how we force change.
+      </p>
+
+      <p style="font-family:'Barlow Condensed',sans-serif; font-size:1.2rem; color:#8899bb; margin-bottom:2rem; line-height:1.5;">
+        This will make sense in under 3 minutes.<br>Stay with it.
+      </p>
+
   </div>
 
-  <!-- Detail panel -->
-  <div id="p-detail" style="width:min(600px,92vw);min-height:140px;
-       background:rgba(13,21,37,0.95);border-radius:12px;padding:24px 28px;
-       margin:0 auto 32px;border-left:4px solid #e63946;
-       opacity:0;transform:translateY(8px);
-       transition:opacity 0.3s ease,transform 0.3s ease,border-color 0.3s ease;">
-    <div id="p-detail-title" style="font-family:'Bebas Neue',sans-serif;font-size:clamp(1.2rem,3vw,1.6rem);
-         letter-spacing:1px;margin-bottom:8px;color:#e63946;"></div>
-    <div id="p-detail-body" style="font-size:clamp(0.82rem,1.8vw,0.95rem);color:#b8c8e8;line-height:1.6;"></div>
-  </div>
+</section>
 
-</div>
-
-<style>
-@keyframes firePulse {
-  0%,100% { box-shadow:0 0 40px rgba(230,57,70,0.25),inset 0 0 40px rgba(230,57,70,0.08); }
-  50%      { box-shadow:0 0 70px rgba(230,57,70,0.45),inset 0 0 60px rgba(230,57,70,0.15); }
-}
-
-/* Desktop hover effects */
-@media (min-width: 769px) {
-  .p-ring:hover {
-    transform: scale(1.03);
-    filter: brightness(1.15);
-  }
-  .p-ring.active {
-    transform: scale(1.05);
-    filter: brightness(1.25);
-  }
-}
   
-/* Mobile improvements - larger, more readable text */
-@media (max-width: 768px) {
-  .ring-label {
-    white-space: normal !important;
-    line-height: 1.2 !important;
-    width: auto !important;
-    padding: 0 4px;
-    text-shadow: 0 0 4px rgba(0,0,0,0.5);
-  }
-  .label-0 { font-size: 0.65rem !important; top: 0% !important; }
-  .label-1 { font-size: 0.55rem !important; top: 10% !important; }
-  .label-2 { font-size: 0.55rem !important; top: 22% !important; }
-  .label-3 { font-size: 0.55rem !important; top: 34% !important; }
-  .label-4 { font-size: 0.55rem !important; top: 46% !important; }
-  .label-5 { font-size: 0.5rem !important; }
-  
-  /* Tap feedback for mobile */
-  .p-ring:active {
-    transform: scale(0.98);
-    opacity: 0.9;
-    transition: transform 0.05s ease;
-  }
-}
-
-/* Ring hover transition */
-.p-ring {
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.ring-label {
-  transition: transform 0.2s ease;
-  pointer-events: none;
-}
-
-  /* Fix center label overlap on desktop */
-@media (min-width: 769px) {
-  .label-5 {
-    font-size: 0.45rem !important;
-    white-space: normal !important;
-    line-height: 1.2 !important;
-    width: 70% !important;
-  }
-}
-</style>
-
-<script>
-(function(){
-  var rings = [
-    { color:'#e63946', title:'🔥 RING 0 — Stop the War. Right Now.',
-      body:'There is <strong>no part of your life that doesn\'t run on oil.</strong> Your food, your medicine, your hospital, your house — all of it. The Strait of Hormuz carries 30% of the world\'s seaborne oil. Close it and inflation doesn\'t tick up — it explodes across every supply chain simultaneously.<br><br><strong>Article 25 of the UN Charter</strong> — rules America wrote — prohibits exactly this. It gives Iran a legal off-ramp. It gives Congress a spine. It gives every American — left, right, MAGA — grounds to say: not in our name, not without a vote.',
-      urgent:true },
-    { color:'#ff6b6b', title:'⚖️ RING 1 — Control Congress',
-      body:'Congress doesn\'t respond to noise. It responds to consequences.<br><br>Harvard researcher Erica Chenoweth studied 323 campaigns. Movements that reached and sustained <strong>3.5% participation succeeded every time.</strong> That\'s 12 million Americans. Organized by district. Names on the record. With electoral consequences.<br><br>The same lever that forces action on healthcare forces action on war powers. One movement. Every dimension turns.',
-      urgent:false },
-    { color:'#ffd60a', title:'💊 RING 2 — $2.7 Trillion in Healthcare Savings',
-      body:'CMS pays <strong>$8,000/year per person</strong> for traditional insurance. 80% of people need only <strong>$600/year in telehealth.</strong> That frees $7,400 per person.<br><br>One conversion funds 12 more. 12 cascades to 148. 148 to 1,825. <strong>234 million Americans covered. $2.73 trillion freed annually.</strong> The cascade is self-funding and unstoppable once it starts.',
-      urgent:false },
-    { color:'#3ddc84', title:'🔨 RING 3 — 12 Million New Jobs',
-      body:'Every $7,400 freed per person stays in the community instead of flowing to shareholders. Every telehealth navigator is a living-wage job. Every cooperative hub is a local employer. Every community health worker is a union-eligible role.<br><br><strong>12 million jobs.</strong> Funded from the savings. In the communities where the savings happen. The moment the conversion begins.',
-      urgent:false },
-    { color:'#3ddc84', title:'🏪 RING 4 — PHIERSale: Consumer Power',
-      body:'<strong>No markups. No middlemen. No profit extraction.</strong><br><br>100 million organized members = the largest purchasing bloc in America. Market dominance through pure buying power. No legislation required. No permission needed. Just organized people choosing where their money goes.',
-      urgent:false },
-    { color:'#3ddc84', title:'✊ CENTER — Economic Floor for Every American',
-      body:'A monthly check for every American. A floor nobody falls through. Wages that cover rent. Veterans fully covered. An economy built for the people who work in it.<br><br><strong>This is what PHIERS was always building toward.</strong> Every ring protects it. The outer rings make it possible.',
-      urgent:false }
-  ];
-
-  var panel = document.getElementById('p-detail');
-  var titleEl = document.getElementById('p-detail-title');
-  var bodyEl = document.getElementById('p-detail-body');
-  var active = null;
-
-  document.querySelectorAll('.p-ring').forEach(function(ring) {
-    ring.addEventListener('click', function(e) {
-      e.stopPropagation();
-      var idx = parseInt(ring.dataset.ring);
-      var data = rings[idx];
-      if (active !== null) {
-        document.querySelector('.p-ring[data-ring="'+active+'"]').classList.remove('active');
-      }
-      if (active === idx) {
-        active = null;
-        panel.style.opacity = '0';
-        panel.style.transform = 'translateY(8px)';
-        return;
-      }
-      active = idx;
-      ring.classList.add('active');
-      titleEl.textContent = data.title;
-      titleEl.style.color = data.color;
-      bodyEl.innerHTML = data.body + (data.urgent ? '<br><span style="display:inline-block;margin-top:10px;font-family:\'Barlow Condensed\',sans-serif;font-weight:700;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.1em;padding:4px 12px;border-radius:4px;background:rgba(230,57,70,0.15);color:#e63946;border:1px solid rgba(230,57,70,0.3);">⚠️ URGENT — ACT NOW</span>' : '');
-      panel.style.borderColor = data.color;
-      panel.style.opacity = '0';
-      panel.style.transform = 'translateY(8px)';
-      setTimeout(function() {
-        panel.style.opacity = '1';
-        panel.style.transform = 'translateY(0)';
-      }, 20);
-      panel.scrollIntoView({behavior:'smooth', block:'nearest'});
-    });
-  });
-
-  // Auto-open ring 0
-  setTimeout(function() {
-    document.querySelector('.p-ring[data-ring="0"]').click();
-  }, 800);
-
-  // Desktop label scaling on ring hover
-if (window.innerWidth >= 769) {
-  var allRings = document.querySelectorAll('.p-ring');
-  allRings.forEach(function(ring) {
-    ring.addEventListener('mouseenter', function() {
-      var idx = this.getAttribute('data-ring');
-      var label = document.querySelector('.label-' + idx);
-      if (label) {
-        label.style.transform = 'translateX(-50%) scale(1.08)';
-        label.style.transition = 'transform 0.2s ease';
-      }
-    });
-    ring.addEventListener('mouseleave', function() {
-      var idx = this.getAttribute('data-ring');
-      var label = document.querySelector('.label-' + idx);
-      if (label) {
-        label.style.transform = 'translateX(-50%) scale(1)';
-      }
-    });
-  });
-}
-})();
-</script>
-  
-<!-- END PHIERS ONION RINGS DIAGRAM -->
-  
-  
-<hr class="divider">
-
 <!-- ═══════════════════════════════════════
-     THE PROBLEM
+     SECTION 1B — HERO VIDEO
 ═══════════════════════════════════════ -->
-<section class="section">
-  <span class="eyebrow" style="font-size:1.5rem; letter-spacing:0.15em;">The Problem</span>
-  <p style="font-size:1.1rem; color:var(--text-bright); font-weight:600; margin-bottom:1rem;">Every movement hits the same wall.</p>
-  <p>You've been loud. You've been right. You've been ignored.</p>
-  <p>They build energy. They get attention. They fill the streets.<br>And then nothing changes.</p>
-  <p style="font-family:var(--font-condensed); font-weight:700; color:var(--text-bright); font-size:1.2rem;">That's not an accident.</p>
-  <p>Not because the cause wasn't right.<br>Not because the leaders were weak.<br>Not because people didn't care enough.</p>
-  <p style="font-family:var(--font-condensed); font-weight:700; font-size:1.6rem; color:var(--red); margin:1.5rem 0;">Because there was no leverage behind the demands.</p>
-  <p>The moment fades. The pressure disappears. Everything resets.<br>And Congress goes right back to ignoring you.</p>
-</section>
-<hr class="divider">
-
-<section class="section" style="text-align:center; padding-top:20px; padding-bottom:20px;">
-  <div style="max-width:600px; margin:0 auto;">
-    <img src="Congress_Dont_Work_4U-WEre_changing_that-BIG.jpg"
-         alt="Congress doesn't work for you. We're changing that."
-         style="width:100%; height:auto; border-radius:12px; border:1px solid rgba(230,57,70,0.3); display:block;">
+<section class="section" style="padding-top:0; text-align:center;">
+  <p style="font-family:var(--font-condensed);font-weight:700;font-size:1rem;color:var(--text-dim);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px;">
+    If you watch one thing — watch this.
+  </p>
+  <div style="max-width:480px;margin:0 auto;">
+    <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;border:2px solid rgba(61,220,132,0.2);box-shadow:0 12px 40px rgba(0,0,0,0.5);">
+      <iframe
+        src="https://www.youtube.com/embed/C2mMIx5yoyw?rel=0"
+        title="How PHIERS Forces Congress to Respond"
+        frameborder="0"
+        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        style="position:absolute;top:0;left:0;width:100%;height:100%;">
+      </iframe>
+    </div>
+    <p style="font-family:var(--font-condensed);font-size:0.95rem;color:var(--text-dim);margin-top:12px;line-height:1.5;">
+      1,500 people per district. 657,000 total. Built over 16 years.<br>
+      <span style="color:var(--green);font-weight:700;">This is how we make Congress do its job.</span>
+    </p>
   </div>
 </section>
+
 <hr class="divider">
 
 <!-- ═══════════════════════════════════════
-     THE TRUTH
-═══════════════════════════════════════ -->
-<section class="section-alt">
-  <div class="inner">
-    <span class="eyebrow" style="font-size:1.5rem; letter-spacing:0.15em;">The Truth</span>
-    <p style="font-size:1.2rem; font-weight:600; color:var(--text-bright); margin-bottom:1rem;">The missing ingredient isn't passion. It's leverage.</p>
-    <p>Power doesn't come from how many people care.<br>It comes from what happens if they ignore you.</p>
-    <p>Whatever brought you here — rent, wages, war, healthcare, veterans, corruption —<br>leverage is the only thing that moves Congress.</p>
-    <p style="font-family:var(--font-condensed); font-weight:700; color:var(--green); margin:1rem 0;">Right now, most movements have no answer to that question.<br>PHIERS does.</p>
-    <p style="font-family:var(--font-condensed); font-size:0.95rem; color:var(--text-dim); margin-top:8px;">Tested by a global PR firm. Built over 15+ years. Already being organized district by district.</p>
-  </div>
-</section>
-<hr class="divider">
-
-<!-- ═══════════════════════════════════════
-     PHIERSTORM BRIDGE IMAGE
-═══════════════════════════════════════ -->
-<section class="section" style="text-align:center; padding-top:20px; padding-bottom:20px;">
-  <div style="max-width:600px; margin:0 auto;">
-    <img src="PHIERStorm_the_Movement.png" alt="PHIERStorm — The Power Behind the Movement"
-         style="width:100%; max-width:500px; height:auto; display:block; margin:0 auto; opacity:0.9;">
-  </div>
-</section>
-<hr class="divider">
-
-<!-- ═══════════════════════════════════════
-     WHAT PHIERS IS
-═══════════════════════════════════════ -->
-<section class="section">
-  <span class="eyebrow" style="font-size:1.5rem; letter-spacing:0.15em;">What PHIERS Is</span>
-  <p style="font-family:var(--font-condensed); font-weight:700; color:var(--text-bright); text-align:center; margin-bottom:6px;">PHIERS means Power Held In Every Representative's Seat.</p>
-  <p style="font-size:1.2rem; font-weight:600; color:var(--text-bright); margin-bottom:1rem;">Not another movement. The thing movements are missing.</p>
-  <p>PHIERS doesn't replace the movements you already believe in.<br>It gives them the one thing they don't have — leverage that lasts after the cameras leave.</p>
-  <p>PHIERS doesn't disappear when the moment passes.<br>District by district. Name by name. On the record.</p>
-  <p style="font-family:var(--font-condensed); font-weight:700; font-size:1.4rem; color:var(--text-bright); margin:1.5rem 0;">Congress isn't waiting it out.<br>They're sitting it out.</p>
-  <p style="font-family:var(--font-condensed); font-weight:700; color:var(--green); margin:1rem 0;">PHIERS changes that.</p>
-  <p style="font-size:0.95rem; color:var(--text-dim); margin-top:6px;">Built by a systems architect who's been working on this since 2009.</p>
-  <p style="font-family:var(--font-condensed); font-weight:700; font-size:1.6rem; color:var(--green); margin:2rem 0; text-align:center; line-height:1.2;">A way to make Congress do their job —<br>or we replace them.</p>
-  <p style="font-family:var(--font-condensed); font-weight:700; font-size:0.95rem; color:var(--text-dim); margin-top:8px;">Sixteen years of building. Designed for this moment.</p>
-</section>
-<hr class="divider">
-
-<!-- ═══════════════════════════════════════
-     HOW IT WORKS
+     SECTION 2 — HOW IT WORKS
 ═══════════════════════════════════════ -->
 <section class="section" id="how-it-works">
-  <span class="eyebrow" style="font-size:1.5rem; letter-spacing:0.15em;">How It Works</span>
-  <p style="font-size:1.1rem; color:var(--text-bright); font-weight:600; margin-bottom:1rem;">Here's what that looks like in practice:</p>
+  <span class="eyebrow">How it works</span>
+  <h2>Four steps. No ideology. Just power.</h2>
+
   <div class="steps">
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-body">
-        <div class="step-title">You add your name</div>
-        <div class="step-desc">Not symbolic. Not a petition that disappears. It's how real people are counted — by district.</div>
+        <div class="step-title">People sign</div>
+        <div class="step-desc">Adding your name isn't symbolic. It's how we organize pressure.</div>
       </div>
     </div>
+
     <div class="step">
       <div class="step-num">2</div>
       <div class="step-body">
-        <div class="step-title">We organize by district</div>
-        <div class="step-desc">Your name becomes part of a coordinated pressure block tied directly to your representative — based on what people in your district actually want.</div>
+        <div class="step-title">We coordinate by district</div>
+        <div class="step-desc">Real people. Real numbers. Tied to the representatives who have to respond.</div>
       </div>
     </div>
+
     <div class="step">
       <div class="step-num">3</div>
       <div class="step-body">
-        <div class="step-title">When enough people are organized</div>
-        <div class="step-desc">The pressure becomes public and visible inside the district — creating a moment where your representative has to respond, in front of the people they represent.</div>
+        <div class="step-title">Pressure becomes unavoidable</div>
+        <div class="step-desc">When enough people act together, ignoring them becomes more dangerous than responding.</div>
       </div>
     </div>
+
     <div class="step">
       <div class="step-num red-num">4</div>
       <div class="step-body">
-        <div class="step-title red-title">And when leaders ignore it</div>
-        <div class="step-desc">They either respond — or they have to explain why they won't, publicly, on the record.</div>
+        <div class="step-title red-title">Congress responds — or gets replaced</div>
+        <div class="step-desc">That's how leverage works.</div>
       </div>
     </div>
   </div>
-  <p style="font-family:var(--font-condensed); font-weight:700; text-align:center; margin-top:1rem; color:var(--green);">That's the leverage.</p>
-  <p style="font-family:var(--font-condensed); font-weight:700; color:var(--text-bright); text-align:center; margin-top:8px;">And once it exists, they can't ignore it.</p>
-  <p style="font-size:0.9rem; color:var(--text-dim); margin-top:10px; text-align:center;">When enough constituents organize in a district, elected officials have to respond. Every time.</p>
-  <p style="font-family:var(--font-condensed); font-weight:700; color:var(--text-bright); text-align:center; margin-top:16px;">This isn't theory. It's pressure applied in the one place they can't ignore.</p>
-  <div style="text-align:center; margin-top:32px;">
-    <a href="petition.html" style="display:inline-block; background:transparent; color:var(--green); border:1.5px solid rgba(61,220,132,0.5); padding:12px 32px; border-radius:40px; font-family:var(--font-condensed); font-weight:700; font-size:1rem; text-decoration:none;">✍ Add Your Name →</a>
-    <p style="font-size:0.8rem; color:var(--text-dim); margin-top:8px;">It takes less than a minute.</p>
+
+  <p style="font-family:var(--font-condensed); font-weight: 700; text-align: center; margin-top: 2rem; color: var(--text-bright);">
+    This is not theory. This is how change has always worked.
+  </p>
+</section>
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════
+     SECTION 3 — PROOF (3.5%)
+═══════════════════════════════════════ -->
+<section class="section-alt">
+  <div class="inner">
+    <span class="eyebrow">The math is proven</span>
+    <h2>1,500 people × 438 congressional districts = ~650,000 people.</h2>
+
+    <p style="font-size:1.1rem; color:var(--text-bright); font-weight:600; margin-bottom:1rem;">
+      That's not millions. That's not everyone.
+      That's enough people — in the right places — at the same time.
+    </p>
+
+    <p>History shows something powerful: you don't need everyone to create change.</p>
+
+    <p style="font-family:var(--font-condensed); font-weight:700; color:var(--green); font-size:1.2rem; margin:1rem 0;">
+      Around 3.5% of a population — organized and sustained — has consistently been enough to tip the balance.
+    </p>
+
+    <p>But here's the difference:</p>
+
+    <p style="font-family:var(--font-condensed); font-weight:700; font-size:1.3rem; color:var(--text-bright); margin:1rem 0;">
+      PHIERS doesn't try to organize the whole country at once.
+    </p>
+
+    <p>It organizes people where power actually lives: inside each congressional district.</p>
+
+    <p style="font-family:var(--font-condensed); font-weight:700; color:var(--green); font-size:1.2rem; margin:1rem 0;">
+      Around 1,500 people in a district is enough to create pressure a representative cannot ignore.
+    </p>
+
+    <p>Not because it's a national percentage — but because it hits them exactly where they are accountable.</p>
+
+    <p style="font-family:var(--font-condensed); font-weight:700; color:var(--text-bright); margin-top:1rem;">
+      Same principle.<br>
+      More precise execution.<br>
+      Faster results.
+    </p>
+
+    <p style="font-family:var(--font-condensed); font-weight:700; color:var(--green); margin-top:1rem;">
+      You don't need everyone.<br>
+      Just enough people — organized in the same place.
+    </p>
+
+    <p style="font-size:0.9rem; color:var(--text-dim); margin-top:12px;">
+      This isn't about reaching everyone. It's about reaching the point where ignoring you is no longer an option.
+    </p>
+
+    <p style="font-family:var(--font-condensed); font-weight:700; color:var(--text-dim); margin-top:1rem;">Eight million people showed up for No Kings — and Congress waited it out. No district organization. No specific demands. Nothing changed. PHIERS converts that same energy into pressure they can't survive. With a fraction of the people.</p>
   </div>
 </section>
 <hr class="divider">
 
-<!-- CREDIBILITY BRIDGE -->
-<section class="section" style="text-align:center; padding-bottom:0;">
-  <p style="font-family:var(--font-condensed); font-weight:700; color:var(--text-dim); font-size:1rem;">Before you decide what this is — know this:</p>
-</section>
-
-<!-- ═══════════════════════════════════════
-     CASCADE VIDEO
+  <!-- ═══════════════════════════════════════
+     SECTION 7 — VIDEO
 ═══════════════════════════════════════ -->
 <section class="section">
-  <div style="max-width:760px; margin:0 auto 24px auto; text-align:center;">
-    <p style="font-family:var(--font-condensed); font-weight:700; font-size:1.3rem; color:var(--text-bright); line-height:1.4; margin-bottom:8px;">You are not powerless.</p>
-    <p style="font-size:0.9rem; color:var(--text-dim); margin-top:10px;">This isn't theory. It's already in motion.</p>
-    <p style="color:var(--text-dim); font-size:1rem; line-height:1.6; margin-bottom:8px;">People speak up. They show up. They demand change.<br>And still — nothing happens.</p>
-    <p style="color:var(--text-dim); font-size:1rem; line-height:1.6; margin-bottom:8px;">Not because people don't care.<br><strong style="color:var(--text-bright);">Because there's nothing forcing Congress to respond.</strong></p>
-    <p style="font-family:var(--font-condensed); font-weight:700; color:var(--green); font-size:1.1rem; margin-bottom:8px;">That's what PHIERS does.</p>
-    <div style="height:10px;"></div>
-    <p style="color:var(--text-dim); font-size:1rem; line-height:1.6; margin-bottom:8px;">Around 1,500 people per district — across the country —<br>hits hundreds of members of Congress at the same time.</p>
-    <p style="font-family:var(--font-condensed); font-weight:700; color:var(--green); font-size:1.1rem; margin-bottom:8px;">That's all it takes.</p>
-    <p style="font-family:var(--font-condensed); font-weight:700; color:var(--text-bright); font-size:1.1rem; margin-bottom:4px;">That's enough to force Congress to respond to their constituents.</p>
-    <p style="font-family:var(--font-condensed); font-weight:700; color:var(--red); font-size:1.1rem; margin-bottom:8px;">Not later. Immediately.</p>
-    <p style="color:var(--text-dim); font-size:1rem; line-height:1.6; margin-bottom:4px;">Congress can act now.</p>
-    <p style="color:var(--text-dim); font-size:1rem; line-height:1.6; margin-bottom:4px;">The only thing missing is enough organized people to make that unavoidable.</p>
-    <p style="font-family:var(--font-condensed); font-weight:700; color:var(--green); font-size:1.1rem; margin-bottom:16px;">That's what your name does.</p>
-    <p style="font-size:0.95rem; color:var(--text-dim); text-align:center; margin-bottom:8px;">This is how we make it impossible for them not to respond.</p>
-    <div style="text-align:center; margin:8px 0 20px 0;">
-    <a href="petition.html" style="display:inline-block; background:transparent; color:var(--green); border:1.5px solid rgba(61,220,132,0.5); padding:12px 32px; border-radius:40px; font-family:var(--font-condensed); font-weight:700; font-size:1rem; text-decoration:none;">✍ Add Your Name — Help Make Congress Do Its Job</a>
-  </div>
-    <p style="font-family:var(--font-condensed); font-weight:700; color:var(--text-bright); font-size:1rem; margin-bottom:4px;">Step one: Make Congress do its job.</p>
-    <p style="font-family:var(--font-condensed); color:var(--text-dim); font-size:0.95rem; line-height:1.5;">This is how action starts — right now.</p>
-  </div>
-  <div class="video-container" style="max-width:800px; margin:0 auto;">
+  <div class="video-container" style="max-width: 800px; margin: 0 auto;">
     <div class="video-wrap" id="wrap-cascade" style="width:100%;position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;border:2px solid var(--border);">
       <div class="video-facade" style="background-image:url('https://img.youtube.com/vi/jMU6LKEBzbs/hqdefault.jpg');background-size:cover;background-position:center;position:absolute;top:0;left:0;right:0;bottom:0;">
         <div onclick="playVideo('cascade','https://www.youtube.com/embed/jMU6LKEBzbs?autoplay=1&rel=0')" style="position:absolute;inset:0;background:rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center;font-size:3rem;color:rgba(255,255,255,0.9);cursor:pointer;">▶</div>
       </div>
     </div>
     <div style="background:rgba(8,13,26,0.95);padding:16px 18px;border:2px solid var(--border);border-top:none;border-radius:0 0 12px 12px;text-align:center;">
-      <div style="font-family:var(--font-display);font-size:1.2rem;color:var(--green);margin-bottom:6px;">🎥 How Pressure Builds — And Why Congress Can't Ignore It</div>
-      <div style="font-family:var(--font-condensed);color:var(--text-dim);font-size:1rem;line-height:1.4;">Why Congress can't ignore organized people — and what happens when pressure builds in one place.</div>
+      <div style="font-family:var(--font-display);font-size:1.2rem;color:var(--green);margin-bottom:6px;">🎥 The Cascade Mechanism</div>
+      <div style="font-family:var(--font-condensed);color:var(--text-dim);font-size:1rem;line-height:1.4;">Why Congress can't ignore PHIERS. One person saves $50 → funds 148 → $1.1B cascade.</div>
     </div>
   </div>
 </section>
 <hr class="divider">
 
 <!-- ═══════════════════════════════════════
-     3.5% PROOF
+     SECTION 4 — BRIDGE
 ═══════════════════════════════════════ -->
-<section class="section-alt">
+<section class="section">
+  <div style="max-width: 680px; margin: 12px auto 0 auto; text-align: center;">
+
+    <!-- PHIERStorm Logo -->
+    <img src="PHIERStorm_the_Movement.png" 
+         alt="PHIERStorm — The Movement" 
+         style="height:120px; margin-bottom:20px; opacity:0.85;">
+
+   <!-- Headline (BOLD) -->
+    <p style="font-family:var(--font-display); font-size:1.8rem; font-weight:800; color:var(--text-bright); margin-bottom:12px; letter-spacing:0.5px;">
+        When people are organized, everything changes.
+    </p>
+
+    <!-- Supporting copy -->
+    <p style="color: var(--text-body); line-height: 1.6;">
+      The same leverage that fixes healthcare<br>
+      can end wars Congress never voted on<br>
+      and force real accountability.
+    </p>
+
+    <p style="
+      font-family:var(--font-condensed);
+      font-weight:700;
+      color:var(--green);
+      margin-top:14px;
+    ">
+      Same people. Same pressure. Same outcome.
+    </p>
+
+    <!-- PHIERStorm CTA - NOW PRIMARY -->
+    <div style="margin: 32px 0 16px;">
+      <a href="petition.html" class="cta-primary" style="display:inline-block;">
+        ✍ Add Your Name →
+      </a>
+    </div>
+
+  </div>
+</section>
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════
+     SECTION 5 — WHY THIS IS DIFFERENT
+═══════════════════════════════════════ -->
+<section class="section">
+  <span class="eyebrow">Why this is different</span>
+  <h2>Why this hasn't worked before</h2>
+  
+  <div style="max-width: 720px; margin: 0 auto; text-align: left;">
+    <p><strong>Protests create attention.</strong> Petitions create signals.</p>
+    <p><strong>PHIERS creates leverage.</strong></p>
+    <p style="margin-top: 1rem;">Because it doesn't just express frustration — it organizes it into something Congress can't ignore.</p>
+  </div>
+</section>
+<hr class="divider">
+
+<section class="section">
+  <div style="max-width:600px; margin:0 auto; text-align:center;">
+    <span class="eyebrow">What signing actually does</span>
+    <p style="font-size:1.1rem; color:var(--text-bright); font-weight:600; margin-bottom:1rem;">
+      Your name gets counted in your district. Not as a comment. Not as a like. As a number tied to your representative.
+    </p>
+    <p style="color:var(--text-dim); line-height:1.7;">
+      When 1,500 people in your district sign, your representative gets called out — publicly. They show up and answer for it, or they face the consequences at the ballot box.
+    </p>
+    <p style="font-family:'Barlow Condensed',sans-serif; font-weight:700; color:var(--green); font-size:1.1rem; margin-top:1rem;">
+      You're not signing a petition. You're pulling a lever.
+    </p>
+  </div>
+</section>
+<hr class="divider">
+  
+<!-- ═══════════════════════════════════════
+     SECTION 8 — THREE KINDS OF POWER
+═══════════════════════════════════════ -->
+<section class="section-alt" id="three-levers">
   <div class="inner">
-    <span class="eyebrow" style="font-size:1.5rem; letter-spacing:0.15em;">The Tipping Point Is Smaller Than You Think</span>
-    <h2>Around 3.5% — organized and sustained — is enough to tip the balance.</h2>
-    <p>The most successful nonviolent movements in modern history crossed this threshold.</p>
-    <p>It doesn't take everyone.<br>Just enough people, acting together in the same place.</p>
-    <p style="font-family:var(--font-condensed); font-weight:700; font-size:1.4rem; color:var(--green); margin:1rem 0;">12 million Americans. That's the line.</p>
-    <p style="font-family:var(--font-condensed); font-weight:700; color:var(--text-bright);">PHIERS is how we coordinate that — on purpose.</p>
-    <div style="max-width:380px; margin:2rem auto 0 auto; text-align:center;">
-      <img src="3.5pct_Erica_Chenoweth.jpg"
-           alt="3.5% — Chenoweth Research"
-           onclick="document.getElementById('chenowethModal').style.display='flex'"
-           style="width:100%; height:auto; border-radius:8px; border:1px solid var(--border); display:block; cursor:pointer;"
-           title="Click to enlarge">
-      <p style="font-size:0.8rem; color:var(--text-dim); margin-top:8px;">Harvard researcher Erica Chenoweth. The data is ironclad. Click to enlarge.</p>
+    <span class="eyebrow">Three kinds of power</span>
+    <h2>Three kinds of power.<br><span class="green">Working together.</span></h2>
+
+    <div class="lever-grid">
+      <div class="lever-card political">
+        <div class="lever-icon">⚡</div>
+        <div class="lever-title">Political Power<br><span style="color:var(--text-dim);font-size:1.1rem;">Make Congress respond</span></div>
+        <p>When enough people act together, Congress has two choices: respond — or get replaced.</p>
+        <div class="lever-punchline" style="margin-top:12px;">PHIERStorm creates that pressure.</div>
+      </div>
+
+      <div class="lever-card economic">
+        <div class="lever-icon">💰</div>
+        <div class="lever-title">Economic Power<br><span style="color:var(--text-dim);font-size:1.1rem;">Make the math work</span></div>
+        <p>The system is already wasting trillions. Redirecting that money changes everything.</p>
+        <div class="lever-punchline" style="margin-top:12px;">The math is undeniable. Congress knows it.</div>
+      </div>
+
+      <div class="lever-card consumer">
+        <div class="lever-icon">🛒</div>
+        <div class="lever-title">Consumer Power<br><span style="color:var(--text-dim);font-size:1.1rem;">Make the market respond</span></div>
+        <p>We don't just boycott. We organize how we spend — and outcompete broken systems.</p>
+        <div class="lever-punchline" style="margin-top:12px;">That's how pressure becomes permanent.</div>
+      </div>
     </div>
   </div>
 </section>
 <hr class="divider">
 
-<!-- ═══════════════════════════════════════
-     TRANSITION → THE-TEETH
+  <!-- ═══════════════════════════════════════
+     SECTION 6 — WHAT IS PHIERS
 ═══════════════════════════════════════ -->
-<section class="section" style="text-align:center; padding:48px 24px;">
-  <div style="max-width:560px; margin:0 auto;">
-    <p style="font-family:var(--font-condensed); font-weight:700; font-size:1.3rem; color:var(--text-bright); margin-bottom:8px;">
-      You understand the problem. Now see the power.
+<section class="section">
+  <div style="max-width:600px;margin:0 auto;padding:20px;
+              border:1px solid rgba(61,220,132,0.2);
+              border-radius:10px;
+              background:rgba(61,220,132,0.05);text-align:center;">
+    <p style="font-family:var(--font-condensed);font-weight:700;
+              color:var(--green);margin-bottom:10px;">
+      What signing does
     </p>
-    <p style="color:var(--text-dim); margin-bottom:24px; font-size:1rem;">
-      The energy is real. The anger is justified. Here's what we do with it.
+    <p style="margin:0;color:var(--text-dim);line-height:1.7;">
+      Your name is counted in your congressional district.<br>
+      When enough people sign, it creates visible pressure
+      your representatives can't ignore.
     </p>
-    <a href="the-teeth.html" style="display:inline-block; background:transparent; color:var(--green); border:1.5px solid rgba(61,220,132,0.5); padding:14px 36px; border-radius:40px; font-family:var(--font-condensed); font-weight:700; font-size:1.1rem; text-decoration:none; transition:all 0.2s ease; letter-spacing:0.05em;">
-      See What Makes This Unavoidable →
-    </a>
-    <div style="height:48px;"></div>
+  </div>
+</section>
+<hr class="divider">
+  
+<div id="learn-more"></div>
+<section class="section" id="what-is-phiers">
+  <div class="def-box" style="text-align: center; max-width: 800px; margin: 0 auto;">
+    <div class="def-headline" style="font-family: var(--font-display); font-size: 1.8rem;">
+      You're already part of this.<br>You just didn't have a name for it.
+    </div>
+    <p class="def-statement" style="margin-top: 1rem;">
+      PHIERS connects people who already care — and turns that energy into real leverage.
+    </p>
+    <p style="margin-top: 1rem;">
+      If you've protested, organized, boycotted, or felt like nothing works…<br>
+      you're already part of this.
+    </p>
+    <p style="margin-top: 1rem;">
+      PHIERStorm is what gives that energy power.
+    </p>
+    <p style="font-family:var(--font-condensed); font-weight: 700; font-size: 1.2rem; color: var(--green); margin-top: 1.5rem;">
+      Energy without power fails.<br>PHIERStorm is the power.
+    </p>
   </div>
 </section>
 <hr class="divider">
 
-<!-- ── GO DEEPER ── -->
-<section class="section" style="max-width:640px; margin:0 auto;">
-  <p class="eyebrow" style="font-size:1.1rem; letter-spacing:0.2em;">Go Deeper</p>
-  <p style="color:var(--text-dim); margin-bottom:2rem;">Choose the path you want to understand first.</p>
+<!-- ═══════════════════════════════════════
+     SECTION 9 — FINAL CTA
+═══════════════════════════════════════ -->
+<section class="section" id="sign">
+  <div class="final-cta-box" style="text-align: center; max-width: 600px; margin: 0 auto;">
+    <div class="final-cta-heading" style="font-family: var(--font-display); font-size: 2rem; margin-bottom: 1.5rem;">This is how it starts.</div>
+    
+    <p style="font-size: 1.1rem; line-height: 1.6;">
+      Your name.<br>
+      Your district.<br>
+      On the record.
+    </p>
+    
+    <p style="color: var(--text-dim); margin: 1rem 0 0.5rem 0;">
+      Counted. Delivered. Impossible to ignore.
+    </p>
+    
+    <p style="color: var(--text-bright); margin: 1rem 0 2rem 0; font-weight: 500;">
+      This only works if we act together.
+    </p>
 
-  <div style="margin-bottom:2rem;">
-    <p style="font-family:var(--font-condensed); font-weight:700; font-size:1.2rem; color:var(--text-bright); margin-bottom:6px;">⚡ The Leverage</p>
-    <p style="color:var(--text-dim); margin-bottom:10px;">How organized people become impossible to ignore — and why Congress has no choice once the pressure is real.</p>
-    <a href="Leverage.html" style="font-family:var(--font-condensed); font-weight:700; color:var(--green); text-decoration:none; border-bottom:1px solid rgba(61,220,132,0.3); padding-bottom:2px;">Show me the Leverage →</a>
-  </div>
-
-  <div>
-    <p style="font-family:var(--font-condensed); font-weight:700; font-size:1.2rem; color:var(--text-bright); margin-bottom:6px;">📖 The Healthcare Proof</p>
-    <p style="color:var(--text-dim); margin-bottom:10px;">Why fixing healthcare is the first domino — and the evidence that makes the leverage unavoidable.</p>
-    <a href="healthcare-proof.html" style="font-family:var(--font-condensed); font-weight:700; color:var(--green); text-decoration:none; border-bottom:1px solid rgba(61,220,132,0.3); padding-bottom:2px;">Explore the Deep Dive →</a>
+    <p style="font-family:'Barlow Condensed',sans-serif; font-size:0.95rem; color:#8899bb; margin-bottom:1.5rem;">
+      We're just getting started. Your name isn't one of millions —<br>it's one of the first. That matters more.
+    </p>
+    
+    <a href="petition.html" class="cta-primary" style="margin: 20px 0;">✍ Sign the Petition →</a>
   </div>
 </section>
-<hr class="divider">
 
-<div style="text-align:center; padding:48px 24px 0 24px; max-width:640px; margin:0 auto;">
-  <p style="font-family:var(--font-condensed); font-weight:700; font-size:1.1rem; color:var(--text-dim); line-height:1.6;">
-    PHIERS is built for one purpose:<br>giving the public the leverage we've always deserved.
+<div style="height:60px;"></div>
+<hr class="divider">
+  
+  <section class="section" style="text-align:center;">
+    <span class="eyebrow">Go deeper</span>
+    <h2>Choose your next step.</h2>
+
+    <p style="color:var(--text-dim); margin-top:10px;">
+      Start where you're most curious.
+    </p>
+  
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap: 32px; margin-top:40px;">
+  
+      <!-- LEVERAGE -->
+      <a href="homepage-teeth.html" class="go-card green-strong" style="background:rgba(61,220,132,0.08);border:2px solid rgba(61,220,132,0.7); border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+        <div class="go-icon">⚡</div>
+        <div class="go-title">The Leverage</div>
+        <div class="go-description" style="color:rgba(255,255,255,0.85);">How organized people become impossible to ignore.</div>
+      </a>
+  
+      <!-- SOLUTION -->
+      <a href="healthcare-proof.html" class="go-card green" style="background:rgba(61,220,132,0.08);border:2px solid rgba(61,220,132,0.6); border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+        <div class="go-icon">💡</div>
+        <div class="go-title">The Solution</div>
+        <div class="go-description" style="color:rgba(255,255,255,0.85);">See how PHIER-powered systems fix healthcare and fund everything.</div>
+      </a>
+  
+      <!-- STOP THE WAR - NOW PRIMARY WITH ICON -->
+      <a href="NoWar.html" class="cta-primary" style="display: flex; align-items: center; justify-content: center; gap: 10px; padding: 16px 28px; font-size: 1.2rem; border-radius: 12px; text-decoration: none;">
+        <span style="font-size: 1.4rem;">⚠️</span> ACT NOW — STOP THE WAR
+      </a>
+  
+    </div>
+</section>
+
+<hr class="divider" style="max-width: 200px; margin: 0 auto 2rem auto;">
+  
+<!-- ALL RESOURCES GRID -->
+<section class="section" style="text-align:center;">
+  <span class="eyebrow" style="opacity: 0.7;">Everything you need</span>
+  <h2 style="font-size: 1.8rem; opacity: 0.85;">Explore the full system.</h2>
+  
+  <p style="color:var(--text-dim); margin-bottom: 2rem;">
+    If you want the full picture, it's all here.
   </p>
-  <p style="font-family:var(--font-condensed); font-weight:700; color:var(--text-bright); margin-top:8px;">Now it's organized.</p>
-</div>
+  
+ <p style="color:var(--text-dim); margin-bottom: 2rem; opacity: 0.8;">
+    One place. Everything connected.
+  </p>
 
-<!-- ── FOOTER ── -->
-<footer style="text-align:center; padding:3rem 1rem 2rem;">
-  <img src="PHIERS_Logo.png" alt="PHIERS.org" style="max-width:100px; height:auto; margin:0 auto 1rem; display:block;">
-  <div style="font-family:var(--font-condensed); font-weight:700; font-size:1rem; color:var(--text-dim); margin-bottom:4px;">
-    PHIERS is the system that gives every union — and everyone without one — the leverage to win.<br>
-    Owned by the people. Built by the people.
+   <div style="
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0.9;
+  ">
+    <a href="Crisis.html" style="
+      display: block;
+      padding: 12px 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      text-decoration: none;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-bright);
+      text-align: center;
+      transition: all 0.2s ease;
+    " onmouseover="this.style.borderColor='var(--green)'; this.style.background='rgba(61,220,132,0.1)'" onmouseout="this.style.borderColor='var(--border)'; this.style.background='transparent'">🚨 The Crisis</a>
+
+    <a href="SimpleMath.html" style="
+      display: block;
+      padding: 12px 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      text-decoration: none;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-bright);
+      text-align: center;
+      transition: all 0.2s ease;
+    " onmouseover="this.style.borderColor='var(--green)'; this.style.background='rgba(61,220,132,0.1)'" onmouseout="this.style.borderColor='var(--border)'; this.style.background='transparent'">📊 Simple Math</a>
+
+    <a href="5D_Solutions.html" style="
+      display: block;
+      padding: 12px 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      text-decoration: none;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-bright);
+      text-align: center;
+      transition: all 0.2s ease;
+    " onmouseover="this.style.borderColor='var(--green)'; this.style.background='rgba(61,220,132,0.1)'" onmouseout="this.style.borderColor='var(--border)'; this.style.background='transparent'">🔬 5D Solutions</a>
+
+    <a href="Telehealth-Insurance.html" style="
+      display: block;
+      padding: 12px 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      text-decoration: none;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-bright);
+      text-align: center;
+      transition: all 0.2s ease;
+    " onmouseover="this.style.borderColor='var(--green)'; this.style.background='rgba(61,220,132,0.1)'" onmouseout="this.style.borderColor='var(--border)'; this.style.background='transparent'">💡 TeleCARE</a>
+
+    <a href="organizers.html" style="
+      display: block;
+      padding: 12px 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      text-decoration: none;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-bright);
+      text-align: center;
+      transition: all 0.2s ease;
+    " onmouseover="this.style.borderColor='var(--green)'; this.style.background='rgba(61,220,132,0.1)'" onmouseout="this.style.borderColor='var(--border)'; this.style.background='transparent'">✊ For Organizers</a>
+
+    <a href="Veterans.html" style="
+      display: block;
+      padding: 12px 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      text-decoration: none;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-bright);
+      text-align: center;
+      transition: all 0.2s ease;
+    " onmouseover="this.style.borderColor='var(--green)'; this.style.background='rgba(61,220,132,0.1)'" onmouseout="this.style.borderColor='var(--border)'; this.style.background='transparent'">🎖 Veterans</a>
+
+    <a href="Unions-Strategy.html" style="
+      display: block;
+      padding: 12px 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      text-decoration: none;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-bright);
+      text-align: center;
+      transition: all 0.2s ease;
+    " onmouseover="this.style.borderColor='var(--green)'; this.style.background='rgba(61,220,132,0.1)'" onmouseout="this.style.borderColor='var(--border)'; this.style.background='transparent'">💪 Union Strategy</a>
+
+    <a href="Resources.html" style="
+      display: block;
+      padding: 12px 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      text-decoration: none;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-bright);
+      text-align: center;
+      transition: all 0.2s ease;
+    " onmouseover="this.style.borderColor='var(--green)'; this.style.background='rgba(61,220,132,0.1)'" onmouseout="this.style.borderColor='var(--border)'; this.style.background='transparent'">📚 Resource Hub</a>
+
+    <a href="action.html" style="
+      display: block;
+      padding: 12px 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      text-decoration: none;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-bright);
+      text-align: center;
+      transition: all 0.2s ease;
+    " onmouseover="this.style.borderColor='var(--green)'; this.style.background='rgba(61,220,132,0.1)'" onmouseout="this.style.borderColor='var(--border)'; this.style.background='transparent'">📣 Take Action</a>
+
+    <a href="Donate.html" style="
+      display: block;
+      padding: 12px 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      text-decoration: none;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-bright);
+      text-align: center;
+      transition: all 0.2s ease;
+    " onmouseover="this.style.borderColor='var(--green)'; this.style.background='rgba(61,220,132,0.1)'" onmouseout="this.style.borderColor='var(--border)'; this.style.background='transparent'">💚 Donate</a>
+
+    <a href="FAQ.html" style="
+      display: block;
+      padding: 12px 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      text-decoration: none;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-bright);
+      text-align: center;
+      transition: all 0.2s ease;
+    " onmouseover="this.style.borderColor='var(--green)'; this.style.background='rgba(61,220,132,0.1)'" onmouseout="this.style.borderColor='var(--border)'; this.style.background='transparent'">❓ FAQ</a>
+
+    <a href="About.html" style="
+      display: block;
+      padding: 12px 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      text-decoration: none;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-bright);
+      text-align: center;
+      transition: all 0.2s ease;
+    " onmouseover="this.style.borderColor='var(--green)'; this.style.background='rgba(61,220,132,0.1)'" onmouseout="this.style.borderColor='var(--border)'; this.style.background='transparent'">📖 About</a>
   </div>
-  <div class="footer-copy" style="font-size:0.75rem; color:var(--text-dim); margin-top:2rem; line-height:1.5;">
+</section>
+  
+<!-- ── FOOTER ── -->
+<footer style="text-align:center; padding: 3rem 1rem 2rem;">
+  <img src="PHIERS_Logo.png" alt="PHIERS.org" style="max-width:100px; height:auto; margin:0 auto 1rem; display:block;">
+  
+  <div style="font-family:var(--font-condensed); font-weight:700; font-size:1rem; color:var(--text-dim); margin-bottom:4px;">
+    PHIERS is a people's movement — not a company, not a product.
+  </div>
+  <div style="font-size:0.9rem; color:var(--text-dim); margin-bottom:6px;">
+    Built by regular people who are done waiting.
+  </div>
+
+  <div style="margin: 1rem auto; max-width: 500px;">
+    <p style="font-family:var(--font-condensed); color:var(--text-dim);">
+      Energy without power fails.<br>
+      PHIERStorm is the power.<br>
+      <span style="color:var(--text-dim);">PHIERS.org — a catalyst for the change we've been waiting for.</span><br>
+      <span style="color:var(--text-dim);">The only thing missing is you.</span>
+    </p>
+  </div>
+
+  <!-- MEET THE ARCHITECT -->
+  <div style="margin: 1.5rem auto; padding: 1.25rem; max-width: 500px; border: 1px solid rgba(61,220,132,0.2); border-radius: 12px;">
+    <p style="font-family:var(--font-condensed); color:var(--text-dim); font-size:0.7rem; text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;">Built by</p>
+    <p style="font-family:var(--font-condensed); color:var(--text-bright); font-weight:700; font-size:1rem; margin-bottom:2px;">Will Price | Founder &amp; Chief Solutions Architect</p>
+    <p style="font-family:var(--font-condensed); color:var(--text-dim); font-size:0.8rem; margin-bottom:10px; line-height:1.4;">
+      Not a politician. Not a lobbyist. A systems architect who found $2.7 trillion in wasted spending and built the lever to fix it. Building this since 2009.
+    </p>
+   <a onclick="document.getElementById('will-modal').style.display='flex'"
+       style="font-family:var(--font-condensed); color:var(--green); font-size:0.8rem; text-decoration:none; border-bottom:1px solid rgba(61,220,132,0.4); cursor:pointer;">
+      👤 Meet the Architect →
+    </a>
+  </div>
+
+  <!-- FOOTER NAVIGATION - CLEANED UP -->
+  <div class="footer-links">
+    <a href="Crisis.html">The Crisis</a>
+    <a href="SimpleMath.html">Simple Math</a>
+    <a href="5D_Solutions.html">5D Solutions</a>
+    <a href="Telehealth-Insurance.html">Telehealth</a>
+    <a href="NoWar.html">No War / No Draft</a>
+    <a href="organizers.html">Organizers</a>
+    <a href="Unions-Strategy.html">Unions</a>
+    <a href="Donate.html">Donate</a>
+    <a href="FAQ.html">FAQ</a>
+    <a href="About.html">About</a>
+    <a href="healthcare-proof.html">Full Story</a>
+  </div>
+
+  <div class="footer-copy" style="font-size: 0.75rem; color: var(--text-dim); margin-top: 2rem; line-height: 1.5;">
     Not built for profit. Not built for power. Built for We the People — by people who refused to stop.<br>
-    📧 <a href="mailto:info@phiers.org" style="color:var(--green); text-decoration:none;">info@phiers.org</a> · 📞 (916) 306-8967<br>
+    📧 <a href="mailto:info@phiers.org" style="color: var(--green); text-decoration: none;">info@phiers.org</a> · 📞 (916) 306-8967<br>
     © PHIERS.org — Original Concept Since 2009. All Rights Reserved.<br>
     <span style="font-size:0.7rem;">PHIERS™ · PHIERSale™ · PHIERWorks™ · PHIERPlace™ — Protected marks established 2009–2025.</span>
     <div style="margin-top:12px;font-family:var(--font-condensed);font-size:0.8rem;color:var(--text-dim);">🔄 Site updated April 6, 2026 — <a href="CHANGELOG.html" style="color:var(--green);text-decoration:none;">See what changed →</a></div>
@@ -614,29 +897,62 @@ if (window.innerWidth >= 769) {
 <button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
 
 <!-- WILL PRICE MODAL -->
-<div id="will-modal" onclick="if(event.target===this)this.style.display='none'" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:99998;align-items:center;justify-content:center;padding:16px;">
-  <div style="position:relative;max-width:720px;width:100%;background:rgba(8,13,26,0.97);border:2px solid rgba(61,220,132,0.35);border-radius:16px;box-shadow:0 25px 60px rgba(0,0,0,0.8);overflow:hidden;max-height:90vh;overflow-y:auto;">
-    <button onclick="document.getElementById('will-modal').style.display='none'" aria-label="Close" style="position:absolute;top:12px;right:12px;background:#111d35;color:#3ddc84;border:2px solid #3ddc84;border-radius:50%;width:40px;height:40px;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;transition:all 0.2s;" onmouseover="this.style.background='#3ddc84';this.style.color='#111d35'" onmouseout="this.style.background='#111d35';this.style.color='#3ddc84'">✕</button>
+<div id="will-modal"
+     onclick="if(event.target===this)this.style.display='none'"
+     style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);
+            z-index:99998;align-items:center;justify-content:center;padding:16px;">
+  <div style="position:relative;max-width:720px;width:100%;
+              background:rgba(8,13,26,0.97);border:2px solid rgba(61,220,132,0.35);
+              border-radius:16px;box-shadow:0 25px 60px rgba(0,0,0,0.8);
+              overflow:hidden;max-height:90vh;overflow-y:auto;">
+
+    <button onclick="document.getElementById('will-modal').style.display='none'"
+            aria-label="Close"
+            style="position:absolute;top:12px;right:12px;background:#111d35;
+                   color:#3ddc84;border:2px solid #3ddc84;border-radius:50%;
+                   width:40px;height:40px;font-size:1.2rem;cursor:pointer;
+                   display:flex;align-items:center;justify-content:center;
+                   z-index:10;transition:all 0.2s;"
+            onmouseover="this.style.background='#3ddc84';this.style.color='#111d35'"
+            onmouseout="this.style.background='#111d35';this.style.color='#3ddc84'">✕</button>
+
     <div style="display:flex;flex-wrap:wrap;align-items:stretch;">
-      <div style="flex:0 0 240px;width:100%;max-width:100%;min-height:280px;overflow:hidden;"><img src="Will_Price.png" alt="Will Price — Founder & Chief Solutions Architect, PHIERS" style="width:100%;height:100%;min-height:260px;object-fit:cover;object-position:55% top;display:block;"></div>
-      <div style="flex:1;min-width:240px;padding:28px 24px;display:flex;flex-direction:column;justify-content:center;">
-        <p style="font-family:'Barlow Condensed',sans-serif;font-size:0.75rem;color:#3ddc84;text-transform:uppercase;letter-spacing:3px;margin:0 0 8px 0;">The Architect</p>
-        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,4vw,2.2rem);color:#ffffff;line-height:1.05;margin:0 0 4px 0;letter-spacing:1px;">Will Price</h3>
-        <p style="font-family:'Barlow Condensed',sans-serif;font-size:0.92rem;color:#ffd60a;font-weight:700;margin:0 0 16px 0;line-height:1.3;">Founder &amp; Chief Solutions Architect, PHIERS</p>
-        <p style="font-family:'Barlow',sans-serif;font-size:0.93rem;color:#c8d8c8;line-height:1.65;margin:0;">Not a politician. Not a lobbyist. A systems architect who found $2.7 trillion in wasted spending — and built the lever to redirect it toward healthcare, jobs, and a monthly check for every American. Building this since 2009.</p>
+      <div style="flex:0 0 240px;width:100%;max-width:100%;min-height:280px;overflow:hidden;">
+        <img src="Will_Price.png"
+             alt="Will Price — Founder & Chief Solutions Architect, PHIERS"
+             style="width:100%;height:100%;min-height:260px;
+                    object-fit:cover;object-position:55% top;display:block;">
+      </div>
+      <div style="flex:1;min-width:240px;padding:28px 24px;
+                  display:flex;flex-direction:column;justify-content:center;">
+        <p style="font-family:'Barlow Condensed',sans-serif;font-size:0.75rem;
+                  color:#3ddc84;text-transform:uppercase;letter-spacing:3px;margin:0 0 8px 0;">The Architect</p>
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,4vw,2.2rem);
+                   color:#ffffff;line-height:1.05;margin:0 0 4px 0;letter-spacing:1px;">Will Price</h3>
+        <p style="font-family:'Barlow Condensed',sans-serif;font-size:0.92rem;color:#ffd60a;
+                  font-weight:700;margin:0 0 16px 0;line-height:1.3;">
+          Founder &amp; Chief Solutions Architect, PHIERS
+        </p>
+        <p style="font-family:'Barlow',sans-serif;font-size:0.93rem;color:#c8d8c8;line-height:1.65;margin:0;">
+          Not a politician. Not a lobbyist. A systems architect who found $2.7 trillion in wasted spending — and built the lever to redirect it toward healthcare, jobs, and a monthly check for every American. Building this since 2009.
+        </p>
       </div>
     </div>
+    <div style="padding:0 24px 28px 24px;">
+      <p style="font-family:'Barlow Condensed',sans-serif;font-size:0.75rem;color:#3ddc84;text-transform:uppercase;letter-spacing:3px;margin:0 0 12px 0;">Why Pathos Communications Chose PHIERS</p>
+      <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;border:1px solid rgba(61,220,132,0.2);">
+        <iframe
+          src="https://www.youtube.com/embed/KLu7USN_dao?rel=0"
+          title="Pathos Communications — Why We Stand Behind PHIERS"
+          frameborder="0"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          style="position:absolute;top:0;left:0;width:100%;height:100%;">
+        </iframe>
+      </div>
+      <p style="font-family:'Barlow Condensed',sans-serif;font-size:0.82rem;color:#8899bb;margin-top:10px;line-height:1.5;">A Fortune 500 PR firm — listed on the London Stock Exchange — publicly staking their reputation on PHIERS. That's not a pitch. That's a verdict.</p>
+    </div>
   </div>
-</div>
-
-<!-- TEETH PREVIEW LIGHTBOX -->
-<div id="teethPreviewModal" onclick="this.style.display=&apos;none&apos;" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.9);z-index:99999;align-items:center;justify-content:center;padding:16px;">
-  <img src="We_Gotz_Teeth_for_No_Kings.jpg" alt="Power concedes nothing without a demand that has teeth" style="max-width:90vw;max-height:85vh;border-radius:12px;display:block;">
-</div>
-
-<!-- CHENOWETH IMAGE LIGHTBOX -->
-<div id="chenowethModal" onclick="this.style.display='none'" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.9);z-index:99999;align-items:center;justify-content:center;padding:16px;">
-  <img src="3.5pct_Erica_Chenoweth.jpg" alt="3.5% — Chenoweth Research" style="max-width:90vw;max-height:85vh;border-radius:12px;display:block;">
 </div>
 
 <script>
@@ -667,7 +983,9 @@ document.querySelectorAll('.mobile-menu a').forEach(function(a) {
 function playVideo(which, src) {
   var wrap = document.getElementById('wrap-' + which);
   if (!wrap) return;
-  wrap.innerHTML = '<iframe width="100%" height="100%" src="' + src + '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:4px"></iframe>';
+  wrap.innerHTML = '<iframe width="100%" height="100%" src="' + src +
+    '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen ' +
+    'style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:4px"></iframe>';
 }
 
 window.addEventListener('scroll', function() {
@@ -686,5 +1004,18 @@ if (btt) {
 }
 </script>
 
+
+<script>
+function closeEntryModal() {
+  document.getElementById('entry-modal').classList.remove('open');
+  document.body.classList.remove('modal-open');
+  sessionStorage.setItem('entryModalShown', '1');
+  window.scrollTo({top:0, behavior:'instant'});
+}
+if (!sessionStorage.getItem('entryModalShown')) {
+  document.getElementById('entry-modal').classList.add('open');
+  document.body.classList.add('modal-open');
+}
+</script>
 </body>
 </html>
