@@ -3,33 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="PHIERS.org — For movement organizers. Give the No Kings movement permanent teeth. The mechanism that turns protest into power.">
-<meta property="og:title" content="PHIERS.org — For Organizers: Give the Movement Teeth">
-<meta property="og:description" content="You built the movement. PHIERS.org gives it teeth. Partner with us before March 28.">
-<meta property="og:image" content="PHIERS_Logo.png">
-<link rel="icon" type="image/png" href="PHIERS_Logo.png">
-<title>PHIERS.org — For Organizers: Give the Movement Teeth</title>
+<meta name="description" content="You built the movement. PHIERS gives it teeth. For organizers, union leaders, and coalition builders ready to convert energy into leverage Congress can't survive.">
+<title>PHIERS.org — For Organizers: The Mechanism Your Movement Has Been Missing</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Barlow+Condensed:wght@700;900&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg-deep: #080d1a;
-    --bg-dark: #0d1525;
-    --bg-card: #111d35;
-    --bg-card2: #0a1628;
-    --green: #3ddc84;
-    --green-dim: #2ab568;
+    --bg-deep:    #080d1a;
+    --bg-dark:    #0d1525;
+    --bg-card:    #111d35;
+    --bg-card2:   #0a1628;
+    --green:      #3ddc84;
+    --green-dim:  #2ab568;
     --green-glow: rgba(61,220,132,0.15);
-    --red: #e63946;
-    --red-dim: #c1121f;
-    --gold: #ffd60a;
-    --text-bright: #f0f4ff;
-    --text-body: #b8c8e8;
-    --text-dim: #7a94b8;
-    --border: rgba(61,220,132,0.2);
-    --font-display: 'Bebas Neue', sans-serif;
+    --red:        #e63946;
+    --red-dim:    #c1121f;
+    --gold:       #ffd60a;
+    --text-bright:#f0f4ff;
+    --text-body:  #b8c8e8;
+    --text-dim:   #7a94b8;
+    --border:     rgba(61,220,132,0.2);
+    --font-display:   'Bebas Neue', sans-serif;
     --font-condensed: 'Barlow Condensed', sans-serif;
-    --font-body: 'Barlow', sans-serif;
+    --font-body:      'Barlow', sans-serif;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -42,946 +38,694 @@
     line-height: 1.8;
     overflow-x: hidden;
   }
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.4;
-  }
 
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 1000;
-    background: rgba(8,13,26,0.95);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-    padding: 0 24px;
-    height: 64px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    transition: box-shadow 0.3s;
-  }
-  nav.scrolled { box-shadow: 0 4px 40px rgba(61,220,132,0.1); }
-  .nav-left { display: flex; align-items: center; gap: 14px; }
-  .nav-tagline {
-    font-family: var(--font-body);
-    font-style: italic;
-    font-size: 0.78rem;
-    color: var(--green);
-    line-height: 1.3;
-    display: none;
-  }
-  @media(min-width:640px){ .nav-tagline { display: block; } }
-  .nav-right { display: flex; align-items: center; gap: 12px; }
-  .btn-petition {
+  /* ── EMERGENCY BANNER ── */
+  .emergency-banner {
     background: var(--red);
     color: #fff;
+    text-align: center;
+    padding: 14px 24px;
     font-family: var(--font-condensed);
     font-weight: 700;
-    font-size: 1rem;
-    letter-spacing: 0.05em;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    text-decoration: none;
+    font-size: 1.05rem;
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+    position: relative;
+    z-index: 1001;
+  }
+  .emergency-banner a {
+    color: #fff;
+    text-decoration: underline;
+    font-weight: 900;
+  }
+  .emergency-banner .banner-label {
     display: inline-block;
-    transition: background 0.2s, transform 0.1s;
-    animation: pulse-btn 8s ease-in-out infinite;
+    background: rgba(0,0,0,0.25);
+    border-radius: 3px;
+    padding: 2px 8px;
+    margin-right: 8px;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
   }
-  .btn-petition:hover { background: var(--red-dim); transform: scale(1.03); }
-  @keyframes pulse-btn {
-    0%,90%,100% { box-shadow: 0 0 0 0 rgba(230,57,70,0); }
-    95% { box-shadow: 0 0 0 8px rgba(230,57,70,0.3); }
+
+  /* ── LAYOUT ── */
+  .section { position: relative; z-index: 1; padding: 80px 24px; max-width: 760px; margin: 0 auto; }
+  .section-alt { position: relative; z-index: 1; background: var(--bg-card2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 80px 24px; }
+  .section-alt .inner { max-width: 760px; margin: 0 auto; }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+  /* ── TYPOGRAPHY ── */
+  .eyebrow { font-family: var(--font-condensed); font-weight: 700; font-size: 0.85rem; letter-spacing: 0.15em; color: var(--green); text-transform: uppercase; margin-bottom: 12px; display: block; }
+  h2 { font-family: var(--font-display); font-size: clamp(2rem,5vw,3.2rem); color: var(--text-bright); line-height: 1.05; margin-bottom: 20px; }
+  h3 { font-family: var(--font-condensed); font-weight: 900; font-size: 1.3rem; color: var(--text-bright); margin-bottom: 10px; letter-spacing: 0.04em; }
+  .green { color: var(--green); }
+  .red   { color: var(--red); }
+  .gold  { color: var(--gold); }
+  p { margin-bottom: 1rem; }
+  p:last-child { margin-bottom: 0; }
+
+  /* ── HERO ── */
+  .page-hero {
+    padding: 80px 24px 60px;
+    max-width: 760px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
   }
-  .hamburger {
-    background: none;
-    border: 1px solid var(--border);
+  .page-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.6rem,7vw,4.8rem);
     color: var(--text-bright);
-    font-size: 1.3rem;
-    padding: 8px 12px;
-    border-radius: 4px;
-    cursor: pointer;
+    line-height: 1.0;
+    margin-bottom: 20px;
+  }
+  .page-hero .hero-sub {
+    font-family: var(--font-condensed);
+    font-size: clamp(1.1rem,3vw,1.4rem);
+    font-weight: 700;
+    color: var(--text-dim);
+    line-height: 1.6;
+    margin-bottom: 28px;
+    max-width: 620px;
   }
 
-  .mobile-menu {
-    display: none;
-    position: fixed;
-    top: 64px; left: 0; right: 0;
-    background: var(--bg-dark);
-    border-bottom: 1px solid var(--border);
-    z-index: 999;
-    padding: 20px 24px;
-    flex-direction: column;
-    gap: 4px;
+  /* ── PEER OPENER ── */
+  .peer-block {
+    border-left: 4px solid var(--green);
+    background: var(--bg-card);
+    border-radius: 0 8px 8px 0;
+    padding: 28px 32px;
+    margin: 28px 0;
+    font-size: 1.05rem;
   }
-  .mobile-menu.open { display: flex; }
-  .mobile-menu a {
-    color: var(--text-body);
-    text-decoration: none;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-    font-size: 1rem;
-    transition: color 0.2s;
-  }
-  .mobile-menu a:hover { color: var(--green); }
-  .mobile-menu a.active { color: var(--green); font-weight: 700; }
-
-  .section {
-    position: relative;
-    z-index: 1;
-    padding: 90px 24px;
-    max-width: 860px;
-    margin: 0 auto;
-  }
-  .section-full {
-    position: relative;
-    z-index: 1;
-    padding: 80px 0;
-  }
-  .section-full .inner {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-
-  .section-label {
+  .peer-block .peer-label {
     font-family: var(--font-condensed);
     font-weight: 700;
-    font-size: 0.8rem;
-    letter-spacing: 0.2em;
+    font-size: 0.82rem;
+    letter-spacing: 0.15em;
     color: var(--green);
     text-transform: uppercase;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
+    display: block;
   }
-  h1.page-headline {
-    font-family: var(--font-display);
-    font-size: clamp(3rem, 8vw, 6rem);
+  .peer-block p {
     color: var(--text-bright);
-    line-height: 0.95;
-    letter-spacing: 0.02em;
-    margin-bottom: 28px;
-  }
-  h1.page-headline span { color: var(--green); }
-  h2 {
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 5vw, 3.4rem);
-    color: var(--text-bright);
-    line-height: 1;
-    letter-spacing: 0.02em;
-    margin-bottom: 24px;
-  }
-  h2 .red { color: var(--red); }
-  h2 .green { color: var(--green); }
-  h3 {
-    font-family: var(--font-condensed);
-    font-weight: 700;
-    font-size: 1.25rem;
-    color: var(--text-bright);
-    margin-bottom: 8px;
-  }
-  p + p { margin-top: 14px; }
-
-  #hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-top: 100px;
-    background: radial-gradient(ellipse at 30% 40%, rgba(61,220,132,0.06) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 80%, rgba(230,57,70,0.04) 0%, transparent 50%),
-                linear-gradient(180deg, var(--bg-deep) 0%, #0a1220 100%);
-  }
-  .hero-address {
-    font-style: italic;
-    color: var(--text-dim);
-    font-size: 0.95rem;
-    margin-bottom: 20px;
-    opacity: 0;
-    animation: fadeUp 0.5s 0.1s forwards;
-  }
-  .hero-sub {
-    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
-    color: var(--text-body);
-    max-width: 680px;
-    margin-bottom: 32px;
-    opacity: 0;
-    animation: fadeUp 0.6s 0.6s forwards;
-  }
-  .hero-tension {
-    background: var(--bg-card);
-    border-left: 3px solid var(--red);
-    padding: 20px 24px;
-    border-radius: 0 6px 6px 0;
-    margin-bottom: 36px;
-    font-size: 0.98rem;
-    color: var(--text-body);
-    line-height: 1.9;
-    max-width: 640px;
-    opacity: 0;
-    animation: fadeUp 0.6s 0.8s forwards;
-  }
-  .hero-tension strong { color: var(--text-bright); }
-  .hero-ctas {
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-    opacity: 0;
-    animation: fadeUp 0.6s 1s forwards;
-  }
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    line-height: 1.8;
   }
 
-  .btn-primary {
-    background: var(--red);
-    color: #fff;
-    font-family: var(--font-condensed);
-    font-weight: 700;
-    font-size: 1.15rem;
-    letter-spacing: 0.06em;
-    padding: 14px 32px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background 0.2s, transform 0.1s;
-    display: inline-block;
-  }
-  .btn-primary:hover { background: var(--red-dim); transform: translateY(-2px); }
-  .btn-green {
-    background: var(--green);
-    color: var(--bg-deep);
-    font-family: var(--font-condensed);
-    font-weight: 700;
-    font-size: 1.15rem;
-    letter-spacing: 0.06em;
-    padding: 14px 32px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background 0.2s, transform 0.1s;
-    display: inline-block;
-  }
-  .btn-green:hover { background: var(--green-dim); transform: translateY(-2px); }
-  .btn-secondary {
-    background: transparent;
-    color: var(--green);
-    font-family: var(--font-condensed);
-    font-weight: 700;
-    font-size: 1.15rem;
-    letter-spacing: 0.06em;
-    padding: 14px 32px;
-    border: 2px solid var(--green);
-    border-radius: 4px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background 0.2s, color 0.2s;
-    display: inline-block;
-  }
-  .btn-secondary:hover { background: var(--green-glow); }
-  .cta-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 32px; }
-
-  #built { background: var(--bg-card2); }
-  .built-body { color: var(--text-body); max-width: 720px; }
-  .built-body p { margin-bottom: 16px; }
-
-  .pull-quote {
-    font-family: var(--font-display);
-    font-size: clamp(1.6rem, 4vw, 2.6rem);
-    color: var(--text-bright);
-    letter-spacing: 0.03em;
-    line-height: 1.1;
-    text-align: center;
-    padding: 36px 0;
-    border-top: 2px solid var(--green);
-    border-bottom: 2px solid var(--green);
+  /* ── WINDOW BLOCK ── */
+  .window-block {
+    border: 2px solid var(--red);
+    background: rgba(230,57,70,0.06);
+    border-radius: 10px;
+    padding: 36px 32px;
     margin: 36px 0;
   }
-  .pull-quote .green { color: var(--green); }
-
-  #gap { background: var(--bg-deep); }
-  .gap-statement {
-    font-family: var(--font-condensed);
-    font-weight: 700;
-    font-size: clamp(1.3rem, 3vw, 1.8rem);
-    color: var(--text-bright);
-    line-height: 1.4;
-    margin: 24px 0;
-    padding: 24px;
-    background: var(--bg-card);
-    border-left: 4px solid var(--red);
-    border-radius: 0 6px 6px 0;
-  }
-
-  .contrast-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin: 28px 0;
-  }
-  @media(max-width: 500px){ .contrast-grid { grid-template-columns: 1fr; } }
-  .contrast-card { padding: 24px; border-radius: 6px; text-align: center; }
-  .contrast-card.fades { background: rgba(230,57,70,0.06); border: 1px solid rgba(230,57,70,0.25); }
-  .contrast-card.stays { background: rgba(61,220,132,0.06); border: 1px solid rgba(61,220,132,0.25); }
-  .contrast-card .contrast-icon { font-size: 2rem; margin-bottom: 10px; }
-  .contrast-card h3 { margin-bottom: 8px; font-size: 1.1rem; }
-  .contrast-card.fades h3 { color: var(--red); }
-  .contrast-card.stays h3 { color: var(--green); }
-  .contrast-card p { font-size: 0.88rem; color: var(--text-dim); line-height: 1.6; }
-
-  #mechanism { background: var(--bg-card2); }
-  .mechanism-intro { font-size: 1.05rem; color: var(--text-body); margin-bottom: 32px; line-height: 1.9; }
-
-  .what-phiers-adds { display: flex; flex-direction: column; gap: 16px; margin: 28px 0; }
-  .add-item {
-    display: flex;
-    gap: 20px;
-    background: var(--bg-dark);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 20px 24px;
-    transition: border-color 0.2s;
-  }
-  .add-item:hover { border-color: var(--green); }
-  .add-icon { font-size: 1.6rem; flex-shrink: 0; margin-top: 2px; }
-  .add-content h3 { color: var(--green); margin-bottom: 6px; }
-  .add-content p { font-size: 0.93rem; color: var(--text-body); line-height: 1.7; }
-
-  #partnership { background: var(--bg-deep); }
-  .one-thing {
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    color: var(--green);
-    text-align: center;
-    padding: 32px 0;
-    letter-spacing: 0.03em;
-    line-height: 1.1;
-  }
-
-  .brings-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 12px;
-    margin: 28px 0;
-  }
-  .brings-item {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 18px;
-    text-align: center;
-    font-size: 0.88rem;
-    color: var(--text-dim);
-    line-height: 1.5;
-  }
-  .brings-item .brings-icon { font-size: 1.4rem; margin-bottom: 8px; }
-  .brings-item strong { display: block; color: var(--text-bright); font-family: var(--font-condensed); font-size: 1rem; margin-bottom: 4px; }
-
-  .ask-box {
-    background: var(--bg-card);
-    border: 2px solid var(--green);
-    border-radius: 8px;
-    padding: 32px;
-    margin: 28px 0;
-  }
-  .ask-box h3 { color: var(--green); font-size: 1.4rem; margin-bottom: 16px; }
-  .ask-list { list-style: none; }
-  .ask-list li {
-    padding: 10px 0 10px 28px;
-    position: relative;
-    color: var(--text-body);
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-    font-size: 0.97rem;
-    line-height: 1.6;
-  }
-  .ask-list li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
-  .ask-list li:last-child { border-bottom: none; }
-
-  #whynow { background: var(--bg-card2); }
-  .deadline-blocks { display: flex; flex-direction: column; gap: 16px; margin: 28px 0; }
-  @media(min-width: 700px){ .deadline-blocks { flex-direction: row; } .deadline-block { flex: 1; } }
-  .deadline-block {
-    background: var(--bg-dark);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 24px 20px;
-    transition: border-color 0.2s;
-  }
-  .deadline-block:hover { border-color: var(--green); }
-  .deadline-date {
-    display: inline-block;
-    background: var(--green);
-    color: var(--bg-deep);
+  .window-block .window-label {
     font-family: var(--font-condensed);
     font-weight: 900;
     font-size: 0.85rem;
-    padding: 4px 12px;
-    border-radius: 20px;
-    margin-bottom: 12px;
+    letter-spacing: 0.15em;
+    color: var(--red);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    display: block;
   }
-  .deadline-title { font-family: var(--font-condensed); font-weight: 700; font-size: 1.15rem; color: var(--text-bright); margin-bottom: 8px; }
-  .deadline-desc { font-size: 0.88rem; color: var(--text-dim); line-height: 1.6; }
+  .window-block h2 {
+    color: var(--red);
+    margin-bottom: 16px;
+    font-size: clamp(1.8rem,5vw,2.8rem);
+  }
+  .window-block p {
+    color: var(--text-bright);
+    font-size: 1.05rem;
+  }
+  .countdown-line {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem,4vw,2.2rem);
+    color: var(--gold);
+    margin: 20px 0 10px;
+    line-height: 1.2;
+  }
 
-  .back-to-top {
-    position: fixed;
-    bottom: 28px; right: 24px;
-    background: var(--green);
-    color: var(--bg-deep);
-    border: none;
-    border-radius: 50%;
-    width: 44px; height: 44px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s;
-    z-index: 999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  /* ── WHAT YOU GET GRID ── */
+  .benefit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 28px 0;
   }
-  .back-to-top.visible { opacity: 1; pointer-events: auto; }
-  .back-to-top:hover { background: var(--green-dim); }
-
-  #finalcall {
-    background: linear-gradient(180deg, var(--bg-deep) 0%, #050a14 100%);
-    border-top: 2px solid var(--green);
-    text-align: center;
-  }
-  #finalcall h2 { text-align: center; }
-  .final-body { color: var(--text-body); max-width: 600px; margin: 0 auto 28px; line-height: 1.9; }
-  .contact-box {
+  @media(max-width:600px){ .benefit-grid { grid-template-columns: 1fr; } }
+  .benefit-card {
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: 8px;
-    padding: 28px;
-    max-width: 500px;
-    margin: 28px auto;
-    text-align: left;
+    padding: 24px 22px;
   }
-  .contact-box h3 { color: var(--green); margin-bottom: 12px; }
-  .contact-box p { font-size: 0.93rem; color: var(--text-body); margin-bottom: 10px; }
-  .contact-box a { color: var(--green); }
-  .share-line {
-    text-align: center;
+  .benefit-card .benefit-icon { font-size: 1.6rem; margin-bottom: 8px; }
+  .benefit-card h3 { font-size: 1.1rem; color: var(--green); margin-bottom: 8px; }
+  .benefit-card p { font-size: 0.93rem; color: var(--text-body); line-height: 1.7; margin: 0; }
+  .benefit-card .benefit-number {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    color: var(--gold);
+    line-height: 1.0;
+    margin-bottom: 4px;
+  }
+
+  /* ── MECHANISM STEPS ── */
+  .steps { margin: 28px 0; }
+  .step { display: flex; gap: 20px; margin-bottom: 24px; align-items: flex-start; }
+  .step-num { flex-shrink: 0; width: 44px; height: 44px; border-radius: 50%; background: var(--green); color: var(--bg-deep); font-family: var(--font-condensed); font-weight: 900; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; margin-top: 3px; }
+  .step-num.red-num { background: var(--red); color: #fff; }
+  .step-body { flex: 1; }
+  .step-title { font-family: var(--font-condensed); font-weight: 700; font-size: 1.15rem; color: var(--text-bright); margin-bottom: 4px; }
+  .step-desc { font-size: 0.97rem; color: var(--text-body); line-height: 1.7; }
+
+  /* ── CONTRAST BLOCK ── */
+  .contrast-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 28px 0;
+  }
+  @media(max-width:600px){ .contrast-grid { grid-template-columns: 1fr; } }
+  .contrast-card {
+    border-radius: 8px;
+    padding: 24px 22px;
+  }
+  .contrast-card.without {
+    background: rgba(230,57,70,0.07);
+    border: 1px solid rgba(230,57,70,0.3);
+  }
+  .contrast-card.with {
+    background: rgba(61,220,132,0.07);
+    border: 1px solid var(--border);
+  }
+  .contrast-card .contrast-label {
+    font-family: var(--font-condensed);
+    font-weight: 900;
+    font-size: 0.82rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    display: block;
+  }
+  .contrast-card.without .contrast-label { color: var(--red); }
+  .contrast-card.with .contrast-label { color: var(--green); }
+  .contrast-card ul { list-style: none; }
+  .contrast-card ul li {
+    padding: 7px 0 7px 22px;
+    font-size: 0.95rem;
+    color: var(--text-body);
+    position: relative;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .contrast-card ul li:last-child { border-bottom: none; }
+  .contrast-card.without ul li::before { content: '✗'; position: absolute; left: 0; color: var(--red); }
+  .contrast-card.with ul li::before { content: '✓'; position: absolute; left: 0; color: var(--green); }
+
+  /* ── DEMANDS BLOCK ── */
+  .demands-block {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    padding: 36px 32px;
+    margin: 36px 0;
+  }
+  .demand-item {
+    display: flex;
+    gap: 18px;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    align-items: flex-start;
+  }
+  .demand-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .demand-icon { font-size: 1.6rem; flex-shrink: 0; margin-top: 3px; }
+  .demand-text h3 { color: var(--gold); font-size: 1.1rem; margin-bottom: 6px; }
+  .demand-text p { font-size: 0.95rem; color: var(--text-body); margin: 0; line-height: 1.7; }
+  .demand-text .demand-why {
+    font-family: var(--font-condensed);
+    font-weight: 700;
+    color: var(--green);
+    font-size: 0.95rem;
+    margin-top: 6px;
+  }
+
+  /* ── PROOF BLOCK ── */
+  .proof-block {
+    background: var(--bg-card2);
+    border-left: 4px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+    padding: 28px 32px;
+    margin: 28px 0;
+  }
+  .proof-block .proof-label {
+    font-family: var(--font-condensed);
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    display: block;
+  }
+  .proof-list { list-style: none; margin: 0; }
+  .proof-list li {
+    padding: 10px 0 10px 28px;
+    color: var(--text-body);
+    font-size: 0.97rem;
+    position: relative;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .proof-list li:last-child { border-bottom: none; }
+  .proof-list li::before { content: '→'; position: absolute; left: 0; color: var(--gold); }
+
+  /* ── WHAT WE ASK ── */
+  .ask-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin: 28px 0;
+  }
+  .ask-card {
     background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 20px;
-    margin-top: 24px;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .share-line p { color: var(--text-body); font-size: 0.95rem; margin-bottom: 8px; }
-  .hashtag { font-family: var(--font-display); font-size: clamp(1.4rem, 3vw, 2rem); color: var(--green); letter-spacing: 0.04em; }
-
-  footer {
-    position: relative;
-    z-index: 1;
-    background: var(--bg-dark);
-    border-top: 1px solid var(--border);
-    padding: 48px 24px 32px;
+    border-radius: 8px;
+    padding: 22px 18px;
     text-align: center;
   }
-  .footer-logo { height: 40px; margin-bottom: 12px; }
-  .footer-mabah { font-family: var(--font-condensed); font-weight: 700; font-size: 1.1rem; color: var(--text-bright); margin-bottom: 2px; }
-  .footer-mabah-sub { font-size: 0.88rem; color: var(--green); font-style: italic; margin-bottom: 20px; }
-  .footer-tagline { font-family: var(--font-condensed); font-size: 1rem; color: var(--text-dim); margin-bottom: 20px; font-style: italic; }
-  .footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 20px; margin-bottom: 24px; }
-  .footer-nav a { color: var(--text-dim); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
+  .ask-card .ask-num {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--green);
+    line-height: 1.0;
+    margin-bottom: 8px;
+  }
+  .ask-card p { font-size: 0.92rem; color: var(--text-body); line-height: 1.7; margin: 0; }
+
+  /* ── FINAL CTA ── */
+  .final-cta {
+    border: 2px solid var(--green);
+    border-radius: 10px;
+    padding: 44px 36px;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(61,220,132,0.05), transparent);
+    margin-top: 40px;
+  }
+  .final-cta h2 { color: var(--green); margin-bottom: 16px; font-size: clamp(2rem,6vw,3.5rem); }
+  .final-cta p { max-width: 560px; margin: 0 auto 20px; }
+  .cta-stack { display: flex; flex-direction: column; gap: 12px; max-width: 420px; margin: 24px auto 0; }
+  .btn-primary { display: block; background: var(--green); color: var(--bg-deep); font-family: var(--font-condensed); font-weight: 700; font-size: 1.1rem; letter-spacing: 0.05em; padding: 14px 32px; border-radius: 4px; text-decoration: none; text-align: center; transition: background 0.2s; }
+  .btn-primary:hover { background: var(--green-dim); }
+  .btn-secondary { display: block; background: transparent; color: var(--green); font-family: var(--font-condensed); font-weight: 700; font-size: 1.05rem; letter-spacing: 0.04em; padding: 13px 28px; border-radius: 4px; border: 1px solid var(--green); text-decoration: none; text-align: center; transition: background 0.2s; }
+  .btn-secondary:hover { background: var(--green-glow); }
+  .btn-red { display: block; background: var(--red); color: #fff; font-family: var(--font-condensed); font-weight: 700; font-size: 1.1rem; letter-spacing: 0.05em; padding: 14px 32px; border-radius: 4px; text-decoration: none; text-align: center; transition: background 0.2s; }
+  .btn-red:hover { background: var(--red-dim); }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote { border-left: 4px solid var(--green); padding: 16px 24px; background: var(--bg-card); border-radius: 0 8px 8px 0; margin: 28px 0; }
+  .pull-quote p { font-family: var(--font-condensed); font-size: 1.25rem; font-weight: 700; color: var(--text-bright); line-height: 1.5; margin: 0; }
+  .pull-quote .attr { font-size: 0.85rem; color: var(--text-dim); font-weight: 400; font-style: italic; margin-top: 8px; display: block; font-family: var(--font-body); }
+
+  /* ── FOOTER ── */
+  footer { background: var(--bg-dark); border-top: 1px solid var(--border); padding: 48px 24px 32px; text-align: center; position: relative; z-index: 1; }
+  .footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 20px; margin: 20px 0; }
+  .footer-nav a { color: var(--text-dim); text-decoration: none; font-size: 0.88rem; }
   .footer-nav a:hover { color: var(--green); }
   .footer-copy { font-size: 0.8rem; color: var(--text-dim); line-height: 1.8; }
   .footer-copy a { color: var(--green); text-decoration: none; }
 
-  .back-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    color: var(--text-dim);
-    text-decoration: none;
-    font-size: 0.85rem;
-    margin-bottom: 28px;
-    transition: color 0.2s;
-    font-family: var(--font-condensed);
-    font-weight: 700;
-    letter-spacing: 0.05em;
-  }
-  .back-link:hover { color: var(--green); }
-                                
-  </style>
+  /* ── BACK TO TOP ── */
+  .back-to-top { position: fixed; bottom: 28px; right: 24px; background: var(--green); color: var(--bg-deep); border: none; border-radius: 50%; width: 44px; height: 44px; font-size: 1.2rem; cursor: pointer; opacity: 0; pointer-events: none; transition: opacity 0.3s; z-index: 999; display: flex; align-items: center; justify-content: center; }
+  .back-to-top.visible { opacity: 1; pointer-events: auto; }
+</style>
 </head>
 <body>
 
-<!-- ── UNIVERSAL NAVIGATION ── -->
-<nav id="main-nav">
-  <div class="nav-left">
-    <a href="index.html" style="font-family:var(--font-condensed);font-weight:700;font-size:1.3rem;color:#fff;text-decoration:none;letter-spacing:0.05em">PHIERS.org</a>
-    <div class="nav-tagline">When Americans coordinate, Congress has no choice.</div>
-  </div>
-  <div class="nav-right">
-    <a href="petition.html">✍ Sign the Petition</a>
-    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">☰</button>
-  </div>
-</nav>
-<!-- ── UNIVERSAL MOBILE MENU ── -->
-<div class="mobile-menu" id="mobile-menu">
-  <!-- END THE WAR - FIRST ITEM -->
-  <div style="padding: 8px 20px 0 20px;">
-    <a href="NoWar.html" style="display: block; padding: 14px 16px; font-family: var(--font-condensed); font-weight: 700; font-size: 1.15rem; color: var(--red); text-decoration: none; background: rgba(230,57,70,0.1); border-radius: 8px; margin-bottom: 8px;">🕊 END THE WAR / NO DRAFT</a>
-  </div>
-  
-  <details class="menu-section">
-    <summary class="menu-label">Understand the Fight</summary>
-    <a href="Crisis.html">🚨 The Crisis</a>
-    <a href="SimpleMath.html">📊 Simple Math</a>
-    <a href="Leverage.html">⚡ The Leverage</a>
-    <a href="5D_Solutions.html">🔬 5D Solutions</a>
-    <a href="Telehealth-Insurance.html">💡 TeleCARE</a>
-  </details>
-  <details class="menu-section">
-    <summary class="menu-label">Who We're For</summary>
-    <a href="organizers.html">✊ For Organizers</a>
-    <a href="Veterans.html">🎖 Veterans</a>
-    <a href="Unions-Strategy.html">💪 Union Strategy</a>
-  </details>
-  <details class="menu-section">
-    <summary class="menu-label">Resources</summary>
-    <a href="Resources.html">📚 Resource Hub</a>
-    <a href="real-stories.html">💬 Real Stories</a>
-    <a href="FAQ.html" target="_blank">❓ FAQ</a>
-    <a href="healthcare-proof.html" target="_blank" class="menu-deepdive">→ The Full Story</a>
-  </details>
-  <details class="menu-section">
-    <summary class="menu-label">Take Action</summary>
-    <a href="petition.html">📋 Sign the Petition</a>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdETA-oNIeOAzEsG4GsYiiws1YBpLunx8ioVJkZac5hzSxaZw/viewform?usp=header" target="_blank" rel="noopener noreferrer">📋 Take the Survey</a>
-    <a href="Donate.html">💚 Donate</a>
-    <a href="action.html">📣 Take Action</a>
-  </details>
+<!-- ── EMERGENCY BANNER ── -->
+<div class="emergency-banner">
+  <span class="banner-label">URGENT</span>
+  Congress is home through April 14. Trump threatened to destroy a civilization. The 25th Amendment is on the table.
+  <strong>This is the window. Your members need to act before Congress returns to DC.</strong>
+  <a href="petition.html">→ Add Your Name Now</a>
 </div>
 
-<section id="hero">
-  <div class="section">
-    <p class="hero-address">To every organizer, coordinator, and grassroots leader who has been fighting for accountability:</p>
-    <h1 class="page-headline">You Built<br>The Movement.<br><span>PHIERS.org</span><br>Gives It Teeth.</h1>
-    <p class="hero-sub">The No Kings Rally will be the largest protest in American history. But without a mechanism to hold Congress accountable after March 28 — it becomes a photo op. PHIERS.org is that mechanism.</p>
-    <div class="hero-tension">
-      We don't ask you to change your message.<br>
-      We don't ask you to change your mission.<br>
-      We don't ask you to join an organization.<br><br>
-      <strong>We give your demands the one thing they're missing: teeth.</strong>
-    </div>
-    <!-- ANCHOR IMAGE -->
-    <div style="max-width:700px;margin:32px auto 24px auto;padding:0 15px;">
-      <img src="Congress_Dont_Work_4U-WEre_changing_that.jpg"
-           alt="Congress Doesn't Work For You — We're Changing That"
-           style="width:100%;height:auto;display:block;border-radius:12px;
-                  box-shadow:0 20px 40px rgba(0,0,0,0.5);
-                  border:2px solid rgba(61,220,132,0.25);">
-    </div>
+<!-- ── SIMPLE NAV (matches site) ── -->
+<nav style="background:rgba(8,13,26,0.97);border-bottom:1px solid var(--border);padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:1000;">
+  <a href="index.html" style="font-family:var(--font-condensed);font-weight:700;font-size:1.3rem;color:#fff;text-decoration:none;">PHIERS.org</a>
+  <a href="petition.html" style="background:var(--red);color:#fff;font-family:var(--font-condensed);font-weight:700;font-size:1rem;padding:10px 20px;border-radius:4px;text-decoration:none;">✍ Be Counted</a>
+</nav>
 
-    <div class="hero-ctas">
-      <a href="#finalcall" class="btn-green">→ Partner With PHIERS.org</a>
-      <a href="petition.html" class="btn-petition">✍ Sign the Petition</a>
-    </div>
-  </div>
-</section>
-
-
-<!-- ═══════════════════════════════════════
-     INDIVISIBLE / 50501 DIRECT ADDRESS
-═══════════════════════════════════════ -->
-<section class="section" id="indivisible-direct" style="background:var(--bg-card2);border-top:3px solid var(--gold);">
-  <p class="section-label" style="color:var(--gold);">A Direct Message to Indivisible, 50501, and Every Org Building This Movement</p>
-  <h2>You Said It Yourself.<br><span class="green">Now Here's the Mechanism.</span></h2>
-
-  <div style="background:var(--bg-card);border-left:4px solid var(--gold);border-radius:0 8px 8px 0;padding:24px 28px;margin:28px 0;">
-    <p style="font-family:var(--font-condensed);font-size:0.8rem;color:var(--gold);text-transform:uppercase;letter-spacing:2px;margin-bottom:12px;">Leah Greenberg, Co-Founder &amp; Co-Director, Indivisible — March 2026</p>
-    <p style="font-size:1.05rem;color:var(--text-bright);font-style:italic;line-height:1.7;margin-bottom:12px;">
-      "The goal is to get that 11 million not just out, but sustainably engaged in the kinds of resistance that is actually capable of changing the course of this country."
-    </p>
-    <p style="font-size:0.9rem;color:var(--text-dim);">— Interview, one week before NoKings III, March 28, 2026</p>
-  </div>
-
-  <p style="margin-top:24px;">We heard you. And we agree with everything you said.</p>
-  <p style="margin-top:12px;">The rallies are working. The energy is real. The geographic spread — 3,000 events in almost every congressional district — is extraordinary. The fact that people are showing up in deeply red and rural areas where progressives were told they didn't exist? That's proof that this is bigger than any one party or ideology.</p>
-  <p style="margin-top:12px;">But you named the gap yourself: <strong style="color:var(--text-bright);">sustained engagement in resistance that actually changes the course of this country.</strong></p>
-  <p style="margin-top:12px;">That's the piece that's been missing. Not the people. Not the energy. Not the courage.</p>
-  <p style="margin-top:12px;font-family:var(--font-condensed);font-weight:700;font-size:1.15rem;color:var(--text-bright);">The mechanism.</p>
-
-  <div style="margin:32px 0;display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-    <div style="background:rgba(230,57,70,0.06);border:1px solid rgba(230,57,70,0.25);border-radius:6px;padding:20px;">
-      <p style="font-family:var(--font-condensed);font-weight:700;color:var(--red);font-size:1rem;margin-bottom:10px;">❌ Without a mechanism</p>
-      <p style="font-size:0.88rem;color:var(--text-dim);line-height:1.6;">People march. Feel solidarity. Go home. Congress waits it out. The dopamine fades. Exhaustion sets in. The moment passes. The same people who showed up have to be re-motivated for the next rally.</p>
-    </div>
-    <div style="background:rgba(61,220,132,0.06);border:1px solid rgba(61,220,132,0.25);border-radius:6px;padding:20px;">
-      <p style="font-family:var(--font-condensed);font-weight:700;color:var(--green);font-size:1rem;margin-bottom:10px;">✅ With PHIERS as the mechanism</p>
-      <p style="font-size:0.88rem;color:var(--text-dim);line-height:1.6;">People march. Then they add their name to the district record. 1,500 names triggers a mandatory town hall. Their representative has to show up, answer, and comply — or face a primary challenge before the next election. The energy converts into documented, permanent leverage.</p>
-    </div>
-  </div>
-
-  <p style="margin-top:8px;">You're already doing the hardest part — getting people in the door and keeping them engaged. PHIERS is what they do <em>with</em> that engagement the morning after the rally.</p>
-
-  <div style="background:var(--bg-card);border:2px solid var(--green);border-radius:8px;padding:28px;margin:32px 0;text-align:center;">
-    <p style="font-family:var(--font-display);font-size:clamp(1.4rem,3vw,2rem);color:var(--green);line-height:1.2;margin-bottom:16px;">
-      You fill their cup.<br>PHIERS is what they do with the energy.
-    </p>
-    <p style="font-size:0.95rem;color:var(--text-body);max-width:560px;margin:0 auto;">
-      We're not asking you to change your message, your mission, or your movement. We're asking you to point your people to the mechanism that makes everything you've already built impossible to ignore.
-    </p>
-  </div>
-
-  <div style="margin-top:28px;">
-    <p style="font-family:var(--font-condensed);font-weight:700;font-size:1.05rem;color:var(--text-bright);margin-bottom:12px;">The three demands PHIERS makes possible — starting with what you're already calling for:</p>
-    <div style="display:flex;flex-direction:column;gap:12px;">
-      <div style="display:flex;gap:16px;align-items:flex-start;padding:16px;background:var(--bg-dark);border:1px solid var(--border);border-radius:6px;">
-        <span style="font-size:1.4rem;flex-shrink:0;">⚔️</span>
-        <div>
-          <p style="font-family:var(--font-condensed);font-weight:700;color:var(--red);margin-bottom:4px;">Stop the War. Prevent the Draft.</p>
-          <p style="font-size:0.9rem;color:var(--text-dim);line-height:1.6;">You said it in your interview: "We are in need of the kind of large people-powered broad-based protest in every community in the country that sends a real signal particularly to Republicans that their constituents are not going to back them on this horrifying escalation of war." PHIERS makes that signal impossible to ignore — because it's on the public record, district by district, with electoral consequences attached.</p>
-        </div>
-      </div>
-      <div style="display:flex;gap:16px;align-items:flex-start;padding:16px;background:var(--bg-dark);border:1px solid var(--border);border-radius:6px;">
-        <span style="font-size:1.4rem;flex-shrink:0;">🏥</span>
-        <div>
-          <p style="font-family:var(--font-condensed);font-weight:700;color:var(--green);margin-bottom:4px;">Open TeleCARE Through the ACA Exchange.</p>
-          <p style="font-size:0.9rem;color:var(--text-dim);line-height:1.6;">$600 replaces $10,000. Congress already has the authority. The savings fund universal healthcare, a jobs guarantee, and a monthly check for every American. This is the first domino — and it generates the resources to solve everything that comes after it.</p>
-        </div>
-      </div>
-      <div style="display:flex;gap:16px;align-items:flex-start;padding:16px;background:var(--bg-dark);border:1px solid var(--border);border-radius:6px;">
-        <span style="font-size:1.4rem;flex-shrink:0;">🗳️</span>
-        <div>
-          <p style="font-family:var(--font-condensed);font-weight:700;color:var(--gold);margin-bottom:4px;">Restore Democracy. Replace Those Who Refuse.</p>
-          <p style="font-size:0.9rem;color:var(--text-dim);line-height:1.6;">1,500 signatures in a district forces a mandatory town hall. Representatives who comply get protected. Representatives who don't face organized primary challenges — guaranteed to win — before November 2026. A Congress that listens is a Congress worth keeping. A Congress that doesn't gets replaced by one that will.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div style="margin-top:32px;padding:24px;background:var(--bg-card);border:1px solid var(--gold);border-radius:8px;text-align:center;">
-    <p style="font-family:var(--font-condensed);font-weight:700;font-size:1.1rem;color:var(--gold);margin-bottom:12px;">We're reaching out directly.</p>
-    <p style="font-size:0.95rem;color:var(--text-body);max-width:540px;margin:0 auto 16px auto;line-height:1.6;">
-      An email is on its way to Indivisible, 50501, and allied organizations. If you're a leader or organizer in one of these groups — or if you want to be part of the conversation — reach out now. We respond to every inquiry.
-    </p>
-    <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
-      <a href="mailto:info@phiers.org">info@phiers.org</a>
-      <a href="tel:+19163068967" style="font-family:var(--font-condensed);font-weight:700;font-size:0.95rem;color:var(--gold);border:2px solid var(--gold);padding:10px 24px;border-radius:4px;text-decoration:none;">📞 (916) 306-8967</a>
-    </div>
-    <p style="font-size:0.8rem;color:var(--text-dim);margin-top:12px;">Or share this page directly: <strong style="color:var(--green);">phiers.org/organizers</strong></p>
-  </div>
-</section>
-
-<section class="section" id="built">
-  <p class="section-label">We See What You've Built</p>
-  <h2>You've Done <span class="green">The Hard Part.</span></h2>
-  <div class="built-body">
-    <p>You organized the marches. You built the coalitions. You got people off their couches and into the streets.</p>
-    <p>That energy is real. That anger is justified. That demand for accountability is the most American impulse there is.</p>
-    <p>And you know better than anyone what happens next.</p>
-    <p>People march. Speeches are made. Photos are taken. Congress waits it out. And nothing changes.</p>
-    <p>Not because the movement failed. Because protest alone has never been enough.</p>
-  </div>
-  <div class="pull-quote">
-    Power concedes nothing without<br>a demand that has <span class="green">TEETH.</span>
-  </div>
-  <div class="built-body">
-    <p>The movements that changed history didn't just march. They marched <em>and</em> they organized. They created visibility <em>and</em> leverage. They demanded change <em>and</em> enforced consequences.</p>
-    <p>PHIERS.org is the enforcement mechanism your movement has been building toward.</p>
-  </div>
-</section>
-
-<section class="section" id="gap">
-  <p class="section-label">The Gap Every Movement Faces</p>
-  <h2>Visibility Without Accountability<br>Is Just <span class="red">Noise.</span></h2>
-  <div class="gap-statement">Congress ignores protests because protests don't threaten their jobs.</div>
-  <p>Politicians calculate the cost of responding versus the cost of waiting it out. Most of the time — waiting wins.</p>
-  <p>The only thing that reliably moves Congress is organized constituent pressure with documented electoral consequences.</p>
-  <p>When a politician sees that 1,500 verified constituents in their own district are aligned on a specific demand — and that those constituents will act on it — the math changes.</p>
-  <div class="contrast-grid">
-    <div class="contrast-card fades">
-      <div class="contrast-icon">📸</div>
-      <h3>Protest Alone</h3>
-      <p>Creates visibility. Generates news coverage. Signals public sentiment. But has no mechanism to force response. Congress waits it out. The moment fades.</p>
-    </div>
-    <div class="contrast-card stays">
-      <div class="contrast-icon">⚡</div>
-      <h3>Protest + PHIERS.org</h3>
-      <p>Creates visibility AND documented leverage. Turns public sentiment into constituent demands on the record. Forces response or triggers organized consequences. The moment becomes permanent.</p>
-    </div>
-  </div>
-  <p style="margin-top:8px"><strong style="color:var(--text-bright)">No leverage = no change.</strong> That's the lesson of every protest movement that faded. The ones that didn't fade had a mechanism. PHIERS.org is the mechanism.</p>
-</section>
-
-<section class="section" id="mechanism">
-  <p class="section-label">What PHIERS.org Adds</p>
-  <h2>Protests Create Visibility.<br>PHIERS.org Creates <span class="green">Leverage.</span><br>The Movement Needs Both.</h2>
-  <p class="mechanism-intro">PHIERS.org is a citizen coordination system built to turn public energy into documented political pressure — district by district, representative by representative. Here's what it adds to everything you've already built:</p>
-  <div class="what-phiers-adds">
-    <div class="add-item">
-      <div class="add-icon">🎯</div>
-      <div class="add-content">
-        <h3>A Specific, Winnable First Demand</h3>
-        <p>$600 telehealth on the ACA Exchange. The math is undeniable. Congress has the authority under the ACA to act tomorrow. They've simply refused — because nobody has made the cost of refusal higher than the cost of compliance. Until now.</p>
-      </div>
-    </div>
-    <div class="add-item">
-      <div class="add-icon">📋</div>
-      <div class="add-content">
-        <h3>A Documented Public Record</h3>
-        <p>Every signature. Every survey response. Every constituent priority — on the public record, by district, delivered directly to elected officials. Not a hashtag. Not a rally photo. A documented demand Congress cannot claim it never received.</p>
-      </div>
-    </div>
-    <div class="add-item">
-      <div class="add-icon">🗺</div>
-      <div class="add-content">
-        <h3>A District-by-District Pressure Mechanism</h3>
-        <p>When 1,500 constituents in a single district sign the petition and complete the survey, their representative is summoned to a town hall — where they must respond publicly, on the record, to their own constituents' documented demands.</p>
-      </div>
-    </div>
-    <div class="add-item">
-      <div class="add-icon">⚖️</div>
-      <div class="add-content">
-        <h3>Electoral Consequences</h3>
-        <p>Representatives who refuse face organized primary challenges, special elections, and constituent campaigns — before November 2026. We do not wait for the midterms. We do not negotiate with indifference.</p>
-      </div>
-    </div>
-    <div class="add-item">
-      <div class="add-icon">🔄</div>
-      <div class="add-content">
-        <h3>A Permanent Accountability System</h3>
-        <p>As new threats arise, we update the survey. The mechanism doesn't fade after March 28. It builds toward July 4th, toward November 2026, and beyond — until we have a government that is for, by, and accountable to We the People.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="partnership">
-  <p class="section-label">What Partnership Looks Like</p>
-  <h2>We Don't Ask You To Become PHIERS.org.<br>We Ask You To <span class="green">Point Your People Toward It.</span></h2>
-  <div class="one-thing">Tell your people to sign<br>the petition before March 28.</div>
-  <p>That's it. Every signature your network generates becomes documented leverage. Every survey response becomes constituent direction Congress must answer. Every share gets us closer to the 12 million that history shows cannot be ignored.</p>
-  <div class="brings-grid">
-    <div class="brings-item"><div class="brings-icon">🎯</div><strong>Winnable First Demand</strong>Specific, undeniable, achievable — the proof of concept that opens every door.</div>
-    <div class="brings-item"><div class="brings-icon">📊</div><strong>District-Level Data</strong>Where your members are, what they want, documented and delivered.</div>
-    <div class="brings-item"><div class="brings-icon">🗓</div><strong>Three Deadlines</strong>March 28 → July 4th → November 2026. A movement with a calendar.</div>
-    <div class="brings-item"><div class="brings-icon">🏛</div><strong>15 Years of Work</strong>Validated by Pathos Communications, Mark Cuban's Cost Plus Drugs, Harvard Kennedy School research.</div>
-    <div class="brings-item"><div class="brings-icon">⚡</div><strong>Permanent Mechanism</strong>Doesn't fade after the rally. Builds and grows until Congress responds.</div>
-    <div class="brings-item"><div class="brings-icon">✊</div><strong>Constitutional Power</strong>Peaceful. Legal. Unstoppable. The founders built this mechanism in — we're using it.</div>
-  </div>
-  <div class="ask-box">
-    <h3>What We Ask of You</h3>
-    <ul class="ask-list">
-      <li>Share the petition link with your network before March 28</li>
-      <li>Encourage your members to complete the PHIERS.org survey</li>
-      <li>Use <strong>#PHIERdUpNow</strong> to connect the movements publicly</li>
-      <li>Join the coalition of organizers giving the No Kings movement permanent teeth</li>
-      <li>Reach out directly to coordinate how we amplify each other's work</li>
-    </ul>
-  </div>
-</section>
-
-<section class="section" id="whynow">
-  <p class="section-label">Why This Moment Is Different</p>
-  <h2>The 250th Anniversary <span class="green">Changes Everything.</span></h2>
-  <p>July 4, 2026 marks 250 years since Americans declared independence from a government that stopped representing them. We have three deadlines and one mission:</p>
-  <div class="deadline-blocks">
-    <div class="deadline-block">
-      <div class="deadline-date">📅 March 28</div>
-      <div class="deadline-title">No Kings III</div>
-      <div class="deadline-desc">Every organizer who partners with PHIERS.org before March 28 helps turn the largest protest in American history into the beginning of permanent change. Don't let the energy fade. Give it a mechanism today.</div>
-    </div>
-    <div class="deadline-block">
-      <div class="deadline-date">📅 July 4th</div>
-      <div class="deadline-title">The Second Declaration</div>
-      <div class="deadline-desc">12 million signatures. 250 years later. A peaceful, constitutional, undeniable demand for a government that is for, by, and accountable to We the People.</div>
-    </div>
-    <div class="deadline-block">
-      <div class="deadline-date">📅 November 2026</div>
-      <div class="deadline-title">The Realignment</div>
-      <div class="deadline-desc">Every candidate in every district knows the public is organized and keeping score. The only people elected are those who publicly commit to the will of their constituents. Corruption loses its grip.</div>
-    </div>
-  </div>
-  <p>This is how we make the No Kings movement permanent. Not just a moment — a mandate.</p>
-</section>
-
-<section class="section" id="finalcall">
-  <p class="section-label" style="text-align:center">The Ask</p>
-  <h2 style="text-align:center">You've Given Everything<br>To Build This Movement.<br><span class="green">Give It One More Thing.</span></h2>
-  <p class="final-body">
-    PHIERS.org has been building this mechanism since 2009 — forged under pressure, validated by people who know the difference, ready to deploy the moment the movement is ready to use it.<br><br>
-    That moment is now.<br><br>
-    The No Kings Rally showed what's possible when people organize.<br>
-    PHIERS.org shows what's possible when that organization has a mechanism behind it.<br><br>
-    Together — the rally becomes the spark. PHIERS.org becomes the fire.
+<!-- ── PEER OPENER HERO ── -->
+<div class="page-hero">
+  <span class="eyebrow">For Organizers, Union Leaders & Coalition Builders</span>
+  <h1>You Built The Movement.<br><span class="green">Now Give It Teeth.</span></h1>
+  <p class="hero-sub">
+    You've organized the marches. You've built the coalitions. You've kept people engaged through exhaustion and disappointment. You know better than anyone what happens without a mechanism behind the energy.
   </p>
-  <div style="text-align:center;margin:28px 0">
-    <p style="font-family:var(--font-display);font-size:clamp(1.6rem,4vw,2.6rem);color:var(--text-bright);letter-spacing:0.03em;line-height:1.2">
-      PHIERS.org — pronounced "fires."<br>
-      <span style="color:var(--green)">As in transformation.</span>
-    </p>
-  </div>
-  <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-bottom:36px">
-    <a href="#finalcall" class="btn-green">→ Partner With PHIERS.org Now</a>
-    <a href="petition.html" class="btn-petition">✍ Sign the Petition</a>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdETA-oNIeOAzEsG4GsYiiws1YBpLunx8ioVJkZac5hzSxaZw/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="btn-secondary">📋 Take the Survey</a>
-  </div>
-  <div class="contact-box">
-    <h3>Ready to coordinate directly?</h3>
-    <p>Reach out to discuss how PHIERS.org can amplify your coalition's work before March 28.</p>
-    <p>📧 Email: <a href="mailto:info@phiers.org">info@phiers.org</a></p>
-    <p style="font-size:0.85rem;color:var(--text-dim);margin-top:12px">We respond to every organizer inquiry. This movement belongs to all of us.</p>
-  </div>
-  <div class="share-line">
-    <p>The biggest protest in American history deserves a mechanism. Send this page to every organizer you know.</p>
-    <div class="hashtag">#PHIERdUpNow</div>
-  </div>
-  <div style="background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--green);border-radius:0 8px 8px 0;padding:24px 28px;margin:28px auto;max-width:560px">
-    <img src="PHIERS_Logo.png" alt="PHIERS.org" style="height:80px;margin-bottom:20px;display:block">
-    <h4 style="font-family:var(--font-condensed);font-weight:700;font-size:1.15rem;color:var(--text-bright);margin-bottom:4px">📬 Get Notified When We Reach Critical Mass</h4>
-    <p style="font-size:0.88rem;color:var(--text-dim);margin-bottom:14px;line-height:1.6">Be the first to know when PHIERS.org benefits become available and when it's time to act in your district.</p>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdETA-oNIeOAzEsG4GsYiiws1YBpLunx8ioVJkZac5hzSxaZw/viewform?usp=header" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:var(--green);color:var(--bg-deep);font-family:var(--font-condensed);font-weight:700;font-size:1rem;letter-spacing:0.05em;padding:11px 24px;border-radius:4px;text-decoration:none">→ Join the Newsletter</a>
-    <p style="font-size:0.78rem;color:var(--text-dim);font-style:italic;margin-top:10px">No spam. No fundraising. Just the signal when it matters. · <a href="mailto:info@phiers.org">info@phiers.org</a></p>
+  <p class="hero-sub" style="color:var(--text-bright)">
+    Congress waits it out. The moment passes. Your people have to be re-motivated all over again.
+  </p>
+  <p class="hero-sub" style="color:var(--green)">
+    PHIERS is the mechanism that changes that permanently — and it works alongside everything you've already built.
+  </p>
+</div>
+
+<hr class="divider">
+
+<!-- ── PEER TO PEER BLOCK ── -->
+<section class="section" style="padding-top:60px;padding-bottom:40px;">
+  <div class="peer-block">
+    <span class="peer-label">Organizer to Organizer — No Hype</span>
+    <p>You already know what's missing. It's not people. It's not energy. It's not passion. You have all of that in abundance.</p>
+    <p>What's missing is a mechanism that converts that energy into something Congress can't wait out — something with documented, district-level consequences that follow representatives home, that shows up in their primary, that doesn't fade when the news cycle moves on.</p>
+    <p>PHIERS doesn't replace what you do. It doesn't compete with your message or your mission. It's the piece that makes everything you've already built impossible to ignore.</p>
+    <p style="font-family:var(--font-condensed);font-weight:700;font-size:1.1rem;color:var(--green);margin-top:8px;">You fill their cup. PHIERS is what they do with the energy the morning after the rally.</p>
   </div>
 </section>
 
+<hr class="divider">
+
+<!-- ── WINDOW OF OPPORTUNITY ── -->
+<section class="section" style="padding-top:60px;padding-bottom:40px;">
+  <div class="window-block">
+    <span class="window-label">⚠️ The Window Is Open Right Now</span>
+    <h2>Congress Is Home.<br>Trump Is Isolated.<br>The 25th Is On The Table.</h2>
+    <p>Congress is on recess through April 14. Your representatives are in their districts — accessible, visible, and for the first time in years, no longer afraid of the man in the White House.</p>
+    <p>A president who threatened to wipe out an entire civilization on live TV has lost the Republican Party's fear. Even MAGA voices are calling for the 25th Amendment. Democrats are demanding an emergency session to vote on war powers.</p>
+    <p style="color:var(--text-bright);font-weight:700;">This is the most politically open window for organized constituent pressure in a generation.</p>
+    <div class="countdown-line">
+      Congress returns April 14.<br>
+      <span style="color:var(--text-bright);font-family:var(--font-condensed);font-size:1.1rem;font-weight:700;">What they hear from organized constituents before then determines everything that happens after.</span>
+    </div>
+    <p>PHIERS gives your members something specific to do with that window — right now, this week, before it closes.</p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ── THREE DEMANDS ── -->
+<section class="section-alt" id="demands">
+  <div class="inner">
+    <span class="eyebrow">What We're Demanding — Right Now</span>
+    <h2>Three Demands.<br><span class="green">One Lever. All At Once.</span></h2>
+    <p>The same organized pressure that forces one demand forces them all. Same people. Same districts. Same consequence for Congress if they refuse. Your members don't have to choose which fight matters most.</p>
+
+    <div class="demands-block">
+      <div class="demand-item">
+        <div class="demand-icon">⚖️</div>
+        <div class="demand-text">
+          <h3>Invoke Article 25 / End the Unauthorized War — NOW</h3>
+          <p>Congress never voted to authorize this war. The Constitution is unambiguous — Congress declares war. Not the President. Not defense contractors. A president who threatens to eradicate a civilization and destroy civilian infrastructure has crossed every legal and moral line. Congress has the authority to act. They need organized constituents to give them the political cover — and the consequence if they don't.</p>
+          <div class="demand-why">→ This is the first and most urgent demand. It starts the moment your members put their names on the record.</div>
+        </div>
+      </div>
+      <div class="demand-item">
+        <div class="demand-icon">🏥</div>
+        <div class="demand-text">
+          <h3>Open TeleCARE Through the ACA Exchange</h3>
+          <p>$600 replaces $10,000. Congress already has the authority under the ACA — no new legislation required. Every union member who makes this switch saves $7,400 a year. That frees your bargaining table to fight for wages instead of coverage. The cascade savings fund universal healthcare, jobs, and a monthly check for every American. The money is already there. We're already paying it. We just need to use it right.</p>
+          <div class="demand-why">→ This is the winnable first domino that proves organized people can force results — fast.</div>
+        </div>
+      </div>
+      <div class="demand-item">
+        <div class="demand-icon">🗳️</div>
+        <div class="demand-text">
+          <h3>Restore Congressional Accountability — or Replace Them</h3>
+          <p>When 1,500 constituents in a district sign, their representative gets a mandatory public town hall — before the next election, not after. They show up and answer on the record, or they face an organized primary challenge. We don't wait for November. We don't negotiate with silence. Representatives who act get protected. Representatives who don't get replaced by ones who will.</p>
+          <div class="demand-why">→ This is the consequence that makes everything else real.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ── WHAT YOUR MEMBERS GET ── -->
+<section class="section" id="member-value">
+  <span class="eyebrow">What Your Members Get — Immediately</span>
+  <h2>The Numbers Your Members<br><span class="green">Need to Hear.</span></h2>
+  <p>This isn't theory. These are the direct, immediate benefits for every member who signs and every organization that partners.</p>
+
+  <div class="benefit-grid">
+    <div class="benefit-card">
+      <div class="benefit-icon">💊</div>
+      <div class="benefit-number">$10K+</div>
+      <h3>Annual savings per member</h3>
+      <p>$600 telehealth replaces $10,000+ traditional coverage — and that number keeps climbing as the war drives up costs across healthcare, energy, and supply chains. Every member. Immediately when Congress acts.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">🏛️</div>
+      <div class="benefit-number">1,500</div>
+      <h3>Signatures triggers a town hall</h3>
+      <p>That's less than 0.5% of most districts. Your rep has to show up, answer, and go on the record. Before the election.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">💼</div>
+      <div class="benefit-number">$0</div>
+      <h3>Cost to your organization</h3>
+      <p>PHIERS partnership costs nothing. You point your people to the mechanism. We handle the coordination, the district tracking, the town halls.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">⚡</div>
+      <div class="benefit-number">3.5%</div>
+      <h3>The threshold that never fails</h3>
+      <p>Harvard research: no sustained campaign at 3.5% participation has ever failed. Unions alone are already close. Together we blow past it.</p>
+    </div>
+  </div>
+
+  <div class="pull-quote">
+    <p>Your members are already paying the war premium — in gas, groceries, and healthcare costs that keep climbing with every supply chain disruption. PHIERS cuts $10,000+ in annual coverage costs per member right now, and moves healthcare off your bargaining table permanently so your union can fight for wages instead.</p>
+    <span class="attr">— The strategic shift unions have been waiting for — and the war is making it more urgent by the week</span>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ── PROTEST VS PHIERS ── -->
+<section class="section-alt">
+  <div class="inner">
+    <span class="eyebrow">Why This Is Different</span>
+    <h2>Visibility Without Accountability<br><span class="red">Is Just Noise.</span></h2>
+    <p>You know this. You've lived it. Congress ignores protests because protests don't threaten their jobs. PHIERS changes the math.</p>
+
+    <div class="contrast-grid">
+      <div class="contrast-card without">
+        <span class="contrast-label">✗ Protest Alone</span>
+        <ul>
+          <li>Creates visibility and news coverage</li>
+          <li>Congress waits it out — they have practice</li>
+          <li>No district-level documentation</li>
+          <li>No electoral consequence attached</li>
+          <li>Energy fades. Re-motivation required. Again.</li>
+          <li>Representatives feel no personal risk</li>
+        </ul>
+      </div>
+      <div class="contrast-card with">
+        <span class="contrast-label">✓ Protest + PHIERS</span>
+        <ul>
+          <li>Visibility AND documented leverage</li>
+          <li>1,500 signatures triggers mandatory town hall</li>
+          <li>Every name counted by district, delivered to rep</li>
+          <li>Organized primary challenge if they refuse</li>
+          <li>Mechanism doesn't fade — it builds permanently</li>
+          <li>Representatives face a documented career risk</li>
+        </ul>
+      </div>
+    </div>
+
+    <p style="font-family:var(--font-condensed);font-weight:700;font-size:1.1rem;color:var(--green);margin-top:8px;">Power concedes nothing without a demand that has teeth. PHIERS is the teeth.</p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ── HOW THE MECHANISM WORKS ── -->
+<section class="section" id="mechanism">
+  <span class="eyebrow">The Mechanism</span>
+  <h2>How It Works.<br><span class="green">Step by Step.</span></h2>
+  <p>This is what happens when your members sign. Not symbolically — mechanically.</p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">Your Members Add Their Name</div>
+        <div class="step-desc">Name, email, zip code. Counted in their congressional district — not dumped into a national pile Congress can ignore. This is the district-level record that makes PHIERS different from every petition they've signed before.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">We Coordinate District by District</div>
+        <div class="step-desc">We track every district in real time. When a district is approaching the threshold, we notify both the members in that district and reach out directly to the representative. They know what's coming. That pressure starts before the town hall is even scheduled.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">1,500 Triggers a Mandatory Public Town Hall</div>
+        <div class="step-desc">We contact every signer in that district directly. Your members are in the room. Their representative has to answer — on the record, publicly, before the next election. Not in a controlled setting. Not with pre-screened questions. A real accountability moment.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">They Comply — or They Face the Ballot Box</div>
+        <div class="step-desc">Representatives who act get protected and credited. Representatives who refuse face an organized primary challenge — coordinated, funded, and ready. We do not wait for November. We do not accept silence as an answer.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num red-num">5</div>
+      <div class="step-body">
+        <div class="step-title" style="color:var(--red)">Enough Districts = Congress Has No Choice</div>
+        <div class="step-desc">When enough districts hit the threshold simultaneously, the math changes for every member of Congress. This isn't one noisy district they can ignore. It's their colleagues going down. At that point, acting is safer than refusing — and we win.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ── WHY THIS IS CREDIBLE ── -->
+<section class="section-alt" id="proof">
+  <div class="inner">
+    <span class="eyebrow">Why This Is Credible</span>
+    <h2>Not a New Idea.<br><span class="gold">A 16-Year Plan That Waited for This Moment.</span></h2>
+    <p>Every element of the PHIERS model has been documented, validated, and executed at scale — not by PHIERS alone, but by the businesses and institutions that prove the model works.</p>
+
+    <div class="proof-block">
+      <span class="proof-label">Validated By</span>
+      <ul class="proof-list">
+        <li><strong style="color:var(--text-bright)">Mark Cuban's Cost Plus Drugs</strong> — proved that buying medications direct from manufacturers, cutting out insurance middlemen, reduces drug costs by 80–90%. That's the PHIERSale model, executed at scale, right now.</li>
+        <li><strong style="color:var(--text-bright)">Harvard Kennedy School Research (Erica Chenoweth)</strong> — 3.5% organized participation has never failed to produce systemic change. The math is academic consensus, not optimism.</li>
+        <li><strong style="color:var(--text-bright)">Pathos Communications</strong> — a Fortune 500 PR firm listed on the London Stock Exchange publicly staked their reputation on PHIERS. That's not a pitch. That's a verdict from people who vet movements for a living.</li>
+        <li><strong style="color:var(--text-bright)">The ACA itself</strong> — the legal authority to expand telehealth through the Exchange already exists. Congress doesn't need to pass new legislation. They need to use what's already there. That's the demand. It's already legal.</li>
+        <li><strong style="color:var(--text-bright)">VistA / VA Health System</strong> — the federal health IT infrastructure that proves coordinated, low-cost care at scale is not theory. It's been running for decades for veterans. We scale it to everyone.</li>
+      </ul>
+    </div>
+
+    <p>The country finally caught up to the crisis this plan was built for. The model was ready. The moment is now.</p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ── WHAT WE ASK ── -->
+<section class="section" id="partnership">
+  <span class="eyebrow">The Partnership Ask</span>
+  <h2>We Don't Ask You to<br><span class="green">Become PHIERS.</span></h2>
+  <p>We ask for three things. That's it. Everything else, we handle.</p>
+
+  <div class="ask-grid">
+    <div class="ask-card">
+      <div class="ask-num">01</div>
+      <p><strong style="color:var(--text-bright)">Send your members the petition link.</strong> One email. One newsletter. One Slack message. You know how to reach them — we don't need to teach you that.</p>
+    </div>
+    <div class="ask-card">
+      <div class="ask-num">02</div>
+      <p><strong style="color:var(--text-bright)">Tell them why in your words.</strong> You have credibility with your members that no outside organization can replicate. Use it. The math does the rest.</p>
+    </div>
+    <div class="ask-card">
+      <div class="ask-num">03</div>
+      <p><strong style="color:var(--text-bright)">Reach out so we can coordinate.</strong> When your district hits the threshold, your members need to be in the room. We make sure that happens — but only if we know you're with us.</p>
+    </div>
+  </div>
+
+  <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:28px;margin-top:28px;">
+    <h3 style="color:var(--gold);margin-bottom:12px;">What We Handle For You</h3>
+    <p style="font-size:0.95rem;">District tracking. Signature counting. Representative outreach. Town hall coordination. Primary challenge infrastructure. Media coordination. All of it. You send your people to the mechanism. We run the mechanism.</p>
+    <p style="font-family:var(--font-condensed);font-weight:700;color:var(--green);margin-top:8px;margin-bottom:0;">This is what PHIERS was built to do. Let us do it.</p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ── FINAL CTA ── -->
+<section class="section" id="finalcall" style="padding-bottom:100px;">
+  <div class="final-cta">
+    <h2>The Window Closes April 14.</h2>
+    <p>Congress goes back to DC in five days. What happens before that determines what's possible after. Your members are home. Their representatives are home. The political pressure has never been higher or more favorable.</p>
+    <p style="font-family:var(--font-condensed);font-weight:700;font-size:1.1rem;color:var(--text-bright);">This is the moment your movement has been building toward. PHIERS is what makes it permanent.</p>
+    <div class="cta-stack">
+      <a href="petition.html" class="btn-red">⚠️ SIGN NOW — Stop the War First</a>
+    <a href="mailto:info@phiers.org" class="btn-primary">✉️ Partner With PHIERS — Email Us Now</a>
+      <a href="Unions-Strategy.html" class="btn-secondary">💪 See the Full Union Strategy</a>
+      <a href="index.html" class="btn-secondary">← Back to PHIERS Main</a>
+    </div>
+    <p style="margin-top:28px;font-family:var(--font-condensed);font-weight:700;font-size:1rem;color:var(--gold);">
+      📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="036a6d656c43736b6a6671702d6c7164">[email&#160;protected]</a> &nbsp;·&nbsp; 📞 (916) 306-8967<br>
+      <span style="color:var(--text-dim);font-size:0.9rem;">We respond to every organizer inquiry. This movement belongs to all of us.</span>
+    </p>
+    <p style="margin-top:16px;font-size:0.88rem;color:var(--text-dim);">#PHIERdUpNow</p>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
 <footer>
-  <img src="PHIERS_Logo.png" alt="PHIERS.org" class="footer-logo">
-  <div style="font-family:var(--font-condensed);font-weight:700;font-size:1rem;color:var(--text-dim);margin-bottom:4px;">PHIERS is a people's movement — not a company, not a product.</div>
-  <div style="font-size:0.9rem;color:var(--text-dim);margin-bottom:6px;">Built by regular people who are done waiting.</div>
-
-  <div class="footer-power">
-    Energy without power fails.<br>
-    PHIERStorm is the power.<br>
-    <span style="color:var(--text-dim);">PHIERS.org — a catalyst for the change we've been waiting for.</span><br>
-    <span style="color:var(--text-dim);">The only thing missing is you.</span>
-  </div>
-
-  <!-- MEET THE ARCHITECT — footer placement -->
-  <div style="margin:24px auto;padding:20px 24px;max-width:560px;border:1px solid rgba(61,220,132,0.15);border-radius:8px;">
-    <p style="font-family:var(--font-condensed);color:var(--text-dim);font-size:0.8rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Built by</p>
-    <p style="font-family:var(--font-condensed);color:var(--text-bright);font-weight:700;font-size:1rem;margin-bottom:4px;">Will Price | Founder &amp; Chief Solutions Architect</p>
-    <p style="font-family:var(--font-condensed);color:var(--text-dim);font-size:0.85rem;margin-bottom:12px;line-height:1.5;">Not a politician. Not a lobbyist. A systems architect who found $2.7 trillion in wasted spending and built the lever to fix it. Building this since 2009.</p>
-    <a onclick="document.getElementById('will-modal').style.display='flex'"
-       style="font-family:var(--font-condensed);color:var(--green);font-size:0.85rem;
-              text-decoration:none;border-bottom:1px solid rgba(61,220,132,0.3);cursor:pointer;">
-      👤 Meet the Architect →
-    </a>
-  </div>
-
+  <div style="font-family:var(--font-condensed);font-weight:700;font-size:1.1rem;color:var(--green);margin-bottom:8px;">Energy without power fails.<br>PHIERStorm is the power.</div>
+  <div style="font-size:0.9rem;color:var(--text-dim);margin-bottom:20px;">PHIERS is a people's movement — not a company, not a product.<br>Built by regular people who refused to stop.</div>
   <nav class="footer-nav">
+    <a href="index.html">Home</a>
     <a href="Crisis.html">The Crisis</a>
     <a href="SimpleMath.html">Simple Math</a>
-    <a href="5D_Solutions.html">5D Solutions</a>
-    <a href="Telehealth-Insurance.html">Telehealth</a>
     <a href="NoWar.html">No War / No Draft</a>
-    <a href="organizers.html">Organizers</a>
-    <a href="Unions-Strategy.html">Unions</a>
+    <a href="Unions-Strategy.html">Union Strategy</a>
+    <a href="Veterans.html">Veterans</a>
+    <a href="petition.html">Sign the Petition</a>
     <a href="Donate.html">Donate</a>
-    <a href="FAQ.html" target="_blank">FAQ</a>
-    <a href="About.html" target="_blank">About</a>
-    <a href="healthcare-proof.html" target="_blank">Full Story</a>
+    <a href="FAQ.html">FAQ</a>
+    <a href="About.html">About</a>
   </nav>
-
   <div class="footer-copy">
     Not built for profit. Not built for power. Built for We the People — by people who refused to stop.<br>
-    📧 <a href="mailto:info@phiers.org">info@phiers.org</a> · 📞 (916) 306-8967<br>
+    📧 <a href="mailto:info@phiers.org">info@phiers.org</a>· 📞 (916) 306-8967<br>
     © PHIERS.org — Original Concept Since 2009. All Rights Reserved.<br>
-    <span style="font-size:0.75rem;">PHIERS™ · PHIERSale™ · PHIERWorks™ · PHIERPlace™ — Protected marks established 2009–2025.</span>
+    <span style="font-size:0.75rem">PHIERS™ · PHIERSale™ · PHIERWorks™ · PHIERPlace™ — Protected marks established 2009–2025.</span>
   </div>
 </footer>
-
-<button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
-
 <script>
-  window.addEventListener('scroll', () => {
-    document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 50);
-  });
+function toggleMenu() {
+  var menu = document.getElementById('mobile-menu');
+  if (menu) menu.classList.toggle('open');
+}
 
-  function toggleMenu() {
-    document.getElementById('mobile-menu').classList.toggle('open');
+document.addEventListener('click', function(event) {
+  var menu = document.getElementById('mobile-menu');
+  var hamburger = document.querySelector('.hamburger');
+  var hamburgerDesktop = document.querySelector('.hamburger-desktop');
+  if (menu && menu.classList.contains('open') &&
+      !menu.contains(event.target) &&
+      !(hamburger && hamburger.contains(event.target)) &&
+      !(hamburgerDesktop && hamburgerDesktop.contains(event.target))) {
+    menu.classList.remove('open');
   }
+});
 
-  document.addEventListener('click', function(event) {
-    const menu = document.getElementById('mobile-menu');
-    const hamburger = document.querySelector('.hamburger');
-    if (menu && menu.classList.contains('open') &&
-        !menu.contains(event.target) &&
-        !hamburger.contains(event.target)) {
-      menu.classList.remove('open');
-    }
+document.querySelectorAll('.mobile-menu a').forEach(function(a) {
+  a.addEventListener('click', function() {
+    var m = document.getElementById('mobile-menu');
+    if (m) m.classList.remove('open');
   });
+});
 
-  document.querySelectorAll('.mobile-menu a').forEach(a => {
-    a.addEventListener('click', () => document.getElementById('mobile-menu').classList.remove('open'));
+window.addEventListener('scroll', function() {
+  var n = document.getElementById('main-nav');
+  if (n) n.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+var btt = document.getElementById('back-to-top');
+if (btt) {
+  window.addEventListener('scroll', function() {
+    btt.classList.toggle('visible', window.scrollY > 400);
   });
-
-  (function() {
-    var currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('.mobile-menu a').forEach(function(a) {
-      if (a.getAttribute('href') === currentPage) {
-        a.classList.add('active');
-      }
-    });
-  })();
-
-  var btt = document.getElementById('back-to-top');
-  if (btt) {
-    window.addEventListener('scroll', function() { btt.classList.toggle('visible', window.scrollY > 400); });
-    btt.addEventListener('click', function() { window.scrollTo({top:0, behavior:'smooth'}); });
-  }
+  btt.addEventListener('click', function() {
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+}
 </script>
-  <!-- WILL PRICE MODAL -->
-    <div id="will-modal"
-         onclick="if(event.target===this)this.style.display='none'"
-         style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);
-                z-index:99998;align-items:center;justify-content:center;padding:16px;">
-      <div style="position:relative;max-width:720px;width:100%;
-                  background:rgba(8,13,26,0.97);border:2px solid rgba(61,220,132,0.35);
-                  border-radius:16px;box-shadow:0 25px 60px rgba(0,0,0,0.8);
-                  overflow:hidden;max-height:90vh;overflow-y:auto;">
-    
-        <button onclick="document.getElementById('will-modal').style.display='none'"
-                aria-label="Close"
-                style="position:absolute;top:12px;right:12px;background:#111d35;
-                       color:#3ddc84;border:2px solid #3ddc84;border-radius:50%;
-                       width:40px;height:40px;font-size:1.2rem;cursor:pointer;
-                       display:flex;align-items:center;justify-content:center;
-                       z-index:10;transition:all 0.2s;"
-                onmouseover="this.style.background='#3ddc84';this.style.color='#111d35'"
-                onmouseout="this.style.background='#111d35';this.style.color='#3ddc84'">✕</button>
-    
-        <div style="display:flex;flex-wrap:wrap;align-items:stretch;">
-          <div style="flex:0 0 240px;width:100%;max-width:100%;min-height:280px;overflow:hidden;">
-            <img src="Will_Price.png"
-                 alt="Will Price — Founder & Chief Solutions Architect, PHIERS"
-                 style="width:100%;height:100%;min-height:260px;
-                        object-fit:cover;object-position:55% top;display:block;">
-          </div>
-          <div style="flex:1;min-width:240px;padding:28px 24px;
-                      display:flex;flex-direction:column;justify-content:center;">
-            <p style="font-family:'Barlow Condensed',sans-serif;font-size:0.75rem;
-                      color:#3ddc84;text-transform:uppercase;letter-spacing:3px;margin:0 0 8px 0;">The Architect</p>
-            <h3 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,4vw,2.2rem);
-                       color:#ffffff;line-height:1.05;margin:0 0 4px 0;letter-spacing:1px;">Will Price</h3>
-            <p style="font-family:'Barlow Condensed',sans-serif;font-size:0.92rem;color:#ffd60a;
-                      font-weight:700;margin:0 0 16px 0;line-height:1.3;">
-              Founder &amp; Chief Solutions Architect, PHIERS
-            </p>
-            <p style="font-family:'Barlow',sans-serif;font-size:0.93rem;color:#c8d8c8;line-height:1.65;margin:0;">
-              Not a politician. Not a lobbyist. A systems architect who found $2.7 trillion in wasted spending — and built the lever to redirect it toward healthcare, jobs, and a monthly check for every American. Building this since 2009.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+
 </body>
 </html>
