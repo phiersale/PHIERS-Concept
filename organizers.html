@@ -39,42 +39,11 @@
     overflow-x: hidden;
   }
 
-  /* ── EMERGENCY BANNER ── */
-  .emergency-banner {
-    background: var(--red);
-    color: #fff;
-    text-align: center;
-    padding: 14px 24px;
-    font-family: var(--font-condensed);
-    font-weight: 700;
-    font-size: 1.05rem;
-    letter-spacing: 0.04em;
-    line-height: 1.5;
-    position: relative;
-    z-index: 1001;
-  }
-  .emergency-banner a {
-    color: #fff;
-    text-decoration: underline;
-    font-weight: 900;
-  }
-  .emergency-banner .banner-label {
-    display: inline-block;
-    background: rgba(0,0,0,0.25);
-    border-radius: 3px;
-    padding: 2px 8px;
-    margin-right: 8px;
-    font-size: 0.85rem;
-    letter-spacing: 0.1em;
-  }
-
-  /* ── LAYOUT ── */
   .section { position: relative; z-index: 1; padding: 80px 24px; max-width: 760px; margin: 0 auto; }
   .section-alt { position: relative; z-index: 1; background: var(--bg-card2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 80px 24px; }
   .section-alt .inner { max-width: 760px; margin: 0 auto; }
   .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
 
-  /* ── TYPOGRAPHY ── */
   .eyebrow { font-family: var(--font-condensed); font-weight: 700; font-size: 0.85rem; letter-spacing: 0.15em; color: var(--green); text-transform: uppercase; margin-bottom: 12px; display: block; }
   h2 { font-family: var(--font-display); font-size: clamp(2rem,5vw,3.2rem); color: var(--text-bright); line-height: 1.05; margin-bottom: 20px; }
   h3 { font-family: var(--font-condensed); font-weight: 900; font-size: 1.3rem; color: var(--text-bright); margin-bottom: 10px; letter-spacing: 0.04em; }
@@ -84,7 +53,6 @@
   p { margin-bottom: 1rem; }
   p:last-child { margin-bottom: 0; }
 
-  /* ── HERO ── */
   .page-hero {
     padding: 80px 24px 60px;
     max-width: 760px;
@@ -109,7 +77,6 @@
     max-width: 620px;
   }
 
-  /* ── BANNER BLOCK ── */
   .banner-block {
     background: var(--red);
     color: #fff;
@@ -137,7 +104,6 @@
     font-size: 1.05rem;
   }
 
-  /* ── PEER OPENER ── */
   .peer-block {
     border-left: 4px solid var(--green);
     background: var(--bg-card);
@@ -161,7 +127,6 @@
     line-height: 1.8;
   }
 
-  /* ── OPPORTUNITY BLOCK ── */
   .opportunity-block {
     border: 2px solid var(--red);
     background: rgba(230,57,70,0.06);
@@ -189,150 +154,121 @@
     font-size: 1.05rem;
   }
 
-  /* ── MATH BLOCK ── */
   .math-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
-    margin: 28px 0;
+    margin-top: 24px;
   }
-  @media(max-width:600px){ .math-grid { grid-template-columns: 1fr; } }
   .math-card {
     background: var(--bg-card);
+    border-radius: 10px;
+    padding: 20px 22px;
     border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 24px 22px;
-    text-align: center;
   }
-  .math-card .math-number {
+  .math-number {
     font-family: var(--font-display);
-    font-size: 3rem;
+    font-size: 2.4rem;
     color: var(--gold);
-    line-height: 1.0;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
-  .math-card h3 { font-size: 1.1rem; color: var(--green); margin-bottom: 8px; }
-  .math-card p { font-size: 0.93rem; color: var(--text-body); line-height: 1.7; margin: 0; }
 
-  /* ── ROLE CARDS ── */
   .role-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 16px;
-    margin: 28px 0;
+    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+    gap: 18px;
+    margin-top: 24px;
   }
-  @media(max-width:768px){ .role-grid { grid-template-columns: 1fr 1fr; } }
-  @media(max-width:480px){ .role-grid { grid-template-columns: 1fr; } }
   .role-card {
     background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 22px 18px;
-    text-align: center;
-    cursor: pointer;
-    transition: border-color 0.2s, background 0.2s;
-  }
-  .role-card:hover {
-    border-color: var(--green);
-    background: rgba(61,220,132,0.05);
-  }
-  .role-card .role-icon { font-size: 2rem; margin-bottom: 8px; }
-  .role-card h3 { font-size: 1rem; color: var(--text-bright); margin-bottom: 4px; }
-  .role-card p { font-size: 0.85rem; color: var(--text-dim); line-height: 1.6; margin: 0; }
-
-  /* ── PLAYBOOK SECTIONS ── */
-  .playbook-section {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
     border-radius: 10px;
-    padding: 32px 28px;
-    margin: 28px 0;
+    padding: 20px 18px;
+    border: 1px solid var(--border);
   }
-  .playbook-section h3 { color: var(--gold); margin-bottom: 16px; }
-  .playbook-section ul { list-style: none; padding: 0; margin: 0; }
-  .playbook-section ul li {
-    padding: 8px 0 8px 24px;
-    color: var(--text-body);
-    font-size: 0.95rem;
-    position: relative;
-    border-bottom: 1px solid rgba(255,255,255,0.04);
+  .role-icon {
+    font-size: 2rem;
+    margin-bottom: 8px;
   }
-  .playbook-section ul li:last-child { border-bottom: none; }
-  .playbook-section ul li::before { content: '▸'; position: absolute; left: 0; color: var(--green); }
 
-  /* ── ESCALATION LADDER ── */
-  .escalation-list { list-style: none; padding: 0; margin: 20px 0; }
+  .playbook-section {
+    margin-top: 20px;
+    background: var(--bg-card);
+    border-radius: 10px;
+    padding: 20px 22px;
+    border: 1px solid var(--border);
+  }
+  .playbook-section ul {
+    margin-top: 10px;
+    padding-left: 20px;
+  }
+  .playbook-section li {
+    margin-bottom: 6px;
+  }
+
+  .escalation-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+  }
   .escalation-list li {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 12px 16px;
+    padding: 10px 0 10px 40px;
     border-bottom: 1px solid rgba(255,255,255,0.05);
-    font-size: 0.97rem;
+    position: relative;
+    font-size: 0.98rem;
     color: var(--text-body);
   }
   .escalation-list li:last-child { border-bottom: none; }
   .escalation-num {
-    font-family: var(--font-display);
-    font-size: 1.2rem;
+    position: absolute;
+    left: 0;
+    top: 10px;
+    font-family: var(--font-condensed);
+    font-weight: 900;
+    font-size: 0.9rem;
+    letter-spacing: 0.15em;
     color: var(--green);
-    width: 30px;
-    flex-shrink: 0;
   }
-  .escalation-list li strong { color: var(--text-bright); }
 
-  /* ── OUTREACH KIT ── */
   .outreach-item {
-    background: var(--bg-card2);
+    background: var(--bg-card);
+    border-radius: 10px;
+    padding: 18px 20px;
     border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 16px 20px;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
   }
   .outreach-item h4 {
     font-family: var(--font-condensed);
-    font-weight: 700;
-    color: var(--green);
-    font-size: 0.85rem;
+    font-weight: 900;
+    font-size: 1rem;
+    color: var(--text-bright);
+    margin-bottom: 6px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    margin-bottom: 6px;
   }
-  .outreach-item p, .outreach-item li {
-    font-size: 0.92rem;
-    color: var(--text-body);
-    line-height: 1.7;
-    margin: 0;
-  }
-  .outreach-item ul { list-style: none; padding: 0; margin: 0; }
-  .outreach-item ul li {
-    padding: 4px 0 4px 20px;
-    position: relative;
-  }
-  .outreach-item ul li::before { content: '•'; position: absolute; left: 0; color: var(--gold); }
 
-  /* ── WHAT HAPPENS BLOCK ── */
   .happens-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 20px;
-    margin: 28px 0;
+    margin-top: 24px;
   }
-  @media(max-width:600px){ .happens-grid { grid-template-columns: 1fr; } }
   .happens-card {
     background: var(--bg-card);
+    border-radius: 10px;
+    padding: 20px 22px;
     border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 24px 22px;
   }
-  .happens-card h3 { color: var(--gold); font-size: 1.1rem; margin-bottom: 12px; }
-  .happens-card ul { list-style: none; padding: 0; margin: 0; }
+  .happens-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+  }
   .happens-card ul li {
-    padding: 6px 0 6px 20px;
-    color: var(--text-body);
-    font-size: 0.92rem;
+    padding: 8px 0 8px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
     position: relative;
-    border-bottom: 1px solid rgba(255,255,255,0.04);
+    font-size: 0.95rem;
+    color: var(--text-body);
   }
   .happens-card ul li:last-child { border-bottom: none; }
   .happens-card ul li::before { content: '→'; position: absolute; left: 0; color: var(--green); }
@@ -343,7 +279,6 @@
     margin-top: 12px;
   }
 
-  /* ── FINAL CTA ── */
   .final-cta {
     border: 2px solid var(--green);
     border-radius: 10px;
@@ -359,12 +294,10 @@
   .btn-secondary { display: inline-block; background: transparent; color: var(--green); font-family: var(--font-condensed); font-weight: 700; font-size: 1.05rem; letter-spacing: 0.04em; padding: 13px 28px; border-radius: 4px; border: 1px solid var(--green); text-decoration: none; text-align: center; transition: background 0.2s; }
   .btn-secondary:hover { background: var(--green-glow); }
 
-  /* ── PULL QUOTE ── */
   .pull-quote { border-left: 4px solid var(--green); padding: 16px 24px; background: var(--bg-card); border-radius: 0 8px 8px 0; margin: 28px 0; }
   .pull-quote p { font-family: var(--font-condensed); font-size: 1.25rem; font-weight: 700; color: var(--text-bright); line-height: 1.5; margin: 0; }
   .pull-quote .attr { font-size: 0.85rem; color: var(--text-dim); font-weight: 400; font-style: italic; margin-top: 8px; display: block; font-family: var(--font-body); }
 
-  /* ── FOOTER ── */
   footer { background: var(--bg-dark); border-top: 1px solid var(--border); padding: 48px 24px 32px; text-align: center; position: relative; z-index: 1; }
   .footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 20px; margin: 20px 0; }
   .footer-nav a { color: var(--text-dim); text-decoration: none; font-size: 0.88rem; }
@@ -372,14 +305,53 @@
   .footer-copy { font-size: 0.8rem; color: var(--text-dim); line-height: 1.8; }
   .footer-copy a { color: var(--green); text-decoration: none; }
 
-  /* ── BACK TO TOP ── */
   .back-to-top { position: fixed; bottom: 28px; right: 24px; background: var(--green); color: var(--bg-deep); border: none; border-radius: 50%; width: 44px; height: 44px; font-size: 1.2rem; cursor: pointer; opacity: 0; pointer-events: none; transition: opacity 0.3s; z-index: 999; display: flex; align-items: center; justify-content: center; }
   .back-to-top.visible { opacity: 1; pointer-events: auto; }
+
+  /* Accordions */
+  .accordion-wrapper {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+  details.accordion {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg-card2);
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  details.accordion[open] {
+    background: var(--bg-card);
+  }
+  details.accordion > summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  details.accordion > summary::-webkit-details-marker { display: none; }
+  .accordion-title {
+    font-family: var(--font-condensed);
+    font-weight: 900;
+    font-size: 1.1rem;
+    color: var(--text-bright);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .accordion-summary {
+    font-size: 0.95rem;
+    color: var(--text-dim);
+  }
+  .accordion-body {
+    padding: 0 18px 18px;
+  }
 </style>
 </head>
 <body>
 
-<!-- ── EMERGENCY BANNER ── -->
 <div class="emergency-banner">
   <span class="banner-label">⚡ CONGRESS IS HOME</span>
   Representatives are back in their districts.
@@ -387,13 +359,12 @@
   <a href="petition.html">→ Organize Your District Now</a>
 </div>
 
-<!-- ── SIMPLE NAV ── -->
 <nav style="background:rgba(8,13,26,0.97);border-bottom:1px solid var(--border);padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:1000;">
   <a href="index.html" style="font-family:var(--font-condensed);font-weight:700;font-size:1.3rem;color:#fff;text-decoration:none;">PHIERS.org</a>
   <a href="petition.html" style="background:var(--green);color:var(--bg-deep);font-family:var(--font-condensed);font-weight:700;font-size:1rem;padding:10px 20px;border-radius:4px;text-decoration:none;">✍ Add Your Name</a>
 </nav>
 
-<!-- ── HERO ── -->
+<!-- HERO (OPEN) -->
 <div class="page-hero">
   <span class="eyebrow">For Organizers Who Know Protests Aren't Enough</span>
   <h1>ORGANIZED PEOPLE CHANGE CONGRESS.<br><span class="green">PROTESTS ARE ONLY THE BEGINNING.</span></h1>
@@ -413,7 +384,7 @@
 
 <hr class="divider">
 
-<!-- ── BANNER: CONGRESS IS HOME ── -->
+<!-- BANNER: CONGRESS IS HOME (OPEN INLINE WITH HERO) -->
 <section class="section" style="padding-top:60px;padding-bottom:40px;">
   <div class="banner-block">
     <span class="banner-label">⚡ THE WINDOW IS OPEN</span>
@@ -425,35 +396,7 @@
 
 <hr class="divider">
 
-<!-- ── WHY ORGANIZERS MATTER ── -->
-<section class="section" style="padding-top:60px;padding-bottom:40px;">
-  <span class="eyebrow">Why Organizers Matter Right Now</span>
-  <h2>You Already Know<br><span class="red">The Stakes.</span></h2>
-  
-  <ul style="list-style:none;padding:0;margin:20px 0;">
-    <li style="padding:10px 0 10px 28px;border-bottom:1px solid rgba(255,255,255,0.05);position:relative;color:var(--text-body);font-size:0.97rem;"><span style="position:absolute;left:0;color:var(--red);">•</span> Congress is failing to protect Social Security, Medicare, Medicaid, and SNAP.</li>
-    <li style="padding:10px 0 10px 28px;border-bottom:1px solid rgba(255,255,255,0.05);position:relative;color:var(--text-body);font-size:0.97rem;"><span style="position:absolute;left:0;color:var(--red);">•</span> Voting rights are being restricted in state after state.</li>
-    <li style="padding:10px 0 10px 28px;border-bottom:1px solid rgba(255,255,255,0.05);position:relative;color:var(--text-body);font-size:0.97rem;"><span style="position:absolute;left:0;color:var(--red);">•</span> War powers are being abused without congressional authorization.</li>
-    <li style="padding:10px 0 10px 28px;border-bottom:1px solid rgba(255,255,255,0.05);position:relative;color:var(--text-body);font-size:0.97rem;"><span style="position:absolute;left:0;color:var(--red);">•</span> Presidents of both parties have expanded executive power beyond constitutional limits.</li>
-    <li style="padding:10px 0 10px 28px;border-bottom:1px solid rgba(255,255,255,0.05);position:relative;color:var(--text-body);font-size:0.97rem;"><span style="position:absolute;left:0;color:var(--red);">•</span> The 25th Amendment has become a political football instead of a safeguard.</li>
-    <li style="padding:10px 0 10px 28px;border-bottom:1px solid rgba(255,255,255,0.05);position:relative;color:var(--text-body);font-size:0.97rem;"><span style="position:absolute;left:0;color:var(--red);">•</span> Corruption, donor capture, and lobbyist influence have replaced representation.</li>
-    <li style="padding:10px 0 10px 28px;border-bottom:1px solid rgba(255,255,255,0.05);position:relative;color:var(--text-body);font-size:0.97rem;"><span style="position:absolute;left:0;color:var(--red);">•</span> Authoritarian drift is accelerating.</li>
-    <li style="padding:10px 0 10px 28px;border-bottom:1px solid rgba(255,255,255,0.05);position:relative;color:var(--text-body);font-size:0.97rem;"><span style="position:absolute;left:0;color:var(--red);">•</span> Congress avoids votes on issues the public overwhelmingly supports.</li>
-    <li style="padding:10px 0 10px 28px;border-bottom:1px solid rgba(255,255,255,0.05);position:relative;color:var(--text-body);font-size:0.97rem;"><span style="position:absolute;left:0;color:var(--red);">•</span> Crises pile up while accountability disappears.</li>
-  </ul>
-
-  <div class="peer-block" style="margin-top:30px;">
-    <span class="peer-label">This Isn't a Moment for Spectators</span>
-    <p>It's a moment for organizers.</p>
-    <p>Movements don't fail because people don't care.</p>
-    <p>Movements fail because they don't convert attention into organized, measurable, district-level pressure.</p>
-    <p style="font-family:var(--font-condensed);font-weight:700;font-size:1.1rem;color:var(--green);margin-top:8px;">That's what PHIERS exists to fix.</p>
-  </div>
-</section>
-
-<hr class="divider">
-
-<!-- ── NO KINGS BRIDGE ── -->
+<!-- NO KINGS BRIDGE (OPEN) -->
 <section class="section-alt">
   <div class="inner">
     <span class="eyebrow">The No Kings Bridge</span>
@@ -490,260 +433,353 @@
 
 <hr class="divider">
 
-<!-- ── THE OPPORTUNITY ── -->
-<section class="section" style="padding-top:60px;padding-bottom:40px;">
-  <div class="opportunity-block">
-    <span class="opp-label">⭐ The Opportunity</span>
-    <h2>This Is The Window.</h2>
-    <p>Congress is home. District offices are open. Town halls matter. Local visibility matters. Organized constituents matter.</p>
-    <p style="color:var(--text-bright);font-weight:700;margin-top:16px;">When Representatives are in Washington, they're insulated.</p>
-    <p style="color:var(--text-bright);font-weight:700;">When they're home, they're accountable.</p>
-    <p style="font-family:var(--font-condensed);font-weight:700;font-size:1.2rem;color:var(--gold);margin-top:16px;">This is when organizers can move districts.</p>
-  </div>
-</section>
+<!-- ACCORDIONS WRAPPER -->
+<div class="accordion-wrapper">
 
-<hr class="divider">
-
-<!-- ── THE MATH ── -->
-<section class="section-alt">
-  <div class="inner">
-    <span class="eyebrow">⭐ The Math</span>
-    <h2>500 People Proves a District<br><span class="gold">Can Act Together.</span></h2>
-    
-    <div class="math-grid">
-      <div class="math-card">
-        <div class="math-number">500</div>
-        <h3>Proves a district can act together</h3>
-        <p>This is the first milestone. It shows your district can organize around shared demands.</p>
-      </div>
-      <div class="math-card">
-        <div class="math-number">1,500</div>
-        <h3>Creates sustained leverage</h3>
-        <p>This is when representatives can no longer ignore your district.</p>
-      </div>
-    </div>
-
-    <p style="font-size:1.05rem;color:var(--text-bright);">At scale, that's how hearings happen.</p>
-    <p style="font-size:1.05rem;color:var(--text-bright);">That's how votes happen.</p>
-    <p style="font-size:1.05rem;color:var(--text-bright);">That's how legislation happens.</p>
-    
-    <div class="pull-quote" style="margin-top:20px;">
-      <p>Districts move Congress.<br>Organizers move districts.</p>
-    </div>
-  </div>
-</section>
-
-<hr class="divider">
-
-<!-- ── YOUR ROLE ── -->
-<section class="section" style="padding-top:60px;padding-bottom:40px;">
-  <span class="eyebrow">⭐ Your Role</span>
-  <h2>Every District Needs<br><span class="green">Organizers Like You.</span></h2>
-  
-  <div class="role-grid">
-    <div class="role-card">
-      <div class="role-icon">🏛️</div>
-      <h3>District Captains</h3>
-      <p>Lead your district's push to 500 and beyond</p>
-    </div>
-    <div class="role-card">
-      <div class="role-icon">📱</div>
-      <h3>Digital Organizers</h3>
-      <p>Coordinate online outreach and social campaigns</p>
-    </div>
-    <div class="role-card">
-      <div class="role-icon">✍️</div>
-      <h3>Signature Collectors</h3>
-      <p>Turn conversations into signatures</p>
-    </div>
-    <div class="role-card">
-      <div class="role-icon">🎤</div>
-      <h3>Town Hall Coordinators</h3>
-      <p>Pack the room and ask the questions</p>
-    </div>
-    <div class="role-card">
-      <div class="role-icon">🤝</div>
-      <h3>Community Leads</h3>
-      <p>Connect with local groups, unions, and faith communities</p>
-    </div>
-  </div>
-
-  <div class="peer-block" style="margin-top:20px;">
-    <span class="peer-label">You Are Exactly Who This Moment Needs</span>
-    <p>If you've ever organized a march, a rally, a protest, a campus action, a union drive, a mutual aid network, or a community group — you have the skills. You have the network. You have the credibility.</p>
-    <p style="font-family:var(--font-condensed);font-weight:700;font-size:1.1rem;color:var(--green);margin-top:8px;">This is what you've been training for.</p>
-  </div>
-</section>
-
-<hr class="divider">
-
-<!-- ── HOW TO GET TO 500 ── -->
-<section class="section-alt">
-  <div class="inner">
-    <span class="eyebrow">⭐ The Quick Win Playbook</span>
-    <h2>How to Get to <span class="gold">500</span></h2>
-    <p style="font-size:1.05rem;color:var(--text-bright);margin-bottom:20px;">500 is the first milestone. It proves your district can act together.</p>
-    
-    <div class="playbook-section">
-      <h3>Here's how organizers get there fast:</h3>
-      <ul>
-        <li>Send the petition + survey to your list</li>
-        <li>Send it to your group chats</li>
-        <li>Post it in local Facebook groups</li>
-        <li>Share it in community Discords</li>
-        <li>Share it in neighborhood forums</li>
-        <li>Bring it to local events</li>
-        <li>Table at campuses, libraries, and community centers</li>
-        <li>Coordinate with other organizers in your district</li>
-        <li>Run a 48-hour "district push"</li>
-        <li>Celebrate milestones publicly</li>
-      </ul>
-    </div>
-    
-    <div class="pull-quote">
-      <p>500 is not the finish line.<br><span style="color:var(--gold);">It's the signal.</span></p>
-    </div>
-  </div>
-</section>
-
-<hr class="divider">
-
-<!-- ── HOW TO GET TO 1,500 ── -->
-<section class="section" style="padding-top:60px;padding-bottom:40px;">
-  <span class="eyebrow">⭐ The Sustained Leverage Playbook</span>
-  <h2>How to Get to <span class="gold">1,500</span></h2>
-  <p style="font-size:1.05rem;color:var(--text-bright);margin-bottom:20px;">1,500 is when your district becomes <span style="color:var(--red);font-weight:700;">impossible to ignore.</span></p>
-  
-  <div class="playbook-section">
-    <h3>Here's how organizers get there:</h3>
-    <ul>
-      <li>Weekly outreach pushes</li>
-      <li>Weekly digital blasts</li>
-      <li>Town hall turnout</li>
-      <li>Local visibility actions</li>
-      <li>Community partnerships</li>
-      <li>Campus outreach</li>
-      <li>Faith community outreach</li>
-      <li>Union outreach</li>
-      <li>Local press engagement</li>
-      <li>Escalation ladder (below)</li>
-    </ul>
-  </div>
-
-  <div style="background:var(--bg-card);border:1px solid var(--green);border-radius:8px;padding:20px;margin-top:16px;">
-    <p style="margin:0;font-size:0.95rem;color:var(--text-bright);"><span style="color:var(--green);font-weight:700;">✓</span> 1,500 is when Representatives start paying attention.</p>
-    <p style="margin:0;font-size:0.95rem;color:var(--text-bright);"><span style="color:var(--green);font-weight:700;">✓</span> 1,500 is when Senators start paying attention.</p>
-    <p style="margin:0;font-size:0.95rem;color:var(--text-bright);"><span style="color:var(--green);font-weight:700;">✓</span> 1,500 is when hearings become possible.</p>
-    <p style="margin:0;font-size:0.95rem;color:var(--text-bright);"><span style="color:var(--green);font-weight:700;">✓</span> 1,500 is when votes become possible.</p>
-  </div>
-</section>
-
-<hr class="divider">
-
-<!-- ── ESCALATION LADDER ── -->
-<section class="section-alt">
-  <div class="inner">
-    <span class="eyebrow">⭐ The Escalation Ladder</span>
-    <h2>Districts Escalate<br><span class="gold">In Stages.</span></h2>
-    
-    <ol class="escalation-list">
-      <li><span class="escalation-num">01</span> <strong>Visibility</strong> — Make your district known</li>
-      <li><span class="escalation-num">02</span> <strong>Town hall turnout</strong> — Pack the room</li>
-      <li><span class="escalation-num">03</span> <strong>Public questions</strong> — Put them on the record</li>
-      <li><span class="escalation-num">04</span> <strong>Local press</strong> — Make it impossible to ignore</li>
-      <li><span class="escalation-num">05</span> <strong>District-wide mobilization</strong> — Coordinate across the district</li>
-      <li><span class="escalation-num">06</span> <strong>Coalition pressure</strong> — Bring in unions, faith groups, community orgs</li>
-      <li><span class="escalation-num">07</span> <strong>Accountability moments</strong> — Document everything</li>
-      <li><span class="escalation-num">08</span> <strong>Hearings + votes</strong> — Win</li>
-    </ol>
-    
-    <div class="pull-quote">
-      <p>Organizers drive every stage.</p>
-    </div>
-  </div>
-</section>
-
-<hr class="divider">
-
-<!-- ── OUTREACH KIT ── -->
-<section class="section" style="padding-top:60px;padding-bottom:40px;">
-  <span class="eyebrow">⭐ Outreach Kit</span>
-  <h2>Ready-to-Use<br><span class="green">Messages.</span></h2>
-  
-  <div class="outreach-item">
-    <h4>Share Text</h4>
-    <p>"Add your name. Tell Congress what our district wants. Help make our district impossible to ignore."</p>
-  </div>
-  
-  <div class="outreach-item">
-    <h4>Email Copy</h4>
-    <p>"Eight million marched. Now it's time to organize. Add your name and complete the district survey so we can show Congress exactly what our district demands."</p>
-  </div>
-  
-  <div class="outreach-item">
-    <h4>Social Copy</h4>
-    <p>"Congress is home. This is the moment when district-level pressure works. Add your name and help our district be heard."</p>
-  </div>
-  
-  <div class="outreach-item">
-    <h4>Scripts</h4>
-    <ul>
-      <li>"Have you seen the PHIERS petition? It's not a petition — it's a measurement tool."</li>
-      <li>"We're trying to get our district to 500 signatures this week."</li>
-      <li>"This is how we show Congress what our district actually wants."</li>
-    </ul>
-  </div>
-</section>
-
-<hr class="divider">
-
-<!-- ── WHAT HAPPENS AFTER 500 ── -->
-<section class="section-alt">
-  <div class="inner">
-    <span class="eyebrow">⭐ What Happens After 500</span>
-    <h2>500 Is <span class="gold">The Signal.</span></h2>
-    
-    <div class="happens-grid">
-      <div class="happens-card">
-        <h3>After 500</h3>
-        <ul>
-          <li>District captain coordination begins</li>
-          <li>Town hall pressure intensifies</li>
-          <li>Representative response tracking starts</li>
-          <li>Local visibility actions launch</li>
-          <li>Weekly mobilization pushes commence</li>
+  <!-- WHY ORGANIZERS MATTER -->
+  <details class="accordion">
+    <summary>
+      <span class="accordion-title">Why organizers matter right now</span>
+      <span class="accordion-summary">Constitutional crisis, social programs, war powers, authoritarian drift, and disappearing accountability.</span>
+    </summary>
+    <div class="accordion-body">
+      <section class="section" style="padding-top:40px;padding-bottom:20px;">
+        <span class="eyebrow">Why Organizers Matter Right Now</span>
+        <h2>You Already Know<br><span class="red">The Stakes.</span></h2>
+        
+        <ul style="list-style:none;padding:0;margin:20px 0;">
+          <li style="padding:10px 0 10px 28px;border-bottom:1px solid rgba(255,255,255,0.05);position:relative;color:var(--text-body);font-size:0.97rem;"><span style="position:absolute;left:0;color:var(--red);">•</span> Congress is failing to protect Social Security, Medicare, Medicaid, and SNAP.</li>
+          <li style="padding:10px 0 10px 28px;border-bottom:1px solid rgba(255,255,255,0.05);position:relative;color:var(--text-body);font-size:0.97rem;"><span style="position:absolute;left:0;color:var(--red);">•</span> Voting rights are being restricted in state after state.</li>
+          <li style="padding:10px 0 10px 28px;border-bottom:1px solid rgba(255,255,255,0.05);position:relative;color:var(--text-body);font-size:0.97rem;"><span style="position:absolute;left:0;color:var(--red);">•</span> War powers are being abused without congressional authorization.</li>
+          <li style="padding:10px 0 10px 28px;border-bottom:1px solid rgba(255,255,255,0.05);position:relative;color:var(--text-body);font-size:0.97rem;"><span style="position:absolute;left:0;color:var(--red);">•</span> Presidents of both parties have expanded executive power beyond constitutional limits.</li>
+          <li style="padding:10px 0 10px 28px;border-bottom:1px solid rgba(255,255,255,0.05);position:relative;color:var(--text-body);font-size:0.97rem;"><span style="position:absolute;left:0;color:var(--red);">•</span> The 25th Amendment has become a political football instead of a safeguard.</li>
+          <li style="padding:10px 0 10px 28px;border-bottom:1px solid rgba(255,255,255,0.05);position:relative;color:var(--text-body);font-size:0.97rem;"><span style="position:absolute;left:0;color:var(--red);">•</span> Corruption, donor capture, and lobbyist influence have replaced representation.</li>
+          <li style="padding:10px 0 10px 28px;border-bottom:1px solid rgba(255,255,255,0.05);position:relative;color:var(--text-body);font-size:0.97rem;"><span style="position:absolute;left:0;color:var(--red);">•</span> Authoritarian drift is accelerating.</li>
+          <li style="padding:10px 0 10px 28px;border-bottom:1px solid rgba(255,255,255,0.05);position:relative;color:var(--text-body);font-size:0.97rem;"><span style="position:absolute;left:0;color:var(--red);">•</span> Congress avoids votes on issues the public overwhelmingly supports.</li>
+          <li style="padding:10px 0 10px 28px;border-bottom:1px solid rgba(255,255,255,0.05);position:relative;color:var(--text-body);font-size:0.97rem;"><span style="position:absolute;left:0;color:var(--red);">•</span> Crises pile up while accountability disappears.</li>
         </ul>
-        <div class="happens-signal">⚡ It shows your district can act together.</div>
-      </div>
+
+        <div class="peer-block" style="margin-top:30px;">
+          <span class="peer-label">This Isn't a Moment for Spectators</span>
+          <p>It's a moment for organizers.</p>
+          <p>Movements don't fail because people don't care.</p>
+          <p>Movements fail because they don't convert attention into organized, measurable, district-level pressure.</p>
+          <p style="font-family:var(--font-condensed);font-weight:700;font-size:1.1rem;color:var(--green);margin-top:8px;">That's what PHIERS exists to fix.</p>
+        </div>
+      </section>
     </div>
-  </div>
-</section>
+  </details>
 
-<hr class="divider">
-
-<!-- ── WHAT HAPPENS AFTER 1,500 ── -->
-<section class="section" style="padding-top:60px;padding-bottom:40px;">
-  <span class="eyebrow">⭐ What Happens After 1,500</span>
-  <h2>1,500 Is <span class="gold">Sustained Leverage.</span></h2>
-  
-  <div class="happens-grid">
-    <div class="happens-card" style="border-color:var(--green);">
-      <h3>After 1,500</h3>
-      <ul>
-        <li>Hearings become possible</li>
-        <li>Votes become possible</li>
-        <li>Legislation becomes possible</li>
-        <li>National coalition building begins</li>
-        <li>Districts start shaping the national agenda</li>
-      </ul>
-      <div class="happens-signal" style="color:var(--red);">🔥 It's when Congress can no longer ignore your district.</div>
+  <!-- THE OPPORTUNITY -->
+  <details class="accordion">
+    <summary>
+      <span class="accordion-title">The opportunity</span>
+      <span class="accordion-summary">Congress is home. District offices are open. This is when organizers can move districts.</span>
+    </summary>
+    <div class="accordion-body">
+      <section class="section" style="padding-top:40px;padding-bottom:20px;">
+        <div class="opportunity-block">
+          <span class="opp-label">⭐ The Opportunity</span>
+          <h2>This Is The Window.</h2>
+          <p>Congress is home. District offices are open. Town halls matter. Local visibility matters. Organized constituents matter.</p>
+          <p style="color:var(--text-bright);font-weight:700;margin-top:16px;">When Representatives are in Washington, they're insulated.</p>
+          <p style="color:var(--text-bright);font-weight:700;">When they're home, they're accountable.</p>
+          <p style="font-family:var(--font-condensed);font-weight:700;font-size:1.2rem;color:var(--gold);margin-top:16px;">This is when organizers can move districts.</p>
+        </div>
+      </section>
     </div>
-  </div>
-</section>
+  </details>
 
-<hr class="divider">
+  <!-- THE MATH -->
+  <details class="accordion">
+    <summary>
+      <span class="accordion-title">The math</span>
+      <span class="accordion-summary">500 proves a district can act together. 1,500 creates sustained leverage.</span>
+    </summary>
+    <div class="accordion-body">
+      <section class="section-alt" style="padding-top:40px;padding-bottom:40px;">
+        <div class="inner">
+          <span class="eyebrow">⭐ The Math</span>
+          <h2>500 People Proves a District<br><span class="gold">Can Act Together.</span></h2>
+          
+          <div class="math-grid">
+            <div class="math-card">
+              <div class="math-number">500</div>
+              <h3>Proves a district can act together</h3>
+              <p>This is the first milestone. It shows your district can organize around shared demands.</p>
+            </div>
+            <div class="math-card">
+              <div class="math-number">1,500</div>
+              <h3>Creates sustained leverage</h3>
+              <p>This is when representatives can no longer ignore your district.</p>
+            </div>
+          </div>
 
-<!-- ── FINAL CTA ── -->
+          <p style="font-size:1.05rem;color:var(--text-bright);">At scale, that's how hearings happen.</p>
+          <p style="font-size:1.05rem;color:var(--text-bright);">That's how votes happen.</p>
+          <p style="font-size:1.05rem;color:var(--text-bright);">That's how legislation happens.</p>
+          
+          <div class="pull-quote" style="margin-top:20px;">
+            <p>Districts move Congress.<br>Organizers move districts.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </details>
+
+  <!-- YOUR ROLE -->
+  <details class="accordion">
+    <summary>
+      <span class="accordion-title">Your role</span>
+      <span class="accordion-summary">Every district needs captains, digital organizers, signature collectors, town hall coordinators, and community leads.</span>
+    </summary>
+    <div class="accordion-body">
+      <section class="section" style="padding-top:40px;padding-bottom:20px;">
+        <span class="eyebrow">⭐ Your Role</span>
+        <h2>Every District Needs<br><span class="green">Organizers Like You.</span></h2>
+        
+        <div class="role-grid">
+          <div class="role-card">
+            <div class="role-icon">🏛️</div>
+            <h3>District Captains</h3>
+            <p>Lead your district's push to 500 and beyond</p>
+          </div>
+          <div class="role-card">
+            <div class="role-icon">📱</div>
+            <h3>Digital Organizers</h3>
+            <p>Coordinate online outreach and social campaigns</p>
+          </div>
+          <div class="role-card">
+            <div class="role-icon">✍️</div>
+            <h3>Signature Collectors</h3>
+            <p>Turn conversations into signatures</p>
+          </div>
+          <div class="role-card">
+            <div class="role-icon">🎤</div>
+            <h3>Town Hall Coordinators</h3>
+            <p>Pack the room and ask the questions</p>
+          </div>
+          <div class="role-card">
+            <div class="role-icon">🤝</div>
+            <h3>Community Leads</h3>
+            <p>Connect with local groups, unions, and faith communities</p>
+          </div>
+        </div>
+
+        <div class="peer-block" style="margin-top:20px;">
+          <span class="peer-label">You Are Exactly Who This Moment Needs</span>
+          <p>If you've ever organized a march, a rally, a protest, a campus action, a union drive, a mutual aid network, or a community group — you have the skills. You have the network. You have the credibility.</p>
+          <p style="font-family:var(--font-condensed);font-weight:700;font-size:1.1rem;color:var(--green);margin-top:8px;">This is what you've been training for.</p>
+        </div>
+      </section>
+    </div>
+  </details>
+
+  <!-- HOW TO GET TO 500 -->
+  <details class="accordion">
+    <summary>
+      <span class="accordion-title">How to get to 500</span>
+      <span class="accordion-summary">The quick-win playbook for proving your district can act together.</span>
+    </summary>
+    <div class="accordion-body">
+      <section class="section-alt" style="padding-top:40px;padding-bottom:40px;">
+        <div class="inner">
+          <span class="eyebrow">⭐ The Quick Win Playbook</span>
+          <h2>How to Get to <span class="gold">500</span></h2>
+          <p style="font-size:1.05rem;color:var(--text-bright);margin-bottom:20px;">500 is the first milestone. It proves your district can act together.</p>
+          
+          <div class="playbook-section">
+            <h3>Here's how organizers get there fast:</h3>
+            <ul>
+              <li>Send the petition + survey to your list</li>
+              <li>Send it to your group chats</li>
+              <li>Post it in local Facebook groups</li>
+              <li>Share it in community Discords</li>
+              <li>Share it in neighborhood forums</li>
+              <li>Bring it to local events</li>
+              <li>Table at campuses, libraries, and community centers</li>
+              <li>Coordinate with other organizers in your district</li>
+              <li>Run a 48-hour "district push"</li>
+              <li>Celebrate milestones publicly</li>
+            </ul>
+          </div>
+          
+          <div class="pull-quote">
+            <p>500 is not the finish line.<br><span style="color:var(--gold);">It's the signal.</span></p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </details>
+
+  <!-- HOW TO GET TO 1,500 -->
+  <details class="accordion">
+    <summary>
+      <span class="accordion-title">How to get to 1,500</span>
+      <span class="accordion-summary">The sustained leverage playbook.</span>
+    </summary>
+    <div class="accordion-body">
+      <section class="section" style="padding-top:40px;padding-bottom:20px;">
+        <span class="eyebrow">⭐ The Sustained Leverage Playbook</span>
+        <h2>How to Get to <span class="gold">1,500</span></h2>
+        <p style="font-size:1.05rem;color:var(--text-bright);margin-bottom:20px;">1,500 is when your district becomes <span style="color:var(--red);font-weight:700;">impossible to ignore.</span></p>
+        
+        <div class="playbook-section">
+          <h3>Here's how organizers get there:</h3>
+          <ul>
+            <li>Weekly outreach pushes</li>
+            <li>Weekly digital blasts</li>
+            <li>Town hall turnout</li>
+            <li>Local visibility actions</li>
+            <li>Community partnerships</li>
+            <li>Campus outreach</li>
+            <li>Faith community outreach</li>
+            <li>Union outreach</li>
+            <li>Local press engagement</li>
+            <li>Escalation ladder (below)</li>
+          </ul>
+        </div>
+
+        <div style="background:var(--bg-card);border:1px solid var(--green);border-radius:8px;padding:20px;margin-top:16px;">
+          <p style="margin:0;font-size:0.95rem;color:var(--text-bright);"><span style="color:var(--green);font-weight:700;">✓</span> 1,500 is when Representatives start paying attention.</p>
+          <p style="margin:0;font-size:0.95rem;color:var(--text-bright);"><span style="color:var(--green);font-weight:700;">✓</span> 1,500 is when Senators start paying attention.</p>
+          <p style="margin:0;font-size:0.95rem;color:var(--text-bright);"><span style="color:var(--green);font-weight:700;">✓</span> 1,500 is when hearings become possible.</p>
+          <p style="margin:0;font-size:0.95rem;color:var(--text-bright);"><span style="color:var(--green);font-weight:700;">✓</span> 1,500 is when votes become possible.</p>
+        </div>
+      </section>
+    </div>
+  </details>
+
+  <!-- ESCALATION LADDER -->
+  <details class="accordion">
+    <summary>
+      <span class="accordion-title">Escalation ladder</span>
+      <span class="accordion-summary">How districts escalate pressure in stages.</span>
+    </summary>
+    <div class="accordion-body">
+      <section class="section-alt" style="padding-top:40px;padding-bottom:40px;">
+        <div class="inner">
+          <span class="eyebrow">⭐ The Escalation Ladder</span>
+          <h2>Districts Escalate<br><span class="gold">In Stages.</span></h2>
+          
+          <ol class="escalation-list">
+            <li><span class="escalation-num">01</span> <strong>Visibility</strong> — Make your district known</li>
+            <li><span class="escalation-num">02</span> <strong>Town hall turnout</strong> — Pack the room</li>
+            <li><span class="escalation-num">03</span> <strong>Public questions</strong> — Put them on the record</li>
+            <li><span class="escalation-num">04</span> <strong>Local press</strong> — Make it impossible to ignore</li>
+            <li><span class="escalation-num">05</span> <strong>District-wide mobilization</strong> — Coordinate across the district</li>
+            <li><span class="escalation-num">06</span> <strong>Coalition pressure</strong> — Bring in unions, faith groups, community orgs</li>
+            <li><span class="escalation-num">07</span> <strong>Accountability moments</strong> — Document everything</li>
+            <li><span class="escalation-num">08</span> <strong>Hearings + votes</strong> — Win</li>
+          </ol>
+          
+          <div class="pull-quote">
+            <p>Organizers drive every stage.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </details>
+
+  <!-- OUTREACH KIT -->
+  <details class="accordion">
+    <summary>
+      <span class="accordion-title">Outreach kit</span>
+      <span class="accordion-summary">Share text, email copy, social copy, and scripts.</span>
+    </summary>
+    <div class="accordion-body">
+      <section class="section" style="padding-top:40px;padding-bottom:20px;">
+        <span class="eyebrow">⭐ Outreach Kit</span>
+        <h2>Ready-to-Use<br><span class="green">Messages.</span></h2>
+        
+        <div class="outreach-item">
+          <h4>Share Text</h4>
+          <p>"Add your name. Tell Congress what our district wants. Help make our district impossible to ignore."</p>
+        </div>
+        
+        <div class="outreach-item">
+          <h4>Email Copy</h4>
+          <p>"Eight million marched. Now it's time to organize. Add your name and complete the district survey so we can show Congress exactly what our district demands."</p>
+        </div>
+        
+        <div class="outreach-item">
+          <h4>Social Copy</h4>
+          <p>"Congress is home. This is the moment when district-level pressure works. Add your name and help our district be heard."</p>
+        </div>
+        
+        <div class="outreach-item">
+          <h4>Scripts</h4>
+          <ul>
+            <li>"Have you seen the PHIERS petition? It's not a petition — it's a measurement tool."</li>
+            <li>"We're trying to get our district to 500 signatures this week."</li>
+            <li>"This is how we show Congress what our district actually wants."</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </details>
+
+  <!-- WHAT HAPPENS AFTER 500 -->
+  <details class="accordion">
+    <summary>
+      <span class="accordion-title">What happens after 500</span>
+      <span class="accordion-summary">District coordination and pressure begin.</span>
+    </summary>
+    <div class="accordion-body">
+      <section class="section-alt" style="padding-top:40px;padding-bottom:40px;">
+        <div class="inner">
+          <span class="eyebrow">⭐ What Happens After 500</span>
+          <h2>500 Is <span class="gold">The Signal.</span></h2>
+          
+          <div class="happens-grid">
+            <div class="happens-card">
+              <h3>After 500</h3>
+              <ul>
+                <li>District captain coordination begins</li>
+                <li>Town hall pressure intensifies</li>
+                <li>Representative response tracking starts</li>
+                <li>Local visibility actions launch</li>
+                <li>Weekly mobilization pushes commence</li>
+              </ul>
+              <div class="happens-signal">⚡ It shows your district can act together.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </details>
+
+  <!-- WHAT HAPPENS AFTER 1,500 -->
+  <details class="accordion">
+    <summary>
+      <span class="accordion-title">What happens after 1,500</span>
+      <span class="accordion-summary">Hearings, votes, and legislation become possible.</span>
+    </summary>
+    <div class="accordion-body">
+      <section class="section" style="padding-top:40px;padding-bottom:20px;">
+        <span class="eyebrow">⭐ What Happens After 1,500</span>
+        <h2>1,500 Is <span class="gold">Sustained Leverage.</span></h2>
+        
+        <div class="happens-grid">
+          <div class="happens-card" style="border-color:var(--green);">
+            <h3>After 1,500</h3>
+            <ul>
+              <li>Hearings become possible</li>
+              <li>Votes become possible</li>
+              <li>Legislation becomes possible</li>
+              <li>National coalition building begins</li>
+              <li>Districts start shaping the national agenda</li>
+            </ul>
+            <div class="happens-signal" style="color:var(--red);">🔥 It's when Congress can no longer ignore your district.</div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </details>
+
+</div> <!-- end accordion-wrapper -->
+
+<!-- FINAL CTA (STAYS OPEN AT BOTTOM) -->
 <section class="section" style="padding-bottom:100px;">
   <div class="final-cta">
     <h2>ORGANIZE YOUR DISTRICT</h2>
@@ -755,12 +791,11 @@
       <a href="index.html" class="btn-secondary">← Back to PHIERS Main</a>
     </div>
     <p style="margin-top:28px;font-family:var(--font-condensed);font-weight:700;font-size:1rem;color:var(--gold);">
-      📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="355c5b535a75455d5c5047461b5a4752">[email&#160;protected]</a> &nbsp;·&nbsp; 📞 (916) 306-8967
+      📧 <a href="mailto:info@phiers.org">info@phiers.org</a> &nbsp;·&nbsp; 📞 (916) 306-8967
     </p>
   </div>
 </section>
 
-<!-- ── FOOTER ── -->
 <footer>
   <div style="font-family:var(--font-condensed);font-weight:700;font-size:1.1rem;color:var(--green);margin-bottom:8px;">Energy without power fails.<br>PHIERStorm is the power.</div>
   <div style="font-size:0.9rem;color:var(--text-dim);margin-bottom:20px;">PHIERS is a people's movement — not a company, not a product.<br>Built by regular people who refused to stop.</div>
@@ -784,45 +819,18 @@
   </div>
 </footer>
 
-<script>
-function toggleMenu() {
-  var menu = document.getElementById('mobile-menu');
-  if (menu) menu.classList.toggle('open');
-}
+<button id="back-to-top" class="back-to-top" aria-label="Back to top">↑</button>
 
-document.addEventListener('click', function(event) {
-  var menu = document.getElementById('mobile-menu');
-  var hamburger = document.querySelector('.hamburger');
-  var hamburgerDesktop = document.querySelector('.hamburger-desktop');
-  if (menu && menu.classList.contains('open') &&
-      !menu.contains(event.target) &&
-      !(hamburger && hamburger.contains(event.target)) &&
-      !(hamburgerDesktop && hamburgerDesktop.contains(event.target))) {
-    menu.classList.remove('open');
+<script>
+window.addEventListener('scroll', function() {
+  var btt = document.getElementById('back-to-top');
+  if (btt) {
+    btt.classList.toggle('visible', window.scrollY > 400);
   }
 });
-
-document.querySelectorAll('.mobile-menu a').forEach(function(a) {
-  a.addEventListener('click', function() {
-    var m = document.getElementById('mobile-menu');
-    if (m) m.classList.remove('open');
-  });
+document.getElementById('back-to-top')?.addEventListener('click', function() {
+  window.scrollTo({top:0, behavior:'smooth'});
 });
-
-window.addEventListener('scroll', function() {
-  var n = document.getElementById('main-nav');
-  if (n) n.classList.toggle('scrolled', window.scrollY > 50);
-});
-
-var btt = document.getElementById('back-to-top');
-if (btt) {
-  window.addEventListener('scroll', function() {
-    btt.classList.toggle('visible', window.scrollY > 400);
-  });
-  btt.addEventListener('click', function() {
-    window.scrollTo({top:0, behavior:'smooth'});
-  });
-}
 </script>
 
 </body>
